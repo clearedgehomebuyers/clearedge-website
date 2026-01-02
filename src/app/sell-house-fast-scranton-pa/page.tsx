@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake, Building, Home, ChevronDown } from 'lucide-react'
 
 export const metadata = {
@@ -7,8 +8,16 @@ export const metadata = {
 }
 
 export default function ScrantonPage() {
-  return (
+return (
     <main>
+      <LocalBusinessSchema />
+      <FAQSchema faqs={[
+        { question: "How fast can I sell my house in Scranton, PA?", answer: "We can close on your Scranton property in as little as 7 days. Most of our Lackawanna County deals close within 2-3 weeks, but we work on your timeline." },
+        { question: "Do you buy houses in any condition in Scranton?", answer: "Yes! We buy houses in any condition throughout Scranton and Lackawanna County. Whether your home needs major repairs, has code violations, fire damage, or is just outdated – we'll make you a fair cash offer." },
+        { question: "What areas of Scranton do you serve?", answer: "We buy houses throughout all of Scranton including the Hill Section, Green Ridge, Dunmore, South Side, West Side, North Scranton, and all surrounding neighborhoods." },
+        { question: "Are there any fees when selling my Scranton house to you?", answer: "None. We don't charge any fees or commissions. We also pay all typical closing costs. The cash offer we make is the amount you receive at closing." },
+        { question: "I inherited a house in Scranton. Can I sell before probate is complete?", answer: "Potentially, yes. Pennsylvania probate laws allow for certain sales during the probate process. We've worked with many families in Lackawanna County selling inherited properties." }
+      ]} />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

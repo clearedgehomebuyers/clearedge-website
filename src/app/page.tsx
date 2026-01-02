@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { LocalBusinessSchema } from '@/components/Schema'
 import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake } from 'lucide-react'
 
 export default function HomePage() {
-  return (
+return (
     <main>
+      <LocalBusinessSchema />
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
