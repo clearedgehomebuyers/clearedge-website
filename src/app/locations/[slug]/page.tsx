@@ -48,9 +48,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Home</Link>
-              <span className="text-sm font-semibold text-[#0d9488]">{location.city}, PA</span>
-              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">How It Works</span>
-              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">Reviews</span>
+              <Link href="/how-it-works" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">How It Works</Link>
+              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
+              <Link href="/contact" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Contact</Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-5">
@@ -60,9 +60,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 </div>
                 <span className="font-bold">(570) 904-2059</span>
               </a>
-              <button className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <Link href="/#get-offer" className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
                 Get Cash Offer
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -281,9 +281,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="text-center mt-12">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <Link href="/#get-offer" className="inline-block px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
               Get Your {location.city} Cash Offer
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -322,9 +322,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Sell Your {location.city} House?</h2>
           <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re local and respond fast.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
               Get My {location.city} Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
-            </button>
+            </Link>
             <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" />
               (570) 904-2059
@@ -347,20 +347,20 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <div>
               <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
               <ul className="space-y-3 text-slate-400">
-                <li className="hover:text-white cursor-pointer transition-colors">How It Works</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Testimonials</li>
-                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
+                <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link></li>
               </ul>
             </div>
-            
+
             <div>
               <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
               <ul className="space-y-3 text-slate-400">
-                <li className="hover:text-white cursor-pointer transition-colors">Scranton, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Wilkes-Barre, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Allentown, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">All Service Areas</li>
+                <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
+                <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
+                <li><Link href="/locations/allentown" className="hover:text-white transition-colors">Allentown, PA</Link></li>
+                <li><Link href="/locations/bethlehem" className="hover:text-white transition-colors">Bethlehem, PA</Link></li>
               </ul>
             </div>
             
@@ -375,10 +375,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
           
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-            <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
+            <p>&copy; 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Terms & Conditions</span>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
             </div>
           </div>
         </div>

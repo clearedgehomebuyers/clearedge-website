@@ -18,9 +18,9 @@ return (
 
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-sm font-semibold text-[#0d9488]">Home</Link>
-              <Link href="/sell-house-fast-scranton-pa" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Scranton, PA</Link>
-              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">How It Works</span>
-              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">Reviews</span>
+              <Link href="/how-it-works" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">How It Works</Link>
+              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
+              <Link href="/contact" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Contact</Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-5">
@@ -30,9 +30,9 @@ return (
                 </div>
                 <span className="font-bold">(570) 904-2059</span>
               </a>
-              <button className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <a href="#get-offer" className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
                 Get Cash Offer
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -88,14 +88,14 @@ return (
                   <Phone className="w-5 h-5 mr-3" />
                   Call (570) 904-2059
                 </a>
-                <button className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-[#1e3a5f] font-semibold rounded-xl transition-all">
+                <Link href="/how-it-works" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-[#1e3a5f] font-semibold rounded-xl transition-all inline-flex items-center justify-center">
                   See How It Works
-                </button>
+                </Link>
               </div>
             </div>
             
             {/* Lead Form */}
-            <div className="lg:pl-4">
+            <div id="get-offer" className="lg:pl-4">
               <LeadForm />
             </div>
           </div>
@@ -171,9 +171,9 @@ return (
           </div>
 
           <div className="text-center mt-12">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <a href="#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-block">
               Get My Cash Offer Now
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -325,20 +325,32 @@ return (
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {['Scranton', 'Wilkes-Barre', 'Allentown', 'Bethlehem', 'Hazleton', 'Stroudsburg', 'Easton', 'Reading', 'Lancaster', 'Pottsville', 'Carbondale', 'Pittston'].map((city) => (
+            {[
+              { name: 'Scranton', slug: 'scranton' },
+              { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
+              { name: 'Allentown', slug: 'allentown' },
+              { name: 'Bethlehem', slug: 'bethlehem' },
+              { name: 'Hazleton', slug: 'hazleton' },
+              { name: 'Stroudsburg', slug: 'stroudsburg' },
+              { name: 'Easton', slug: 'easton' },
+              { name: 'Reading', slug: 'reading' },
+              { name: 'Carbondale', slug: 'carbondale' },
+              { name: 'Pittston', slug: 'pittston' },
+              { name: 'Honesdale', slug: 'honesdale' },
+            ].map((city) => (
               <Link
-                key={city}
-                href={city === 'Scranton' ? '/sell-house-fast-scranton-pa' : '#'}
+                key={city.slug}
+                href={`/locations/${city.slug}`}
                 className="bg-slate-50 rounded-xl p-5 text-center hover:bg-[#0d9488]/10 hover:border-[#0d9488]/30 border-2 border-transparent transition-all duration-200"
               >
                 <MapPin className="w-5 h-5 mx-auto mb-2 text-[#0d9488]" />
-                <span className="font-semibold text-slate-700">{city}, PA</span>
+                <span className="font-semibold text-slate-700">{city.name}, PA</span>
               </Link>
             ))}
           </div>
 
           <p className="text-center text-slate-500 mt-10">
-            Don&apos;t see your city? <span className="text-[#0d9488] font-semibold cursor-pointer hover:underline">Contact us — we likely serve your area too →</span>
+            Don&apos;t see your city? <Link href="/contact" className="text-[#0d9488] font-semibold hover:underline">Contact us — we likely serve your area too →</Link>
           </p>
         </div>
       </section>
@@ -352,9 +364,9 @@ return (
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Sell Your House?</h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">Get your free, no-obligation cash offer today. We respond within 24 hours and can close in as little as 7 days.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <a href="#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
               Get My Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
-            </button>
+            </a>
             <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-[#1e3a5f] font-semibold rounded-xl transition-all inline-flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" />
               (570) 904-2059
@@ -377,20 +389,21 @@ return (
             <div>
               <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
               <ul className="space-y-3 text-slate-300">
-                <li className="hover:text-white cursor-pointer transition-colors">How It Works</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Testimonials</li>
-                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
+                <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
               <ul className="space-y-3 text-slate-300">
-                <li className="hover:text-white cursor-pointer transition-colors">Scranton, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Wilkes-Barre, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">Allentown, PA</li>
-                <li className="hover:text-white cursor-pointer transition-colors">All Service Areas</li>
+                <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
+                <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
+                <li><Link href="/locations/allentown" className="hover:text-white transition-colors">Allentown, PA</Link></li>
+                <li><Link href="/locations/bethlehem" className="hover:text-white transition-colors">Bethlehem, PA</Link></li>
               </ul>
             </div>
 
@@ -407,8 +420,8 @@ return (
           <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
             <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="hover:text-white cursor-pointer transition-colors">Terms & Conditions</span>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
             </div>
           </div>
         </div>

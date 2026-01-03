@@ -20,8 +20,9 @@ export default function TermsPage() {
 
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Home</Link>
-              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
               <Link href="/how-it-works" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">How It Works</Link>
+              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
+              <Link href="/contact" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Contact</Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-5">
@@ -31,6 +32,9 @@ export default function TermsPage() {
                 </div>
                 <span className="font-bold">(570) 904-2059</span>
               </a>
+              <Link href="/#get-offer" className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+                Get Cash Offer
+              </Link>
             </div>
           </div>
         </div>
