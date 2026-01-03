@@ -207,7 +207,8 @@ export default function HowItWorksPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">ClearEdge vs. Traditional Selling</h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white">
+          <div className="overflow-x-auto -mx-4 px-4 pb-2">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white min-w-[540px]">
             <table className="w-full">
               <thead>
                 <tr>
@@ -242,6 +243,7 @@ export default function HowItWorksPage() {
                 ))}
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       </section>

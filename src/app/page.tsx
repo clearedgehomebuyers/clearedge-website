@@ -187,7 +187,8 @@ return (
             <p className="text-xl text-slate-600">See how selling to us compares to the traditional route.</p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg">
+          <div className="overflow-x-auto -mx-4 px-4 pb-2">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg min-w-[640px]">
             <table className="w-full">
               <thead>
                 <tr>
@@ -245,6 +246,7 @@ return (
                 </tr>
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       </section>

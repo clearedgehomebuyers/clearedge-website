@@ -280,7 +280,7 @@ export function LeadForm({
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="John"
             />
           </div>
@@ -294,7 +294,7 @@ export function LeadForm({
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Smith"
             />
           </div>
@@ -312,7 +312,7 @@ export function LeadForm({
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all`}
+              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
               placeholder="(570) 555-0123"
             />
             {phoneError && (
@@ -328,7 +328,7 @@ export function LeadForm({
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Optional but recommended"
             />
           </div>
@@ -345,7 +345,7 @@ export function LeadForm({
             value={formData.address}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
             placeholder="123 Main Street"
           />
         </div>
@@ -362,7 +362,7 @@ export function LeadForm({
               value={formData.city}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Scranton"
             />
           </div>
@@ -377,7 +377,7 @@ export function LeadForm({
               onChange={handleChange}
               required
               aria-label="State"
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all bg-white"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all bg-white text-gray-900"
             >
               {US_STATES.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -398,7 +398,7 @@ export function LeadForm({
               required
               pattern="[0-9]{5}"
               maxLength={5}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="18501"
             />
           </div>

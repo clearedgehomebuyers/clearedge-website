@@ -197,7 +197,8 @@ return (
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling to ClearEdge vs. Listing in Scranton</h2>
           </div>
           
-          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white">
+          <div className="overflow-x-auto -mx-4 px-4 pb-2">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white min-w-[640px]">
             <table className="w-full">
               <thead>
                 <tr>
@@ -256,7 +257,8 @@ return (
               </tbody>
             </table>
           </div>
-          
+          </div>
+
           <div className="text-center mt-12">
             <Link href="/#get-offer" className="inline-block px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
               Get Your Scranton Cash Offer
