@@ -73,6 +73,10 @@ export function LeadForm({
         },
       }
 
+      // Debug: Log the payload being sent
+      console.log('HubSpot submission payload:', JSON.stringify(hubspotPayload, null, 2))
+      console.log('Submitting to:', `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`)
+
       const response = await fetch(
         `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
         {
@@ -84,10 +88,26 @@ export function LeadForm({
         }
       )
 
+      // Debug: Log response details
+      console.log('HubSpot response status:', response.status, response.statusText)
+
+      const responseText = await response.text()
+      console.log('HubSpot response body:', responseText)
+
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        console.error('HubSpot submission error:', errorData)
-        throw new Error('Submission failed')
+        // Try to parse as JSON for structured error info
+        let errorData = {}
+        try {
+          errorData = JSON.parse(responseText)
+        } catch {
+          errorData = { rawResponse: responseText }
+        }
+        console.error('HubSpot submission error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorData,
+        })
+        throw new Error(`Submission failed: ${response.status} ${response.statusText}`)
       }
 
       setSubmitStatus('success')
