@@ -81,7 +81,7 @@ function getHubspotCookie(): string | null {
   return null
 }
 
-// Format phone number as (XXX) XXX-XXXX
+// Format phone number as +1 (XXX) XXX-XXXX
 function formatPhoneNumber(value: string): string {
   // Strip all non-numeric characters
   const digits = value.replace(/\D/g, '')
@@ -89,11 +89,11 @@ function formatPhoneNumber(value: string): string {
   // Limit to 10 digits
   const limited = digits.slice(0, 10)
 
-  // Format based on length
+  // Format based on length with +1 prefix
   if (limited.length === 0) return ''
-  if (limited.length <= 3) return `(${limited}`
-  if (limited.length <= 6) return `(${limited.slice(0, 3)}) ${limited.slice(3)}`
-  return `(${limited.slice(0, 3)}) ${limited.slice(3, 6)}-${limited.slice(6)}`
+  if (limited.length <= 3) return `+1 (${limited}`
+  if (limited.length <= 6) return `+1 (${limited.slice(0, 3)}) ${limited.slice(3)}`
+  return `+1 (${limited.slice(0, 3)}) ${limited.slice(3, 6)}-${limited.slice(6)}`
 }
 
 // Get raw digits from formatted phone
