@@ -420,8 +420,8 @@ return (
           <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
             <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="text-slate-300 hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
             </div>
           </div>
         </div>
