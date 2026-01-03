@@ -10,6 +10,23 @@ interface LeadFormProps {
   propertyLabel?: string
 }
 
+// HubSpot configuration
+const HUBSPOT_PORTAL_ID = '50832074'
+const HUBSPOT_FORM_ID = 'c1592c03-4f8c-42c1-8b4f-f1b64733f29d'
+
+// Helper to get HubSpot tracking cookie
+function getHubspotCookie(): string | null {
+  if (typeof document === 'undefined') return null
+  const cookies = document.cookie.split(';')
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=')
+    if (name === 'hubspotutk') {
+      return value
+    }
+  }
+  return null
+}
+
 export function LeadForm({
   heading = 'Get Your Cash Offer',
   subheading = 'No obligation • No fees • Response in 24 hours',
@@ -36,22 +53,40 @@ export function LeadForm({
     setSubmitStatus('idle')
 
     try {
-      const payload = {
-        ...formData,
-        pageUrl: typeof window !== 'undefined' ? window.location.href : '',
-        timestamp: new Date().toISOString(),
-        source: 'website',
+      // Build HubSpot form submission payload
+      const hutk = getHubspotCookie()
+      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
+      const pageName = typeof document !== 'undefined' ? document.title : ''
+
+      const hubspotPayload = {
+        submittedAt: Date.now(),
+        fields: [
+          { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
+          { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
+          { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+          { objectTypeId: '0-1', name: 'address', value: formData.propertyAddress },
+        ],
+        context: {
+          pageUri,
+          pageName,
+          ...(hutk && { hutk }),
+        },
       }
 
-      const response = await fetch('https://n8n.clearedgeproperties.com/webhook/clearedge-lead', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(hubspotPayload),
+        }
+      )
 
       if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        console.error('HubSpot submission error:', errorData)
         throw new Error('Submission failed')
       }
 
