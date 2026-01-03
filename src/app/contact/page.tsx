@@ -22,6 +22,21 @@ function getHubspotCookie(): string | null {
   return null
 }
 
+// Format phone number as (XXX) XXX-XXXX
+function formatPhoneNumber(value: string): string {
+  const digits = value.replace(/\D/g, '')
+  const limited = digits.slice(0, 10)
+  if (limited.length === 0) return ''
+  if (limited.length <= 3) return `(${limited}`
+  if (limited.length <= 6) return `(${limited.slice(0, 3)}) ${limited.slice(3)}`
+  return `(${limited.slice(0, 3)}) ${limited.slice(3, 6)}-${limited.slice(6)}`
+}
+
+// Get raw digits from formatted phone
+function getPhoneDigits(value: string): string {
+  return value.replace(/\D/g, '')
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -32,14 +47,29 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [phoneError, setPhoneError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value)
+    setFormData((prev) => ({ ...prev, phone: formatted }))
+    if (phoneError) setPhoneError('')
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validate phone number has 10 digits
+    const phoneDigits = getPhoneDigits(formData.phone)
+    if (phoneDigits.length < 10) {
+      setPhoneError('Please enter a valid 10-digit phone number')
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -300,11 +330,14 @@ export default function ContactPage() {
                       type="tel"
                       name="phone"
                       value={formData.phone}
-                      onChange={handleChange}
+                      onChange={handlePhoneChange}
                       required
-                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+                      className={`w-full px-4 py-3.5 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all`}
                       placeholder="(570) 555-0123"
                     />
+                    {phoneError && (
+                      <p className="text-red-500 text-sm mt-1">{phoneError}</p>
+                    )}
                   </div>
 
                   <div>
