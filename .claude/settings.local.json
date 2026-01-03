@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(SANITY_WRITE_TOKEN=skLWPudJnSf9YctY2Fq1g85D5f7JIwEdwK6lpuIFAaEgbZ4S1YotuHs6qEwXwuMmjK65pI5PpXTaCK3v2bCYQe209JYovdmKlAzMa3AASuAIsO87H8PSBOEFt2TQNbLQWSowrmw3FdFUAuTqyTuePHeY4yEwJc1T6wLok6IaGEBtRkqc9C5C node scripts/seed-situations.mjs)",
+      "Bash(SANITY_WRITE_TOKEN=skMXxvUIBS1hzfu1gaOqMBxplZi7rQDvRsihK2cpGoWpWj6R4TvZ1SK62Ueu8Gor9SunUah3eX8RUVm9FTaHMgJPCVG5wFZ9gHjfMJSd62HFtKaOmQ80YoqJO0YPRQeWFpEtuHYj1vR7Td9nQy1xfpjqZSbPRnbzNwyTGTFj94lz7RXC0NTV node scripts/seed-locations.mjs:*)",
+      "Bash(git remote get-url:*)",
+      "Bash(grep:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}

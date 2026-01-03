@@ -1,5 +1,6 @@
 import { getLocationBySlug, getLocations } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
+import { LeadForm } from '@/components/LeadForm'
 import Link from 'next/link'
 import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText } from 'lucide-react'
 import { notFound } from 'next/navigation'
@@ -120,39 +121,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             
             {/* Lead Form */}
             <div className="lg:pl-4">
-              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
-                <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-slate-800 mb-1">Get Your {location.city} Cash Offer</h2>
-                  <p className="text-slate-500">No obligation • No fees • Response in 24 hours</p>
-                </div>
-                
-                <form className="space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
-                      <input type="text" className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all" placeholder="John" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
-                      <input type="text" className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all" placeholder="Smith" />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
-                    <input type="tel" className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all" placeholder="(570) 555-0123" />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">Property Address in {location.city}</label>
-                    <input type="text" className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all" placeholder="Start typing address..." />
-                  </div>
-                  
-                  <button type="submit" className="w-full px-6 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
-                    Get My {location.city} Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
-                  </button>
-                </form>
-              </div>
+              <LeadForm
+                heading={`Get Your ${location.city} Cash Offer`}
+                buttonText={`Get My ${location.city} Cash Offer`}
+                propertyLabel={`Property Address in ${location.city}`}
+              />
             </div>
           </div>
         </div>
