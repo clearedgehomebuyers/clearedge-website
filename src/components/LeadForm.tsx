@@ -69,8 +69,8 @@ export function LeadForm({
     return (
       <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
         <div className="text-center py-8">
-          <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-teal-600" />
+          <div className="w-16 h-16 bg-[#0d9488]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-[#0d9488]" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
           <p className="text-slate-600">
@@ -100,7 +100,7 @@ export function LeadForm({
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
               placeholder="John"
             />
           </div>
@@ -114,7 +114,7 @@ export function LeadForm({
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
               placeholder="Smith"
             />
           </div>
@@ -130,7 +130,7 @@ export function LeadForm({
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
             placeholder="(570) 555-0123"
           />
         </div>
@@ -145,7 +145,7 @@ export function LeadForm({
             value={formData.propertyAddress}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 outline-none transition-all"
+            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
             placeholder="Start typing address..."
           />
         </div>
@@ -159,7 +159,7 @@ export function LeadForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-6 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
+          className="w-full px-6 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

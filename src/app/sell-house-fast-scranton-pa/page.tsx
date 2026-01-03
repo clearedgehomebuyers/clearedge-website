@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import { LeadForm } from '@/components/LeadForm'
 import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake, Building, Home, ChevronDown } from 'lucide-react'
@@ -24,27 +25,24 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="h-10 bg-gradient-to-r from-blue-900 via-blue-800 to-teal-500 rounded-lg flex items-center justify-center px-4">
-                <span className="text-white font-bold tracking-tight text-sm">CLEAREDGE</span>
-              </div>
-              <span className="text-xl font-bold text-slate-800 hidden sm:block">Home Buyers</span>
+              <Image src="/logo.png" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto" priority />
             </Link>
-            
+
             <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">Home</Link>
-              <Link href="/sell-house-fast-scranton-pa" className="text-sm font-semibold text-teal-600">Scranton, PA</Link>
-              <span className="text-sm font-semibold text-slate-600 hover:text-teal-600 cursor-pointer transition-colors">How It Works</span>
-              <span className="text-sm font-semibold text-slate-600 hover:text-teal-600 cursor-pointer transition-colors">Reviews</span>
+              <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Home</Link>
+              <Link href="/sell-house-fast-scranton-pa" className="text-sm font-semibold text-[#0d9488]">Scranton, PA</Link>
+              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">How It Works</span>
+              <span className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] cursor-pointer transition-colors">Reviews</span>
             </div>
-            
+
             <div className="hidden md:flex items-center space-x-5">
-              <a href="tel:5709042059" className="flex items-center space-x-2 text-slate-700 hover:text-teal-600 transition-colors">
-                <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-teal-600" />
+              <a href="tel:5709042059" className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
+                <div className="w-10 h-10 bg-[#0d9488]/10 rounded-full flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-[#0d9488]" />
                 </div>
                 <span className="font-bold">(570) 904-2059</span>
               </a>
-              <button className="px-5 py-2.5 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
+              <button className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
                 Get Cash Offer
               </button>
             </div>
@@ -53,21 +51,21 @@ return (
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-24 px-4 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-teal-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      <section className="relative pt-28 pb-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#0d9488]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#14b8a6]/10 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
-              <div className="inline-flex items-center space-x-2 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-full px-4 py-2 mb-8">
-                <MapPin className="w-4 h-4 text-teal-400" />
-                <span className="text-sm font-medium text-teal-300">Scranton & Lackawanna County</span>
+              <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-8">
+                <MapPin className="w-4 h-4 text-[#14b8a6]" />
+                <span className="text-sm font-medium text-[#14b8a6]">Scranton & Lackawanna County</span>
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Sell Your House Fast in
-                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-300">
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]">
                   Scranton, PA
                 </span>
               </h1>
@@ -78,24 +76,24 @@ return (
               
               <div className="grid grid-cols-2 gap-3 mb-10">
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-teal-400" />
+                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
                   <span className="text-white font-medium">Close in 7-14 days</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-teal-400" />
+                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
                   <span className="text-white font-medium">We pay closing costs</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-teal-400" />
+                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
                   <span className="text-white font-medium">Buy as-is condition</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-teal-400" />
+                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
                   <span className="text-white font-medium">Local market experts</span>
                 </div>
               </div>
-              
-              <a href="tel:5709042059" className="inline-flex items-center space-x-3 text-teal-400 font-bold text-lg hover:text-teal-300 transition-colors">
+
+              <a href="tel:5709042059" className="inline-flex items-center space-x-3 text-[#14b8a6] font-bold text-lg hover:text-[#0d9488] transition-colors">
                 <Phone className="w-5 h-5" />
                 <span>(570) 904-2059</span>
               </a>
@@ -129,7 +127,7 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling a House in Scranton Doesn&apos;t Have to Be Hard</h2>
           </div>
           
@@ -145,7 +143,7 @@ return (
       <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help Scranton Homeowners in Any Situation</h2>
           </div>
           
@@ -161,8 +159,8 @@ return (
               { icon: Clock, title: 'Vacant Property', desc: 'Stop paying for an empty house' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1">
-                <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-teal-600" />
+                <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-[#0d9488]" />
                 </div>
                 <h3 className="font-bold text-slate-800 mb-2">{item.title}</h3>
                 <p className="text-slate-600 text-sm">{item.desc}</p>
@@ -176,13 +174,13 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Scranton Areas We Serve</h2>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {['Hill Section', 'Green Ridge', 'South Side', 'West Side', 'North Scranton', 'East Mountain', 'Pine Brook', 'Minooka', 'Providence', 'Hyde Park', 'Dunmore', 'Throop', 'Old Forge', 'Moosic', 'Taylor', 'Clarks Summit'].map((neighborhood) => (
-              <div key={neighborhood} className="bg-slate-50 rounded-xl p-4 text-center hover:bg-teal-50 transition-colors border border-slate-100">
+              <div key={neighborhood} className="bg-slate-50 rounded-xl p-4 text-center hover:bg-[#0d9488]/10 transition-colors border border-slate-100">
                 <span className="font-semibold text-slate-700">{neighborhood}</span>
               </div>
             ))}
@@ -196,7 +194,7 @@ return (
       <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">COMPARE</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">COMPARE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling to ClearEdge vs. Listing in Scranton</h2>
           </div>
           
@@ -205,7 +203,7 @@ return (
               <thead>
                 <tr>
                   <th className="text-left py-5 px-6 bg-slate-50 font-semibold text-slate-600"></th>
-                  <th className="text-center py-5 px-6 bg-gradient-to-br from-teal-500 to-cyan-500 text-white">
+                  <th className="text-center py-5 px-6 bg-gradient-to-br from-[#0d9488] to-[#14b8a6] text-white">
                     <div className="flex flex-col items-center">
                       <CheckCircle className="w-6 h-6 mb-1" />
                       <span className="font-bold">ClearEdge</span>
@@ -222,37 +220,37 @@ return (
               <tbody>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Time to Close</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">7-14 Days</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">7-14 Days</td>
                   <td className="py-5 px-6 text-center text-slate-600">60-90 Days</td>
                   <td className="py-5 px-6 text-center text-slate-600">90+ Days</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Repairs Needed</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">None</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">None</td>
                   <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
                   <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Fees & Commissions</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">$0</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">$0</td>
                   <td className="py-5 px-6 text-center text-slate-600">5-6%</td>
                   <td className="py-5 px-6 text-center text-slate-600">2-3%</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Closing Costs</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">We Pay</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">We Pay</td>
                   <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
                   <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Showings Required</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">Zero</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">Zero</td>
                   <td className="py-5 px-6 text-center text-slate-600">Many</td>
                   <td className="py-5 px-6 text-center text-slate-600">Many</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">100% Guaranteed</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">100% Guaranteed</td>
                   <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
                   <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
                 </tr>
@@ -261,7 +259,7 @@ return (
           </div>
           
           <div className="text-center mt-12">
-            <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
               Get Your Scranton Cash Offer
             </button>
           </div>
@@ -272,7 +270,7 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">FAQ</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">FAQ</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Common Questions About Selling in Scranton</h2>
           </div>
           
@@ -314,14 +312,14 @@ return (
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
-        
+      <section className="py-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0d9488]/10 rounded-full blur-3xl"></div>
+
         <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Sell Your Scranton House?</h2>
           <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re local and respond fast.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
               Get My Scranton Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
             </button>
             <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
@@ -333,14 +331,12 @@ return (
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16 px-4">
+      <footer className="bg-[#1e3a5f] text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="h-10 bg-gradient-to-r from-blue-900 via-blue-800 to-teal-500 rounded-lg flex items-center justify-center px-4">
-                  <span className="text-white font-bold tracking-tight text-sm">CLEAREDGE</span>
-                </div>
+                <Image src="/logo.png" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto" />
               </div>
               <p className="text-slate-400 leading-relaxed">We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.</p>
             </div>
@@ -367,7 +363,7 @@ return (
             
             <div>
               <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
-              <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-teal-400 transition-colors">
+              <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-[#14b8a6] transition-colors">
                 <Phone className="w-5 h-5" />
                 <span className="font-semibold">(570) 904-2059</span>
               </a>
@@ -375,7 +371,7 @@ return (
             </div>
           </div>
           
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
             <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
