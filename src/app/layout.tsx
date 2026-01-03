@@ -79,18 +79,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
-          strategy="lazyOnload"
-        />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-1H6CPZVB8D');
+            setTimeout(function() {
+              var script = document.createElement('script');
+              script.src = 'https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D';
+              script.async = true;
+              document.head.appendChild(script);
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', 'G-1H6CPZVB8D');
+            }, 3000);
           `}
         </Script>
       </head>
