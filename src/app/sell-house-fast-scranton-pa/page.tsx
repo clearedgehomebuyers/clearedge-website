@@ -126,7 +126,7 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling a House in Scranton Doesn&apos;t Have to Be Hard</h2>
           </div>
           
@@ -142,7 +142,7 @@ return (
       <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help Scranton Homeowners in Any Situation</h2>
           </div>
           
@@ -173,7 +173,7 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Scranton Areas We Serve</h2>
           </div>
           
@@ -193,7 +193,7 @@ return (
       <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">COMPARE</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">COMPARE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling to ClearEdge vs. Listing in Scranton</h2>
           </div>
           
@@ -219,37 +219,37 @@ return (
               <tbody>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Time to Close</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">7-14 Days</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">7-14 Days</td>
                   <td className="py-5 px-6 text-center text-slate-600">60-90 Days</td>
                   <td className="py-5 px-6 text-center text-slate-600">90+ Days</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Repairs Needed</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">None</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">None</td>
                   <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
                   <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Fees & Commissions</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">$0</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">$0</td>
                   <td className="py-5 px-6 text-center text-slate-600">5-6%</td>
                   <td className="py-5 px-6 text-center text-slate-600">2-3%</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Closing Costs</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">We Pay</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">We Pay</td>
                   <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
                   <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Showings Required</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">Zero</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">Zero</td>
                   <td className="py-5 px-6 text-center text-slate-600">Many</td>
                   <td className="py-5 px-6 text-center text-slate-600">Many</td>
                 </tr>
                 <tr className="border-t border-slate-100">
                   <td className="py-5 px-6 font-semibold text-slate-700">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#0d9488]">100% Guaranteed</td>
+                  <td className="py-5 px-6 text-center bg-[#0d9488]/10 font-bold text-[#047857]">100% Guaranteed</td>
                   <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
                   <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
                 </tr>
@@ -269,7 +269,7 @@ return (
       <section className="py-24 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">FAQ</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FAQ</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Common Questions About Selling in Scranton</h2>
           </div>
           
@@ -341,7 +341,7 @@ return (
             </div>
             
             <div>
-              <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
+              <h3 className="font-bold mb-4 text-lg">Quick Links</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
@@ -351,7 +351,7 @@ return (
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
+              <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
                 <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
@@ -359,9 +359,9 @@ return (
                 <li><Link href="/locations/bethlehem" className="hover:text-white transition-colors">Bethlehem, PA</Link></li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
+              <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
               <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-[#14b8a6] transition-colors">
                 <Phone className="w-5 h-5" />
                 <span className="font-semibold">(570) 904-2059</span>

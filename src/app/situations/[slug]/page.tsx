@@ -133,7 +133,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">WE UNDERSTAND</span>
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WE UNDERSTAND</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Dealing with {situation.title}?</h2>
             </div>
 
@@ -149,7 +149,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">BENEFITS</span>
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">BENEFITS</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Why Sell to ClearEdge?</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
             </div>
@@ -177,7 +177,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       <section className="py-24 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">SIMPLE PROCESS</span>
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SIMPLE PROCESS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">How It Works</h2>
           </div>
 
@@ -204,7 +204,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Areas We Serve</h2>
             </div>
 
@@ -228,7 +228,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-semibold mb-4">FAQ</span>
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FAQ</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Common Questions About {situation.title}</h2>
             </div>
 
@@ -280,7 +280,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
+              <h3 className="font-bold mb-4 text-lg">Quick Links</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
@@ -290,7 +290,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
+              <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
                 <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
@@ -300,7 +300,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
+              <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
               <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-[#14b8a6] transition-colors">
                 <Phone className="w-5 h-5" />
                 <span className="font-semibold">(570) 904-2059</span>

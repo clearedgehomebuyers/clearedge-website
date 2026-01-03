@@ -204,7 +204,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
+              <h3 className="font-bold mb-4 text-lg">Quick Links</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
                 <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
@@ -214,7 +214,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
+              <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
               <ul className="space-y-3 text-slate-400">
                 <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
                 <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
@@ -224,7 +224,7 @@ export default function TermsPage() {
             </div>
 
             <div>
-              <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
+              <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
               <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-[#14b8a6] transition-colors">
                 <Phone className="w-5 h-5" />
                 <span className="font-semibold">(570) 904-2059</span>

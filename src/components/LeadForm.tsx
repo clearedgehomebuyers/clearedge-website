@@ -367,14 +367,16 @@ export function LeadForm({
             />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label htmlFor="state" className="block text-sm font-semibold text-slate-700 mb-2">
               State <span className="text-red-500">*</span>
             </label>
             <select
+              id="state"
               name="state"
               value={formData.state}
               onChange={handleChange}
               required
+              aria-label="State"
               className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all bg-white"
             >
               {US_STATES.map((state) => (
