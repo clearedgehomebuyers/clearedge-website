@@ -13,7 +13,7 @@ return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto" priority />
+              <Image src="/logo.webp" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto" priority />
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -381,7 +381,7 @@ return (
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div>
               <div className="flex items-center mb-4">
-                <Image src="/logo.png" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto brightness-0 invert" />
+                <Image src="/logo.webp" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto brightness-0 invert" />
               </div>
               <p className="text-slate-300 leading-relaxed">We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.</p>
             </div>

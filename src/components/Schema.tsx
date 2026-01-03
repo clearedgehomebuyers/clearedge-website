@@ -7,7 +7,7 @@ export function LocalBusinessSchema() {
     "url": "https://www.clearedgehomebuyers.com",
     "telephone": "+1-570-904-2059",
     "priceRange": "$$",
-    "image": "https://www.clearedgehomebuyers.com/logo.png",
+    "image": "https://www.clearedgehomebuyers.com/logo.webp",
     "address": {
       "@type": "PostalAddress",
       "addressRegion": "PA",
