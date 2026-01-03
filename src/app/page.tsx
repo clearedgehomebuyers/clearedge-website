@@ -350,7 +350,7 @@ return (
           </div>
 
           <p className="text-center text-slate-500 mt-10">
-            Don&apos;t see your city? <Link href="/contact" className="text-[#0d9488] font-semibold hover:underline">Contact us — we likely serve your area too →</Link>
+            Don&apos;t see your city? <Link href="/contact" className="text-[#047857] font-semibold hover:underline">Contact us — we likely serve your area too →</Link>
           </p>
         </div>
       </section>
@@ -417,11 +417,11 @@ return (
             </div>
           </div>
 
-          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
             <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+              <Link href="/privacy-policy" className="text-slate-300 hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="text-slate-300 hover:text-white transition-colors">Terms & Conditions</Link>
             </div>
           </div>
         </div>
