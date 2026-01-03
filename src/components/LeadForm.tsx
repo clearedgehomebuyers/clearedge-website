@@ -84,7 +84,12 @@ function getHubspotCookie(): string | null {
 // Format phone number as +1 (XXX) XXX-XXXX
 function formatPhoneNumber(value: string): string {
   // Strip all non-numeric characters
-  const digits = value.replace(/\D/g, '')
+  let digits = value.replace(/\D/g, '')
+
+  // If starts with "1" and has more than 10 digits, remove the leading 1 (country code)
+  if (digits.length > 10 && digits.startsWith('1')) {
+    digits = digits.slice(1)
+  }
 
   // Limit to 10 digits
   const limited = digits.slice(0, 10)
@@ -96,9 +101,14 @@ function formatPhoneNumber(value: string): string {
   return `+1 (${limited.slice(0, 3)}) ${limited.slice(3, 6)}-${limited.slice(6)}`
 }
 
-// Get raw digits from formatted phone
+// Get raw digits from formatted phone (excluding country code)
 function getPhoneDigits(value: string): string {
-  return value.replace(/\D/g, '')
+  let digits = value.replace(/\D/g, '')
+  // Remove leading 1 if present (country code)
+  if (digits.length > 10 && digits.startsWith('1')) {
+    digits = digits.slice(1)
+  }
+  return digits.slice(0, 10)
 }
 
 export function LeadForm({
