@@ -7,12 +7,66 @@ interface LeadFormProps {
   heading?: string
   subheading?: string
   buttonText?: string
-  propertyLabel?: string
 }
 
 // HubSpot configuration
 const HUBSPOT_PORTAL_ID = '50832074'
 const HUBSPOT_FORM_ID = 'c1592c03-4f8c-42c1-8b4f-f1b64733f29d'
+
+// US States for dropdown
+const US_STATES = [
+  { value: 'AL', label: 'Alabama' },
+  { value: 'AK', label: 'Alaska' },
+  { value: 'AZ', label: 'Arizona' },
+  { value: 'AR', label: 'Arkansas' },
+  { value: 'CA', label: 'California' },
+  { value: 'CO', label: 'Colorado' },
+  { value: 'CT', label: 'Connecticut' },
+  { value: 'DE', label: 'Delaware' },
+  { value: 'FL', label: 'Florida' },
+  { value: 'GA', label: 'Georgia' },
+  { value: 'HI', label: 'Hawaii' },
+  { value: 'ID', label: 'Idaho' },
+  { value: 'IL', label: 'Illinois' },
+  { value: 'IN', label: 'Indiana' },
+  { value: 'IA', label: 'Iowa' },
+  { value: 'KS', label: 'Kansas' },
+  { value: 'KY', label: 'Kentucky' },
+  { value: 'LA', label: 'Louisiana' },
+  { value: 'ME', label: 'Maine' },
+  { value: 'MD', label: 'Maryland' },
+  { value: 'MA', label: 'Massachusetts' },
+  { value: 'MI', label: 'Michigan' },
+  { value: 'MN', label: 'Minnesota' },
+  { value: 'MS', label: 'Mississippi' },
+  { value: 'MO', label: 'Missouri' },
+  { value: 'MT', label: 'Montana' },
+  { value: 'NE', label: 'Nebraska' },
+  { value: 'NV', label: 'Nevada' },
+  { value: 'NH', label: 'New Hampshire' },
+  { value: 'NJ', label: 'New Jersey' },
+  { value: 'NM', label: 'New Mexico' },
+  { value: 'NY', label: 'New York' },
+  { value: 'NC', label: 'North Carolina' },
+  { value: 'ND', label: 'North Dakota' },
+  { value: 'OH', label: 'Ohio' },
+  { value: 'OK', label: 'Oklahoma' },
+  { value: 'OR', label: 'Oregon' },
+  { value: 'PA', label: 'Pennsylvania' },
+  { value: 'RI', label: 'Rhode Island' },
+  { value: 'SC', label: 'South Carolina' },
+  { value: 'SD', label: 'South Dakota' },
+  { value: 'TN', label: 'Tennessee' },
+  { value: 'TX', label: 'Texas' },
+  { value: 'UT', label: 'Utah' },
+  { value: 'VT', label: 'Vermont' },
+  { value: 'VA', label: 'Virginia' },
+  { value: 'WA', label: 'Washington' },
+  { value: 'WV', label: 'West Virginia' },
+  { value: 'WI', label: 'Wisconsin' },
+  { value: 'WY', label: 'Wyoming' },
+  { value: 'DC', label: 'District of Columbia' },
+]
 
 // Helper to get HubSpot tracking cookie
 function getHubspotCookie(): string | null {
@@ -31,18 +85,21 @@ export function LeadForm({
   heading = 'Get Your Cash Offer',
   subheading = 'No obligation • No fees • Response in 24 hours',
   buttonText = 'Get My Cash Offer',
-  propertyLabel = 'Property Address',
 }: LeadFormProps) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     phone: '',
-    propertyAddress: '',
+    email: '',
+    address: '',
+    city: '',
+    state: 'PA',
+    zip: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -58,14 +115,24 @@ export function LeadForm({
       const pageUri = typeof window !== 'undefined' ? window.location.href : ''
       const pageName = typeof document !== 'undefined' ? document.title : ''
 
+      const fields = [
+        { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
+        { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
+        { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+        { objectTypeId: '0-1', name: 'address', value: formData.address },
+        { objectTypeId: '0-1', name: 'city', value: formData.city },
+        { objectTypeId: '0-1', name: 'state', value: formData.state },
+        { objectTypeId: '0-1', name: 'zip', value: formData.zip },
+      ]
+
+      // Only include email if provided
+      if (formData.email) {
+        fields.push({ objectTypeId: '0-1', name: 'email', value: formData.email })
+      }
+
       const hubspotPayload = {
         submittedAt: Date.now(),
-        fields: [
-          { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
-          { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
-          { objectTypeId: '0-1', name: 'phone', value: formData.phone },
-          { objectTypeId: '0-1', name: 'address', value: formData.propertyAddress },
-        ],
+        fields,
         context: {
           pageUri,
           pageName,
@@ -111,7 +178,16 @@ export function LeadForm({
       }
 
       setSubmitStatus('success')
-      setFormData({ firstName: '', lastName: '', phone: '', propertyAddress: '' })
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        address: '',
+        city: '',
+        state: 'PA',
+        zip: '',
+      })
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
@@ -143,11 +219,12 @@ export function LeadForm({
         <p className="text-slate-500">{subheading}</p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Row 1: First Name, Last Name */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              First Name
+              First Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -155,13 +232,13 @@ export function LeadForm({
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
               placeholder="John"
             />
           </div>
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Last Name
+              Last Name <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -169,40 +246,109 @@ export function LeadForm({
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
               placeholder="Smith"
             />
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
-            placeholder="(570) 555-0123"
-          />
+        {/* Row 2: Phone, Email */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Phone <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              placeholder="(570) 555-0123"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              placeholder="Optional but recommended"
+            />
+          </div>
         </div>
 
+        {/* Row 3: Street Address */}
         <div>
           <label className="block text-sm font-semibold text-slate-700 mb-2">
-            {propertyLabel}
+            Street Address <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
-            name="propertyAddress"
-            value={formData.propertyAddress}
+            name="address"
+            value={formData.address}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
-            placeholder="Start typing address..."
+            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+            placeholder="123 Main Street"
           />
+        </div>
+
+        {/* Row 4: City, State, Zip */}
+        <div className="grid grid-cols-4 gap-4">
+          <div className="col-span-2">
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              City <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              placeholder="Scranton"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              State <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all bg-white"
+            >
+              {US_STATES.map((state) => (
+                <option key={state.value} value={state.value}>
+                  {state.value}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Zip <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="zip"
+              value={formData.zip}
+              onChange={handleChange}
+              required
+              pattern="[0-9]{5}"
+              maxLength={5}
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all"
+              placeholder="18501"
+            />
+          </div>
         </div>
 
         {submitStatus === 'error' && (

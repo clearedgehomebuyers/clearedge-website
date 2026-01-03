@@ -122,7 +122,6 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <LeadForm
                 heading={`Get Your ${location.city} Cash Offer`}
                 buttonText={`Get My ${location.city} Cash Offer`}
-                propertyLabel={`Property Address in ${location.city}`}
               />
             </div>
           </div>

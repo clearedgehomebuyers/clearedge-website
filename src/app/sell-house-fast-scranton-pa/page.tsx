@@ -104,7 +104,6 @@ return (
               <LeadForm
                 heading="Get Your Scranton Cash Offer"
                 buttonText="Get My Scranton Cash Offer"
-                propertyLabel="Property Address in Scranton"
               />
             </div>
           </div>
