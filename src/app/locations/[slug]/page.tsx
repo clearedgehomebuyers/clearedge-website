@@ -1,8 +1,9 @@
 import { getLocationBySlug, getLocations } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import Link from 'next/link'
-import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown } from 'lucide-react'
+import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { PortableText } from '@portabletext/react'
 
 export async function generateStaticParams() {
   const locations = await getLocations()
@@ -46,6 +47,13 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <span className="text-xl font-bold text-slate-800 hidden sm:block">Home Buyers</span>
             </Link>
             
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">Home</Link>
+              <span className="text-sm font-semibold text-teal-600">{location.city}, PA</span>
+              <span className="text-sm font-semibold text-slate-600 hover:text-teal-600 cursor-pointer transition-colors">How It Works</span>
+              <span className="text-sm font-semibold text-slate-600 hover:text-teal-600 cursor-pointer transition-colors">Reviews</span>
+            </div>
+            
             <div className="hidden md:flex items-center space-x-5">
               <a href="tel:5709042059" className="flex items-center space-x-2 text-slate-700 hover:text-teal-600 transition-colors">
                 <div className="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center">
@@ -71,7 +79,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <div className="text-white">
               <div className="inline-flex items-center space-x-2 bg-teal-500/20 backdrop-blur-sm border border-teal-400/30 rounded-full px-4 py-2 mb-8">
                 <MapPin className="w-4 h-4 text-teal-400" />
-                <span className="text-sm font-medium text-teal-300">{location.city}, {location.state}</span>
+                <span className="text-sm font-medium text-teal-300">{location.city} & {location.county || 'Surrounding Areas'}</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -150,6 +158,165 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* Local Trust Bar */}
+      {location.nearbyTowns && location.nearbyTowns.length > 0 && (
+        <section className="py-6 bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-slate-600">
+              <span className="text-sm font-medium">Trusted by homeowners in:</span>
+              {location.nearbyTowns.map((town: string) => (
+                <span key={town} className="text-sm font-semibold text-slate-800">{town}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Local Problem Statement */}
+      {location.problemStatement && (
+        <section className="py-24 px-4 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
+            </div>
+            
+            <div className="text-slate-600 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
+              <PortableText value={location.problemStatement} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Situations */}
+      <section className="py-24 px-4 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help {location.city} Homeowners in Any Situation</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: Building, title: 'Inherited Property', desc: 'Sell without probate delays' },
+              { icon: Shield, title: 'Facing Foreclosure', desc: 'Avoid foreclosure, protect credit' },
+              { icon: Users, title: 'Divorce', desc: 'Liquidate quickly and move on' },
+              { icon: MapPin, title: 'Job Relocation', desc: 'Sell fast when you need to move' },
+              { icon: Home, title: 'Rental Property', desc: 'Exit the landlord business' },
+              { icon: FileText, title: 'Major Repairs', desc: 'Sell as-is, skip renovations' },
+              { icon: DollarSign, title: 'Tax or Code Issues', desc: 'We work with liens & violations' },
+              { icon: Clock, title: 'Vacant Property', desc: 'Stop paying for an empty house' },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-teal-600" />
+                </div>
+                <h3 className="font-bold text-slate-800 mb-2">{item.title}</h3>
+                <p className="text-slate-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Neighborhoods */}
+      {location.neighborhoods && location.neighborhoods.length > 0 && (
+        <section className="py-24 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{location.city} Areas We Serve</h2>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {location.neighborhoods.map((neighborhood: string) => (
+                <div key={neighborhood} className="bg-slate-50 rounded-xl p-4 text-center hover:bg-teal-50 transition-colors border border-slate-100">
+                  <span className="font-semibold text-slate-700">{neighborhood}</span>
+                </div>
+              ))}
+            </div>
+            
+            <p className="text-center text-slate-500 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
+          </div>
+        </section>
+      )}
+
+      {/* Comparison Section */}
+      <section className="py-24 px-4 bg-slate-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold mb-4">COMPARE</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling to ClearEdge vs. Listing in {location.city}</h2>
+          </div>
+          
+          <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-lg bg-white">
+            <table className="w-full">
+              <thead>
+                <tr>
+                  <th className="text-left py-5 px-6 bg-slate-50 font-semibold text-slate-600"></th>
+                  <th className="text-center py-5 px-6 bg-gradient-to-br from-teal-500 to-cyan-500 text-white">
+                    <div className="flex flex-col items-center">
+                      <CheckCircle className="w-6 h-6 mb-1" />
+                      <span className="font-bold">ClearEdge</span>
+                    </div>
+                  </th>
+                  <th className="text-center py-5 px-6 bg-slate-100 text-slate-700">
+                    <span className="font-bold">Traditional Agent</span>
+                  </th>
+                  <th className="text-center py-5 px-6 bg-slate-100 text-slate-700">
+                    <span className="font-bold">FSBO</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Time to Close</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">7-14 Days</td>
+                  <td className="py-5 px-6 text-center text-slate-600">60-90 Days</td>
+                  <td className="py-5 px-6 text-center text-slate-600">90+ Days</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Repairs Needed</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">None</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Usually Required</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Fees & Commissions</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">$0</td>
+                  <td className="py-5 px-6 text-center text-slate-600">5-6%</td>
+                  <td className="py-5 px-6 text-center text-slate-600">2-3%</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Closing Costs</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">We Pay</td>
+                  <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
+                  <td className="py-5 px-6 text-center text-slate-600">You Pay</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Showings Required</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">Zero</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Many</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Many</td>
+                </tr>
+                <tr className="border-t border-slate-100">
+                  <td className="py-5 px-6 font-semibold text-slate-700">Sale Certainty</td>
+                  <td className="py-5 px-6 text-center bg-teal-50 font-bold text-teal-700">100% Guaranteed</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
+                  <td className="py-5 px-6 text-center text-slate-600">Uncertain</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="text-center mt-12">
+            <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
+              Get Your {location.city} Cash Offer
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       {location.faqs && location.faqs.length > 0 && (
         <section className="py-24 px-4 bg-white">
@@ -182,10 +349,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         
         <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Sell Your {location.city} House?</h2>
-          <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today.</p>
+          <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re local and respond fast.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
-              Get My Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
+              Get My {location.city} Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
             </button>
             <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" />
@@ -198,6 +365,46 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       {/* Footer */}
       <footer className="bg-slate-900 text-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-10 mb-12">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="h-10 bg-gradient-to-r from-blue-900 via-blue-800 to-teal-500 rounded-lg flex items-center justify-center px-4">
+                  <span className="text-white font-bold tracking-tight text-sm">CLEAREDGE</span>
+                </div>
+              </div>
+              <p className="text-slate-400 leading-relaxed">We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.</p>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4 text-lg">Quick Links</h4>
+              <ul className="space-y-3 text-slate-400">
+                <li className="hover:text-white cursor-pointer transition-colors">How It Works</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Testimonials</li>
+                <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4 text-lg">Service Areas</h4>
+              <ul className="space-y-3 text-slate-400">
+                <li className="hover:text-white cursor-pointer transition-colors">Scranton, PA</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Wilkes-Barre, PA</li>
+                <li className="hover:text-white cursor-pointer transition-colors">Allentown, PA</li>
+                <li className="hover:text-white cursor-pointer transition-colors">All Service Areas</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
+              <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-400 hover:text-teal-400 transition-colors">
+                <Phone className="w-5 h-5" />
+                <span className="font-semibold">(570) 904-2059</span>
+              </a>
+              <p className="text-sm text-slate-400 mt-3">Serving Eastern Pennsylvania</p>
+            </div>
+          </div>
+          
           <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
             <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
