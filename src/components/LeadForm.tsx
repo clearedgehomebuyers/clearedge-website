@@ -81,34 +81,36 @@ function getHubspotCookie(): string | null {
   return null
 }
 
-// Format phone number as +1 (XXX) XXX-XXXX
-function formatPhoneNumber(value: string): string {
-  // Strip all non-numeric characters
-  let digits = value.replace(/\D/g, '')
+// Extract only the 10-digit phone number from any input
+function extractPhoneDigits(value: string): string {
+  // Remove the "+1 " prefix if present before extracting digits
+  const withoutPrefix = value.startsWith('+1 ') ? value.slice(3) : value
 
-  // If starts with "1" and has more than 10 digits, remove the leading 1 (country code)
+  // Extract only digits
+  let digits = withoutPrefix.replace(/\D/g, '')
+
+  // If someone pasted a number with leading 1 country code (11+ digits starting with 1)
   if (digits.length > 10 && digits.startsWith('1')) {
     digits = digits.slice(1)
   }
 
-  // Limit to 10 digits
-  const limited = digits.slice(0, 10)
-
-  // Format based on length with +1 prefix
-  if (limited.length === 0) return ''
-  if (limited.length <= 3) return `+1 (${limited}`
-  if (limited.length <= 6) return `+1 (${limited.slice(0, 3)}) ${limited.slice(3)}`
-  return `+1 (${limited.slice(0, 3)}) ${limited.slice(3, 6)}-${limited.slice(6)}`
+  // Return only first 10 digits
+  return digits.slice(0, 10)
 }
 
-// Get raw digits from formatted phone (excluding country code)
+// Format 10 digits as +1 (XXX) XXX-XXXX
+function formatPhoneNumber(value: string): string {
+  const digits = extractPhoneDigits(value)
+
+  if (digits.length === 0) return ''
+  if (digits.length <= 3) return `+1 (${digits}`
+  if (digits.length <= 6) return `+1 (${digits.slice(0, 3)}) ${digits.slice(3)}`
+  return `+1 (${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+}
+
+// Get raw 10 digits for validation
 function getPhoneDigits(value: string): string {
-  let digits = value.replace(/\D/g, '')
-  // Remove leading 1 if present (country code)
-  if (digits.length > 10 && digits.startsWith('1')) {
-    digits = digits.slice(1)
-  }
-  return digits.slice(0, 10)
+  return extractPhoneDigits(value)
 }
 
 export function LeadForm({
