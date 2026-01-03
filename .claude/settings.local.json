@@ -8,7 +8,9 @@
       "Bash(SANITY_WRITE_TOKEN=skMXxvUIBS1hzfu1gaOqMBxplZi7rQDvRsihK2cpGoWpWj6R4TvZ1SK62Ueu8Gor9SunUah3eX8RUVm9FTaHMgJPCVG5wFZ9gHjfMJSd62HFtKaOmQ80YoqJO0YPRQeWFpEtuHYj1vR7Td9nQy1xfpjqZSbPRnbzNwyTGTFj94lz7RXC0NTV node scripts/seed-locations.mjs:*)",
       "Bash(git remote get-url:*)",
       "Bash(grep:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(node scripts/generate-og-image.mjs:*)",
+      "Bash(node -e:*)"
     ]
   }
 }
