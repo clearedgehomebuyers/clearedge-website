@@ -293,8 +293,60 @@ return (
         </div>
       </section>
 
-      {/* Service Areas */}
+      {/* Properties We've Purchased */}
       <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">OUR WORK</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Properties We&apos;ve Purchased</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">We buy houses in any condition across Eastern Pennsylvania</p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <Image
+                src="/properties/property-1.jpg"
+                alt="House purchased in Scranton, PA"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <Image
+                src="/properties/property-2.jpg"
+                alt="House purchased in Wilkes-Barre, PA"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <Image
+                src="/properties/property-3.jpg"
+                alt="House purchased in Hazleton, PA"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <Image
+                src="/properties/property-4.jpg"
+                alt="House purchased in Allentown, PA"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-block">
+              Get Your Cash Offer
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
