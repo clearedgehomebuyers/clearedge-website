@@ -302,18 +302,11 @@ return (
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">We buy houses in any condition across Eastern Pennsylvania</p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="/properties/property-1.jpeg"
-                alt="House purchased in Scranton, PA"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <img
-                src="/properties/property-2.jpg"
-                alt="House purchased in Wilkes-Barre, PA"
+                src="/properties/property-5.jpg"
+                alt="Victorian duplex purchased in Scranton, PA"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -327,7 +320,7 @@ return (
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
                 src="/properties/property-4.jpg"
-                alt="House purchased in Allentown, PA"
+                alt="House purchased in Wilkes-Barre, PA"
                 className="w-full h-full object-cover"
               />
             </div>
