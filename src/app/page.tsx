@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { LocalBusinessSchema, WebSiteSchema, OrganizationSchema } from '@/components/Schema'
 import { LeadForm } from '@/components/LeadForm'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake } from 'lucide-react'
 
 export default function HomePage() {
@@ -10,36 +12,7 @@ return (
       <WebSiteSchema />
       <OrganizationSchema />
       <LocalBusinessSchema />
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-slate-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo.webp" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto" priority />
-            </Link>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-sm font-semibold text-[#0d9488]">Home</Link>
-              <Link href="/how-it-works" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">How It Works</Link>
-              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
-              <Link href="/testimonials" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Testimonials</Link>
-              <Link href="/contact" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Contact</Link>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-5">
-              <a href="tel:5709042059" className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
-                <div className="w-10 h-10 bg-[#0d9488]/10 rounded-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-[#0d9488]" />
-                </div>
-                <span className="font-bold">(570) 904-2059</span>
-              </a>
-              <a href="#get-offer" className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-                Get Cash Offer
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="/" />
 
       {/* Hero Section */}
       <section className="relative pt-28 pb-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4d] to-[#1e3a5f] overflow-hidden">
@@ -380,57 +353,7 @@ return (
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1e3a5f] text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-10 mb-12">
-            <div>
-              <div className="flex items-center mb-4">
-                <Image src="/logo.webp" alt="ClearEdge Home Buyers" width={180} height={40} className="h-10 w-auto brightness-0 invert" />
-              </div>
-              <p className="text-slate-300 leading-relaxed">We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.</p>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-lg">Quick Links</h3>
-              <ul className="space-y-3 text-slate-300">
-                <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-                <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-                <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
-              <ul className="space-y-3 text-slate-300">
-                <li><Link href="/locations/scranton" className="hover:text-white transition-colors">Scranton, PA</Link></li>
-                <li><Link href="/locations/wilkes-barre" className="hover:text-white transition-colors">Wilkes-Barre, PA</Link></li>
-                <li><Link href="/locations/allentown" className="hover:text-white transition-colors">Allentown, PA</Link></li>
-                <li><Link href="/locations/bethlehem" className="hover:text-white transition-colors">Bethlehem, PA</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
-              <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-300 hover:text-[#14b8a6] transition-colors">
-                <Phone className="w-5 h-5" />
-                <span className="font-semibold">(570) 904-2059</span>
-              </a>
-              <p className="text-sm text-slate-300 mt-3">Serving Eastern Pennsylvania</p>
-            </div>
-          </div>
-
-          <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
-            <p>© 2026 ClearEdge Home Buyers. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
