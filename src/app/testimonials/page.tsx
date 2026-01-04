@@ -5,10 +5,10 @@ import { Phone, Star, Quote, MapPin, ExternalLink } from 'lucide-react'
 
 export const metadata = {
   title: 'Customer Reviews | ClearEdge Home Buyers | Scranton PA',
-  description: 'See what homeowners across Northeastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers. 5-star rated cash home buyer.',
+  description: 'See what homeowners across Eastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers. 5-star rated cash home buyer.',
   openGraph: {
     title: 'Customer Reviews | ClearEdge Home Buyers',
-    description: 'See what homeowners across Northeastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers.',
+    description: 'See what homeowners across Eastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers.',
   },
 }
 
@@ -50,7 +50,7 @@ const testimonials = [
   },
   {
     name: 'Grateful Homeowner',
-    location: 'Northeastern PA',
+    location: 'Eastern PA',
     rating: 5,
     featured: false,
     quote: "Thank you Tyler for all your help and assistance with our house. You made a difficult time simple and smooth.",
@@ -167,7 +167,7 @@ export default function TestimonialsPage() {
           </h1>
 
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-            Real reviews from real homeowners across Northeastern Pennsylvania
+            Real reviews from real homeowners across Eastern Pennsylvania
           </p>
 
           {/* Rating Summary */}
@@ -258,7 +258,7 @@ export default function TestimonialsPage() {
           <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">GOOGLE REVIEWS</span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">See Our Reviews on Google</h2>
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            We&apos;re proud of our reputation helping homeowners across Northeastern Pennsylvania. See what others are saying on Google.
+            We&apos;re proud of our reputation helping homeowners across Eastern Pennsylvania. See what others are saying on Google.
           </p>
 
           {/* Placeholder for Google Reviews Widget */}
@@ -267,7 +267,7 @@ export default function TestimonialsPage() {
           </div>
 
           <a
-            href="https://www.google.com/maps/place/ClearEdge+Home+Buyers"
+            href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.6255225,-79.6111106,7z/data=!4m10!1m2!2m1!1sclearedge+home+buyers+scranton+pa!3m6!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!15sCiFjbGVhcmVkZ2UgaG9tZSBidXllcnMgc2NyYW50b24gcGFaIyIhY2xlYXJlZGdlIGhvbWUgYnV5ZXJzIHNjcmFudG9uIHBhkgEScmVhbF9lc3RhdGVfYWdlbmN5"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-white border-2 border-[#0d9488] text-[#0d9488] font-semibold rounded-xl hover:bg-[#0d9488] hover:text-white transition-all"
