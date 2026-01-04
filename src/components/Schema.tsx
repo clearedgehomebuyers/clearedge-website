@@ -1,3 +1,47 @@
+export function WebSiteSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ClearEdge Home Buyers",
+    "alternateName": "ClearEdge",
+    "url": "https://www.clearedgehomebuyers.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.clearedgehomebuyers.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function OrganizationSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ClearEdge Home Buyers",
+    "legalName": "ClearEdge Home Buyers",
+    "url": "https://www.clearedgehomebuyers.com",
+    "logo": "https://www.clearedgehomebuyers.com/logo.webp",
+    "telephone": "+1-570-904-2059",
+    "sameAs": [
+      "https://www.google.com/maps/place/ClearEdge+Home+Buyers"
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",

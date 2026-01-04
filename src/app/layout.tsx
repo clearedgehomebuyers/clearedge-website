@@ -14,8 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sell Your House Fast for Cash | ClearEdge Home Buyers",
+  title: {
+    default: "Sell Your House Fast for Cash | ClearEdge Home Buyers",
+    template: "%s | ClearEdge Home Buyers",
+  },
   description: "Get a fair cash offer in 24 hours. We buy houses in any condition throughout Eastern Pennsylvania. No repairs, no fees, no commissions. Close in as little as 7 days.",
+  applicationName: "ClearEdge Home Buyers",
   metadataBase: new URL('https://www.clearedgehomebuyers.com'),
   keywords: [
     'sell house fast',
