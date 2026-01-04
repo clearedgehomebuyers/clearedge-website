@@ -129,7 +129,7 @@ export function Header({ currentPage }: HeaderProps) {
                 <ChevronDown className={`w-5 h-5 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
               </button>
               {locationsOpen && (
-                <div className="ml-4 mt-1 space-y-1">
+                <div className="ml-4 mt-1 space-y-1 max-h-48 overflow-y-auto scrollbar-thin">
                   {locationLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -154,7 +154,7 @@ export function Header({ currentPage }: HeaderProps) {
                 <ChevronDown className={`w-5 h-5 transition-transform ${situationsOpen ? 'rotate-180' : ''}`} />
               </button>
               {situationsOpen && (
-                <div className="ml-4 mt-1 space-y-1">
+                <div className="ml-4 mt-1 space-y-1 max-h-48 overflow-y-auto scrollbar-thin">
                   {situationLinks.map((link) => (
                     <Link
                       key={link.href}

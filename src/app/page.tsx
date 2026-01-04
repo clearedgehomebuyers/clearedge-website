@@ -4,7 +4,8 @@ import { LocalBusinessSchema, WebSiteSchema, OrganizationSchema } from '@/compon
 import { LeadForm } from '@/components/LeadForm'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake } from 'lucide-react'
+import { ServiceAreasGrid } from '@/components/ServiceAreasGrid'
+import { Phone, Clock, DollarSign, Shield, Award, Star, Users, CheckCircle, ArrowRight, FileText, Handshake } from 'lucide-react'
 
 export default function HomePage() {
 return (
@@ -343,30 +344,7 @@ return (
             <p className="text-xl text-slate-600">From the Poconos to the Lehigh Valley — we&apos;re ready to make you a fair cash offer.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              { name: 'Scranton', slug: 'scranton' },
-              { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
-              { name: 'Allentown', slug: 'allentown' },
-              { name: 'Bethlehem', slug: 'bethlehem' },
-              { name: 'Hazleton', slug: 'hazleton' },
-              { name: 'Stroudsburg', slug: 'stroudsburg' },
-              { name: 'Easton', slug: 'easton' },
-              { name: 'Reading', slug: 'reading' },
-              { name: 'Carbondale', slug: 'carbondale' },
-              { name: 'Pittston', slug: 'pittston' },
-              { name: 'Honesdale', slug: 'honesdale' },
-            ].map((city) => (
-              <Link
-                key={city.slug}
-                href={`/locations/${city.slug}`}
-                className="bg-slate-50 rounded-xl p-5 text-center hover:bg-[#0d9488]/10 hover:border-[#0d9488]/30 border-2 border-transparent transition-all duration-200"
-              >
-                <MapPin className="w-5 h-5 mx-auto mb-2 text-[#0d9488]" />
-                <span className="font-semibold text-slate-700">{city.name}, PA</span>
-              </Link>
-            ))}
-          </div>
+          <ServiceAreasGrid />
 
           <p className="text-center text-slate-500 mt-10">
             Don&apos;t see your city? <Link href="/contact" className="text-[#047857] font-semibold hover:underline">Contact us — we likely serve your area too →</Link>
