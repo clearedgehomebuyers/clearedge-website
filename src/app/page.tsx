@@ -305,7 +305,7 @@ return (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <Image
-                src="/properties/property-1.jpg"
+                src="/properties/property-1.jpeg"
                 alt="House purchased in Scranton, PA"
                 fill
                 className="object-cover"
@@ -321,7 +321,7 @@ return (
             </div>
             <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <Image
-                src="/properties/property-3.jpg"
+                src="/properties/property-3.jpeg"
                 alt="House purchased in Hazleton, PA"
                 fill
                 className="object-cover"
