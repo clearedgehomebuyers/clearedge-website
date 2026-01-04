@@ -44,10 +44,6 @@ export function Footer() {
     setDisplayLocations(shuffled.slice(0, 12))
   }, [])
 
-  // Split into two columns
-  const column1 = displayLocations.slice(0, 6)
-  const column2 = displayLocations.slice(6, 12)
-
   return (
     <footer className="bg-[#1e3a5f] text-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -79,25 +75,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Service Areas Column 1 */}
-          <div>
+          {/* Service Areas */}
+          <div className="md:col-span-2">
             <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
-            <ul className="space-y-3 text-slate-300">
-              {column1.map((location) => (
-                <li key={location.slug}>
-                  <Link href={`/locations/${location.slug}`} className="hover:text-white transition-colors">
-                    {location.name}, PA
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Service Areas Column 2 */}
-          <div>
-            <h3 className="font-bold mb-4 text-lg md:opacity-0">Areas</h3>
-            <ul className="space-y-3 text-slate-300">
-              {column2.map((location) => (
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-slate-300">
+              {displayLocations.map((location) => (
                 <li key={location.slug}>
                   <Link href={`/locations/${location.slug}`} className="hover:text-white transition-colors">
                     {location.name}, PA
