@@ -195,8 +195,9 @@ export default function ContactPage() {
 
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Home</Link>
-              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
               <Link href="/how-it-works" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">How It Works</Link>
+              <Link href="/about" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">About</Link>
+              <Link href="/testimonials" className="text-sm font-semibold text-slate-600 hover:text-[#0d9488] transition-colors">Testimonials</Link>
               <Link href="/contact" className="text-sm font-semibold text-[#0d9488]">Contact</Link>
             </div>
 
