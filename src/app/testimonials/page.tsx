@@ -240,7 +240,7 @@ export default function TestimonialsPage() {
           </div>
 
           <a
-            href="https://maps.google.com/?cid=3008089052218143225"
+            href="https://www.google.com/maps/place/?q=place_id:ChIJr4hxXnOfyYkR-bE51YVUvik"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-white border-2 border-[#0d9488] text-[#0d9488] font-semibold rounded-xl hover:bg-[#0d9488] hover:text-white transition-all"
