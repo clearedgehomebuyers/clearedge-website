@@ -313,7 +313,7 @@ return (
             </div>
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="/properties/property-3.jpeg"
+                src="/properties/property-3.jpg"
                 alt="House purchased in Hazleton, PA"
                 className="w-full h-full object-cover"
               />
