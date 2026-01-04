@@ -87,12 +87,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <Link
-              href="/locations/scranton"
-              className="inline-block mt-4 text-sm text-[#14b8a6] hover:text-white transition-colors"
-            >
-              ...and more locations →
-            </Link>
           </div>
 
           {/* Contact */}

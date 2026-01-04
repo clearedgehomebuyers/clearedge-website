@@ -22,15 +22,30 @@ const locationLinks = [
   { href: '/locations/wilkes-barre', label: 'Wilkes-Barre' },
   { href: '/locations/allentown', label: 'Allentown' },
   { href: '/locations/bethlehem', label: 'Bethlehem' },
+  { href: '/locations/easton', label: 'Easton' },
+  { href: '/locations/reading', label: 'Reading' },
   { href: '/locations/hazleton', label: 'Hazleton' },
   { href: '/locations/stroudsburg', label: 'Stroudsburg' },
+  { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
+  { href: '/locations/pocono-pines', label: 'Pocono Pines' },
+  { href: '/locations/tannersville', label: 'Tannersville' },
+  { href: '/locations/lehigh-valley', label: 'Lehigh Valley' },
+  { href: '/locations/poconos', label: 'Poconos' },
 ]
 
 const situationLinks = [
-  { href: '/situations/inherited-property', label: 'Inherited Property' },
   { href: '/situations/foreclosure', label: 'Foreclosure' },
+  { href: '/situations/probate', label: 'Probate' },
+  { href: '/situations/inherited-property', label: 'Inherited Property' },
   { href: '/situations/divorce', label: 'Divorce' },
-  { href: '/situations/relocation', label: 'Relocation' },
+  { href: '/situations/relocating', label: 'Relocating' },
+  { href: '/situations/downsizing', label: 'Downsizing' },
+  { href: '/situations/vacant-property', label: 'Vacant Property' },
+  { href: '/situations/fire-damage', label: 'Fire Damage' },
+  { href: '/situations/bad-tenants', label: 'Bad Tenants' },
+  { href: '/situations/tax-liens', label: 'Tax Liens' },
+  { href: '/situations/code-violations', label: 'Code Violations' },
+  { href: '/situations/behind-on-payments', label: 'Behind on Payments' },
 ]
 
 export function Header({ currentPage }: HeaderProps) {
