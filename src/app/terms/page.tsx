@@ -50,7 +50,7 @@ export default function TermsPage() {
 
       {/* Content */}
       <section className="py-12 px-4 bg-white">
-        <div className="max-w-3xl mx-auto prose prose-lg prose-p:text-black prose-li:text-black">
+        <div className="max-w-3xl mx-auto prose prose-lg [&_p]:!text-black [&_li]:!text-black [&_strong]:!text-black">
           <h2>Agreement to Terms</h2>
           <p>
             These Terms and Conditions (&quot;Terms&quot;) constitute a legally binding agreement between you and ClearEdge Home Buyers (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) concerning your access to and use of the website www.clearedgehomebuyers.com and any related services we provide.

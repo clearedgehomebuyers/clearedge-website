@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
 
       {/* Content */}
       <section className="py-12 px-4 bg-white">
-        <div className="max-w-3xl mx-auto prose prose-lg prose-p:text-black prose-li:text-black">
+        <div className="max-w-3xl mx-auto prose prose-lg [&_p]:!text-black [&_li]:!text-black [&_strong]:!text-black">
           <h2>Introduction</h2>
           <p>
             ClearEdge Home Buyers (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at www.clearedgehomebuyers.com or submit information through our contact forms.
