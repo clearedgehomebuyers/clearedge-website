@@ -1,14 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { LeadForm } from '@/components/LeadForm'
-import { Phone, MapPin, Shield, Clock, DollarSign, Users, Heart, Award, CheckCircle, ArrowRight } from 'lucide-react'
+import { Phone, MapPin, Heart, CheckCircle, Building2 } from 'lucide-react'
 
 export const metadata = {
   title: 'About Us | ClearEdge Home Buyers | Eastern PA Cash Home Buyers',
-  description: 'Learn about ClearEdge Home Buyers - your trusted local cash home buyers in Eastern Pennsylvania. We help homeowners sell fast with fair cash offers, no fees, and no hassle.',
+  description: 'Meet Tyler, founder of ClearEdge Home Buyers. Learn about our mission to help Eastern Pennsylvania homeowners sell their houses fast with fair cash offers.',
   openGraph: {
     title: 'About Us | ClearEdge Home Buyers',
-    description: 'Your trusted local cash home buyers in Eastern Pennsylvania. Fair offers, fast closings, zero fees.',
+    description: 'Meet Tyler and learn why ClearEdge Home Buyers is your trusted local cash home buyer in Eastern Pennsylvania.',
   },
 }
 
@@ -57,99 +57,101 @@ export default function AboutPage() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Helping Pennsylvania Homeowners
+            Meet Tyler, Founder of
             <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]">
-              Since Day One
+              ClearEdge Home Buyers
             </span>
           </h1>
 
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            We&apos;re not just home buyers — we&apos;re problem solvers. ClearEdge Home Buyers was founded to help homeowners navigate difficult situations with fair, fast, and transparent cash offers.
+            Local real estate investor passionate about helping Pennsylvania homeowners and revitalizing communities.
           </p>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Tyler Bio Section */}
       <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">OUR MISSION</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
-                Making Home Selling Simple, Fast & Fair
-              </h2>
-              <div className="text-slate-600 space-y-4 text-lg leading-relaxed">
-                <p>
-                  At ClearEdge Home Buyers, we believe selling your home shouldn&apos;t be stressful. Whether you&apos;re facing foreclosure, dealing with an inherited property, going through a divorce, or simply need to sell quickly — we&apos;re here to help.
-                </p>
-                <p>
-                  We buy houses directly from homeowners throughout Eastern Pennsylvania, offering fair cash prices without the hassle of traditional real estate transactions. No agents, no commissions, no repairs, no waiting.
-                </p>
-                <p className="font-semibold text-slate-800">
-                  Our goal is simple: provide you with a stress-free way to sell your house on your timeline.
-                </p>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-start">
+            {/* Tyler's Photo */}
+            <div className="flex-shrink-0 mx-auto md:mx-0">
+              <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-[#0d9488]/20 shadow-xl">
+                <Image
+                  src="/tyler.jpg"
+                  alt="Tyler - Founder of ClearEdge Home Buyers"
+                  width={224}
+                  height={224}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
-            <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">Why Homeowners Choose Us</h3>
-              <div className="space-y-4">
-                {[
-                  'Cash offers within 24 hours',
-                  'Close in as little as 7 days',
-                  'We buy houses in any condition',
-                  'Zero fees or commissions',
-                  'We pay all closing costs',
-                  'Local team, not a national call center',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center space-x-3">
-                    <CheckCircle className="w-5 h-5 text-[#0d9488] flex-shrink-0" />
-                    <span className="text-slate-700 font-medium">{item}</span>
-                  </div>
-                ))}
+            {/* Bio Content */}
+            <div className="flex-1">
+              <div className="text-black space-y-5 text-lg leading-relaxed">
+                <p>
+                  I got into real estate back in 2017 with a close friend who shared my passion for the industry. We were both looking to carve our own path, and real estate felt like the right fit.
+                </p>
+                <p>
+                  I started on the Realtor side, learning the ins and outs of the business. After a few years, I took some time to recalibrate and came back with a new focus — rental properties. My partner and I began acquiring properties right here in Scranton, managing them ourselves and doing the elbow-grease work to turn over our first units.
+                </p>
+                <p>
+                  Those early days of hands-on renovations opened my eyes to the opportunities in Northeastern Pennsylvania. I saw a chance to do more than just deals — to beautify properties, provide quality housing for families, and contribute to communities that needed investment.
+                </p>
+                <p>
+                  That&apos;s why I started ClearEdge Home Buyers. We buy houses directly from homeowners who need a fast, fair, and hassle-free sale. No agents, no fees, no waiting.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 px-4 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">OUR VALUES</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">What We Stand For</h2>
+      {/* Why I Do This Section */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">Why I Do This</h2>
+
+          <div className="text-black space-y-5 text-lg leading-relaxed">
+            <p>
+              I do this for my own family, and I do this to make life easier for other families across Northeastern and Eastern Pennsylvania. When we buy a property, everyone wins — the seller gets a quick close with cash in hand, and we get to transform another house into a home someone will be proud to live in.
+            </p>
+            <p>
+              If you&apos;re thinking about selling your house, I&apos;d love to talk. No pressure, no obligation — just a straightforward conversation about your options.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
+            <p className="text-xl font-semibold text-slate-800 mb-1">— Tyler</p>
+            <p className="text-slate-600">Founder, ClearEdge Home Buyers</p>
+            <a href="tel:5709042059" className="inline-flex items-center space-x-2 mt-3 text-[#0d9488] font-bold text-lg hover:text-[#0a7c72] transition-colors">
+              <Phone className="w-5 h-5" />
+              <span>(570) 904-2059</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Homeowners Choose Us */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WHY CLEAREDGE</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Why Homeowners Choose Us</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              {
-                icon: Shield,
-                title: 'Transparency',
-                desc: 'No hidden fees, no surprises. We explain every step of the process and our offer is exactly what you receive at closing.',
-              },
-              {
-                icon: Clock,
-                title: 'Speed',
-                desc: 'Get a fair cash offer within 24 hours. Close on your timeline — whether that&apos;s 7 days or 60 days.',
-              },
-              {
-                icon: DollarSign,
-                title: 'Fairness',
-                desc: 'We make competitive offers based on market value. No lowball tactics or pressure to accept.',
-              },
-              {
-                icon: MapPin,
-                title: 'Local Expertise',
-                desc: 'We know Eastern Pennsylvania. From Scranton to Allentown, we understand local markets and neighborhoods.',
-              },
-            ].map((value, i) => (
-              <div key={i} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-5">
-                  <value.icon className="w-7 h-7 text-[#0d9488]" />
-                </div>
-                <h3 className="font-bold text-xl text-slate-800 mb-3">{value.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{value.desc}</p>
+              'Cash offers within 24 hours',
+              'Close in as little as 7 days',
+              'We buy houses in any condition',
+              'Zero fees or commissions',
+              'We pay all closing costs',
+              'Local team, not a national call center',
+            ].map((item, i) => (
+              <div key={i} className="flex items-center space-x-3 bg-slate-50 rounded-xl p-5 border border-slate-100">
+                <CheckCircle className="w-6 h-6 text-[#0d9488] flex-shrink-0" />
+                <span className="text-slate-800 font-medium text-lg">{item}</span>
               </div>
             ))}
           </div>
@@ -157,7 +159,7 @@ export default function AboutPage() {
       </section>
 
       {/* Service Areas */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
@@ -173,7 +175,7 @@ export default function AboutPage() {
               'Stroudsburg', 'Hazleton', 'Carbondale', 'Pittston', 'Honesdale', 'Dunmore',
               'Kingston', 'Nanticoke', 'Bloomsburg', 'Pottsville', 'Lehighton', 'Jim Thorpe',
             ].map((city) => (
-              <div key={city} className="bg-slate-50 rounded-xl p-3 text-center hover:bg-[#0d9488]/10 transition-colors border border-slate-100">
+              <div key={city} className="bg-white rounded-xl p-3 text-center hover:bg-[#0d9488]/10 transition-colors border border-slate-100">
                 <span className="font-semibold text-slate-700 text-sm">{city}</span>
               </div>
             ))}
@@ -185,33 +187,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-20 px-4 bg-slate-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center space-x-2 bg-[#0d9488]/10 rounded-full px-4 py-2 mb-6">
-            <Award className="w-5 h-5 text-[#047857]" />
-            <span className="text-sm font-semibold text-[#047857]">EXPERIENCE YOU CAN TRUST</span>
+      {/* Title Company Partner Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">TRUSTED PARTNER</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Our Trusted Closing Partner</h2>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
-            Real Estate Professionals, Not Middlemen
-          </h2>
+          <div className="bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-200 text-center">
+            <div className="w-16 h-16 bg-[#0d9488]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Building2 className="w-8 h-8 text-[#0d9488]" />
+            </div>
 
-          <p className="text-lg text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Our team brings years of real estate experience to every transaction. We&apos;ve helped hundreds of Pennsylvania homeowners sell their properties quickly and move on with their lives. When you work with ClearEdge, you&apos;re working directly with decision-makers who can give you an answer fast.
-          </p>
+            <h3 className="text-2xl font-bold text-slate-800 mb-2">Brokers Settlement Services</h3>
+            <div className="flex items-center justify-center space-x-2 text-slate-600 mb-6">
+              <MapPin className="w-4 h-4" />
+              <span>Pittsburgh, PA</span>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { number: '100+', label: 'Homes Purchased' },
-              { number: '24hr', label: 'Offer Turnaround' },
-              { number: '10+', label: 'Counties Served' },
-            ].map((stat, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-                <div className="text-4xl font-bold text-[#0d9488] mb-2">{stat.number}</div>
-                <div className="text-slate-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto italic">
+              &ldquo;We work with Matt Buckley and the team at Brokers Settlement Services to ensure every closing is smooth, professional, and stress-free for our sellers.&rdquo;
+            </p>
           </div>
         </div>
       </section>
