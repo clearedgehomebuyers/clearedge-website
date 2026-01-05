@@ -5,24 +5,29 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
 
-// All available locations
+// All available locations (21 total)
 const allLocations = [
   { name: 'Scranton', slug: 'scranton' },
   { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
-  { name: 'Hazleton', slug: 'hazleton' },
-  { name: 'Stroudsburg', slug: 'stroudsburg' },
   { name: 'Allentown', slug: 'allentown' },
   { name: 'Bethlehem', slug: 'bethlehem' },
   { name: 'Easton', slug: 'easton' },
   { name: 'Reading', slug: 'reading' },
+  { name: 'Hazleton', slug: 'hazleton' },
+  { name: 'Stroudsburg', slug: 'stroudsburg' },
+  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
   { name: 'Honesdale', slug: 'honesdale' },
   { name: 'Carbondale', slug: 'carbondale' },
   { name: 'Pittston', slug: 'pittston' },
   { name: 'Kingston', slug: 'kingston' },
-  { name: 'Dunmore', slug: 'dunmore' },
   { name: 'Nanticoke', slug: 'nanticoke' },
+  { name: 'Dunmore', slug: 'dunmore' },
   { name: 'Bloomsburg', slug: 'bloomsburg' },
   { name: 'Pottsville', slug: 'pottsville' },
+  { name: 'Pocono Pines', slug: 'pocono-pines' },
+  { name: 'Tannersville', slug: 'tannersville' },
+  { name: 'Lehigh Valley', slug: 'lehigh-valley' },
+  { name: 'Poconos', slug: 'poconos' },
 ]
 
 // Shuffle array using Fisher-Yates algorithm

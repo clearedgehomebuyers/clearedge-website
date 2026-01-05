@@ -4,19 +4,29 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 
+// All 21 locations
 const allLocations = [
   { name: 'Scranton', slug: 'scranton' },
   { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
   { name: 'Allentown', slug: 'allentown' },
   { name: 'Bethlehem', slug: 'bethlehem' },
-  { name: 'Hazleton', slug: 'hazleton' },
-  { name: 'Stroudsburg', slug: 'stroudsburg' },
   { name: 'Easton', slug: 'easton' },
   { name: 'Reading', slug: 'reading' },
+  { name: 'Hazleton', slug: 'hazleton' },
+  { name: 'Stroudsburg', slug: 'stroudsburg' },
+  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
+  { name: 'Honesdale', slug: 'honesdale' },
   { name: 'Carbondale', slug: 'carbondale' },
   { name: 'Pittston', slug: 'pittston' },
-  { name: 'Honesdale', slug: 'honesdale' },
   { name: 'Kingston', slug: 'kingston' },
+  { name: 'Nanticoke', slug: 'nanticoke' },
+  { name: 'Dunmore', slug: 'dunmore' },
+  { name: 'Bloomsburg', slug: 'bloomsburg' },
+  { name: 'Pottsville', slug: 'pottsville' },
+  { name: 'Pocono Pines', slug: 'pocono-pines' },
+  { name: 'Tannersville', slug: 'tannersville' },
+  { name: 'Lehigh Valley', slug: 'lehigh-valley' },
+  { name: 'Poconos', slug: 'poconos' },
 ]
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -29,10 +39,11 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export function ServiceAreasGrid() {
-  const [locations, setLocations] = useState(allLocations)
+  // Show 12 random locations on homepage
+  const [locations, setLocations] = useState(allLocations.slice(0, 12))
 
   useEffect(() => {
-    setLocations(shuffleArray(allLocations))
+    setLocations(shuffleArray(allLocations).slice(0, 12))
   }, [])
 
   return (
