@@ -306,21 +306,21 @@ return (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="/properties/property-5.jpg"
+                src="/properties/property-5.webp"
                 alt="Victorian duplex purchased in Scranton, PA"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="/properties/property-3.jpg"
+                src="/properties/property-3.webp"
                 alt="House purchased in Hazleton, PA"
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <img
-                src="/properties/property-4.jpg"
+                src="/properties/property-4.webp"
                 alt="House purchased in Wilkes-Barre, PA"
                 className="w-full h-full object-cover"
               />
