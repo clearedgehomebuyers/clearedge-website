@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Sell Your House Fast for Cash | ClearEdge Home Buyers",
+    default: "ClearEdge Home Buyers | Sell Your House Fast for Cash in PA",
     template: "%s | ClearEdge Home Buyers",
   },
-  description: "Get a fair cash offer in 24 hours. We buy houses in any condition throughout Eastern Pennsylvania. No repairs, no fees, no commissions. Close in as little as 7 days.",
+  description: "Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours. Serving NEPA, Lehigh Valley, and Poconos.",
   applicationName: "ClearEdge Home Buyers",
   metadataBase: new URL('https://www.clearedgehomebuyers.com'),
   keywords: [
@@ -33,13 +33,16 @@ export const metadata: Metadata = {
     'Scranton house buyers',
     'sell inherited house',
     'avoid foreclosure',
+    'NEPA home buyers',
+    'Lehigh Valley cash home buyers',
+    'Poconos house buyers',
   ],
   authors: [{ name: 'ClearEdge Home Buyers' }],
   creator: 'ClearEdge Home Buyers',
   publisher: 'ClearEdge Home Buyers',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
@@ -47,29 +50,28 @@ export const metadata: Metadata = {
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: '/manifest.json',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.clearedgehomebuyers.com',
     siteName: 'ClearEdge Home Buyers',
-    title: 'Sell Your House Fast for Cash | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer in 24 hours. We buy houses in any condition throughout Eastern Pennsylvania. No repairs, no fees, no commissions. Close in as little as 7 days.',
+    title: 'ClearEdge Home Buyers | Sell Your House Fast for Cash',
+    description: 'Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours.',
     images: [
       {
-        url: '/og-image.png',
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash',
+        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Eastern PA',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sell Your House Fast for Cash | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer in 24 hours. We buy houses in any condition throughout Eastern Pennsylvania. No repairs, no fees, no commissions.',
-    images: ['/og-image.png'],
-    creator: '@clearedgehome',
+    title: 'ClearEdge Home Buyers | Sell Your House Fast for Cash',
+    description: 'Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions.',
+    images: ['https://www.clearedgehomebuyers.com/og-image.png'],
   },
   robots: {
     index: true,
