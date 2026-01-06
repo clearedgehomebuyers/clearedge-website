@@ -62,14 +62,10 @@ async function generateFavicons() {
     .toFile(resolve(publicDir, 'icon-512.png'))
   console.log('✓ icon-512.png')
 
-  // Generate favicon.ico (32x32 PNG converted to ICO format)
-  // Sharp doesn't support ICO directly, so we'll create a 32x32 PNG
-  // and rename it - browsers handle PNG favicons fine
-  await sharp(squareLogoPath)
-    .resize(32, 32, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 1 } })
-    .png()
-    .toFile(resolve(publicDir, 'favicon.ico'))
-  console.log('✓ favicon.ico (as PNG)')
+  // Note: favicon.ico should be the proper multi-size ICO from src/app/favicon.ico
+  // Don't regenerate it here - sharp can't create proper ICO files
+  // Copy from src/app/favicon.ico to public/favicon.ico if needed
+  console.log('⏭ favicon.ico (use existing from src/app/favicon.ico)')
 }
 
 async function generateOGImage() {
