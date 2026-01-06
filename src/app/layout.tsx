@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'ClearEdge Home Buyers' }],
   creator: 'ClearEdge Home Buyers',
   publisher: 'ClearEdge Home Buyers',
+  icons: {
+    icon: '/favicon.ico',
+  },
   manifest: '/manifest.json',
   openGraph: {
     type: 'website',
