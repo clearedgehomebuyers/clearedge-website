@@ -7,7 +7,7 @@ import { Phone, MapPin, Heart, CheckCircle, Building2, ArrowRight } from 'lucide
 
 export const metadata = {
   title: 'About Us | ClearEdge Home Buyers | Eastern PA Cash Home Buyers',
-  description: 'Meet Tyler Swenson, founder of ClearEdge Home Buyers. Learn how a $150,000 duplex on Birch Street in Scranton started a mission to help Eastern PA homeowners sell fast.',
+  description: 'Meet Tyler Swenson, founder of ClearEdge Home Buyers. Learn how a $70,000 duplex on Birch Street in Scranton started a mission to help Eastern PA homeowners sell fast.',
   openGraph: {
     title: 'About ClearEdge Home Buyers',
     description: 'Meet Tyler Swenson and learn why ClearEdge Home Buyers is your trusted local cash home buyer in Eastern Pennsylvania.',
@@ -38,7 +38,7 @@ export default function AboutPage() {
           </h1>
 
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Local real estate investors passionate about helping Pennsylvania homeowners and revitalizing communities since 2015.
+            Local real estate investors passionate about helping Pennsylvania homeowners and revitalizing communities since 2016.
           </p>
         </div>
       </section>
@@ -65,13 +65,13 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">My Story</h2>
               <div className="text-slate-700 space-y-5 text-lg leading-relaxed">
                 <p>
-                  I got into real estate back in 2015.
+                  I got into real estate back in 2015 alongside my longtime high school friend when we decided to find a different path for ourselves.
                 </p>
                 <p>
-                  My partner and I began acquiring properties right here in Scranton, Wilkes-Barre, Allentown, and other areas throughout Eastern Pennsylvania.
+                  Not long after that, it led us to acquiring properties right here in Scranton, Wilkes-Barre, Allentown, and other areas throughout Eastern Pennsylvania starting in 2016.
                 </p>
                 <p>
-                  Our first property was a duplex on Birch Street in Scranton. Bought it on-market for $150,000.
+                  Our first property was a duplex on Birch Street in Scranton. Bought it on-market for $70,000.
                 </p>
                 <p>
                   We were in over our heads.
