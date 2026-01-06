@@ -1,11 +1,8 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
 
-// All available locations (21 total)
+// All 21 locations - displayed statically for SEO
 const allLocations = [
   { name: 'Scranton', slug: 'scranton' },
   { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
@@ -30,24 +27,7 @@ const allLocations = [
   { name: 'Poconos', slug: 'poconos' },
 ]
 
-// Shuffle array using Fisher-Yates algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
 export function Footer() {
-  const [displayLocations, setDisplayLocations] = useState(allLocations.slice(0, 12))
-
-  useEffect(() => {
-    // Shuffle and pick 12 random locations on mount
-    const shuffled = shuffleArray(allLocations)
-    setDisplayLocations(shuffled.slice(0, 12))
-  }, [])
 
   return (
     <footer className="bg-[#1e3a5f] text-white py-16 px-4">
@@ -74,17 +54,18 @@ export function Footer() {
               <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
               <li><Link href="/testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
             </ul>
           </div>
 
-          {/* Service Areas */}
+          {/* Service Areas - All 21 Locations */}
           <div className="md:col-span-2">
             <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-slate-300">
-              {displayLocations.map((location) => (
+            <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-slate-300 text-sm">
+              {allLocations.map((location) => (
                 <li key={location.slug}>
                   <Link href={`/locations/${location.slug}`} className="hover:text-white transition-colors">
                     {location.name}, PA

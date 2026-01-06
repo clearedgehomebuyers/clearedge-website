@@ -5,9 +5,14 @@ import { LeadForm } from '@/components/LeadForm'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { ServiceAreasGrid } from '@/components/ServiceAreasGrid'
-import { Phone, Clock, DollarSign, Shield, Award, Star, Users, CheckCircle, ArrowRight, FileText, Handshake } from 'lucide-react'
+import { getRecentBlogPosts } from '@/sanity/lib/queries'
+import { urlFor } from '@/sanity/lib/image'
+import { Phone, Clock, DollarSign, Shield, Award, Star, Users, CheckCircle, ArrowRight, FileText, Handshake, Building2, ScrollText, Heart, Plane, UserX, Home, Wrench, AlertTriangle, BookOpen } from 'lucide-react'
 
-export default function HomePage() {
+export const revalidate = 3600
+
+export default async function HomePage() {
+  const recentPosts = await getRecentBlogPosts(3)
 return (
     <main>
       <WebSiteSchema />
@@ -335,13 +340,126 @@ return (
         </div>
       </section>
 
+      {/* Latest from Blog */}
+      {recentPosts && recentPosts.length > 0 && (
+        <section className="py-24 px-4 bg-slate-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FROM THE BLOG</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Selling Tips & Local Insights</h2>
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">Expert advice on selling your house fast in Eastern Pennsylvania.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {recentPosts.map((post: { _id: string; title: string; slug: { current: string }; excerpt: string; publishedAt: string; featuredImage?: { asset: { url: string }; alt: string } }) => (
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug.current}`}
+                  className="bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 group"
+                >
+                  {post.featuredImage?.asset?.url && (
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={urlFor(post.featuredImage).width(400).height(250).url()}
+                        alt={post.featuredImage.alt || post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="font-bold text-lg text-slate-800 mb-3 group-hover:text-[#0d9488] transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm line-clamp-2">{post.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Link
+                href="/blog"
+                className="inline-flex items-center text-[#047857] font-semibold hover:underline text-lg"
+              >
+                <BookOpen className="w-5 h-5 mr-2" />
+                View All Articles
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Situations We Help With */}
+      <section className="py-24 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SITUATIONS WE HELP WITH</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Buy Houses in Any Situation</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">No matter what you&apos;re facing, we can help. Get a fair cash offer and close on your timeline.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link href="/situations/foreclosure" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <Building2 className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Facing Foreclosure</span>
+            </Link>
+            <Link href="/situations/inherited-property" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <ScrollText className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Inherited Property</span>
+            </Link>
+            <Link href="/situations/divorce" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <Heart className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Going Through Divorce</span>
+            </Link>
+            <Link href="/situations/job-relocation" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <Plane className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Relocating for Work</span>
+            </Link>
+            <Link href="/situations/tired-landlord" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <UserX className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Tired Landlord</span>
+            </Link>
+            <Link href="/situations/vacant-property" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <Home className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Vacant Property</span>
+            </Link>
+            <Link href="/situations/major-repairs" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <Wrench className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Major Repairs Needed</span>
+            </Link>
+            <Link href="/situations/tax-liens-code-violations" className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:border-[#0d9488] hover:shadow-md transition-all text-center group">
+              <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#0d9488]/20 transition-colors">
+                <AlertTriangle className="w-6 h-6 text-[#0d9488]" />
+              </div>
+              <span className="font-semibold text-slate-700">Tax Liens or Code Violations</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Service Areas */}
       <section className="py-24 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Buy Houses Across Eastern Pennsylvania</h2>
-            <p className="text-xl text-slate-600">From the Poconos to the Lehigh Valley — we&apos;re ready to make you a fair cash offer.</p>
+            <p className="text-xl text-slate-600">From the Poconos to the Lehigh Valley — we&apos;re ready to make you a fair cash offer. <Link href="/sell-house-fast-scranton-pa" className="text-[#047857] font-semibold hover:underline">Sell your house fast in Scranton</Link> and surrounding areas.</p>
           </div>
 
           <ServiceAreasGrid />

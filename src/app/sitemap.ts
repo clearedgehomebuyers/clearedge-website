@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getLocations, getSituations } from '@/sanity/lib/queries'
+import { getLocations, getSituations, getBlogPostSlugs } from '@/sanity/lib/queries'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.clearedgehomebuyers.com'
@@ -16,6 +16,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/sell-house-fast-scranton-pa`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.9,
     },
     {
@@ -68,5 +74,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...locationPages, ...situationPages]
+  // Fetch blog posts from Sanity
+  const blogSlugs = await getBlogPostSlugs()
+  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug: string) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...locationPages, ...situationPages, ...blogPages]
 }
