@@ -1,4 +1,4 @@
-// Cache bust: 1767729600
+// Cache bust: 1767730000 - PNG favicon
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
@@ -42,7 +42,13 @@ export const metadata: Metadata = {
   creator: 'ClearEdge Home Buyers',
   publisher: 'ClearEdge Home Buyers',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   manifest: '/manifest.json',
   openGraph: {
