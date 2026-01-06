@@ -92,17 +92,17 @@ async function generateOGImage() {
     .resize(targetLogoWidth, targetLogoHeight, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
     .toBuffer()
 
-  // Create SVG text for taglines
+  // Create SVG text for taglines (dark blue on white background)
   const taglineSvg = `
     <svg width="${width}" height="${height}">
       <style>
         .tagline {
-          fill: white;
+          fill: #1e3a5f;
           font-family: Arial, Helvetica, sans-serif;
           font-weight: bold;
         }
         .subtitle {
-          fill: #94a3b8;
+          fill: #666666;
           font-family: Arial, Helvetica, sans-serif;
           font-weight: normal;
         }
@@ -121,13 +121,13 @@ async function generateOGImage() {
   const logoLeft = Math.round((width - targetLogoWidth) / 2)
   const logoTop = Math.round((height - targetLogoHeight) / 2) - 80 // Shift up to make room for text
 
-  // Create the OG image with dark blue background
+  // Create the OG image with white background
   await sharp({
     create: {
       width: width,
       height: height,
       channels: 4,
-      background: { r: 30, g: 58, b: 95, alpha: 1 } // #1e3a5f
+      background: { r: 255, g: 255, b: 255, alpha: 1 } // #ffffff white
     }
   })
     .composite([
