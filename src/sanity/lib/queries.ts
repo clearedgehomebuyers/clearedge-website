@@ -112,3 +112,16 @@ export async function getRecentBlogPosts(limit: number = 3) {
 export async function getBlogPostSlugs() {
   return client.fetch(`*[_type == "blogPost" && defined(slug.current)][].slug.current`)
 }
+
+export async function getBlogPostsBySituation(situationSlug: string) {
+  return client.fetch(
+    `*[_type == "blogPost" && references(*[_type == "situation" && slug.current == $situationSlug]._id)] | order(publishedAt desc) {
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt
+    }`,
+    { situationSlug }
+  )
+}

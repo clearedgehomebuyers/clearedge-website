@@ -1,11 +1,11 @@
-import { getSituationBySlug, getSituations } from '@/sanity/lib/queries'
+import { getSituationBySlug, getSituations, getBlogPostsBySituation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import { LeadForm } from '@/components/LeadForm'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Home } from 'lucide-react'
+import { Phone, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Home, FileText } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText } from '@portabletext/react'
 
@@ -29,7 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function SituationPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const situation = await getSituationBySlug(slug)
+  const [situation, relatedBlogPosts] = await Promise.all([
+    getSituationBySlug(slug),
+    getBlogPostsBySituation(slug)
+  ])
 
   if (!situation) {
     notFound()
@@ -217,6 +220,43 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     {faq.answer}
                   </div>
                 </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Blog Posts */}
+      {relatedBlogPosts && relatedBlogPosts.length > 0 && (
+        <section className="py-24 px-4 bg-slate-50">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">HELPFUL GUIDES</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Related Articles</h2>
+            </div>
+
+            <div className="space-y-4">
+              {relatedBlogPosts.map((post: any) => (
+                <Link
+                  key={post._id}
+                  href={`/blog/${post.slug.current}`}
+                  className="block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-[#0d9488]" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-slate-800 mb-2 hover:text-[#0d9488] transition-colors">{post.title}</h3>
+                      {post.excerpt && (
+                        <p className="text-slate-600 text-sm line-clamp-2">{post.excerpt}</p>
+                      )}
+                      <span className="inline-flex items-center text-[#0d9488] font-semibold text-sm mt-3">
+                        Read Article <ArrowRight className="w-4 h-4 ml-1" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>
