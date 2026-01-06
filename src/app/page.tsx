@@ -34,14 +34,18 @@ return (
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Sell Your House
+                We Buy Houses in
                 <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]">
-                  Fast For Cash
+                  Eastern Pennsylvania
                 </span>
               </h1>
-              
+
+              <h2 className="text-2xl md:text-3xl font-semibold text-white/90 mb-6">
+                Sell Your House Fast for Cash — No Fees, No Repairs
+              </h2>
+
               <p className="text-xl text-slate-300 mb-10 max-w-lg leading-relaxed">
-                Get a fair cash offer in 24 hours. Close in as little as 7 days. No repairs needed. No fees or commissions.
+                Get a fair cash offer in 24 hours. Close in as little as 7 days. We buy houses in any condition throughout NEPA, Lehigh Valley, and the Poconos.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-4 mb-10">

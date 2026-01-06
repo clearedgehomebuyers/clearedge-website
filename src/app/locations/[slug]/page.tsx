@@ -20,10 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const location = await getLocationBySlug(slug)
   if (!location) return {}
-  
+
+  const countyText = location.county ? `, ${location.county}` : ''
+
   return {
-    title: location.metaTitle || `Sell Your House Fast in ${location.city}, PA | ClearEdge Home Buyers`,
-    description: location.metaDescription || `Get a fair cash offer for your ${location.city} home in 24 hours. No repairs, no fees, no commissions.`,
+    title: location.metaTitle || `Sell Your House Fast in ${location.city}${countyText} PA | ClearEdge Home Buyers`,
+    description: location.metaDescription || `Sell your house fast in ${location.city}${countyText} PA. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions. We buy houses as-is.`,
   }
 }
 
@@ -102,9 +104,23 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* County H2 Section */}
+      {location.county && (
+        <section className="py-8 bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-800">
+              We Buy Houses in {location.city} and All of {location.county}
+            </h2>
+            <p className="text-slate-600 mt-3 max-w-2xl mx-auto">
+              Whether you&apos;re in {location.city} or anywhere else in {location.county}, we can make you a fair cash offer within 24 hours.
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Local Trust Bar */}
       {location.nearbyTowns && location.nearbyTowns.length > 0 && (
-        <section className="py-6 bg-white border-b border-slate-100">
+        <section className="py-6 bg-slate-50 border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex flex-wrap justify-center items-center gap-6 text-slate-600">
               <span className="text-sm font-medium">Trusted by homeowners in:</span>
@@ -137,7 +153,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help {location.city} Homeowners in Any Situation</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help {location.city}{location.county ? ` & ${location.county}` : ''} Homeowners</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
