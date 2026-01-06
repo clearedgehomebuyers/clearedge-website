@@ -105,7 +105,7 @@ export async function getRecentBlogPosts(limit: number = 3) {
         alt
       }
     }`,
-    { limit: limit - 1 }
+    { limit }
   )
 }
 
