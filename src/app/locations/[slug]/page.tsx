@@ -88,6 +88,14 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
     })
   }
 
+  if (county?.includes('Schuylkill')) {
+    guides.push({
+      title: 'Cash Home Buyers Pottsville PA: The Complete Guide to Selling Your Coal Region House Fast',
+      href: '/blog/cash-home-buyers-pottsville-pa',
+      excerpt: 'Looking for cash home buyers in Pottsville? Your complete guide to selling in Schuylkill County.',
+    })
+  }
+
   // Universal guides (show for all locations)
   guides.push({
     title: 'Can I Sell My Deceased Parents\' House Without Probate in Pennsylvania?',
