@@ -44,6 +44,11 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
       href: '/blog/cash-home-buyers-lackawanna-county-no-fees',
       excerpt: 'What to know before selling to a cash buyer in the Scranton area. No fees, fast closing.',
     })
+    guides.push({
+      title: 'Sell My House Fast Dunmore Mine Subsidence: Your Complete Guide',
+      href: '/blog/sell-my-house-fast-dunmore-mine-subsidence',
+      excerpt: 'Need to sell a house with mine subsidence damage in Dunmore? Learn your options, repair costs, and how to get a fair cash offer.',
+    })
   }
 
   if (county?.includes('Luzerne')) {
