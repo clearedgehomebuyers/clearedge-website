@@ -28,6 +28,63 @@ const portableTextComponents: PortableTextComponents = {
   },
 }
 
+// Helper function to get relevant blog posts based on county
+function getHelpfulGuides(county: string | undefined): { title: string; href: string; excerpt: string }[] {
+  const guides: { title: string; href: string; excerpt: string }[] = []
+
+  // County-specific guides
+  if (county?.includes('Lackawanna')) {
+    guides.push({
+      title: 'How to Avoid Foreclosure in Scranton PA: 7 Options Before It\'s Too Late',
+      href: '/blog/avoid-foreclosure-scranton-pa',
+      excerpt: 'Facing foreclosure in Lackawanna County? Learn your options to stop foreclosure and protect your credit.',
+    })
+    guides.push({
+      title: 'Cash Home Buyers in Lackawanna County With No Fees',
+      href: '/blog/cash-home-buyers-lackawanna-county-no-fees',
+      excerpt: 'What to know before selling to a cash buyer in the Scranton area. No fees, fast closing.',
+    })
+  }
+
+  if (county?.includes('Luzerne')) {
+    guides.push({
+      title: 'Sell My House Fast Luzerne County PA: The Complete Local Guide',
+      href: '/blog/sell-my-house-fast-luzerne-county-pa',
+      excerpt: 'Everything you need to know about selling your house fast in Wilkes-Barre, Hazleton, and Luzerne County.',
+    })
+  }
+
+  if (county?.includes('Lehigh')) {
+    guides.push({
+      title: 'Sell My House Fast Allentown: The No-BS Guide From a Local Cash Buyer',
+      href: '/blog/sell-my-house-fast-allentown',
+      excerpt: 'A straightforward guide to selling your Allentown home fast for cash.',
+    })
+  }
+
+  if (county?.includes('Northampton')) {
+    guides.push({
+      title: 'Sell My House Fast Allentown: The No-BS Guide From a Local Cash Buyer',
+      href: '/blog/sell-my-house-fast-allentown',
+      excerpt: 'Selling in the Lehigh Valley? This guide covers what you need to know.',
+    })
+  }
+
+  // Universal guides (show for all locations)
+  guides.push({
+    title: 'Can I Sell My Deceased Parents\' House Without Probate in Pennsylvania?',
+    href: '/blog/sell-deceased-parents-house-without-probate-pennsylvania',
+    excerpt: 'Inherited a property? Learn when you can sell without going through probate.',
+  })
+  guides.push({
+    title: 'Documents Required for Selling Inherited Property in Pennsylvania',
+    href: '/blog/documents-required-selling-inherited-property-pennsylvania',
+    excerpt: 'The complete checklist of paperwork you\'ll need to sell an inherited house.',
+  })
+
+  return guides
+}
+
 export async function generateStaticParams() {
   const locations = await getLocations()
   return locations.map((location: any) => ({
@@ -324,6 +381,44 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
       )}
+
+      {/* Helpful Guides Section */}
+      {(() => {
+        const guides = getHelpfulGuides(location.county)
+        return guides.length > 0 ? (
+          <section className="py-24 px-4 bg-slate-50">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">HELPFUL GUIDES</span>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Related Articles for {location.city} Homeowners</h2>
+              </div>
+
+              <div className="space-y-4">
+                {guides.map((guide, i) => (
+                  <Link
+                    key={i}
+                    href={guide.href}
+                    className="block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <FileText className="w-6 h-6 text-[#0d9488]" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg text-slate-800 mb-2 hover:text-[#0d9488] transition-colors">{guide.title}</h3>
+                        <p className="text-slate-600 text-sm line-clamp-2">{guide.excerpt}</p>
+                        <span className="inline-flex items-center text-[#0d9488] font-semibold text-sm mt-3">
+                          Read Article <ArrowRight className="w-4 h-4 ml-1" />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null
+      })()}
 
       {/* Final CTA */}
       <section className="py-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
