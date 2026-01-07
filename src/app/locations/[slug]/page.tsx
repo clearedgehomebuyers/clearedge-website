@@ -96,6 +96,15 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
     })
   }
 
+  // Poconos area counties (Monroe, Pike, Wayne, Carbon)
+  if (county?.includes('Monroe') || county?.includes('Pike') || county?.includes('Wayne') || county?.includes('Carbon')) {
+    guides.push({
+      title: 'Sell My House Fast Poconos PA: The Complete Guide for Vacation Home Owners',
+      href: '/blog/sell-my-house-fast-poconos-pa',
+      excerpt: 'Your complete guide to selling vacation homes, cabins, and properties in the Poconos fast for cash.',
+    })
+  }
+
   // Universal guides (show for all locations)
   guides.push({
     title: 'Can I Sell My Deceased Parents\' House Without Probate in Pennsylvania?',
