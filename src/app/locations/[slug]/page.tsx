@@ -56,6 +56,11 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
 
   if (county?.includes('Lehigh')) {
     guides.push({
+      title: 'Sell My House Fast Lehigh Valley: Your Complete Guide to a Quick Sale',
+      href: '/blog/sell-my-house-fast-lehigh-valley',
+      excerpt: 'Your complete guide to selling fast in Allentown, Bethlehem, Easton and all of Lehigh Valley.',
+    })
+    guides.push({
       title: 'Sell My House Fast Allentown: The No-BS Guide From a Local Cash Buyer',
       href: '/blog/sell-my-house-fast-allentown',
       excerpt: 'A straightforward guide to selling your Allentown home fast for cash.',
@@ -63,6 +68,11 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
   }
 
   if (county?.includes('Northampton')) {
+    guides.push({
+      title: 'Sell My House Fast Lehigh Valley: Your Complete Guide to a Quick Sale',
+      href: '/blog/sell-my-house-fast-lehigh-valley',
+      excerpt: 'Your complete guide to selling fast in Allentown, Bethlehem, Easton and all of Lehigh Valley.',
+    })
     guides.push({
       title: 'Sell My House Fast Allentown: The No-BS Guide From a Local Cash Buyer',
       href: '/blog/sell-my-house-fast-allentown',
