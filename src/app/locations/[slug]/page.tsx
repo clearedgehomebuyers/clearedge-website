@@ -7,7 +7,26 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { PortableText } from '@portabletext/react'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
+
+// Custom components for rendering Portable Text with links
+const portableTextComponents: PortableTextComponents = {
+  marks: {
+    link: ({ children, value }) => {
+      return (
+        <a
+          href={value?.href}
+          className="text-[#0d9488] hover:underline font-medium"
+        >
+          {children}
+        </a>
+      )
+    },
+    strong: ({ children }) => (
+      <strong className="font-bold">{children}</strong>
+    ),
+  },
+}
 
 export async function generateStaticParams() {
   const locations = await getLocations()
@@ -142,7 +161,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             </div>
             
             <div className="text-slate-600 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
-              <PortableText value={location.problemStatement} />
+              <PortableText value={location.problemStatement} components={portableTextComponents} />
             </div>
           </div>
         </section>
