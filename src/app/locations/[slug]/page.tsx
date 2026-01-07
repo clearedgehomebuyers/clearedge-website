@@ -91,6 +91,11 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
       href: '/blog/cash-home-buyers-berks-county',
       excerpt: 'Looking for cash home buyers in Berks County? Everything you need to know about selling your house fast for cash.',
     })
+    guides.push({
+      title: 'How to Stop Berks County Judicial Sale 2026: Your Complete Guide',
+      href: '/blog/how-to-stop-berks-county-judicial-sale-2026',
+      excerpt: 'Facing a Berks County Judicial Tax Sale? Learn 6 ways to stop the sale, save your equity, and protect your home.',
+    })
   }
 
   if (county?.includes('Schuylkill')) {
