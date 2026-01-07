@@ -70,6 +70,14 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
     })
   }
 
+  if (county?.includes('Berks')) {
+    guides.push({
+      title: 'Cash Home Buyers Berks County: The Complete 2026 Guide',
+      href: '/blog/cash-home-buyers-berks-county',
+      excerpt: 'Looking for cash home buyers in Berks County? Everything you need to know about selling your house fast for cash.',
+    })
+  }
+
   // Universal guides (show for all locations)
   guides.push({
     title: 'Can I Sell My Deceased Parents\' House Without Probate in Pennsylvania?',
