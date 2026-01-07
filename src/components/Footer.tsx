@@ -1,9 +1,18 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
 
-// All 21 locations - displayed statically for SEO
-const allLocations = [
+// Locations to always place at the end (long names need space below)
+const bottomRowLocations = [
+  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
+  { name: 'Pocono Pines', slug: 'pocono-pines' },
+]
+
+// All other locations (will be randomized)
+const otherLocations = [
   { name: 'Scranton', slug: 'scranton' },
   { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
   { name: 'Allentown', slug: 'allentown' },
@@ -12,7 +21,6 @@ const allLocations = [
   { name: 'Reading', slug: 'reading' },
   { name: 'Hazleton', slug: 'hazleton' },
   { name: 'Stroudsburg', slug: 'stroudsburg' },
-  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
   { name: 'Honesdale', slug: 'honesdale' },
   { name: 'Carbondale', slug: 'carbondale' },
   { name: 'Pittston', slug: 'pittston' },
@@ -21,13 +29,30 @@ const allLocations = [
   { name: 'Dunmore', slug: 'dunmore' },
   { name: 'Bloomsburg', slug: 'bloomsburg' },
   { name: 'Pottsville', slug: 'pottsville' },
-  { name: 'Pocono Pines', slug: 'pocono-pines' },
   { name: 'Tannersville', slug: 'tannersville' },
   { name: 'Lehigh Valley', slug: 'lehigh-valley' },
   { name: 'Poconos', slug: 'poconos' },
 ]
 
+// Fisher-Yates shuffle
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export function Footer() {
+  // Initial state uses original order for SSR
+  const [locations, setLocations] = useState([...otherLocations, ...bottomRowLocations])
+
+  useEffect(() => {
+    // Randomize other locations, then append bottom row locations at the end
+    const shuffled = shuffleArray(otherLocations)
+    setLocations([...shuffled, ...bottomRowLocations])
+  }, [])
 
   return (
     <footer className="bg-[#1e3a5f] text-white py-16 px-4">
@@ -65,7 +90,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
             <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-slate-300 text-sm">
-              {allLocations.map((location) => (
+              {locations.map((location) => (
                 <li key={location.slug}>
                   <Link href={`/locations/${location.slug}`} className="hover:text-white transition-colors">
                     {location.name}, PA
