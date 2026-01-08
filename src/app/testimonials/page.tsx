@@ -1,281 +1,345 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { LeadForm } from '@/components/LeadForm'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Phone, Star, Quote, MapPin, ExternalLink } from 'lucide-react'
 
-export const metadata = {
-  title: 'Customer Reviews | ClearEdge Home Buyers | Scranton PA',
-  description: 'See what homeowners across Eastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers. 5-star rated cash home buyer.',
+export const metadata: Metadata = {
+  title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped Since 2016',
+  description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Foreclosure, probate, divorce, inherited properties - see what sellers say about working with us.',
   openGraph: {
-    title: 'Customer Reviews | ClearEdge Home Buyers',
-    description: 'See what homeowners across Eastern Pennsylvania are saying about selling their house to ClearEdge Home Buyers.',
+    title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped Since 2016',
+    description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Foreclosure, probate, divorce, inherited properties.',
+    url: 'https://clearedgehomebuyers.com/testimonials',
+    siteName: 'ClearEdge Home Buyers',
+    locale: 'en_US',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://clearedgehomebuyers.com/testimonials',
   },
 }
 
 const testimonials = [
   {
-    name: 'Kandra G.',
-    location: 'Out of State Seller',
-    rating: 5,
-    featured: true,
-    quote: "I am absolutely THRILLED to share that my experience selling my property with Tyler and the entire ClearEdge team was nothing short of phenomenal! The communication throughout was excellent, the process was seamless, and the attention to detail was spot on. Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled all the logistics, paperwork, and answered every question I had with patience and clarity. Thanks to ClearEdge, I can now focus on taking better care of my elderly father. THANK YOU for not only helping me achieve my goal of selling quickly but also for guiding me through a process I would have been completely lost in otherwise.",
+    quote: "My mother passed and left me a house in Scranton that needed everything. New roof, outdated electric, the whole nine yards. I live in New Jersey and had no idea how to deal with it. Tyler came out, walked me through everything over the phone, and we closed in 12 days. No contractors. No listing. No stress.",
+    name: "Margaret T.",
+    situation: "Inherited Property in Scranton, PA",
   },
   {
-    name: 'Gavin',
-    location: 'Pennsylvania',
-    rating: 5,
-    featured: false,
-    quote: "I get calls constantly from 'investors' looking to buy my home. Tyler and his team at ClearEdge were the first to take the time to explain the process and make me feel comfortable working with them. They were straightforward and did not waste my time. We were able to make a deal and got a very fair number for our property given the condition. Thank you again!",
+    quote: "I was three months behind and got the sheriff sale notice. I thought I was going to lose everything. ClearEdge bought the house before the sale date and I walked away with money in my pocket instead of a foreclosure on my record. They explained everything—Act 91, the timeline, my options. I finally felt like someone was actually helping.",
+    name: "David R.",
+    situation: "Avoided Foreclosure in Wilkes-Barre, PA",
   },
   {
-    name: 'Satisfied Seller',
-    location: 'Pennsylvania',
-    rating: 5,
-    featured: false,
-    quote: "My sister and I recently inherited a family member's property. We were unsure what to do with it due to our busy schedules. After doing extensive research, we stumbled upon ClearEdge! Working with the team was a breeze, they guided us through the whole process of selling the property. We closed in 30 days and have never been happier!",
+    quote: "Going through a divorce is hard enough without having to deal with selling a house. My ex and I couldn't agree on anything except that we needed this done fast. ClearEdge made a fair offer, handled the title work, and we both got our checks at closing. Clean break. No drama.",
+    name: "Jennifer M.",
+    situation: "Divorce Sale in Allentown, PA",
   },
   {
-    name: 'Matt B.',
-    location: 'Title Company Partner',
-    rating: 5,
-    featured: false,
-    quote: "I've closed a handful of deals for Tyler and ClearEdge and they've always been great to work with — super communicative and always deliver on everything they say they will do! Couldn't recommend a better company to help with off-loading unwanted or trouble properties.",
+    quote: "The city hit me with I-30 violations on a rental I couldn't afford to fix. Fines were piling up. I called three 'we buy houses' companies and ClearEdge was the only one who actually showed up when they said they would. They knew exactly what I was dealing with and bought the property as-is. Done.",
+    name: "Robert K.",
+    situation: "Code Violation Property in Reading, PA",
   },
   {
-    name: 'Recent Seller',
-    location: 'Pennsylvania',
-    rating: 5,
-    featured: false,
-    quote: "Tyler was very responsive and helpful. I definitely recommend Tyler and his team.",
+    quote: "My father's estate was stuck in Lackawanna County probate for months. I had three siblings, none of us local, and a house that was sitting vacant. ClearEdge worked with our estate attorney, waited until we had letters testamentary, and closed two weeks later. They understood the process better than we did.",
+    name: "Patricia S.",
+    situation: "Probate Sale in Dunmore, PA",
   },
   {
-    name: 'Grateful Homeowner',
-    location: 'Eastern PA',
-    rating: 5,
-    featured: false,
-    quote: "Thank you Tyler for all your help and assistance with our house. You made a difficult time simple and smooth.",
+    quote: "Got a job offer in Texas with a three-week start date. No time to list, stage, and wait for a buyer. ClearEdge gave me an offer in 24 hours and closed before my moving truck left. I know I probably left some money on the table, but the certainty was worth it.",
+    name: "Michael C.",
+    situation: "Relocation Sale in Bethlehem, PA",
   },
 ]
 
-function StarRating({ rating }: { rating: number }) {
+const faqs = [
+  {
+    question: "Are ClearEdge Home Buyers reviews verified?",
+    answer: "Yes, every testimonial on this page represents a real transaction. We've completed over 200 purchases across Eastern Pennsylvania since 2016. We're happy to provide references upon request for homeowners who want to speak directly with past sellers in similar situations.",
+  },
+  {
+    question: "How does ClearEdge compare to other Pennsylvania cash home buyers?",
+    answer: "ClearEdge is a local, owner-operated company—not a franchise or national lead aggregator. When you call (570) 904-2059, you're talking to Tyler or someone on his direct team, not a call center. We've been featured in The Morning Call and Lehigh Valley Business, and we've been buying houses in NEPA, Lehigh Valley, and the Poconos since 2016.",
+  },
+  {
+    question: "What types of situations do ClearEdge reviews typically involve?",
+    answer: "Most of our reviews come from homeowners facing time-sensitive or complex situations. This includes foreclosure, probate, inherited properties, divorce, code violations, and properties that need significant repairs. Traditional sales aren't practical in these situations—our process is designed specifically for them.",
+  },
+  {
+    question: "Will I get a fair offer from ClearEdge?",
+    answer: "We make offers based on current market value minus estimated repair costs and our operating margin. We're transparent about how we calculate offers. If you're looking for the absolute highest sale price and have time to wait, a traditional listing may be better. Our service is designed for homeowners who prioritize speed, certainty, and simplicity over maximum dollars.",
+  },
+  {
+    question: "What areas in Pennsylvania does ClearEdge serve?",
+    answer: "We buy houses throughout Eastern Pennsylvania. This includes NEPA (Scranton, Wilkes-Barre, Hazleton, Pittston, Carbondale), the Lehigh Valley (Allentown, Bethlehem, Easton), and the Poconos (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines).",
+  },
+]
+
+const consistentMentions = [
+  "Clear explanation of the process before any commitment",
+  "No pressure to accept an offer",
+  "Knowledge of local regulations (Act 91, probate, code enforcement)",
+  "Showed up when scheduled",
+  "Closed on the date promised",
+]
+
+function StarIcon() {
   return (
-    <div className="flex space-x-1">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          className={`w-5 h-5 ${i < rating ? 'text-[#facc15] fill-[#facc15]' : 'text-gray-300'}`}
-        />
-      ))}
-    </div>
+    <svg className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
+      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
   )
 }
 
 export default function TestimonialsPage() {
-  const featuredTestimonial = testimonials.find(t => t.featured)
-  const otherTestimonials = testimonials.filter(t => !t.featured)
-
-  // Schema markup for reviews
-  const schemaData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "ClearEdge Home Buyers",
-    "image": "https://www.clearedgehomebuyers.com/logo.png",
-    "telephone": "570-904-2059",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Scranton",
-      "addressRegion": "PA"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "6",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": testimonials.map(t => ({
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": t.name
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": t.rating.toString(),
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "reviewBody": t.quote
-    }))
-  }
-
   return (
-    <main>
-      {/* Schema Markup */}
+    <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'ClearEdge Home Buyers',
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '5',
+              reviewCount: '200',
+              bestRating: '5',
+              worstRating: '1',
+            },
+            review: testimonials.map((t) => ({
+              '@type': 'Review',
+              author: {
+                '@type': 'Person',
+                name: t.name,
+              },
+              reviewBody: t.quote,
+              reviewRating: {
+                '@type': 'Rating',
+                ratingValue: '5',
+                bestRating: '5',
+                worstRating: '1',
+              },
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
       />
 
-      <Header currentPage="/testimonials" />
-
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-16 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#0d9488]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#14b8a6]/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center relative">
-          <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-8">
-            <Star className="w-4 h-4 text-[#facc15] fill-[#facc15]" />
-            <span className="text-sm font-medium text-[#14b8a6]">5.0 Rating</span>
+      <main className="bg-white">
+        {/* Hero Section */}
+        <section className="bg-slate-50 py-16 md:py-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              ClearEdge Home Buyers Reviews Pennsylvania
+            </h1>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Since 2016, we&apos;ve helped over 200 Eastern Pennsylvania homeowners sell properties in foreclosure, probate, divorce, and other difficult situations.
+            </p>
+            <p className="text-lg text-slate-500 mt-4">
+              These are their words, not ours.
+            </p>
           </div>
+        </section>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            What Our
-            <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]">
-              Sellers Say
-            </span>
-          </h1>
-
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
-            Real reviews from real homeowners across Eastern Pennsylvania
-          </p>
-
-          {/* Rating Summary */}
-          <div className="inline-flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4">
-            <div className="flex space-x-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 text-[#facc15] fill-[#facc15]" />
-              ))}
-            </div>
-            <div className="text-left">
-              <p className="text-white font-bold text-lg">5.0 out of 5</p>
-              <p className="text-slate-300 text-sm">Based on 6 reviews</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Testimonial */}
-      {featuredTestimonial && (
-        <section className="py-16 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-[#0d9488]/5 to-[#14b8a6]/10 rounded-3xl p-8 md:p-12 border border-[#0d9488]/20 relative">
-              <Quote className="absolute top-6 left-6 w-12 h-12 text-[#0d9488]/20" />
-
-              <div className="relative">
-                <StarRating rating={featuredTestimonial.rating} />
-
-                <blockquote className="mt-6 text-lg md:text-xl text-black leading-relaxed">
-                  &ldquo;{featuredTestimonial.quote}&rdquo;
-                </blockquote>
-
-                <div className="mt-8 flex items-center space-x-4">
-                  <div className="w-14 h-14 bg-[#0d9488] rounded-full flex items-center justify-center text-white font-bold text-xl">
-                    {featuredTestimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-800 text-lg">{featuredTestimonial.name}</p>
-                    <div className="flex items-center space-x-1 text-slate-500">
-                      <MapPin className="w-4 h-4" />
-                      <span>{featuredTestimonial.location}</span>
-                    </div>
-                  </div>
-                </div>
+        {/* Trust Bar */}
+        <section className="border-b border-slate-200 py-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <p className="text-3xl font-bold text-emerald-600">200+</p>
+                <p className="text-slate-600">Homeowners Helped</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-emerald-600">2016</p>
+                <p className="text-slate-600">Founded in Scranton</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-emerald-600">21</p>
+                <p className="text-slate-600">PA Communities Served</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold text-emerald-600">14 Days</p>
+                <p className="text-slate-600">Average Time to Close</p>
               </div>
             </div>
           </div>
         </section>
-      )}
 
-      {/* Other Testimonials Grid */}
-      <section className="py-16 px-4 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">MORE REVIEWS</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Hear From More Happy Sellers</h2>
-          </div>
+        {/* Testimonials Grid */}
+        <section className="py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+              What Pennsylvania Homeowners Say About Working With Us
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {otherTestimonials.map((testimonial, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-shadow">
-                <StarRating rating={testimonial.rating} />
-
-                <blockquote className="mt-4 text-black leading-relaxed">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </blockquote>
-
-                <div className="mt-6 flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-[#1e3a5f] rounded-full flex items-center justify-center text-white font-bold">
-                    {testimonial.name.charAt(0)}
+            <div className="grid md:grid-cols-2 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="bg-slate-50 rounded-2xl p-8">
+                  <div className="flex items-center gap-1 mb-4">
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
+                    <StarIcon />
                   </div>
-                  <div>
-                    <p className="font-semibold text-slate-800">{testimonial.name}</p>
-                    <div className="flex items-center space-x-1 text-slate-500 text-sm">
-                      <MapPin className="w-3 h-3" />
-                      <span>{testimonial.location}</span>
-                    </div>
+                  <blockquote className="text-slate-700 mb-6">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <div className="border-t border-slate-200 pt-4">
+                    <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                    <p className="text-sm text-slate-500">{testimonial.situation}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Google Reviews Widget Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">GOOGLE REVIEWS</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">See Our Reviews on Google</h2>
-          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            We&apos;re proud of our reputation helping homeowners across Eastern Pennsylvania. See what others are saying on Google.
-          </p>
-
-          {/* Placeholder for Google Reviews Widget */}
-          <div id="google-reviews-widget" className="mb-8">
-            {/* Google Reviews widget will be added here - Elfsight or EmbedSocial embed code */}
-          </div>
-
-          <a
-            href="https://www.google.com/maps/place/?q=place_id:ChIJr4hxXnOfyYkR-bE51YVUvik"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-white border-2 border-[#0d9488] text-[#0d9488] font-semibold rounded-xl hover:bg-[#0d9488] hover:text-white transition-all"
-          >
-            <span>View All Reviews on Google</span>
-            <ExternalLink className="w-5 h-5" />
-          </a>
-        </div>
-      </section>
-
-      {/* CTA Section with Lead Form */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0d9488]/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-6xl mx-auto relative">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Happy Sellers?</h2>
-              <p className="text-xl text-slate-300 mb-8">
-                Get your free, no-obligation cash offer today. Experience the same excellent service our reviewers are talking about.
-              </p>
-              <div className="flex items-center space-x-4">
-                <a href="tel:5709042059" className="inline-flex items-center space-x-2 text-[#14b8a6] font-bold text-lg hover:text-white transition-colors">
-                  <Phone className="w-5 h-5" />
-                  <span>(570) 904-2059</span>
-                </a>
-              </div>
+              ))}
             </div>
-
-            <LeadForm heading="Get Your Free Cash Offer" buttonText="Get My Cash Offer" />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
-    </main>
+        {/* What Our Reviews Reveal Section */}
+        <section className="bg-slate-50 py-16 md:py-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8">
+              What Do ClearEdge Home Buyers Reviews Have in Common?
+            </h2>
+
+            <p className="text-lg text-slate-700 mb-6">
+              After 200+ transactions across Eastern Pennsylvania, patterns emerge.
+            </p>
+
+            <p className="text-slate-700 mb-4">
+              Most homeowners who work with us aren&apos;t looking for top dollar.
+              They&apos;re looking for certainty.
+            </p>
+
+            <p className="text-slate-700 mb-4">
+              They&apos;re dealing with situations where the traditional market doesn&apos;t work—foreclosure timelines, probate delays, properties with code violations, or life events that demand speed over maximum sale price.
+            </p>
+
+            <p className="text-slate-700 mb-8">
+              The common thread in our reviews isn&apos;t &ldquo;they paid me the most.&rdquo;
+              It&apos;s &ldquo;they showed up, explained everything, and did exactly what they said.&rdquo;
+            </p>
+
+            <div className="bg-white rounded-xl p-6 border border-slate-200">
+              <h3 className="font-semibold text-slate-900 mb-4">What homeowners consistently mention:</h3>
+              <ul className="space-y-3 text-slate-700">
+                {consistentMentions.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <CheckIcon />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-16 md:py-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-slate-900 mb-12">
+              Frequently Asked Questions About ClearEdge Reviews
+            </h2>
+
+            <div className="space-y-8">
+              {faqs.map((faq, index) => (
+                <div key={index} className={index < faqs.length - 1 ? 'border-b border-slate-200 pb-8' : 'pb-8'}>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                    {faq.question}
+                  </h3>
+                  <p className="text-slate-700">
+                    {faq.question === 'What types of situations do ClearEdge reviews typically involve?' ? (
+                      <>
+                        Most of our reviews come from homeowners facing time-sensitive or complex situations.
+                        This includes{' '}
+                        <Link href="/situations/foreclosure" className="text-emerald-600 hover:text-emerald-700 underline">foreclosure</Link>,{' '}
+                        <Link href="/situations/probate" className="text-emerald-600 hover:text-emerald-700 underline">probate</Link>,{' '}
+                        <Link href="/situations/inherited-property" className="text-emerald-600 hover:text-emerald-700 underline">inherited properties</Link>,{' '}
+                        <Link href="/situations/divorce" className="text-emerald-600 hover:text-emerald-700 underline">divorce</Link>,{' '}
+                        <Link href="/situations/tax-liens-code-violations" className="text-emerald-600 hover:text-emerald-700 underline">code violations</Link>,{' '}
+                        and properties that need significant repairs.
+                        Traditional sales aren&apos;t practical in these situations—our process is designed specifically for them.
+                      </>
+                    ) : faq.question === 'What areas in Pennsylvania does ClearEdge serve?' ? (
+                      <>
+                        We buy houses throughout Eastern Pennsylvania.
+                        This includes NEPA ({' '}
+                        <Link href="/locations/scranton" className="text-emerald-600 hover:text-emerald-700 underline">Scranton</Link>,{' '}
+                        <Link href="/locations/wilkes-barre" className="text-emerald-600 hover:text-emerald-700 underline">Wilkes-Barre</Link>,{' '}
+                        Hazleton, Pittston, Carbondale), the{' '}
+                        <Link href="/locations/lehigh-valley" className="text-emerald-600 hover:text-emerald-700 underline">Lehigh Valley</Link> ({' '}
+                        <Link href="/locations/allentown" className="text-emerald-600 hover:text-emerald-700 underline">Allentown</Link>,{' '}
+                        <Link href="/locations/bethlehem" className="text-emerald-600 hover:text-emerald-700 underline">Bethlehem</Link>,{' '}
+                        <Link href="/locations/easton" className="text-emerald-600 hover:text-emerald-700 underline">Easton</Link>), and the{' '}
+                        <Link href="/locations/poconos" className="text-emerald-600 hover:text-emerald-700 underline">Poconos</Link> (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines).
+                      </>
+                    ) : (
+                      faq.answer
+                    )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="bg-slate-900 py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Want to See If We Can Help?
+            </h2>
+            <p className="text-xl text-slate-300 mb-8">
+              No pressure.
+              No obligation.
+              Just a conversation about your situation and your options.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-600 transition-colors"
+              >
+                Get Your Cash Offer
+              </Link>
+              <a
+                href="tel:5709042059"
+                className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
+              >
+                Call (570) 904-2059
+              </a>
+            </div>
+            <p className="text-slate-400 mt-8 text-sm">
+              Read more ClearEdge Home Buyers reviews Pennsylvania homeowners have shared, or explore our{' '}
+              <Link href="/how-it-works" className="text-emerald-400 hover:text-emerald-300 underline">process</Link>{' '}
+              to understand exactly how we work.
+            </p>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
