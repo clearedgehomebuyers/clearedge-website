@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'How do you determine your offer price?',
-    answer: 'We calculate offers based on the property\'s after-repair value minus our estimated repair costs, current market comparables, and our operating margin. We\'ll show you exactly how we arrived at the number. There\'s no mystery or hidden math.',
+    answer: 'We calculate offers based on what your house will be worth after it\'s fully renovated, minus the cost of repairs and our operating margin. We also factor in holding costs you\'d pay during a traditional sale — property taxes, utilities, insurance, and interest. We\'ll walk you through the math so you see exactly how we arrived at the number.',
   },
   {
     question: 'Will I get less than market value?',
@@ -112,22 +112,22 @@ export default function HowItWorksPage() {
                   {
                     '@type': 'HowToStep',
                     position: 1,
-                    name: 'Tell Us About Your Property',
+                    name: 'Get a Cash Offer in 24 Hours',
                     text: 'Call us at (570) 904-2059 or submit your property details online. We ask basic questions about the address, your situation, timeline, and condition. Within 24 hours guaranteed, you receive an all-cash offer — plus alternative options if they make sense for your situation.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-1',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 2,
-                    name: 'Review Your Offer',
-                    text: 'We present a guaranteed cash offer valid for 30 days, calculated from after-repair value, repair costs, and market comparables. If you decide to move forward, we schedule a 20-30 minute walkthrough to confirm condition and take photos.',
+                    name: 'See Exactly How We Calculated Your Price',
+                    text: 'We present a guaranteed cash offer valid for 30 days, calculated from after-repair value minus repair costs, holding costs, and our operating margin. If you decide to move forward, we schedule a 20-30 minute walkthrough to confirm condition and take photos.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-2',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 3,
-                    name: 'Choose Your Closing Date',
-                    text: 'You pick the closing date — as few as 7 days or up to 30+ days. We handle title work and logistics. Sign at a title company, attorney office, or with a mobile notary at your location. Receive funds same day or next business day.',
+                    name: 'You Pick the Closing Date (7 to 30 Days)',
+                    text: 'You choose the closing date — as few as 7 days or up to 30+ days. We handle title work and logistics. Sign at a title company, attorney office, or with a mobile notary at your location. Receive funds same day or next business day.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-3',
                   },
                 ],
@@ -204,7 +204,7 @@ export default function HowItWorksPage() {
             <div className="mb-12" id="step-1">
               <div className="flex items-center gap-4 mb-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">1</span>
-                <h3 className="text-2xl font-bold text-slate-900">Tell Us About Your Property</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Get a Cash Offer in 24 Hours</h3>
               </div>
               <p className="text-slate-700 mb-3">
                 Call us at <a href="tel:5709042059" className="text-amber-600 hover:text-amber-700 font-medium">(570) 904-2059</a> or submit your property details through our website.
@@ -227,16 +227,23 @@ export default function HowItWorksPage() {
             <div className="mb-12" id="step-2">
               <div className="flex items-center gap-4 mb-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">2</span>
-                <h3 className="text-2xl font-bold text-slate-900">Review Your Offer</h3>
+                <h3 className="text-2xl font-bold text-slate-900">See Exactly How We Calculated Your Price</h3>
               </div>
               <p className="text-slate-700 mb-3">
                 We'll call you back within 24 hours with a guaranteed cash offer that's valid for 30 days.
                 If today isn't the right time, the offer doesn't disappear.
               </p>
               <p className="text-slate-700 mb-3">
+                We calculate your offer based on what your house will be worth after it's fully renovated, minus the cost of the work and our operating margin.
+              </p>
+              <p className="text-slate-700 mb-3">
+                We also factor in the holding costs you'd pay during a traditional sale — property taxes, utilities, insurance, and the interest that would eat into your equity while the house sits on the market for 60 to 90 days.
+                When you sell to us, those costs become our problem, not yours.
+              </p>
+              <p className="text-slate-700 mb-3">
                 We're able to move this quickly because of our experience.
                 After nearly a decade of buying properties throughout Eastern Pennsylvania, we know these markets inside and out.
-                We calculate your offer based on the property's after-repair value, expected repair costs, current market comparables, and our operating margin — then walk you through exactly how we arrived at the number.
+                We'll walk you through exactly how we arrived at your number — no mystery, no hidden math.
               </p>
               <p className="text-slate-700 mb-3">
                 If you decide ClearEdge is a good fit, we'll schedule a walkthrough at your convenience — usually within a few days.
@@ -256,7 +263,7 @@ export default function HowItWorksPage() {
             <div className="mb-12" id="step-3">
               <div className="flex items-center gap-4 mb-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">3</span>
-                <h3 className="text-2xl font-bold text-slate-900">Choose Your Closing Date</h3>
+                <h3 className="text-2xl font-bold text-slate-900">You Pick the Closing Date (7 to 30 Days)</h3>
               </div>
               <p className="text-slate-700 mb-3">
                 At this point, the heavy lifting is done.
@@ -397,9 +404,9 @@ export default function HowItWorksPage() {
                   How do you determine your offer price?
                 </h3>
                 <p className="text-slate-700">
-                  We calculate offers based on the property's after-repair value minus our estimated repair costs, current market comparables, and our operating margin.
-                  We'll show you exactly how we arrived at the number.
-                  There's no mystery or hidden math.
+                  We calculate offers based on what your house will be worth after it's fully renovated, minus the cost of repairs and our operating margin.
+                  We also factor in holding costs you'd pay during a traditional sale — property taxes, utilities, insurance, and interest.
+                  We'll walk you through the math so you see exactly how we arrived at the number.
                 </p>
               </div>
 
