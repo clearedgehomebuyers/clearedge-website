@@ -5,7 +5,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText } from 'lucide-react'
+import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -127,7 +127,7 @@ function getHelpfulGuides(county: string | undefined): { title: string; href: st
     excerpt: 'The complete checklist of paperwork you\'ll need to sell an inherited house.',
   })
 
-  return guides
+  return guides.slice(0, 3)
 }
 
 export async function generateStaticParams() {
@@ -459,6 +459,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     </div>
                   </Link>
                 ))}
+              </div>
+
+              {/* More Helpful Guides Button */}
+              <div className="text-center mt-10">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 font-semibold rounded-xl border border-slate-200 transition-colors"
+                >
+                  <BookOpen className="w-5 h-5 mr-2 text-[#0d9488]" />
+                  More Helpful Guides
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </div>
             </div>
           </section>
