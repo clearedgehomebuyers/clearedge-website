@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: 'sell my house fast Pennsylvania, cash home buyers PA, we buy houses NEPA, sell house fast Lehigh Valley, Poconos cash home buyer',
   openGraph: {
     title: 'Sell My House Fast Pennsylvania | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 14 days. No repairs, no showings, no agent fees.',
+    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 7 days. No repairs, no showings, no agent fees.',
     url: 'https://clearedgehomebuyers.com',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sell My House Fast Pennsylvania | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 14 days.',
+    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 7 days.',
   },
   alternates: {
     canonical: 'https://clearedgehomebuyers.com',
@@ -42,10 +42,10 @@ const situations = [
   { name: 'Job Relocation', href: '/situations/job-relocation' },
   { name: 'Vacant Property', href: '/situations/vacant-property' },
   { name: 'Fire Damage', href: '/situations/fire-damage' },
-  { name: 'Bad Tenants', href: '/situations/bad-tenants' },
+  { name: 'Tired Landlord', href: '/situations/tired-landlord' },
   { name: 'Tax Liens', href: '/situations/tax-liens-code-violations' },
   { name: 'Code Violations', href: '/situations/tax-liens-code-violations' },
-  { name: 'Behind on Payments', href: '/situations/foreclosure' },
+  { name: 'Major Repairs Needed', href: '/situations/major-repairs' },
   { name: 'Downsizing', href: '/situations/downsizing' },
 ]
 
@@ -76,7 +76,7 @@ const locations = [
 const faqs = [
   {
     question: 'How quickly can ClearEdge close on my Pennsylvania house?',
-    answer: 'We can close in as few as 14 days when you need to move quickly. The exact timeline depends on title work, but most straightforward sales close within 21 to 30 days. If you need more time, we\'ll work around your schedule.',
+    answer: 'We can close in as few as 7 days when you need to move quickly. The exact timeline depends on title work, but most straightforward sales close within 14 to 30 days. If you need more time, we\'ll work around your schedule.',
   },
   {
     question: 'What types of properties does ClearEdge buy?',
@@ -84,11 +84,11 @@ const faqs = [
   },
   {
     question: 'How does ClearEdge determine its cash offer?',
-    answer: 'Our offer is based on the property\'s after-repair value minus estimated repair costs and our operating margin. We\'ll walk you through this calculation transparently. Our goal is an offer that works for both parties — we don\'t use pressure tactics or artificial deadlines.',
+    answer: 'We calculate offers based on what your house will be worth after it\'s fully renovated, minus the cost of repairs, holding costs, and our operating margin. We\'ll walk you through exactly how we arrived at the number — no mystery, no hidden math.',
   },
   {
     question: 'Is there any obligation if I request an offer?',
-    answer: 'No. You can request an offer, review it, and decide it\'s not for you. There\'s no cost, no commitment, and no follow-up pressure. We believe you should have all the information to make the right decision.',
+    answer: 'No. You can request an offer, review it, and decide it\'s not for you. Our offers are valid for 30 days. There\'s no cost, no commitment, and no follow-up pressure. We believe you should have all the information to make the right decision.',
   },
   {
     question: 'Can I sell my Pennsylvania house if I still have a mortgage?',
@@ -291,7 +291,7 @@ export default function HomePage() {
                 </h3>
                 <p className="text-slate-700">
                   The average days on market in Pennsylvania varies significantly by condition and location.
-                  Properties with deferred maintenance, estate situations, or tenant complications often sit 90 to 180 days before receiving a viable offer.
+                  Properties with deferred maintenance, estate situations, or tenant complications often sit 60 to 90 days before receiving a viable offer.
                   Every month on market costs you insurance, taxes, utilities, and risk of further deterioration.
                 </p>
               </div>
@@ -324,8 +324,64 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* THE CLEAREDGE APPROACH */}
+        {/* THE HIDDEN COST OF WAITING - COMPARISON TABLE */}
         <section className="py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              The Hidden Cost of Waiting
+            </h2>
+            <p className="text-lg text-slate-700 mb-8">
+              When you list traditionally, you're not just waiting — you're paying.
+              Here's what a typical 90-day listing actually costs compared to a cash sale.
+            </p>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-slate-900 text-white">
+                    <th className="text-left py-4 px-6 font-semibold">Expense</th>
+                    <th className="text-center py-4 px-6 font-semibold">Traditional Sale<br /><span className="font-normal text-slate-300 text-sm">(90 Days)</span></th>
+                    <th className="text-center py-4 px-6 font-semibold bg-amber-500 text-slate-900">ClearEdge Sale<br /><span className="font-normal text-slate-700 text-sm">(7–30 Days)</span></th>
+                  </tr>
+                </thead>
+                <tbody className="text-slate-700">
+                  <tr className="border-b border-slate-200">
+                    <td className="py-4 px-6 font-medium">Repairs Before Listing</td>
+                    <td className="py-4 px-6 text-center text-red-600 font-semibold">$15,000+</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                  </tr>
+                  <tr className="border-b border-slate-200 bg-slate-50">
+                    <td className="py-4 px-6 font-medium">Holding Costs<br /><span className="text-sm text-slate-500">(Taxes, Utilities, Insurance, Mortgage)</span></td>
+                    <td className="py-4 px-6 text-center text-red-600 font-semibold">$4,500+</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                  </tr>
+                  <tr className="border-b border-slate-200">
+                    <td className="py-4 px-6 font-medium">Agent Commissions<br /><span className="text-sm text-slate-500">(6% on a $200k home)</span></td>
+                    <td className="py-4 px-6 text-center text-red-600 font-semibold">$12,000</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                  </tr>
+                  <tr className="border-b border-slate-200 bg-slate-50">
+                    <td className="py-4 px-6 font-medium">Closing Cost Contributions</td>
+                    <td className="py-4 px-6 text-center text-red-600 font-semibold">$3,000+</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                  </tr>
+                  <tr className="bg-slate-900 text-white">
+                    <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
+                    <td className="py-4 px-6 text-center font-bold text-red-400">$34,500+</td>
+                    <td className="py-4 px-6 text-center font-bold text-green-400 bg-amber-600">$0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="text-slate-600 text-sm mt-6 italic">
+              *Based on a $200,000 home with typical Eastern PA repair needs and 90-day market time. Your actual costs may vary.
+            </p>
+          </div>
+        </section>
+
+        {/* THE CLEAREDGE APPROACH */}
+        <section className="bg-slate-50 py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-8">
               How Does ClearEdge Buy Houses in Pennsylvania?
@@ -338,7 +394,7 @@ export default function HomePage() {
               It's about giving you a clear option so you can make the right decision for your situation.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">No repairs required</h3>
                 <p className="text-slate-700">
                   We buy properties in any condition.
@@ -346,7 +402,7 @@ export default function HomePage() {
                   You don't spend money or time fixing anything.
                 </p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">No showings or open houses</h3>
                 <p className="text-slate-700">
                   There's no parade of strangers through your home.
@@ -354,7 +410,7 @@ export default function HomePage() {
                   We visit once to evaluate the property.
                 </p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">No agent commissions or fees</h3>
                 <p className="text-slate-700">
                   We're not agents — we're the buyer.
@@ -362,10 +418,10 @@ export default function HomePage() {
                   The offer we make is what you receive at closing.
                 </p>
               </div>
-              <div className="bg-slate-50 p-6 rounded-lg">
+              <div className="bg-white p-6 rounded-lg border border-slate-200">
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">You choose the closing date</h3>
                 <p className="text-slate-700">
-                  Need to close in 14 days? We can do that.
+                  Need to close in 7 days? We can do that.
                   Need 60 days to coordinate a move? That works too.
                   The timeline is built around what you need.
                 </p>
@@ -404,7 +460,7 @@ export default function HomePage() {
         </section>
 
         {/* SERVICE AREAS */}
-        <section className="py-16 lg:py-20">
+        <section className="py-16 lg:py-20" id="service-areas">
           <div className="max-w-4xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Where Does ClearEdge Buy Houses in Pennsylvania?
