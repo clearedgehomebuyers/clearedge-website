@@ -5,11 +5,11 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'How It Works | Sell Your House Fast for Cash in Pennsylvania | ClearEdge',
-  description: 'Learn how to sell your house fast for cash in Pennsylvania. Three simple steps: tell us about your property, get a cash offer in 48 hours, close on your timeline. No repairs, no agents, no fees.',
+  description: 'Learn how to sell your house fast for cash in Pennsylvania. Three simple steps: tell us about your property, get a cash offer in 24 hours, close on your timeline. No repairs, no agents, no fees.',
   keywords: 'how to sell your house fast for cash Pennsylvania, cash home buying process, sell house fast PA, ClearEdge process',
   openGraph: {
     title: 'How It Works | Sell Your House Fast for Cash | ClearEdge Home Buyers',
-    description: 'Three steps to sell your Pennsylvania house for cash. No repairs, no showings, no uncertainty. Close in as few as 14 days.',
+    description: 'Three steps to sell your Pennsylvania house for cash. No repairs, no showings, no uncertainty. Close in as few as 7 days.',
     url: 'https://clearedgehomebuyers.com/how-it-works',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'How It Works | Sell Your House Fast for Cash | ClearEdge',
-    description: 'Three steps to sell your Pennsylvania house for cash. Close in as few as 14 days.',
+    description: 'Three steps to sell your Pennsylvania house for cash. Close in as few as 7 days.',
   },
   alternates: {
     canonical: 'https://clearedgehomebuyers.com/how-it-works',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'How do you determine your offer price?',
-    answer: 'We calculate offers based on the property\'s after-repair value minus our estimated repair costs and operating margin. We\'ll show you exactly how we arrived at the number. There\'s no mystery or hidden math.',
+    answer: 'We calculate offers based on the property\'s after-repair value minus our estimated repair costs, current market comparables, and our operating margin. We\'ll show you exactly how we arrived at the number. There\'s no mystery or hidden math.',
   },
   {
     question: 'Will I get less than market value?',
@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: 'What if I change my mind after getting an offer?',
-    answer: 'Nothing happens. Our offer comes with no obligation. You can review it, think about it, and decide it\'s not right for you. There\'s no pressure and no follow-up harassment.',
+    answer: 'Nothing happens. Our offer is valid for 30 days and comes with no obligation. You can review it, think about it, and decide it\'s not right for you. There\'s no pressure and no follow-up harassment.',
   },
   {
     question: 'Do you buy houses everywhere in Pennsylvania?',
@@ -102,7 +102,7 @@ export default function HowItWorksPage() {
                 '@id': 'https://clearedgehomebuyers.com/how-it-works/#howto',
                 name: 'How to Sell Your House Fast for Cash in Pennsylvania',
                 description: 'A three-step process to sell your Pennsylvania house for cash without repairs, showings, or agent fees.',
-                totalTime: 'P14D',
+                totalTime: 'P7D',
                 estimatedCost: {
                   '@type': 'MonetaryAmount',
                   currency: 'USD',
@@ -113,21 +113,21 @@ export default function HowItWorksPage() {
                     '@type': 'HowToStep',
                     position: 1,
                     name: 'Tell Us About Your Property',
-                    text: 'Call us at (570) 904-2059 or submit your property details through our website. We\'ll ask basic questions about the property address, your situation, timeline, and condition. Within 24 hours, we\'ll confirm if the property fits our criteria and schedule a walkthrough.',
+                    text: 'Call us at (570) 904-2059 or submit your property details online. We ask basic questions about the address, your situation, timeline, and condition. Within 24 hours guaranteed, you receive an all-cash offer — plus alternative options if they make sense for your situation.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-1',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 2,
-                    name: 'We Evaluate the Property',
-                    text: 'We schedule a 20-30 minute walkthrough to confirm property condition. Within 24-48 hours after the walkthrough, we present a written cash offer.',
+                    name: 'Review Your Offer',
+                    text: 'We present a guaranteed cash offer valid for 30 days, calculated from after-repair value, repair costs, and market comparables. If you decide to move forward, we schedule a 20-30 minute walkthrough to confirm condition and take photos.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-2',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 3,
                     name: 'Choose Your Closing Date',
-                    text: 'If you accept our offer, you pick the closing date. Close in as few as 14 days or take up to 60 days. We handle title work and closing logistics. You receive funds same day or next business day.',
+                    text: 'You pick the closing date — as few as 7 days or up to 30+ days. We handle title work and logistics. Sign at a title company, attorney office, or with a mobile notary at your location. Receive funds same day or next business day.',
                     url: 'https://clearedgehomebuyers.com/how-it-works#step-3',
                   },
                 ],
@@ -197,7 +197,7 @@ export default function HowItWorksPage() {
               How Does Selling to ClearEdge Work?
             </h2>
             <p className="text-lg text-slate-700 mb-10">
-              Our process has three steps and typically takes 14 to 30 days from first contact to closing.
+              Our process has three steps and typically takes 7 to 30 days from first contact to closing.
             </p>
 
             {/* Step 1 */}
@@ -210,14 +210,16 @@ export default function HowItWorksPage() {
                 Call us at <a href="tel:5709042059" className="text-amber-600 hover:text-amber-700 font-medium">(570) 904-2059</a> or submit your property details through our website.
               </p>
               <p className="text-slate-700 mb-3">
-                We'll ask basic questions: the property address, your situation, your timeline, and the general condition of the house.
+                We'll ask a few basic questions: the property address, your situation, your timeline, and the general condition of the house.
               </p>
               <p className="text-slate-700 mb-3">
                 This conversation takes about 10 minutes.
                 There's no obligation and no pressure.
               </p>
               <p className="text-slate-700">
-                Within 24 hours, we'll let you know if the property fits our buying criteria and schedule a walkthrough.
+                Within 24 hours — guaranteed — we'll get back to you with an all-cash offer.
+                Depending on your situation and the property, we may also present alternative options that could be a better fit for both of us.
+                But at minimum, you'll have a cash number in hand within a day.
               </p>
             </div>
 
@@ -225,21 +227,28 @@ export default function HowItWorksPage() {
             <div className="mb-12" id="step-2">
               <div className="flex items-center gap-4 mb-4">
                 <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">2</span>
-                <h3 className="text-2xl font-bold text-slate-900">We Evaluate the Property</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Review Your Offer</h3>
               </div>
               <p className="text-slate-700 mb-3">
-                We'll schedule a time to walk through the property — usually within a few days of your initial call.
+                We'll call you back within 24 hours with a guaranteed cash offer that's valid for 30 days.
+                If today isn't the right time, the offer doesn't disappear.
+              </p>
+              <p className="text-slate-700 mb-3">
+                We're able to move this quickly because of our experience.
+                After nearly a decade of buying properties throughout Eastern Pennsylvania, we know these markets inside and out.
+                We calculate your offer based on the property's after-repair value, expected repair costs, current market comparables, and our operating margin — then walk you through exactly how we arrived at the number.
+              </p>
+              <p className="text-slate-700 mb-3">
+                If you decide ClearEdge is a good fit, we'll schedule a walkthrough at your convenience — usually within a few days.
               </p>
               <p className="text-slate-700 mb-3">
                 This isn't an inspection in the traditional sense.
                 We're not looking for reasons to reduce your price.
-                We're confirming the property condition matches what we discussed and identifying what repairs we'll need to make after purchase.
-              </p>
-              <p className="text-slate-700 mb-3">
-                The walkthrough takes 20 to 30 minutes.
+                We're confirming the property condition matches what we discussed and identifying what repairs we'll need to handle after the purchase.
+                We'll also take some photographs for our records, marketing, and contractor coordination.
               </p>
               <p className="text-slate-700">
-                Within 24 to 48 hours after the walkthrough, we'll present you with a written cash offer.
+                The walkthrough takes 20 to 30 minutes.
               </p>
             </div>
 
@@ -250,15 +259,16 @@ export default function HowItWorksPage() {
                 <h3 className="text-2xl font-bold text-slate-900">Choose Your Closing Date</h3>
               </div>
               <p className="text-slate-700 mb-3">
+                At this point, the heavy lifting is done.
                 If you accept our offer, you pick the closing date.
               </p>
               <p className="text-slate-700 mb-3">
-                Need to close in 14 days because you're facing foreclosure? We can do that.
-                Need 60 days to coordinate a move or wait for probate to clear? That works too.
+                Need to close in 7 days because you're up against a deadline? We can do that.
+                Need 30 days to coordinate a move or tie up loose ends? That works too.
               </p>
               <p className="text-slate-700 mb-3">
                 We handle the title work and closing logistics.
-                You sign the paperwork at a local title company or attorney's office.
+                You sign the paperwork at a local title company, attorney's office, or we can send a mobile notary to meet you wherever you are — you don't even need to leave your home.
               </p>
               <p className="text-slate-700">
                 You receive your funds the same day or next business day via wire transfer or certified check.
@@ -267,7 +277,7 @@ export default function HowItWorksPage() {
 
             <div className="bg-white p-6 rounded-lg border border-slate-200">
               <p className="text-slate-700 font-medium">
-                That's it. No listing. No showings. No repairs. No financing contingencies.
+                That's it. No listing. No showings. No repairs. No financing contingencies. No waiting to see if a buyer's loan gets approved.
               </p>
             </div>
           </div>
@@ -308,7 +318,7 @@ export default function HowItWorksPage() {
                 <p className="text-slate-700">
                   We pay cash.
                   There's no lender involved, no appraisal contingency, no underwriting delays.
-                  When we say we'll close in 14 days, we mean it.
+                  When we say we'll close in 7 days, we mean it.
                 </p>
               </div>
 
@@ -368,7 +378,7 @@ export default function HowItWorksPage() {
               <Link href="/situations/foreclosure" className="text-amber-400 hover:text-amber-300 underline">foreclosure</Link>,{' '}
               <Link href="/situations/inherited-property" className="text-amber-400 hover:text-amber-300 underline">inherited property</Link>,{' '}
               <Link href="/situations/probate" className="text-amber-400 hover:text-amber-300 underline">probate sales</Link>,{' '}
-              <Link href="/situations/bad-tenants" className="text-amber-400 hover:text-amber-300 underline">bad tenants</Link>, and{' '}
+              <Link href="/situations/tired-landlord" className="text-amber-400 hover:text-amber-300 underline">tired landlords</Link>, and{' '}
               <Link href="/situations/divorce" className="text-amber-400 hover:text-amber-300 underline">divorce</Link>.
             </p>
           </div>
@@ -387,7 +397,7 @@ export default function HowItWorksPage() {
                   How do you determine your offer price?
                 </h3>
                 <p className="text-slate-700">
-                  We calculate offers based on the property's after-repair value minus our estimated repair costs and operating margin.
+                  We calculate offers based on the property's after-repair value minus our estimated repair costs, current market comparables, and our operating margin.
                   We'll show you exactly how we arrived at the number.
                   There's no mystery or hidden math.
                 </p>
@@ -437,7 +447,7 @@ export default function HowItWorksPage() {
                 </h3>
                 <p className="text-slate-700">
                   Nothing happens.
-                  Our offer comes with no obligation.
+                  Our offer is valid for 30 days and comes with no obligation.
                   You can review it, think about it, and decide it's not right for you.
                   There's no pressure and no follow-up harassment.
                 </p>
@@ -468,7 +478,7 @@ export default function HowItWorksPage() {
             </h2>
             <p className="text-lg text-slate-800 mb-8">
               Request a no-obligation cash offer.
-              You'll have a number in hand within 48 hours — and full clarity on whether this path makes sense for your situation.
+              You'll have a number in hand within 24 hours — and full clarity on whether this path makes sense for your situation.
             </p>
             <Link
               href="/contact"
