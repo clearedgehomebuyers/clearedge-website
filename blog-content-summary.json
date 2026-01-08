@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-01-08T17:33:25.397Z",
+  "totalPosts": 25,
+  "postsByCategory": {
+    "Uncategorized": 25
+  },
+  "postsByLocation": {
+    "null": 77
+  },
+  "postsBySituation": {
+    "Divorce": 7,
+    "Inherited Property": 13,
+    "Foreclosure": 10,
+    "Tired Landlord": 3,
+    "Major Repairs Needed": 1,
+    "Vacant Property": 1
+  },
+  "gaps": {
+    "highPriority": [
+      "Missing \"Cash Home Buyers Allentown\" article",
+      "Missing \"Sell My House Fast Scranton\" article",
+      "Missing \"Cash Home Buyers Scranton\" article",
+      "Missing \"Sell My House Fast Wilkes-Barre\" article",
+      "Missing \"Cash Home Buyers Wilkes-Barre\" article",
+      "Missing \"Sell My House Fast Reading\" article",
+      "Missing \"Cash Home Buyers Reading\" article",
+      "Missing \"Cash Home Buyers Bethlehem\" article",
+      "Missing \"Sell My House Fast Easton\" article",
+      "Missing \"Cash Home Buyers Easton\" article",
+      "Missing \"Sell My House Fast Hazleton\" article",
+      "Missing \"Cash Home Buyers Hazleton\" article"
+    ],
+    "mediumPriority": [
+      "Missing foreclosure content for Allentown",
+      "Missing probate content for Allentown",
+      "Missing code violations content for Allentown",
+      "Missing tax lien content for Allentown",
+      "Missing probate content for Scranton",
+      "Missing code violations content for Scranton",
+      "Missing tax lien content for Scranton",
+      "Missing foreclosure content for Wilkes-Barre",
+      "Missing probate content for Wilkes-Barre",
+      "Missing tax lien content for Wilkes-Barre",
+      "Missing foreclosure content for Reading",
+      "Missing probate content for Reading",
+      "Missing code violations content for Reading",
+      "Missing tax lien content for Reading",
+      "Missing foreclosure content for Bethlehem",
+      "Missing probate content for Bethlehem",
+      "Missing foreclosure content for Easton",
+      "Missing probate content for Easton",
+      "Missing code violations content for Easton",
+      "Missing tax lien content for Easton",
+      "Missing foreclosure content for Hazleton",
+      "Missing probate content for Hazleton",
+      "Missing code violations content for Hazleton",
+      "Missing tax lien content for Hazleton"
+    ],
+    "lowPriority": [
+      "Limited coverage (2 posts) for: Foreclosure / Sheriff Sale",
+      "Limited coverage (2 posts) for: Probate / Inherited Property",
+      "Limited coverage (2 posts) for: Code Violations / IPMC",
+      "Limited coverage (1 posts) for: Tax Liens / Delinquent Taxes",
+      "Limited coverage (1 posts) for: Water Damage / Mold",
+      "No content for: Fire Damage",
+      "Limited coverage (1 posts) for: Mine Subsidence",
+      "Limited coverage (1 posts) for: Divorce",
+      "Limited coverage (2 posts) for: Job Relocation",
+      "Limited coverage (1 posts) for: Hoarder House",
+      "No content for: Vacant / Abandoned",
+      "Limited coverage (1 posts) for: Disclosure Requirements",
+      "Limited coverage (1 posts) for: Conservatorship / Blight"
+    ]
+  },
+  "nextRecommendedPosts": [
+    {
+      "title": "Cash Home Buyers Allentown PA",
+      "keyword": "cash home buyers allentown",
+      "location": "Allentown",
+      "priority": "high"
+    },
+    {
+      "title": "Sell My House Fast Scranton PA 2026",
+      "keyword": "sell my house fast scranton",
+      "location": "Scranton",
+      "priority": "high"
+    },
+    {
+      "title": "Cash Home Buyers Scranton PA",
+      "keyword": "cash home buyers scranton",
+      "location": "Scranton",
+      "priority": "high"
+    },
+    {
+      "title": "Sell My House Fast Wilkes-Barre PA 2026",
+      "keyword": "sell my house fast wilkes-barre",
+      "location": "Wilkes-Barre",
+      "priority": "high"
+    },
+    {
+      "title": "Cash Home Buyers Wilkes-Barre PA",
+      "keyword": "cash home buyers wilkes-barre",
+      "location": "Wilkes-Barre",
+      "priority": "high"
+    },
+    {
+      "title": "Sell My House Fast Reading PA 2026",
+      "keyword": "sell my house fast reading",
+      "location": "Reading",
+      "priority": "high"
+    },
+    {
+      "title": "Cash Home Buyers Reading PA",
+      "keyword": "cash home buyers reading",
+      "location": "Reading",
+      "priority": "high"
+    },
+    {
+      "title": "Cash Home Buyers Bethlehem PA",
+      "keyword": "cash home buyers bethlehem",
+      "location": "Bethlehem",
+      "priority": "high"
+    },
+    {
+      "title": "Sell My House Fast Easton PA 2026",
+      "keyword": "sell my house fast easton",
+      "location": "Easton",
+      "priority": "high"
+    },
+    {
+      "title": "Cash Home Buyers Easton PA",
+      "keyword": "cash home buyers easton",
+      "location": "Easton",
+      "priority": "high"
+    }
+  ]
+}
