@@ -5,7 +5,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Home, FileText } from 'lucide-react'
+import { Phone, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Home, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -255,7 +255,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div className="space-y-4">
-              {relatedBlogPosts.map((post: any) => (
+              {relatedBlogPosts.slice(0, 3).map((post: any) => (
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug.current}`}
@@ -277,6 +277,18 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   </div>
                 </Link>
               ))}
+            </div>
+
+            {/* More Helpful Guides Button */}
+            <div className="text-center mt-10">
+              <Link
+                href="/blog"
+                className="inline-flex items-center px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 font-semibold rounded-xl border border-slate-200 transition-colors"
+              >
+                <BookOpen className="w-5 h-5 mr-2 text-[#0d9488]" />
+                More Helpful Guides
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </div>
           </div>
         </section>
