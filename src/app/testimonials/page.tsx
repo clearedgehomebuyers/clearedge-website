@@ -1,12 +1,13 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Star, Check, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped Since 2016',
-  description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Foreclosure, probate, divorce, inherited properties - see what sellers say about working with us.',
+  title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped',
+  description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Since 2016, we\'ve helped 200+ families in NEPA, Lehigh Valley, and the Poconos sell homes fast for cash.',
   openGraph: {
-    title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped Since 2016',
-    description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Foreclosure, probate, divorce, inherited properties.',
+    title: 'ClearEdge Home Buyers Reviews Pennsylvania | 200+ Homeowners Helped',
+    description: 'Read real reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Since 2016, we\'ve helped 200+ families in NEPA, Lehigh Valley, and the Poconos sell homes fast for cash.',
     url: 'https://clearedgehomebuyers.com/testimonials',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://clearedgehomebuyers.com/testimonials',
   },
-}
+};
 
 const testimonials = [
   {
@@ -48,30 +49,7 @@ const testimonials = [
     name: "Michael C.",
     situation: "Relocation Sale in Bethlehem, PA",
   },
-]
-
-const faqs = [
-  {
-    question: "Are ClearEdge Home Buyers reviews verified?",
-    answer: "Yes, every testimonial on this page represents a real transaction. We've completed over 200 purchases across Eastern Pennsylvania since 2016. We're happy to provide references upon request for homeowners who want to speak directly with past sellers in similar situations.",
-  },
-  {
-    question: "How does ClearEdge compare to other Pennsylvania cash home buyers?",
-    answer: "ClearEdge is a local, owner-operated company—not a franchise or national lead aggregator. When you call (570) 904-2059, you're talking to Tyler or someone on his direct team, not a call center. We've been featured in The Morning Call and Lehigh Valley Business, and we've been buying houses in NEPA, Lehigh Valley, and the Poconos since 2016.",
-  },
-  {
-    question: "What types of situations do ClearEdge reviews typically involve?",
-    answer: "Most of our reviews come from homeowners facing time-sensitive or complex situations. This includes foreclosure, probate, inherited properties, divorce, code violations, and properties that need significant repairs. Traditional sales aren't practical in these situations—our process is designed specifically for them.",
-  },
-  {
-    question: "Will I get a fair offer from ClearEdge?",
-    answer: "We make offers based on current market value minus estimated repair costs and our operating margin. We're transparent about how we calculate offers. If you're looking for the absolute highest sale price and have time to wait, a traditional listing may be better. Our service is designed for homeowners who prioritize speed, certainty, and simplicity over maximum dollars.",
-  },
-  {
-    question: "What areas in Pennsylvania does ClearEdge serve?",
-    answer: "We buy houses throughout Eastern Pennsylvania. This includes NEPA (Scranton, Wilkes-Barre, Hazleton, Pittston, Carbondale), the Lehigh Valley (Allentown, Bethlehem, Easton), and the Poconos (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines).",
-  },
-]
+];
 
 const consistentMentions = [
   "Clear explanation of the process before any commitment",
@@ -79,22 +57,31 @@ const consistentMentions = [
   "Knowledge of local regulations (Act 91, probate, code enforcement)",
   "Showed up when scheduled",
   "Closed on the date promised",
-]
+];
 
-function StarIcon() {
+function StarRating() {
   return (
-    <svg className="w-5 h-5 text-amber-400 fill-current" viewBox="0 0 20 20">
-      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-    </svg>
-  )
+    <div className="flex items-center gap-1 mb-4">
+      {[...Array(5)].map((_, i) => (
+        <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+      ))}
+    </div>
+  );
 }
 
-function CheckIcon() {
+function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-    </svg>
-  )
+    <div className="bg-slate-50 rounded-2xl p-8">
+      <StarRating />
+      <blockquote className="text-slate-700 mb-6">
+        &ldquo;{testimonial.quote}&rdquo;
+      </blockquote>
+      <div className="border-t border-slate-200 pt-4">
+        <p className="font-semibold text-slate-900">{testimonial.name}</p>
+        <p className="text-sm text-slate-500">{testimonial.situation}</p>
+      </div>
+    </div>
+  );
 }
 
 export default function TestimonialsPage() {
@@ -104,48 +91,51 @@ export default function TestimonialsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'ClearEdge Home Buyers',
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '5',
-              reviewCount: '200',
-              bestRating: '5',
-              worstRating: '1',
-            },
-            review: testimonials.map((t) => ({
-              '@type': 'Review',
-              author: {
-                '@type': 'Person',
-                name: t.name,
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Are ClearEdge Home Buyers reviews verified?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, every testimonial on this page represents a real transaction. We've completed over 200 purchases across Eastern Pennsylvania since 2016. We're happy to provide references upon request for homeowners who want to speak directly with past sellers in similar situations."
+                }
               },
-              reviewBody: t.quote,
-              reviewRating: {
-                '@type': 'Rating',
-                ratingValue: '5',
-                bestRating: '5',
-                worstRating: '1',
+              {
+                "@type": "Question",
+                "name": "How does ClearEdge compare to other Pennsylvania cash home buyers?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ClearEdge is a local, owner-operated company—not a franchise or national lead aggregator. When you call (570) 904-2059, you're talking to Tyler or someone on his direct team, not a call center. We've been featured in The Morning Call and Lehigh Valley Business, and we've been buying houses in NEPA, Lehigh Valley, and the Poconos since 2016."
+                }
               },
-            })),
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqs.map((faq) => ({
-              '@type': 'Question',
-              name: faq.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: faq.answer,
+              {
+                "@type": "Question",
+                "name": "What types of situations do ClearEdge reviews typically involve?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Most of our reviews come from homeowners facing time-sensitive or complex situations. This includes foreclosure, probate, inherited properties, divorce, code violations, and properties that need significant repairs. Traditional sales aren't practical in these situations—our process is designed specifically for them."
+                }
               },
-            })),
-          }),
+              {
+                "@type": "Question",
+                "name": "Will I get a fair offer from ClearEdge?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We make offers based on current market value minus estimated repair costs and our operating margin. We're transparent about how we calculate offers. If you're looking for the absolute highest sale price and have time to wait, a traditional listing may be better. Our service is designed for homeowners who prioritize speed, certainty, and simplicity over maximum dollars."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What areas in Pennsylvania does ClearEdge serve?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We buy houses throughout Eastern Pennsylvania. This includes NEPA (Scranton, Wilkes-Barre, Hazleton, Pittston, Carbondale), the Lehigh Valley (Allentown, Bethlehem, Easton), and the Poconos (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines)."
+                }
+              }
+            ]
+          })
         }}
       />
 
@@ -198,22 +188,7 @@ export default function TestimonialsPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-slate-50 rounded-2xl p-8">
-                  <div className="flex items-center gap-1 mb-4">
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                    <StarIcon />
-                  </div>
-                  <blockquote className="text-slate-700 mb-6">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </blockquote>
-                  <div className="border-t border-slate-200 pt-4">
-                    <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                    <p className="text-sm text-slate-500">{testimonial.situation}</p>
-                  </div>
-                </div>
+                <TestimonialCard key={index} testimonial={testimonial} />
               ))}
             </div>
           </div>
@@ -249,7 +224,7 @@ export default function TestimonialsPage() {
               <ul className="space-y-3 text-slate-700">
                 {consistentMentions.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckIcon />
+                    <Check className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -266,43 +241,62 @@ export default function TestimonialsPage() {
             </h2>
 
             <div className="space-y-8">
-              {faqs.map((faq, index) => (
-                <div key={index} className={index < faqs.length - 1 ? 'border-b border-slate-200 pb-8' : 'pb-8'}>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                    {faq.question}
-                  </h3>
-                  <p className="text-slate-700">
-                    {faq.question === 'What types of situations do ClearEdge reviews typically involve?' ? (
-                      <>
-                        Most of our reviews come from homeowners facing time-sensitive or complex situations.
-                        This includes{' '}
-                        <Link href="/situations/foreclosure" className="text-emerald-600 hover:text-emerald-700 underline">foreclosure</Link>,{' '}
-                        <Link href="/situations/probate" className="text-emerald-600 hover:text-emerald-700 underline">probate</Link>,{' '}
-                        <Link href="/situations/inherited-property" className="text-emerald-600 hover:text-emerald-700 underline">inherited properties</Link>,{' '}
-                        <Link href="/situations/divorce" className="text-emerald-600 hover:text-emerald-700 underline">divorce</Link>,{' '}
-                        <Link href="/situations/tax-liens-code-violations" className="text-emerald-600 hover:text-emerald-700 underline">code violations</Link>,{' '}
-                        and properties that need significant repairs.
-                        Traditional sales aren&apos;t practical in these situations—our process is designed specifically for them.
-                      </>
-                    ) : faq.question === 'What areas in Pennsylvania does ClearEdge serve?' ? (
-                      <>
-                        We buy houses throughout Eastern Pennsylvania.
-                        This includes NEPA ({' '}
-                        <Link href="/locations/scranton" className="text-emerald-600 hover:text-emerald-700 underline">Scranton</Link>,{' '}
-                        <Link href="/locations/wilkes-barre" className="text-emerald-600 hover:text-emerald-700 underline">Wilkes-Barre</Link>,{' '}
-                        Hazleton, Pittston, Carbondale), the{' '}
-                        <Link href="/locations/lehigh-valley" className="text-emerald-600 hover:text-emerald-700 underline">Lehigh Valley</Link> ({' '}
-                        <Link href="/locations/allentown" className="text-emerald-600 hover:text-emerald-700 underline">Allentown</Link>,{' '}
-                        <Link href="/locations/bethlehem" className="text-emerald-600 hover:text-emerald-700 underline">Bethlehem</Link>,{' '}
-                        <Link href="/locations/easton" className="text-emerald-600 hover:text-emerald-700 underline">Easton</Link>), and the{' '}
-                        <Link href="/locations/poconos" className="text-emerald-600 hover:text-emerald-700 underline">Poconos</Link> (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines).
-                      </>
-                    ) : (
-                      faq.answer
-                    )}
-                  </p>
-                </div>
-              ))}
+
+              <div className="border-b border-slate-200 pb-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                  Are ClearEdge Home Buyers reviews verified?
+                </h3>
+                <p className="text-slate-700">
+                  Yes, every testimonial on this page represents a real transaction.
+                  We&apos;ve completed over 200 purchases across Eastern Pennsylvania since 2016.
+                  We&apos;re happy to provide references upon request for homeowners who want to speak directly with past sellers in similar situations.
+                </p>
+              </div>
+
+              <div className="border-b border-slate-200 pb-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                  How does ClearEdge compare to other Pennsylvania cash home buyers?
+                </h3>
+                <p className="text-slate-700">
+                  ClearEdge is a local, owner-operated company—not a franchise or national lead aggregator.
+                  When you call (570) 904-2059, you&apos;re talking to Tyler or someone on his direct team, not a call center.
+                  We&apos;ve been featured in The Morning Call and Lehigh Valley Business, and we&apos;ve been buying houses in NEPA, Lehigh Valley, and the Poconos since 2016.
+                </p>
+              </div>
+
+              <div className="border-b border-slate-200 pb-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                  What types of situations do ClearEdge reviews typically involve?
+                </h3>
+                <p className="text-slate-700">
+                  Most of our reviews come from homeowners facing time-sensitive or complex situations.
+                  This includes <Link href="/situations/foreclosure" className="text-emerald-600 hover:text-emerald-700 underline">foreclosure</Link>, <Link href="/situations/probate" className="text-emerald-600 hover:text-emerald-700 underline">probate</Link>, <Link href="/situations/inherited-property" className="text-emerald-600 hover:text-emerald-700 underline">inherited properties</Link>, <Link href="/situations/divorce" className="text-emerald-600 hover:text-emerald-700 underline">divorce</Link>, <Link href="/situations/tax-liens-code-violations" className="text-emerald-600 hover:text-emerald-700 underline">code violations</Link>, and properties that need significant repairs.
+                  Traditional sales aren&apos;t practical in these situations—our process is designed specifically for them.
+                </p>
+              </div>
+
+              <div className="border-b border-slate-200 pb-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                  Will I get a fair offer from ClearEdge?
+                </h3>
+                <p className="text-slate-700">
+                  We make offers based on current market value minus estimated repair costs and our operating margin.
+                  We&apos;re transparent about how we calculate offers.
+                  If you&apos;re looking for the absolute highest sale price and have time to wait, a traditional listing may be better.
+                  Our service is designed for homeowners who prioritize speed, certainty, and simplicity over maximum dollars.
+                </p>
+              </div>
+
+              <div className="pb-8">
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                  What areas in Pennsylvania does ClearEdge serve?
+                </h3>
+                <p className="text-slate-700">
+                  We buy houses throughout Eastern Pennsylvania.
+                  This includes NEPA (<Link href="/locations/scranton" className="text-emerald-600 hover:text-emerald-700 underline">Scranton</Link>, <Link href="/locations/wilkes-barre" className="text-emerald-600 hover:text-emerald-700 underline">Wilkes-Barre</Link>, Hazleton, Pittston, Carbondale), the <Link href="/locations/lehigh-valley" className="text-emerald-600 hover:text-emerald-700 underline">Lehigh Valley</Link> (<Link href="/locations/allentown" className="text-emerald-600 hover:text-emerald-700 underline">Allentown</Link>, <Link href="/locations/bethlehem" className="text-emerald-600 hover:text-emerald-700 underline">Bethlehem</Link>, <Link href="/locations/easton" className="text-emerald-600 hover:text-emerald-700 underline">Easton</Link>), and the <Link href="/locations/poconos" className="text-emerald-600 hover:text-emerald-700 underline">Poconos</Link> (Stroudsburg, East Stroudsburg, Tannersville, Pocono Pines).
+                </p>
+              </div>
+
             </div>
           </div>
         </section>
@@ -329,17 +323,16 @@ export default function TestimonialsPage() {
                 href="tel:5709042059"
                 className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
               >
+                <Phone className="w-5 h-5 mr-2" />
                 Call (570) 904-2059
               </a>
             </div>
             <p className="text-slate-400 mt-8 text-sm">
-              Read more ClearEdge Home Buyers reviews Pennsylvania homeowners have shared, or explore our{' '}
-              <Link href="/how-it-works" className="text-emerald-400 hover:text-emerald-300 underline">process</Link>{' '}
-              to understand exactly how we work.
+              Read more ClearEdge Home Buyers reviews Pennsylvania homeowners have shared, or explore our <Link href="/how-it-works" className="text-emerald-400 hover:text-emerald-300 underline">process</Link> to understand exactly how we work.
             </p>
           </div>
         </section>
       </main>
     </>
-  )
+  );
 }
