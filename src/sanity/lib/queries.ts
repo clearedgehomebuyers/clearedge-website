@@ -125,3 +125,16 @@ export async function getBlogPostsBySituation(situationSlug: string) {
     { situationSlug }
   )
 }
+
+export async function getBlogPostsByLocation(locationSlug: string) {
+  return client.fetch(
+    `*[_type == "blogPost" && references(*[_type == "location" && slug.current == $locationSlug]._id)] | order(publishedAt desc) {
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt
+    }`,
+    { locationSlug }
+  )
+}
