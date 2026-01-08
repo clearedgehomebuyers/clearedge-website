@@ -26,7 +26,6 @@ const locationLinks = [
   { href: '/locations/reading', label: 'Reading' },
   { href: '/locations/hazleton', label: 'Hazleton' },
   { href: '/locations/stroudsburg', label: 'Stroudsburg' },
-  { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
   { href: '/locations/honesdale', label: 'Honesdale' },
   { href: '/locations/carbondale', label: 'Carbondale' },
   { href: '/locations/pittston', label: 'Pittston' },
@@ -39,6 +38,7 @@ const locationLinks = [
   { href: '/locations/tannersville', label: 'Tannersville' },
   { href: '/locations/lehigh-valley', label: 'Lehigh Valley' },
   { href: '/locations/poconos', label: 'Poconos' },
+  { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
 ]
 
 const situationLinks = [

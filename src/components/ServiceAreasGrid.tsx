@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 
 // All 21 locations - displayed statically for SEO
+// East Stroudsburg moved to last position (longer name wraps to two lines)
 const allLocations = [
   { name: 'Scranton', slug: 'scranton' },
   { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
@@ -11,7 +12,6 @@ const allLocations = [
   { name: 'Reading', slug: 'reading' },
   { name: 'Hazleton', slug: 'hazleton' },
   { name: 'Stroudsburg', slug: 'stroudsburg' },
-  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
   { name: 'Honesdale', slug: 'honesdale' },
   { name: 'Carbondale', slug: 'carbondale' },
   { name: 'Pittston', slug: 'pittston' },
@@ -24,6 +24,7 @@ const allLocations = [
   { name: 'Tannersville', slug: 'tannersville' },
   { name: 'Lehigh Valley', slug: 'lehigh-valley' },
   { name: 'Poconos', slug: 'poconos' },
+  { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
 ]
 
 export function ServiceAreasGrid() {
