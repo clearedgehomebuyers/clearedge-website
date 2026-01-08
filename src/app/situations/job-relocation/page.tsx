@@ -272,15 +272,19 @@ export default function JobRelocationPage() {
             What&apos;s the Process for Selling to ClearEdge When Relocating?
           </h2>
 
+          <p className="text-gray-700 mb-6">
+            Our process has three steps and typically takes 7 to 30 days from first contact to closing.
+          </p>
+
           <div className="space-y-6 mb-8">
             <div className="flex items-start">
               <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900">Contact Us with Basic Property Details</h3>
+                <h3 className="text-lg font-medium text-gray-900">Get a Cash Offer in 24 Hours</h3>
                 <p className="text-gray-700">
-                  Call (570) 904-2059 or submit the form on this page.
-                  We&apos;ll ask about your property address, general condition, timeline, and any known issues.
-                  This takes about 5 minutes.
+                  Call (570) 904-2059 or fill out the form below.
+                  We&apos;ll ask about your property address, condition, and timeline—usually a 10-minute conversation.
+                  Within 24 hours, you&apos;ll receive a guaranteed cash offer with no hidden fees.
                 </p>
               </div>
             </div>
@@ -288,10 +292,12 @@ export default function JobRelocationPage() {
             <div className="flex items-start">
               <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900">We Evaluate and Present a Cash Offer</h3>
+                <h3 className="text-lg font-medium text-gray-900">See Exactly How We Calculated Your Price</h3>
                 <p className="text-gray-700">
-                  We&apos;ll research your property, review comparable sales, and typically present a no-obligation cash offer within 24-48 hours.
-                  If you&apos;re out of state, we can arrange a virtual walkthrough or have a local team member visit in person.
+                  We&apos;ll walk you through our evaluation: comparable sales in your area, estimated repair costs, and our margin.
+                  No black-box pricing.
+                  You&apos;ll understand exactly why we offered what we did.
+                  Our offer is valid for 30 days, so you have time to compare options.
                 </p>
               </div>
             </div>
@@ -299,21 +305,12 @@ export default function JobRelocationPage() {
             <div className="flex items-start">
               <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900">Choose Your Closing Date</h3>
+                <h3 className="text-lg font-medium text-gray-900">You Pick the Closing Date (7 to 30 Days)</h3>
                 <p className="text-gray-700">
-                  If you accept, we coordinate with a local title company to handle all paperwork.
-                  You pick the closing date that works for your relocation schedule—whether that&apos;s next week or next month.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0">4</div>
-              <div>
-                <h3 className="text-lg font-medium text-gray-900">Close and Get Paid</h3>
-                <p className="text-gray-700">
-                  Sign closing documents (remotely via mobile notary if needed) and receive your funds.
-                  We handle the property from there—you focus on your new chapter.
+                  Accept the offer and choose your closing date.
+                  We work with a local title company to handle paperwork, clear the title, and coordinate signing.
+                  If you&apos;ve already relocated, we&apos;ll arrange a mobile notary wherever you are.
+                  Funds are wired directly to your bank on closing day.
                 </p>
               </div>
             </div>
