@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { CheckCircle, AlertCircle, MapPin, Clock } from 'lucide-react'
+import { CheckCircle, AlertCircle, MapPin } from 'lucide-react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 
@@ -251,27 +251,27 @@ export default function VacantPropertyPage() {
               </ul>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-4">
-              How Our Timeline Works
-            </h3>
-            <div className="space-y-2 text-gray-700">
-              <p className="flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-blue-600" />
-                <strong className="mr-2">Day 1:</strong> You contact us with basic property information.
-              </p>
-              <p className="flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-blue-600" />
-                <strong className="mr-2">Day 2-3:</strong> We visit the property and make a written cash offer.
-              </p>
-              <p className="flex items-center">
-                <Clock className="w-4 h-4 mr-2 text-blue-600" />
-                <strong className="mr-2">Day 4-14:</strong> We close at a local title company on your schedule.
+            {/* How Our Timeline Works */}
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 mt-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">How Our Timeline Works</h3>
+              <div className="space-y-3">
+                <div className="flex gap-3">
+                  <span className="font-bold text-amber-600 whitespace-nowrap">Step 1:</span>
+                  <span className="text-slate-700">Get In Touch — Fill out our form or call us. We&apos;ll ask a few questions to learn about your property.</span>
+                </div>
+                <div className="flex gap-3">
+                  <span className="font-bold text-amber-600 whitespace-nowrap">Step 2:</span>
+                  <span className="text-slate-700">Get An Offer — We&apos;ll present you with a cash offer within 24 hours. No hidden fees.</span>
+                </div>
+                <div className="flex gap-3">
+                  <span className="font-bold text-amber-600 whitespace-nowrap">Step 3:</span>
+                  <span className="text-slate-700">Close & Get Paid — Choose your closing date. We can close as fast as 7 days, or work around your schedule.</span>
+                </div>
+              </div>
+              <p className="text-slate-600 mt-4">
+                We cover all closing costs. Need 60 days to coordinate a move? That works too.
               </p>
             </div>
-            <p className="text-gray-700 mt-4">
-              If you need more time, we&apos;ll work with your timeline.
-              If you need to close faster, we can often accommodate that too.
-            </p>
           </section>
 
           {/* REGIONAL CONTEXT */}
