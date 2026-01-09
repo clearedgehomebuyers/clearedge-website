@@ -353,10 +353,10 @@ export default function TaxLiensCodeViolationsPage() {
               No pressure.
               Just information.
             </p>
-            <p className="text-gray-300 mb-6 flex items-center">
+            <p className="text-gray-300 mb-6 flex items-center flex-wrap">
               <Phone className="w-5 h-5 mr-2" />
-              Call Tyler directly at{' '}
-              <a href="tel:5709042059" className="text-blue-400 hover:underline ml-1">
+              Call us at{' '}
+              <a href="tel:5709042059" className="text-blue-400 hover:underline mx-1">
                 (570) 904-2059
               </a>
               {' '}or request a no-obligation offer below.
