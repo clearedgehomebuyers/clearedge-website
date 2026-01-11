@@ -3,75 +3,94 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Star, Phone, MapPin, Clock, CheckCircle, Home, Users, Shield } from 'lucide-react'
+import { LeadForm } from '@/components/LeadForm'
 
 export const metadata: Metadata = {
-  title: 'Sell My House Fast Pennsylvania | Cash Home Buyers | ClearEdge',
-  description: 'Sell your Pennsylvania house fast for cash. No repairs, no agents, no fees. ClearEdge Home Buyers has helped 200+ Eastern PA homeowners since 2016. Serving NEPA, Lehigh Valley & Poconos.',
-  keywords: 'sell my house fast Pennsylvania, cash home buyers PA, we buy houses NEPA, sell house fast Lehigh Valley, Poconos cash home buyer',
+  title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
+  description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. ClearEdge has helped 200+ Eastern PA homeowners since 2016. Serving NEPA, Lehigh Valley & Poconos.",
+  keywords: ["sell house fast Pennsylvania", "cash home buyers PA", "we buy houses Scranton", "sell house as-is Allentown", "cash offer Lehigh Valley", "sell inherited house PA"],
   openGraph: {
-    title: 'Sell My House Fast Pennsylvania | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 7 days. No repairs, no showings, no agent fees.',
-    url: 'https://clearedgehomebuyers.com',
-    siteName: 'ClearEdge Home Buyers',
-    locale: 'en_US',
-    type: 'website',
-    images: [
-      {
-        url: 'https://clearedgehomebuyers.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'ClearEdge Home Buyers - Sell Your Pennsylvania House Fast',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sell My House Fast Pennsylvania | ClearEdge Home Buyers',
-    description: 'Get a fair cash offer for your Pennsylvania house in 24 hours. Close in as few as 7 days.',
-  },
-  alternates: {
-    canonical: 'https://clearedgehomebuyers.com',
+    title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
+    description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. Serving NEPA, Lehigh Valley & Poconos since 2016.",
+    url: "https://www.clearedgehomebuyers.com",
+    siteName: "ClearEdge Home Buyers",
+    locale: "en_US",
+    type: "website",
   },
 }
 
 const situations = [
-  { name: 'Facing Foreclosure', href: '/situations/foreclosure' },
-  { name: 'Inherited Property', href: '/situations/inherited-property' },
-  { name: 'Probate Sale', href: '/situations/probate' },
-  { name: 'Divorce Settlement', href: '/situations/divorce' },
-  { name: 'Job Relocation', href: '/situations/job-relocation' },
-  { name: 'Vacant Property', href: '/situations/vacant-property' },
-  { name: 'Fire Damage', href: '/situations/fire-damage' },
-  { name: 'Tired Landlord', href: '/situations/tired-landlord' },
-  { name: 'Tax Liens', href: '/situations/tax-liens-code-violations' },
-  { name: 'Code Violations', href: '/situations/tax-liens-code-violations' },
-  { name: 'Major Repairs Needed', href: '/situations/major-repairs' },
-  { name: 'Downsizing', href: '/situations/downsizing' },
+  {
+    title: 'Foreclosure',
+    slug: 'foreclosure',
+    description: 'Facing a sheriff sale? We can often close before the auction date.',
+  },
+  {
+    title: 'Inherited Property',
+    slug: 'inherited-property',
+    description: 'Managing an estate is hard enough. We buy during or after probate.',
+  },
+  {
+    title: 'Divorce',
+    slug: 'divorce',
+    description: 'Split the proceeds and move forward. A quick sale means faster closure.',
+  },
+  {
+    title: 'Job Relocation',
+    slug: 'job-relocation',
+    description: "The new opportunity won't wait. We close on your timeline.",
+  },
+  {
+    title: 'Major Repairs Needed',
+    slug: 'major-repairs',
+    description: 'Foundation issues? Roof damage? Mold? We buy as-is. You fix nothing.',
+  },
+  {
+    title: 'Tax Liens & Code Violations',
+    slug: 'tax-liens-code-violations',
+    description: "Outstanding liens or municipal violations don't stop us.",
+  },
+  {
+    title: 'Tired Landlord',
+    slug: 'tired-landlord',
+    description: 'Done dealing with tenants? We buy rentals — occupied or vacant.',
+  },
+  {
+    title: 'Vacant Property',
+    slug: 'vacant-property',
+    description: 'Empty house draining your wallet? Stop the bleeding with a quick sale.',
+  },
 ]
 
-const locations = [
-  { name: 'Scranton', href: '/locations/scranton' },
-  { name: 'Wilkes-Barre', href: '/locations/wilkes-barre' },
-  { name: 'Allentown', href: '/locations/allentown' },
-  { name: 'Bethlehem', href: '/locations/bethlehem' },
-  { name: 'Easton', href: '/locations/easton' },
-  { name: 'Reading', href: '/locations/reading' },
-  { name: 'Hazleton', href: '/locations/hazleton' },
-  { name: 'Stroudsburg', href: '/locations/stroudsburg' },
-  { name: 'East Stroudsburg', href: '/locations/east-stroudsburg' },
-  { name: 'Honesdale', href: '/locations/honesdale' },
-  { name: 'Carbondale', href: '/locations/carbondale' },
-  { name: 'Pittston', href: '/locations/pittston' },
-  { name: 'Nanticoke', href: '/locations/nanticoke' },
-  { name: 'Kingston', href: '/locations/kingston' },
-  { name: 'Dunmore', href: '/locations/dunmore' },
-  { name: 'Bloomsburg', href: '/locations/bloomsburg' },
-  { name: 'Pottsville', href: '/locations/pottsville' },
-  { name: 'Pocono Pines', href: '/locations/pocono-pines' },
-  { name: 'Tannersville', href: '/locations/tannersville' },
-  { name: 'Lehigh Valley', href: '/locations/lehigh-valley' },
-  { name: 'Poconos', href: '/locations/poconos' },
-]
+const locationsByRegion = {
+  'NEPA': [
+    { name: 'Scranton', href: '/locations/scranton' },
+    { name: 'Wilkes-Barre', href: '/locations/wilkes-barre' },
+    { name: 'Hazleton', href: '/locations/hazleton' },
+    { name: 'Pittston', href: '/locations/pittston' },
+    { name: 'Kingston', href: '/locations/kingston' },
+    { name: 'Nanticoke', href: '/locations/nanticoke' },
+    { name: 'Carbondale', href: '/locations/carbondale' },
+    { name: 'Dunmore', href: '/locations/dunmore' },
+    { name: 'Honesdale', href: '/locations/honesdale' },
+    { name: 'Bloomsburg', href: '/locations/bloomsburg' },
+  ],
+  'Lehigh Valley': [
+    { name: 'Allentown', href: '/locations/allentown' },
+    { name: 'Bethlehem', href: '/locations/bethlehem' },
+    { name: 'Easton', href: '/locations/easton' },
+    { name: 'Reading', href: '/locations/reading' },
+    { name: 'Pottsville', href: '/locations/pottsville' },
+    { name: 'Lehigh Valley', href: '/locations/lehigh-valley' },
+  ],
+  'Poconos': [
+    { name: 'Stroudsburg', href: '/locations/stroudsburg' },
+    { name: 'East Stroudsburg', href: '/locations/east-stroudsburg' },
+    { name: 'Pocono Pines', href: '/locations/pocono-pines' },
+    { name: 'Tannersville', href: '/locations/tannersville' },
+    { name: 'Poconos', href: '/locations/poconos' },
+  ],
+}
 
 const faqs = [
   {
@@ -104,68 +123,50 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'LocalBusiness',
-                '@id': 'https://clearedgehomebuyers.com/#organization',
-                name: 'ClearEdge Home Buyers',
-                alternateName: 'ClearEdge Properties LLC',
-                description: 'Cash home buyers serving Eastern Pennsylvania including NEPA, Lehigh Valley, and the Poconos. We buy houses in any condition.',
-                url: 'https://clearedgehomebuyers.com',
-                telephone: '+1-570-904-2059',
-                foundingDate: '2016',
-                founder: {
-                  '@type': 'Person',
-                  name: 'Tyler',
-                },
-                areaServed: [
-                  { '@type': 'State', name: 'Pennsylvania' },
-                  { '@type': 'Place', name: 'NEPA' },
-                  { '@type': 'Place', name: 'Lehigh Valley' },
-                  { '@type': 'Place', name: 'Poconos' },
-                ],
-                serviceType: ['Cash Home Buying', 'Real Estate Investment', 'Property Acquisition'],
-                priceRange: '$',
-                image: 'https://clearedgehomebuyers.com/logo.png',
-                sameAs: [],
-              },
-              {
-                '@type': 'WebSite',
-                '@id': 'https://clearedgehomebuyers.com/#website',
-                url: 'https://clearedgehomebuyers.com',
-                name: 'ClearEdge Home Buyers',
-                publisher: {
-                  '@id': 'https://clearedgehomebuyers.com/#organization',
-                },
-              },
-              {
-                '@type': 'WebPage',
-                '@id': 'https://clearedgehomebuyers.com/#webpage',
-                url: 'https://clearedgehomebuyers.com',
-                name: 'Sell My House Fast Pennsylvania | Cash Home Buyers | ClearEdge',
-                description: 'Sell your Pennsylvania house fast for cash. No repairs, no agents, no fees. ClearEdge Home Buyers has helped 200+ Eastern PA homeowners since 2016.',
-                isPartOf: {
-                  '@id': 'https://clearedgehomebuyers.com/#website',
-                },
-                about: {
-                  '@id': 'https://clearedgehomebuyers.com/#organization',
-                },
-              },
-              {
-                '@type': 'FAQPage',
-                '@id': 'https://clearedgehomebuyers.com/#faq',
-                mainEntity: faqs.map((faq) => ({
-                  '@type': 'Question',
-                  name: faq.question,
-                  acceptedAnswer: {
-                    '@type': 'Answer',
-                    text: faq.answer,
-                  },
-                })),
-              },
+            "@context": "https://schema.org",
+            "@type": ["RealEstateAgent", "LocalBusiness"],
+            "name": "ClearEdge Home Buyers",
+            "description": "Cash home buying company serving Eastern Pennsylvania. We buy houses as-is for cash with no fees or repairs required.",
+            "url": "https://www.clearedgehomebuyers.com",
+            "telephone": "+1-570-904-2059",
+            "founder": {
+              "@type": "Person",
+              "name": "Tyler"
+            },
+            "foundingDate": "2016",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Scranton",
+              "addressRegion": "PA",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Scranton" },
+              { "@type": "City", "name": "Wilkes-Barre" },
+              { "@type": "City", "name": "Hazleton" },
+              { "@type": "City", "name": "Allentown" },
+              { "@type": "City", "name": "Bethlehem" },
+              { "@type": "City", "name": "Easton" },
+              { "@type": "City", "name": "Reading" },
+              { "@type": "City", "name": "Stroudsburg" },
+              { "@type": "City", "name": "East Stroudsburg" },
+              { "@type": "State", "name": "Pennsylvania" }
             ],
-          }),
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5",
+              "reviewCount": "6",
+              "bestRating": "5"
+            },
+            "service": {
+              "@type": "Service",
+              "name": "Cash Home Buying",
+              "description": "We buy houses for cash in any condition. No repairs, no agents, no fees."
+            },
+            "sameAs": [
+              "https://www.google.com/maps/place/ClearEdge+Home+Buyers"
+            ]
+          })
         }}
       />
 
@@ -174,25 +175,24 @@ export default function HomePage() {
         <section className="bg-slate-900 text-white py-20 lg:py-28">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              Sell My House Fast in Pennsylvania — Without Repairs, Showings, or Uncertainty
+              Sell Your Pennsylvania House Fast — For Cash, On Your Terms
             </h1>
             <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-              ClearEdge Home Buyers has helped 200+ Eastern PA homeowners close on their terms since 2016.
-              No agents. No fees. No waiting.
+              No repairs. No agents. No fees. Get a fair cash offer in 24 hours from a local buyer who&apos;s helped hundreds of Eastern PA homeowners since 2016.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
+                href="#lead-form"
                 className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors"
               >
-                Get Your Cash Offer
+                Get My Cash Offer
               </Link>
-              <Link
-                href="/how-it-works"
+              <a
+                href="tel:5709042059"
                 className="border border-slate-500 hover:border-white text-white px-8 py-4 rounded-lg transition-colors"
               >
-                See How It Works
-              </Link>
+                Or call Tyler directly: (570) 904-2059
+              </a>
             </div>
             <p className="text-slate-400 text-sm mt-6">
               Serving NEPA, Lehigh Valley, and the Poconos
@@ -200,130 +200,94 @@ export default function HomePage() {
           </div>
         </section>
 
+
         {/* TRUST BAR */}
         <section className="bg-slate-100 py-6 border-b border-slate-200">
           <div className="max-w-5xl mx-auto px-6">
             <div className="flex flex-wrap justify-center items-center gap-8 text-slate-600 text-sm">
-              <span className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-                Featured in The Morning Call
-              </span>
-              <span className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
-                Lehigh Valley Business
-              </span>
-              <span>200+ Homes Purchased</span>
-              <span>Family-Owned Since 2016</span>
+              <span>Since 2016</span>
+              <span>Hundreds of Homes Purchased</span>
+              <span>NEPA • Lehigh Valley • Poconos</span>
+              <span>Cash Offer in 24 Hours</span>
             </div>
           </div>
         </section>
 
-        {/* THE 2026 PENNSYLVANIA REALITY */}
+
+        {/* WHY SELLING IS HARDER */}
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              What Does Selling a House in Pennsylvania Actually Require in 2026?
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">
+              Selling a House in Pennsylvania Just Got Harder
             </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              Pennsylvania's real estate requirements have become more complex in 2026, creating new friction for homeowners who want to sell.
-            </p>
-            <ul className="space-y-4 text-slate-700">
-              <li className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 font-bold">•</span>
-                <span>
-                  <strong>Statewide building code update:</strong> As of January 1, 2026, Pennsylvania adopted the 2021 International Code Council series under the Uniform Construction Code. Properties with unpermitted work or code violations now face stricter scrutiny during inspections.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 font-bold">•</span>
-                <span>
-                  <strong>Municipal pre-sale inspections:</strong> Cities like Allentown require sellers to schedule and pay for a pre-sale inspection within five business days of listing. Violations must be disclosed to buyers or corrected before closing.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 font-bold">•</span>
-                <span>
-                  <strong>Inheritance tax deadlines:</strong> Pennsylvania inheritance tax is due within nine months of death, regardless of whether the property has sold. Heirs who miss this deadline face penalties and interest.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 font-bold">•</span>
-                <span>
-                  <strong>Probate timelines:</strong> The average Pennsylvania probate process takes 12 to 18 months. Properties tied up in estate administration cannot be sold without Letters Testamentary or court approval.
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-amber-500 mt-1 font-bold">•</span>
-                <span>
-                  <strong>Disclosure requirements:</strong> Pennsylvania sellers must complete a Seller's Disclosure Statement covering 16 categories of potential defects. Failure to disclose known issues can result in post-sale litigation.
-                </span>
-              </li>
-            </ul>
+            <div className="space-y-4 text-lg text-slate-700">
+              <p>
+                Pennsylvania&apos;s real estate requirements tightened in 2026. New building codes. Municipal pre-sale inspections. Stricter scrutiny on unpermitted work.
+              </p>
+              <p>
+                If your house needs repairs, has code issues, or you simply don&apos;t have 90 days to wait — the traditional sale process works against you.
+              </p>
+              <p className="font-semibold text-slate-900">
+                We offer a different path.
+              </p>
+              <p>
+                ClearEdge Home Buyers purchases homes directly from homeowners throughout Eastern PA. No agents. No listings. No waiting for a buyer who might back out.
+              </p>
+              <p>
+                You get a cash offer. You pick the closing date. We handle the rest.
+              </p>
+            </div>
+            <div className="mt-8">
+              <Link href="/how-it-works" className="text-amber-600 hover:text-amber-700 font-medium">
+                See How It Works →
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* WHAT MOST HOMEOWNERS DON'T REALIZE */}
-        <section className="bg-slate-50 py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              What Most Homeowners Don't Realize About Selling in Pennsylvania
+
+        {/* THREE STEPS TO SOLD */}
+        <section className="bg-slate-900 text-white py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-12 text-center">
+              Three Steps to Sold
             </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              The traditional home sale process is designed for houses in good condition with owners who have time to wait.
-            </p>
-            <p className="text-slate-700 mb-4">
-              If your situation doesn't fit that mold, you're working against the system.
-            </p>
-            <div className="space-y-6 mt-8">
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                  Repairs before listing can cost more than they return.
-                </h3>
-                <p className="text-slate-700">
-                  Most sellers spend $10,000 to $30,000 preparing a house for market.
-                  In older Pennsylvania homes built before 1970, unexpected issues like knob-and-tube wiring, lead paint, or foundation cracks can double that number.
-                  These costs come out of pocket before you see any return.
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  1
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Discovery Call</h3>
+                <p className="text-slate-300">
+                  Tell us about your property and situation. Takes 10 minutes. No pressure, no obligations — just a conversation about your options.
                 </p>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                  Listing doesn't mean selling.
-                </h3>
-                <p className="text-slate-700">
-                  The average days on market in Pennsylvania varies significantly by condition and location.
-                  Properties with deferred maintenance, estate situations, or tenant complications often sit 60 to 90 days before receiving a viable offer.
-                  Every month on market costs you insurance, taxes, utilities, and risk of further deterioration.
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  2
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Get Your Cash Offer</h3>
+                <p className="text-slate-300">
+                  Within 24 hours, you&apos;ll have a written all-cash offer. It&apos;s good for 30 days, so you can think it over without pressure.
                 </p>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                  Buyer financing falls through more often than you'd expect.
-                </h3>
-                <p className="text-slate-700">
-                  Conventional mortgages require the property to meet lender standards.
-                  If an appraiser flags issues like a non-functional HVAC system, roof damage, or structural concerns, the buyer's financing can collapse.
-                  This sends you back to square one, often after weeks of waiting.
+              <div className="text-center">
+                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  3
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Close On Your Terms</h3>
+                <p className="text-slate-300">
+                  Accept the offer, pick your closing date, and we handle everything else. Most sales close in 7-30 days. Local title company or remote closing — your choice.
                 </p>
               </div>
             </div>
-            <p className="text-slate-700 mt-8">
-              We've written extensively about these dynamics in our guides on{' '}
-              <Link href="/situations/foreclosure" className="text-amber-600 hover:text-amber-700 underline">
-                avoiding foreclosure in Pennsylvania
+            <div className="text-center mt-10">
+              <Link href="/how-it-works" className="text-amber-400 hover:text-amber-300 font-medium">
+                Get the Full Process Details →
               </Link>
-              ,{' '}
-              <Link href="/situations/inherited-property" className="text-amber-600 hover:text-amber-700 underline">
-                selling inherited property
-              </Link>
-              , and{' '}
-              <Link href="/situations/probate" className="text-amber-600 hover:text-amber-700 underline">
-                navigating probate sales
-              </Link>
-              .
-            </p>
+            </div>
           </div>
         </section>
-
         {/* THE HIDDEN COST OF WAITING - COMPARISON TABLE */}
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
@@ -380,6 +344,7 @@ export default function HomePage() {
           </div>
         </section>
 
+
         {/* THE CLEAREDGE APPROACH */}
         <section className="bg-slate-50 py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
@@ -435,24 +400,27 @@ export default function HomePage() {
           </div>
         </section>
 
+
         {/* SITUATIONS WE HELP WITH */}
-        <section className="bg-slate-900 text-white py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-4">
-              What Situations Does ClearEdge Help With?
+        <section className="py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              We Buy Houses in Any Situation
             </h2>
-            <p className="text-slate-300 mb-10">
-              Every homeowner's situation is different.
-              Here are the most common reasons Pennsylvania homeowners reach out to us.
+            <p className="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">
+              Every homeowner&apos;s situation is different. Here are the most common reasons people reach out to us.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {situations.map((situation) => (
                 <Link
-                  key={situation.href + situation.name}
-                  href={situation.href}
-                  className="bg-slate-800 hover:bg-slate-700 p-4 rounded-lg transition-colors"
+                  key={situation.slug}
+                  href={`/situations/${situation.slug}`}
+                  className="bg-white border border-slate-200 hover:border-amber-400 rounded-lg p-6 transition-colors group"
                 >
-                  <span className="font-medium">{situation.name}</span>
+                  <h3 className="font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                    {situation.title}
+                  </h3>
+                  <p className="text-sm text-slate-600">{situation.description}</p>
                 </Link>
               ))}
             </div>
@@ -461,33 +429,163 @@ export default function HomePage() {
 
         {/* SERVICE AREAS */}
         <section className="py-16 lg:py-20" id="service-areas">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Where Does ClearEdge Buy Houses in Pennsylvania?
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
+              Serving All of Eastern Pennsylvania
             </h2>
-            <p className="text-lg text-slate-700 mb-8">
-              We purchase properties throughout Eastern Pennsylvania, including NEPA, the Lehigh Valley, and the Poconos.
+            <p className="text-lg text-slate-600 mb-12 text-center max-w-3xl mx-auto">
+              We purchase properties throughout NEPA, the Lehigh Valley, and the Poconos. If you own a house in any of these areas, we&apos;d love to make you a fair cash offer.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-slate-700">
-              {locations.map((location) => (
-                <Link
-                  key={location.href}
-                  href={location.href}
-                  className="hover:text-amber-600 transition-colors"
-                >
-                  {location.name}
-                </Link>
+            <div className="grid md:grid-cols-3 gap-8">
+              {Object.entries(locationsByRegion).map(([region, cities]) => (
+                <div key={region}>
+                  <h3 className="text-xl font-bold text-slate-800 mb-4 border-b-2 border-amber-500 pb-2">
+                    {region}
+                  </h3>
+                  <ul className="space-y-2">
+                    {cities.map((city) => (
+                      <li key={city.href}>
+                        <Link
+                          href={city.href}
+                          className="text-slate-700 hover:text-amber-600 transition-colors"
+                        >
+                          {city.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
-            <p className="text-slate-600 text-sm mt-6">
-              Don't see your city? We likely still serve your area.{' '}
-              <Link href="/contact" className="text-amber-600 hover:text-amber-700 underline">
-                Request an offer
-              </Link>{' '}
-              to find out.
+            <p className="text-center mt-10">
+              <Link
+                href="#lead-form"
+                className="text-amber-600 hover:text-amber-700 font-semibold"
+              >
+                Don&apos;t see your city? Request an offer anyway &rarr;
+              </Link>
             </p>
           </div>
         </section>
+
+        {/* WHY CLEAREDGE */}
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+              Why Homeowners Choose ClearEdge
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Local, Not a Franchise</h3>
+                <p className="text-slate-600">
+                  We started in 2016 on Birch Street in Scranton — not a call center in another state. Tyler still answers the phone.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Transparent Pricing</h3>
+                <p className="text-slate-600">
+                  We show you exactly how we calculate our offer. No mystery math. No pressure. Just honest numbers.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Your Timeline, Not Ours</h3>
+                <p className="text-slate-600">
+                  Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">4</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">White-Glove Service</h3>
+                <p className="text-slate-600">
+                  From the first call to the closing table, you work directly with Tyler — not a rotating cast of salespeople. Call him now:{' '}
+                  <a href="tel:+15709042059" className="text-amber-600 hover:text-amber-700 font-semibold">(570) 904-2059</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+              What Our Clients Say
+            </h2>
+            
+            {/* Featured Testimonial */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 mb-10 border border-slate-100">
+              <div className="max-w-4xl mx-auto">
+                <svg className="w-12 h-12 text-amber-400 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-6">
+                  &ldquo;Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.&rdquo;
+                </blockquote>
+                <div className="flex items-center">
+                  <div>
+                    <p className="font-bold text-slate-900">Kandra Gunter</p>
+                    <p className="text-slate-500 text-sm">Sold inherited property from Texas while caring for elderly father</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Testimonials */}
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <blockquote className="text-slate-700 mb-4">
+                  &ldquo;You made a difficult time simple and smooth.&rdquo;
+                </blockquote>
+                <p className="font-semibold text-slate-900">Jewel Parago</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <blockquote className="text-slate-700 mb-4">
+                  &ldquo;First to take time to explain the process and make me feel comfortable.&rdquo;
+                </blockquote>
+                <p className="font-semibold text-slate-900">Gavin S.</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
+                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <blockquote className="text-slate-700 mb-4">
+                  &ldquo;We closed in 30 days and have never been happier!&rdquo;
+                </blockquote>
+                <p className="font-semibold text-slate-900">Rita C.</p>
+              </div>
+            </div>
+
+            {/* Google Reviews Link */}
+            <p className="text-center mt-10">
+              <a
+                href="https://www.google.com/maps/place/ClearEdge+Home+Buyers"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-600 hover:text-amber-700 font-semibold"
+              >
+                See all reviews on Google &rarr;
+              </a>
+            </p>
+          </div>
+        </section>
+
 
         {/* FAQ SECTION */}
         <section className="bg-slate-50 py-16 lg:py-20">
@@ -508,6 +606,7 @@ export default function HomePage() {
           </div>
         </section>
 
+
         {/* ABOUT SECTION */}
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
@@ -522,41 +621,38 @@ export default function HomePage() {
               I started this company in 2016 with a single duplex on Birch Street in Scranton.
               My high school friend and I saw an opportunity to help homeowners while building something we could be proud of.
             </p>
-            <p className="text-slate-700 mb-4">
-              Since then, we've helped more than 200 families sell properties they no longer wanted or couldn't maintain.
-              We've been featured in The Morning Call and Lehigh Valley Business, and I regularly speak at REIA meetups throughout Eastern PA.
-            </p>
             <p className="text-slate-700">
-              We're not a hedge fund or a faceless corporation.
-              We live here. We invest here. And we answer our own phones.
+              Since then, we&apos;ve helped more than 200 families sell properties they no longer wanted or couldn&apos;t maintain. We&apos;re not a hedge fund or a faceless corporation. We live here. We invest here. And we answer our own phones.
             </p>
           </div>
         </section>
 
+
         {/* FINAL CTA */}
-        <section className="bg-amber-500 py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Want to Know What Your House Is Worth?
-            </h2>
-            <p className="text-lg text-slate-800 mb-8">
-              Request a no-obligation cash offer.
-              You'll know exactly where you stand — and whether selling to us makes sense for your situation.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-semibold px-10 py-4 rounded-lg transition-colors"
-            >
-              Get Your Cash Offer
-            </Link>
-            <p className="text-slate-700 text-sm mt-6">
-              Or call us directly:{' '}
+        <section className="bg-amber-500 py-16 lg:py-20" id="lead-form">
+          <div className="max-w-xl mx-auto px-6">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Want to Know What Your House Is Worth?
+              </h2>
+              <p className="text-lg text-slate-800">
+                Request a no-obligation cash offer. You&apos;ll know exactly where you stand — and whether selling to us makes sense for your situation.
+              </p>
+            </div>
+            <LeadForm 
+              heading="Get Your Cash Offer"
+              subheading="No obligation • No fees • Response in 24 hours"
+              buttonText="Get My Cash Offer"
+            />
+            <p className="text-slate-700 text-sm mt-6 text-center">
+              Prefer to talk? Call Tyler directly:{' '}
               <a href="tel:5709042059" className="font-semibold hover:underline">
                 (570) 904-2059
               </a>
             </p>
           </div>
         </section>
+
 
         {/* CLOSING KEYWORD ANCHOR */}
         <section className="py-12 bg-slate-100">
@@ -566,6 +662,7 @@ export default function HomePage() {
             </p>
           </div>
         </section>
+
       </main>
     </>
   )
