@@ -2,61 +2,50 @@
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ScrollToFormButton } from '@/components/ScrollToFormButton'
+import { LeadForm } from '@/components/LeadForm'
 
 export const metadata: Metadata = {
-  title: 'How It Works | Sell Your House Fast for Cash in Pennsylvania | ClearEdge',
-  description: 'Learn how to sell your house fast for cash in Pennsylvania. Three simple steps: tell us about your property, get a cash offer in 24 hours, close on your timeline. No repairs, no agents, no fees.',
-  keywords: 'how to sell your house fast for cash Pennsylvania, cash home buying process, sell house fast PA, ClearEdge process',
+  title: 'How It Works | Sell Your PA House for Cash in 3 Simple Steps | ClearEdge',
+  description: 'See exactly how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure. Serving Eastern PA since 2016.',
+  keywords: ['how to sell house fast PA', 'cash home buying process', 'sell house as-is Pennsylvania', 'ClearEdge process'],
   openGraph: {
-    title: 'How It Works | Sell Your House Fast for Cash | ClearEdge Home Buyers',
-    description: 'Three steps to sell your Pennsylvania house for cash. No repairs, no showings, no uncertainty. Close in as few as 7 days.',
-    url: 'https://clearedgehomebuyers.com/how-it-works',
+    title: 'How It Works | Sell Your PA House for Cash in 3 Simple Steps | ClearEdge',
+    description: 'See exactly how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure.',
+    url: 'https://www.clearedgehomebuyers.com/how-it-works',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: 'https://clearedgehomebuyers.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'ClearEdge Home Buyers - How It Works',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'How It Works | Sell Your House Fast for Cash | ClearEdge',
-    description: 'Three steps to sell your Pennsylvania house for cash. Close in as few as 7 days.',
   },
   alternates: {
-    canonical: 'https://clearedgehomebuyers.com/how-it-works',
+    canonical: 'https://www.clearedgehomebuyers.com/how-it-works',
   },
 }
 
 const faqs = [
   {
-    question: 'How do you determine your offer price?',
-    answer: 'We calculate offers based on what your house will be worth after it\'s fully renovated, minus the cost of repairs and our operating margin. We also factor in holding costs you\'d pay during a traditional sale — property taxes, utilities, insurance, and interest. We\'ll walk you through the math so you see exactly how we arrived at the number.',
+    question: 'How is your offer different from market value?',
+    answer: 'Market value assumes a buyer-ready home sold through traditional channels. Our offer reflects the as-is condition and accounts for repairs, holding costs, and our margin. For some sellers, the convenience and speed outweigh the difference. For others, listing makes more sense — and we\'ll tell you that honestly.',
   },
   {
-    question: 'Will I get less than market value?',
-    answer: 'Yes, our offer will be below what you might get listing on the open market with a real estate agent. The tradeoff is speed, certainty, and zero out-of-pocket costs. For many homeowners, especially those dealing with distressed properties or urgent timelines, that tradeoff makes sense.',
+    question: 'What if my house has serious problems?',
+    answer: 'We buy houses with foundation issues, fire damage, mold, roof problems, code violations — you name it. The condition is factored into our offer, but it won\'t disqualify you.',
   },
   {
-    question: 'What if my house has major problems?',
-    answer: 'Major problems are exactly what we expect. Foundation cracks, roof damage, mold, fire damage, code violations — we\'ve bought properties with all of these issues. The condition of your house doesn\'t disqualify it. It factors into the offer price, but we still buy.',
+    question: 'Can you buy my house if it\'s in probate?',
+    answer: 'Yes. We work with estate attorneys regularly and can close during or after probate depending on the court timeline.',
   },
   {
-    question: 'Can I sell if my house is in probate?',
-    answer: 'Yes, but we need to wait for the executor to receive Letters Testamentary from the court. Once that\'s in place, the executor has legal authority to sell. We work with probate attorneys throughout Eastern PA and can help navigate the timeline.',
+    question: 'How fast can you actually close?',
+    answer: 'As fast as 7 days if title is clear. Most sales close in 14-30 days. If you need more time, we\'ll work around your schedule.',
   },
   {
-    question: 'What if I change my mind after getting an offer?',
-    answer: 'Nothing happens. Our offer is valid for 30 days and comes with no obligation. You can review it, think about it, and decide it\'s not right for you. There\'s no pressure and no follow-up harassment.',
+    question: 'Is there any cost or obligation to get an offer?',
+    answer: 'None. The offer is free, there\'s no obligation, and if you decide not to move forward, that\'s fine. No follow-up pressure.',
   },
   {
-    question: 'Do you buy houses everywhere in Pennsylvania?',
-    answer: 'We focus on Eastern Pennsylvania — specifically NEPA, the Lehigh Valley, and the Poconos. This includes Scranton, Wilkes-Barre, Allentown, Bethlehem, Easton, Reading, Hazleton, Stroudsburg, and surrounding areas.',
+    question: 'Do you pay fair prices?',
+    answer: 'We pay what the numbers support. Our offers are below retail market value because we take on the risk, repairs, and holding costs. But we\'re transparent about how we calculate offers — you\'ll see exactly where the number comes from.',
   },
 ]
 
@@ -72,12 +61,12 @@ export default function HowItWorksPage() {
             '@graph': [
               {
                 '@type': 'WebPage',
-                '@id': 'https://clearedgehomebuyers.com/how-it-works/#webpage',
-                url: 'https://clearedgehomebuyers.com/how-it-works',
-                name: 'How It Works | Sell Your House Fast for Cash in Pennsylvania',
-                description: 'Learn how to sell your house fast for cash in Pennsylvania. Three simple steps with ClearEdge Home Buyers.',
+                '@id': 'https://www.clearedgehomebuyers.com/how-it-works/#webpage',
+                url: 'https://www.clearedgehomebuyers.com/how-it-works',
+                name: 'How It Works | Sell Your PA House for Cash in 3 Simple Steps',
+                description: 'See exactly how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure.',
                 isPartOf: {
-                  '@id': 'https://clearedgehomebuyers.com/#website',
+                  '@id': 'https://www.clearedgehomebuyers.com/#website',
                 },
                 breadcrumb: {
                   '@type': 'BreadcrumbList',
@@ -86,21 +75,21 @@ export default function HowItWorksPage() {
                       '@type': 'ListItem',
                       position: 1,
                       name: 'Home',
-                      item: 'https://clearedgehomebuyers.com',
+                      item: 'https://www.clearedgehomebuyers.com',
                     },
                     {
                       '@type': 'ListItem',
                       position: 2,
                       name: 'How It Works',
-                      item: 'https://clearedgehomebuyers.com/how-it-works',
+                      item: 'https://www.clearedgehomebuyers.com/how-it-works',
                     },
                   ],
                 },
               },
               {
                 '@type': 'HowTo',
-                '@id': 'https://clearedgehomebuyers.com/how-it-works/#howto',
-                name: 'How to Sell Your House Fast for Cash in Pennsylvania',
+                '@id': 'https://www.clearedgehomebuyers.com/how-it-works/#howto',
+                name: 'How to Sell Your PA House for Cash in 3 Simple Steps',
                 description: 'A three-step process to sell your Pennsylvania house for cash without repairs, showings, or agent fees.',
                 totalTime: 'P7D',
                 estimatedCost: {
@@ -112,29 +101,29 @@ export default function HowItWorksPage() {
                   {
                     '@type': 'HowToStep',
                     position: 1,
-                    name: 'Get a Cash Offer in 24 Hours',
-                    text: 'Call us at (570) 904-2059 or submit your property details online. We ask basic questions about the address, your situation, timeline, and condition. Within 24 hours guaranteed, you receive an all-cash offer — plus alternative options if they make sense for your situation.',
-                    url: 'https://clearedgehomebuyers.com/how-it-works#step-1',
+                    name: 'Discovery Call',
+                    text: 'Tell us about your property and situation in a 10-minute conversation. We ask about the condition, timeline, and what matters most to you. No pressure, no obligation.',
+                    url: 'https://www.clearedgehomebuyers.com/how-it-works#step-1',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 2,
-                    name: 'See Exactly How We Calculated Your Price',
-                    text: 'We present a guaranteed cash offer valid for 30 days, calculated from after-repair value minus repair costs, holding costs, and our operating margin. If you decide to move forward, we schedule a 20-30 minute walkthrough to confirm condition and take photos.',
-                    url: 'https://clearedgehomebuyers.com/how-it-works#step-2',
+                    name: 'Get Your Cash Offer',
+                    text: 'Within 24 hours, we evaluate your property and present a written cash offer. Our offers are good for 30 days, and we walk you through exactly how we calculated the number.',
+                    url: 'https://www.clearedgehomebuyers.com/how-it-works#step-2',
                   },
                   {
                     '@type': 'HowToStep',
                     position: 3,
-                    name: 'You Pick the Closing Date (7 to 30 Days)',
-                    text: 'You choose the closing date — as few as 7 days or up to 30+ days. We handle title work and logistics. Sign at a title company, attorney office, or with a mobile notary at your location. Receive funds same day or next business day.',
-                    url: 'https://clearedgehomebuyers.com/how-it-works#step-3',
+                    name: 'Close On Your Terms',
+                    text: 'Accept the offer and choose your closing date — as fast as 7 days or as far out as 60+ days. We handle the title work, paperwork, and coordination. You show up, sign, and get paid.',
+                    url: 'https://www.clearedgehomebuyers.com/how-it-works#step-3',
                   },
                 ],
               },
               {
                 '@type': 'FAQPage',
-                '@id': 'https://clearedgehomebuyers.com/how-it-works/#faq',
+                '@id': 'https://www.clearedgehomebuyers.com/how-it-works/#faq',
                 mainEntity: faqs.map((faq) => ({
                   '@type': 'Question',
                   name: faq.question,
@@ -154,240 +143,232 @@ export default function HowItWorksPage() {
         <section className="bg-slate-900 text-white py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              How to Sell Your House Fast for Cash in Pennsylvania
+              How We Buy Houses — And Why It&apos;s Simpler Than You Think
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Three steps. No repairs. No showings. No uncertainty.
-              Here's exactly what happens when you work with ClearEdge.
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+              No repairs. No agents. No waiting for buyers. Just a fair cash offer and a closing date that works for you.
             </p>
+            <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+              Get My Cash Offer
+            </ScrollToFormButton>
           </div>
         </section>
 
-        {/* WHY TRADITIONAL SELLING IS COMPLICATED */}
+        {/* WHY TRADITIONAL SELLING IS HARD */}
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-6">
-              Why Is Selling a House in Pennsylvania So Complicated?
+              Why Selling a House in Pennsylvania Feels So Hard
             </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              The traditional home sale process involves dozens of steps, multiple parties, and months of uncertainty.
+            <p className="text-lg text-slate-700 mb-8">
+              Selling through an agent means months of uncertainty. You&apos;ll deal with:
             </p>
-            <p className="text-slate-700 mb-4">
-              Before you can even list, Pennsylvania requires sellers to complete a Seller's Disclosure Statement covering 16 categories of potential property issues.
-              Many municipalities add their own requirements on top of state law.
-            </p>
-            <p className="text-slate-700 mb-4">
-              Cities like Allentown require a pre-sale inspection within five business days of listing.
-              Violations must be corrected or disclosed before closing.
-            </p>
-            <p className="text-slate-700 mb-4">
-              Properties in probate can't close without Letters Testamentary, which requires court approval.
-              The average Pennsylvania probate process takes 12 to 18 months.
-            </p>
-            <p className="text-slate-700">
-              If you're dealing with deferred maintenance, code violations, or an inherited property, these requirements compound quickly.
+            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+              <div className="bg-slate-50 p-5 rounded-lg">
+                <h3 className="font-semibold text-slate-900 mb-2">Disclosure Requirements</h3>
+                <p className="text-slate-600 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
+              </div>
+              <div className="bg-slate-50 p-5 rounded-lg">
+                <h3 className="font-semibold text-slate-900 mb-2">Municipal Inspections</h3>
+                <p className="text-slate-600 text-sm">Cities like Allentown require pre-sale inspections. Violations must be fixed before closing.</p>
+              </div>
+              <div className="bg-slate-50 p-5 rounded-lg">
+                <h3 className="font-semibold text-slate-900 mb-2">Buyer Financing Delays</h3>
+                <p className="text-slate-600 text-sm">Mortgage approvals fall through. Appraisals come in low. Deals collapse at the last minute.</p>
+              </div>
+              <div className="bg-slate-50 p-5 rounded-lg">
+                <h3 className="font-semibold text-slate-900 mb-2">Repairs and Staging</h3>
+                <p className="text-slate-600 text-sm">Most buyers want move-in ready. That means spending money before you see a dime.</p>
+              </div>
+            </div>
+            <p className="text-slate-700 font-medium">
+              There&apos;s a simpler path.
             </p>
           </div>
         </section>
 
-        {/* THE THREE-STEP PROCESS */}
+        {/* THREE STEPS TO SOLD */}
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
+              Three Steps to Sold
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">1</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Discovery Call</h3>
+                <p className="text-amber-600 font-medium text-sm mb-3">A 10-Minute Conversation</p>
+                <p className="text-slate-600">
+                  Tell us about your property and situation. We&apos;ll ask about the condition, timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">2</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Get Your Cash Offer</h3>
+                <p className="text-amber-600 font-medium text-sm mb-3">Within 24 Hours</p>
+                <p className="text-slate-600">
+                  We&apos;ll evaluate your property and present a written cash offer. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-8 shadow-sm">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold text-xl">3</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Close On Your Terms</h3>
+                <p className="text-amber-600 font-medium text-sm mb-3">You Pick the Date</p>
+                <p className="text-slate-600">
+                  Accept the offer and choose your closing date — as fast as 7 days or as far out as 60+ days. We handle the title work, paperwork, and coordination. You show up, sign, and get paid.
+                </p>
+              </div>
+            </div>
+            <div className="text-center">
+              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+                Ready to Start? Get Your Offer &rarr;
+              </ScrollToFormButton>
+            </div>
+          </div>
+        </section>
+
+        {/* HOW WE CALCULATE YOUR OFFER */}
         <section className="bg-slate-50 py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10">
-              How Does Selling to ClearEdge Work?
-            </h2>
-            <p className="text-lg text-slate-700 mb-10">
-              Our process has three steps and typically takes 7 to 30 days from first contact to closing.
-            </p>
-
-            {/* Step 1 */}
-            <div className="mb-12" id="step-1">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">1</span>
-                <h3 className="text-2xl font-bold text-slate-900">Get a Cash Offer in 24 Hours</h3>
-              </div>
-              <p className="text-slate-700 mb-3">
-                Call us at <a href="tel:5709042059" className="text-amber-600 hover:text-amber-700 font-medium">(570) 904-2059</a> or submit your property details through our website.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We'll ask a few basic questions: the property address, your situation, your timeline, and the general condition of the house.
-              </p>
-              <p className="text-slate-700 mb-3">
-                This conversation takes about 10 minutes.
-                There's no obligation and no pressure.
-              </p>
-              <p className="text-slate-700">
-                Within 24 hours — guaranteed — we'll get back to you with an all-cash offer.
-                Depending on your situation and the property, we may also present alternative options that could be a better fit for both of us.
-                But at minimum, you'll have a cash number in hand within a day.
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="mb-12" id="step-2">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">2</span>
-                <h3 className="text-2xl font-bold text-slate-900">See Exactly How We Calculated Your Price</h3>
-              </div>
-              <p className="text-slate-700 mb-3">
-                We'll call you back within 24 hours with a guaranteed cash offer that's valid for 30 days.
-                If today isn't the right time, the offer doesn't disappear.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We calculate your offer based on what your house will be worth after it's fully renovated, minus the cost of the work and our operating margin.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We also factor in the holding costs you'd pay during a traditional sale — property taxes, utilities, insurance, and the interest that would eat into your equity while the house sits on the market for 60 to 90 days.
-                When you sell to us, those costs become our problem, not yours.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We're able to move this quickly because of our experience.
-                After nearly a decade of buying properties throughout Eastern Pennsylvania, we know these markets inside and out.
-                We'll walk you through exactly how we arrived at your number — no mystery, no hidden math.
-              </p>
-              <p className="text-slate-700 mb-3">
-                If you decide ClearEdge is a good fit, we'll schedule a walkthrough at your convenience — usually within a few days.
-              </p>
-              <p className="text-slate-700 mb-3">
-                This isn't an inspection in the traditional sense.
-                We're not looking for reasons to reduce your price.
-                We're confirming the property condition matches what we discussed and identifying what repairs we'll need to handle after the purchase.
-                We'll also take some photographs for our records, marketing, and contractor coordination.
-              </p>
-              <p className="text-slate-700">
-                The walkthrough takes 20 to 30 minutes.
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="mb-12" id="step-3">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-amber-500 text-slate-900 font-bold text-xl">3</span>
-                <h3 className="text-2xl font-bold text-slate-900">You Pick the Closing Date (7 to 30 Days)</h3>
-              </div>
-              <p className="text-slate-700 mb-3">
-                At this point, the heavy lifting is done.
-                If you accept our offer, you pick the closing date.
-              </p>
-              <p className="text-slate-700 mb-3">
-                Need to close in 7 days because you're up against a deadline? We can do that.
-                Need 30 days to coordinate a move or tie up loose ends? That works too.
-              </p>
-              <p className="text-slate-700 mb-3">
-                We handle the title work and closing logistics.
-                You sign the paperwork at a local title company, attorney's office, or we can send a mobile notary to meet you wherever you are — you don't even need to leave your home.
-              </p>
-              <p className="text-slate-700">
-                You receive your funds the same day or next business day via wire transfer or certified check.
-              </p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg border border-slate-200">
-              <p className="text-slate-700 font-medium">
-                That's it. No listing. No showings. No repairs. No financing contingencies. No waiting to see if a buyer's loan gets approved.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* WHAT'S DIFFERENT ABOUT THIS PROCESS */}
-        <section className="py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              What Does ClearEdge Handle That Traditional Sales Don't?
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">
+              How We Calculate Your Offer
             </h2>
             <p className="text-lg text-slate-700 mb-6">
-              When you sell to us, several pain points disappear entirely.
+              We&apos;re not going to hide the math. Here&apos;s exactly how we determine what we can pay:
             </p>
+            <p className="text-slate-700 mb-4">
+              We start with what your house will be worth after it&apos;s fully renovated — that&apos;s called the After Repair Value (ARV). Then we subtract:
+            </p>
+            <ul className="list-disc list-inside text-slate-700 mb-6 space-y-2 ml-4">
+              <li><span className="font-medium">Repair costs</span> — What it takes to get the property market-ready</li>
+              <li><span className="font-medium">Holding costs</span> — Taxes, insurance, utilities while we renovate</li>
+              <li><span className="font-medium">Selling costs</span> — Agent commissions and closing costs when we resell</li>
+              <li><span className="font-medium">Our margin</span> — What we need to make the project worthwhile</li>
+            </ul>
+            <p className="text-slate-700 mb-8">
+              What&apos;s left is what we can offer you.
+            </p>
+            <div className="bg-white border-l-4 border-amber-500 p-6 rounded-r-lg shadow-sm mb-8">
+              <p className="text-slate-700">
+                <span className="font-semibold">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
+              </p>
+            </div>
+            <p className="text-slate-700">
+              This isn&apos;t about lowballing you. It&apos;s about being honest so you can make an informed decision. If the numbers don&apos;t work for your situation, we&apos;ll tell you — and we might even suggest listing with an agent instead.
+            </p>
+          </div>
+        </section>
 
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">No repairs or cleanup required</h3>
-                <p className="text-slate-700">
-                  We buy properties in any condition.
-                  Leave furniture, trash, or personal belongings — we handle the cleanout.
-                  If there's fire damage, foundation issues, or code violations, we buy it anyway.
+        {/* WHAT CLEAREDGE HANDLES */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+              What ClearEdge Handles For You
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">No Repairs Needed</h3>
+                <p className="text-slate-600">
+                  Sell as-is. Foundation issues, roof damage, mold — doesn&apos;t matter.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">No inspections you need to pass</h3>
-                <p className="text-slate-700">
-                  Traditional buyers require inspections and often renegotiate based on findings.
-                  We don't.
-                  We already know we're buying a property that needs work.
-                  The price we offer accounts for that upfront.
+              <div className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">No Inspections</h3>
+                <p className="text-slate-600">
+                  We don&apos;t require you to fix violations or pass municipal inspection.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">No mortgage approval delays</h3>
-                <p className="text-slate-700">
-                  We pay cash.
-                  There's no lender involved, no appraisal contingency, no underwriting delays.
-                  When we say we'll close in 7 days, we mean it.
+              <div className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">No Mortgage Delays</h3>
+                <p className="text-slate-600">
+                  Cash means no lender approval, no appraisal contingencies.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">No agent commissions</h3>
-                <p className="text-slate-700">
-                  There's no 5-6% commission because there's no agent.
-                  We're the buyer.
-                  The offer we make is what you receive at closing, minus any existing liens or mortgages that get paid off.
+              <div className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">No Commissions</h3>
+                <p className="text-slate-600">
+                  We&apos;re not agents. You pay zero commission.
                 </p>
               </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">No uncertainty about whether the deal will close</h3>
-                <p className="text-slate-700">
-                  We've closed over 200 transactions since 2016.
-                  When we make an offer and you accept, the deal closes.
-                  We don't back out due to inspection findings or financing issues.
+              <div className="bg-slate-50 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">No Uncertainty</h3>
+                <p className="text-slate-600">
+                  When we make an offer and you accept, the deal closes. Period.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* WHO THIS PROCESS IS RIGHT FOR */}
+        {/* WHO THIS IS FOR */}
         <section className="bg-slate-900 text-white py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-6">
-              Who Is This Process Best For?
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              Is This Right For You?
             </h2>
-            <p className="text-lg text-slate-300 mb-8">
-              A cash sale makes the most sense when time, condition, or complexity are factors.
+            <p className="text-lg text-slate-300 mb-10 text-center max-w-2xl mx-auto">
+              We work with homeowners in all kinds of situations. If any of these sound familiar, we can probably help:
             </p>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Homeowners facing foreclosure who need to sell before the sheriff sale</p>
-              </div>
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Heirs who inherited a property they don't want to maintain or manage</p>
-              </div>
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Landlords dealing with problem tenants or properties that have become more trouble than they're worth</p>
-              </div>
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Owners of vacant properties accumulating fines, taxes, and liability</p>
-              </div>
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Divorcing couples who need to liquidate jointly-owned property quickly</p>
-              </div>
-              <div className="bg-slate-800 p-4 rounded-lg">
-                <p className="font-medium">Anyone who simply doesn't want to deal with the traditional selling process</p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+              <Link href="/situations/foreclosure" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Facing Foreclosure</p>
+              </Link>
+              <Link href="/situations/inherited-property" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Inherited Property</p>
+              </Link>
+              <Link href="/situations/divorce" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Going Through Divorce</p>
+              </Link>
+              <Link href="/situations/job-relocation" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Job Relocation</p>
+              </Link>
+              <Link href="/situations/major-repairs" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Major Repairs Needed</p>
+              </Link>
+              <Link href="/situations/tax-liens-code-violations" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Tax Liens or Code Violations</p>
+              </Link>
+              <Link href="/situations/tired-landlord" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Tired Landlord</p>
+              </Link>
+              <Link href="/situations/vacant-property" className="bg-slate-800 hover:bg-slate-700 p-5 rounded-lg transition-colors group">
+                <p className="font-medium group-hover:text-amber-400 transition-colors">Vacant Property</p>
+              </Link>
             </div>
-            <p className="text-slate-400 mt-8">
-              We've written detailed guides for each of these situations.
-              See our pages on{' '}
-              <Link href="/situations/foreclosure" className="text-amber-400 hover:text-amber-300 underline">foreclosure</Link>,{' '}
-              <Link href="/situations/inherited-property" className="text-amber-400 hover:text-amber-300 underline">inherited property</Link>,{' '}
-              <Link href="/situations/probate" className="text-amber-400 hover:text-amber-300 underline">probate sales</Link>,{' '}
-              <Link href="/situations/tired-landlord" className="text-amber-400 hover:text-amber-300 underline">tired landlords</Link>, and{' '}
-              <Link href="/situations/divorce" className="text-amber-400 hover:text-amber-300 underline">divorce</Link>.
-            </p>
+            <div className="text-center">
+              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+                Not sure if you qualify? Reach out anyway &rarr;
+              </ScrollToFormButton>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIAL */}
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+              Don&apos;t Just Take Our Word For It
+            </h2>
+            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm">
+              <div className="text-amber-500 text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-6">
+                Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
+              </blockquote>
+              <p className="text-slate-600 font-medium">
+                — Kandra G., sold inherited property from Texas
+              </p>
+            </div>
+            <div className="text-center mt-8">
+              <Link href="/testimonials" className="text-amber-600 hover:text-amber-700 font-medium transition-colors">
+                Read more reviews &rarr;
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -395,82 +376,61 @@ export default function HowItWorksPage() {
         <section className="py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-10">
-              Common Questions About Our Process
+              Common Questions
             </h2>
 
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  How do you determine your offer price?
+                  How is your offer different from market value?
                 </h3>
                 <p className="text-slate-700">
-                  We calculate offers based on what your house will be worth after it's fully renovated, minus the cost of repairs and our operating margin.
-                  We also factor in holding costs you'd pay during a traditional sale — property taxes, utilities, insurance, and interest.
-                  We'll walk you through the math so you see exactly how we arrived at the number.
+                  Market value assumes a buyer-ready home sold through traditional channels. Our offer reflects the as-is condition and accounts for repairs, holding costs, and our margin. For some sellers, the convenience and speed outweigh the difference. For others, listing makes more sense — and we&apos;ll tell you that honestly.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  Will I get less than market value?
+                  What if my house has serious problems?
                 </h3>
                 <p className="text-slate-700">
-                  Yes, our offer will be below what you might get listing on the open market with a real estate agent.
-                  The tradeoff is speed, certainty, and zero out-of-pocket costs.
-                  For many homeowners, especially those dealing with distressed properties or urgent timelines, that tradeoff makes sense.
+                  We buy houses with foundation issues, fire damage, mold, roof problems, code violations — you name it. The condition is factored into our offer, but it won&apos;t disqualify you.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  What if my house has major problems?
+                  Can you buy my house if it&apos;s in probate?
                 </h3>
                 <p className="text-slate-700">
-                  Major problems are exactly what we expect.
-                  Foundation cracks, roof damage, mold, fire damage, code violations — we've bought properties with all of these issues.
-                  The condition of your house doesn't disqualify it.
-                  It factors into the offer price, but we still buy.
+                  Yes. We work with estate attorneys regularly and can close during or after probate depending on the court timeline.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  Can I sell if my house is in probate?
+                  How fast can you actually close?
                 </h3>
                 <p className="text-slate-700">
-                  Yes, but we need to wait for the executor to receive Letters Testamentary from the court.
-                  Once that's in place, the executor has legal authority to sell.
-                  We work with probate attorneys throughout Eastern PA and can help navigate the timeline.
-                  For more details, see our{' '}
-                  <Link href="/situations/probate" className="text-amber-600 hover:text-amber-700 underline">
-                    probate guide
-                  </Link>.
+                  As fast as 7 days if title is clear. Most sales close in 14-30 days. If you need more time, we&apos;ll work around your schedule.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  What if I change my mind after getting an offer?
+                  Is there any cost or obligation to get an offer?
                 </h3>
                 <p className="text-slate-700">
-                  Nothing happens.
-                  Our offer is valid for 30 days and comes with no obligation.
-                  You can review it, think about it, and decide it's not right for you.
-                  There's no pressure and no follow-up harassment.
+                  None. The offer is free, there&apos;s no obligation, and if you decide not to move forward, that&apos;s fine. No follow-up pressure.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  Do you buy houses everywhere in Pennsylvania?
+                  Do you pay fair prices?
                 </h3>
                 <p className="text-slate-700">
-                  We focus on Eastern Pennsylvania — specifically NEPA, the Lehigh Valley, and the Poconos.
-                  This includes Scranton, Wilkes-Barre, Allentown, Bethlehem, Easton, Reading, Hazleton, Stroudsburg, and surrounding areas.
-                  See our full{' '}
-                  <Link href="/#service-areas" className="text-amber-600 hover:text-amber-700 underline">
-                    service area list
-                  </Link>.
+                  We pay what the numbers support. Our offers are below retail market value because we take on the risk, repairs, and holding costs. But we&apos;re transparent about how we calculate offers — you&apos;ll see exactly where the number comes from.
                 </p>
               </div>
             </div>
@@ -478,24 +438,18 @@ export default function HowItWorksPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="bg-amber-500 py-16 lg:py-20">
+        <section id="lead-form" className="bg-amber-500 py-16 lg:py-20">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Ready to See What Your House Is Worth?
+              See What Your House Is Worth
             </h2>
             <p className="text-lg text-slate-800 mb-8">
-              Request a no-obligation cash offer.
-              You'll have a number in hand within 24 hours — and full clarity on whether this path makes sense for your situation.
+              Get a no-obligation cash offer. Takes 2 minutes. No pressure, no commitment.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-slate-900 hover:bg-slate-800 text-white font-semibold px-10 py-4 rounded-lg transition-colors"
-            >
-              Get Your Cash Offer
-            </Link>
-            <p className="text-slate-700 text-sm mt-6">
-              Or call us directly:{' '}
-              <a href="tel:5709042059" className="font-semibold hover:underline">
+            <LeadForm />
+            <p className="text-slate-700 text-sm mt-8">
+              Prefer to talk? Call Tyler directly:{' '}
+              <a href="tel:+15709042059" className="font-semibold hover:underline">
                 (570) 904-2059
               </a>
             </p>
@@ -506,8 +460,7 @@ export default function HowItWorksPage() {
         <section className="py-12 bg-slate-100">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-slate-600">
-              Now you know exactly how to sell your house fast for cash in Pennsylvania.
-              The next step is yours.
+              When you&apos;re ready to sell your Pennsylvania house fast without repairs, showings, or uncertainty, ClearEdge is here. Get your cash offer today.
             </p>
           </div>
         </section>
