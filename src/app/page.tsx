@@ -570,7 +570,7 @@ export default function HomePage() {
             {/* Google Reviews Link */}
             <p className="text-center mt-10">
               <a
-                href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@41.4078507,-75.6681938,17z/data=!4m8!3m7!1s0x89c4d91fd98007c7:0x5c9c847c7861c66f!8m2!3d41.4078507!4d-75.6656189!9m1!1b1!16s%2Fg%2F11c5yqh7dc?entry=ttu"
+                href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8549074,-77.1384488,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-600 hover:text-amber-700 font-semibold"
