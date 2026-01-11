@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Star, Phone, MapPin, Clock, CheckCircle, Home, Users, Shield } from 'lucide-react'
 import { LeadForm } from '@/components/LeadForm'
+import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 
 export const metadata: Metadata = {
   title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
@@ -181,12 +182,9 @@ export default function HomePage() {
               No repairs. No agents. No fees. Get a fair cash offer in 24 hours from a local buyer who&apos;s helped hundreds of Eastern PA homeowners since 2016.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="#lead-form"
-                className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors"
-              >
+              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
                 Get My Cash Offer
-              </Link>
+              </ScrollToFormButton>
               <a
                 href="tel:5709042059"
                 className="border border-slate-500 hover:border-white text-white px-8 py-4 rounded-lg transition-colors"
@@ -458,12 +456,9 @@ export default function HomePage() {
               ))}
             </div>
             <p className="text-center mt-10">
-              <Link
-                href="#lead-form"
-                className="text-amber-600 hover:text-amber-700 font-semibold"
-              >
+              <ScrollToFormButton className="text-amber-600 hover:text-amber-700 font-semibold">
                 Don&apos;t see your city? Request an offer anyway &rarr;
-              </Link>
+              </ScrollToFormButton>
             </p>
           </div>
         </section>
@@ -575,7 +570,7 @@ export default function HomePage() {
             {/* Google Reviews Link */}
             <p className="text-center mt-10">
               <a
-                href="https://www.google.com/maps/place/ClearEdge+Home+Buyers"
+                href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@41.4078507,-75.6681938,17z/data=!4m8!3m7!1s0x89c4d91fd98007c7:0x5c9c847c7861c66f!8m2!3d41.4078507!4d-75.6656189!9m1!1b1!16s%2Fg%2F11c5yqh7dc?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-600 hover:text-amber-700 font-semibold"
