@@ -1,72 +1,62 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Check } from 'lucide-react'
+import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 
+import { LeadForm } from '@/components/LeadForm'
 export const metadata: Metadata = {
-  title: 'About ClearEdge Home Buyers | Cash Home Buyers Eastern Pennsylvania Since 2016',
-  description: 'ClearEdge Home Buyers is a family-owned cash home buying company serving Eastern PA since 2016. 200+ homeowners helped across NEPA, Lehigh Valley, and the Poconos. No agents, no fees, no repairs.',
+  title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
+  description: "Meet Tyler and the ClearEdge team. We're a family-owned cash home buying company based in Scranton, serving NEPA, Lehigh Valley, and the Poconos since 2016. 200+ homeowners helped.",
+  keywords: ['about ClearEdge', 'cash home buyers Scranton', 'Tyler ClearEdge', 'local home buyers PA'],
   openGraph: {
-    title: 'About ClearEdge Home Buyers | Cash Home Buyers Eastern Pennsylvania Since 2016',
-    description: 'ClearEdge Home Buyers is a family-owned cash home buying company serving Eastern PA since 2016. 200+ homeowners helped across NEPA, Lehigh Valley, and the Poconos.',
-    url: 'https://clearedgehomebuyers.com/about',
+    title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
+    description: 'Meet Tyler and the ClearEdge team. Family-owned cash home buying company serving Eastern PA since 2016.',
+    url: 'https://www.clearedgehomebuyers.com/about',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://clearedgehomebuyers.com/about',
+    canonical: 'https://www.clearedgehomebuyers.com/about',
   },
 }
 
+
 const situations = [
-  { name: 'Foreclosure', href: '/situations/foreclosure', description: 'and pre-foreclosure timelines' },
-  { name: 'Inherited properties', href: '/situations/inherited-property', description: 'with multiple heirs or probate complications' },
-  { name: 'Probate sales', href: '/situations/probate', description: 'requiring court approval or Letters Testamentary' },
-  { name: 'Divorce', href: '/situations/divorce', description: 'and separation requiring asset liquidation' },
-  { name: 'Code violations', href: '/situations/tax-liens-code-violations', description: 'and municipal enforcement actions' },
-  { name: 'Tax liens', href: '/situations/tax-liens-code-violations', description: 'and delinquent property taxes' },
-  { name: 'Vacant properties', href: '/situations/vacant-property', description: 'draining money every month' },
-  { name: 'Job relocations', href: '/situations/job-relocation', description: 'with tight timelines' },
+  { name: 'Facing Foreclosure', href: '/situations/foreclosure' },
+  { name: 'Inherited Property', href: '/situations/inherited-property' },
+  { name: 'Going Through Divorce', href: '/situations/divorce' },
+  { name: 'Job Relocation', href: '/situations/job-relocation' },
+  { name: 'Major Repairs Needed', href: '/situations/major-repairs' },
+  { name: 'Tax Liens or Code Violations', href: '/situations/tax-liens-code-violations' },
+  { name: 'Tired Landlord', href: '/situations/tired-landlord' },
+  { name: 'Vacant Property', href: '/situations/vacant-property' },
 ]
 
-const localKnowledge = [
-  { area: 'Allentown', detail: 'Mandatory pre-sale inspection requirement with 5-day turnaround before any property transfer' },
-  { area: 'Reading', detail: 'Room I-30 and I-27 quality-of-life enforcement codes with active fine schedules' },
-  { area: 'Statewide', detail: 'January 1, 2026 adoption of the 2021 International Building Code under Pennsylvania\'s UCC' },
-  { area: 'Lackawanna County', detail: 'Probate timelines averaging 6-12 months for uncontested estates' },
-  { area: 'Luzerne County', detail: 'Sheriff sale scheduling and redemption period requirements' },
-  { area: 'Lehigh County', detail: 'GovOS-based code enforcement tracking with automated violation escalation' },
-]
-
-const trustItems = [
-  { title: 'Track Record', description: '200+ homeowners have sold directly to ClearEdge since 2016. We have references available from sellers in every market we serve.' },
-  { title: 'Media Coverage', description: 'Featured in The Morning Call and Lehigh Valley Business. Our work has been covered by legitimate regional publications.' },
-  { title: 'Community Presence', description: 'We regularly speak at REIA meetups throughout Eastern PA. We\'re not a faceless national company—we live and work here.' },
-  { title: 'Legal Structure', description: 'ClearEdge Home Buyers is a DBA of ClearEdge Properties LLC, a registered Pennsylvania limited liability company.' },
-]
 
 const faqs = [
   {
-    question: 'Is ClearEdge Home Buyers a real estate agent or brokerage?',
-    answer: 'No, ClearEdge is not a real estate agent or brokerage. We are the actual buyer of your property. There is no listing, no MLS, no agent commission. We buy directly from you using our own funds.'
+    question: 'Is ClearEdge a franchise or national company?',
+    answer: "No. We're a local, family-owned business founded in Scranton in 2016. We're not affiliated with any franchise or corporate buyer network."
   },
   {
-    question: 'How fast can ClearEdge close on a house?',
-    answer: 'ClearEdge can close in as few as 7 days when title is clear. Most transactions close within 14-21 days. Probate sales, tax lien situations, and multi-heir inheritances take longer due to legal requirements—we\'ll give you a realistic timeline upfront.'
+    question: 'Who will I work with?',
+    answer: "You'll work directly with Tyler from the first call through closing. No hand-offs, no rotating salespeople."
   },
   {
-    question: 'What areas does ClearEdge Home Buyers serve?',
-    answer: 'ClearEdge serves all of Eastern Pennsylvania including NEPA (Scranton, Wilkes-Barre, Hazleton, Pittston, Carbondale), the Lehigh Valley (Allentown, Bethlehem, Easton), the Poconos (Stroudsburg, East Stroudsburg, Tannersville), and surrounding areas like Reading, Bloomsburg, and Pottsville.'
+    question: 'How do you make money?',
+    answer: 'We buy properties, renovate them, and resell them. Our profit comes from the difference between what we pay you and what we eventually sell the property for — minus repair and holding costs.'
   },
   {
-    question: 'Does ClearEdge buy houses in bad condition?',
-    answer: 'Yes, ClearEdge buys houses in any condition. Fire damage, foundation issues, mold, outdated electrical, roof problems, hoarder situations—we\'ve seen it all. You don\'t need to make repairs or even clean out the property. We factor condition into our offer and handle everything after closing.'
+    question: 'Do you buy houses in any condition?',
+    answer: "Yes. Foundation issues, fire damage, mold, hoarding, code violations — condition doesn't disqualify you. We factor repairs into our offer."
   },
   {
-    question: 'How does ClearEdge determine the offer price?',
-    answer: 'We calculate offers based on after-repair value minus repair costs, holding costs, and a margin that allows us to operate sustainably. Our offers are typically 70-85% of market value depending on condition and situation. We\'re transparent about this math—our How It Works page explains the full process.'
+    question: 'What areas do you serve?',
+    answer: 'We buy houses throughout Eastern Pennsylvania — NEPA (Scranton, Wilkes-Barre, Hazleton), Lehigh Valley (Allentown, Bethlehem, Easton, Reading), and the Poconos (Stroudsburg and surrounding areas).'
   },
 ]
+
 
 export default function AboutPage() {
   return (
@@ -96,8 +86,8 @@ export default function AboutPage() {
             '@type': 'Organization',
             name: 'ClearEdge Home Buyers',
             legalName: 'ClearEdge Properties LLC',
-            url: 'https://clearedgehomebuyers.com',
-            logo: 'https://clearedgehomebuyers.com/logo.png',
+            url: 'https://www.clearedgehomebuyers.com',
+            logo: 'https://www.clearedgehomebuyers.com/logo.png',
             foundingDate: '2016',
             founder: {
               '@type': 'Person',
@@ -130,165 +120,253 @@ export default function AboutPage() {
 
       <main className="bg-white">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-slate-50 to-white py-16 md:py-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              About ClearEdge Home Buyers: Cash Home Buyers Eastern Pennsylvania Trusts Since 2016
+        <section className="bg-slate-900 text-white py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+              We&apos;re Not a Franchise. We&apos;re Your Neighbors.
             </h1>
-            <p className="text-xl text-slate-700 leading-relaxed">
-              We are a local, family-owned real estate company that buys houses directly from homeowners across Eastern Pennsylvania.
-              No agents. No fees. No repairs. No uncertainty.
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+              ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania. We&apos;ve been helping homeowners sell fast since 2016.
             </p>
+            <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+              Get My Cash Offer
+            </ScrollToFormButton>
           </div>
         </section>
 
         {/* Origin Story */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              How Did ClearEdge Home Buyers Start?
+              How ClearEdge Started
             </h2>
-            <p className="text-lg text-slate-700 mb-4">
-              ClearEdge began in 2016 with a single duplex on Birch Street in Scranton.
-            </p>
-            <p className="text-lg text-slate-700 mb-4">
-              I&apos;m Tyler, the founder of ClearEdge Home Buyers.
-              I grew up in Northeastern Pennsylvania and still live here today.
-              My business partner is my longtime friend from high school.
-              We started this company because we saw homeowners getting stuck—facing foreclosure, inheriting properties they couldn&apos;t manage, or needing to sell fast with no good options.
-            </p>
-            <p className="text-lg text-slate-700 mb-4">
-              The traditional market doesn&apos;t work for everyone.
-              Agents want commission. Buyers want perfect condition. Timelines drag on for months.
-              We built ClearEdge to offer a different path: a direct, transparent sale with a closing date you control.
-            </p>
-            <p className="text-lg text-slate-700">
-              Since that first duplex, we&apos;ve helped more than 200 homeowners across{' '}
-              <Link href="/locations/scranton" className="text-blue-600 hover:text-blue-800 underline">Scranton</Link>,{' '}
-              <Link href="/locations/wilkes-barre" className="text-blue-600 hover:text-blue-800 underline">Wilkes-Barre</Link>,{' '}
-              <Link href="/locations/allentown" className="text-blue-600 hover:text-blue-800 underline">Allentown</Link>,{' '}
-              <Link href="/locations/bethlehem" className="text-blue-600 hover:text-blue-800 underline">Bethlehem</Link>,{' '}
-              <Link href="/locations/reading" className="text-blue-600 hover:text-blue-800 underline">Reading</Link>,{' '}
-              the <Link href="/locations/lehigh-valley" className="text-blue-600 hover:text-blue-800 underline">Lehigh Valley</Link>,{' '}
-              the <Link href="/locations/poconos" className="text-blue-600 hover:text-blue-800 underline">Poconos</Link>, and everywhere in between.
-            </p>
+            <div className="space-y-6 text-lg text-slate-700">
+              <p>
+                I&apos;m Tyler, the founder of ClearEdge Home Buyers. In 2016, my high school friend and I bought our first property — a duplex on Birch Street in Scranton. We didn&apos;t have a business plan or investors. Just a belief that we could help homeowners while building something we&apos;d be proud of.
+              </p>
+              <p>
+                That first deal taught us everything. We learned how to navigate title issues, work with estate attorneys, and close deals that other buyers walked away from. Most importantly, we learned that homeowners don&apos;t want to be treated like a transaction. They want someone who listens, explains the process, and actually does what they say they&apos;ll do.
+              </p>
+              <p>
+                Since then, we&apos;ve helped more than 200 families across Eastern Pennsylvania sell properties they no longer wanted or couldn&apos;t maintain. We&apos;ve expanded from Scranton to the Lehigh Valley and the Poconos — but we still answer our own phones, and I&apos;m still personally involved in every deal.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* What We Actually Do */}
-        <section className="bg-slate-50 py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              What Does ClearEdge Home Buyers Actually Do?
+        {/* What Makes ClearEdge Different */}
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+              What Makes ClearEdge Different
             </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              We buy houses directly from homeowners for cash.
-              That&apos;s the transaction.
-              But the product is something different.
-            </p>
-            <p className="text-lg text-slate-700 mb-6">
-              Our product is a seamless, dignified, low-stress exit for homeowners facing difficult situations.
-            </p>
-            <p className="text-lg text-slate-700 mb-4">
-              We work with people navigating:
-            </p>
-            <ul className="space-y-3 mb-6">
-              {situations.map((situation) => (
-                <li key={situation.href + situation.name} className="flex items-start">
-                  <Check className="text-green-600 mr-3 mt-1 h-5 w-5 flex-shrink-0" />
-                  <span className="text-lg text-slate-700">
-                    <Link href={situation.href} className="text-blue-600 hover:text-blue-800 underline">
-                      {situation.name}
-                    </Link>{' '}
-                    {situation.description}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-lg text-slate-700">
-              We handle properties in any condition—fire damage, foundation issues, outdated systems, or just worn out from time.
-              You don&apos;t clean. You don&apos;t repair. You don&apos;t stage.
-            </p>
-          </div>
-        </section>
-
-        {/* Local Knowledge Section */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              Why Does Local Knowledge Matter When Selling a House in Eastern PA?
-            </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              Every county in Eastern Pennsylvania has different rules, timelines, and enforcement patterns.
-              Working with a buyer who doesn&apos;t understand these differences creates risk.
-            </p>
-            <p className="text-lg text-slate-700 mb-4">
-              Here&apos;s what we navigate daily:
-            </p>
-            <ul className="space-y-3 mb-6">
-              {localKnowledge.map((item) => (
-                <li key={item.area} className="flex items-start">
-                  <span className="text-slate-400 mr-3 mt-1">•</span>
-                  <span className="text-lg text-slate-700">
-                    <strong>{item.area}:</strong> {item.detail}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-lg text-slate-700">
-              We&apos;ve closed deals in every one of these markets.
-              We know the title companies, the municipal offices, and the quirks of each jurisdiction.
-              That knowledge protects your timeline.
-            </p>
-          </div>
-        </section>
-
-        {/* Trust Section */}
-        <section className="bg-slate-50 py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
-              How Do I Know ClearEdge Is Legitimate?
-            </h2>
-            <p className="text-lg text-slate-700 mb-6">
-              Healthy skepticism is smart when selling your home.
-              Here&apos;s how we&apos;ve built trust over nearly a decade:
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              {trustItems.map((item) => (
-                <div key={item.title} className="bg-white p-6 rounded-lg border border-slate-200">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{item.title}</h3>
-                  <p className="text-slate-700">{item.description}</p>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold">1</span>
                 </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Local, Not Corporate</h3>
+                <p className="text-slate-600">
+                  We&apos;re based in Scranton, not a call center in another state. When you call, you talk to Tyler — not a script reader.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold">2</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Transparent Pricing</h3>
+                <p className="text-slate-600">
+                  We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold">3</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Your Timeline</h3>
+                <p className="text-slate-600">
+                  Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too. You&apos;re in control.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-amber-600 font-bold">4</span>
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">We Handle the Hard Stuff</h3>
+                <p className="text-slate-600">
+                  Probate, liens, code violations, out-of-state sellers, tenant issues — we&apos;ve seen it all and know how to navigate it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Homeowners We Work With */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
+              Homeowners We Work With
+            </h2>
+            <p className="text-lg text-slate-600 mb-10 text-center max-w-2xl mx-auto">
+              We buy houses in all kinds of situations. If any of these sound familiar, we can help:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {situations.map((situation) => (
+                <Link
+                  key={situation.href}
+                  href={situation.href}
+                  className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors group"
+                >
+                  <Check className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                  <span className="text-slate-700 group-hover:text-amber-600 transition-colors">
+                    {situation.name}
+                  </span>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Serving All of Eastern Pennsylvania */}
+        <section className="bg-slate-50 py-16 lg:py-20">
+          <div className="max-w-5xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+              Serving All of Eastern Pennsylvania
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8 mb-10">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+                  NEPA
+                </h3>
+                <ul className="space-y-2">
+                  <li><Link href="/locations/scranton" className="text-slate-600 hover:text-amber-600 transition-colors">Scranton</Link></li>
+                  <li><Link href="/locations/wilkes-barre" className="text-slate-600 hover:text-amber-600 transition-colors">Wilkes-Barre</Link></li>
+                  <li><Link href="/locations/hazleton" className="text-slate-600 hover:text-amber-600 transition-colors">Hazleton</Link></li>
+                  <li><Link href="/locations/pittston" className="text-slate-600 hover:text-amber-600 transition-colors">Pittston</Link></li>
+                  <li><Link href="/locations/kingston" className="text-slate-600 hover:text-amber-600 transition-colors">Kingston</Link></li>
+                  <li><Link href="/locations/nanticoke" className="text-slate-600 hover:text-amber-600 transition-colors">Nanticoke</Link></li>
+                  <li><Link href="/locations/carbondale" className="text-slate-600 hover:text-amber-600 transition-colors">Carbondale</Link></li>
+                  <li><Link href="/locations/dunmore" className="text-slate-600 hover:text-amber-600 transition-colors">Dunmore</Link></li>
+                  <li><Link href="/locations/honesdale" className="text-slate-600 hover:text-amber-600 transition-colors">Honesdale</Link></li>
+                  <li><Link href="/locations/bloomsburg" className="text-slate-600 hover:text-amber-600 transition-colors">Bloomsburg</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+                  Lehigh Valley
+                </h3>
+                <ul className="space-y-2">
+                  <li><Link href="/locations/allentown" className="text-slate-600 hover:text-amber-600 transition-colors">Allentown</Link></li>
+                  <li><Link href="/locations/bethlehem" className="text-slate-600 hover:text-amber-600 transition-colors">Bethlehem</Link></li>
+                  <li><Link href="/locations/easton" className="text-slate-600 hover:text-amber-600 transition-colors">Easton</Link></li>
+                  <li><Link href="/locations/reading" className="text-slate-600 hover:text-amber-600 transition-colors">Reading</Link></li>
+                  <li><Link href="/locations/pottsville" className="text-slate-600 hover:text-amber-600 transition-colors">Pottsville</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+                  Poconos
+                </h3>
+                <ul className="space-y-2">
+                  <li><Link href="/locations/stroudsburg" className="text-slate-600 hover:text-amber-600 transition-colors">Stroudsburg</Link></li>
+                  <li><Link href="/locations/east-stroudsburg" className="text-slate-600 hover:text-amber-600 transition-colors">East Stroudsburg</Link></li>
+                  <li><Link href="/locations/pocono-pines" className="text-slate-600 hover:text-amber-600 transition-colors">Pocono Pines</Link></li>
+                  <li><Link href="/locations/tannersville" className="text-slate-600 hover:text-amber-600 transition-colors">Tannersville</Link></li>
+                </ul>
+              </div>
+            </div>
+            <div className="text-center">
+              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+                Don&apos;t see your town? Reach out anyway &rarr;
+              </ScrollToFormButton>
+            </div>
+          </div>
+        </section>
+
+        {/* Local Knowledge Section */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
+              We Know Pennsylvania Real Estate
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">Municipal Pre-Sale Inspections</h3>
+                  <p className="text-slate-600">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">Probate Process</h3>
+                  <p className="text-slate-600">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">Mine Subsidence (NEPA)</h3>
+                  <p className="text-slate-600">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1">Title &amp; Lien Issues</h3>
+                  <p className="text-slate-600">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonial Section */}
+        <section className="py-16 lg:py-20 bg-slate-50">
+          <div className="max-w-3xl mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold text-slate-900 mb-10">
-              Frequently Asked Questions About ClearEdge
+              What Homeowners Say
+            </h2>
+            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm">
+              <div className="text-amber-500 text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-6">
+                First to take time to explain the process and make me feel comfortable.
+              </blockquote>
+              <p className="text-slate-600">— Gavin S.</p>
+            </div>
+            <div className="mt-8">
+              <Link href="/testimonials" className="text-amber-600 hover:text-amber-700 font-medium">
+                Read all reviews &rarr;
+              </Link>
+            </div>
+          </div>
+        </section>
+
+
+        {/* FAQ Section */}
+        <section className="py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-900 mb-10">
+              Common Questions About ClearEdge
             </h2>
 
             <div className="space-y-8">
               {faqs.map((faq, index) => (
-                <div key={index} className={index < faqs.length - 1 ? 'border-b border-slate-200 pb-8' : 'pb-8'}>
+                <div key={index}>
                   <h3 className="text-xl font-semibold text-slate-900 mb-3">
                     {faq.question}
                   </h3>
-                  <p className="text-lg text-slate-700">
-                    {faq.question === 'How does ClearEdge determine the offer price?' ? (
-                      <>
-                        {faq.answer.split('How It Works')[0]}
-                        <Link href="/how-it-works" className="text-blue-600 hover:text-blue-800 underline">
-                          How It Works
-                        </Link>
-                        {faq.answer.split('How It Works')[1]}
-                      </>
-                    ) : (
-                      faq.answer
-                    )}
+                  <p className="text-slate-700">
+                    {faq.answer}
                   </p>
                 </div>
               ))}
@@ -296,30 +374,31 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Soft CTA */}
-        <section className="bg-slate-900 py-16 md:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">
-              Want to Know What Your Property Is Worth?
+        {/* CTA Section */}
+        <section id="lead-form" className="bg-amber-500 py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Let&apos;s Talk About Your Property
             </h2>
-            <p className="text-xl text-slate-300 mb-8">
-              Get a no-obligation cash offer from cash home buyers Eastern Pennsylvania homeowners have trusted since 2016.
-              No pressure. No commitment. Just clarity.
+            <p className="text-lg text-slate-800 mb-8">
+              No obligation. No pressure. Just an honest conversation about your options.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-slate-900 bg-white rounded-lg hover:bg-slate-100 transition-colors"
-              >
-                Get Your Cash Offer
-              </Link>
-              <a
-                href="tel:5709042059"
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-white rounded-lg hover:bg-white hover:text-slate-900 transition-colors"
-              >
-                Call (570) 904-2059
+            <LeadForm />
+            <p className="text-slate-700 text-sm mt-8">
+              Prefer to call? Reach Tyler directly:{' '}
+              <a href="tel:+15709042059" className="font-semibold hover:underline">
+                (570) 904-2059
               </a>
-            </div>
+            </p>
+          </div>
+        </section>
+
+        {/* Closing Anchor */}
+        <section className="py-8 bg-white">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <p className="text-slate-600">
+              ClearEdge Home Buyers is a local, family-owned company helping Eastern Pennsylvania homeowners sell fast for cash. Founded in Scranton in 2016. Still here. Still answering our own phones.
+            </p>
           </div>
         </section>
       </main>
