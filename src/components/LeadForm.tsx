@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react'
 
 interface LeadFormProps {
+  id?: string
   heading?: string
   subheading?: string
   buttonText?: string
@@ -114,6 +115,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function LeadForm({
+  id,
   heading = 'Get Your Cash Offer',
   subheading = 'No obligation • No fees • Response in 24 hours',
   buttonText = 'Get My Cash Offer',
@@ -246,7 +248,7 @@ export function LeadForm({
 
   if (submitStatus === 'success') {
     return (
-      <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
+      <div id={id} className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
         <div className="text-center py-8">
           <div className="w-16 h-16 bg-[#0d9488]/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-[#0d9488]" />
@@ -261,7 +263,7 @@ export function LeadForm({
   }
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
+    <div id={id} className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-800 mb-1">{heading}</h2>
         <p className="text-slate-500">{subheading}</p>

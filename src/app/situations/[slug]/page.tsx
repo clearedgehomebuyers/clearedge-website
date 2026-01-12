@@ -1,6 +1,7 @@
 import { getSituationBySlug, getSituations, getBlogPostsBySituation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import { LeadForm } from '@/components/LeadForm'
+import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import Link from 'next/link'
@@ -308,22 +309,16 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </section>
       )}
 
-      {/* Final CTA */}
-      <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center relative">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Move Forward?</h2>
-          <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re here to help with your {situation.title.toLowerCase()} situation.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
-              Get My Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
-            </Link>
-            <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
-              <Phone className="w-5 h-5 mr-2" />
-              (570) 904-2059
-            </a>
-          </div>
+      {/* Final CTA with Lead Form */}
+      <section className="bg-slate-900 py-16 sm:py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to Move Forward?
+          </h2>
+          <p className="text-lg text-slate-300 mb-8">
+            Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
+          </p>
+          <LeadForm id="lead-form" />
         </div>
       </section>
 
