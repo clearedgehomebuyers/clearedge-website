@@ -204,6 +204,12 @@ export default function ContactPage() {
     name: 'ClearEdge Home Buyers',
     telephone: '+1-570-904-2059',
     url: 'https://www.clearedgehomebuyers.com',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Scranton',
+      addressRegion: 'PA',
+      addressCountry: 'US',
+    },
     areaServed: [
       { '@type': 'City', name: 'Scranton', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
       { '@type': 'City', name: 'Wilkes-Barre', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
