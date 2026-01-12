@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | ClearEdge Home Buyers | (570) 904-2059',
-  description: 'Contact ClearEdge Home Buyers for a free cash offer on your house. Call (570) 904-2059 or fill out our form. We serve Eastern Pennsylvania and respond within 24 hours.',
+  title: 'Contact ClearEdge Home Buyers | Get Your Cash Offer Today',
+  description: 'Ready to sell your Pennsylvania house fast? Contact ClearEdge for a no-obligation cash offer. Call Tyler at (570) 904-2059 or fill out our quick form.',
   openGraph: {
-    title: 'Contact Us | ClearEdge Home Buyers',
-    description: 'Get in touch for a free, no-obligation cash offer on your house. Available 24/7.',
-    url: 'https://clearedgehomebuyers.com/contact',
+    title: 'Contact ClearEdge Home Buyers | Get Your Cash Offer Today',
+    description: 'Ready to sell your Pennsylvania house fast? Contact ClearEdge for a no-obligation cash offer.',
+    url: 'https://www.clearedgehomebuyers.com/contact',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://clearedgehomebuyers.com/contact',
+    canonical: 'https://www.clearedgehomebuyers.com/contact',
   },
 }
 

@@ -203,7 +203,7 @@ export default function ContactPage() {
     '@type': 'LocalBusiness',
     name: 'ClearEdge Home Buyers',
     telephone: '+1-570-904-2059',
-    url: 'https://clearedgehomebuyers.com',
+    url: 'https://www.clearedgehomebuyers.com',
     areaServed: [
       { '@type': 'City', name: 'Scranton', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
       { '@type': 'City', name: 'Wilkes-Barre', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
@@ -233,247 +233,102 @@ export default function ContactPage() {
         <Header currentPage="/contact" />
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-16 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#0d9488]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#14b8a6]/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center relative">
-          <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-8">
-            <MessageSquare className="w-4 h-4 text-[#14b8a6]" />
-            <span className="text-sm font-medium text-[#14b8a6]">Get in Touch</span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Contact
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]"> ClearEdge</span>
+      <section className="bg-slate-900 text-white pt-28 pb-16 lg:pb-20">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+            Let&apos;s Talk About Your Property
           </h1>
-
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Ready to sell your house fast? Have questions? We&apos;re here to help. Reach out by phone, or fill out the form below and we&apos;ll get back to you within 24 hours.
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            Get a no-obligation cash offer in 24 hours. Call Tyler directly or fill out the form below.
           </p>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12 px-4 bg-white border-b border-slate-100">
+      <section className="py-12 px-6 bg-white border-b border-slate-100">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-6">
             {/* Phone */}
-            <a href="tel:5709042059" className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-[#0d9488]/30 hover:shadow-lg transition-all group">
-              <div className="w-14 h-14 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#0d9488] transition-colors">
-                <Phone className="w-7 h-7 text-[#0d9488] group-hover:text-white transition-colors" />
+            <a href="tel:+15709042059" className="bg-slate-50 rounded-xl p-6 border border-slate-100 hover:border-amber-300 hover:shadow-lg transition-all group">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                <Phone className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="font-bold text-xl text-slate-800 mb-2">Call Us</h3>
-              <p className="text-2xl font-bold text-[#0d9488] mb-1">(570) 904-2059</p>
-              <p className="text-slate-500 text-sm">Speak directly with our team</p>
+              <h3 className="font-bold text-lg text-slate-900 mb-1">Call Tyler Directly</h3>
+              <p className="text-2xl font-bold text-amber-600">(570) 904-2059</p>
             </a>
 
-            {/* Hours */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-              <div className="w-14 h-14 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-4">
-                <Clock className="w-7 h-7 text-[#0d9488]" />
+            {/* Quick Response */}
+            <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="font-bold text-xl text-slate-800 mb-2">Available 24/7</h3>
-              <p className="text-lg font-semibold text-slate-700 mb-1">Always Here for You</p>
-              <p className="text-slate-500 text-sm">We respond to inquiries around the clock</p>
+              <h3 className="font-bold text-lg text-slate-900 mb-1">Quick Response</h3>
+              <p className="text-slate-600">Cash offer within 24 hours</p>
             </div>
 
-            {/* Response Time */}
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-              <div className="w-14 h-14 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-4">
-                <Mail className="w-7 h-7 text-[#0d9488]" />
+            {/* No Obligation */}
+            <div className="bg-slate-50 rounded-xl p-6 border border-slate-100">
+              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle className="w-6 h-6 text-amber-500" />
               </div>
-              <h3 className="font-bold text-xl text-slate-800 mb-2">Quick Response</h3>
-              <p className="text-lg font-semibold text-slate-700 mb-1">Within 24 Hours</p>
-              <p className="text-slate-500 text-sm">Usually much faster during business hours</p>
+              <h3 className="font-bold text-lg text-slate-900 mb-1">No Obligation</h3>
+              <p className="text-slate-600">Free consultation, no pressure</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Service Areas */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
+      {/* CONTACT FORM & SERVICE AREAS */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Form Column */}
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
-
-              {submitStatus === 'success' ? (
-                <div className="bg-white rounded-3xl shadow-lg p-8 border border-slate-100">
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-[#0d9488]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-[#0d9488]" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Message Sent!</h3>
-                    <p className="text-slate-600">
-                      Thank you for reaching out. We&apos;ll get back to you within 24 hours.
-                    </p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Request Your Cash Offer</h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-1">First Name</label>
+                    <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-1">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-lg p-8 border border-slate-100 space-y-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">
-                        First Name
-                      </label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
-                        placeholder="John"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-slate-700 mb-2">
-                        Last Name
-                      </label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
-                        placeholder="Smith"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handlePhoneChange}
-                      required
-                      className={`w-full px-4 py-3.5 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
-                      placeholder="(570) 555-0123"
-                    />
-                    {phoneError && (
-                      <p className="text-red-500 text-sm mt-1">{phoneError}</p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all resize-none text-gray-900 placeholder:text-gray-500"
-                      placeholder="Tell us about your property or ask any questions..."
-                    />
-                  </div>
-
-                  {submitStatus === 'error' && (
-                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
-                      Something went wrong. Please try again or call us at (570) 904-2059.
-                    </div>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full px-6 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 inline mr-2 animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message <ArrowRight className="w-5 h-5 inline ml-2" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+                  <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-1">Tell us about your property (optional)</label>
+                  <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500" />
+                </div>
+                <button type="submit" disabled={isSubmitting} className="w-full bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50">
+                  {isSubmitting ? 'Sending...' : 'Get My Cash Offer'}
+                </button>
+                {submitStatus === 'success' && (<p className="text-green-600 text-center">Thanks! Tyler will be in touch within 24 hours.</p>)}
+                {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call (570) 904-2059 instead.</p>)}
+              </form>
             </div>
-
-            {/* Service Areas */}
+            {/* Service Areas Column */}
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Our Service Areas</h2>
-              <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-[#0d9488]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg text-slate-800">Eastern Pennsylvania</h3>
-                    <p className="text-slate-500 text-sm">We buy houses throughout the region</p>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  {serviceAreas.map((area) => (
-                    <div key={area.region}>
-                      <h4 className="font-semibold text-slate-800 mb-2">{area.region}</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {area.cities.map((city) => (
-                          <span
-                            key={city}
-                            className="px-3 py-1 bg-white rounded-full text-sm text-slate-600 border border-slate-200"
-                          >
-                            {city}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-slate-200">
-                  <p className="text-slate-600 text-sm">
-                    Don&apos;t see your city? We likely serve your area too.{' '}
-                    <a href="tel:5709042059" className="text-[#0d9488] font-semibold hover:underline">
-                      Give us a call
-                    </a>{' '}
-                    to find out.
-                  </p>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Areas We Serve</h2>
+              <div className="bg-slate-50 rounded-lg p-6 mb-6">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div><p className="text-3xl font-bold text-amber-600">200+</p><p className="text-sm text-slate-600">Homeowners Helped</p></div>
+                  <div><p className="text-3xl font-bold text-amber-600">2016</p><p className="text-sm text-slate-600">Founded</p></div>
+                  <div><p className="text-3xl font-bold text-amber-600">21</p><p className="text-sm text-slate-600">Communities</p></div>
                 </div>
               </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 mt-6">
-                <div className="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
-                  <div className="text-2xl font-bold text-[#0d9488]">10+</div>
-                  <div className="text-xs text-slate-500">Counties Served</div>
-                </div>
-                <div className="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
-                  <div className="text-2xl font-bold text-[#0d9488]">24hr</div>
-                  <div className="text-xs text-slate-500">Response Time</div>
-                </div>
-                <div className="bg-slate-50 rounded-xl p-4 text-center border border-slate-100">
-                  <div className="text-2xl font-bold text-[#0d9488]">100+</div>
-                  <div className="text-xs text-slate-500">Homes Bought</div>
-                </div>
+              <div className="space-y-4">
+                <div><h3 className="font-semibold text-slate-900 mb-2">NEPA</h3><p className="text-slate-600">Scranton, Wilkes-Barre, Hazleton, and surrounding areas</p></div>
+                <div><h3 className="font-semibold text-slate-900 mb-2">Lehigh Valley</h3><p className="text-slate-600">Allentown, Bethlehem, Easton, Reading</p></div>
+                <div><h3 className="font-semibold text-slate-900 mb-2">Poconos</h3><p className="text-slate-600">Stroudsburg, East Stroudsburg, and mountain communities</p></div>
               </div>
             </div>
           </div>
@@ -484,8 +339,8 @@ export default function ContactPage() {
       <section className="py-16 px-4 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FAQ</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Questions About Contacting Us</h2>
+            <span className="inline-block px-4 py-1.5 bg-amber-100 text-amber-700 rounded-full text-sm font-semibold mb-4">FAQ</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Questions About Reaching Us</h2>
           </div>
 
           <div className="space-y-4">
@@ -493,7 +348,7 @@ export default function ContactPage() {
               <details key={i} className="group bg-white rounded-xl border border-slate-200">
                 <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-slate-800">
                   {faq.q}
-                  <ChevronDown className="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" />
+                  <ChevronDown className="w-5 h-5 text-amber-500 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="px-6 pb-6 text-slate-600">
                   {faq.a}
@@ -505,21 +360,28 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0d9488]/10 rounded-full blur-3xl"></div>
-
-        <div className="max-w-4xl mx-auto text-center relative">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Prefer to Talk on the Phone?</h2>
-          <p className="text-xl text-slate-300 mb-8">
-            Skip the form and speak directly with our team. We&apos;re available 24/7 to answer your questions.
+      <section className="py-16 px-4 bg-amber-500">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Prefer to Talk on the Phone?</h2>
+          <p className="text-xl text-slate-800 mb-8">
+            Skip the form. Call Tyler directly.
           </p>
           <a
-            href="tel:5709042059"
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg"
+            href="tel:+15709042059"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg"
           >
             <Phone className="w-6 h-6" />
-            <span>(570) 904-2059</span>
+            <span>Call (570) 904-2059</span>
           </a>
+        </div>
+      </section>
+
+      {/* Closing Anchor */}
+      <section className="py-8 bg-white">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-slate-600">
+            ClearEdge Home Buyers is here when you're ready. No pressure, no obligation — just an honest conversation about your options.
+          </p>
         </div>
       </section>
 
