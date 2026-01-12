@@ -16,7 +16,7 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={value?.href}
-          className="text-[#0d9488] hover:underline font-medium"
+          className="text-amber-600 hover:underline font-medium"
         >
           {children}
         </a>
@@ -40,9 +40,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const situation = await getSituationBySlug(slug)
   if (!situation) return {}
 
+  const title = situation.metaTitle || `${situation.title} - Sell Your House Fast | ClearEdge Home Buyers`
+  const description = situation.metaDescription || `Dealing with ${situation.title.toLowerCase()}? Get a fair cash offer for your home in 24 hours. No repairs, no fees, no commissions.`
+
   return {
-    title: situation.metaTitle || `${situation.title} - Sell Your House Fast | ClearEdge Home Buyers`,
-    description: situation.metaDescription || `Dealing with ${situation.title.toLowerCase()}? Get a fair cash offer for your home in 24 hours. No repairs, no fees, no commissions.`,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `https://www.clearedgehomebuyers.com/situations/${slug}`,
+      siteName: 'ClearEdge Home Buyers',
+      locale: 'en_US',
+      type: 'website',
+    },
+    alternates: {
+      canonical: `https://www.clearedgehomebuyers.com/situations/${slug}`,
+    },
   }
 }
 
@@ -65,21 +79,21 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       <Header />
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#0d9488]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#14b8a6]/10 rounded-full blur-3xl"></div>
+      <section className="relative pt-28 pb-24 px-4 bg-slate-900 overflow-hidden">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
-              <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-8">
-                <Home className="w-4 h-4 text-[#14b8a6]" />
-                <span className="text-sm font-medium text-[#14b8a6]">{situation.title}</span>
+              <div className="inline-flex items-center space-x-2 bg-amber-500/20 backdrop-blur-sm border border-amber-500/30 rounded-full px-4 py-2 mb-8">
+                <Home className="w-4 h-4 text-amber-500" />
+                <span className="text-sm font-medium text-amber-500">{situation.title}</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 {situation.heroHeadline || `Sell Your House Fast`}
-                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#14b8a6] via-[#0d9488] to-[#14b8a6]">
+                <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400">
                   {situation.title}
                 </span>
               </h1>
@@ -90,24 +104,24 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
               <div className="grid grid-cols-2 gap-3 mb-10">
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
+                  <CheckCircle className="w-5 h-5 text-amber-500" />
                   <span className="text-white font-medium">Close in 7-14 days</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
+                  <CheckCircle className="w-5 h-5 text-amber-500" />
                   <span className="text-white font-medium">We pay closing costs</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
+                  <CheckCircle className="w-5 h-5 text-amber-500" />
                   <span className="text-white font-medium">Buy as-is condition</span>
                 </div>
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
-                  <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
+                  <CheckCircle className="w-5 h-5 text-amber-500" />
                   <span className="text-white font-medium">No obligation offer</span>
                 </div>
               </div>
 
-              <a href="tel:5709042059" className="inline-flex items-center space-x-3 text-[#14b8a6] font-bold text-lg hover:text-[#0d9488] transition-colors">
+              <a href="tel:5709042059" className="inline-flex items-center space-x-3 text-amber-500 font-bold text-lg hover:text-amber-600 transition-colors">
                 <Phone className="w-5 h-5" />
                 <span>(570) 904-2059</span>
               </a>
@@ -129,7 +143,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WE UNDERSTAND</span>
+              <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">WE UNDERSTAND</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Dealing with {situation.title}?</h2>
             </div>
 
@@ -145,7 +159,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">BENEFITS</span>
+              <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">BENEFITS</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Why Sell to ClearEdge?</h2>
               <p className="text-slate-600 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
             </div>
@@ -156,8 +170,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 const Icon = icons[i % icons.length]
                 return (
                   <div key={i} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1">
-                    <div className="w-14 h-14 bg-[#0d9488]/10 rounded-xl flex items-center justify-center mb-5">
-                      <Icon className="w-7 h-7 text-[#0d9488]" />
+                    <div className="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center mb-5">
+                      <Icon className="w-7 h-7 text-amber-600" />
                     </div>
                     <h3 className="font-bold text-xl text-slate-800 mb-3">{benefit.title}</h3>
                     <p className="text-slate-600 leading-relaxed">{benefit.description}</p>
@@ -173,7 +187,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       <section className="py-24 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SIMPLE PROCESS</span>
+            <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">SIMPLE PROCESS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">How It Works</h2>
           </div>
 
@@ -184,7 +198,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               { step: '3', title: 'Close & Get Paid', desc: 'Accept and pick your closing date. We handle all the paperwork and pay closing costs.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0d9488] to-[#14b8a6] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                   <span className="text-2xl font-bold text-white">{item.step}</span>
                 </div>
                 <h3 className="font-bold text-xl text-slate-800 mb-3">{item.title}</h3>
@@ -200,7 +214,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
+              <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">SERVICE AREAS</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Areas We Serve</h2>
             </div>
 
@@ -209,7 +223,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 <Link
                   key={location.slug.current}
                   href={`/locations/${location.slug.current}`}
-                  className="bg-white rounded-xl p-4 text-center hover:bg-[#0d9488]/10 transition-colors border border-slate-100 hover:border-[#0d9488]/30"
+                  className="bg-white rounded-xl p-4 text-center hover:bg-amber-500/10 transition-colors border border-slate-100 hover:border-amber-500/30"
                 >
                   <span className="font-semibold text-slate-700">{location.city}, {location.state}</span>
                 </Link>
@@ -224,7 +238,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FAQ</span>
+              <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">FAQ</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Common Questions About {situation.title}</h2>
             </div>
 
@@ -233,7 +247,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 <details key={i} className="group bg-slate-50 rounded-xl border border-slate-200">
                   <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-slate-800">
                     {faq.question}
-                    <ChevronDown className="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform" />
+                    <ChevronDown className="w-5 h-5 text-amber-500 group-open:rotate-180 transition-transform" />
                   </summary>
                   <div className="px-6 pb-6 text-slate-600">
                     {faq.answer}
@@ -250,7 +264,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">HELPFUL GUIDES</span>
+              <span className="inline-block px-4 py-1.5 bg-amber-500/10 text-amber-700 rounded-full text-sm font-semibold mb-4">HELPFUL GUIDES</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Related Articles</h2>
             </div>
 
@@ -262,15 +276,15 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   className="block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-slate-100 transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#0d9488]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-[#0d9488]" />
+                    <div className="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-amber-600" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-slate-800 mb-2 hover:text-[#0d9488] transition-colors">{post.title}</h3>
+                      <h3 className="font-bold text-lg text-slate-800 mb-2 hover:text-amber-600 transition-colors">{post.title}</h3>
                       {post.excerpt && (
                         <p className="text-slate-600 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
-                      <span className="inline-flex items-center text-[#0d9488] font-semibold text-sm mt-3">
+                      <span className="inline-flex items-center text-amber-600 font-semibold text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />
                       </span>
                     </div>
@@ -285,7 +299,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 href="/blog"
                 className="inline-flex items-center px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 font-semibold rounded-xl border border-slate-200 transition-colors"
               >
-                <BookOpen className="w-5 h-5 mr-2 text-[#0d9488]" />
+                <BookOpen className="w-5 h-5 mr-2 text-amber-600" />
                 More Helpful Guides
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -295,14 +309,14 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       )}
 
       {/* Final CTA */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0d9488]/10 rounded-full blur-3xl"></div>
+      <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Move Forward?</h2>
           <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re here to help with your {situation.title.toLowerCase()} situation.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
+            <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-600 hover:to-amber-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
               Get My Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
             </Link>
             <a href="tel:5709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
