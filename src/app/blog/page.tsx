@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { getBlogPosts } from '@/sanity/lib/queries'
 import { FileText, MapPin, Scale, Home } from 'lucide-react'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Pennsylvania Real Estate Guides | Sell House Fast PA | ClearEdge',
@@ -9,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pennsylvania Real Estate Guides | Sell House Fast PA',
     description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales.',
-    url: 'https://clearedgehomebuyers.com/blog',
+    url: 'https://www.clearedgehomebuyers.com/blog',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://clearedgehomebuyers.com/blog',
+    canonical: 'https://www.clearedgehomebuyers.com/blog',
   },
 }
 
@@ -115,11 +117,11 @@ export default async function BlogPage() {
     '@type': 'Blog',
     name: 'ClearEdge Home Buyers Blog',
     description: 'Pennsylvania real estate guides for homeowners looking to sell fast',
-    url: 'https://clearedgehomebuyers.com/blog',
+    url: 'https://www.clearedgehomebuyers.com/blog',
     publisher: {
       '@type': 'Organization',
       name: 'ClearEdge Home Buyers',
-      url: 'https://clearedgehomebuyers.com',
+      url: 'https://www.clearedgehomebuyers.com',
     },
   }
 
@@ -134,6 +136,7 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
 
+      <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="bg-slate-900 text-white py-16 px-4">
@@ -179,7 +182,7 @@ export default async function BlogPage() {
                   className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-md transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <category.icon className="w-5 h-5 text-blue-600" />
+                    <category.icon className="w-5 h-5 text-amber-600" />
                     <h3 className="text-lg font-semibold text-slate-900">
                       {category.title}
                     </h3>
@@ -189,7 +192,7 @@ export default async function BlogPage() {
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="hover:text-blue-600 transition-colors"
+                          className="hover:text-amber-600 transition-colors"
                         >
                           {link.label}
                         </Link>
@@ -223,14 +226,14 @@ export default async function BlogPage() {
                   )}
                   <div className="p-6">
                     {post.category && (
-                      <span className="text-sm text-blue-600 font-medium">
+                      <span className="text-sm text-amber-600 font-medium">
                         {categoryLabels[post.category] || post.category}
                       </span>
                     )}
                     <h3 className="text-lg font-semibold text-slate-900 mt-2 mb-3">
                       <Link
                         href={`/blog/${post.slug.current}`}
-                        className="hover:text-blue-600 transition-colors"
+                        className="hover:text-amber-600 transition-colors"
                       >
                         {post.title}
                       </Link>
@@ -263,17 +266,6 @@ export default async function BlogPage() {
                 <p className="text-slate-600">
                   New guides coming soon. Check back shortly.
                 </p>
-              </div>
-            )}
-
-            {posts.length > 12 && (
-              <div className="text-center mt-10">
-                <Link
-                  href="/blog/archive"
-                  className="inline-block text-blue-600 font-semibold hover:underline"
-                >
-                  View All Guides →
-                </Link>
               </div>
             )}
           </div>
@@ -317,6 +309,7 @@ export default async function BlogPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
