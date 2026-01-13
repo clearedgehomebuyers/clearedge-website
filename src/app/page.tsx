@@ -133,11 +133,13 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": ["RealEstateAgent", "LocalBusiness"],
+            "@type": "RealEstateAgent",
             "name": "ClearEdge Home Buyers",
             "description": "Cash home buying company serving Eastern Pennsylvania. We buy houses as-is for cash with no fees or repairs required.",
             "url": "https://www.clearedgehomebuyers.com",
             "telephone": "+1-570-904-2059",
+            "image": "https://www.clearedgehomebuyers.com/og-image.png",
+            "priceRange": "$",
             "founder": {
               "@type": "Person",
               "name": "Tyler"
@@ -167,8 +169,8 @@ export default function HomePage() {
               "reviewCount": "6",
               "bestRating": "5"
             },
-            "service": {
-              "@type": "Service",
+            "makesOffer": {
+              "@type": "Offer",
               "name": "Cash Home Buying",
               "description": "We buy houses for cash in any condition. No repairs, no agents, no fees."
             },
