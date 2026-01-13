@@ -103,7 +103,7 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
-            <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-300 hover:text-[#14b8a6] transition-colors">
+            <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-300 hover:text-[#00b332] transition-colors">
               <Phone className="w-5 h-5" />
               <span className="font-semibold">(570) 904-2059</span>
             </a>

@@ -133,10 +133,13 @@ export function LeadForm({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [phoneError, setPhoneError] = useState('')
+  const [emailError, setEmailError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Clear email error when user starts typing
+    if (name === 'email' && emailError) setEmailError('')
   }
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,6 +159,16 @@ export function LeadForm({
       return
     }
 
+    // Validate email
+    if (!formData.email.trim()) {
+      setEmailError('Email is required')
+      return
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setEmailError('Please enter a valid email address')
+      return
+    }
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -169,16 +182,12 @@ export function LeadForm({
         { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
         { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
         { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+        { objectTypeId: '0-1', name: 'email', value: formData.email },
         { objectTypeId: '0-1', name: 'address', value: formData.address },
         { objectTypeId: '0-1', name: 'city', value: formData.city },
         { objectTypeId: '0-1', name: 'state', value: formData.state },
         { objectTypeId: '0-1', name: 'zip', value: formData.zip },
       ]
-
-      // Only include email if provided
-      if (formData.email) {
-        fields.push({ objectTypeId: '0-1', name: 'email', value: formData.email })
-      }
 
       const hubspotPayload = {
         submittedAt: Date.now(),
@@ -250,8 +259,8 @@ export function LeadForm({
     return (
       <div id={id} className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
         <div className="text-center py-8">
-          <div className="w-16 h-16 bg-[#0d9488]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-[#0d9488]" />
+          <div className="w-16 h-16 bg-[#00b332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-[#00b332]" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
           <p className="text-slate-600">
@@ -282,7 +291,7 @@ export function LeadForm({
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="John"
             />
           </div>
@@ -296,7 +305,7 @@ export function LeadForm({
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Smith"
             />
           </div>
@@ -314,7 +323,7 @@ export function LeadForm({
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
+              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
               placeholder="(570) 555-0123"
             />
             {phoneError && (
@@ -323,16 +332,20 @@ export function LeadForm({
           </div>
           <div>
             <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Email
+              Email <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
-              placeholder="Optional but recommended"
+              required
+              className={`w-full px-4 py-3 rounded-xl border-2 ${emailError ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
+              placeholder="john@example.com"
             />
+            {emailError && (
+              <p className="text-red-500 text-sm mt-1">{emailError}</p>
+            )}
           </div>
         </div>
 
@@ -347,7 +360,7 @@ export function LeadForm({
             value={formData.address}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
             placeholder="123 Main Street"
           />
         </div>
@@ -364,7 +377,7 @@ export function LeadForm({
               value={formData.city}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Scranton"
             />
           </div>
@@ -379,7 +392,7 @@ export function LeadForm({
               onChange={handleChange}
               required
               aria-label="State"
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all bg-white text-gray-900"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all bg-white text-gray-900"
             >
               {US_STATES.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -400,7 +413,7 @@ export function LeadForm({
               required
               pattern="[0-9]{5}"
               maxLength={5}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#0d9488] focus:ring-4 focus:ring-[#0d9488]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="18501"
             />
           </div>
@@ -415,7 +428,7 @@ export function LeadForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-6 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
+          className="w-full px-6 py-4 bg-gradient-to-r from-[#00b332] to-[#00d940] hover:from-[#009929] hover:to-[#00b332] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>

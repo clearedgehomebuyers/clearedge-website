@@ -2,9 +2,14 @@
 
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Star, Phone, MapPin, Clock, CheckCircle, Home, Users, Shield } from 'lucide-react'
 import { LeadForm } from '@/components/LeadForm'
+import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
+import { HomepageHeader } from '@/components/HomepageHeader'
+import { HomepageHero } from '@/components/HomepageHero'
+import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
@@ -181,49 +186,44 @@ export default function HomePage() {
         }}
       />
 
+      {/* Homepage Header */}
+      <HomepageHeader />
+
       <main className="bg-white">
         {/* HERO SECTION */}
-        <section className="bg-slate-900 text-white py-20 lg:py-28">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              Sell Your Pennsylvania House Fast — For Cash, On Your Terms
-            </h1>
-            <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-              No repairs. No agents. No fees. Get a fair cash offer in 24 hours from a local buyer who&apos;s helped hundreds of Eastern PA homeowners since 2016.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
-                Get My Cash Offer
-              </ScrollToFormButton>
-              <a
-                href="tel:5709042059"
-                className="border border-slate-500 hover:border-white text-white px-8 py-4 rounded-lg transition-colors"
-              >
-                Or call Tyler directly: (570) 904-2059
-              </a>
-            </div>
-            <p className="text-slate-400 text-sm mt-6">
-              Serving NEPA, Lehigh Valley, and the Poconos
-            </p>
-          </div>
-        </section>
+        <HomepageHero />
 
 
         {/* TRUST BAR */}
-        <section className="bg-slate-100 py-6 border-b border-slate-200">
+        <section className="bg-slate-100 py-5 border-b border-slate-200">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="flex flex-wrap justify-center items-center gap-8 text-slate-600 text-sm">
+            <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-slate-700 text-base font-medium">
               <span>Since 2016</span>
+              <span className="text-slate-300">•</span>
               <span>Hundreds of Homes Purchased</span>
-              <span>NEPA • Lehigh Valley • Poconos</span>
+              <span className="text-slate-300">•</span>
               <span>Cash Offer in 24 Hours</span>
             </div>
           </div>
         </section>
 
 
+        {/* LEAD FORM SECTION - Option B: Below hero with breathing room */}
+        <section className="py-12 lg:py-16 bg-slate-50" id="lead-form">
+          <div className="max-w-lg mx-auto px-4 sm:px-6">
+            <MultiStepLeadForm />
+            <p className="text-slate-500 text-sm mt-6 text-center">
+              Prefer to talk? Call Tyler directly:{' '}
+              <a href="tel:5709042059" className="font-semibold text-slate-700 hover:text-[#00b332]">
+                (570) 904-2059
+              </a>
+            </p>
+          </div>
+        </section>
+
+
         {/* WHY SELLING IS HARDER */}
-        <section className="py-16 lg:py-20">
+        <section className="py-10 lg:py-14">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-6">
               Selling a House in Pennsylvania Just Got Harder
@@ -246,7 +246,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="mt-8">
-              <Link href="/how-it-works" className="text-amber-600 hover:text-amber-700 font-medium">
+              <Link href="/how-it-works" className="text-[#00b332] hover:text-[#009929] font-medium">
                 See How It Works →
               </Link>
             </div>
@@ -255,14 +255,14 @@ export default function HomePage() {
 
 
         {/* THREE STEPS TO SOLD */}
-        <section className="bg-slate-900 text-white py-16 lg:py-20">
+        <section className="bg-slate-900 text-white py-10 lg:py-14">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-3xl font-bold mb-12 text-center">
               Three Steps to Sold
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-[#00b332] text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   1
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Discovery Call</h3>
@@ -271,7 +271,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-[#00b332] text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   2
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Get Your Cash Offer</h3>
@@ -280,7 +280,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-12 h-12 bg-amber-500 text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-[#00b332] text-slate-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   3
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Close On Your Terms</h3>
@@ -290,14 +290,14 @@ export default function HomePage() {
               </div>
             </div>
             <div className="text-center mt-10">
-              <Link href="/how-it-works" className="text-amber-400 hover:text-amber-300 font-medium">
+              <Link href="/how-it-works" className="text-lg text-[#00d940] hover:text-[#00ff4d] font-semibold">
                 Get the Full Process Details →
               </Link>
             </div>
           </div>
         </section>
         {/* THE HIDDEN COST OF WAITING - COMPARISON TABLE */}
-        <section className="py-16 lg:py-20">
+        <section className="py-10 lg:py-14">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               The Hidden Cost of Waiting
@@ -313,34 +313,34 @@ export default function HomePage() {
                   <tr className="bg-slate-900 text-white">
                     <th className="text-left py-4 px-6 font-semibold">Expense</th>
                     <th className="text-center py-4 px-6 font-semibold">Traditional Sale<br /><span className="font-normal text-slate-300 text-sm">(90 Days)</span></th>
-                    <th className="text-center py-4 px-6 font-semibold bg-amber-500 text-slate-900">ClearEdge Sale<br /><span className="font-normal text-slate-700 text-sm">(7–30 Days)</span></th>
+                    <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-slate-900">ClearEdge Sale<br /><span className="font-normal text-slate-700 text-sm">(7–30 Days)</span></th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700">
                   <tr className="border-b border-slate-200">
                     <td className="py-4 px-6 font-medium">Repairs Before Listing</td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold">$15,000+</td>
-                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-[#e6f7eb]">$0</td>
                   </tr>
                   <tr className="border-b border-slate-200 bg-slate-50">
                     <td className="py-4 px-6 font-medium">Holding Costs<br /><span className="text-sm text-slate-500">(Taxes, Utilities, Insurance, Mortgage)</span></td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold">$4,500+</td>
-                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-[#e6f7eb]">$0</td>
                   </tr>
                   <tr className="border-b border-slate-200">
                     <td className="py-4 px-6 font-medium">Agent Commissions<br /><span className="text-sm text-slate-500">(6% on a $200k home)</span></td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold">$12,000</td>
-                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-[#e6f7eb]">$0</td>
                   </tr>
                   <tr className="border-b border-slate-200 bg-slate-50">
                     <td className="py-4 px-6 font-medium">Closing Cost Contributions</td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold">$3,000+</td>
-                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-amber-50">$0</td>
+                    <td className="py-4 px-6 text-center text-green-600 font-semibold bg-[#e6f7eb]">$0</td>
                   </tr>
                   <tr className="bg-slate-900 text-white">
                     <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
                     <td className="py-4 px-6 text-center font-bold text-red-400">$34,500+</td>
-                    <td className="py-4 px-6 text-center font-bold text-green-400 bg-amber-600">$0</td>
+                    <td className="py-4 px-6 text-center font-bold text-green-400 bg-[#009929]">$0</td>
                   </tr>
                 </tbody>
               </table>
@@ -354,7 +354,7 @@ export default function HomePage() {
 
 
         {/* THE CLEAREDGE APPROACH */}
-        <section className="bg-slate-50 py-16 lg:py-20">
+        <section className="bg-slate-50 py-10 lg:py-14">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-8">
               How Does ClearEdge Buy Houses in Pennsylvania?
@@ -401,7 +401,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-10">
-              <Link href="/how-it-works" className="text-amber-600 hover:text-amber-700 font-medium underline">
+              <Link href="/how-it-works" className="text-[#00b332] hover:text-[#009929] font-medium underline">
                 See our complete process explained step by step →
               </Link>
             </div>
@@ -410,7 +410,7 @@ export default function HomePage() {
 
 
         {/* SITUATIONS WE HELP WITH */}
-        <section className="py-16 lg:py-20">
+        <section className="py-10 lg:py-14">
           <div className="max-w-5xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               We Buy Houses in Any Situation
@@ -423,9 +423,9 @@ export default function HomePage() {
                 <Link
                   key={situation.slug}
                   href={`/situations/${situation.slug}`}
-                  className="bg-white border border-slate-200 hover:border-amber-400 rounded-lg p-6 transition-colors group"
+                  className="bg-white border border-slate-200 hover:border-[#00b332] rounded-lg p-6 transition-colors group"
                 >
-                  <h3 className="font-semibold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                  <h3 className="font-semibold text-slate-900 mb-2 group-hover:text-[#00b332] transition-colors">
                     {situation.title}
                   </h3>
                   <p className="text-sm text-slate-600">{situation.description}</p>
@@ -436,7 +436,7 @@ export default function HomePage() {
         </section>
 
         {/* SERVICE AREAS */}
-        <section className="py-16 lg:py-20" id="service-areas">
+        <section className="py-10 lg:py-14" id="service-areas">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Serving All of Eastern Pennsylvania
@@ -447,7 +447,7 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-8">
               {Object.entries(locationsByRegion).map(([region, cities]) => (
                 <div key={region}>
-                  <h3 className="text-xl font-bold text-slate-800 mb-4 border-b-2 border-amber-500 pb-2">
+                  <h3 className="text-xl font-bold text-slate-800 mb-4 border-b-2 border-[#00b332] pb-2">
                     {region}
                   </h3>
                   <ul className="space-y-2">
@@ -455,7 +455,7 @@ export default function HomePage() {
                       <li key={city.href}>
                         <Link
                           href={city.href}
-                          className="text-slate-700 hover:text-amber-600 transition-colors"
+                          className="text-slate-700 hover:text-[#00b332] transition-colors"
                         >
                           {city.name}
                         </Link>
@@ -466,7 +466,7 @@ export default function HomePage() {
               ))}
             </div>
             <p className="text-center mt-10">
-              <ScrollToFormButton className="text-amber-600 hover:text-amber-700 font-semibold">
+              <ScrollToFormButton className="text-[#00b332] hover:text-[#009929] font-semibold">
                 Don&apos;t see your city? Request an offer anyway &rarr;
               </ScrollToFormButton>
             </p>
@@ -474,15 +474,15 @@ export default function HomePage() {
         </section>
 
         {/* WHY CLEAREDGE */}
-        <section className="bg-slate-50 py-16 lg:py-20">
+        <section className="bg-slate-50 py-10 lg:py-14">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
               Why Homeowners Choose ClearEdge
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold text-xl">1</span>
+                <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold text-xl">1</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Local, Not a Franchise</h3>
                 <p className="text-slate-600">
@@ -490,8 +490,8 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold text-xl">2</span>
+                <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold text-xl">2</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Transparent Pricing</h3>
                 <p className="text-slate-600">
@@ -499,8 +499,8 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold text-xl">3</span>
+                <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold text-xl">3</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Your Timeline, Not Ours</h3>
                 <p className="text-slate-600">
@@ -508,13 +508,13 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold text-xl">4</span>
+                <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold text-xl">4</span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">White-Glove Service</h3>
                 <p className="text-slate-600">
                   From the first call to the closing table, you work directly with Tyler — not a rotating cast of salespeople. Call him now:{' '}
-                  <a href="tel:+15709042059" className="text-amber-600 hover:text-amber-700 font-semibold">(570) 904-2059</a>
+                  <a href="tel:+15709042059" className="text-[#00b332] hover:text-[#009929] font-semibold">(570) 904-2059</a>
                 </p>
               </div>
             </div>
@@ -522,7 +522,7 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-16 lg:py-20">
+        <section className="py-10 lg:py-14">
           <div className="max-w-6xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
               What Our Clients Say
@@ -531,7 +531,7 @@ export default function HomePage() {
             {/* Featured Testimonial */}
             <div className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 mb-10 border border-slate-100">
               <div className="max-w-4xl mx-auto">
-                <svg className="w-12 h-12 text-amber-400 mb-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-12 h-12 text-[#00b332] mb-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-6">
@@ -549,7 +549,7 @@ export default function HomePage() {
             {/* Secondary Testimonials */}
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
-                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#00b332] mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <blockquote className="text-slate-700 mb-4">
@@ -558,7 +558,7 @@ export default function HomePage() {
                 <p className="font-semibold text-slate-900">Jewel Parago</p>
               </div>
               <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
-                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#00b332] mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <blockquote className="text-slate-700 mb-4">
@@ -567,7 +567,7 @@ export default function HomePage() {
                 <p className="font-semibold text-slate-900">Gavin S.</p>
               </div>
               <div className="bg-white rounded-xl shadow-sm p-6 border border-slate-100">
-                <svg className="w-8 h-8 text-amber-400 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-[#00b332] mb-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <blockquote className="text-slate-700 mb-4">
@@ -583,7 +583,7 @@ export default function HomePage() {
                 href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8549074,-77.1384488,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-amber-600 hover:text-amber-700 font-semibold"
+                className="text-[#00b332] hover:text-[#009929] font-semibold"
               >
                 See all reviews on Google &rarr;
               </a>
@@ -592,8 +592,80 @@ export default function HomePage() {
         </section>
 
 
+        {/* RECENT PROPERTIES GALLERY */}
+        <section className="py-10 lg:py-14 bg-white">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl font-bold text-slate-900 mb-3">
+                Recent Properties We&apos;ve Purchased
+              </h2>
+              <p className="text-slate-600">
+                We buy houses in any condition throughout Eastern PA
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group">
+                <Image
+                  src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                  alt="Two-story home with covered porch in Scranton, PA - sold as-is to ClearEdge Home Buyers for cash"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-2 left-2 text-white text-sm font-medium">Scranton, PA</span>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group">
+                <Image
+                  src="/properties/allentown-pa-sell-house-fast-as-is-2.jpg"
+                  alt="Single-family house in Allentown, PA purchased by ClearEdge - no repairs needed before sale"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-2 left-2 text-white text-sm font-medium">Allentown, PA</span>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group">
+                <Image
+                  src="/properties/wilkes-barre-pa-inherited-property-sale-3.jpg"
+                  alt="Multi-unit property in Wilkes-Barre, PA - inherited home sold quickly for cash"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-2 left-2 text-white text-sm font-medium">Wilkes-Barre, PA</span>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group">
+                <Image
+                  src="/properties/lehigh-valley-real-estate-investors-4.jpg"
+                  alt="Distressed duplex in Lehigh Valley, PA - bought as-is by local cash home buyers"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-2 left-2 text-white text-sm font-medium">Lehigh Valley, PA</span>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-md group col-span-2 md:col-span-1">
+                <Image
+                  src="/properties/nepa-distressed-house-cleanout-service-5.jpg"
+                  alt="NEPA property with deferred maintenance - ClearEdge bought with no cleanout required"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-2 left-2 text-white text-sm font-medium">NEPA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         {/* FAQ SECTION */}
-        <section className="bg-slate-50 py-16 lg:py-20">
+        <section className="bg-slate-50 py-10 lg:py-14">
           <div className="max-w-3xl mx-auto px-6">
             <h2 className="text-3xl font-bold text-slate-900 mb-10">
               Frequently Asked Questions
@@ -613,45 +685,63 @@ export default function HomePage() {
 
 
         {/* ABOUT SECTION */}
-        <section className="py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">
-              Who Is Behind ClearEdge Home Buyers?
-            </h2>
-            <p className="text-lg text-slate-700 mb-4">
-              ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania.
-            </p>
-            <p className="text-slate-700 mb-4">
-              I'm Tyler, the founder.
-              I started this company in 2016 with a single duplex on Birch Street in Scranton.
-              My high school friend and I saw an opportunity to help homeowners while building something we could be proud of.
-            </p>
-            <p className="text-slate-700">
-              Since then, we&apos;ve helped more than 200 families sell properties they no longer wanted or couldn&apos;t maintain. We&apos;re not a hedge fund or a faceless corporation. We live here. We invest here. And we answer our own phones.
-            </p>
+        <section className="py-10 lg:py-14 bg-white">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+              <div className="md:col-span-1 flex justify-center">
+                <div className="relative">
+                  <Image
+                    src="/tyler.jpg"
+                    alt="Tyler, founder of ClearEdge Home Buyers"
+                    width={240}
+                    height={240}
+                    className="rounded-2xl shadow-lg object-cover"
+                  />
+                  <div className="absolute -bottom-3 -right-3 bg-[#00b332] text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md">
+                    Founder
+                  </div>
+                </div>
+              </div>
+              <div className="md:col-span-2">
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                  Who Is Behind ClearEdge Home Buyers?
+                </h2>
+                <p className="text-lg text-slate-700 mb-4">
+                  ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania.
+                </p>
+                <p className="text-slate-700 mb-4">
+                  I'm Tyler, the founder.
+                  I started this company in 2016 with a single duplex on Birch Street in Scranton.
+                  My high school friend and I saw an opportunity to help homeowners while building something we could be proud of.
+                </p>
+                <p className="text-slate-700">
+                  Since then, we&apos;ve helped more than 200 families sell properties they no longer wanted or couldn&apos;t maintain. We&apos;re not a hedge fund or a faceless corporation. We live here. We invest here. And we answer our own phones.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
 
         {/* FINAL CTA */}
-        <section className="bg-amber-500 py-16 lg:py-20" id="lead-form">
+        <section className="bg-slate-50 py-12 lg:py-16">
           <div className="max-w-xl mx-auto px-6">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Want to Know What Your House Is Worth?
+                Ready to Get Your Cash Offer?
               </h2>
-              <p className="text-lg text-slate-800">
+              <p className="text-lg text-slate-600">
                 Request a no-obligation cash offer. You&apos;ll know exactly where you stand — and whether selling to us makes sense for your situation.
               </p>
             </div>
-            <LeadForm 
+            <LeadForm
               heading="Get Your Cash Offer"
               subheading="No obligation • No fees • Response in 24 hours"
               buttonText="Get My Cash Offer"
             />
-            <p className="text-slate-700 text-sm mt-6 text-center">
+            <p className="text-slate-500 text-sm mt-6 text-center">
               Prefer to talk? Call Tyler directly:{' '}
-              <a href="tel:5709042059" className="font-semibold hover:underline">
+              <a href="tel:5709042059" className="font-semibold text-slate-700 hover:text-[#00b332]">
                 (570) 904-2059
               </a>
             </p>
@@ -660,7 +750,7 @@ export default function HomePage() {
 
 
         {/* CLOSING KEYWORD ANCHOR */}
-        <section className="py-12 bg-slate-100">
+        <section className="py-8 bg-slate-100">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-slate-600">
               If you need to sell your house fast in Pennsylvania, ClearEdge Home Buyers offers a straightforward path to closing — on your terms, on your timeline.
@@ -669,6 +759,8 @@ export default function HomePage() {
         </section>
 
       </main>
+
+      <Footer />
     </>
   )
 }

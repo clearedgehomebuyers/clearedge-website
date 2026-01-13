@@ -1,18 +1,14 @@
 // Cache bust: 1767730000 - PNG favicon
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { FloatingTextButton } from "@/components/FloatingTextButton";
 
-const geist = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -122,7 +118,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${geist.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         {children}
         <FloatingTextButton />
       </body>
