@@ -51,7 +51,6 @@ const categories = [
     links: [
       { label: 'Facing Foreclosure', href: '/situations/foreclosure' },
       { label: 'Inherited Property', href: '/situations/inherited-property' },
-      { label: 'Probate Sales', href: '/situations/probate' },
       { label: 'Divorce Sales', href: '/situations/divorce' },
     ],
   },
