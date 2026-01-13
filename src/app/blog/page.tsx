@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Pennsylvania Real Estate Guides | Sell House Fast PA | ClearEdge',
-  description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales. 2026 PA-specific regulations and local insights.',
+  description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, and fast home sales. Local insights & 2026 rules.',
   openGraph: {
     title: 'Pennsylvania Real Estate Guides | Sell House Fast PA',
     description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales.',

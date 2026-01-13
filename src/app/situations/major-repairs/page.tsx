@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell House Needing Major Repairs Pennsylvania | ClearEdge Home Buyers',
-  description: 'Sell your house with major repairs in Pennsylvania without fixing anything. We buy homes with foundation issues, roof damage, mold & more. Cash offer in 24 hours.',
+  description: 'Sell your PA house with major repairs — no fixing required. Foundation issues, roof damage, mold & more. Cash offer in 24 hours.',
   keywords: 'sell house major repairs Pennsylvania, sell damaged house PA, foundation problems sell house, roof damage sell house Pennsylvania',
   openGraph: {
     title: 'Sell House Needing Major Repairs Pennsylvania | ClearEdge Home Buyers',

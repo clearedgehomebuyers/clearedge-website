@@ -8,7 +8,7 @@ import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 
 export const metadata: Metadata = {
   title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
-  description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. ClearEdge has helped 200+ Eastern PA homeowners since 2016. Serving NEPA, Lehigh Valley & Poconos.",
+  description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. ClearEdge has helped 200+ Eastern PA homeowners since 2016.",
   keywords: ["sell house fast Pennsylvania", "cash home buyers PA", "we buy houses Scranton", "sell house as-is Allentown", "cash offer Lehigh Valley", "sell inherited house PA"],
   openGraph: {
     title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",

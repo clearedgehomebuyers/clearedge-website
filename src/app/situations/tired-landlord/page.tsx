@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell Rental Property Pennsylvania | Tired Landlord Exit | ClearEdge',
-  description: 'Tired of being a landlord in PA? Sell your rental property fast for cash—tenant-occupied, code violations, deferred maintenance. No repairs, no showings. Get a fair offer today.',
+  description: 'Tired of being a landlord? Sell your PA rental fast for cash — even with tenants, code violations, or deferred maintenance. No repairs.',
   keywords: 'sell rental property Pennsylvania, tired landlord, sell tenant occupied property PA, cash buyer rental property, sell rental house fast Pennsylvania',
   openGraph: {
     title: 'Sell Rental Property Pennsylvania | Tired Landlord Exit | ClearEdge',

@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell Vacant House Pennsylvania | Cash Offer in 24-48 Hours | ClearEdge',
-  description: 'Sell your vacant house in Pennsylvania fast for cash. No inspections, no repairs, no fees. ClearEdge Home Buyers closes in as few as 14 days. Serving NEPA, Lehigh Valley & Poconos.',
+  description: 'Sell your vacant PA house fast for cash. No inspections, no repairs, no fees. ClearEdge closes in as few as 14 days.',
   keywords: 'sell vacant house Pennsylvania, sell vacant property PA, cash home buyer vacant house, sell empty house fast PA',
   openGraph: {
     title: 'Sell Vacant House Pennsylvania | Cash Offer in 24-48 Hours',

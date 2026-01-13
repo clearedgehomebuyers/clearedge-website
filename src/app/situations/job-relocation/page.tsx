@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell Your House Fast When Relocating in Pennsylvania | ClearEdge Home Buyers',
-  description: 'Need to sell your house fast due to relocation? ClearEdge buys homes directly from relocating homeowners across Eastern PA. No listings, no showings, close in as few as 10 days.',
+  description: 'Need to sell fast for relocation? ClearEdge buys homes from relocating PA homeowners. No listings, no showings, close in 10 days.',
   keywords: 'sell house fast relocating Pennsylvania, relocating home sale PA, job transfer sell house, military PCS sell house Pennsylvania, sell house fast NEPA',
   openGraph: {
     title: 'Sell Your House Fast When Relocating in Pennsylvania',

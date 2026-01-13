@@ -6,7 +6,7 @@ import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { LeadForm } from '@/components/LeadForm'
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
-  description: "Meet Tyler and the ClearEdge team. We're a family-owned cash home buying company based in Scranton, serving NEPA, Lehigh Valley, and the Poconos since 2016. 200+ homeowners helped.",
+  description: "Meet Tyler and the ClearEdge team. Family-owned cash home buyers based in Scranton, serving NEPA, Lehigh Valley & Poconos since 2016.",
   keywords: ['about ClearEdge', 'cash home buyers Scranton', 'Tyler ClearEdge', 'local home buyers PA'],
   openGraph: {
     title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',

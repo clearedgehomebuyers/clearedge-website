@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell Your House in Foreclosure Pennsylvania | ClearEdge Home Buyers',
-  description: 'Facing foreclosure in PA? You can still sell your house before the sheriff sale. Learn your options and get a cash offer from ClearEdge Home Buyers. No repairs, no fees, close fast.',
+  description: 'Facing foreclosure in PA? Sell your house before the sheriff sale. Get a cash offer from ClearEdge. No repairs, no fees, close fast.',
   keywords: 'sell house foreclosure Pennsylvania, sell home before sheriff sale PA, cash home buyer foreclosure, stop foreclosure Pennsylvania, sell house fast foreclosure',
   openGraph: {
     title: 'Sell Your House in Foreclosure Pennsylvania | ClearEdge Home Buyers',

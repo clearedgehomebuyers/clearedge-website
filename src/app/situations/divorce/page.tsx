@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Sell House During Divorce Pennsylvania | ClearEdge Home Buyers',
   description:
-    'Need to sell your house during a Pennsylvania divorce? Get a cash offer in 48 hours. No repairs, no showings, proceeds split at closing. Serving NEPA, Lehigh Valley & Poconos.',
+    'Selling your house during a PA divorce? Cash offer in 48 hours. No repairs, no showings, proceeds split at closing.',
   keywords:
     'sell house during divorce Pennsylvania, divorce home sale PA, selling house in divorce, cash home buyer divorce, equitable distribution Pennsylvania, sell marital home fast',
   openGraph: {

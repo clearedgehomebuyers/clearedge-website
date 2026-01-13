@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'Sell Inherited House Pennsylvania | Cash Offer in 24 Hours | ClearEdge',
-  description: 'Sell your inherited house in Pennsylvania fast for cash. No repairs, no cleanout, no realtor fees. ClearEdge Home Buyers helps families navigate probate and close quickly.',
+  description: 'Sell your inherited PA house fast for cash. No repairs, no cleanout, no fees. ClearEdge helps families navigate probate and close quickly.',
   keywords: 'sell inherited house Pennsylvania, inherited property PA, probate sale Pennsylvania, sell inherited home fast, cash for inherited house PA',
   openGraph: {
     title: 'Sell Inherited House Pennsylvania | ClearEdge Home Buyers',

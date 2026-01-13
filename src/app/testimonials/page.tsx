@@ -6,7 +6,7 @@ import { LeadForm } from '@/components/LeadForm';
 
 export const metadata: Metadata = {
   title: 'Reviews | What Homeowners Say About ClearEdge Home Buyers',
-  description: 'Read real Google reviews from Pennsylvania homeowners who sold to ClearEdge. See why families across NEPA, Lehigh Valley, and the Poconos trust Tyler and the team.',
+  description: 'Real Google reviews from PA homeowners who sold to ClearEdge. See why families across NEPA, Lehigh Valley & Poconos trust Tyler.',
   keywords: ['ClearEdge reviews', 'cash home buyer reviews PA', 'sell house fast reviews Pennsylvania'],
   openGraph: {
     title: 'Reviews | What Homeowners Say About ClearEdge Home Buyers',
