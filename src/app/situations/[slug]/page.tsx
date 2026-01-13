@@ -54,6 +54,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: 'ClearEdge Home Buyers',
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: 'https://www.clearedgehomebuyers.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
+        },
+      ],
     },
     alternates: {
       canonical: `https://www.clearedgehomebuyers.com/situations/${slug}`,
