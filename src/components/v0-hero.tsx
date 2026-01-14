@@ -86,7 +86,7 @@ export function V0Hero() {
 
           {/* RIGHT COLUMN - Property widget (centered horizontally and vertically) */}
           <div className="flex items-center justify-center h-full">
-            <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px] transform lg:rotate-2 lg:hover:rotate-0 transition-transform duration-300">
+            <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
               <div className="relative aspect-[4/3]">
                 <img
                   src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
