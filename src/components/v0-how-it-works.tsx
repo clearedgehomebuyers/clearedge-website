@@ -77,13 +77,20 @@ export function V0HowItWorks() {
         </div>
 
         {/* CTA - green button */}
-        <div className="text-center">
+        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#lead-form"
             className="inline-flex items-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-colors group"
           >
             Start Step 1 Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a
+            href="/how-it-works"
+            className="inline-flex items-center gap-2 text-[#00b332] font-medium hover:text-[#009929] transition-colors"
+          >
+            See Our Full Process
+            <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </div>

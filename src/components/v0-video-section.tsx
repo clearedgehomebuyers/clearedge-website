@@ -12,13 +12,13 @@ export function V0VideoSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
-            See The Difference
+            Your Guide
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
-            Watch How We Help Homeowners Like You
+            Meet Tyler
           </h2>
           <p className="text-[#1a1f1a]/60 text-lg">
-            Learn why hundreds of Pennsylvania families chose ClearEdge over traditional selling methods.
+            I started ClearEdge in 2016 to help Pennsylvania homeowners sell on their terms. Here&apos;s my story.
           </p>
         </div>
 

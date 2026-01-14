@@ -67,17 +67,24 @@ export function V0Testimonials() {
           ))}
         </div>
 
-        {/* Google Reviews Link */}
-        <p className="text-center mt-10">
+        {/* CTA Buttons */}
+        <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="/testimonials"
+            className="inline-flex items-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-colors"
+          >
+            Read More Success Stories
+            <span aria-hidden="true">&rarr;</span>
+          </a>
           <a
             href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8549074,-77.1384488,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#00b332] hover:text-[#009929] font-semibold"
           >
-            See all reviews on Google &rarr;
+            See Google Reviews &rarr;
           </a>
-        </p>
+        </div>
       </div>
     </section>
   )

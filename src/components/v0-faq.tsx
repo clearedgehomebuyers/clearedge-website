@@ -29,11 +29,6 @@ const faqs = [
     answer:
       "No problem at all. Most homes we purchase have existing mortgages. At closing, the title company pays off your remaining mortgage balance and you receive the difference. We handle the coordination.",
   },
-  {
-    question: "Am I obligated to accept your offer?",
-    answer:
-      "Not at all. Our cash offer comes with zero obligation and zero pressure. If our offer doesn't work for your situation, no hard feelings. We're happy to have helped you understand what a cash sale could look like.",
-  },
 ]
 
 export function V0FAQ() {
@@ -94,11 +89,17 @@ export function V0FAQ() {
         <div className="text-center mt-10 p-6 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/5">
           <p className="text-[#1a1f1a] font-medium mb-2">Still have questions?</p>
           <p className="text-[#1a1f1a]/60 text-sm mb-4">
-            We're here to help. Call Tyler directly or submit your info and we'll reach out.
+            We&apos;re here to help. Call Tyler directly or reach out.
           </p>
-          <a href="tel:5709042059" className="text-[#00b332] font-medium hover:underline">
-            (570) 904-2059
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            <a href="tel:5709042059" className="text-[#00b332] font-medium hover:underline">
+              (570) 904-2059
+            </a>
+            <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>
+            <a href="/contact" className="text-[#00b332] font-medium hover:underline">
+              Have More Questions? &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </section>

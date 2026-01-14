@@ -1,24 +1,35 @@
-// src/app/page.tsx - v0 Design Implementation with Full SEO Content
+// src/app/page.tsx - Optimized 15-Section Homepage Structure
 
 import type { Metadata } from 'next'
+// 1. Header
 import { V0Header } from '@/components/v0-header'
+// 2. Hero
 import { V0Hero } from '@/components/v0-hero'
+// 3. Trust Bar
 import { V0TrustBar } from '@/components/v0-trust-bar'
-import { V0LeadForm } from '@/components/v0-lead-form'
-import { V0WhySellingHarder } from '@/components/v0-why-selling-harder'
-import { V0HowItWorks } from '@/components/v0-how-it-works'
-import { V0HiddenCost } from '@/components/v0-hidden-cost'
-import { V0ProblemSolution } from '@/components/v0-problem-solution'
-import { V0Situations } from '@/components/v0-situations'
-import { V0ServiceAreas } from '@/components/v0-service-areas'
-import { V0WhyClearEdge } from '@/components/v0-why-clearedge'
+// 4. Problem/Solution (merged: Why Selling Harder + Problem/Solution)
+import { V0ProblemSolutionMerged } from '@/components/v0-problem-solution-merged'
+// 5. Video Intro (Meet Tyler)
 import { V0VideoSection } from '@/components/v0-video-section'
-import { V0ComparisonTable } from '@/components/v0-comparison-table'
-import { V0PropertiesGallery } from '@/components/v0-properties-gallery'
+// 6. How It Works
+import { V0HowItWorks } from '@/components/v0-how-it-works'
+// 7. Comparison Table (merged: Hidden Cost + Comparison)
+import { V0ComparisonMerged } from '@/components/v0-comparison-merged'
+// 8. Situations (8 cards)
+import { V0Situations } from '@/components/v0-situations'
+// 9. Why ClearEdge (4 cards)
+import { V0WhyClearEdge } from '@/components/v0-why-clearedge'
+// 10. Testimonials
 import { V0Testimonials } from '@/components/v0-testimonials'
-import { V0AboutSection } from '@/components/v0-about-section'
+// 11. Main Lead Form
+import { V0LeadForm } from '@/components/v0-lead-form'
+// 12. Top 5 FAQs
 import { V0FAQ } from '@/components/v0-faq'
+// 13. Service Areas (21 locations)
+import { V0ServiceAreas } from '@/components/v0-service-areas'
+// 14. Closing SEO
 import { V0ClosingSeo } from '@/components/v0-closing-seo'
+// 15. Footer
 import { V0Footer } from '@/components/v0-footer'
 
 export const metadata: Metadata = {
@@ -101,24 +112,35 @@ export default function HomePage() {
       />
 
       <main className="min-h-screen">
+        {/* 1. Header */}
         <V0Header />
+        {/* 2. Hero */}
         <V0Hero />
+        {/* 3. Trust Bar */}
         <V0TrustBar />
-        <V0LeadForm />
-        <V0WhySellingHarder />
-        <V0HowItWorks />
-        <V0HiddenCost />
-        <V0ProblemSolution />
-        <V0Situations />
-        <V0ServiceAreas />
-        <V0WhyClearEdge />
-        <V0PropertiesGallery />
-        <V0Testimonials />
+        {/* 4. Problem/Solution (merged) */}
+        <V0ProblemSolutionMerged />
+        {/* 5. Video Intro - Meet Tyler */}
         <V0VideoSection />
-        <V0ComparisonTable />
-        <V0AboutSection />
+        {/* 6. How It Works */}
+        <V0HowItWorks />
+        {/* 7. Comparison Table (merged) */}
+        <V0ComparisonMerged />
+        {/* 8. Situations (8 cards) */}
+        <V0Situations />
+        {/* 9. Why ClearEdge (4 cards) */}
+        <V0WhyClearEdge />
+        {/* 10. Testimonials */}
+        <V0Testimonials />
+        {/* 11. Main Lead Form */}
+        <V0LeadForm />
+        {/* 12. Top 5 FAQs */}
         <V0FAQ />
+        {/* 13. Service Areas (21 locations) */}
+        <V0ServiceAreas />
+        {/* 14. Closing SEO */}
         <V0ClosingSeo />
+        {/* 15. Footer */}
         <V0Footer />
       </main>
     </>
