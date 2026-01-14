@@ -455,7 +455,16 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* FINAL CTA - Cream */}
+        {/* Closing SEO - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <p className="text-[#1a2e1a] font-medium">
+              When you&apos;re ready to sell your Pennsylvania house fast without repairs, showings, or uncertainty, ClearEdge is here. Get your cash offer today.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA Section - Beige */}
         <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -473,15 +482,6 @@ export default function HowItWorksPage() {
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
                 (570) 904-2059
               </a>
-            </p>
-          </div>
-        </section>
-
-        {/* CLOSING KEYWORD ANCHOR - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              When you&apos;re ready to sell your Pennsylvania house fast without repairs, showings, or uncertainty, ClearEdge is here. Get your cash offer today.
             </p>
           </div>
         </section>

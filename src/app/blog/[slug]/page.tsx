@@ -343,6 +343,42 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </article>
 
+        {/* Closing SEO - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-[#1a2e1a] font-medium">
+              ClearEdge Home Buyers helps Pennsylvania homeowners sell their houses fast for cash. Read more guides or get your free offer today.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA Section - Beige */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
+              Have Questions About Selling Your House?
+            </h2>
+            <p className="text-[#1a1f1a]/60 mb-8">
+              Browse more guides or get a free, no-obligation cash offer.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/blog"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-white transition-all"
+              >
+                More Guides
+              </Link>
+              <Link
+                href="/#lead-form"
+                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
+              >
+                Get My Cash Offer
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <V0Footer />
       </main>
     </>

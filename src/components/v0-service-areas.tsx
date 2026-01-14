@@ -38,20 +38,20 @@ export function V0ServiceAreas() {
   }
 
   return (
-    <section className="py-16 lg:py-20 bg-[#FAF8F5]" id="service-areas">
+    <section className="py-16 lg:py-20 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]" id="service-areas">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2e1a] mb-4">
             Serving All of Eastern Pennsylvania
           </h2>
-          <p className="text-lg text-[#1a1f1a]/70 max-w-3xl mx-auto">
+          <p className="text-lg text-[#1a2e1a]/70 max-w-3xl mx-auto">
             We purchase properties throughout NEPA, the Lehigh Valley, and the Poconos. If you own a house in any of these areas, we&apos;d love to make you a fair cash offer.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {Object.entries(locationsByRegion).map(([region, cities]) => (
-            <div key={region} className="bg-[#FAF8F5] rounded-xl p-6">
+            <div key={region} className="bg-white rounded-xl p-6 border border-[#1a1f1a]/5">
               <h3 className="text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#00b332] pb-2">
                 {region}
               </h3>

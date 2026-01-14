@@ -294,8 +294,17 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </section>
       )}
 
-      {/* Final CTA with MultiStep Lead Form - White */}
-      <section id="lead-form" className="py-16 md:py-20 bg-white">
+      {/* Closing SEO - Sage gradient */}
+      <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#1a2e1a] font-medium">
+            ClearEdge Home Buyers helps Pennsylvania homeowners facing {situation.title.toLowerCase()} sell their homes fast for cash. No repairs, no fees, no hassle.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA with MultiStep Lead Form - Beige */}
+      <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
         <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">
             Ready to Move Forward?

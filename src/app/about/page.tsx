@@ -430,7 +430,16 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section - Cream */}
+        {/* Closing SEO - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <p className="text-[#1a2e1a] font-medium">
+              ClearEdge Home Buyers is a local, family-owned company helping Eastern Pennsylvania homeowners sell fast for cash. Founded in Scranton in 2016. Still here. Still answering our own phones.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA Section - Beige */}
         <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -448,15 +457,6 @@ export default function AboutPage() {
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
                 (570) 904-2059
               </a>
-            </p>
-          </div>
-        </section>
-
-        {/* Closing Anchor - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              ClearEdge Home Buyers is a local, family-owned company helping Eastern Pennsylvania homeowners sell fast for cash. Founded in Scranton in 2016. Still here. Still answering our own phones.
             </p>
           </div>
         </section>

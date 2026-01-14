@@ -170,6 +170,33 @@ export default function TermsPage() {
         </div>
       </section>
 
+      {/* Closing SEO - Sage gradient */}
+      <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-[#1a2e1a] font-medium">
+            ClearEdge Home Buyers operates with transparency and integrity. Questions about our terms? Call us at (570) 904-2059.
+          </p>
+        </div>
+      </section>
+
+      {/* Final CTA Section - Beige */}
+      <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
+            Ready to Sell Your House Fast?
+          </h2>
+          <p className="text-[#1a1f1a]/60 mb-8">
+            Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
+          </p>
+          <a
+            href="/#lead-form"
+            className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
+          >
+            Get Your Free Offer
+          </a>
+        </div>
+      </section>
+
       <V0Footer />
     </main>
   )

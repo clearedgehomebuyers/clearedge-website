@@ -381,7 +381,16 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* CTA Section - Cream */}
+        {/* Closing SEO - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <p className="text-[#1a2e1a] font-medium">
+              ClearEdge Home Buyers is here when you&apos;re ready. No pressure, no obligation — just an honest conversation about your options.
+            </p>
+          </div>
+        </section>
+
+        {/* Final CTA Section - Beige */}
         <section className="py-16 md:py-20 px-4 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
@@ -396,15 +405,6 @@ export default function ContactPage() {
               <Phone className="w-6 h-6" />
               <span>Call (570) 904-2059</span>
             </a>
-          </div>
-        </section>
-
-        {/* Closing Anchor - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              ClearEdge Home Buyers is here when you&apos;re ready. No pressure, no obligation — just an honest conversation about your options.
-            </p>
           </div>
         </section>
 
