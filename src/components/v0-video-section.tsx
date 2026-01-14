@@ -7,8 +7,7 @@ export function V0VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <section className="py-16 md:py-24 bg-white">
-      {/* Section 5: WHITE background */}
+    <section className="py-16 md:py-24 bg-[#FAF8F5]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">

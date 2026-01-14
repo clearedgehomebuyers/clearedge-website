@@ -47,7 +47,7 @@ const situations = [
 
 export function V0Situations() {
   return (
-    <section className="py-16 lg:py-20 bg-[#FAF8F5]">
+    <section className="py-16 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-4">
