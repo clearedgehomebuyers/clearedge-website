@@ -65,12 +65,12 @@ export function V0LeadForm() {
 
   if (isSubmitted) {
     return (
-      <section id="lead-form" className="py-20 md:py-28 bg-gradient-to-b from-[#f4faf5] to-[#e8f5eb]">
+      <section id="lead-form" className="py-20 md:py-28 bg-white">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div className="w-20 h-20 rounded-full bg-[#00b332] flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-white" />
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">You're All Set!</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">You&apos;re All Set!</h2>
           <p className="text-[#1a1f1a]/70 text-lg mb-8">
             Tyler will personally review your property and reach out within 24 hours with your no-obligation cash offer.
             Keep an eye on your phone and email.
@@ -87,7 +87,7 @@ export function V0LeadForm() {
   }
 
   return (
-    <section id="lead-form" className="py-20 md:py-28 bg-gradient-to-b from-[#f4faf5] to-[#e8f5eb]">
+    <section id="lead-form" className="py-20 md:py-28 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">

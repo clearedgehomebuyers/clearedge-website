@@ -25,7 +25,7 @@ const stats = [
 
 export function V0TrustBar() {
   return (
-    <section className="py-8 md:py-12 bg-card border-y border-border/50">
+    <section className="py-8 md:py-12 bg-white border-y border-[#1a1f1a]/5">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-4 gap-4 md:gap-12">
           {stats.map((stat, index) => (
