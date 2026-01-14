@@ -65,104 +65,106 @@ export function V0Header() {
         isScrolled ? "bg-white/98 backdrop-blur-md shadow-md border-b border-[#1a1f1a]/5" : "bg-white/95 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-28">
-          {/* Logo - Much bigger */}
-          <Link href="/" className="flex-shrink-0">
-            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-14 md:h-16 w-auto" />
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        <div className="flex items-center justify-between h-24">
+          {/* Logo - with left padding */}
+          <Link href="/" className="flex-shrink-0 ml-2">
+            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-12 md:h-14 w-auto" />
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <Link
-              href="/"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              href="/how-it-works"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-            >
-              How It Works
-            </Link>
-            <Link
-              href="/about"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/testimonials"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-            >
-              Reviews
-            </Link>
-            <Link
-              href="/contact"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-            >
-              Contact
-            </Link>
+          {/* Desktop Navigation - centered with even spacing */}
+          <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
+            <div className="flex items-center gap-8">
+              <Link
+                href="/"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                How It Works
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="/testimonials"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                Reviews
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                Contact
+              </Link>
 
-            {/* Locations Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
-                <span>Locations</span>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
-              </button>
-              <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200">
-                <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[500px] max-h-[400px] overflow-y-auto">
-                  <div className="grid grid-cols-3 gap-1">
-                    {locationLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
-                      >
-                        {link.label}, PA
-                      </Link>
-                    ))}
+              {/* Locations Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+                  <span>Locations</span>
+                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                </button>
+                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200">
+                  <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[480px] max-h-[400px] overflow-y-auto">
+                    <div className="grid grid-cols-3 gap-1">
+                      {locationLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                        >
+                          {link.label}, PA
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Situations Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
-                <span>Situations</span>
-                <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
-              </button>
-              <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full right-0 pt-2 transition-all duration-200">
-                <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[280px]">
-                  <div className="space-y-1">
-                    {situationLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+              {/* Situations Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+                  <span>Situations</span>
+                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                </button>
+                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full right-0 pt-2 transition-all duration-200">
+                  <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[260px]">
+                    <div className="space-y-1">
+                      {situationLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </nav>
 
-          {/* Right side: Phone + CTA */}
-          <div className="hidden lg:flex items-center gap-5">
+          {/* Right side: Phone + CTA - with right padding */}
+          <div className="hidden lg:flex items-center gap-5 mr-2">
             <a href="tel:5709042059" className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#00b332] transition-colors">
-              <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center">
-                <Phone className="w-5 h-5 text-[#00b332]" />
+              <div className="w-9 h-9 bg-[#00b332]/10 rounded-full flex items-center justify-center">
+                <Phone className="w-4 h-4 text-[#00b332]" />
               </div>
-              <span className="font-bold text-base">(570) 904-2059</span>
+              <span className="font-bold text-sm">(570) 904-2059</span>
             </a>
             <button
               onClick={scrollToForm}
-              className="px-6 py-3 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-base rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              className="px-5 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
               Get My Offer
             </button>
@@ -174,7 +176,7 @@ export function V0Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
