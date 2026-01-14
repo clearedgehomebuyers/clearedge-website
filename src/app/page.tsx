@@ -1,17 +1,24 @@
-// src/app/page.tsx - v0 Design Implementation
+// src/app/page.tsx - v0 Design Implementation with Full SEO Content
 
 import type { Metadata } from 'next'
 import { V0Header } from '@/components/v0-header'
 import { V0Hero } from '@/components/v0-hero'
 import { V0TrustBar } from '@/components/v0-trust-bar'
-import { V0ProblemSolution } from '@/components/v0-problem-solution'
+import { V0LeadForm } from '@/components/v0-lead-form'
+import { V0WhySellingHarder } from '@/components/v0-why-selling-harder'
 import { V0HowItWorks } from '@/components/v0-how-it-works'
+import { V0HiddenCost } from '@/components/v0-hidden-cost'
+import { V0ProblemSolution } from '@/components/v0-problem-solution'
+import { V0Situations } from '@/components/v0-situations'
+import { V0ServiceAreas } from '@/components/v0-service-areas'
+import { V0WhyClearEdge } from '@/components/v0-why-clearedge'
 import { V0VideoSection } from '@/components/v0-video-section'
 import { V0ComparisonTable } from '@/components/v0-comparison-table'
-import { V0AboutSection } from '@/components/v0-about-section'
+import { V0PropertiesGallery } from '@/components/v0-properties-gallery'
 import { V0Testimonials } from '@/components/v0-testimonials'
+import { V0AboutSection } from '@/components/v0-about-section'
 import { V0FAQ } from '@/components/v0-faq'
-import { V0LeadForm } from '@/components/v0-lead-form'
+import { V0ClosingSeo } from '@/components/v0-closing-seo'
 import { V0Footer } from '@/components/v0-footer'
 
 export const metadata: Metadata = {
@@ -97,14 +104,21 @@ export default function HomePage() {
         <V0Header />
         <V0Hero />
         <V0TrustBar />
-        <V0ProblemSolution />
+        <V0LeadForm />
+        <V0WhySellingHarder />
         <V0HowItWorks />
+        <V0HiddenCost />
+        <V0ProblemSolution />
+        <V0Situations />
+        <V0ServiceAreas />
+        <V0WhyClearEdge />
+        <V0PropertiesGallery />
+        <V0Testimonials />
         <V0VideoSection />
         <V0ComparisonTable />
         <V0AboutSection />
-        <V0Testimonials />
         <V0FAQ />
-        <V0LeadForm />
+        <V0ClosingSeo />
         <V0Footer />
       </main>
     </>
