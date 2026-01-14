@@ -33,7 +33,7 @@ export function HomepageHero() {
   }
 
   return (
-    <section className="relative bg-[#FAF8F5] pt-24 pb-16 lg:pt-28 lg:pb-20 overflow-hidden">
+    <section className="relative bg-[#FAF8F5] pt-28 pb-16 lg:pt-32 lg:pb-80 overflow-hidden">
       {/* Subtle dot pattern background */}
       <div className="absolute inset-0 bg-dot-pattern opacity-50" />
 
@@ -74,48 +74,51 @@ export function HomepageHero() {
               </a>
             </div>
 
-            {/* Trust features row */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-3">
+            {/* Trust features row - BIGGER text */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 lg:max-w-xl">
               {trustFeatures.map((feature) => (
-                <div key={feature.label} className="flex items-center gap-2 text-[#1a1f1a]/60 text-sm">
-                  <feature.icon className="w-4 h-4 text-[#00b332]" />
-                  <span>{feature.label}</span>
+                <div key={feature.label} className="flex items-center gap-2.5 text-[#1a1f1a]/70">
+                  <feature.icon className="w-5 h-5 text-[#00b332]" />
+                  <span className="text-base font-medium">{feature.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right side - floating property card */}
-          <div className="lg:col-span-5 hidden lg:block">
-            <div className="relative">
-              {/* Main property card */}
-              <div className="relative bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/10 overflow-hidden border border-[#1a1f1a]/5 transform rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="relative aspect-[4/3]">
-                  <Image
-                    src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
-                    alt="Recently purchased home in Scranton, PA - sold as-is for cash"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                </div>
-                {/* Card content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2 py-0.5 bg-[#00b332] text-white text-xs font-semibold rounded-full">
-                      Just Closed
-                    </span>
-                  </div>
-                  <p className="font-semibold text-lg">Scranton, PA</p>
-                  <p className="text-white/80 text-sm">14 Days to Close</p>
-                </div>
-              </div>
+          {/* Empty right column for desktop layout balance */}
+          <div className="lg:col-span-5 hidden lg:block" />
+        </div>
 
-              {/* Decorative accent behind card */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#00b332]/10 rounded-2xl -z-10" />
+        {/* Bottom right floating property card - Desktop only */}
+        <div className="hidden lg:block absolute bottom-8 right-8 xl:right-12">
+          <div className="relative">
+            {/* Main property card - BIGGER */}
+            <div className="relative bg-white rounded-2xl shadow-2xl shadow-[#1a1f1a]/15 overflow-hidden border border-[#1a1f1a]/5 transform rotate-2 hover:rotate-0 transition-transform duration-300 w-[340px]">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                  alt="Recently purchased home in Scranton, PA - sold as-is for cash"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              </div>
+              {/* Card content - BIGGER */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-3 py-1 bg-[#00b332] text-white text-sm font-semibold rounded-full">
+                    Just Closed
+                  </span>
+                </div>
+                <p className="font-semibold text-xl">Scranton, PA</p>
+                <p className="text-white/80 text-base">14 Days to Close</p>
+              </div>
             </div>
+
+            {/* Decorative accent behind card */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#00b332]/10 rounded-2xl -z-10" />
           </div>
         </div>
 

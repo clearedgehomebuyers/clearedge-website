@@ -9,11 +9,9 @@ interface HeaderProps {
 }
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/how-it-works', label: 'How It Works' },
+  { href: '/#how-it-works', label: 'How It Works' },
   { href: '/about', label: 'About' },
   { href: '/testimonials', label: 'Testimonials' },
-  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -69,9 +67,9 @@ export function Header({ currentPage }: HeaderProps) {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-lg border-b border-slate-100 transition-shadow ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           <Link href="/" className="flex items-center" aria-label="ClearEdge Home Buyers Primary Logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1634 560" className="w-[180px] h-auto block" aria-label="ClearEdge Home Buyers">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1634 560" className="w-[220px] h-auto block" aria-label="ClearEdge Home Buyers">
               <path fill="#005db4" d="m1245.56 175.457 1.06-.038c1.32 1.311 1.22 2.672 1.23 4.593.51 90.897-.93 181.989.07 272.867-13.48-.192-26.98-.168-40.46.072-.27-6.562-1.75-16.32-2.4-23.364a68.6 68.6 0 0 1-6.31 7.802c-17.92 19.064-44.8 21.261-69.18 17.033-18.95-3.284-31.65-11.105-45.28-24-35.13-37.407-31.05-113.321 14.23-141.315 30.66-18.947 86.73-18.658 106.81 14.793-.31-37.952-.35-75.906-.11-113.859 13.51-4.68 26.96-9.542 40.34-14.584m-83.55 239.833c26.97-5.007 44.81-30.903 39.86-57.885s-30.81-44.866-57.81-39.977c-27.08 4.904-45.04 30.858-40.07 57.924 4.96 27.066 30.96 44.961 58.02 39.938"/>
               <path fill="#00b332" d="M581.006 276.286c24.077-.811 50.209 5.243 63.031 27.78.204-8.588.261-15.372 1.569-23.834l41.212-.051c1.201 55.924-.1 116.483.124 172.801-13.778-.572-27.79-.27-41.594-.136.174-6.647-.917-17.817-1.321-24.9-2.754 4.59-4.108 6.676-7.522 10.768-30.39 25.401-74.316 24.853-105.62 1.287-37.974-28.587-40.967-97.71-12.397-133.774 16.083-20.301 37.92-27.043 62.518-29.941m14.566 141.459c28.239-1.53 49.95-25.56 48.612-53.804-1.337-28.245-25.222-50.116-53.48-48.971-28.532 1.155-50.665 25.319-49.315 53.837s25.669 50.483 54.183 48.938"/>
               <path fill="#005db4" d="M861.228 208.273c59.703-1.069 122.702-.037 182.682-.046-.08 15.174-.04 30.349.11 45.523l-136.246.009-.002 55.531c17.436-.575 36.814-.181 54.368-.184a6990 6990 0 0 1 77.58.146c-.05 14.207-.01 28.414.11 42.62l-99.562-.023-32.551.049c.359 17.749.049 36.487.043 54.311l136.15-.014c-.1 15.562-.05 31.125.12 46.686-59.073-1.155-123.586-.347-182.818-.019.586-28.978.101-59.601.104-88.683z"/>
@@ -164,9 +162,17 @@ export function Header({ currentPage }: HeaderProps) {
               </div>
               <span className="font-bold">(570) 904-2059</span>
             </a>
-            <Link href="/#get-offer" className="px-5 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all">
-              Get Cash Offer
-            </Link>
+            <button
+              onClick={() => {
+                const el = document.getElementById('lead-form')
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+              className="px-6 py-2.5 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all"
+            >
+              Get My Offer
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -253,14 +259,21 @@ export function Header({ currentPage }: HeaderProps) {
             </a>
           </div>
 
-          {/* Get Cash Offer Button */}
-          <Link
-            href="/#get-offer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block w-full text-center px-5 py-3 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] text-white font-semibold rounded-xl shadow-lg mt-2"
+          {/* Get My Offer Button */}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false)
+              setTimeout(() => {
+                const el = document.getElementById('lead-form')
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }, 100)
+            }}
+            className="block w-full text-center px-5 py-3 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] text-white font-semibold rounded-full shadow-lg mt-2"
           >
-            Get Cash Offer
-          </Link>
+            Get My Offer
+          </button>
         </div>
       </div>
     </nav>
