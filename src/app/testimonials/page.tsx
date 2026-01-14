@@ -269,10 +269,10 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Featured Testimonial - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        {/* Featured Testimonial - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
+            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
               <div className="text-[#00b332] text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
@@ -288,8 +288,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Secondary Reviews Grid - White */}
-        <section className="py-16 md:py-20 bg-white">
+        {/* Secondary Reviews Grid - Cream */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-10">
               <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -317,8 +317,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* What Our Reviews Have in Common - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        {/* What Our Reviews Have in Common - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-10">
               <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -344,8 +344,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* FAQ Section - White */}
-        <section className="py-16 md:py-20 bg-white">
+        {/* FAQ Section - Cream */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-10">
               <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -396,8 +396,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* CTA Section - Cream */}
-        <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
+        {/* CTA Section - White */}
+        <section id="lead-form" className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
               Get Started
@@ -418,8 +418,8 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Closing Anchor - White */}
-        <section className="py-8 bg-white">
+        {/* Closing Anchor - Cream */}
+        <section className="py-8 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-[#1a1f1a]/60">
               Pennsylvania homeowners trust ClearEdge for honest offers, clear communication, and closings that happen on time. See what your house is worth today.
