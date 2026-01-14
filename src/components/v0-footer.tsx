@@ -139,7 +139,7 @@ export function V0Footer() {
               © {new Date().getFullYear()} ClearEdge Home Buyers. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy" className="text-sm text-[#1a1f1a]/50 hover:text-[#00b332] transition-colors">
+              <Link href="/privacy-policy" className="text-sm text-[#1a1f1a]/50 hover:text-[#00b332] transition-colors">
                 Privacy Policy
               </Link>
               <Link href="/terms" className="text-sm text-[#1a1f1a]/50 hover:text-[#00b332] transition-colors">

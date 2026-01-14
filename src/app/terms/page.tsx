@@ -1,8 +1,5 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Phone } from 'lucide-react'
+import { V0Header } from '@/components/v0-header'
+import { V0Footer } from '@/components/v0-footer'
 
 export const metadata = {
   title: 'Terms and Conditions | ClearEdge Home Buyers',
@@ -11,20 +8,27 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <main>
-      <Header currentPage="/terms" />
+    <main className="bg-white">
+      <V0Header />
 
-      {/* Header */}
-      <section className="pt-28 pb-12 px-4 bg-slate-50">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">Terms and Conditions</h1>
-          <p className="text-slate-600">Last updated: January 3, 2026</p>
+      {/* Header - Cream with dot pattern */}
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-[#FAF8F5] overflow-hidden">
+        {/* Dot pattern background */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1f1a' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-4">Terms and Conditions</h1>
+          <p className="text-[#1a1f1a]/60">Last updated: January 3, 2026</p>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-12 px-4 bg-white">
-        <div className="max-w-3xl mx-auto prose prose-lg [&_h2]:!text-gray-900 [&_h3]:!text-gray-900 [&_p]:!text-black [&_li]:!text-black [&_strong]:!text-black">
+      {/* Content - White */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg [&_h2]:font-serif [&_h2]:font-medium [&_h2]:text-[#1a1f1a] [&_h3]:font-serif [&_h3]:font-medium [&_h3]:text-[#1a1f1a] [&_p]:text-[#1a1f1a]/70 [&_li]:text-[#1a1f1a]/70 [&_strong]:text-[#1a1f1a]">
           <h2>Agreement to Terms</h2>
           <p>
             These Terms and Conditions (&quot;Terms&quot;) constitute a legally binding agreement between you and ClearEdge Home Buyers (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) concerning your access to and use of the website www.clearedgehomebuyers.com and any related services we provide.
@@ -166,7 +170,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <Footer />
+      <V0Footer />
     </main>
   )
 }

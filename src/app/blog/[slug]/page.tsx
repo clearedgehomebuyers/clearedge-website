@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import { V0Header } from '@/components/v0-header'
+import { V0Footer } from '@/components/v0-footer'
 import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
@@ -55,10 +55,10 @@ const portableTextComponents: PortableTextComponents = {
             alt={value.alt || ''}
             width={800}
             height={500}
-            className="rounded-xl w-full"
+            className="rounded-2xl w-full"
           />
           {value.caption && (
-            <figcaption className="text-center text-sm text-slate-500 mt-3">
+            <figcaption className="text-center text-sm text-[#1a1f1a]/50 mt-3">
               {value.caption}
             </figcaption>
           )}
@@ -68,23 +68,23 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-bold mt-12 mb-4 text-slate-800">
+      <h2 className="text-2xl md:text-3xl font-serif font-medium mt-12 mb-4 text-[#1a1f1a]">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-bold mt-8 mb-3 text-slate-800">
+      <h3 className="text-xl md:text-2xl font-serif font-medium mt-8 mb-3 text-[#1a1f1a]">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg font-bold mt-6 mb-2 text-slate-800">{children}</h4>
+      <h4 className="text-lg font-serif font-medium mt-6 mb-2 text-[#1a1f1a]">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="mb-4 text-slate-700 leading-relaxed text-lg">{children}</p>
+      <p className="mb-4 text-[#1a1f1a]/70 leading-relaxed text-lg">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#0d9488] pl-6 my-8 italic text-slate-600 text-lg">
+      <blockquote className="border-l-4 border-[#00b332] pl-6 my-8 italic text-[#1a1f1a]/60 text-lg">
         {children}
       </blockquote>
     ),
@@ -98,7 +98,7 @@ const portableTextComponents: PortableTextComponents = {
           href={value?.href}
           target={target}
           rel={rel}
-          className="text-[#0d9488] hover:underline font-medium"
+          className="text-[#00b332] hover:underline font-medium"
         >
           {children}
         </a>
@@ -110,12 +110,12 @@ const portableTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-slate-700 text-lg">
+      <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-[#1a1f1a]/70 text-lg">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-slate-700 text-lg">
+      <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-[#1a1f1a]/70 text-lg">
         {children}
       </ol>
     ),
@@ -207,37 +207,37 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
       )}
 
-      <main>
-        <Header currentPage="/blog" />
+      <main className="bg-white">
+        <V0Header />
 
-        <article className="pt-28 pb-16">
+        <article className="pt-32 md:pt-40 pb-16">
           {/* Breadcrumb */}
-          <div className="max-w-3xl mx-auto px-4 mb-8">
-            <nav className="flex items-center text-sm text-slate-500">
-              <Link href="/" className="hover:text-[#0d9488] transition-colors">Home</Link>
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+            <nav className="flex items-center text-sm text-[#1a1f1a]/50">
+              <Link href="/" className="hover:text-[#00b332] transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4 mx-2" />
-              <Link href="/blog" className="hover:text-[#0d9488] transition-colors">Blog</Link>
+              <Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link>
               <ChevronRight className="w-4 h-4 mx-2" />
-              <span className="text-slate-700 truncate max-w-[200px]">{post.title}</span>
+              <span className="text-[#1a1f1a]/70 truncate max-w-[200px]">{post.title}</span>
             </nav>
           </div>
 
           {/* Article Header */}
-          <header className="max-w-3xl mx-auto px-4 mb-10">
+          <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
             {/* Category */}
             {post.category && (
-              <span className="inline-block px-3 py-1 bg-[#0d9488]/10 text-[#047857] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+              <span className="inline-block px-3 py-1 bg-[#00b332]/10 text-[#00b332] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
                 {formatCategory(post.category)}
               </span>
             )}
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-[#1a1f1a] mb-6 leading-tight">
               {post.title}
             </h1>
 
             {/* Author & Date */}
-            <div className="flex items-center text-slate-600 mb-8">
+            <div className="flex items-center text-[#1a1f1a]/60 mb-8">
               <span className="font-medium">{post.author}</span>
               <span className="mx-3">|</span>
               <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
@@ -264,22 +264,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           {/* Content */}
-          <div className="max-w-3xl mx-auto px-4">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
               <PortableText value={post.content} components={portableTextComponents} />
             </div>
 
             {/* FAQs Section */}
             {post.faqs && post.faqs.length > 0 && (
-              <section className="mt-16 pt-10 border-t border-slate-200">
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-8">
+              <section className="mt-16 pt-10 border-t border-[#1a1f1a]/10">
+                <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-8">
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-6">
                   {post.faqs.map((faq: { question: string; answer: string }, index: number) => (
-                    <div key={index} className="bg-slate-50 rounded-xl p-6">
-                      <h3 className="font-bold text-lg text-slate-800 mb-3">{faq.question}</h3>
-                      <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
+                    <div key={index} className="bg-[#FAF8F5] rounded-2xl p-6">
+                      <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">{faq.question}</h3>
+                      <p className="text-[#1a1f1a]/60 leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -288,14 +288,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Links */}
             {(post.relatedLocations?.length > 0 || post.relatedSituations?.length > 0) && (
-              <section className="mt-12 pt-10 border-t border-slate-200">
-                <h2 className="text-xl font-bold text-slate-800 mb-4">Related Pages</h2>
+              <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">
+                <h2 className="text-xl font-serif font-medium text-[#1a1f1a] mb-4">Related Pages</h2>
                 <div className="flex flex-wrap gap-3">
                   {post.relatedLocations?.map((location: { _id: string; city: string; slug: { current: string } }) => (
                     <Link
                       key={location._id}
                       href={`/locations/${location.slug.current}`}
-                      className="bg-slate-100 hover:bg-[#0d9488] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-[#FAF8F5] hover:bg-[#00b332] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {location.city}, PA
                     </Link>
@@ -304,7 +304,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={situation._id}
                       href={`/situations/${situation.slug.current}`}
-                      className="bg-slate-100 hover:bg-[#0d9488] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-[#FAF8F5] hover:bg-[#00b332] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {situation.title}
                     </Link>
@@ -314,10 +314,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Author Bio */}
-            <section className="mt-12 pt-10 border-t border-slate-200">
-              <div className="bg-slate-50 rounded-2xl p-6 md:p-8">
-                <h3 className="font-bold text-lg text-slate-800 mb-3">About the Author</h3>
-                <p className="text-slate-700 leading-relaxed">
+            <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8">
+                <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">About the Author</h3>
+                <p className="text-[#1a1f1a]/60 leading-relaxed">
                   <strong>{post.author}</strong> is the founder of ClearEdge Home Buyers,
                   a cash home buying company serving Eastern Pennsylvania. He has helped
                   hundreds of homeowners sell their properties quickly for cash, with no repairs,
@@ -327,23 +327,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </section>
 
             {/* CTA */}
-            <section className="mt-12 bg-gradient-to-br from-[#1e3a5f] to-[#162d4a] text-white rounded-2xl p-8 md:p-10 text-center">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Sell Your House Fast?</h2>
-              <p className="mb-8 text-slate-300 text-lg max-w-xl mx-auto">
+            <section className="mt-12 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Ready to Sell Your House Fast?</h2>
+              <p className="mb-8 text-[#1a1f1a]/60 text-lg max-w-xl mx-auto">
                 Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.
               </p>
               <Link
-                href="/#get-offer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg"
+                href="/#lead-form"
+                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
               >
                 Get My Cash Offer
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5" />
               </Link>
             </section>
           </div>
         </article>
 
-        <Footer />
+        <V0Footer />
       </main>
     </>
   )

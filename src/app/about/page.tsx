@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Check } from 'lucide-react'
-import { ScrollToFormButton } from '@/components/ScrollToFormButton'
-
+import { Check, ArrowRight } from 'lucide-react'
+import { V0Header } from '@/components/v0-header'
+import { V0Footer } from '@/components/v0-footer'
 import { LeadForm } from '@/components/LeadForm'
+
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
   description: "Meet Tyler and the ClearEdge team. Family-owned cash home buyers based in Scranton, serving NEPA, Lehigh Valley & Poconos since 2016.",
@@ -127,28 +128,43 @@ export default function AboutPage() {
       />
 
       <main className="bg-white">
-        {/* Hero Section */}
-        <section className="bg-slate-900 text-white py-16 lg:py-20">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+        <V0Header />
+
+        {/* Hero Section - Cream with dot pattern */}
+        <section className="relative pt-32 pb-16 md:pb-20 px-4 overflow-hidden bg-[#FAF8F5]">
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
+            }}
+          />
+          <div className="relative max-w-3xl mx-auto text-center">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              About Us
+            </span>
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
               We&apos;re Not a Franchise. We&apos;re Your Neighbors.
             </h1>
-            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-2xl mx-auto">
               ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania. We&apos;ve been helping homeowners sell fast since 2016.
             </p>
-            <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
+            <a
+              href="#lead-form"
+              className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+            >
               Get My Cash Offer
-            </ScrollToFormButton>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </section>
 
-        {/* Origin Story */}
-        <section className="py-16 lg:py-20">
+        {/* Origin Story - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8">
+            <h2 className="font-serif text-3xl font-medium text-[#1a1f1a] mb-8">
               How ClearEdge Started
             </h2>
-            <div className="space-y-6 text-lg text-slate-700">
+            <div className="space-y-6 text-lg text-[#1a1f1a]/70">
               <p>
                 I&apos;m Tyler, the founder of ClearEdge Home Buyers. In 2016, my high school friend and I bought our first property — a duplex on Birch Street in Scranton. We didn&apos;t have a business plan or investors. Just a belief that we could help homeowners while building something we&apos;d be proud of.
               </p>
@@ -162,46 +178,51 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* What Makes ClearEdge Different */}
-        <section className="bg-slate-50 py-16 lg:py-20">
+        {/* What Makes ClearEdge Different - Cream */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
-              What Makes ClearEdge Different
-            </h2>
+            <div className="text-center mb-12">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Our Difference
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+                What Makes ClearEdge Different
+              </h2>
+            </div>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold">1</span>
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold">1</span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Local, Not Corporate</h3>
-                <p className="text-slate-600">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Local, Not Corporate</h3>
+                <p className="text-[#1a1f1a]/60">
                   We&apos;re based in Scranton, not a call center in another state. When you call, you talk to Tyler — not a script reader.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold">2</span>
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold">2</span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Transparent Pricing</h3>
-                <p className="text-slate-600">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Transparent Pricing</h3>
+                <p className="text-[#1a1f1a]/60">
                   We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold">3</span>
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold">3</span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Your Timeline</h3>
-                <p className="text-slate-600">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Your Timeline</h3>
+                <p className="text-[#1a1f1a]/60">
                   Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too. You&apos;re in control.
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-amber-600 font-bold">4</span>
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#00b332] font-bold">4</span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">We Handle the Hard Stuff</h3>
-                <p className="text-slate-600">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">We Handle the Hard Stuff</h3>
+                <p className="text-[#1a1f1a]/60">
                   Probate, liens, code violations, out-of-state sellers, tenant issues — we&apos;ve seen it all and know how to navigate it.
                 </p>
               </div>
@@ -209,24 +230,29 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Homeowners We Work With */}
-        <section className="py-16 lg:py-20">
+        {/* Homeowners We Work With - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Homeowners We Work With
-            </h2>
-            <p className="text-lg text-slate-600 mb-10 text-center max-w-2xl mx-auto">
-              We buy houses in all kinds of situations. If any of these sound familiar, we can help:
-            </p>
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                We Can Help
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
+                Homeowners We Work With
+              </h2>
+              <p className="text-lg text-[#1a1f1a]/60 max-w-2xl mx-auto">
+                We buy houses in all kinds of situations. If any of these sound familiar, we can help:
+              </p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {situations.map((situation) => (
                 <Link
                   key={situation.href}
                   href={situation.href}
-                  className="flex items-center gap-3 p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors group"
+                  className="flex items-center gap-3 p-4 bg-[#FAF8F5] rounded-2xl hover:bg-[#00b332]/10 transition-colors group border border-[#1a1f1a]/5"
                 >
-                  <Check className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                  <span className="text-slate-700 group-hover:text-amber-600 transition-colors">
+                  <Check className="w-5 h-5 text-[#00b332] flex-shrink-0" />
+                  <span className="text-[#1a1f1a]/70 group-hover:text-[#00b332] transition-colors">
                     {situation.name}
                   </span>
                 </Link>
@@ -235,124 +261,141 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Serving All of Eastern Pennsylvania */}
-        <section className="bg-slate-50 py-16 lg:py-20">
+        {/* Serving All of Eastern Pennsylvania - Cream */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
-              Serving All of Eastern Pennsylvania
-            </h2>
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Service Areas
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+                Serving All of Eastern Pennsylvania
+              </h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-8 mb-10">
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
                   NEPA
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/scranton" className="text-slate-600 hover:text-amber-600 transition-colors">Scranton</Link></li>
-                  <li><Link href="/locations/wilkes-barre" className="text-slate-600 hover:text-amber-600 transition-colors">Wilkes-Barre</Link></li>
-                  <li><Link href="/locations/hazleton" className="text-slate-600 hover:text-amber-600 transition-colors">Hazleton</Link></li>
-                  <li><Link href="/locations/pittston" className="text-slate-600 hover:text-amber-600 transition-colors">Pittston</Link></li>
-                  <li><Link href="/locations/kingston" className="text-slate-600 hover:text-amber-600 transition-colors">Kingston</Link></li>
-                  <li><Link href="/locations/nanticoke" className="text-slate-600 hover:text-amber-600 transition-colors">Nanticoke</Link></li>
-                  <li><Link href="/locations/carbondale" className="text-slate-600 hover:text-amber-600 transition-colors">Carbondale</Link></li>
-                  <li><Link href="/locations/dunmore" className="text-slate-600 hover:text-amber-600 transition-colors">Dunmore</Link></li>
-                  <li><Link href="/locations/honesdale" className="text-slate-600 hover:text-amber-600 transition-colors">Honesdale</Link></li>
-                  <li><Link href="/locations/bloomsburg" className="text-slate-600 hover:text-amber-600 transition-colors">Bloomsburg</Link></li>
+                  <li><Link href="/locations/scranton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Scranton</Link></li>
+                  <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Wilkes-Barre</Link></li>
+                  <li><Link href="/locations/hazleton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Hazleton</Link></li>
+                  <li><Link href="/locations/pittston" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pittston</Link></li>
+                  <li><Link href="/locations/kingston" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Kingston</Link></li>
+                  <li><Link href="/locations/nanticoke" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Nanticoke</Link></li>
+                  <li><Link href="/locations/carbondale" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Carbondale</Link></li>
+                  <li><Link href="/locations/dunmore" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Dunmore</Link></li>
+                  <li><Link href="/locations/honesdale" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Honesdale</Link></li>
+                  <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Bloomsburg</Link></li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
                   Lehigh Valley
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/allentown" className="text-slate-600 hover:text-amber-600 transition-colors">Allentown</Link></li>
-                  <li><Link href="/locations/bethlehem" className="text-slate-600 hover:text-amber-600 transition-colors">Bethlehem</Link></li>
-                  <li><Link href="/locations/easton" className="text-slate-600 hover:text-amber-600 transition-colors">Easton</Link></li>
-                  <li><Link href="/locations/reading" className="text-slate-600 hover:text-amber-600 transition-colors">Reading</Link></li>
-                  <li><Link href="/locations/pottsville" className="text-slate-600 hover:text-amber-600 transition-colors">Pottsville</Link></li>
+                  <li><Link href="/locations/allentown" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Allentown</Link></li>
+                  <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Bethlehem</Link></li>
+                  <li><Link href="/locations/easton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Easton</Link></li>
+                  <li><Link href="/locations/reading" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Reading</Link></li>
+                  <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pottsville</Link></li>
                 </ul>
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b-2 border-amber-500">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
                   Poconos
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/stroudsburg" className="text-slate-600 hover:text-amber-600 transition-colors">Stroudsburg</Link></li>
-                  <li><Link href="/locations/east-stroudsburg" className="text-slate-600 hover:text-amber-600 transition-colors">East Stroudsburg</Link></li>
-                  <li><Link href="/locations/pocono-pines" className="text-slate-600 hover:text-amber-600 transition-colors">Pocono Pines</Link></li>
-                  <li><Link href="/locations/tannersville" className="text-slate-600 hover:text-amber-600 transition-colors">Tannersville</Link></li>
+                  <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Stroudsburg</Link></li>
+                  <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">East Stroudsburg</Link></li>
+                  <li><Link href="/locations/pocono-pines" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pocono Pines</Link></li>
+                  <li><Link href="/locations/tannersville" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Tannersville</Link></li>
                 </ul>
               </div>
             </div>
             <div className="text-center">
-              <ScrollToFormButton className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-semibold px-8 py-4 rounded-lg transition-colors">
-                Don&apos;t see your town? Reach out anyway &rarr;
-              </ScrollToFormButton>
+              <a
+                href="#lead-form"
+                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+              >
+                Don&apos;t see your town? Reach out anyway
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </div>
         </section>
 
-        {/* Local Knowledge Section */}
-        <section className="py-16 lg:py-20">
+        {/* Local Knowledge Section - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10 text-center">
-              We Know Pennsylvania Real Estate
-            </h2>
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Local Expertise
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+                We Know Pennsylvania Real Estate
+              </h2>
+            </div>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-amber-600" />
+                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#00b332]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Municipal Pre-Sale Inspections</h3>
-                  <p className="text-slate-600">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
+                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Municipal Pre-Sale Inspections</h3>
+                  <p className="text-[#1a1f1a]/60">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-amber-600" />
+                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#00b332]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Probate Process</h3>
-                  <p className="text-slate-600">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
+                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Probate Process</h3>
+                  <p className="text-[#1a1f1a]/60">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-amber-600" />
+                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#00b332]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Mine Subsidence (NEPA)</h3>
-                  <p className="text-slate-600">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
+                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Mine Subsidence (NEPA)</h3>
+                  <p className="text-[#1a1f1a]/60">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-amber-600" />
+                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#00b332]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Title &amp; Lien Issues</h3>
-                  <p className="text-slate-600">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
+                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Title &amp; Lien Issues</h3>
+                  <p className="text-[#1a1f1a]/60">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Testimonial Section */}
-        <section className="py-16 lg:py-20 bg-slate-50">
+        {/* Testimonial Section - Cream */}
+        <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              Testimonial
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-10">
               What Homeowners Say
             </h2>
-            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm">
-              <div className="text-amber-500 text-6xl font-serif leading-none mb-4">&ldquo;</div>
-              <blockquote className="text-xl lg:text-2xl text-slate-700 leading-relaxed mb-6">
+            <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
+              <div className="text-[#00b332] text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 First to take time to explain the process and make me feel comfortable.
               </blockquote>
-              <p className="text-slate-600">— Gavin S.</p>
+              <p className="text-[#1a1f1a]/60">— Gavin S.</p>
             </div>
             <div className="mt-8">
-              <Link href="/testimonials" className="text-amber-600 hover:text-amber-700 font-medium">
+              <Link href="/testimonials" className="text-[#00b332] hover:text-[#009929] font-medium">
                 Read all reviews &rarr;
               </Link>
             </div>
@@ -360,20 +403,25 @@ export default function AboutPage() {
         </section>
 
 
-        {/* FAQ Section */}
-        <section className="py-16 lg:py-20">
+        {/* FAQ Section - White */}
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-900 mb-10">
-              Common Questions About ClearEdge
-            </h2>
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                FAQ
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+                Common Questions About ClearEdge
+              </h2>
+            </div>
 
             <div className="space-y-8">
               {faqs.map((faq, index) => (
                 <div key={index}>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
                     {faq.question}
                   </h3>
-                  <p className="text-slate-700">
+                  <p className="text-[#1a1f1a]/70">
                     {faq.answer}
                   </p>
                 </div>
@@ -382,33 +430,38 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section id="lead-form" className="bg-amber-500 py-16 lg:py-20">
+        {/* CTA Section - Cream */}
+        <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              Get Started
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
               Let&apos;s Talk About Your Property
             </h2>
-            <p className="text-lg text-slate-800 mb-8">
+            <p className="text-lg text-[#1a1f1a]/60 mb-8">
               No obligation. No pressure. Just an honest conversation about your options.
             </p>
             <LeadForm />
-            <p className="text-slate-700 text-sm mt-8">
+            <p className="text-[#1a1f1a]/60 text-sm mt-8">
               Prefer to call? Reach Tyler directly:{' '}
-              <a href="tel:+15709042059" className="font-semibold hover:underline">
+              <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
                 (570) 904-2059
               </a>
             </p>
           </div>
         </section>
 
-        {/* Closing Anchor */}
+        {/* Closing Anchor - White */}
         <section className="py-8 bg-white">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-slate-600">
+            <p className="text-[#1a1f1a]/60">
               ClearEdge Home Buyers is a local, family-owned company helping Eastern Pennsylvania homeowners sell fast for cash. Founded in Scranton in 2016. Still here. Still answering our own phones.
             </p>
           </div>
         </section>
+
+        <V0Footer />
       </main>
     </>
   )

@@ -97,7 +97,7 @@ export function V0Header() {
                 href="/testimonials"
                 className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
-                Reviews
+                Testimonials
               </Link>
               <Link
                 href="/contact"
@@ -211,7 +211,7 @@ export function V0Header() {
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Reviews
+              Testimonials
             </Link>
             <Link
               href="/contact"
