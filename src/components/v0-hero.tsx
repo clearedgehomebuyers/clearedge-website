@@ -9,7 +9,7 @@ export function V0Hero() {
   }
 
   return (
-    <section className="relative min-h-[85vh] flex items-center pt-24 pb-16 px-4 overflow-hidden bg-[#FAF8F5]">
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-48 lg:pb-64 px-4 overflow-hidden bg-[#FAF8F5]">
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -34,7 +34,7 @@ export function V0Hero() {
             Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button
               onClick={scrollToForm}
               size="lg"
@@ -53,41 +53,68 @@ export function V0Hero() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-sm text-muted-foreground max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="whitespace-nowrap">Close in 7 Days</span>
+          {/* Trust Bar - BIGGER text and icons */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 max-w-4xl mx-auto">
+            <div className="flex items-center justify-center gap-3">
+              <Clock className="w-6 h-6 text-primary flex-shrink-0" />
+              <span className="text-lg font-medium text-foreground/70 whitespace-nowrap">Close in 7 Days</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="whitespace-nowrap">Zero Fees</span>
+            <div className="flex items-center justify-center gap-3">
+              <DollarSign className="w-6 h-6 text-primary flex-shrink-0" />
+              <span className="text-lg font-medium text-foreground/70 whitespace-nowrap">Zero Fees</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="whitespace-nowrap">No Obligation</span>
+            <div className="flex items-center justify-center gap-3">
+              <Shield className="w-6 h-6 text-primary flex-shrink-0" />
+              <span className="text-lg font-medium text-foreground/70 whitespace-nowrap">No Obligation</span>
             </div>
-            <div className="flex items-center justify-center gap-2">
-              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="whitespace-nowrap">Local PA Company</span>
+            <div className="flex items-center justify-center gap-3">
+              <MapPin className="w-6 h-6 text-primary flex-shrink-0" />
+              <span className="text-lg font-medium text-foreground/70 whitespace-nowrap">Local PA Company</span>
             </div>
           </div>
         </div>
 
-        <div className="hidden xl:block absolute top-32 right-0 2xl:-right-4">
-          <div className="bg-card/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-border/50 max-w-[240px]">
-            <div className="flex items-start gap-3">
-              <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                <img
-                  src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
-                  alt="Recently purchased home"
-                  className="w-full h-full object-cover"
-                />
+        {/* BOTTOM RIGHT floating property card - Much bigger */}
+        <div className="hidden lg:block absolute bottom-0 right-0 xl:right-4 2xl:right-8">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-[#1a1f1a]/10 overflow-hidden w-[380px] transform rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div className="relative aspect-[16/10]">
+              <img
+                src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                alt="Recently purchased home in Scranton, PA"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-3 py-1 bg-[#00b332] text-white text-sm font-bold rounded-full">
+                  Just Closed
+                </span>
               </div>
-              <div>
-                <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-0.5">Just Closed</p>
-                <p className="text-sm font-medium text-foreground">Scranton, PA</p>
-                <p className="text-xs text-primary font-semibold">14 Days to Close</p>
+              <p className="text-2xl font-bold">Scranton, PA</p>
+              <p className="text-lg text-white/90 font-medium">14 Days to Close</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile property card */}
+        <div className="lg:hidden mt-12">
+          <div className="bg-white rounded-2xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden max-w-sm mx-auto">
+            <div className="relative aspect-[16/10]">
+              <img
+                src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                alt="Recently purchased home in Scranton, PA"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full">
+                  Just Closed
+                </span>
               </div>
+              <p className="text-lg font-bold">Scranton, PA &bull; 14 Days</p>
             </div>
           </div>
         </div>
