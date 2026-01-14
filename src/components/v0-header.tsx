@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
 
 const locationLinks = [
@@ -42,6 +43,8 @@ const situationLinks = [
 export function V0Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,6 +62,15 @@ export function V0Header() {
     setIsMobileMenuOpen(false)
   }
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      router.push("/")
+    }
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -68,9 +80,13 @@ export function V0Header() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-24">
           {/* Logo - with left padding */}
-          <Link href="/" className="flex-shrink-0 ml-2">
+          <a
+            href="/"
+            onClick={handleLogoClick}
+            className="flex-shrink-0 ml-2 cursor-pointer"
+          >
             <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-12 md:h-14 w-auto" />
-          </Link>
+          </a>
 
           {/* Desktop Navigation - centered with even spacing */}
           <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
