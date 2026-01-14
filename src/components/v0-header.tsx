@@ -92,12 +92,6 @@ export function V0Header() {
           <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
             <div className="flex items-center gap-8">
               <Link
-                href="/"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
-              >
-                Home
-              </Link>
-              <Link
                 href="/how-it-works"
                 className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
@@ -114,6 +108,12 @@ export function V0Header() {
                 className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
                 Testimonials
+              </Link>
+              <Link
+                href="/blog"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+              >
+                Blog
               </Link>
               <Link
                 href="/contact"
@@ -202,13 +202,6 @@ export function V0Header() {
         <div className="lg:hidden bg-white border-t border-[#1a1f1a]/5 shadow-lg max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col px-4 py-4 gap-2">
             <Link
-              href="/"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
               href="/how-it-works"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -228,6 +221,13 @@ export function V0Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Testimonials
+            </Link>
+            <Link
+              href="/blog"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
             </Link>
             <Link
               href="/contact"
