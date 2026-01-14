@@ -245,25 +245,25 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Trust Bar - White */}
-        <section className="py-8 bg-white border-b border-[#1a1f1a]/5">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <p className="text-3xl font-bold text-[#00b332]">200+</p>
-                <p className="text-[#1a1f1a]/60">Homeowners Helped</p>
+        {/* Trust Bar - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-4 gap-4 md:gap-12">
+              <div className="text-center">
+                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">200+</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Homeowners Helped</p>
               </div>
-              <div>
-                <p className="text-3xl font-bold text-[#00b332]">2016</p>
-                <p className="text-[#1a1f1a]/60">Founded in Scranton</p>
+              <div className="text-center">
+                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">Since 2016</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Serving PA</p>
               </div>
-              <div>
-                <p className="text-3xl font-bold text-[#00b332]">21</p>
-                <p className="text-[#1a1f1a]/60">PA Communities Served</p>
+              <div className="text-center">
+                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">5.0</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Google Rating</p>
               </div>
-              <div>
-                <p className="text-3xl font-bold text-[#00b332]">14 Days</p>
-                <p className="text-[#1a1f1a]/60">Average Time to Close</p>
+              <div className="text-center">
+                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">A+</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">BBB Rating</p>
               </div>
             </div>
           </div>
