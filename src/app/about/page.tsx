@@ -452,10 +452,10 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Closing Anchor - White */}
-        <section className="py-8 bg-white">
+        {/* Closing Anchor - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-[#1a1f1a]/60">
+            <p className="text-[#1a2e1a] font-medium">
               ClearEdge Home Buyers is a local, family-owned company helping Eastern Pennsylvania homeowners sell fast for cash. Founded in Scranton in 2016. Still here. Still answering our own phones.
             </p>
           </div>

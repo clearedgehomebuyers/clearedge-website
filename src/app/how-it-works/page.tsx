@@ -477,10 +477,10 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* CLOSING KEYWORD ANCHOR - White */}
-        <section className="py-8 bg-white">
+        {/* CLOSING KEYWORD ANCHOR - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-[#1a1f1a]/60">
+            <p className="text-[#1a2e1a] font-medium">
               When you&apos;re ready to sell your Pennsylvania house fast without repairs, showings, or uncertainty, ClearEdge is here. Get your cash offer today.
             </p>
           </div>

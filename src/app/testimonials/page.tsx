@@ -418,10 +418,10 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Closing Anchor - Cream */}
-        <section className="py-8 bg-[#FAF8F5]">
+        {/* Closing Anchor - Sage gradient */}
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-[#1a1f1a]/60">
+            <p className="text-[#1a2e1a] font-medium">
               Pennsylvania homeowners trust ClearEdge for honest offers, clear communication, and closings that happen on time. See what your house is worth today.
             </p>
           </div>
