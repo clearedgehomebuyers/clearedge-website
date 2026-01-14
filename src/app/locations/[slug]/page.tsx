@@ -1,11 +1,12 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
-import { LeadForm } from '@/components/LeadForm'
+import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import Link from 'next/link'
-import { Phone, MapPin, CheckCircle, ArrowRight, ChevronDown, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
+import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -141,12 +142,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               </a>
             </div>
 
-            {/* Lead Form */}
+            {/* MultiStep Lead Form */}
             <div className="lg:pl-4">
-              <LeadForm
-                heading={`Get Your ${location.city} Cash Offer`}
-                buttonText={`Get My ${location.city} Cash Offer`}
-              />
+              <MultiStepLeadForm />
             </div>
           </div>
         </div>
@@ -329,30 +327,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* FAQ Section - White */}
+      {/* FAQ Section - White - Using Homepage Style Accordion */}
       {location.faqs && location.faqs.length > 0 && (
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">FAQ</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Common Questions About Selling in {location.city}</h2>
-            </div>
-
-            <div className="space-y-4">
-              {location.faqs.map((faq: any, i: number) => (
-                <details key={i} className="group bg-[#FAF8F5] rounded-2xl border border-[#1a1f1a]/5">
-                  <summary className="flex items-center justify-between cursor-pointer p-6 font-medium text-[#1a1f1a]">
-                    {faq.question}
-                    <ChevronDown className="w-5 h-5 text-[#00b332] group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="px-6 pb-6 text-[#1a1f1a]/60">
-                    {faq.answer}
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <LocationFAQAccordion faqs={location.faqs} cityName={location.city} />
       )}
 
       {/* Helpful Guides Section - Cream */}
@@ -404,16 +381,16 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Final CTA with Lead Form - White */}
+      {/* Final CTA with MultiStep Lead Form - White */}
       <section id="lead-form" className="py-16 md:py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">
             Ready to Sell Your {location.city} House?
           </h2>
           <p className="text-lg text-[#1a1f1a]/60 mb-8">
             Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
           </p>
-          <LeadForm />
+          <MultiStepLeadForm />
         </div>
       </section>
 
