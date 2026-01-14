@@ -302,16 +302,16 @@ export function MultiStepLeadForm() {
   // Success state
   if (submitStatus === 'success') {
     return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
+      <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 p-8 border border-[#1a1f1a]/5">
         <div className="text-center py-8">
           <div className="w-16 h-16 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle className="w-8 h-8 text-[#00b332]" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
-          <p className="text-slate-600 mb-4">
+          <h3 className="text-2xl font-bold text-[#1a1f1a] mb-2">Thank You!</h3>
+          <p className="text-[#1a1f1a]/70 mb-4">
             We&apos;ve received your information and will contact you within 24 hours with your cash offer.
           </p>
-          <p className="text-slate-500 text-sm">
+          <p className="text-[#1a1f1a]/50 text-sm">
             Questions? Call Tyler directly at{' '}
             <a href="tel:5709042059" className="text-[#00b332] font-semibold">(570) 904-2059</a>
           </p>
@@ -321,7 +321,7 @@ export function MultiStepLeadForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-slate-100">
+    <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 p-6 sm:p-8 border border-[#1a1f1a]/5">
       {/* Progress Indicator */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
@@ -607,7 +607,7 @@ export function MultiStepLeadForm() {
             <button
               type="button"
               onClick={handleBack}
-              className="px-6 py-3.5 border-2 border-slate-200 text-slate-700 font-semibold rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-2"
+              className="px-6 py-3.5 border-2 border-[#1a1f1a]/10 text-[#1a1f1a] font-semibold rounded-full hover:bg-[#1a1f1a]/5 transition-all flex items-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -618,7 +618,7 @@ export function MultiStepLeadForm() {
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
+              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
             >
               Continue
               <ArrowRight className="w-4 h-4" />
@@ -627,7 +627,7 @@ export function MultiStepLeadForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] disabled:bg-slate-400 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed"
+              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] disabled:bg-[#1a1f1a]/30 text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0"
             >
               {isSubmitting ? (
                 <>
@@ -646,12 +646,12 @@ export function MultiStepLeadForm() {
       </form>
 
       {/* Trust signals */}
-      <div className="mt-6 pt-6 border-t border-slate-100">
-        <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-slate-600">
+      <div className="mt-6 pt-6 border-t border-[#1a1f1a]/5">
+        <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-[#1a1f1a]/60">
           <span>No obligation</span>
-          <span className="text-slate-300">•</span>
+          <span className="text-[#1a1f1a]/20">•</span>
           <span>No fees</span>
-          <span className="text-slate-300">•</span>
+          <span className="text-[#1a1f1a]/20">•</span>
           <span>Response in 24 hours</span>
         </div>
       </div>

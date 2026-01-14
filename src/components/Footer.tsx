@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone } from 'lucide-react'
+import { Phone, MapPin, Mail } from 'lucide-react'
 
 // Locations to always place at the end (long names need space below)
 const bottomRowLocations = [
@@ -55,7 +55,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-[#1e3a5f] text-white py-16 px-4">
+    <footer className="bg-[#1a1f1a] text-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-5 gap-10 mb-12">
           {/* Logo & Description */}
@@ -69,30 +69,32 @@ export function Footer() {
                 className="h-10 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-slate-300 leading-relaxed text-sm">We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.</p>
+            <p className="text-white/60 leading-relaxed text-sm">
+              We buy houses in any condition throughout Eastern Pennsylvania. Fair cash offers, fast closings, zero fees.
+            </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold mb-4 text-lg">Quick Links</h3>
-            <ul className="space-y-3 text-slate-300">
-              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
+            <h3 className="font-bold mb-4 text-lg text-white">Quick Links</h3>
+            <ul className="space-y-3 text-white/60">
+              <li><Link href="/how-it-works" className="hover:text-[#00b332] transition-colors">How It Works</Link></li>
+              <li><Link href="/about" className="hover:text-[#00b332] transition-colors">About Us</Link></li>
+              <li><Link href="/testimonials" className="hover:text-[#00b332] transition-colors">Testimonials</Link></li>
+              <li><Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-[#00b332] transition-colors">Contact</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-[#00b332] transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-[#00b332] transition-colors">Terms</Link></li>
             </ul>
           </div>
 
           {/* Service Areas - All 21 Locations */}
           <div className="md:col-span-2">
-            <h3 className="font-bold mb-4 text-lg">Service Areas</h3>
-            <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-slate-300 text-sm">
+            <h3 className="font-bold mb-4 text-lg text-white">Service Areas</h3>
+            <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-white/60 text-sm">
               {locations.map((location) => (
                 <li key={location.slug}>
-                  <Link href={`/locations/${location.slug}`} className="hover:text-white transition-colors">
+                  <Link href={`/locations/${location.slug}`} className="hover:text-[#00b332] transition-colors">
                     {location.name}, PA
                   </Link>
                 </li>
@@ -102,20 +104,29 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold mb-4 text-lg">Contact Us</h3>
-            <a href="tel:5709042059" className="flex items-center space-x-3 text-slate-300 hover:text-[#00b332] transition-colors">
-              <Phone className="w-5 h-5" />
-              <span className="font-semibold">(570) 904-2059</span>
-            </a>
-            <p className="text-sm text-slate-300 mt-3">Serving Eastern Pennsylvania</p>
+            <h3 className="font-bold mb-4 text-lg text-white">Contact Us</h3>
+            <div className="space-y-4">
+              <a href="tel:5709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#00b332] transition-colors group">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center group-hover:bg-[#00b332]/20 transition-colors">
+                  <Phone className="w-5 h-5 text-[#00b332]" />
+                </div>
+                <span className="font-semibold">(570) 904-2059</span>
+              </a>
+              <div className="flex items-center space-x-3 text-white/60">
+                <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-[#00b332]" />
+                </div>
+                <span className="text-sm">Serving Eastern Pennsylvania</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-300 text-sm">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-white/50 text-sm">
           <p>&copy; 2026 ClearEdge Home Buyers. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-[#00b332] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#00b332] transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

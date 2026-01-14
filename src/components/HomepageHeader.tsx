@@ -6,13 +6,14 @@ import Image from 'next/image'
 import { Phone, Menu, X } from 'lucide-react'
 
 /**
- * HomepageHeader - Minimal, trust-focused header for the homepage redesign
+ * HomepageHeader - v0 Design Implementation
  *
- * Design principles:
- * - Clean and calm, not cluttered
- * - Logo + essential links + CTA
- * - Sticky on scroll with subtle shadow
- * - Mobile-first with thumb-friendly touch targets (44px min)
+ * Design features:
+ * - Cream background (#FAF8F5) matching hero
+ * - Minimal, clean layout
+ * - CTA button appears on scroll
+ * - Pill-shaped buttons with hover lift effect
+ * - Subtle border instead of shadow
  */
 
 const navLinks = [
@@ -28,7 +29,7 @@ export function HomepageHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
+      setScrolled(window.scrollY > 50)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -45,10 +46,10 @@ export function HomepageHeader() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/98 backdrop-blur-md shadow-sm'
-          : 'bg-white'
+          ? 'bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#1a1f1a]/5 shadow-sm'
+          : 'bg-[#FAF8F5]'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +65,7 @@ export function HomepageHeader() {
               alt="ClearEdge Home Buyers"
               width={200}
               height={68}
-              className="h-12 lg:h-14 w-auto"
+              className="h-10 lg:h-12 w-auto"
               priority
             />
           </Link>
@@ -75,18 +76,20 @@ export function HomepageHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors focus:outline-none focus-visible:text-[#005db4]"
+                className="text-sm font-medium text-[#1a1f1a]/70 hover:text-[#1a1f1a] transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA - appears on scroll */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:5709042059"
-              className="flex items-center gap-2 text-slate-700 hover:text-[#005db4] transition-colors"
+              className={`flex items-center gap-2 text-[#1a1f1a]/70 hover:text-[#00b332] transition-all duration-300 ${
+                scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
             >
               <Phone className="w-4 h-4" />
               <span className="text-sm font-semibold">(570) 904-2059</span>
@@ -99,7 +102,9 @@ export function HomepageHeader() {
                   window.scrollTo({ top: y, behavior: 'smooth' })
                 }
               }}
-              className="px-5 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white text-sm font-semibold rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332] focus-visible:ring-offset-2"
+              className={`px-6 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white text-sm font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332] focus-visible:ring-offset-2 ${
+                scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
             >
               Get Cash Offer
             </button>
@@ -108,7 +113,7 @@ export function HomepageHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 -mr-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332]"
+            className="lg:hidden p-2 -mr-2 rounded-full text-[#1a1f1a]/70 hover:bg-[#1a1f1a]/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332]"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -124,17 +129,17 @@ export function HomepageHeader() {
       {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          mobileMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-4 pb-6 pt-2 bg-white border-t border-slate-100">
+        <div className="px-4 pb-6 pt-2 bg-[#FAF8F5] border-t border-[#1a1f1a]/5">
           <div className="space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+                className="block px-4 py-3 text-base font-medium text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
               >
                 {link.label}
               </Link>
@@ -144,9 +149,9 @@ export function HomepageHeader() {
           {/* Mobile Phone */}
           <a
             href="tel:5709042059"
-            className="flex items-center gap-3 px-4 py-3 mt-4 text-slate-700 hover:bg-slate-50 rounded-lg transition-colors"
+            className="flex items-center gap-3 px-4 py-3 mt-4 text-[#1a1f1a]/80 hover:text-[#00b332] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
           >
-            <Phone className="w-5 h-5 text-[#005db4]" />
+            <Phone className="w-5 h-5 text-[#00b332]" />
             <span className="font-semibold">(570) 904-2059</span>
           </a>
 
@@ -162,7 +167,7 @@ export function HomepageHeader() {
                 }
               }, 100)
             }}
-            className="block w-full text-center px-5 py-3.5 mt-3 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-lg transition-colors"
+            className="block w-full text-center px-6 py-3.5 mt-3 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 transition-all"
           >
             Get Cash Offer
           </button>
