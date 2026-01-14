@@ -9,7 +9,7 @@ export function V0Hero() {
   }
 
   return (
-    <section className="relative pt-28 pb-8 lg:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+    <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -19,95 +19,92 @@ export function V0Hero() {
       />
 
       <div className="relative max-w-6xl mx-auto w-full">
-        {/* Main content grid - left side content, right side widget */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Left column - main content */}
-          <div className="lg:col-span-8 text-center lg:text-left">
-            {/* Trust badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 text-foreground/70 text-sm font-medium mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              Trusted by 200+ Pennsylvania Homeowners Since 2016
-            </div>
-
-            {/* Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mb-5 leading-[1.1]">
-              Sell Your House Fast.
-              <br />
-              <span className="text-primary">Skip the Hassle.</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed font-light">
-              Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
-              <Button
-                onClick={scrollToForm}
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary-hover text-base px-8 py-6 rounded-full shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
-              >
-                Get Your Free Cash Offer
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-base px-8 py-6 rounded-full text-foreground/80 hover:text-foreground hover:bg-foreground/5"
-              >
-                See How It Works
-              </Button>
-            </div>
-
-            {/* Trust Bar - LEFT aligned, smaller text, fully visible */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2">
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Close in 7 Days</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Zero Fees</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">No Obligation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Local PA Company</span>
-              </div>
-            </div>
+        {/* CENTERED main content */}
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Trust badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/5 text-foreground/70 text-sm font-medium mb-6 backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            Trusted by 200+ Pennsylvania Homeowners Since 2016
           </div>
 
-          {/* Right column - Property widget (desktop only) */}
-          <div className="hidden lg:flex lg:col-span-4 justify-end items-end">
-            <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[260px] transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="relative aspect-[4/3]">
-                <img
-                  src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
-                  alt="Recently purchased home in Scranton, PA"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
-                    Just Closed
-                  </span>
-                  <p className="text-base font-bold">Scranton, PA</p>
-                  <p className="text-sm text-white/90">14 Days to Close</p>
-                </div>
+          {/* Headline - CENTERED */}
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mb-5 leading-[1.1]">
+            Sell Your House Fast.
+            <br />
+            <span className="text-primary">Skip the Hassle.</span>
+          </h1>
+
+          {/* Subheadline - CENTERED */}
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+            Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.
+          </p>
+
+          {/* CTA Buttons - CENTERED */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+            <Button
+              onClick={scrollToForm}
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary-hover text-base px-8 py-6 rounded-full shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
+            >
+              Get Your Free Cash Offer
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
+              className="text-base px-8 py-6 rounded-full text-foreground/80 hover:text-foreground hover:bg-foreground/5"
+            >
+              See How It Works
+            </Button>
+          </div>
+
+          {/* Trust Indicators - 2x2 GRID, CENTERED */}
+          <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
+            <div className="flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4 text-primary flex-shrink-0" />
+              <span className="text-sm text-foreground/60 whitespace-nowrap">Close in 7 Days</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
+              <span className="text-sm text-foreground/60 whitespace-nowrap">Zero Fees</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <Shield className="w-4 h-4 text-primary flex-shrink-0" />
+              <span className="text-sm text-foreground/60 whitespace-nowrap">No Obligation</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+              <span className="text-sm text-foreground/60 whitespace-nowrap">Local PA Company</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Property widget - DESKTOP: Positioned in right space, vertically centered */}
+        <div className="hidden xl:block absolute top-1/2 -translate-y-1/2 right-0 2xl:right-4">
+          <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[220px] transform rotate-2 hover:rotate-0 transition-transform duration-300">
+            <div className="relative aspect-[4/3]">
+              <img
+                src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                alt="Recently purchased home in Scranton, PA"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
+                  Just Closed
+                </span>
+                <p className="text-sm font-bold">Scranton, PA</p>
+                <p className="text-xs text-white/90">14 Days to Close</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Mobile property card */}
-        <div className="lg:hidden mt-8">
-          <div className="bg-white rounded-xl shadow-lg border border-[#1a1f1a]/10 overflow-hidden max-w-xs mx-auto">
-            <div className="relative aspect-[16/9]">
+        <div className="xl:hidden mt-8">
+          <div className="bg-white rounded-xl shadow-lg border border-[#1a1f1a]/10 overflow-hidden max-w-[280px] mx-auto">
+            <div className="relative aspect-[16/10]">
               <img
                 src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
                 alt="Recently purchased home in Scranton, PA"
