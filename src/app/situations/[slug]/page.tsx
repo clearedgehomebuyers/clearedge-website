@@ -129,7 +129,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
                   href="#lead-form"
                   className="inline-flex items-center justify-center bg-[#00b332] text-white hover:bg-[#009929] text-base px-8 py-4 rounded-full shadow-lg shadow-[#00b332]/25 transition-all hover:shadow-xl hover:shadow-[#00b332]/30 hover:-translate-y-0.5 group font-medium"
@@ -145,30 +145,11 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   (570) 904-2059
                 </a>
               </div>
-
-              {/* Trust Indicators - 2x2 GRID */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
-                <div className="flex items-center justify-center gap-2">
-                  <Clock className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Close in 7 Days</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <DollarSign className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Zero Fees</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Shield className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">No Obligation</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Local PA Company</span>
-                </div>
-              </div>
             </div>
 
-            {/* RIGHT COLUMN - Property widget (centered horizontally and vertically) */}
-            <div className="flex items-center justify-center h-full">
+            {/* RIGHT COLUMN - Property widget + Trust Indicators */}
+            <div className="flex flex-col items-center justify-start h-full gap-8">
+              {/* Property Photo Widget */}
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
@@ -186,6 +167,26 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
                     <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>
                   </div>
+                </div>
+              </div>
+
+              {/* Trust Indicators - 2x2 GRID */}
+              <div className="grid grid-cols-2 gap-x-8 gap-y-3 w-full max-w-[320px]">
+                <div className="flex items-center justify-center gap-2">
+                  <Clock className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Close in 7 Days</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <DollarSign className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Zero Fees</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">No Obligation</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Local PA Company</span>
                 </div>
               </div>
             </div>
