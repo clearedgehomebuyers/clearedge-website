@@ -368,35 +368,35 @@ export default function HowItWorksPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-              <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Facing Foreclosure</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/inherited-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/inherited-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Inherited Property</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/divorce" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/divorce" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Going Through Divorce</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/job-relocation" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/job-relocation" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Job Relocation</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/major-repairs" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/major-repairs" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Major Repairs Needed</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/tax-liens-code-violations" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/tax-liens-code-violations" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Tax Liens or Code Violations</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/tired-landlord" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/tired-landlord" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Tired Landlord</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/vacant-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 text-center">
+              <Link href="/situations/vacant-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Vacant Property</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
               </Link>
