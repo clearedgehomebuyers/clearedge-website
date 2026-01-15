@@ -59,10 +59,11 @@ export const metadata: Metadata = {
     description: 'Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours.',
     images: [
       {
-        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        url: 'https://www.clearedgehomebuyers.com/og-image.png?v=2',
         width: 1200,
         height: 630,
         alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Eastern PA',
+        type: 'image/png',
       },
     ],
   },
@@ -70,7 +71,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ClearEdge Home Buyers | Sell Your House Fast for Cash',
     description: 'Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions.',
-    images: ['https://www.clearedgehomebuyers.com/og-image.png'],
+    images: ['https://www.clearedgehomebuyers.com/og-image.png?v=2'],
+    creator: '@clearedgehome',
   },
   robots: {
     index: true,
