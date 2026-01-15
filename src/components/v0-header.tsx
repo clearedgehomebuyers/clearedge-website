@@ -73,11 +73,18 @@ export function V0Header() {
   }, [])
 
   const scrollToForm = () => {
-    const el = document.getElementById("lead-form")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
     setIsMobileMenuOpen(false)
+
+    // If on homepage, scroll to form
+    if (pathname === "/") {
+      const el = document.getElementById("lead-form")
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    } else {
+      // If on any other page, navigate to homepage with hash
+      window.location.href = "/#lead-form"
+    }
   }
 
   const handleLogoClick = (e: React.MouseEvent) => {
