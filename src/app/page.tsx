@@ -1,4 +1,4 @@
-// src/app/page.tsx - Optimized 16-Section Homepage Structure
+// src/app/page.tsx - Optimized 15-Section Homepage Structure
 
 import type { Metadata } from 'next'
 // 1. Header
@@ -27,11 +27,9 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 // 13. Service Areas (21 locations)
 import { V0ServiceAreas } from '@/components/v0-service-areas'
-// 14. Closing SEO (sage gradient)
+// 14. Closing SEO + CTA (beige)
 import { V0ClosingSeo } from '@/components/v0-closing-seo'
-// 15. Final CTA (beige)
-import { V0FinalCta } from '@/components/v0-final-cta'
-// 16. Footer (white)
+// 15. Footer (white)
 import { V0Footer } from '@/components/v0-footer'
 
 export const metadata: Metadata = {
@@ -140,11 +138,9 @@ export default function HomePage() {
         <V0FAQ />
         {/* 13. Service Areas (21 locations) */}
         <V0ServiceAreas />
-        {/* 14. Closing SEO (sage gradient) */}
+        {/* 14. Closing SEO + CTA (beige) */}
         <V0ClosingSeo />
-        {/* 15. Final CTA (beige) */}
-        <V0FinalCta />
-        {/* 16. Footer (white) */}
+        {/* 15. Footer (white) */}
         <V0Footer />
       </main>
     </>
