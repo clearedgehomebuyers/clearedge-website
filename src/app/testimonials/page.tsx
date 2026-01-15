@@ -378,6 +378,7 @@ export default function TestimonialsPage() {
           faqs={testimonialsFaqs}
           title="Questions About Our Reviews"
           subtitle="Everything you need to know about our testimonials."
+          sectionBg="beige"
         />
 
         {/* Closing SEO - Sage gradient */}

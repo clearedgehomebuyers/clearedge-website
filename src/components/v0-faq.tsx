@@ -40,17 +40,25 @@ interface V0FAQProps {
   faqs?: FAQ[]
   title?: string
   subtitle?: string
+  sectionBg?: "white" | "beige"
 }
 
 export function V0FAQ({
   faqs = defaultFaqs,
   title = "Everything You Need to Know",
-  subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often."
+  subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often.",
+  sectionBg = "white"
 }: V0FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
+  // Background classes based on sectionBg prop
+  const sectionBgClass = sectionBg === "beige" ? "bg-[#FAF8F5]" : "bg-white"
+  const cardBgOpen = sectionBg === "beige" ? "bg-white" : "bg-[#FAF8F5]"
+  const cardBgClosed = sectionBg === "beige" ? "bg-white/80 hover:bg-white" : "bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
+  const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-[#FAF8F5]"
+
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className={`py-16 md:py-24 ${sectionBgClass}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
@@ -72,8 +80,8 @@ export function V0FAQ({
               key={index}
               className={`border rounded-xl overflow-hidden transition-all ${
                 openIndex === index
-                  ? "border-[#00b332]/20 bg-[#FAF8F5]"
-                  : "border-[#1a1f1a]/10 bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
+                  ? `border-[#00b332]/20 ${cardBgOpen}`
+                  : `border-[#1a1f1a]/10 ${cardBgClosed}`
               }`}
             >
               <button
@@ -101,7 +109,7 @@ export function V0FAQ({
         </div>
 
         {/* Still have questions */}
-        <div className="text-center mt-10 p-6 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/5">
+        <div className={`text-center mt-10 p-6 ${footerBgClass} rounded-xl border border-[#1a1f1a]/5`}>
           <p className="text-[#1a1f1a] font-medium mb-2">Still have questions?</p>
           <p className="text-[#1a1f1a]/60 text-sm mb-4">
             We&apos;re here to help. Call Tyler directly or reach out.
