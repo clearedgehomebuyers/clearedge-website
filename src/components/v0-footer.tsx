@@ -114,7 +114,7 @@ export function V0Footer() {
 
             {/* Service Areas - 3 columns on desktop */}
             <div className="lg:col-span-5">
-              <h3 className="font-semibold text-[#1a1f1a] mb-4">Service Areas</h3>
+              <h3 className="font-semibold text-[#1a1f1a] mb-4 md:text-center">Service Areas</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3">
                 {serviceAreas.map((area) => (
                   <Link
