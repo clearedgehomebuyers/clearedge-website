@@ -52,10 +52,10 @@ export function RandomizedServiceAreas() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="flex items-center justify-between bg-white rounded-2xl px-5 py-4 hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 hover:border-[#00b332]/30"
+                className="relative flex items-center justify-center bg-white rounded-2xl px-5 py-4 hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 hover:border-[#00b332]/30"
               >
-                <span className="font-medium text-[#1a1f1a]/70">{location.name}, PA</span>
-                <ArrowRight className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                <span className="font-medium text-[#1a1f1a]/70 text-center">{location.name}</span>
+                <ArrowRight className="absolute right-4 w-4 h-4 text-[#00b332]" />
               </Link>
             ))
           ) : (
@@ -63,10 +63,10 @@ export function RandomizedServiceAreas() {
             Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="flex items-center justify-between bg-white rounded-2xl px-5 py-4 border border-[#1a1f1a]/5 animate-pulse"
+                className="relative flex items-center justify-center bg-white rounded-2xl px-5 py-4 border border-[#1a1f1a]/5 animate-pulse"
               >
-                <span className="font-medium text-transparent">Loading...</span>
-                <div className="w-4 h-4" />
+                <span className="font-medium text-transparent text-center">Loading...</span>
+                <div className="absolute right-4 w-4 h-4" />
               </div>
             ))
           )}
