@@ -88,7 +88,7 @@ const SITUATION_OPTIONS = [
 
 // Step 3: Timeline options
 const TIMELINE_OPTIONS = [
-  { value: 'asap', label: 'ASAP', description: 'As quickly as possible' },
+  { value: 'asap', label: 'ASAP (within 30 days)', description: 'As quickly as possible' },
   { value: '30days', label: 'Within 30 Days', description: 'Ready to move soon' },
   { value: '60days', label: '1-2 Months', description: 'Some flexibility' },
   { value: 'exploring', label: 'Just Exploring', description: 'Seeing my options' },
@@ -187,12 +187,35 @@ export function MultiStepLeadForm() {
 
   const handleOptionSelect = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-    // Auto-advance after selection for single-select steps
-    setTimeout(() => {
-      if (step < totalSteps) {
-        setStep(step + 1)
-      }
-    }, 200)
+    // Clear any error for this field
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: '' }))
+    }
+  }
+
+  // Check if current step is valid (for enabling/disabling Continue button)
+  const isStepValid = (stepNumber: number): boolean => {
+    switch (stepNumber) {
+      case 1:
+        return !!(formData.address.trim() && formData.city.trim() && formData.state && formData.zip.trim() && /^\d{5}$/.test(formData.zip))
+      case 2:
+        return !!formData.situation
+      case 3:
+        return !!formData.timeline
+      case 4:
+        return !!formData.occupancy
+      case 5:
+        return !!(
+          formData.firstName.trim() &&
+          formData.lastName.trim() &&
+          formData.phone.trim() &&
+          getPhoneDigits(formData.phone).length === 10 &&
+          formData.email.trim() &&
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        )
+      default:
+        return false
+    }
   }
 
   const validateStep = (stepNumber: number): boolean => {
@@ -323,7 +346,7 @@ export function MultiStepLeadForm() {
   return (
     <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 p-6 sm:p-8 border border-[#1a1f1a]/5">
       {/* Progress Indicator */}
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium text-slate-600">Step {step} of {totalSteps}</span>
           <span className="text-sm text-slate-500">{Math.round((step / totalSteps) * 100)}% complete</span>
@@ -339,17 +362,17 @@ export function MultiStepLeadForm() {
       <form onSubmit={handleSubmit}>
         {/* Step 1: Property Location */}
         {step === 1 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-3">
-                <MapPin className="w-6 h-6 text-[#00b332]" />
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <div className="w-10 h-10 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-2">
+                <MapPin className="w-5 h-5 text-[#00b332]" />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">Where is the property?</h2>
-              <p className="text-slate-500 text-sm mt-1">We&apos;ll use this to prepare your cash offer</p>
+              <h2 className="text-lg font-bold text-slate-800">Where is the property?</h2>
+              <p className="text-slate-500 text-sm">We&apos;ll use this to prepare your cash offer</p>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                 Street Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -358,15 +381,15 @@ export function MultiStepLeadForm() {
                 value={formData.address}
                 onChange={handleInputChange}
                 autoComplete="street-address"
-                className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.address ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                className={`w-full px-4 py-3 rounded-xl border-2 ${errors.address ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                 placeholder="123 Main Street"
               />
-              {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
+              {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2 sm:col-span-1">
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <div className="grid grid-cols-4 gap-3">
+              <div className="col-span-4 sm:col-span-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                   City <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -375,22 +398,22 @@ export function MultiStepLeadForm() {
                   value={formData.city}
                   onChange={handleInputChange}
                   autoComplete="address-level2"
-                  className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.city ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 ${errors.city ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                   placeholder="Scranton"
                 />
-                {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
+                {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  State
+              <div className="col-span-2 sm:col-span-1">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  State <span className="text-red-500">*</span>
                 </label>
                 <select
                   name="state"
                   value={formData.state}
                   onChange={handleInputChange}
                   autoComplete="address-level1"
-                  className="w-full px-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all bg-white text-slate-900"
+                  className="w-full px-3 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all bg-white text-slate-900"
                 >
                   {US_STATES.map((state) => (
                     <option key={state.value} value={state.value}>
@@ -400,9 +423,9 @@ export function MultiStepLeadForm() {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  ZIP Code <span className="text-red-500">*</span>
+              <div className="col-span-2 sm:col-span-1">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
+                  ZIP <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -411,10 +434,10 @@ export function MultiStepLeadForm() {
                   onChange={handleInputChange}
                   autoComplete="postal-code"
                   maxLength={5}
-                  className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.zip ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 ${errors.zip ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                   placeholder="18501"
                 />
-                {errors.zip && <p className="text-red-500 text-sm mt-1">{errors.zip}</p>}
+                {errors.zip && <p className="text-red-500 text-xs mt-1">{errors.zip}</p>}
               </div>
             </div>
           </div>
@@ -422,22 +445,22 @@ export function MultiStepLeadForm() {
 
         {/* Step 2: Situation */}
         {step === 2 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-3">
-                <Home className="w-6 h-6 text-[#00b332]" />
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <div className="w-10 h-10 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-2">
+                <Home className="w-5 h-5 text-[#00b332]" />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">What&apos;s your situation?</h2>
-              <p className="text-slate-500 text-sm mt-1">This helps us understand how to best help you</p>
+              <h2 className="text-lg font-bold text-slate-800">What&apos;s your situation?</h2>
+              <p className="text-slate-500 text-sm">This helps us understand how to best help you</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 gap-2">
               {SITUATION_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => handleOptionSelect('situation', option.value)}
-                  className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
+                  className={`w-full p-3 rounded-xl border-2 text-left transition-all ${
                     formData.situation === option.value
                       ? 'border-[#00b332] bg-[#e6f7eb]'
                       : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
@@ -448,28 +471,28 @@ export function MultiStepLeadForm() {
                 </button>
               ))}
             </div>
-            {errors.situation && <p className="text-red-500 text-sm mt-1">{errors.situation}</p>}
+            {errors.situation && <p className="text-red-500 text-sm text-center">{errors.situation}</p>}
           </div>
         )}
 
         {/* Step 3: Timeline */}
         {step === 3 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-3">
-                <Clock className="w-6 h-6 text-[#00b332]" />
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <div className="w-10 h-10 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-2">
+                <Clock className="w-5 h-5 text-[#00b332]" />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">How soon do you need to sell?</h2>
-              <p className="text-slate-500 text-sm mt-1">We can work with any timeline</p>
+              <h2 className="text-lg font-bold text-slate-800">How soon do you need to sell?</h2>
+              <p className="text-slate-500 text-sm">We can work with any timeline</p>
             </div>
 
-            <div className="grid gap-3">
+            <div className="grid gap-2">
               {TIMELINE_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => handleOptionSelect('timeline', option.value)}
-                  className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
+                  className={`w-full p-3 rounded-xl border-2 text-left transition-all ${
                     formData.timeline === option.value
                       ? 'border-[#00b332] bg-[#e6f7eb]'
                       : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
@@ -480,28 +503,28 @@ export function MultiStepLeadForm() {
                 </button>
               ))}
             </div>
-            {errors.timeline && <p className="text-red-500 text-sm mt-1">{errors.timeline}</p>}
+            {errors.timeline && <p className="text-red-500 text-sm text-center">{errors.timeline}</p>}
           </div>
         )}
 
         {/* Step 4: Occupancy */}
         {step === 4 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-3">
-                <Home className="w-6 h-6 text-[#00b332]" />
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <div className="w-10 h-10 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-2">
+                <Home className="w-5 h-5 text-[#00b332]" />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">Who lives at the property?</h2>
-              <p className="text-slate-500 text-sm mt-1">We buy occupied and vacant properties</p>
+              <h2 className="text-lg font-bold text-slate-800">Who lives at the property?</h2>
+              <p className="text-slate-500 text-sm">We buy occupied and vacant properties</p>
             </div>
 
-            <div className="grid gap-3">
+            <div className="grid gap-2">
               {OCCUPANCY_OPTIONS.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => handleOptionSelect('occupancy', option.value)}
-                  className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
+                  className={`w-full p-3 rounded-xl border-2 text-left transition-all ${
                     formData.occupancy === option.value
                       ? 'border-[#00b332] bg-[#e6f7eb]'
                       : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
@@ -512,24 +535,24 @@ export function MultiStepLeadForm() {
                 </button>
               ))}
             </div>
-            {errors.occupancy && <p className="text-red-500 text-sm mt-1">{errors.occupancy}</p>}
+            {errors.occupancy && <p className="text-red-500 text-sm text-center">{errors.occupancy}</p>}
           </div>
         )}
 
         {/* Step 5: Contact Info */}
         {step === 5 && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-3">
-                <User className="w-6 h-6 text-[#00b332]" />
+          <div className="space-y-4">
+            <div className="text-center mb-4">
+              <div className="w-10 h-10 bg-[#e6f7eb] rounded-full flex items-center justify-center mx-auto mb-2">
+                <User className="w-5 h-5 text-[#00b332]" />
               </div>
-              <h2 className="text-xl font-bold text-slate-800">Almost done! How can we reach you?</h2>
-              <p className="text-slate-500 text-sm mt-1">We&apos;ll send your cash offer within 24 hours</p>
+              <h2 className="text-lg font-bold text-slate-800">Almost done! How can we reach you?</h2>
+              <p className="text-slate-500 text-sm">We&apos;ll be in touch soon regarding your offer</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                   First Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -538,14 +561,14 @@ export function MultiStepLeadForm() {
                   value={formData.firstName}
                   onChange={handleInputChange}
                   autoComplete="given-name"
-                  className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.firstName ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 ${errors.firstName ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                   placeholder="John"
                 />
-                {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                   Last Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -554,15 +577,15 @@ export function MultiStepLeadForm() {
                   value={formData.lastName}
                   onChange={handleInputChange}
                   autoComplete="family-name"
-                  className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.lastName ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                  className={`w-full px-4 py-3 rounded-xl border-2 ${errors.lastName ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                   placeholder="Smith"
                 />
-                {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                 Phone <span className="text-red-500">*</span>
               </label>
               <input
@@ -571,14 +594,14 @@ export function MultiStepLeadForm() {
                 value={formData.phone}
                 onChange={handlePhoneChange}
                 autoComplete="tel"
-                className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.phone ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                className={`w-full px-4 py-3 rounded-xl border-2 ${errors.phone ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                 placeholder="(570) 555-0123"
               />
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                 Email <span className="text-red-500">*</span>
               </label>
               <input
@@ -587,14 +610,14 @@ export function MultiStepLeadForm() {
                 value={formData.email}
                 onChange={handleInputChange}
                 autoComplete="email"
-                className={`w-full px-4 py-3.5 rounded-xl border-2 ${errors.email ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
+                className={`w-full px-4 py-3 rounded-xl border-2 ${errors.email ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                 placeholder="john@example.com"
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
 
             {submitStatus === 'error' && (
-              <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-red-700 text-sm">
                 Something went wrong. Please try again or call us at (570) 904-2059.
               </div>
             )}
@@ -602,12 +625,12 @@ export function MultiStepLeadForm() {
         )}
 
         {/* Navigation Buttons */}
-        <div className="mt-8 flex gap-3">
+        <div className="mt-6 flex gap-3">
           {step > 1 && (
             <button
               type="button"
               onClick={handleBack}
-              className="px-6 py-3.5 border-2 border-[#1a1f1a]/10 text-[#1a1f1a] font-semibold rounded-full hover:bg-[#1a1f1a]/5 transition-all flex items-center gap-2"
+              className="px-5 py-3 border-2 border-[#1a1f1a]/10 text-[#1a1f1a] font-semibold rounded-full hover:bg-[#1a1f1a]/5 transition-all flex items-center gap-2"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
@@ -618,7 +641,8 @@ export function MultiStepLeadForm() {
             <button
               type="button"
               onClick={handleNext}
-              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+              disabled={!isStepValid(step)}
+              className="flex-1 px-6 py-3 bg-[#00b332] hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none hover:-translate-y-0.5 disabled:translate-y-0 transition-all flex items-center justify-center gap-2"
             >
               Continue
               <ArrowRight className="w-4 h-4" />
@@ -626,8 +650,8 @@ export function MultiStepLeadForm() {
           ) : (
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="flex-1 px-6 py-3.5 bg-[#00b332] hover:bg-[#009929] disabled:bg-[#1a1f1a]/30 text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 disabled:cursor-not-allowed disabled:shadow-none disabled:translate-y-0"
+              disabled={isSubmitting || !isStepValid(5)}
+              className="flex-1 px-6 py-3 bg-[#00b332] hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none hover:-translate-y-0.5 disabled:translate-y-0 transition-all flex items-center justify-center gap-2"
             >
               {isSubmitting ? (
                 <>
@@ -646,7 +670,7 @@ export function MultiStepLeadForm() {
       </form>
 
       {/* Trust signals */}
-      <div className="mt-6 pt-6 border-t border-[#1a1f1a]/5">
+      <div className="mt-5 pt-5 border-t border-[#1a1f1a]/5">
         <div className="flex flex-wrap justify-center gap-4 text-sm font-medium text-[#1a1f1a]/60">
           <span>No obligation</span>
           <span className="text-[#1a1f1a]/20">•</span>
