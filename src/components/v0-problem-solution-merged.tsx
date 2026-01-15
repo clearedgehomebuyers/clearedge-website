@@ -24,7 +24,7 @@ export function V0ProblemSolutionMerged() {
     <section className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SEO Content - Why Selling Is Harder */}
-        <div className="max-w-3xl mx-auto mb-16">
+        <div className="max-w-3xl mx-auto mb-16 text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6">
             Selling a House in Pennsylvania Just Got Harder
           </h2>

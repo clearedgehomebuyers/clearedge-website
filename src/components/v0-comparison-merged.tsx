@@ -52,16 +52,16 @@ export function V0ComparisonMerged() {
         {/* Hidden Cost Table */}
         <div className="mb-12">
           <h3 className="font-semibold text-[#1a1f1a] text-lg mb-4 text-center">The Hidden Cost of Waiting</h3>
-          <div className="overflow-x-auto rounded-xl border border-[#1a1f1a]/10 shadow-lg bg-white">
+          <div className="overflow-x-auto rounded-xl border border-[#00b332] shadow-lg bg-white">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-[#1a1f1a] text-white">
+                <tr className="bg-white text-[#1a1f1a]">
                   <th className="text-left py-4 px-6 font-semibold">Expense</th>
                   <th className="text-center py-4 px-6 font-semibold">
                     Traditional
-                    <span className="block font-normal text-white/70 text-sm">(90 Days)</span>
+                    <span className="block font-normal text-[#1a1f1a]/70 text-sm">(90 Days)</span>
                   </th>
-                  <th className="text-center py-4 px-6 font-semibold bg-[#00b332]">
+                  <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white">
                     ClearEdge
                     <span className="block font-normal text-white/80 text-sm">(7–30 Days)</span>
                   </th>
@@ -69,16 +69,16 @@ export function V0ComparisonMerged() {
               </thead>
               <tbody>
                 {costBreakdown.map((row, index) => (
-                  <tr key={index} className={`border-b border-[#1a1f1a]/10 ${index % 2 === 1 ? 'bg-[#FAF8F5]' : 'bg-white'}`}>
+                  <tr key={index} className="border-b border-[#1a1f1a]/10 bg-white">
                     <td className="py-4 px-6 font-medium text-[#1a1f1a]">{row.expense}</td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold">{row.traditional}</td>
                     <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">{row.clearEdge}</td>
                   </tr>
                 ))}
-                <tr className="bg-[#1a1f1a] text-white">
+                <tr className="bg-white text-[#1a1f1a]">
                   <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
-                  <td className="py-4 px-6 text-center font-bold text-red-400">$34,500+</td>
-                  <td className="py-4 px-6 text-center font-bold text-[#00ff4d] bg-[#009929]">$0</td>
+                  <td className="py-4 px-6 text-center font-bold text-red-600">$34,500+</td>
+                  <td className="py-4 px-6 text-center font-bold text-white bg-[#00b332]">$0</td>
                 </tr>
               </tbody>
             </table>
@@ -89,13 +89,13 @@ export function V0ComparisonMerged() {
         </div>
 
         {/* Feature Comparison Table */}
-        <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 overflow-hidden border border-[#00b332]/10">
+        <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 overflow-hidden border border-[#00b332]">
           {/* Table Header */}
           <div className="grid grid-cols-3">
-            <div className="p-4 md:p-6 bg-[#FAF8F5]">
+            <div className="p-4 md:p-6 bg-white">
               <p className="font-semibold text-[#1a1f1a]">Feature</p>
             </div>
-            <div className="p-4 md:p-6 bg-[#FAF8F5] text-center border-l border-[#00b332]/10">
+            <div className="p-4 md:p-6 bg-white text-center border-l border-[#00b332]/10">
               <p className="font-semibold text-[#1a1f1a]">Traditional Listing</p>
             </div>
             <div className="p-4 md:p-6 bg-[#00b332] text-center">
