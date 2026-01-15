@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Check, ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
-import { LeadForm } from '@/components/LeadForm'
+import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
 
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
@@ -161,8 +161,11 @@ export default function AboutPage() {
 
         {/* Origin Story - White */}
         <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="font-serif text-3xl font-medium text-[#1a1f1a] mb-8">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              Our Story
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-8">
               How ClearEdge Started
             </h2>
             <div className="space-y-6 text-lg text-[#1a1f1a]/70">
@@ -250,12 +253,12 @@ export default function AboutPage() {
                 <Link
                   key={situation.href}
                   href={situation.href}
-                  className="flex items-center gap-3 p-4 bg-[#FAF8F5] rounded-2xl hover:bg-[#00b332]/10 transition-colors group border border-[#1a1f1a]/5"
+                  className="relative flex flex-col items-center justify-center text-center min-h-[100px] p-4 bg-[#FAF8F5] rounded-2xl hover:bg-[#00b332]/10 transition-colors group border border-[#1a1f1a]/5"
                 >
-                  <Check className="w-5 h-5 text-[#00b332] flex-shrink-0" />
-                  <span className="text-[#1a1f1a]/70 group-hover:text-[#00b332] transition-colors">
+                  <span className="text-[#1a1f1a]/70 group-hover:text-[#00b332] transition-colors font-medium">
                     {situation.name}
                   </span>
+                  <ArrowRight className="absolute bottom-3 right-3 w-4 h-4 text-[#00b332] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </Link>
               ))}
             </div>
@@ -432,7 +435,7 @@ export default function AboutPage() {
             <p className="text-lg text-[#1a1f1a]/60 mb-8">
               No obligation. No pressure. Just an honest conversation about your options.
             </p>
-            <LeadForm />
+            <MultiStepLeadForm />
             <p className="text-[#1a1f1a]/60 text-sm mt-8">
               Prefer to call? Reach Tyler directly:{' '}
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
