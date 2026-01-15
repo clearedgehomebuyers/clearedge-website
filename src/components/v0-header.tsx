@@ -106,6 +106,16 @@ export function V0Header() {
     setLocationsOpen(false)
   }
 
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
+    if (pathname === href) {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: "smooth" })
+      setIsMobileMenuOpen(false)
+    } else {
+      setIsMobileMenuOpen(false)
+    }
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -128,30 +138,35 @@ export function V0Header() {
             <div className="flex items-center gap-2 lg:gap-6">
               <Link
                 href="/how-it-works"
+                onClick={(e) => handleNavClick(e, "/how-it-works")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors whitespace-nowrap"
               >
                 How It Works
               </Link>
               <Link
                 href="/about"
+                onClick={(e) => handleNavClick(e, "/about")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
                 About
               </Link>
               <Link
                 href="/testimonials"
+                onClick={(e) => handleNavClick(e, "/testimonials")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
               >
                 Testimonials
               </Link>
               <Link
                 href="/blog"
+                onClick={(e) => handleNavClick(e, "/blog")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
               >
                 Blog
               </Link>
               <Link
                 href="/contact"
+                onClick={(e) => handleNavClick(e, "/contact")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
                 Contact
@@ -174,7 +189,7 @@ export function V0Header() {
                           <Link
                             key={link.href}
                             href={link.href}
-                            onClick={() => setLocationsOpen(false)}
+                            onClick={(e) => { handleNavClick(e, link.href); setLocationsOpen(false) }}
                             className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
                           >
                             {link.label}
@@ -203,7 +218,7 @@ export function V0Header() {
                           <Link
                             key={link.href}
                             href={link.href}
-                            onClick={() => setSituationsOpen(false)}
+                            onClick={(e) => { handleNavClick(e, link.href); setSituationsOpen(false) }}
                             className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
                           >
                             {link.label}
@@ -255,35 +270,35 @@ export function V0Header() {
             <Link
               href="/how-it-works"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "/how-it-works")}
             >
               How It Works
             </Link>
             <Link
               href="/about"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "/about")}
             >
               About
             </Link>
             <Link
               href="/testimonials"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "/testimonials")}
             >
               Testimonials
             </Link>
             <Link
               href="/blog"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "/blog")}
             >
               Blog
             </Link>
             <Link
               href="/contact"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, "/contact")}
             >
               Contact
             </Link>
@@ -300,7 +315,7 @@ export function V0Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => handleNavClick(e, link.href)}
                       className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
                     >
                       {link.label}
@@ -325,7 +340,7 @@ export function V0Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
                   >
                     {link.label}
