@@ -146,7 +146,10 @@ export default function PrivacyPolicyPage() {
       <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers is committed to protecting your privacy. Questions? Call us at (570) 904-2059.
+            ClearEdge Home Buyers is committed to protecting your privacy.
+          </p>
+          <p className="text-[#1a2e1a] font-medium">
+            Questions? Call us at (570) 904-2059.
           </p>
         </div>
       </section>
