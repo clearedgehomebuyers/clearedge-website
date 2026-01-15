@@ -267,29 +267,54 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      {/* Related Locations - Cream */}
-      {situation.relatedLocations && situation.relatedLocations.length > 0 && (
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Service Areas</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Areas We Serve</h2>
-            </div>
+      {/* Service Areas - Cream (Randomized 6 from all 21 locations) */}
+      <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Service Areas</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Areas We Serve</h2>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {situation.relatedLocations.map((location: any) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {(() => {
+              const allLocations = [
+                { name: 'Scranton', slug: 'scranton' },
+                { name: 'Wilkes-Barre', slug: 'wilkes-barre' },
+                { name: 'Allentown', slug: 'allentown' },
+                { name: 'Bethlehem', slug: 'bethlehem' },
+                { name: 'Easton', slug: 'easton' },
+                { name: 'Stroudsburg', slug: 'stroudsburg' },
+                { name: 'East Stroudsburg', slug: 'east-stroudsburg' },
+                { name: 'Hazleton', slug: 'hazleton' },
+                { name: 'Pottsville', slug: 'pottsville' },
+                { name: 'Carbondale', slug: 'carbondale' },
+                { name: 'Pittston', slug: 'pittston' },
+                { name: 'Kingston', slug: 'kingston' },
+                { name: 'Dunmore', slug: 'dunmore' },
+                { name: 'Nanticoke', slug: 'nanticoke' },
+                { name: 'Honesdale', slug: 'honesdale' },
+                { name: 'Bloomsburg', slug: 'bloomsburg' },
+                { name: 'Lehigh Valley', slug: 'lehigh-valley' },
+                { name: 'Poconos', slug: 'poconos' },
+                { name: 'Pocono Pines', slug: 'pocono-pines' },
+                { name: 'Tannersville', slug: 'tannersville' },
+                { name: 'Reading', slug: 'reading' },
+              ]
+              const shuffled = [...allLocations].sort(() => Math.random() - 0.5)
+              const displayLocations = shuffled.slice(0, 6)
+              return displayLocations.map((location) => (
                 <Link
-                  key={location.slug.current}
-                  href={`/locations/${location.slug.current}`}
+                  key={location.slug}
+                  href={`/locations/${location.slug}`}
                   className="bg-white rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 hover:border-[#00b332]/30"
                 >
-                  <span className="font-medium text-[#1a1f1a]/70">{location.city}, {location.state}</span>
+                  <span className="font-medium text-[#1a1f1a]/70">{location.name}, PA</span>
                 </Link>
-              ))}
-            </div>
+              ))
+            })()}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* FAQ Section - White - Using Homepage Style Accordion */}
       {situation.faqs && situation.faqs.length > 0 && (
@@ -354,18 +379,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      {/* Final CTA with MultiStep Lead Form - Beige */}
-      <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">
-            Ready to Move Forward?
-          </h2>
-          <p className="text-lg text-[#1a1f1a]/60 mb-8">
-            Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
-          </p>
-          <V0LeadForm />
-        </div>
-      </section>
+      {/* Lead Form - Same as Homepage */}
+      <V0LeadForm />
 
       <V0Footer />
     </main>
