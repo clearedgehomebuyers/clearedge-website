@@ -10,23 +10,20 @@ import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
 
-// Property photos for hero widget (rotating based on slug)
-const propertyPhotos = [
-  { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
-]
-
-// Simple hash function to get consistent photo based on slug
-function getPhotoIndex(slug: string): number {
-  let hash = 0
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash) + slug.charCodeAt(i)
-    hash = hash & hash
-  }
-  return Math.abs(hash) % propertyPhotos.length
+// Property photos mapped to specific situation slugs (each photo used exactly twice)
+const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
+  'foreclosure': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'inherited-property': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'divorce': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'job-relocation': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
+  'major-repairs': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'tax-liens-code-violations': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'tired-landlord': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'vacant-property': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
 }
+
+// Default photo if slug not found
+const defaultPhoto = { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 }
 
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
@@ -175,8 +172,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={propertyPhotos[getPhotoIndex(slug)].src}
-                    alt={`Recently purchased home in ${propertyPhotos[getPhotoIndex(slug)].location}`}
+                    src={(heroPhotos[slug] || defaultPhoto).src}
+                    alt={`Recently purchased home in ${(heroPhotos[slug] || defaultPhoto).location}`}
                     fill
                     className="object-cover"
                     priority
@@ -186,8 +183,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
                       Just Closed
                     </span>
-                    <p className="text-sm font-bold">{propertyPhotos[getPhotoIndex(slug)].location}</p>
-                    <p className="text-xs text-white/90">{propertyPhotos[getPhotoIndex(slug)].days} Days to Close</p>
+                    <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
+                    <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>
                   </div>
                 </div>
               </div>
