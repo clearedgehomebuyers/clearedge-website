@@ -4,6 +4,7 @@ import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { V0TrustBar } from '@/components/v0-trust-bar'
 import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -219,6 +220,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* Trust Bar - Sage Green Gradient (same as homepage) */}
+      <V0TrustBar />
+
       {/* County H2 Section - White */}
       {location.county && (
         <section className="py-10 bg-white border-b border-[#1a1f1a]/5">
@@ -304,13 +308,39 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">{location.city} Areas We Serve</h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {location.neighborhoods.map((neighborhood: string) => (
-                <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5">
-                  <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
-                </div>
-              ))}
-            </div>
+            {(() => {
+              const neighborhoods = location.neighborhoods as string[]
+              const itemsPerRow = 4
+              const fullRowCount = Math.floor(neighborhoods.length / itemsPerRow) * itemsPerRow
+              const mainCards = neighborhoods.slice(0, fullRowCount)
+              const lastRowCards = neighborhoods.slice(fullRowCount)
+
+              return (
+                <>
+                  {/* Main grid for full rows */}
+                  {mainCards.length > 0 && (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {mainCards.map((neighborhood: string) => (
+                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5">
+                          <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Centered last row for remaining cards */}
+                  {lastRowCards.length > 0 && (
+                    <div className={`flex flex-wrap justify-center gap-4 ${mainCards.length > 0 ? 'mt-4' : ''}`}>
+                      {lastRowCards.map((neighborhood: string) => (
+                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
+                          <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )
+            })()}
 
             <p className="text-center text-[#1a1f1a]/50 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
           </div>
