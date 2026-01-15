@@ -274,22 +274,27 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: Building, title: 'Inherited Property', desc: 'Sell without probate delays' },
-              { icon: Shield, title: 'Facing Foreclosure', desc: 'Avoid foreclosure, protect credit' },
-              { icon: Users, title: 'Divorce', desc: 'Liquidate quickly and move on' },
-              { icon: MapPin, title: 'Job Relocation', desc: 'Sell fast when you need to move' },
-              { icon: Home, title: 'Rental Property', desc: 'Exit the landlord business' },
-              { icon: FileText, title: 'Major Repairs', desc: 'Sell as-is, skip renovations' },
-              { icon: DollarSign, title: 'Tax or Code Issues', desc: 'We work with liens & violations' },
-              { icon: Clock, title: 'Vacant Property', desc: 'Stop paying for an empty house' },
+              { icon: Building, title: 'Inherited Property', slug: 'inherited-property', desc: 'Sell without probate delays' },
+              { icon: Shield, title: 'Facing Foreclosure', slug: 'foreclosure', desc: 'Avoid foreclosure, protect credit' },
+              { icon: Users, title: 'Divorce', slug: 'divorce', desc: 'Liquidate quickly and move on' },
+              { icon: MapPin, title: 'Job Relocation', slug: 'job-relocation', desc: 'Sell fast when you need to move' },
+              { icon: Home, title: 'Tired Landlord', slug: 'tired-landlord', desc: 'Exit the landlord business' },
+              { icon: FileText, title: 'Major Repairs', slug: 'major-repairs', desc: 'Sell as-is, skip renovations' },
+              { icon: DollarSign, title: 'Tax or Code Issues', slug: 'tax-liens-code-violations', desc: 'We work with liens & violations' },
+              { icon: Clock, title: 'Vacant Property', slug: 'vacant-property', desc: 'Stop paying for an empty house' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg transition-all duration-300">
+              <Link
+                key={i}
+                href={`/situations/${item.slug}`}
+                className="relative bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#00b332]/30 transition-all duration-300 group"
+              >
                 <div className="w-12 h-12 bg-[#00b332]/10 rounded-xl flex items-center justify-center mb-4">
                   <item.icon className="w-6 h-6 text-[#00b332]" />
                 </div>
                 <h3 className="font-serif font-medium text-[#1a1f1a] mb-2">{item.title}</h3>
                 <p className="text-[#1a1f1a]/60 text-sm">{item.desc}</p>
-              </div>
+                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b332] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </Link>
             ))}
           </div>
         </div>
