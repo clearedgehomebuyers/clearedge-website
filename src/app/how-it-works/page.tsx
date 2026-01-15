@@ -442,7 +442,11 @@ export default function HowItWorksPage() {
         </section>
 
         {/* FAQ SECTION - White */}
-        <V0FAQ />
+        <V0FAQ
+          faqs={faqs}
+          title="Common Questions"
+          subtitle="Here's what homeowners typically ask about our process."
+        />
 
         {/* Closing SEO - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">

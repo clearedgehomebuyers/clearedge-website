@@ -3,35 +3,50 @@
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 
-const faqs = [
+type FAQ = {
+  question: string
+  answer: string
+}
+
+const defaultFaqs: FAQ[] = [
   {
-    question: "How do you determine your cash offer?",
+    question: "How quickly can ClearEdge close on my Pennsylvania house?",
     answer:
-      "We analyze recent comparable sales in your neighborhood, the current condition of your property, and local market trends. Our offers are fair and transparent — we'll walk you through exactly how we arrived at the number. No hidden formulas, no games.",
+      "We can close in as few as 7 days when you need to move quickly. The exact timeline depends on title work, but most straightforward sales close within 14 to 30 days. If you need more time, we'll work around your schedule.",
   },
   {
-    question: "Do I need to make any repairs before selling?",
+    question: "What types of properties does ClearEdge buy?",
     answer:
-      "Absolutely not. We buy houses in any condition — whether it needs minor cosmetic updates or major structural work. Foundation issues, roof problems, water damage, hoarding situations — we've seen it all and we'll still make you a fair offer.",
+      "We buy single-family homes, duplexes, and small multi-family properties throughout Eastern Pennsylvania. Condition doesn't matter — we purchase properties with foundation issues, fire damage, code violations, and major repairs needed. We also buy properties with complicated title situations, including estate sales and properties in probate.",
   },
   {
-    question: "How fast can you actually close?",
+    question: "How does ClearEdge determine its cash offer?",
     answer:
-      "We can close in as fast as 7 days if you need to move quickly. However, we're also happy to work on your timeline — whether that's 2 weeks, 30 days, or 60 days. You're in control of the closing date.",
+      "We calculate offers based on what your house will be worth after it's fully renovated, minus the cost of repairs, holding costs, and our operating margin. We'll walk you through exactly how we arrived at the number — no mystery, no hidden math.",
   },
   {
-    question: "Are there any fees or commissions?",
+    question: "Is there any obligation if I request an offer?",
     answer:
-      "None. Zero. We don't charge any fees or commissions. We also cover all standard closing costs. The offer we make is the amount you walk away with (minus any existing liens or mortgages on the property).",
+      "No. You can request an offer, review it, and decide it's not for you. Our offers are valid for 30 days. There's no cost, no commitment, and no follow-up pressure. We believe you should have all the information to make the right decision.",
   },
   {
-    question: "What if I still have a mortgage on the house?",
+    question: "Can I sell my Pennsylvania house if I still have a mortgage?",
     answer:
-      "No problem at all. Most homes we purchase have existing mortgages. At closing, the title company pays off your remaining mortgage balance and you receive the difference. We handle the coordination.",
+      "Yes. Most homeowners who sell to us still have a mortgage. At closing, the title company pays off your existing loan from the sale proceeds. If you owe more than your home is worth, we can discuss options — in some cases, lenders will approve a short sale.",
   },
 ]
 
-export function V0FAQ() {
+interface V0FAQProps {
+  faqs?: FAQ[]
+  title?: string
+  subtitle?: string
+}
+
+export function V0FAQ({
+  faqs = defaultFaqs,
+  title = "Everything You Need to Know",
+  subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often."
+}: V0FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -43,10 +58,10 @@ export function V0FAQ() {
             Common Questions
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
-            Everything You Need to Know
+            {title}
           </h2>
           <p className="text-[#1a1f1a]/60 text-lg">
-            We believe in complete transparency. Here are answers to the questions we hear most often.
+            {subtitle}
           </p>
         </div>
 
