@@ -19,14 +19,6 @@ export function V0Hero() {
       />
 
       <div className="relative max-w-7xl mx-auto w-full">
-        {/* Trust badge - Centered at top */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#00b332] text-foreground/70 text-sm font-medium">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Trusted by 200+ Pennsylvania Homeowners Since 2016
-          </div>
-        </div>
-
         {/* Two-column layout for lg: and above, single column for mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* LEFT COLUMN - Text content (centered within column) */}
