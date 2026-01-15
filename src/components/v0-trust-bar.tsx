@@ -27,9 +27,9 @@ export function V0TrustBar() {
   return (
     <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-4 gap-4 md:gap-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-12 justify-items-center sm:justify-items-stretch">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="text-center flex flex-col items-center sm:items-stretch">
               <div className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">
                 {stat.value}
               </div>
