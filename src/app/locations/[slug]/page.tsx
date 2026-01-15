@@ -11,23 +11,38 @@ import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, User
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
-// Property photos for hero widget (rotating based on slug)
-const propertyPhotos = [
-  { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
-]
-
-// Simple hash function to get consistent photo based on slug
-function getPhotoIndex(slug: string): number {
-  let hash = 0
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash) + slug.charCodeAt(i)
-    hash = hash & hash
-  }
-  return Math.abs(hash) % propertyPhotos.length
+// Hero photos mapped to each location slug (5 photos across 21 pages, alternating)
+const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
+  // Photo 1: Scranton (5 pages)
+  'scranton': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  // Photo 2: Wilkes-Barre (4 pages)
+  'wilkes-barre': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  // Photo 3: Allentown (4 pages)
+  'allentown': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  // Photo 4: Bethlehem (4 pages)
+  'bethlehem': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  // Photo 5: Hazleton (4 pages)
+  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
 }
+
+// Default photo for any unmapped slugs
+const defaultPhoto = { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 }
 
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
@@ -163,8 +178,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={propertyPhotos[getPhotoIndex(slug)].src}
-                    alt={`Recently purchased home in ${propertyPhotos[getPhotoIndex(slug)].location}`}
+                    src={(heroPhotos[slug] || defaultPhoto).src}
+                    alt={`Recently purchased home in ${(heroPhotos[slug] || defaultPhoto).location}`}
                     fill
                     className="object-cover"
                     priority
@@ -174,8 +189,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
                       Just Closed
                     </span>
-                    <p className="text-sm font-bold">{propertyPhotos[getPhotoIndex(slug)].location}</p>
-                    <p className="text-xs text-white/90">{propertyPhotos[getPhotoIndex(slug)].days} Days to Close</p>
+                    <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
+                    <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>
                   </div>
                 </div>
               </div>
