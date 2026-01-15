@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
@@ -43,8 +43,12 @@ const situationLinks = [
 export function V0Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [locationsOpen, setLocationsOpen] = useState(false)
+  const [situationsOpen, setSituationsOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const locationsRef = useRef<HTMLDivElement>(null)
+  const situationsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,6 +56,20 @@ export function V0Header() {
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (locationsRef.current && !locationsRef.current.contains(event.target as Node)) {
+        setLocationsOpen(false)
+      }
+      if (situationsRef.current && !situationsRef.current.contains(event.target as Node)) {
+        setSituationsOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   const scrollToForm = () => {
@@ -71,6 +89,16 @@ export function V0Header() {
     }
   }
 
+  const toggleLocations = () => {
+    setLocationsOpen(!locationsOpen)
+    setSituationsOpen(false)
+  }
+
+  const toggleSituations = () => {
+    setSituationsOpen(!situationsOpen)
+    setLocationsOpen(false)
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -88,9 +116,9 @@ export function V0Header() {
             <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-12 md:h-14 w-auto" />
           </a>
 
-          {/* Desktop Navigation - centered with even spacing */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
-            <div className="flex items-center gap-8">
+          {/* Desktop/Tablet Navigation - centered with even spacing */}
+          <nav className="hidden md:flex items-center justify-center flex-1 mx-4 lg:mx-8">
+            <div className="flex items-center gap-4 lg:gap-8">
               <Link
                 href="/how-it-works"
                 className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
@@ -105,13 +133,13 @@ export function V0Header() {
               </Link>
               <Link
                 href="/testimonials"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden lg:block"
               >
                 Testimonials
               </Link>
               <Link
                 href="/blog"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden lg:block"
               >
                 Blog
               </Link>
@@ -122,73 +150,86 @@ export function V0Header() {
                 Contact
               </Link>
 
-              {/* Locations Dropdown */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+              {/* Locations Dropdown - Click for tablet, hover for desktop */}
+              <div className="relative" ref={locationsRef}>
+                <button
+                  onClick={toggleLocations}
+                  className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                >
                   <span>Locations</span>
-                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                  <ChevronDown className={`w-4 h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200">
-                  <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[480px] max-h-[400px] overflow-y-auto">
-                    <div className="grid grid-cols-3 gap-1">
-                      {locationLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
+                {locationsOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[320px] lg:w-[480px] max-h-[400px] overflow-y-auto">
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-1">
+                        {locationLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setLocationsOpen(false)}
+                            className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
-              {/* Situations Dropdown */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+              {/* Situations Dropdown - Click for tablet, hover for desktop */}
+              <div className="relative" ref={situationsRef}>
+                <button
+                  onClick={toggleSituations}
+                  className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                >
                   <span>Situations</span>
-                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
+                  <ChevronDown className={`w-4 h-4 transition-transform ${situationsOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="invisible group-hover:visible opacity-0 group-hover:opacity-100 absolute top-full right-0 pt-2 transition-all duration-200">
-                  <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[260px]">
-                    <div className="space-y-1">
-                      {situationLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
+                {situationsOpen && (
+                  <div className="absolute top-full right-0 pt-2 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[260px]">
+                      <div className="space-y-1">
+                        {situationLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setSituationsOpen(false)}
+                            className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </nav>
 
           {/* Right side: Phone + CTA - with right padding */}
-          <div className="hidden lg:flex items-center gap-5 mr-2">
+          <div className="hidden md:flex items-center gap-3 lg:gap-5 mr-2">
+            {/* Phone - icon only on tablet, icon + text on desktop */}
             <a href="tel:5709042059" className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#00b332] transition-colors">
               <div className="w-9 h-9 bg-[#00b332]/10 rounded-full flex items-center justify-center">
                 <Phone className="w-4 h-4 text-[#00b332]" />
               </div>
-              <span className="font-bold text-sm">(570) 904-2059</span>
+              <span className="font-bold text-sm hidden lg:block">(570) 904-2059</span>
             </a>
             <button
               onClick={scrollToForm}
-              className="px-5 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              className="px-4 lg:px-5 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
             >
               Get My Offer
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - only on mobile, not tablet */}
           <button
-            className="lg:hidden p-2 rounded-md text-[#1a1f1a]"
+            className="md:hidden p-2 rounded-md text-[#1a1f1a]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -197,9 +238,9 @@ export function V0Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - only on mobile, not tablet */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-[#1a1f1a]/5 shadow-lg max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-white border-t border-[#1a1f1a]/5 shadow-lg max-h-[80vh] overflow-y-auto">
           <nav className="flex flex-col px-4 py-4 gap-2">
             <Link
               href="/how-it-works"
