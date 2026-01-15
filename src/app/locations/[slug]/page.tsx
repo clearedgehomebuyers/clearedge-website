@@ -4,7 +4,6 @@ import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
-import { V0TrustBar } from '@/components/v0-trust-bar'
 import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -220,17 +219,14 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Trust Bar - Sage Green Gradient (same as homepage) */}
-      <V0TrustBar />
-
-      {/* County H2 Section - White */}
+      {/* County Trust Section - Sage Green Gradient (homepage trust bar styling) */}
       {location.county && (
-        <section className="py-10 bg-white border-b border-[#1a1f1a]/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
+        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-[#1a2e1a] mb-2">
               We Buy Houses in {location.city} and All of {location.county}
             </h2>
-            <p className="text-[#1a1f1a]/60 mt-3 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-[#1a2e1a]/70 max-w-2xl mx-auto">
               Whether you&apos;re in {location.city} or anywhere else in {location.county}, we can make you a fair cash offer within 24 hours.
             </p>
           </div>
