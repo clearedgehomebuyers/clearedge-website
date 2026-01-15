@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
-import { Phone, Clock, CheckCircle, ChevronDown, ArrowRight, Loader2 } from 'lucide-react'
+import { V0FAQ } from '@/components/v0-faq'
+import { Phone, Clock, CheckCircle, ArrowRight, Loader2 } from 'lucide-react'
 
 // HubSpot configuration
 const HUBSPOT_PORTAL_ID = '50832074'
@@ -160,20 +161,20 @@ export default function ContactPage() {
 
   const faqs = [
     {
-      q: 'How quickly will you respond to my inquiry?',
-      a: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (570) 904-2059.',
+      question: 'How quickly will you respond to my inquiry?',
+      answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (570) 904-2059.',
     },
     {
-      q: 'What information should I have ready when I call?',
-      a: 'It helps to know your property address, general condition of the home, and your ideal timeline for selling. But don\'t worry if you don\'t have all the details — we can discuss everything during our conversation.',
+      question: 'What information should I have ready when I call?',
+      answer: 'It helps to know your property address, general condition of the home, and your ideal timeline for selling. But don\'t worry if you don\'t have all the details — we can discuss everything during our conversation.',
     },
     {
-      q: 'Do you charge for consultations or property evaluations?',
-      a: 'Never. Our consultations, property evaluations, and cash offers are completely free with no obligation. You have nothing to lose by reaching out.',
+      question: 'Do you charge for consultations or property evaluations?',
+      answer: 'Never. Our consultations, property evaluations, and cash offers are completely free with no obligation. You have nothing to lose by reaching out.',
     },
     {
-      q: 'Can I just get information without committing to sell?',
-      a: 'Absolutely. We\'re happy to answer your questions, explain our process, and provide information even if you\'re just exploring your options. No pressure, ever.',
+      question: 'Can I just get information without committing to sell?',
+      answer: 'Absolutely. We\'re happy to answer your questions, explain our process, and provide information even if you\'re just exploring your options. No pressure, ever.',
     },
   ]
 
@@ -182,10 +183,10 @@ export default function ContactPage() {
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
-      name: faq.q,
+      name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.a,
+        text: faq.answer,
       },
     })),
   }
@@ -358,28 +359,11 @@ export default function ContactPage() {
         </section>
 
         {/* FAQ Section - White */}
-        <section className="py-16 md:py-20 px-4 bg-white">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">FAQ</span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">Questions About Reaching Us</h2>
-            </div>
-
-            <div className="space-y-4">
-              {faqs.map((faq, i) => (
-                <details key={i} className="group bg-[#FAF8F5] rounded-2xl border border-[#1a1f1a]/5">
-                  <summary className="flex items-center justify-between cursor-pointer p-6 font-semibold text-[#1a1f1a]">
-                    {faq.q}
-                    <ChevronDown className="w-5 h-5 text-[#00b332] group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="px-6 pb-6 text-[#1a1f1a]/70">
-                    {faq.a}
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <V0FAQ
+          faqs={faqs}
+          title="Questions About Reaching Us"
+          subtitle="Here are answers to common questions about contacting ClearEdge."
+        />
 
         {/* Closing SEO - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">

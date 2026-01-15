@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { V0FAQ } from '@/components/v0-faq'
 import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
@@ -268,24 +269,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="prose prose-lg max-w-none">
               <PortableText value={post.content} components={portableTextComponents} />
             </div>
+          </div>
 
-            {/* FAQs Section */}
-            {post.faqs && post.faqs.length > 0 && (
-              <section className="mt-16 pt-10 border-t border-[#1a1f1a]/10">
-                <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-8">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-6">
-                  {post.faqs.map((faq: { question: string; answer: string }, index: number) => (
-                    <div key={index} className="bg-[#FAF8F5] rounded-2xl p-6">
-                      <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">{faq.question}</h3>
-                      <p className="text-[#1a1f1a]/60 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+          {/* FAQs Section */}
+          {post.faqs && post.faqs.length > 0 && (
+            <V0FAQ
+              faqs={post.faqs}
+              title="Frequently Asked Questions"
+              subtitle=""
+            />
+          )}
 
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Related Links */}
             {(post.relatedLocations?.length > 0 || post.relatedSituations?.length > 0) && (
               <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">

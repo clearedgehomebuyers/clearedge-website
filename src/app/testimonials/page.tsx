@@ -3,7 +3,27 @@ import Link from 'next/link'
 import { Star, Check, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { V0FAQ } from '@/components/v0-faq'
 import { LeadForm } from '@/components/LeadForm'
+
+const testimonialsFaqs = [
+  {
+    question: "Are these real reviews?",
+    answer: "Yes. Every review on this page comes directly from our Google Business Profile. You can verify them yourself by clicking the link above."
+  },
+  {
+    question: "Why don't you have hundreds of reviews?",
+    answer: "We're a small, local operation — not a national franchise. We work with a manageable number of homeowners each year so we can give everyone personal attention. Quality over quantity."
+  },
+  {
+    question: "What situations do you typically help with?",
+    answer: "Inherited properties, foreclosure, divorce, landlords ready to exit, houses needing major repairs, tax liens, and vacant properties. If your situation is complicated, that's usually when we can help most."
+  },
+  {
+    question: "Will I work directly with Tyler?",
+    answer: "Yes. From the first call to the closing table, you work with me directly — not a rotating cast of salespeople or call center reps."
+  }
+]
 
 export const metadata: Metadata = {
   title: 'Testimonials | What Homeowners Say About ClearEdge Home Buyers',
@@ -344,57 +364,12 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* FAQ Section - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
-          <div className="max-w-3xl mx-auto px-6">
-            <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
-                FAQ
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
-                Questions About Our Reviews
-              </h2>
-            </div>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
-                  Are these real reviews?
-                </h3>
-                <p className="text-[#1a1f1a]/70">
-                  Yes. Every review on this page comes directly from our Google Business Profile. You can verify them yourself by clicking the link above.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
-                  Why don&apos;t you have hundreds of reviews?
-                </h3>
-                <p className="text-[#1a1f1a]/70">
-                  We&apos;re a small, local operation — not a national franchise. We work with a manageable number of homeowners each year so we can give everyone personal attention. Quality over quantity.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
-                  What situations do you typically help with?
-                </h3>
-                <p className="text-[#1a1f1a]/70">
-                  Inherited properties, foreclosure, divorce, landlords ready to exit, houses needing major repairs, tax liens, and vacant properties. If your situation is complicated, that&apos;s usually when we can help most.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
-                  Will I work directly with Tyler?
-                </h3>
-                <p className="text-[#1a1f1a]/70">
-                  Yes. From the first call to the closing table, you work with me directly — not a rotating cast of salespeople or call center reps.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* FAQ Section */}
+        <V0FAQ
+          faqs={testimonialsFaqs}
+          title="Questions About Our Reviews"
+          subtitle="Everything you need to know about our testimonials."
+        />
 
         {/* Closing SEO - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">

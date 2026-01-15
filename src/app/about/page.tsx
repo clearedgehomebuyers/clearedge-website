@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Check, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { V0FAQ } from '@/components/v0-faq'
 import { LeadForm } from '@/components/LeadForm'
 
 export const metadata: Metadata = {
@@ -404,31 +405,11 @@ export default function AboutPage() {
 
 
         {/* FAQ Section - White */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-3xl mx-auto px-6">
-            <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
-                FAQ
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
-                Common Questions About ClearEdge
-              </h2>
-            </div>
-
-            <div className="space-y-8">
-              {faqs.map((faq, index) => (
-                <div key={index}>
-                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-[#1a1f1a]/70">
-                    {faq.answer}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <V0FAQ
+          faqs={faqs}
+          title="Common Questions About ClearEdge"
+          subtitle="Learn more about who we are and how we work."
+        />
 
         {/* Closing SEO - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
