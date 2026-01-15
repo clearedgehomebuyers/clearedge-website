@@ -137,7 +137,7 @@ export function V0Header() {
                           href={link.href}
                           className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
                         >
-                          {link.label}, PA
+                          {link.label}
                         </Link>
                       ))}
                     </div>
@@ -243,17 +243,23 @@ export function V0Header() {
                 <span>Locations</span>
                 <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
               </summary>
-              <div className="ml-4 mt-1 space-y-1 max-h-48 overflow-y-auto">
-                {locationLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
-                  >
-                    {link.label}, PA
-                  </Link>
-                ))}
+              <div className="relative ml-4 mt-1">
+                <div className="space-y-1 max-h-48 overflow-y-auto pb-6">
+                  {locationLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+                {/* Mobile scroll indicator */}
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none flex items-end justify-center pb-1">
+                  <span className="text-xs text-slate-400">Scroll for more ↓</span>
+                </div>
               </div>
             </details>
 
