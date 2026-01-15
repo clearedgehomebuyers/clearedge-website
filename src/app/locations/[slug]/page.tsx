@@ -6,9 +6,28 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
+
+// Property photos for hero widget (rotating based on slug)
+const propertyPhotos = [
+  { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
+]
+
+// Simple hash function to get consistent photo based on slug
+function getPhotoIndex(slug: string): number {
+  let hash = 0
+  for (let i = 0; i < slug.length; i++) {
+    hash = ((hash << 5) - hash) + slug.charCodeAt(i)
+    hash = hash & hash
+  }
+  return Math.abs(hash) % propertyPhotos.length
+}
 
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
@@ -93,58 +112,92 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       <V0Header />
 
-      {/* Hero Section - Cream with dot pattern */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#FAF8F5] overflow-hidden">
-        {/* Dot pattern background */}
+      {/* Hero Section - Cream with dot pattern (matching homepage) */}
+      <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
+        {/* Background pattern (matching homepage) */}
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1f1a' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
           }}
         />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white border border-[#1a1f1a]/10 rounded-full px-4 py-2 mb-6">
-                <MapPin className="w-4 h-4 text-[#00b332]" />
-                <span className="text-sm font-medium text-[#1a1f1a]/70">{location.city} & {location.county || 'Surrounding Areas'}</span>
-              </div>
-
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-[#1a1f1a] mb-6 leading-tight">
+        <div className="relative max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* LEFT COLUMN - Text content (centered within column) */}
+            <div className="text-center lg:text-center">
+              {/* Headline */}
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1f1a] mb-5 leading-[1.1]">
                 {location.heroHeadline || `Sell Your House Fast in`}
-                <span className="block mt-2 text-[#00b332]">
-                  {location.city}, {location.state}
-                </span>
+                <br />
+                <span className="text-[#00b332]">{location.city}, {location.state}</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-[#1a1f1a]/60 mb-8 max-w-lg leading-relaxed">
+              {/* Subheadline */}
+              <p className="text-lg sm:text-xl text-[#1a1f1a]/60 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
                 {location.heroSubheadline || `Get a fair cash offer for your ${location.city} home in 24 hours. We buy houses in any condition — no repairs, no fees, no hassle.`}
               </p>
 
-              <div className="grid grid-cols-2 gap-3 mb-8">
-                {[
-                  'Close in 7-14 days',
-                  'We pay closing costs',
-                  'Buy as-is condition',
-                  'Local market experts',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3 bg-white/60 rounded-xl px-4 py-3 border border-[#1a1f1a]/5">
-                    <CheckCircle className="w-5 h-5 text-[#00b332]" />
-                    <span className="text-[#1a1f1a]/70 font-medium text-sm">{item}</span>
-                  </div>
-                ))}
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center justify-center bg-[#00b332] text-white hover:bg-[#009929] text-base px-8 py-4 rounded-full shadow-lg shadow-[#00b332]/25 transition-all hover:shadow-xl hover:shadow-[#00b332]/30 hover:-translate-y-0.5 group font-medium"
+                >
+                  Get Your Free Cash Offer
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="tel:5709042059"
+                  className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
+                >
+                  <Phone className="w-5 h-5 mr-2" />
+                  (570) 904-2059
+                </a>
               </div>
 
-              <a href="tel:5709042059" className="inline-flex items-center gap-3 text-[#00b332] font-semibold text-lg hover:text-[#009929] transition-colors">
-                <Phone className="w-5 h-5" />
-                <span>(570) 904-2059</span>
-              </a>
+              {/* Trust Indicators - 2x2 GRID */}
+              <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
+                <div className="flex items-center justify-center gap-2">
+                  <Clock className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Close in 7 Days</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <DollarSign className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Zero Fees</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">No Obligation</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#00b332] flex-shrink-0" />
+                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Local PA Company</span>
+                </div>
+              </div>
             </div>
 
-            {/* MultiStep Lead Form */}
-            <div className="lg:pl-4">
-              <MultiStepLeadForm />
+            {/* RIGHT COLUMN - Property widget (centered horizontally and vertically) */}
+            <div className="flex items-center justify-center h-full">
+              <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={propertyPhotos[getPhotoIndex(slug)].src}
+                    alt={`Recently purchased home in ${propertyPhotos[getPhotoIndex(slug)].location}`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                    <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
+                      Just Closed
+                    </span>
+                    <p className="text-sm font-bold">{propertyPhotos[getPhotoIndex(slug)].location}</p>
+                    <p className="text-xs text-white/90">{propertyPhotos[getPhotoIndex(slug)].days} Days to Close</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
