@@ -4,7 +4,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
-import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
+import { V0LeadForm } from '@/components/v0-lead-form'
 
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
@@ -435,7 +435,7 @@ export default function AboutPage() {
             <p className="text-lg text-[#1a1f1a]/60 mb-8">
               No obligation. No pressure. Just an honest conversation about your options.
             </p>
-            <MultiStepLeadForm />
+            <V0LeadForm />
             <p className="text-[#1a1f1a]/60 text-sm mt-8">
               Prefer to call? Reach Tyler directly:{' '}
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
