@@ -357,8 +357,9 @@ export default function TestimonialsPage() {
                 What Our Reviews Have in Common
               </h2>
             </div>
+            {/* First 4 items in 2-column grid */}
             <div className="grid sm:grid-cols-2 gap-6">
-              {reviewHighlights.map((item, index) => (
+              {reviewHighlights.slice(0, 4).map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                     <Check className="w-5 h-5 text-[#00b332]" />
@@ -369,6 +370,18 @@ export default function TestimonialsPage() {
                   </div>
                 </div>
               ))}
+            </div>
+            {/* 5th item centered on desktop */}
+            <div className="mt-6 lg:flex lg:justify-center">
+              <div className="flex items-start gap-4 lg:max-w-[calc(50%-0.75rem)]">
+                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#00b332]" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-[#1a1f1a] mb-1">{reviewHighlights[4].title}</h3>
+                  <p className="text-[#1a1f1a]/60">{reviewHighlights[4].description}</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
