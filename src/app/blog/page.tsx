@@ -1,9 +1,11 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { getBlogPosts } from '@/sanity/lib/queries'
-import { FileText, MapPin, Scale, Home, ArrowRight } from 'lucide-react'
+import { MapPin, Scale, Home, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
+import { V0FAQ } from '@/components/v0-faq'
+import { BlogPostsGrid } from '@/components/BlogPostsGrid'
 
 export const metadata: Metadata = {
   title: 'Pennsylvania Real Estate Guides | Sell House Fast PA | ClearEdge',
@@ -43,13 +45,6 @@ interface Post {
     asset: { _id: string; url: string }
     alt: string
   }
-}
-
-const categoryLabels: Record<string, string> = {
-  'selling-tips': 'Selling Tips',
-  'local-markets': 'Local Markets',
-  'situations': 'Situations',
-  'process-legal': 'Process & Legal',
 }
 
 const categories = [
@@ -244,93 +239,17 @@ export default async function BlogPage() {
                 Latest Guides
               </h2>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.slice(0, 9).map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug.current}`}
-                  className="group relative bg-[#FAF8F5] rounded-2xl overflow-hidden border border-[#1a1f1a]/5 hover:shadow-lg transition-all"
-                >
-                  {post.featuredImage?.asset?.url && (
-                    <img
-                      src={post.featuredImage.asset.url}
-                      alt={post.featuredImage.alt || post.title}
-                      className="w-full h-48 object-cover"
-                    />
-                  )}
-                  <div className="p-6">
-                    {post.category && (
-                      <span className="text-sm text-[#00b332] font-medium">
-                        {categoryLabels[post.category] || post.category}
-                      </span>
-                    )}
-                    <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#00b332] transition-colors">
-                      {post.title}
-                    </h3>
-                    {post.excerpt && (
-                      <p className="text-[#1a1f1a]/60 text-sm line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                    )}
-                    <div className="mt-4 pt-4 border-t border-[#1a1f1a]/5 flex items-center justify-between">
-                      <time
-                        dateTime={post.publishedAt}
-                        className="text-sm text-[#1a1f1a]/50"
-                      >
-                        {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </time>
-                      <ArrowRight className="w-4 h-4 text-[#00b332] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            {posts.length === 0 && (
-              <div className="text-center py-12">
-                <FileText className="w-12 h-12 text-[#1a1f1a]/30 mx-auto mb-4" />
-                <p className="text-[#1a1f1a]/60">
-                  New guides coming soon. Check back shortly.
-                </p>
-              </div>
-            )}
-
-            {posts.length > 9 && (
-              <div className="flex justify-center mt-10">
-                <Link
-                  href="/blog/archive"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-[#FAF8F5] transition-all"
-                >
-                  View All Guides
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            )}
+            <BlogPostsGrid posts={posts} />
           </div>
         </section>
 
-        {/* FAQ Section - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-8">
-              Common Questions About Selling a House Fast in PA
-            </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border-b border-[#1a1f1a]/10 pb-6">
-                  <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-[#1a1f1a]/60">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FAQ Section */}
+        <V0FAQ
+          faqs={faqs}
+          title="Common Questions About Selling a House Fast in PA"
+          subtitle="Everything you need to know about selling your Pennsylvania home quickly."
+          sectionBg="beige"
+        />
 
         {/* Closing SEO - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
