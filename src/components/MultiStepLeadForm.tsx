@@ -433,6 +433,7 @@ export function MultiStepLeadForm() {
                   value={formData.zip}
                   onChange={handleInputChange}
                   autoComplete="postal-code"
+                  inputMode="numeric"
                   maxLength={5}
                   className={`w-full px-4 py-3 rounded-xl border-2 ${errors.zip ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-slate-900 placeholder:text-slate-400`}
                   placeholder="18501"
@@ -547,7 +548,7 @@ export function MultiStepLeadForm() {
                 <User className="w-5 h-5 text-[#00b332]" />
               </div>
               <h2 className="text-lg font-bold text-slate-800">Almost done! How can we reach you?</h2>
-              <p className="text-slate-500 text-sm">We&apos;ll be in touch soon regarding your offer</p>
+              <p className="text-slate-500 text-sm">We&apos;ll be in touch soon regarding your offer.</p>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
@@ -682,4 +683,3 @@ export function MultiStepLeadForm() {
     </div>
   )
 }
-// Force redeploy: %date% %time%
