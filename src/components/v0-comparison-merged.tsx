@@ -55,13 +55,13 @@ export function V0ComparisonMerged() {
           <div className="overflow-x-auto rounded-xl border border-[#00b332] shadow-lg bg-white">
             <table className="w-full border-collapse">
               <thead>
-                <tr className="bg-white text-[#1a1f1a]">
+                <tr className="bg-white text-[#1a1f1a] border-b border-[#1a1f1a]/10">
                   <th className="text-left py-4 px-6 font-semibold">Expense</th>
-                  <th className="text-center py-4 px-6 font-semibold">
+                  <th className="text-center py-4 px-6 font-semibold border-l border-[#1a1f1a]/10">
                     Traditional
                     <span className="block font-normal text-[#1a1f1a]/70 text-sm">(90 Days)</span>
                   </th>
-                  <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white">
+                  <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white border-l border-[#1a1f1a]/10">
                     ClearEdge
                     <span className="block font-normal text-white/80 text-sm">(7–30 Days)</span>
                   </th>
@@ -71,14 +71,14 @@ export function V0ComparisonMerged() {
                 {costBreakdown.map((row, index) => (
                   <tr key={index} className="border-b border-[#1a1f1a]/10 bg-white">
                     <td className="py-4 px-6 font-medium text-[#1a1f1a]">{row.expense}</td>
-                    <td className="py-4 px-6 text-center text-red-600 font-semibold">{row.traditional}</td>
-                    <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">{row.clearEdge}</td>
+                    <td className="py-4 px-6 text-center text-red-600 font-semibold border-l border-[#1a1f1a]/10">{row.traditional}</td>
+                    <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb] border-l border-[#1a1f1a]/10">{row.clearEdge}</td>
                   </tr>
                 ))}
                 <tr className="bg-white text-[#1a1f1a]">
                   <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
-                  <td className="py-4 px-6 text-center font-bold text-red-600">$34,500+</td>
-                  <td className="py-4 px-6 text-center font-bold text-white bg-[#00b332]">$0</td>
+                  <td className="py-4 px-6 text-center font-bold text-red-600 border-l border-[#1a1f1a]/10">$34,500+</td>
+                  <td className="py-4 px-6 text-center font-bold text-white bg-[#00b332] border-l border-[#1a1f1a]/10">$0</td>
                 </tr>
               </tbody>
             </table>
@@ -91,14 +91,14 @@ export function V0ComparisonMerged() {
         {/* Feature Comparison Table */}
         <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 overflow-hidden border border-[#00b332]">
           {/* Table Header */}
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 border-b border-[#1a1f1a]/10">
             <div className="p-4 md:p-6 bg-white">
               <p className="font-semibold text-[#1a1f1a]">Feature</p>
             </div>
-            <div className="p-4 md:p-6 bg-white text-center border-l border-[#00b332]/10">
+            <div className="p-4 md:p-6 bg-white text-center border-l border-[#1a1f1a]/10">
               <p className="font-semibold text-[#1a1f1a]">Traditional Listing</p>
             </div>
-            <div className="p-4 md:p-6 bg-[#00b332] text-center">
+            <div className="p-4 md:p-6 bg-[#00b332] text-center border-l border-[#1a1f1a]/10">
               <p className="font-semibold text-white">ClearEdge</p>
             </div>
           </div>
@@ -107,16 +107,16 @@ export function V0ComparisonMerged() {
           {featureComparison.map((row, index) => (
             <div
               key={index}
-              className={`grid grid-cols-3 ${index !== featureComparison.length - 1 ? "border-b border-[#00b332]/10" : ""}`}
+              className={`grid grid-cols-3 ${index !== featureComparison.length - 1 ? "border-b border-[#1a1f1a]/10" : ""}`}
             >
               <div className="p-4 md:p-5 text-sm md:text-base font-medium text-[#1a1f1a] flex items-center bg-white">
                 {row.feature}
               </div>
-              <div className="p-4 md:p-5 text-sm text-[#1a1f1a]/70 border-l border-[#00b332]/10 flex items-center gap-2 bg-white">
+              <div className="p-4 md:p-5 text-sm text-[#1a1f1a]/70 border-l border-[#1a1f1a]/10 flex items-center gap-2 bg-white">
                 <X className="w-4 h-4 text-red-500 flex-shrink-0 hidden sm:block" />
                 <span>{row.traditional}</span>
               </div>
-              <div className="p-4 md:p-5 text-sm text-[#1a1f1a] border-l border-[#00b332]/10 flex items-center gap-2 bg-[#00b332]/5">
+              <div className="p-4 md:p-5 text-sm text-[#1a1f1a] border-l border-[#1a1f1a]/10 flex items-center gap-2 bg-[#00b332]/5">
                 <Check className="w-4 h-4 text-[#00b332] flex-shrink-0 hidden sm:block" />
                 <span className="font-medium">{row.clearEdge}</span>
               </div>
