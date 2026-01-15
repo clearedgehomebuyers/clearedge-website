@@ -4,7 +4,7 @@ import { Star, Check, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
-import { LeadForm } from '@/components/LeadForm'
+import { V0LeadForm } from '@/components/v0-lead-form'
 
 const testimonialsFaqs = [
   {
@@ -319,9 +319,18 @@ export default function TestimonialsPage() {
                 More Reviews From Pennsylvania Homeowners
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {secondaryReviews.map((review, index) => (
+            {/* First row - 3 cards on desktop */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              {secondaryReviews.slice(0, 3).map((review, index) => (
                 <ReviewCard key={index} review={review} />
+              ))}
+            </div>
+            {/* Second row - 2 cards centered on desktop */}
+            <div className="grid sm:grid-cols-2 gap-6 mb-10 lg:flex lg:justify-center lg:gap-6">
+              {secondaryReviews.slice(3).map((review, index) => (
+                <div key={index} className="lg:w-[calc(33.333%-1rem)]">
+                  <ReviewCard review={review} />
+                </div>
               ))}
             </div>
             <div className="text-center">
@@ -392,7 +401,7 @@ export default function TestimonialsPage() {
             <p className="text-lg text-[#1a1f1a]/60 mb-8">
               Get a no-obligation cash offer. Takes 2 minutes.
             </p>
-            <LeadForm />
+            <V0LeadForm />
             <p className="text-[#1a1f1a]/60 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
