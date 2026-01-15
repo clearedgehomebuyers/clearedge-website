@@ -105,29 +105,29 @@ export function V0Header() {
         isScrolled ? "bg-white/98 backdrop-blur-md shadow-md border-b border-[#1a1f1a]/5" : "bg-white/95 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo - with left padding */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-10">
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo */}
           <a
             href="/"
             onClick={handleLogoClick}
-            className="flex-shrink-0 ml-2 cursor-pointer"
+            className="flex-shrink-0 cursor-pointer"
           >
-            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-12 md:h-14 w-auto" />
+            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-10 md:h-12 lg:h-14 w-auto" />
           </a>
 
-          {/* Desktop/Tablet Navigation - centered with even spacing */}
-          <nav className="hidden md:flex items-center justify-center flex-1 mx-4 lg:mx-8">
-            <div className="flex items-center gap-4 lg:gap-8">
+          {/* Desktop/Tablet Navigation - centered with responsive spacing */}
+          <nav className="hidden md:flex items-center justify-center flex-1 mx-2 lg:mx-8">
+            <div className="flex items-center gap-3 lg:gap-6">
               <Link
                 href="/how-it-works"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors whitespace-nowrap"
               >
                 How It Works
               </Link>
               <Link
                 href="/about"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
                 About
               </Link>
@@ -145,19 +145,19 @@ export function V0Header() {
               </Link>
               <Link
                 href="/contact"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
               >
                 Contact
               </Link>
 
-              {/* Locations Dropdown - Click for tablet, hover for desktop */}
+              {/* Locations Dropdown - Click to toggle */}
               <div className="relative" ref={locationsRef}>
                 <button
                   onClick={toggleLocations}
-                  className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
                 >
                   <span>Locations</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {locationsOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
@@ -179,14 +179,14 @@ export function V0Header() {
                 )}
               </div>
 
-              {/* Situations Dropdown - Click for tablet, hover for desktop */}
+              {/* Situations Dropdown - Click to toggle */}
               <div className="relative" ref={situationsRef}>
                 <button
                   onClick={toggleSituations}
-                  className="flex items-center gap-1 text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
                 >
                   <span>Situations</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${situationsOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${situationsOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {situationsOpen && (
                   <div className="absolute top-full right-0 pt-2 z-50">
@@ -210,18 +210,21 @@ export function V0Header() {
             </div>
           </nav>
 
-          {/* Right side: Phone + CTA - with right padding */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-5 mr-2">
+          {/* Right side: Phone + CTA */}
+          <div className="hidden md:flex items-center gap-2 lg:gap-4">
             {/* Phone - icon only on tablet, icon + text on desktop */}
-            <a href="tel:5709042059" className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#00b332] transition-colors">
-              <div className="w-9 h-9 bg-[#00b332]/10 rounded-full flex items-center justify-center">
+            <a
+              href="tel:+15709042059"
+              className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#00b332] transition-colors"
+            >
+              <div className="w-9 h-9 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
                 <Phone className="w-4 h-4 text-[#00b332]" />
               </div>
-              <span className="font-bold text-sm hidden lg:block">(570) 904-2059</span>
+              <span className="font-bold text-sm hidden lg:inline">(570) 904-2059</span>
             </a>
             <button
               onClick={scrollToForm}
-              className="px-4 lg:px-5 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              className="px-3 lg:px-5 py-2 lg:py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get My Offer
             </button>
