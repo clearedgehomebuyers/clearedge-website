@@ -390,18 +390,9 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Final CTA Section - Beige */}
+        {/* Lead Form Section - Beige */}
         <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
-              Get Started
-            </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
-              Ready to See What We Can Offer?
-            </h2>
-            <p className="text-lg text-[#1a1f1a]/60 mb-8">
-              Get a no-obligation cash offer. Takes 2 minutes.
-            </p>
             <V0LeadForm />
             <p className="text-[#1a1f1a]/60 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}
