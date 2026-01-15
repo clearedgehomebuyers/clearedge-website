@@ -1,6 +1,6 @@
 import { getSituationBySlug, getSituations, getBlogPostsBySituation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
-import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
+import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { SituationFAQAccordion } from '@/components/SituationFAQAccordion'
@@ -222,7 +222,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <p className="text-[#1a1f1a]/60 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {situation.benefits.map((benefit: any, i: number) => {
                 const icons = [Clock, DollarSign, Shield, Home, CheckCircle, ArrowRight]
                 const Icon = icons[i % icons.length]
@@ -276,7 +276,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Areas We Serve</h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {situation.relatedLocations.map((location: any) => (
                 <Link
                   key={location.slug.current}
@@ -363,7 +363,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
           <p className="text-lg text-[#1a1f1a]/60 mb-8">
             Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
           </p>
-          <MultiStepLeadForm />
+          <V0LeadForm />
         </div>
       </section>
 
