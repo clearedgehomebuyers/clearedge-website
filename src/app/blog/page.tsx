@@ -168,7 +168,10 @@ export default async function BlogPage() {
 
         {/* What You'll Find Section - White */}
         <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              Our Approach
+            </span>
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-6">
               What Makes These Guides Different?
             </h2>
@@ -190,16 +193,21 @@ export default async function BlogPage() {
         {/* Category Navigation - Cream */}
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-8">
-              Browse by Topic
-            </h2>
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Topics
+              </span>
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
+                Browse by Topic
+              </h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {categories.map((category) => (
                 <div
                   key={category.title}
-                  className="bg-white border border-[#1a1f1a]/5 rounded-2xl p-6 hover:shadow-lg transition-shadow"
+                  className="bg-white border border-[#1a1f1a]/5 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center"
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex flex-col items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center">
                       <category.icon className="w-5 h-5 text-[#00b332]" />
                     </div>
@@ -228,14 +236,20 @@ export default async function BlogPage() {
         {/* Latest Posts Section - White */}
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-8">
-              Latest Guides
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.slice(0, 12).map((post) => (
-                <article
+            <div className="text-center mb-10">
+              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Recent Articles
+              </span>
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
+                Latest Guides
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.slice(0, 9).map((post) => (
+                <Link
                   key={post._id}
-                  className="bg-white rounded-2xl overflow-hidden border border-[#1a1f1a]/5 hover:shadow-lg transition-shadow"
+                  href={`/blog/${post.slug.current}`}
+                  className="group relative bg-[#FAF8F5] rounded-2xl overflow-hidden border border-[#1a1f1a]/5 hover:shadow-lg transition-all"
                 >
                   {post.featuredImage?.asset?.url && (
                     <img
@@ -250,20 +264,15 @@ export default async function BlogPage() {
                         {categoryLabels[post.category] || post.category}
                       </span>
                     )}
-                    <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3">
-                      <Link
-                        href={`/blog/${post.slug.current}`}
-                        className="hover:text-[#00b332] transition-colors"
-                      >
-                        {post.title}
-                      </Link>
+                    <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#00b332] transition-colors">
+                      {post.title}
                     </h3>
                     {post.excerpt && (
                       <p className="text-[#1a1f1a]/60 text-sm line-clamp-3">
                         {post.excerpt}
                       </p>
                     )}
-                    <div className="mt-4 pt-4 border-t border-[#1a1f1a]/5">
+                    <div className="mt-4 pt-4 border-t border-[#1a1f1a]/5 flex items-center justify-between">
                       <time
                         dateTime={post.publishedAt}
                         className="text-sm text-[#1a1f1a]/50"
@@ -274,9 +283,10 @@ export default async function BlogPage() {
                           day: 'numeric',
                         })}
                       </time>
+                      <ArrowRight className="w-4 h-4 text-[#00b332] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                     </div>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
 
@@ -286,6 +296,18 @@ export default async function BlogPage() {
                 <p className="text-[#1a1f1a]/60">
                   New guides coming soon. Check back shortly.
                 </p>
+              </div>
+            )}
+
+            {posts.length > 9 && (
+              <div className="flex justify-center mt-10">
+                <Link
+                  href="/blog/archive"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-[#FAF8F5] transition-all"
+                >
+                  View All Guides
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             )}
           </div>
