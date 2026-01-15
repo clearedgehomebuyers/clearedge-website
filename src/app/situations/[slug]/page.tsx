@@ -148,7 +148,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
-            <div className="flex flex-col items-center justify-start h-full gap-8">
+            <div className="flex flex-col items-center justify-center h-full gap-10">
               {/* Property Photo Widget */}
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
@@ -171,22 +171,22 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </div>
 
               {/* Trust Indicators - 2x2 GRID */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-3 w-full max-w-[320px]">
-                <div className="flex items-center justify-center gap-2">
-                  <Clock className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Close in 7 Days</span>
+              <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
+                <div className="flex items-center justify-center gap-3">
+                  <Clock className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7 Days</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
-                  <DollarSign className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Zero Fees</span>
+                <div className="flex items-center justify-center gap-3">
+                  <DollarSign className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Shield className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">No Obligation</span>
+                <div className="flex items-center justify-center gap-3">
+                  <Shield className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Obligation</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
-                  <MapPin className="w-4 h-4 text-[#00b332] flex-shrink-0" />
-                  <span className="text-sm text-[#1a1f1a]/60 whitespace-nowrap">Local PA Company</span>
+                <div className="flex items-center justify-center gap-3">
+                  <MapPin className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Local PA Company</span>
                 </div>
               </div>
             </div>
