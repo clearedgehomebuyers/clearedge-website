@@ -1,6 +1,6 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
-import { MultiStepLeadForm } from '@/components/MultiStepLeadForm'
+import { V0LeadForm } from '@/components/v0-lead-form'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
@@ -490,18 +490,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Final CTA with MultiStep Lead Form - Beige */}
-      <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
-        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">
-            Ready to Sell Your {location.city} House?
-          </h2>
-          <p className="text-lg text-[#1a1f1a]/60 mb-8">
-            Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
-          </p>
-          <MultiStepLeadForm />
-        </div>
-      </section>
+      {/* Lead Form - Same as Homepage */}
+      <V0LeadForm />
 
       <V0Footer />
     </main>
