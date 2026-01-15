@@ -1,11 +1,14 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+
+// HubSpot configuration
+const HUBSPOT_PORTAL_ID = '50832074'
+const HUBSPOT_FORM_ID = 'c1592c03-4f8c-42c1-8b4f-f1b64733f29d'
 
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
@@ -13,6 +16,61 @@ const steps = [
   { id: 3, title: "Timeline", icon: Calendar },
   { id: 4, title: "Occupancy", icon: Users },
   { id: 5, title: "Contact", icon: User },
+]
+
+// All 50 US States (PA first as primary market)
+const US_STATES = [
+  { value: 'PA', label: 'Pennsylvania' },
+  { value: 'AL', label: 'Alabama' },
+  { value: 'AK', label: 'Alaska' },
+  { value: 'AZ', label: 'Arizona' },
+  { value: 'AR', label: 'Arkansas' },
+  { value: 'CA', label: 'California' },
+  { value: 'CO', label: 'Colorado' },
+  { value: 'CT', label: 'Connecticut' },
+  { value: 'DE', label: 'Delaware' },
+  { value: 'FL', label: 'Florida' },
+  { value: 'GA', label: 'Georgia' },
+  { value: 'HI', label: 'Hawaii' },
+  { value: 'ID', label: 'Idaho' },
+  { value: 'IL', label: 'Illinois' },
+  { value: 'IN', label: 'Indiana' },
+  { value: 'IA', label: 'Iowa' },
+  { value: 'KS', label: 'Kansas' },
+  { value: 'KY', label: 'Kentucky' },
+  { value: 'LA', label: 'Louisiana' },
+  { value: 'ME', label: 'Maine' },
+  { value: 'MD', label: 'Maryland' },
+  { value: 'MA', label: 'Massachusetts' },
+  { value: 'MI', label: 'Michigan' },
+  { value: 'MN', label: 'Minnesota' },
+  { value: 'MS', label: 'Mississippi' },
+  { value: 'MO', label: 'Missouri' },
+  { value: 'MT', label: 'Montana' },
+  { value: 'NE', label: 'Nebraska' },
+  { value: 'NV', label: 'Nevada' },
+  { value: 'NH', label: 'New Hampshire' },
+  { value: 'NJ', label: 'New Jersey' },
+  { value: 'NM', label: 'New Mexico' },
+  { value: 'NY', label: 'New York' },
+  { value: 'NC', label: 'North Carolina' },
+  { value: 'ND', label: 'North Dakota' },
+  { value: 'OH', label: 'Ohio' },
+  { value: 'OK', label: 'Oklahoma' },
+  { value: 'OR', label: 'Oregon' },
+  { value: 'RI', label: 'Rhode Island' },
+  { value: 'SC', label: 'South Carolina' },
+  { value: 'SD', label: 'South Dakota' },
+  { value: 'TN', label: 'Tennessee' },
+  { value: 'TX', label: 'Texas' },
+  { value: 'UT', label: 'Utah' },
+  { value: 'VT', label: 'Vermont' },
+  { value: 'VA', label: 'Virginia' },
+  { value: 'WA', label: 'Washington' },
+  { value: 'WV', label: 'West Virginia' },
+  { value: 'WI', label: 'Wisconsin' },
+  { value: 'WY', label: 'Wyoming' },
+  { value: 'DC', label: 'District of Columbia' },
 ]
 
 const situations = [
@@ -26,15 +84,44 @@ const situations = [
   "Other",
 ]
 
-const timelines = ["ASAP (within 2 weeks)", "1–2 months", "3–6 months", "Just exploring options"]
+const timelines = ["ASAP (within 30 days)", "1–2 months", "3–6 months", "Just exploring options"]
 
 const occupancies = ["I live here", "It's vacant", "Tenant occupied", "Family member lives here"]
+
+// Format phone number as user types
+function formatPhoneNumber(value: string): string {
+  const digits = value.replace(/\D/g, '').slice(0, 10)
+  if (digits.length === 0) return ''
+  if (digits.length <= 3) return `(${digits}`
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+}
+
+// Get raw digits for validation
+function getPhoneDigits(value: string): string {
+  return value.replace(/\D/g, '').slice(0, 10)
+}
+
+// Helper to get HubSpot tracking cookie
+function getHubspotCookie(): string | null {
+  if (typeof document === 'undefined') return null
+  const cookies = document.cookie.split(';')
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=')
+    if (name === 'hubspotutk') {
+      return value
+    }
+  }
+  return null
+}
 
 export function V0LeadForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
     address: "",
     city: "",
+    state: "PA",
+    zip: "",
     situation: "",
     timeline: "",
     occupancy: "",
@@ -44,23 +131,110 @@ export function V0LeadForm() {
     phone: "",
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Check if current step is valid
+  const isStepValid = (step: number): boolean => {
+    switch (step) {
+      case 1:
+        return !!(
+          formData.address.trim() &&
+          formData.city.trim() &&
+          formData.state &&
+          formData.zip.trim() &&
+          /^\d{5}$/.test(formData.zip)
+        )
+      case 2:
+        return !!formData.situation
+      case 3:
+        return !!formData.timeline
+      case 4:
+        return !!formData.occupancy
+      case 5:
+        return !!(
+          formData.firstName.trim() &&
+          formData.lastName.trim() &&
+          getPhoneDigits(formData.phone).length === 10 &&
+          formData.email.trim() &&
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        )
+      default:
+        return false
+    }
+  }
 
   const handleNext = () => {
-    if (currentStep < 5) setCurrentStep(currentStep + 1)
+    if (currentStep < 5 && isStepValid(currentStep)) {
+      setCurrentStep(currentStep + 1)
+    }
   }
 
   const handleBack = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    setIsSubmitted(true)
+    if (!isStepValid(5)) return
+
+    setIsSubmitting(true)
+
+    try {
+      const hutk = getHubspotCookie()
+      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
+      const pageName = typeof document !== 'undefined' ? document.title : ''
+
+      const fields = [
+        { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
+        { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
+        { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+        { objectTypeId: '0-1', name: 'email', value: formData.email },
+        { objectTypeId: '0-1', name: 'address', value: formData.address },
+        { objectTypeId: '0-1', name: 'city', value: formData.city },
+        { objectTypeId: '0-1', name: 'state', value: formData.state },
+        { objectTypeId: '0-1', name: 'zip', value: formData.zip },
+      ]
+
+      const hubspotPayload = {
+        submittedAt: Date.now(),
+        fields,
+        context: {
+          pageUri,
+          pageName,
+          ...(hutk && { hutk }),
+        },
+      }
+
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(hubspotPayload),
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(`Submission failed: ${response.status}`)
+      }
+
+      setIsSubmitted(true)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      // Still show success to user, log error for debugging
+      setIsSubmitted(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const updateFormData = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handlePhoneChange = (value: string) => {
+    const formatted = formatPhoneNumber(value)
+    setFormData((prev) => ({ ...prev, phone: formatted }))
   }
 
   if (isSubmitted) {
@@ -147,9 +321,10 @@ export function V0LeadForm() {
                   </p>
                 </div>
                 <div className="space-y-4">
+                  {/* Street Address - Full Width */}
                   <div>
                     <label htmlFor="address" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                      Street Address
+                      Street Address <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="address"
@@ -157,23 +332,63 @@ export function V0LeadForm() {
                       placeholder="123 Main Street"
                       value={formData.address}
                       onChange={(e) => updateFormData("address", e.target.value)}
+                      autoComplete="street-address"
                       className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                      required
                     />
                   </div>
-                  <div>
-                    <label htmlFor="city" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                      City, State ZIP
-                    </label>
-                    <Input
-                      id="city"
-                      type="text"
-                      placeholder="Scranton, PA 18505"
-                      value={formData.city}
-                      onChange={(e) => updateFormData("city", e.target.value)}
-                      className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                      required
-                    />
+
+                  {/* City (50%), State (25%), ZIP (25%) */}
+                  <div className="grid grid-cols-4 gap-3">
+                    <div className="col-span-4 sm:col-span-2">
+                      <label htmlFor="city" className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                        City <span className="text-red-500">*</span>
+                      </label>
+                      <Input
+                        id="city"
+                        type="text"
+                        placeholder="Scranton"
+                        value={formData.city}
+                        onChange={(e) => updateFormData("city", e.target.value)}
+                        autoComplete="address-level2"
+                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                      />
+                    </div>
+
+                    <div className="col-span-2 sm:col-span-1">
+                      <label htmlFor="state" className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                        State <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="state"
+                        value={formData.state}
+                        onChange={(e) => updateFormData("state", e.target.value)}
+                        autoComplete="address-level1"
+                        className="w-full h-12 px-3 border border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50 text-[#1a1f1a]"
+                      >
+                        {US_STATES.map((state) => (
+                          <option key={state.value} value={state.value}>
+                            {state.value}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="col-span-2 sm:col-span-1">
+                      <label htmlFor="zip" className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                        ZIP <span className="text-red-500">*</span>
+                      </label>
+                      <Input
+                        id="zip"
+                        type="text"
+                        placeholder="18501"
+                        value={formData.zip}
+                        onChange={(e) => updateFormData("zip", e.target.value.replace(/\D/g, '').slice(0, 5))}
+                        autoComplete="postal-code"
+                        inputMode="numeric"
+                        maxLength={5}
+                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -183,7 +398,7 @@ export function V0LeadForm() {
             {currentStep === 2 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">What's your situation?</h3>
+                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">What&apos;s your situation?</h3>
                   <p className="text-[#1a1f1a]/60 text-sm">This helps us understand how we can best serve you.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
@@ -210,7 +425,7 @@ export function V0LeadForm() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">When do you need to sell?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">We can work with any timeline — you're in control.</p>
+                  <p className="text-[#1a1f1a]/60 text-sm">We can work with any timeline — you&apos;re in control.</p>
                 </div>
                 <div className="space-y-3">
                   {timelines.map((timeline) => (
@@ -263,13 +478,13 @@ export function V0LeadForm() {
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Almost there! How can we reach you?</h3>
                   <p className="text-[#1a1f1a]/60 text-sm">
-                    We'll send your personalized cash offer to this contact info.
+                    We&apos;ll be in touch soon regarding your offer.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                      First Name
+                      First Name <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="firstName"
@@ -277,13 +492,13 @@ export function V0LeadForm() {
                       placeholder="John"
                       value={formData.firstName}
                       onChange={(e) => updateFormData("firstName", e.target.value)}
+                      autoComplete="given-name"
                       className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                      required
                     />
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                      Last Name
+                      Last Name <span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="lastName"
@@ -291,28 +506,28 @@ export function V0LeadForm() {
                       placeholder="Smith"
                       value={formData.lastName}
                       onChange={(e) => updateFormData("lastName", e.target.value)}
+                      autoComplete="family-name"
                       className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                      required
                     />
                   </div>
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                    Phone Number
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="phone"
                     type="tel"
                     placeholder="(570) 555-0123"
                     value={formData.phone}
-                    onChange={(e) => updateFormData("phone", e.target.value)}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    autoComplete="tel"
                     className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                    required
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-[#1a1f1a] mb-2">
-                    Email Address
+                    Email Address <span className="text-red-500">*</span>
                   </label>
                   <Input
                     id="email"
@@ -320,8 +535,8 @@ export function V0LeadForm() {
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => updateFormData("email", e.target.value)}
+                    autoComplete="email"
                     className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
-                    required
                   />
                 </div>
               </div>
@@ -347,7 +562,8 @@ export function V0LeadForm() {
                 <Button
                   type="button"
                   onClick={handleNext}
-                  className="bg-[#00b332] text-white hover:bg-[#009929] flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20"
+                  disabled={!isStepValid(currentStep)}
+                  className="bg-[#00b332] text-white hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none"
                 >
                   Continue
                   <ArrowRight className="w-4 h-4" />
@@ -355,10 +571,11 @@ export function V0LeadForm() {
               ) : (
                 <Button
                   type="submit"
-                  className="bg-[#00b332] text-white hover:bg-[#009929] flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20"
+                  disabled={isSubmitting || !isStepValid(5)}
+                  className="bg-[#00b332] text-white hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none"
                 >
-                  Get My Cash Offer
-                  <ArrowRight className="w-4 h-4" />
+                  {isSubmitting ? "Submitting..." : "Get My Cash Offer"}
+                  {!isSubmitting && <ArrowRight className="w-4 h-4" />}
                 </Button>
               )}
             </div>
