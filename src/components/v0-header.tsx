@@ -125,7 +125,7 @@ export function V0Header() {
 
           {/* Desktop/Tablet Navigation - centered with responsive spacing */}
           <nav className="hidden md:flex items-center justify-center flex-1 mx-2 lg:mx-8">
-            <div className="flex items-center gap-3 lg:gap-6">
+            <div className="flex items-center gap-2 lg:gap-6">
               <Link
                 href="/how-it-works"
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors whitespace-nowrap"
@@ -140,13 +140,13 @@ export function V0Header() {
               </Link>
               <Link
                 href="/testimonials"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden lg:block"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
               >
                 Testimonials
               </Link>
               <Link
                 href="/blog"
-                className="text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden lg:block"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
               >
                 Blog
               </Link>
