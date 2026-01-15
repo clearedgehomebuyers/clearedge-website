@@ -211,47 +211,55 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <main className="bg-white">
         <V0Header />
 
-        <article className="pt-32 md:pt-40 pb-16">
-          {/* Breadcrumb */}
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-            <nav className="flex items-center text-sm text-[#1a1f1a]/50">
-              <Link href="/" className="hover:text-[#00b332] transition-colors">Home</Link>
-              <ChevronRight className="w-4 h-4 mx-2" />
-              <Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link>
-              <ChevronRight className="w-4 h-4 mx-2" />
-              <span className="text-[#1a1f1a]/70 truncate max-w-[200px]">{post.title}</span>
-            </nav>
-          </div>
+        <article className="pb-16">
+          {/* Title Section - Beige */}
+          <section className="pt-32 md:pt-40 pb-10 md:pb-12 bg-[#FAF8F5]">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Breadcrumb */}
+              <nav className="flex items-center text-sm text-[#1a1f1a]/50 mb-8">
+                <Link href="/" className="hover:text-[#00b332] transition-colors">Home</Link>
+                <ChevronRight className="w-4 h-4 mx-2" />
+                <Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link>
+                <ChevronRight className="w-4 h-4 mx-2" />
+                <span className="text-[#1a1f1a]/70 truncate max-w-[200px]">{post.title}</span>
+              </nav>
 
-          {/* Article Header */}
-          <header className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-            {/* Category */}
-            {post.category && (
-              <span className="inline-block px-3 py-1 bg-[#00b332]/10 text-[#00b332] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
-                {formatCategory(post.category)}
-              </span>
-            )}
-
-            {/* Title */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-[#1a1f1a] mb-6 leading-tight">
-              {post.title}
-            </h1>
-
-            {/* Author & Date */}
-            <div className="flex items-center text-[#1a1f1a]/60 mb-8">
-              <span className="font-medium">{post.author}</span>
-              <span className="mx-3">|</span>
-              <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
-              {post.updatedAt && post.updatedAt !== post.publishedAt && (
-                <>
-                  <span className="mx-3">|</span>
-                  <span className="text-sm">Updated {formatDate(post.updatedAt)}</span>
-                </>
+              {/* Category */}
+              {post.category && (
+                <span className="inline-block px-3 py-1 bg-[#00b332]/10 text-[#00b332] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                  {formatCategory(post.category)}
+                </span>
               )}
-            </div>
 
-            {/* Featured Image */}
-            {post.featuredImage?.asset?.url && (
+              {/* Title */}
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-[#1a1f1a] leading-tight">
+                {post.title}
+              </h1>
+            </div>
+          </section>
+
+          {/* Author Bar - Sage Green Gradient (matches homepage trust bar) */}
+          <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm md:text-base">
+                <span className="text-[#1a2e1a] font-medium">{post.author}</span>
+                <span className="text-[#1a2e1a]/30">|</span>
+                <time dateTime={post.publishedAt} className="text-[#1a2e1a]/70">
+                  {formatDate(post.publishedAt)}
+                </time>
+                {post.updatedAt && post.updatedAt !== post.publishedAt && (
+                  <>
+                    <span className="text-[#1a2e1a]/30">|</span>
+                    <span className="text-[#1a2e1a]/70 text-sm">Updated {formatDate(post.updatedAt)}</span>
+                  </>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Image */}
+          {post.featuredImage?.asset?.url && (
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
               <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={urlFor(post.featuredImage).width(1200).height(675).url()}
@@ -261,11 +269,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   priority
                 />
               </div>
-            )}
-          </header>
+            </div>
+          )}
 
           {/* Content */}
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
             <div className="prose prose-lg max-w-none">
               <PortableText value={post.content} components={portableTextComponents} />
             </div>
