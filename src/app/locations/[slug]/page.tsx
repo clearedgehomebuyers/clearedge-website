@@ -293,7 +293,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 </div>
                 <h3 className="font-serif font-medium text-[#1a1f1a] mb-2">{item.title}</h3>
                 <p className="text-[#1a1f1a]/60 text-sm">{item.desc}</p>
-                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b332] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b332]" />
               </Link>
             ))}
           </div>
