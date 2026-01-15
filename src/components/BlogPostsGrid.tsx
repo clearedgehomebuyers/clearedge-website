@@ -27,6 +27,21 @@ const categoryLabels: Record<string, string> = {
   'local-markets': 'Local Markets',
   'situations': 'Situations',
   'process-legal': 'Process & Legal',
+  'locations': 'Locations',
+  'guides': 'Guides',
+  'how-it-works': 'How It Works',
+  'how it works': 'How It Works',
+}
+
+// Fallback formatter for categories not in the mapping
+function formatCategory(category: string): string {
+  if (categoryLabels[category]) {
+    return categoryLabels[category]
+  }
+  // Convert slug-style or lowercase to Title Case
+  return category
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
 const POSTS_PER_PAGE = 9
@@ -56,7 +71,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
             <div className="p-6">
               {post.category && (
                 <span className="text-sm text-[#00b332] font-medium">
-                  {categoryLabels[post.category] || post.category}
+                  {formatCategory(post.category)}
                 </span>
               )}
               <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#00b332] transition-colors">
