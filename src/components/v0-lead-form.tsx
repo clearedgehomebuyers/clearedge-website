@@ -88,18 +88,42 @@ const timelines = ["ASAP (within 30 days)", "1–2 months", "3–6 months", "Jus
 
 const occupancies = ["I live here", "It's vacant", "Tenant occupied", "Family member lives here"]
 
-// Format phone number as user types
-function formatPhoneNumber(value: string): string {
-  const digits = value.replace(/\D/g, '').slice(0, 10)
-  if (digits.length === 0) return ''
-  if (digits.length <= 3) return `(${digits}`
-  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`
-  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+// Extract only the 10-digit phone number from any input
+function extractPhoneDigits(value: string): string {
+  // Remove the "+1 " prefix if present before extracting digits
+  const withoutPrefix = value.startsWith('+1 ') ? value.slice(3) : value
+
+  // Extract only digits
+  let digits = withoutPrefix.replace(/\D/g, '')
+
+  // If someone pasted a number with leading 1 country code (11+ digits starting with 1)
+  if (digits.length > 10 && digits.startsWith('1')) {
+    digits = digits.slice(1)
+  }
+
+  // Return only first 10 digits
+  return digits.slice(0, 10)
 }
 
-// Get raw digits for validation
+// Format 10 digits as +1 (XXX) XXX-XXXX
+function formatPhoneNumber(value: string): string {
+  const digits = extractPhoneDigits(value)
+
+  if (digits.length === 0) return ''
+  if (digits.length <= 3) return `+1 (${digits}`
+  if (digits.length <= 6) return `+1 (${digits.slice(0, 3)}) ${digits.slice(3)}`
+  return `+1 (${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+}
+
+// Get raw 10 digits for validation
 function getPhoneDigits(value: string): string {
-  return value.replace(/\D/g, '').slice(0, 10)
+  return extractPhoneDigits(value)
+}
+
+// Format phone for HubSpot submission
+function formatPhoneForHubspot(phone: string): string {
+  const digits = extractPhoneDigits(phone)
+  return `+1 (${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6,10)}`
 }
 
 // Helper to get HubSpot tracking cookie
@@ -184,15 +208,24 @@ export function V0LeadForm() {
       const pageUri = typeof window !== 'undefined' ? window.location.href : ''
       const pageName = typeof document !== 'undefined' ? document.title : ''
 
+      // Build message content with situation, timeline, and occupancy
+      const messageContent = `
+Property: ${formData.address}, ${formData.city}, ${formData.state} ${formData.zip}
+Situation: ${formData.situation || 'Not specified'}
+Timeline: ${formData.timeline || 'Not specified'}
+Occupancy: ${formData.occupancy || 'Not specified'}
+`.trim()
+
       const fields = [
         { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
         { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
-        { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+        { objectTypeId: '0-1', name: 'phone', value: formatPhoneForHubspot(formData.phone) },
         { objectTypeId: '0-1', name: 'email', value: formData.email },
         { objectTypeId: '0-1', name: 'address', value: formData.address },
         { objectTypeId: '0-1', name: 'city', value: formData.city },
         { objectTypeId: '0-1', name: 'state', value: formData.state },
         { objectTypeId: '0-1', name: 'zip', value: formData.zip },
+        { objectTypeId: '0-1', name: 'message', value: messageContent },
       ]
 
       const hubspotPayload = {
