@@ -53,7 +53,7 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
   </text>
 
   <!-- Bottom accent line -->
-  <rect x="400" y="560" width="400" height="4" rx="2" fill="#00b332"/>
+  <rect x="400" y="560" width="400" height="4" rx="2" fill="#008a29"/>
 </svg>`;
 
 // Write the SVG for debugging
