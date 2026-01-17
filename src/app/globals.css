@@ -5,10 +5,10 @@
 
 /* ClearEdge Home Buyers brand theme - luxury, calm aesthetic */
 :root {
-  /* Primary green - ClearEdge brand */
-  --primary: oklch(0.65 0.2 145);
+  /* Primary green - ClearEdge brand (#008a29) */
+  --primary: oklch(0.49 0.16 145);
   --primary-foreground: oklch(1 0 0);
-  --primary-hover: oklch(0.55 0.2 145);
+  --primary-hover: oklch(0.44 0.14 145);
   --primary-muted: oklch(0.95 0.05 145);
 
   /* Secondary blue - ClearEdge brand */
@@ -33,7 +33,7 @@
 
   --border: oklch(0.93 0.008 85);
   --input: oklch(0.93 0.008 85);
-  --ring: oklch(0.65 0.2 145);
+  --ring: oklch(0.49 0.16 145);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
@@ -55,9 +55,9 @@
 }
 
 .dark {
-  --primary: oklch(0.7 0.2 145);
+  --primary: oklch(0.54 0.16 145);
   --primary-foreground: oklch(0.1 0 0);
-  --primary-hover: oklch(0.6 0.2 145);
+  --primary-hover: oklch(0.49 0.14 145);
   --primary-muted: oklch(0.25 0.05 145);
 
   --secondary: oklch(0.55 0.15 250);
@@ -80,7 +80,7 @@
 
   --border: oklch(0.28 0.01 250);
   --input: oklch(0.28 0.01 250);
-  --ring: oklch(0.7 0.2 145);
+  --ring: oklch(0.54 0.16 145);
 
   --destructive: oklch(0.5 0.2 27);
   --destructive-foreground: oklch(1 0 0);
