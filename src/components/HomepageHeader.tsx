@@ -86,7 +86,7 @@ export function HomepageHeader() {
           {/* Desktop CTA - appears on scroll */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:5709042059"
+              href="tel:+15709042059"
               className={`flex items-center gap-2 text-[#1a1f1a]/70 hover:text-[#00b332] transition-all duration-300 ${
                 scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
@@ -148,7 +148,7 @@ export function HomepageHeader() {
 
           {/* Mobile Phone */}
           <a
-            href="tel:5709042059"
+            href="tel:+15709042059"
             className="flex items-center gap-3 px-4 py-3 mt-4 text-[#1a1f1a]/80 hover:text-[#00b332] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
           >
             <Phone className="w-5 h-5 text-[#00b332]" />

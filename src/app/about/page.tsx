@@ -199,7 +199,7 @@ export default function AboutPage() {
                   <span className="text-[#00b332] font-bold">1</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Local, Not Corporate</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   We&apos;re based in Scranton, not a call center in another state. When you call, you talk to Tyler — not a script reader.
                 </p>
               </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
                   <span className="text-[#00b332] font-bold">2</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Transparent Pricing</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                   <span className="text-[#00b332] font-bold">3</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Your Timeline</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too. You&apos;re in control.
                 </p>
               </div>
@@ -226,7 +226,7 @@ export default function AboutPage() {
                   <span className="text-[#00b332] font-bold">4</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">We Handle the Hard Stuff</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Probate, liens, code violations, out-of-state sellers, tenant issues — we&apos;ve seen it all and know how to navigate it.
                 </p>
               </div>
@@ -244,7 +244,7 @@ export default function AboutPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
                 Homeowners We Work With
               </h2>
-              <p className="text-lg text-[#1a1f1a]/60 max-w-2xl mx-auto">
+              <p className="text-lg text-[#1a1f1a]/70 max-w-2xl mx-auto">
                 We buy houses in all kinds of situations. If any of these sound familiar, we can help:
               </p>
             </div>
@@ -282,16 +282,16 @@ export default function AboutPage() {
                   NEPA
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/scranton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Scranton</Link></li>
-                  <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Wilkes-Barre</Link></li>
-                  <li><Link href="/locations/hazleton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Hazleton</Link></li>
-                  <li><Link href="/locations/pittston" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pittston</Link></li>
-                  <li><Link href="/locations/kingston" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Kingston</Link></li>
-                  <li><Link href="/locations/nanticoke" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Nanticoke</Link></li>
-                  <li><Link href="/locations/carbondale" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Carbondale</Link></li>
-                  <li><Link href="/locations/dunmore" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Dunmore</Link></li>
-                  <li><Link href="/locations/honesdale" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Honesdale</Link></li>
-                  <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Bloomsburg</Link></li>
+                  <li><Link href="/locations/scranton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Scranton</Link></li>
+                  <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Wilkes-Barre</Link></li>
+                  <li><Link href="/locations/hazleton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Hazleton</Link></li>
+                  <li><Link href="/locations/pittston" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pittston</Link></li>
+                  <li><Link href="/locations/kingston" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Kingston</Link></li>
+                  <li><Link href="/locations/nanticoke" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Nanticoke</Link></li>
+                  <li><Link href="/locations/carbondale" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Carbondale</Link></li>
+                  <li><Link href="/locations/dunmore" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Dunmore</Link></li>
+                  <li><Link href="/locations/honesdale" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Honesdale</Link></li>
+                  <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Bloomsburg</Link></li>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
@@ -299,11 +299,11 @@ export default function AboutPage() {
                   Lehigh Valley
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/allentown" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Allentown</Link></li>
-                  <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Bethlehem</Link></li>
-                  <li><Link href="/locations/easton" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Easton</Link></li>
-                  <li><Link href="/locations/reading" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Reading</Link></li>
-                  <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pottsville</Link></li>
+                  <li><Link href="/locations/allentown" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Allentown</Link></li>
+                  <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Bethlehem</Link></li>
+                  <li><Link href="/locations/easton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Easton</Link></li>
+                  <li><Link href="/locations/reading" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Reading</Link></li>
+                  <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pottsville</Link></li>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
@@ -311,10 +311,10 @@ export default function AboutPage() {
                   Poconos
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Stroudsburg</Link></li>
-                  <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">East Stroudsburg</Link></li>
-                  <li><Link href="/locations/pocono-pines" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Pocono Pines</Link></li>
-                  <li><Link href="/locations/tannersville" className="text-[#1a1f1a]/60 hover:text-[#00b332] transition-colors">Tannersville</Link></li>
+                  <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Stroudsburg</Link></li>
+                  <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">East Stroudsburg</Link></li>
+                  <li><Link href="/locations/pocono-pines" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pocono Pines</Link></li>
+                  <li><Link href="/locations/tannersville" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Tannersville</Link></li>
                 </ul>
               </div>
             </div>
@@ -348,7 +348,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Municipal Pre-Sale Inspections</h3>
-                  <p className="text-[#1a1f1a]/60">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
+                  <p className="text-[#1a1f1a]/70">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -357,7 +357,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Probate Process</h3>
-                  <p className="text-[#1a1f1a]/60">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
+                  <p className="text-[#1a1f1a]/70">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -366,7 +366,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Mine Subsidence (NEPA)</h3>
-                  <p className="text-[#1a1f1a]/60">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
+                  <p className="text-[#1a1f1a]/70">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -375,7 +375,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Title &amp; Lien Issues</h3>
-                  <p className="text-[#1a1f1a]/60">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
+                  <p className="text-[#1a1f1a]/70">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
                 </div>
               </div>
             </div>
@@ -396,7 +396,7 @@ export default function AboutPage() {
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 First to take time to explain the process and make me feel comfortable.
               </blockquote>
-              <p className="text-[#1a1f1a]/60">— Gavin S.</p>
+              <p className="text-[#1a1f1a]/70">— Gavin S.</p>
             </div>
             <div className="mt-8">
               <Link href="/testimonials" className="text-[#00b332] hover:text-[#009929] font-medium">
@@ -427,7 +427,7 @@ export default function AboutPage() {
         <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6">
             <V0LeadForm />
-            <p className="text-[#1a1f1a]/60 text-sm mt-8 text-center">
+            <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">
               Prefer to call? Reach Tyler directly:{' '}
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
                 (570) 904-2059

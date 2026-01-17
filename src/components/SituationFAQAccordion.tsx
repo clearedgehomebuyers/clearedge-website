@@ -27,7 +27,7 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
             Questions About {situationTitle}
           </h2>
-          <p className="text-[#1a1f1a]/60 text-lg">
+          <p className="text-[#1a1f1a]/70 text-lg">
             We believe in complete transparency. Here are answers to the questions we hear most often.
           </p>
         </div>
@@ -70,11 +70,11 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
         {/* Still have questions */}
         <div className="text-center mt-10 p-6 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/5">
           <p className="text-[#1a1f1a] font-medium mb-2">Still have questions?</p>
-          <p className="text-[#1a1f1a]/60 text-sm mb-4">
+          <p className="text-[#1a1f1a]/70 text-sm mb-4">
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="tel:5709042059" className="text-[#00b332] font-medium hover:underline">
+            <a href="tel:+15709042059" className="text-[#00b332] font-medium hover:underline">
               (570) 904-2059
             </a>
             <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>

@@ -155,7 +155,7 @@ export default async function BlogPage() {
             <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-6">
               Pennsylvania Real Estate Guides to Sell Your House Fast
             </h1>
-            <p className="text-xl text-[#1a1f1a]/60 max-w-2xl mx-auto">
+            <p className="text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto">
               No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and every situation in between.
             </p>
           </div>
@@ -170,7 +170,7 @@ export default async function BlogPage() {
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-6">
               What Makes These Guides Different?
             </h2>
-            <div className="space-y-4 text-[#1a1f1a]/60 text-lg">
+            <div className="space-y-4 text-[#1a1f1a]/70 text-lg">
               <p>
                 Every guide is written from direct experience helping 200+ Pennsylvania homeowners since 2016.
               </p>
@@ -210,7 +210,7 @@ export default async function BlogPage() {
                       {category.title}
                     </h3>
                   </div>
-                  <ul className="space-y-2 text-[#1a1f1a]/60">
+                  <ul className="space-y-2 text-[#1a1f1a]/70">
                     {category.links.map((link) => (
                       <li key={link.href}>
                         <Link
@@ -266,7 +266,7 @@ export default async function BlogPage() {
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
               Have a Question We Haven&apos;t Covered?
             </h2>
-            <p className="text-[#1a1f1a]/60 mb-8">
+            <p className="text-[#1a1f1a]/70 mb-8">
               We add new Pennsylvania real estate guides based on the questions homeowners ask us.
               If you&apos;re looking for information on selling your house fast and can&apos;t find it here, let us know.
             </p>

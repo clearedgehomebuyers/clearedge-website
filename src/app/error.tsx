@@ -28,7 +28,7 @@ export default function Error({
         </button>
         <p className="text-slate-500 mt-8 text-sm">
           If this keeps happening, call us at{' '}
-          <a href="tel:5709042059" className="text-blue-600 hover:underline">(570) 904-2059</a>
+          <a href="tel:+15709042059" className="text-blue-600 hover:underline">(570) 904-2059</a>
         </p>
       </div>
     </main>

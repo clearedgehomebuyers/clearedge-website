@@ -285,15 +285,15 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">NEPA</h3>
-                <p className="text-[#1a1f1a]/60">Scranton, Wilkes-Barre, Hazleton, and surrounding areas</p>
+                <p className="text-[#1a1f1a]/70">Scranton, Wilkes-Barre, Hazleton, and surrounding areas</p>
               </div>
               <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">Lehigh Valley</h3>
-                <p className="text-[#1a1f1a]/60">Allentown, Bethlehem, Easton, Reading</p>
+                <p className="text-[#1a1f1a]/70">Allentown, Bethlehem, Easton, Reading</p>
               </div>
               <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">Poconos</h3>
-                <p className="text-[#1a1f1a]/60">Stroudsburg, East Stroudsburg, and mountain communities</p>
+                <p className="text-[#1a1f1a]/70">Stroudsburg, East Stroudsburg, and mountain communities</p>
               </div>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
                       <p className="text-2xl font-bold text-[#00b332]">(570) 904-2059</p>
-                      <p className="text-[#1a1f1a]/60 text-sm mt-1">Available 7 days a week</p>
+                      <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
                     </div>
                   </div>
                 </a>
@@ -367,7 +367,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Quick Response</h3>
-                      <p className="text-[#1a1f1a]/60">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
+                      <p className="text-[#1a1f1a]/70">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
                     </div>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">No Obligation</h3>
-                      <p className="text-[#1a1f1a]/60">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
+                      <p className="text-[#1a1f1a]/70">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
                     </div>
                   </div>
                 </div>

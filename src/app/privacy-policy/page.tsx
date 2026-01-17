@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-4">Privacy Policy</h1>
-          <p className="text-[#1a1f1a]/60">Last updated: January 3, 2026</p>
+          <p className="text-[#1a1f1a]/70">Last updated: January 3, 2026</p>
         </div>
       </section>
 
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
             Ready to Sell Your House Fast?
           </h2>
-          <p className="text-[#1a1f1a]/60 mb-8">
+          <p className="text-[#1a1f1a]/70 mb-8">
             Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
           </p>
           <a

@@ -149,7 +149,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/60 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
                 {location.heroSubheadline || `Get a fair cash offer for your ${location.city} home in 24 hours. We buy houses in any condition — no repairs, no fees, no hassle.`}
               </p>
 
@@ -163,7 +163,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="tel:5709042059"
+                  href="tel:+15709042059"
                   className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -237,7 +237,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       {location.nearbyTowns && location.nearbyTowns.length > 0 && (
         <section className="py-6 bg-[#FAF8F5] border-b border-[#1a1f1a]/5">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center items-center gap-6 text-[#1a1f1a]/60">
+            <div className="flex flex-wrap justify-center items-center gap-6 text-[#1a1f1a]/70">
               <span className="text-sm font-medium">Trusted by homeowners in:</span>
               {location.nearbyTowns.map((town: string) => (
                 <span key={town} className="text-sm font-semibold text-[#1a1f1a]">{town}</span>
@@ -256,7 +256,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
             </div>
 
-            <div className="text-[#1a1f1a]/60 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
+            <div className="text-[#1a1f1a]/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
               <PortableText value={location.problemStatement} components={portableTextComponents} />
             </div>
           </div>
@@ -269,7 +269,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="text-center mb-12">
             <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">We Help {location.city}{location.county ? ` & ${location.county}` : ''} Homeowners</h2>
-            <p className="text-[#1a1f1a]/60 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
+            <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -292,7 +292,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <item.icon className="w-6 h-6 text-[#00b332]" />
                 </div>
                 <h3 className="font-serif font-medium text-[#1a1f1a] mb-2">{item.title}</h3>
-                <p className="text-[#1a1f1a]/60 text-sm">{item.desc}</p>
+                <p className="text-[#1a1f1a]/70 text-sm">{item.desc}</p>
                 <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b332]" />
               </Link>
             ))}
@@ -343,7 +343,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               )
             })()}
 
-            <p className="text-center text-[#1a1f1a]/50 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
+            <p className="text-center text-[#1a1f1a]/70 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
           </div>
         </section>
       )}
@@ -361,7 +361,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <table className="w-full">
               <thead>
                 <tr>
-                  <th className="text-left py-5 px-6 bg-[#FAF8F5] font-medium text-[#1a1f1a]/60"></th>
+                  <th className="text-left py-5 px-6 bg-[#FAF8F5] font-medium text-[#1a1f1a]/70"></th>
                   <th className="text-center py-5 px-6 bg-[#00b332] text-white">
                     <div className="flex flex-col items-center">
                       <CheckCircle className="w-6 h-6 mb-1" />
@@ -380,38 +380,38 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Time to Close</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">7-14 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">60-90 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">90+ Days</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">60-90 Days</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">90+ Days</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Repairs Needed</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">None</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Usually Required</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Usually Required</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Fees & Commissions</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">$0</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">5-6%</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">2-3%</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">5-6%</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">2-3%</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Closing Costs</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">We Pay</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">You Pay</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">You Pay</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Showings Required</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">Zero</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Many</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Many</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Sale Certainty</td>
                   <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">100% Guaranteed</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Uncertain</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/60">Uncertain</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
                 </tr>
               </tbody>
             </table>
@@ -455,7 +455,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     <div>
                       <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-2">{post.title}</h3>
                       {post.excerpt && (
-                        <p className="text-[#1a1f1a]/60 text-sm line-clamp-2">{post.excerpt}</p>
+                        <p className="text-[#1a1f1a]/70 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
                       <span className="inline-flex items-center text-[#00b332] font-medium text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />

@@ -49,7 +49,7 @@ export function V0ProblemSolutionMerged() {
           <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#1a1f1a] mb-4">
             Tired of the Traditional Home Selling Hassle?
           </h3>
-          <p className="text-[#1a1f1a]/60">
+          <p className="text-[#1a1f1a]/70">
             We created ClearEdge because we knew there had to be a simpler, fairer way for homeowners to sell.
           </p>
         </div>

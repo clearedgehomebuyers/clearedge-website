@@ -282,8 +282,8 @@ Occupancy: ${formData.occupancy || 'Not specified'}
             Keep an eye on your phone and email.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-md mx-auto border border-[#00b332]/10 shadow-sm">
-            <p className="text-[#1a1f1a]/60 text-sm mb-2">Need to talk sooner?</p>
-            <a href="tel:5709042059" className="text-[#00b332] text-lg font-medium hover:underline">
+            <p className="text-[#1a1f1a]/70 text-sm mb-2">Need to talk sooner?</p>
+            <a href="tel:+15709042059" className="text-[#00b332] text-lg font-medium hover:underline">
               (570) 904-2059
             </a>
           </div>
@@ -304,7 +304,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-4 text-balance">
             Get Your Cash Offer Today
           </h2>
-          <p className="text-[#1a1f1a]/60 text-lg max-w-xl mx-auto">
+          <p className="text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
             Complete these 5 quick questions and we'll have your offer within 24 hours.
           </p>
         </div>
@@ -348,7 +348,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Where is your property?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">
+                  <p className="text-[#1a1f1a]/70 text-sm">
                     We use this to pull local market data for your personalized offer.
                   </p>
                 </div>
@@ -431,7 +431,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">What&apos;s your situation?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">This helps us understand how we can best serve you.</p>
+                  <p className="text-[#1a1f1a]/70 text-sm">This helps us understand how we can best serve you.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {situations.map((situation) => (
@@ -457,7 +457,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">When do you need to sell?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">We can work with any timeline — you&apos;re in control.</p>
+                  <p className="text-[#1a1f1a]/70 text-sm">We can work with any timeline — you&apos;re in control.</p>
                 </div>
                 <div className="space-y-3">
                   {timelines.map((timeline) => (
@@ -483,7 +483,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Who lives at the property?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">This helps us plan the closing process smoothly.</p>
+                  <p className="text-[#1a1f1a]/70 text-sm">This helps us plan the closing process smoothly.</p>
                 </div>
                 <div className="space-y-3">
                   {occupancies.map((occupancy) => (
@@ -509,7 +509,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Almost there! How can we reach you?</h3>
-                  <p className="text-[#1a1f1a]/60 text-sm">
+                  <p className="text-[#1a1f1a]/70 text-sm">
                     We&apos;ll be in touch soon regarding your offer.
                   </p>
                 </div>
@@ -614,7 +614,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
           </form>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-10 text-[#1a1f1a]/50 text-sm">
+        <div className="flex flex-wrap justify-center gap-6 mt-10 text-[#1a1f1a]/70 text-sm">
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-[#00b332]" />
             <span>Your info is 100% secure</span>

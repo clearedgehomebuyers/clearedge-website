@@ -78,7 +78,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
                 {post.title}
               </h3>
               {post.excerpt && (
-                <p className="text-[#1a1f1a]/60 text-sm line-clamp-3">
+                <p className="text-[#1a1f1a]/70 text-sm line-clamp-3">
                   {post.excerpt}
                 </p>
               )}
@@ -103,7 +103,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
       {posts.length === 0 && (
         <div className="text-center py-12">
           <FileText className="w-12 h-12 text-[#1a1f1a]/30 mx-auto mb-4" />
-          <p className="text-[#1a1f1a]/60">
+          <p className="text-[#1a1f1a]/70">
             New guides coming soon. Check back shortly.
           </p>
         </div>

@@ -84,6 +84,7 @@ export function V0Hero() {
                   src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
                   alt="Recently purchased home in Scranton, PA"
                   className="w-full h-full object-cover"
+                  fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 text-white">

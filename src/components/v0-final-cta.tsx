@@ -9,7 +9,7 @@ export function V0FinalCta() {
         <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
           Ready to Get Your Cash Offer?
         </h2>
-        <p className="text-[#1a1f1a]/60 mb-8">
+        <p className="text-[#1a1f1a]/70 mb-8">
           No obligation. No pressure. Just a fair offer you can count on.
         </p>
         <a

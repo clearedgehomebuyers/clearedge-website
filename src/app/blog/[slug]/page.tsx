@@ -59,7 +59,7 @@ const portableTextComponents: PortableTextComponents = {
             className="rounded-2xl w-full"
           />
           {value.caption && (
-            <figcaption className="text-center text-sm text-[#1a1f1a]/50 mt-3">
+            <figcaption className="text-center text-sm text-[#1a1f1a]/70 mt-3">
               {value.caption}
             </figcaption>
           )}
@@ -85,7 +85,7 @@ const portableTextComponents: PortableTextComponents = {
       <p className="mb-4 text-[#1a1f1a]/70 leading-relaxed text-lg">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#00b332] pl-6 my-8 italic text-[#1a1f1a]/60 text-lg">
+      <blockquote className="border-l-4 border-[#00b332] pl-6 my-8 italic text-[#1a1f1a]/70 text-lg">
         {children}
       </blockquote>
     ),
@@ -216,7 +216,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <section className="pt-32 md:pt-40 pb-10 md:pb-12 bg-[#FAF8F5]">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Breadcrumb */}
-              <nav className="flex items-center text-sm text-[#1a1f1a]/50 mb-8">
+              <nav className="flex items-center text-sm text-[#1a1f1a]/70 mb-8">
                 <Link href="/" className="hover:text-[#00b332] transition-colors">Home</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
                 <Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link>
@@ -320,7 +320,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">
               <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8">
                 <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">About the Author</h3>
-                <p className="text-[#1a1f1a]/60 leading-relaxed">
+                <p className="text-[#1a1f1a]/70 leading-relaxed">
                   <strong>{post.author}</strong> is the founder of ClearEdge Home Buyers,
                   a cash home buying company serving Eastern Pennsylvania. He has helped
                   hundreds of homeowners sell their properties quickly for cash, with no repairs,
@@ -332,7 +332,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* CTA */}
             <section className="mt-12 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
               <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Ready to Sell Your House Fast?</h2>
-              <p className="mb-8 text-[#1a1f1a]/60 text-lg max-w-xl mx-auto">
+              <p className="mb-8 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
                 Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.
               </p>
               <Link
@@ -361,7 +361,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
               Have Questions About Selling Your House?
             </h2>
-            <p className="text-[#1a1f1a]/60 mb-8">
+            <p className="text-[#1a1f1a]/70 mb-8">
               Browse more guides or get a free, no-obligation cash offer.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

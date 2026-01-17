@@ -25,7 +25,7 @@ export default function NotFound() {
         </div>
         <p className="text-slate-500 mt-8 text-sm">
           Need to sell your house fast? Call us at{' '}
-          <a href="tel:5709042059" className="text-blue-600 hover:underline">(570) 904-2059</a>
+          <a href="tel:+15709042059" className="text-blue-600 hover:underline">(570) 904-2059</a>
         </p>
       </div>
     </main>

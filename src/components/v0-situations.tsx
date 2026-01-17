@@ -69,7 +69,7 @@ export function V0Situations() {
               <h3 className="font-semibold text-[#1a1f1a] mb-2 group-hover:text-[#00b332] transition-colors">
                 {situation.title}
               </h3>
-              <p className="text-sm text-[#1a1f1a]/60">{situation.description}</p>
+              <p className="text-sm text-[#1a1f1a]/70">{situation.description}</p>
               <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
             </Link>
           ))}

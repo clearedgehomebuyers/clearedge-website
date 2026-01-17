@@ -125,7 +125,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/60 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
                 {situation.heroSubheadline || `Dealing with ${situation.title.toLowerCase()}? We understand. Get a fair cash offer and close on your timeline — no repairs, no fees, no hassle.`}
               </p>
 
@@ -139,7 +139,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="tel:5709042059"
+                  href="tel:+15709042059"
                   className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -206,7 +206,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </h2>
             </div>
 
-            <div className="text-[#1a1f1a]/60 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
+            <div className="text-[#1a1f1a]/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
               <PortableText value={situation.problemDescription} components={portableTextComponents} />
             </div>
           </div>
@@ -220,7 +220,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             <div className="text-center mb-12">
               <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Benefits</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">Why Sell to ClearEdge?</h2>
-              <p className="text-[#1a1f1a]/60 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
+              <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -233,7 +233,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                       <Icon className="w-7 h-7 text-[#00b332]" />
                     </div>
                     <h3 className="font-serif font-medium text-xl text-[#1a1f1a] mb-3">{benefit.title}</h3>
-                    <p className="text-[#1a1f1a]/60 leading-relaxed">{benefit.description}</p>
+                    <p className="text-[#1a1f1a]/70 leading-relaxed">{benefit.description}</p>
                   </div>
                 )
               })}
@@ -261,7 +261,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   <span className="text-2xl font-bold text-white">{item.step}</span>
                 </div>
                 <h3 className="font-serif font-medium text-xl text-[#1a1f1a] mb-3">{item.title}</h3>
-                <p className="text-[#1a1f1a]/60">{item.desc}</p>
+                <p className="text-[#1a1f1a]/70">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -299,7 +299,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     <div>
                       <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-2 group-hover:text-[#00b332] transition-colors">{post.title}</h3>
                       {post.excerpt && (
-                        <p className="text-[#1a1f1a]/60 text-sm line-clamp-2">{post.excerpt}</p>
+                        <p className="text-[#1a1f1a]/70 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
                       <span className="inline-flex items-center text-[#00b332] font-medium text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />

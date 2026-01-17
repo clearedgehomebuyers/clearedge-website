@@ -66,7 +66,7 @@ export function HomepageHero() {
                 Get My Cash Offer
               </button>
               <a
-                href="tel:5709042059"
+                href="tel:+15709042059"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#1a1f1a]/20 hover:border-[#1a1f1a]/40 text-[#1a1f1a] rounded-full transition-all duration-200 text-lg font-medium hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
@@ -113,7 +113,7 @@ export function HomepageHero() {
                   </span>
                 </div>
                 <p className="font-semibold text-xl">Scranton, PA</p>
-                <p className="text-white/80 text-base">14 Days to Close</p>
+                <p className="text-white/90 text-base">14 Days to Close</p>
               </div>
             </div>
 

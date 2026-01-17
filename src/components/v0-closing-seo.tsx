@@ -19,7 +19,7 @@ export function V0ClosingSeo() {
           Get Your Free Offer
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
-        <p className="text-sm text-[#1a1f1a]/50 mt-4">
+        <p className="text-sm text-[#1a1f1a]/70 mt-4">
           No obligation. Close in as little as 7 days.
         </p>
       </div>

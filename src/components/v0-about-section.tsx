@@ -92,7 +92,7 @@ export function V0AboutSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#1a1f1a] mb-1">{value.title}</h3>
-                    <p className="text-[#1a1f1a]/60 text-sm leading-relaxed">{value.description}</p>
+                    <p className="text-[#1a1f1a]/70 text-sm leading-relaxed">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -101,7 +101,7 @@ export function V0AboutSection() {
             {/* Direct Contact */}
             <div className="pt-4">
               <a
-                href="tel:5709042059"
+                href="tel:+15709042059"
                 className="inline-flex items-center gap-3 text-[#00b332] font-medium hover:gap-4 transition-all"
               >
                 <div className="w-10 h-10 rounded-full bg-[#00b332]/10 flex items-center justify-center">

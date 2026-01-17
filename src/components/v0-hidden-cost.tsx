@@ -25,7 +25,7 @@ export function V0HiddenCost() {
                 <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white">
                   ClearEdge Sale
                   <br />
-                  <span className="font-normal text-white/80 text-sm">(7–30 Days)</span>
+                  <span className="font-normal text-white/90 text-sm">(7–30 Days)</span>
                 </th>
               </tr>
             </thead>
@@ -39,7 +39,7 @@ export function V0HiddenCost() {
                 <td className="py-4 px-6 font-medium">
                   Holding Costs
                   <br />
-                  <span className="text-sm text-[#1a1f1a]/50">(Taxes, Utilities, Insurance, Mortgage)</span>
+                  <span className="text-sm text-[#1a1f1a]/70">(Taxes, Utilities, Insurance, Mortgage)</span>
                 </td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$4,500+</td>
                 <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
@@ -48,7 +48,7 @@ export function V0HiddenCost() {
                 <td className="py-4 px-6 font-medium">
                   Agent Commissions
                   <br />
-                  <span className="text-sm text-[#1a1f1a]/50">(6% on a $200k home)</span>
+                  <span className="text-sm text-[#1a1f1a]/70">(6% on a $200k home)</span>
                 </td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$12,000</td>
                 <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
@@ -67,7 +67,7 @@ export function V0HiddenCost() {
           </table>
         </div>
 
-        <p className="text-[#1a1f1a]/50 text-sm mt-6 italic text-center">
+        <p className="text-[#1a1f1a]/70 text-sm mt-6 italic text-center">
           *Based on a $200,000 home with typical Eastern PA repair needs and 90-day market time. Your actual costs may vary.
         </p>
       </div>

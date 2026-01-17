@@ -44,7 +44,7 @@ export function V0ComparisonMerged() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-4">
             Traditional Sale vs. ClearEdge
           </h2>
-          <p className="text-[#1a1f1a]/60 text-lg">
+          <p className="text-[#1a1f1a]/70 text-lg">
             When you list traditionally, you&apos;re not just waiting — you&apos;re paying. See the real difference.
           </p>
         </div>
@@ -63,7 +63,7 @@ export function V0ComparisonMerged() {
                   </th>
                   <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white border-l border-[#1a1f1a]/10">
                     ClearEdge
-                    <span className="block font-normal text-white/80 text-sm">(7–30 Days)</span>
+                    <span className="block font-normal text-white/90 text-sm">(7–30 Days)</span>
                   </th>
                 </tr>
               </thead>
@@ -83,7 +83,7 @@ export function V0ComparisonMerged() {
               </tbody>
             </table>
           </div>
-          <p className="text-[#1a1f1a]/50 text-sm mt-3 italic text-center">
+          <p className="text-[#1a1f1a]/70 text-sm mt-3 italic text-center">
             *Based on a $200,000 home with typical Eastern PA repair needs and 90-day market time.
           </p>
         </div>
@@ -133,7 +133,7 @@ export function V0ComparisonMerged() {
             Get Your Cash Offer Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <p className="text-sm text-[#1a1f1a]/60 mt-4">No fees. No obligation. Just a fair offer.</p>
+          <p className="text-sm text-[#1a1f1a]/70 mt-4">No fees. No obligation. Just a fair offer.</p>
         </div>
       </div>
     </section>

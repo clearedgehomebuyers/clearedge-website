@@ -46,7 +46,7 @@ export function V0Testimonials() {
             <div className="flex items-center">
               <div>
                 <p className="font-bold text-[#1a1f1a]">{featuredTestimonial.name}</p>
-                <p className="text-[#1a1f1a]/60 text-sm">{featuredTestimonial.subtitle}</p>
+                <p className="text-[#1a1f1a]/70 text-sm">{featuredTestimonial.subtitle}</p>
               </div>
             </div>
           </div>

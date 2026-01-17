@@ -17,7 +17,7 @@ export function V0VideoSection() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
             Meet Tyler
           </h2>
-          <p className="text-[#1a1f1a]/60 text-lg">
+          <p className="text-[#1a1f1a]/70 text-lg">
             I started ClearEdge in 2016 to help Pennsylvania homeowners sell on their terms. Here&apos;s my story.
           </p>
         </div>
@@ -50,7 +50,7 @@ export function V0VideoSection() {
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
                 <div className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg">
                   <p className="text-sm font-medium text-[#1a1f1a]">Meet Tyler, Founder</p>
-                  <p className="text-xs text-[#1a1f1a]/60">3 min watch</p>
+                  <p className="text-xs text-[#1a1f1a]/70">3 min watch</p>
                 </div>
               </div>
             </>
@@ -69,15 +69,15 @@ export function V0VideoSection() {
         <div className="grid grid-cols-3 gap-4 mt-8 max-w-2xl mx-auto">
           <div className="text-center">
             <p className="text-2xl font-semibold text-[#00b332]">200+</p>
-            <p className="text-xs text-[#1a1f1a]/60">Happy Sellers</p>
+            <p className="text-xs text-[#1a1f1a]/70">Happy Sellers</p>
           </div>
           <div className="text-center border-x border-[#1a1f1a]/10">
             <p className="text-2xl font-semibold text-[#00b332]">24hrs</p>
-            <p className="text-xs text-[#1a1f1a]/60">Avg. Offer Time</p>
+            <p className="text-xs text-[#1a1f1a]/70">Avg. Offer Time</p>
           </div>
           <div className="text-center">
             <p className="text-2xl font-semibold text-[#00b332]">$0</p>
-            <p className="text-xs text-[#1a1f1a]/60">Fees to You</p>
+            <p className="text-xs text-[#1a1f1a]/70">Fees to You</p>
           </div>
         </div>
       </div>

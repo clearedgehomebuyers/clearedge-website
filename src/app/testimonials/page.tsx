@@ -121,7 +121,7 @@ function ReviewCard({ review }: { review: typeof secondaryReviews[0] }) {
       </blockquote>
       <div className="border-t border-[#1a1f1a]/10 pt-4">
         <p className="font-semibold text-[#1a1f1a]">{review.name}</p>
-        <p className="text-sm text-[#1a1f1a]/60">{review.context}</p>
+        <p className="text-sm text-[#1a1f1a]/70">{review.context}</p>
       </div>
     </div>
   )
@@ -303,7 +303,7 @@ export default function TestimonialsPage() {
                 ))}
               </div>
               <p className="font-semibold text-[#1a1f1a]">Kandra Gunter</p>
-              <p className="text-sm text-[#1a1f1a]/60">Sold inherited property from Texas while caring for elderly father</p>
+              <p className="text-sm text-[#1a1f1a]/70">Sold inherited property from Texas while caring for elderly father</p>
             </div>
           </div>
         </section>
@@ -366,7 +366,7 @@ export default function TestimonialsPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#1a1f1a] mb-1">{item.title}</h3>
-                    <p className="text-[#1a1f1a]/60">{item.description}</p>
+                    <p className="text-[#1a1f1a]/70">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -379,7 +379,7 @@ export default function TestimonialsPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">{reviewHighlights[4].title}</h3>
-                  <p className="text-[#1a1f1a]/60">{reviewHighlights[4].description}</p>
+                  <p className="text-[#1a1f1a]/70">{reviewHighlights[4].description}</p>
                 </div>
               </div>
             </div>
@@ -407,7 +407,7 @@ export default function TestimonialsPage() {
         <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <V0LeadForm />
-            <p className="text-[#1a1f1a]/60 text-sm mt-8">
+            <p className="text-[#1a1f1a]/70 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}
               <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
                 (570) 904-2059

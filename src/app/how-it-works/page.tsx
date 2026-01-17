@@ -190,19 +190,19 @@ export default function HowItWorksPage() {
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-[#1a1f1a] mb-2">Disclosure Requirements</h3>
-                <p className="text-[#1a1f1a]/60 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
+                <p className="text-[#1a1f1a]/70 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
               </div>
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-[#1a1f1a] mb-2">Municipal Inspections</h3>
-                <p className="text-[#1a1f1a]/60 text-sm">Cities like Allentown require pre-sale inspections. Violations must be fixed before closing.</p>
+                <p className="text-[#1a1f1a]/70 text-sm">Cities like Allentown require pre-sale inspections. Violations must be fixed before closing.</p>
               </div>
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-[#1a1f1a] mb-2">Buyer Financing Delays</h3>
-                <p className="text-[#1a1f1a]/60 text-sm">Mortgage approvals fall through. Appraisals come in low. Deals collapse at the last minute.</p>
+                <p className="text-[#1a1f1a]/70 text-sm">Mortgage approvals fall through. Appraisals come in low. Deals collapse at the last minute.</p>
               </div>
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-[#1a1f1a] mb-2">Repairs and Staging</h3>
-                <p className="text-[#1a1f1a]/60 text-sm">Most buyers want move-in ready. That means spending money before you see a dime.</p>
+                <p className="text-[#1a1f1a]/70 text-sm">Most buyers want move-in ready. That means spending money before you see a dime.</p>
               </div>
             </div>
             <p className="text-[#1a1f1a]/70 font-medium">
@@ -229,7 +229,7 @@ export default function HowItWorksPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Discovery Call</h3>
                 <p className="text-[#00b332] font-medium text-sm mb-3">A 10-Minute Conversation</p>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Tell us about your property and situation. We&apos;ll ask about the condition, timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
                 </p>
               </div>
@@ -239,7 +239,7 @@ export default function HowItWorksPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Get Your Cash Offer</h3>
                 <p className="text-[#00b332] font-medium text-sm mb-3">Within 24 Hours</p>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   We&apos;ll evaluate your property and present a written cash offer. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
                 </p>
               </div>
@@ -249,7 +249,7 @@ export default function HowItWorksPage() {
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Close On Your Terms</h3>
                 <p className="text-[#00b332] font-medium text-sm mb-3">You Pick the Date</p>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Accept the offer and choose your closing date — as fast as 7 days or as far out as 60+ days. We handle the title work, paperwork, and coordination. You show up, sign, and get paid.
                 </p>
               </div>
@@ -318,19 +318,19 @@ export default function HowItWorksPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Repairs Needed</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Sell as-is. Foundation issues, roof damage, mold — doesn&apos;t matter.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Inspections</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   We don&apos;t require you to fix violations or pass municipal inspection.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Mortgage Delays</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   Cash means no lender approval, no appraisal contingencies.
                 </p>
               </div>
@@ -339,13 +339,13 @@ export default function HowItWorksPage() {
             <div className="grid sm:grid-cols-2 gap-6 lg:flex lg:justify-center lg:gap-6">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 lg:w-[calc(33.333%-8px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Commissions</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   We&apos;re not agents. You pay zero commission.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 lg:w-[calc(33.333%-8px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Uncertainty</h3>
-                <p className="text-[#1a1f1a]/60">
+                <p className="text-[#1a1f1a]/70">
                   When we make an offer and you accept, the deal closes. Period.
                 </p>
               </div>
@@ -363,7 +363,7 @@ export default function HowItWorksPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
                 Situations We Help With
               </h2>
-              <p className="text-lg text-[#1a1f1a]/60 max-w-2xl mx-auto">
+              <p className="text-lg text-[#1a1f1a]/70 max-w-2xl mx-auto">
                 We work with homeowners in all kinds of situations. If any of these sound familiar, we can probably help:
               </p>
             </div>
@@ -429,7 +429,7 @@ export default function HowItWorksPage() {
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
               </blockquote>
-              <p className="text-[#1a1f1a]/60 font-medium">
+              <p className="text-[#1a1f1a]/70 font-medium">
                 — Kandra G., sold inherited property from Texas
               </p>
             </div>

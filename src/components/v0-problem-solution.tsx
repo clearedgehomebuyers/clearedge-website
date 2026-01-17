@@ -28,7 +28,7 @@ export function V0ProblemSolution() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
             Tired of the Traditional Home Selling Hassle?
           </h2>
-          <p className="text-[#1a1f1a]/60 text-lg">
+          <p className="text-[#1a1f1a]/70 text-lg">
             We created ClearEdge because we knew there had to be a simpler, fairer way for homeowners to sell.
           </p>
         </div>

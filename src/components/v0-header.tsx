@@ -130,7 +130,7 @@ export function V0Header() {
             onClick={handleLogoClick}
             className="flex-shrink-0 cursor-pointer"
           >
-            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-10 md:h-12 lg:h-14 w-auto" />
+            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-10 md:h-12 lg:h-14 w-auto" width="168" height="56" />
           </a>
 
           {/* Desktop/Tablet Navigation - centered with responsive spacing */}
@@ -351,7 +351,7 @@ export function V0Header() {
 
             {/* Mobile Phone */}
             <a
-              href="tel:5709042059"
+              href="tel:+15709042059"
               className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-[#00b332]/10 text-[#00b332] font-bold"
             >
               <Phone className="w-5 h-5" />

@@ -106,7 +106,7 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-lg text-white">Contact Us</h3>
             <div className="space-y-4">
-              <a href="tel:5709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#00b332] transition-colors group">
+              <a href="tel:+15709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#00b332] transition-colors group">
                 <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center group-hover:bg-[#00b332]/20 transition-colors">
                   <Phone className="w-5 h-5 text-[#00b332]" />
                 </div>

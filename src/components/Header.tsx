@@ -156,7 +156,7 @@ export function Header({ currentPage }: HeaderProps) {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-5">
-            <a href="tel:5709042059" className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
+            <a href="tel:+15709042059" className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
               <div className="w-10 h-10 bg-[#0d9488]/10 rounded-full flex items-center justify-center">
                 <Phone className="w-5 h-5 text-[#0d9488]" />
               </div>
@@ -251,7 +251,7 @@ export function Header({ currentPage }: HeaderProps) {
           {/* Phone Number */}
           <div className="pt-4 border-t border-slate-100 mt-4">
             <a
-              href="tel:5709042059"
+              href="tel:+15709042059"
               className="flex items-center space-x-3 px-4 py-3 rounded-lg bg-[#0d9488]/10 text-[#0d9488] font-bold"
             >
               <Phone className="w-5 h-5" />
