@@ -239,7 +239,7 @@ export default function ContactPage() {
             }}
           />
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Contact Us
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
@@ -256,15 +256,15 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-16 gap-y-4">
               <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-[#00b332]" />
+                <Users className="w-5 h-5 text-[#008a29]" />
                 <span className="text-[#1a2e1a] font-medium">200+ Homeowners Helped</span>
               </div>
               <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-[#00b332]" />
+                <Calendar className="w-5 h-5 text-[#008a29]" />
                 <span className="text-[#1a2e1a] font-medium">Founded 2016</span>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#00b332]" />
+                <MapPin className="w-5 h-5 text-[#008a29]" />
                 <span className="text-[#1a2e1a] font-medium">21 Communities Served</span>
               </div>
             </div>
@@ -275,7 +275,7 @@ export default function ContactPage() {
         <section className="py-12 md:py-16 bg-white">
           <div className="max-w-5xl mx-auto px-4">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Service Areas
               </span>
               <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a]">
@@ -310,27 +310,27 @@ export default function ContactPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">First Name</label>
-                      <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#00b332] focus:border-[#00b332] bg-white" />
+                      <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
                     </div>
                     <div>
                       <label htmlFor="lastName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Last Name</label>
-                      <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#00b332] focus:border-[#00b332] bg-white" />
+                      <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Email</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#00b332] focus:border-[#00b332] bg-white" />
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Phone</label>
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#00b332] focus:border-[#00b332] bg-white" />
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
                     {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Tell us about your property (optional)</label>
-                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#00b332] focus:border-[#00b332] bg-white" />
+                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
                   </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full bg-[#00b332] hover:bg-[#009929] text-white font-semibold py-4 px-6 rounded-full transition-colors disabled:opacity-50 shadow-lg shadow-[#00b332]/20">
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-[#008a29] hover:bg-[#007a24] text-white font-semibold py-4 px-6 rounded-full transition-colors disabled:opacity-50 shadow-lg shadow-[#008a29]/20">
                     {isSubmitting ? (
                       <span className="flex items-center justify-center gap-2">
                         <Loader2 className="w-5 h-5 animate-spin" />
@@ -338,7 +338,7 @@ export default function ContactPage() {
                       </span>
                     ) : 'Get My Cash Offer'}
                   </button>
-                  {submitStatus === 'success' && (<p className="text-[#00b332] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
+                  {submitStatus === 'success' && (<p className="text-[#008a29] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
                   {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call (570) 904-2059 instead.</p>)}
                 </form>
               </div>
@@ -346,14 +346,14 @@ export default function ContactPage() {
               {/* Right Column - Contact Widgets */}
               <div className="space-y-6">
                 {/* Phone Widget */}
-                <a href="tel:+15709042059" className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#00b332]/30 hover:shadow-lg transition-all group">
+                <a href="tel:+15709042059" className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-[#00b332]" />
+                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-6 h-6 text-[#008a29]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
-                      <p className="text-2xl font-bold text-[#00b332]">(570) 904-2059</p>
+                      <p className="text-2xl font-bold text-[#008a29]">(570) 904-2059</p>
                       <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
                     </div>
                   </div>
@@ -362,8 +362,8 @@ export default function ContactPage() {
                 {/* Quick Response Widget */}
                 <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-[#00b332]" />
+                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-6 h-6 text-[#008a29]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Quick Response</h3>
@@ -375,8 +375,8 @@ export default function ContactPage() {
                 {/* No Obligation Widget */}
                 <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#00b332]" />
+                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-6 h-6 text-[#008a29]" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">No Obligation</h3>
@@ -408,14 +408,14 @@ export default function ContactPage() {
         {/* Final CTA Section - Beige */}
         <section className="py-16 md:py-20 px-4 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">Prefer to Talk on the Phone?</h2>
             <p className="text-xl text-[#1a1f1a]/70 mb-8">
               Skip the form. Call Tyler directly.
             </p>
             <a
               href="tel:+15709042059"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:shadow-xl transition-all text-lg"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full shadow-lg shadow-[#008a29]/20 hover:shadow-xl transition-all text-lg"
             >
               <Phone className="w-6 h-6" />
               <span>Call (570) 904-2059</span>

@@ -38,7 +38,7 @@ export function V0ComparisonMerged() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             The Clear Choice
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-4">
@@ -52,7 +52,7 @@ export function V0ComparisonMerged() {
         {/* Hidden Cost Table */}
         <div className="mb-12">
           <h3 className="font-semibold text-[#1a1f1a] text-lg mb-4 text-center">The Hidden Cost of Waiting</h3>
-          <div className="overflow-x-auto rounded-xl border border-[#00b332] shadow-lg bg-white">
+          <div className="overflow-x-auto rounded-xl border border-[#008a29] shadow-lg bg-white">
             <table className="w-full border-collapse">
               <thead>
                 <tr className="bg-white text-[#1a1f1a] border-b border-[#1a1f1a]/10">
@@ -61,7 +61,7 @@ export function V0ComparisonMerged() {
                     Traditional
                     <span className="block font-normal text-[#1a1f1a]/70 text-sm">(90 Days)</span>
                   </th>
-                  <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white border-l border-[#1a1f1a]/10">
+                  <th className="text-center py-4 px-6 font-semibold bg-[#008a29] text-white border-l border-[#1a1f1a]/10">
                     ClearEdge
                     <span className="block font-normal text-white/90 text-sm">(7–30 Days)</span>
                   </th>
@@ -72,13 +72,13 @@ export function V0ComparisonMerged() {
                   <tr key={index} className="border-b border-[#1a1f1a]/10 bg-white">
                     <td className="py-4 px-6 font-medium text-[#1a1f1a]">{row.expense}</td>
                     <td className="py-4 px-6 text-center text-red-600 font-semibold border-l border-[#1a1f1a]/10">{row.traditional}</td>
-                    <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb] border-l border-[#1a1f1a]/10">{row.clearEdge}</td>
+                    <td className="py-4 px-6 text-center text-[#008a29] font-semibold bg-[#e6f7eb] border-l border-[#1a1f1a]/10">{row.clearEdge}</td>
                   </tr>
                 ))}
                 <tr className="bg-white text-[#1a1f1a]">
                   <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
                   <td className="py-4 px-6 text-center font-bold text-red-600 border-l border-[#1a1f1a]/10">$34,500+</td>
-                  <td className="py-4 px-6 text-center font-bold text-white bg-[#00b332] border-l border-[#1a1f1a]/10">$0</td>
+                  <td className="py-4 px-6 text-center font-bold text-white bg-[#008a29] border-l border-[#1a1f1a]/10">$0</td>
                 </tr>
               </tbody>
             </table>
@@ -89,7 +89,7 @@ export function V0ComparisonMerged() {
         </div>
 
         {/* Feature Comparison Table */}
-        <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 overflow-hidden border border-[#00b332]">
+        <div className="bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/5 overflow-hidden border border-[#008a29]">
           {/* Table Header */}
           <div className="grid grid-cols-3 border-b border-[#1a1f1a]/10">
             <div className="p-4 md:p-6 bg-white">
@@ -98,7 +98,7 @@ export function V0ComparisonMerged() {
             <div className="p-4 md:p-6 bg-white text-center border-l border-[#1a1f1a]/10">
               <p className="font-semibold text-[#1a1f1a]">Traditional Listing</p>
             </div>
-            <div className="p-4 md:p-6 bg-[#00b332] text-center border-l border-[#1a1f1a]/10">
+            <div className="p-4 md:p-6 bg-[#008a29] text-center border-l border-[#1a1f1a]/10">
               <p className="font-semibold text-white">ClearEdge</p>
             </div>
           </div>
@@ -116,8 +116,8 @@ export function V0ComparisonMerged() {
                 <X className="w-4 h-4 text-red-500 flex-shrink-0 hidden sm:block" />
                 <span>{row.traditional}</span>
               </div>
-              <div className="p-4 md:p-5 text-sm text-[#1a1f1a] border-l border-[#1a1f1a]/10 flex items-center gap-2 bg-[#00b332]/5">
-                <Check className="w-4 h-4 text-[#00b332] flex-shrink-0 hidden sm:block" />
+              <div className="p-4 md:p-5 text-sm text-[#1a1f1a] border-l border-[#1a1f1a]/10 flex items-center gap-2 bg-[#008a29]/5">
+                <Check className="w-4 h-4 text-[#008a29] flex-shrink-0 hidden sm:block" />
                 <span className="font-medium">{row.clearEdge}</span>
               </div>
             </div>
@@ -128,7 +128,7 @@ export function V0ComparisonMerged() {
         <div className="text-center mt-10">
           <a
             href="#lead-form"
-            className="inline-flex items-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-colors group"
+            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
           >
             Get Your Cash Offer Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

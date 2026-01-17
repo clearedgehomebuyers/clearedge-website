@@ -62,7 +62,7 @@ export function V0FAQ({
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             Common Questions
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
@@ -80,7 +80,7 @@ export function V0FAQ({
               key={index}
               className={`border rounded-xl overflow-hidden transition-all ${
                 openIndex === index
-                  ? `border-[#00b332]/20 ${cardBgOpen}`
+                  ? `border-[#008a29]/20 ${cardBgOpen}`
                   : `border-[#1a1f1a]/10 ${cardBgClosed}`
               }`}
             >
@@ -92,7 +92,7 @@ export function V0FAQ({
                 <span className="font-medium text-[#1a1f1a] pr-4">{faq.question}</span>
                 <div
                   className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                    openIndex === index ? "bg-[#00b332] text-white" : "bg-[#00b332]/10 text-[#00b332]"
+                    openIndex === index ? "bg-[#008a29] text-white" : "bg-[#008a29]/10 text-[#008a29]"
                   }`}
                 >
                   {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -115,11 +115,11 @@ export function V0FAQ({
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="tel:+15709042059" className="text-[#00b332] font-medium hover:underline">
+            <a href="tel:+15709042059" className="text-[#008a29] font-medium hover:underline">
               (570) 904-2059
             </a>
             <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>
-            <a href="/contact" className="text-[#00b332] font-medium hover:underline">
+            <a href="/contact" className="text-[#008a29] font-medium hover:underline">
               Have More Questions? &rarr;
             </a>
           </div>

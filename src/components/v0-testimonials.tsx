@@ -37,7 +37,7 @@ export function V0Testimonials() {
         {/* Featured Testimonial */}
         <div className="bg-[#FAF8F5] rounded-2xl shadow-lg p-8 lg:p-12 mb-10 border border-[#1a1f1a]/5">
           <div className="max-w-4xl mx-auto">
-            <svg className="w-12 h-12 text-[#00b332] mb-6" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-[#008a29] mb-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/80 leading-relaxed mb-6">
@@ -56,7 +56,7 @@ export function V0Testimonials() {
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-[#FAF8F5] rounded-xl shadow-sm p-6 border border-[#1a1f1a]/5">
-              <svg className="w-8 h-8 text-[#00b332] mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-8 h-8 text-[#008a29] mb-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
               </svg>
               <blockquote className="text-[#1a1f1a]/70 mb-4">
@@ -71,7 +71,7 @@ export function V0Testimonials() {
         <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="/testimonials"
-            className="inline-flex items-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors"
           >
             Read More Success Stories
             <span aria-hidden="true">&rarr;</span>
@@ -80,7 +80,7 @@ export function V0Testimonials() {
             href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8549074,-77.1384488,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm?entry=ttu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#00b332] hover:text-[#009929] font-semibold"
+            className="text-[#008a29] hover:text-[#007a24] font-semibold"
           >
             See Google Reviews &rarr;
           </a>

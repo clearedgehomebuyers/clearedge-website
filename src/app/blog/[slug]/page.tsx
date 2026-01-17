@@ -85,7 +85,7 @@ const portableTextComponents: PortableTextComponents = {
       <p className="mb-4 text-[#1a1f1a]/70 leading-relaxed text-lg">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#00b332] pl-6 my-8 italic text-[#1a1f1a]/70 text-lg">
+      <blockquote className="border-l-4 border-[#008a29] pl-6 my-8 italic text-[#1a1f1a]/70 text-lg">
         {children}
       </blockquote>
     ),
@@ -99,7 +99,7 @@ const portableTextComponents: PortableTextComponents = {
           href={value?.href}
           target={target}
           rel={rel}
-          className="text-[#00b332] hover:underline font-medium"
+          className="text-[#008a29] hover:underline font-medium"
         >
           {children}
         </a>
@@ -217,16 +217,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Breadcrumb */}
               <nav className="flex items-center text-sm text-[#1a1f1a]/70 mb-8">
-                <Link href="/" className="hover:text-[#00b332] transition-colors">Home</Link>
+                <Link href="/" className="hover:text-[#008a29] transition-colors">Home</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
-                <Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link>
+                <Link href="/blog" className="hover:text-[#008a29] transition-colors">Blog</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
                 <span className="text-[#1a1f1a]/70 truncate max-w-[200px]">{post.title}</span>
               </nav>
 
               {/* Category */}
               {post.category && (
-                <span className="inline-block px-3 py-1 bg-[#00b332]/10 text-[#00b332] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                <span className="inline-block px-3 py-1 bg-[#008a29]/10 text-[#008a29] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
                   {formatCategory(post.category)}
                 </span>
               )}
@@ -298,7 +298,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={location._id}
                       href={`/locations/${location.slug.current}`}
-                      className="bg-[#FAF8F5] hover:bg-[#00b332] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-[#FAF8F5] hover:bg-[#008a29] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {location.city}, PA
                     </Link>
@@ -307,7 +307,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={situation._id}
                       href={`/situations/${situation.slug.current}`}
-                      className="bg-[#FAF8F5] hover:bg-[#00b332] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-[#FAF8F5] hover:bg-[#008a29] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {situation.title}
                     </Link>
@@ -337,7 +337,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </p>
               <Link
                 href="/#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
               >
                 Get My Cash Offer
                 <ArrowRight className="w-5 h-5" />
@@ -373,7 +373,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </Link>
               <Link
                 href="/#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
               >
                 Get My Cash Offer
                 <ArrowRight className="w-4 h-4" />

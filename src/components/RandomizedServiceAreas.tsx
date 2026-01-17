@@ -42,7 +42,7 @@ export function RandomizedServiceAreas() {
     <section className="py-16 md:py-20 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Service Areas</span>
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Service Areas</span>
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Areas We Serve</h2>
         </div>
 
@@ -52,10 +52,10 @@ export function RandomizedServiceAreas() {
               <Link
                 key={location.slug}
                 href={`/locations/${location.slug}`}
-                className="relative flex items-center justify-center bg-white rounded-2xl px-5 py-4 hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 hover:border-[#00b332]/30"
+                className="relative flex items-center justify-center bg-white rounded-2xl px-5 py-4 hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5 hover:border-[#008a29]/30"
               >
                 <span className="font-medium text-[#1a1f1a]/70 text-center">{location.name}</span>
-                <ArrowRight className="absolute right-4 w-4 h-4 text-[#00b332]" />
+                <ArrowRight className="absolute right-4 w-4 h-4 text-[#008a29]" />
               </Link>
             ))
           ) : (

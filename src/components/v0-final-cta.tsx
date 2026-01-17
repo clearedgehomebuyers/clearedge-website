@@ -14,7 +14,7 @@ export function V0FinalCta() {
         </p>
         <a
           href="#lead-form"
-          className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+          className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
         >
           Get Your Free Offer
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

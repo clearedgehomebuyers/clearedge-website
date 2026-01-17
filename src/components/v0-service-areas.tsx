@@ -52,7 +52,7 @@ export function V0ServiceAreas() {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           {Object.entries(locationsByRegion).map(([region, cities]) => (
             <div key={region} className="bg-white rounded-xl p-6 border border-[#1a1f1a]/5">
-              <h3 className="text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#00b332] pb-2">
+              <h3 className="text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#008a29] pb-2">
                 {region}
               </h3>
               <ul className="space-y-2">
@@ -60,7 +60,7 @@ export function V0ServiceAreas() {
                   <li key={city.href}>
                     <Link
                       href={city.href}
-                      className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                      className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                     >
                       {city.name}
                     </Link>
@@ -74,7 +74,7 @@ export function V0ServiceAreas() {
         <p className="text-center mt-10">
           <button
             onClick={scrollToForm}
-            className="text-[#00b332] hover:text-[#009929] font-semibold"
+            className="text-[#008a29] hover:text-[#007a24] font-semibold"
           >
             Don&apos;t see your city? Request an offer anyway &rarr;
           </button>

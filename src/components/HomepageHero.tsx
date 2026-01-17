@@ -42,8 +42,8 @@ export function HomepageHero() {
           {/* Left content - main messaging */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Trust badge pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e6f7eb] text-[#00b332] rounded-full text-sm font-semibold mb-6">
-              <span className="w-2 h-2 bg-[#00b332] rounded-full animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e6f7eb] text-[#008a29] rounded-full text-sm font-semibold mb-6">
+              <span className="w-2 h-2 bg-[#008a29] rounded-full animate-pulse" />
               Trusted Since 2016 &bull; 200+ Homes Purchased
             </div>
 
@@ -61,7 +61,7 @@ export function HomepageHero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
               <button
                 onClick={scrollToForm}
-                className="px-8 py-4 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-lg rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332] focus-visible:ring-offset-2"
+                className="px-8 py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold text-lg rounded-full shadow-lg shadow-[#008a29]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#008a29] focus-visible:ring-offset-2"
               >
                 Get My Cash Offer
               </button>
@@ -78,7 +78,7 @@ export function HomepageHero() {
             <div className="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 lg:max-w-xl">
               {trustFeatures.map((feature) => (
                 <div key={feature.label} className="flex items-center gap-2.5 text-[#1a1f1a]/70">
-                  <feature.icon className="w-5 h-5 text-[#00b332]" />
+                  <feature.icon className="w-5 h-5 text-[#008a29]" />
                   <span className="text-base font-medium">{feature.label}</span>
                 </div>
               ))}
@@ -108,7 +108,7 @@ export function HomepageHero() {
               {/* Card content - BIGGER */}
               <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="px-3 py-1 bg-[#00b332] text-white text-sm font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-[#008a29] text-white text-sm font-semibold rounded-full">
                     Just Closed
                   </span>
                 </div>
@@ -118,7 +118,7 @@ export function HomepageHero() {
             </div>
 
             {/* Decorative accent behind card */}
-            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#00b332]/10 rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full bg-[#008a29]/10 rounded-2xl -z-10" />
           </div>
         </div>
 
@@ -136,7 +136,7 @@ export function HomepageHero() {
             </div>
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
               <div className="flex items-center gap-2 mb-1">
-                <span className="px-2 py-0.5 bg-[#00b332] text-white text-xs font-semibold rounded-full">
+                <span className="px-2 py-0.5 bg-[#008a29] text-white text-xs font-semibold rounded-full">
                   Just Closed
                 </span>
               </div>

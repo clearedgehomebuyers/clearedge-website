@@ -64,13 +64,13 @@ export function V0Situations() {
             <Link
               key={situation.slug}
               href={`/situations/${situation.slug}`}
-              className="relative bg-white border border-[#1a1f1a]/10 hover:border-[#00b332] rounded-xl p-6 pb-10 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
+              className="relative bg-white border border-[#1a1f1a]/10 hover:border-[#008a29] rounded-xl p-6 pb-10 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group"
             >
-              <h3 className="font-semibold text-[#1a1f1a] mb-2 group-hover:text-[#00b332] transition-colors">
+              <h3 className="font-semibold text-[#1a1f1a] mb-2 group-hover:text-[#008a29] transition-colors">
                 {situation.title}
               </h3>
               <p className="text-sm text-[#1a1f1a]/70">{situation.description}</p>
-              <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
             </Link>
           ))}
         </div>

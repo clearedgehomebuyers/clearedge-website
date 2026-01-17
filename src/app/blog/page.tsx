@@ -151,7 +151,7 @@ export default async function BlogPage() {
           />
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
             <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-6">
               Pennsylvania Real Estate Guides to Sell Your House Fast
             </h1>
@@ -164,7 +164,7 @@ export default async function BlogPage() {
         {/* What You'll Find Section - White */}
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Approach
             </span>
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-6">
@@ -189,7 +189,7 @@ export default async function BlogPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Topics
               </span>
               <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
@@ -203,8 +203,8 @@ export default async function BlogPage() {
                   className="bg-white border border-[#1a1f1a]/5 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center"
                 >
                   <div className="flex flex-col items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center">
-                      <category.icon className="w-5 h-5 text-[#00b332]" />
+                    <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center">
+                      <category.icon className="w-5 h-5 text-[#008a29]" />
                     </div>
                     <h3 className="text-lg font-serif font-medium text-[#1a1f1a]">
                       {category.title}
@@ -215,7 +215,7 @@ export default async function BlogPage() {
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="hover:text-[#00b332] transition-colors"
+                          className="hover:text-[#008a29] transition-colors"
                         >
                           {link.label}
                         </Link>
@@ -232,7 +232,7 @@ export default async function BlogPage() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Recent Articles
               </span>
               <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
@@ -272,7 +272,7 @@ export default async function BlogPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
             >
               Ask a Question
               <ArrowRight className="w-4 h-4" />

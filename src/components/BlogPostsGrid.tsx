@@ -70,11 +70,11 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
             )}
             <div className="p-6">
               {post.category && (
-                <span className="text-sm text-[#00b332] font-medium">
+                <span className="text-sm text-[#008a29] font-medium">
                   {formatCategory(post.category)}
                 </span>
               )}
-              <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#00b332] transition-colors">
+              <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#008a29] transition-colors">
                 {post.title}
               </h3>
               {post.excerpt && (
@@ -93,7 +93,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
                     day: 'numeric',
                   })}
                 </time>
-                <ArrowRight className="w-4 h-4 text-[#00b332] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-[#008a29] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
               </div>
             </div>
           </Link>

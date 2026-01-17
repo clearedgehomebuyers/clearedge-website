@@ -56,7 +56,7 @@ export function V0AboutSection() {
                   />
                 </div>
                 {/* Subtle accent behind */}
-                <div className="absolute -bottom-3 -right-3 w-full h-full bg-[#00b332]/10 rounded-2xl -z-10" />
+                <div className="absolute -bottom-3 -right-3 w-full h-full bg-[#008a29]/10 rounded-2xl -z-10" />
               </div>
             </div>
           </div>
@@ -64,12 +64,12 @@ export function V0AboutSection() {
           {/* Content Side */}
           <div className="space-y-8">
             <div>
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 About ClearEdge
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
                 Real People. Local Roots.
-                <span className="text-[#00b332] block">Honest Offers.</span>
+                <span className="text-[#008a29] block">Honest Offers.</span>
               </h2>
               <div className="space-y-4 text-[#1a1f1a]/70 text-lg leading-relaxed">
                 <p>
@@ -87,8 +87,8 @@ export function V0AboutSection() {
             <div className="space-y-5 pt-2">
               {values.map((value, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-[#00b332]/10">
-                    <value.icon className="w-5 h-5 text-[#00b332]" />
+                  <div className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center bg-[#008a29]/10">
+                    <value.icon className="w-5 h-5 text-[#008a29]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#1a1f1a] mb-1">{value.title}</h3>
@@ -102,9 +102,9 @@ export function V0AboutSection() {
             <div className="pt-4">
               <a
                 href="tel:+15709042059"
-                className="inline-flex items-center gap-3 text-[#00b332] font-medium hover:gap-4 transition-all"
+                className="inline-flex items-center gap-3 text-[#008a29] font-medium hover:gap-4 transition-all"
               >
-                <div className="w-10 h-10 rounded-full bg-[#00b332]/10 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#008a29]/10 flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
                 Call Tyler directly: (570) 904-2059

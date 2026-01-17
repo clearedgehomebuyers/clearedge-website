@@ -159,7 +159,7 @@ export default function HowItWorksPage() {
             }}
           />
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Process
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
@@ -170,7 +170,7 @@ export default function HowItWorksPage() {
             </p>
             <a
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
             >
               Get My Cash Offer
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -215,7 +215,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Simple Process
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -224,31 +224,31 @@ export default function HowItWorksPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold text-xl">1</span>
+                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold text-xl">1</span>
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Discovery Call</h3>
-                <p className="text-[#00b332] font-medium text-sm mb-3">A 10-Minute Conversation</p>
+                <p className="text-[#008a29] font-medium text-sm mb-3">A 10-Minute Conversation</p>
                 <p className="text-[#1a1f1a]/70">
                   Tell us about your property and situation. We&apos;ll ask about the condition, timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold text-xl">2</span>
+                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold text-xl">2</span>
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Get Your Cash Offer</h3>
-                <p className="text-[#00b332] font-medium text-sm mb-3">Within 24 Hours</p>
+                <p className="text-[#008a29] font-medium text-sm mb-3">Within 24 Hours</p>
                 <p className="text-[#1a1f1a]/70">
                   We&apos;ll evaluate your property and present a written cash offer. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold text-xl">3</span>
+                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold text-xl">3</span>
                 </div>
                 <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Close On Your Terms</h3>
-                <p className="text-[#00b332] font-medium text-sm mb-3">You Pick the Date</p>
+                <p className="text-[#008a29] font-medium text-sm mb-3">You Pick the Date</p>
                 <p className="text-[#1a1f1a]/70">
                   Accept the offer and choose your closing date — as fast as 7 days or as far out as 60+ days. We handle the title work, paperwork, and coordination. You show up, sign, and get paid.
                 </p>
@@ -257,7 +257,7 @@ export default function HowItWorksPage() {
             <div className="text-center">
               <a
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
               >
                 Ready to Start? Get Your Offer
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -270,7 +270,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <div className="mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Transparent Pricing
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -292,7 +292,7 @@ export default function HowItWorksPage() {
             <p className="text-[#1a1f1a]/70 mb-8">
               What&apos;s left is what we can offer you.
             </p>
-            <div className="bg-[#FAF8F5] border-l-4 border-[#00b332] p-6 rounded-r-2xl mb-8 text-left">
+            <div className="bg-[#FAF8F5] border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-8 text-left">
               <p className="text-[#1a1f1a]/70">
                 <span className="font-semibold text-[#1a1f1a]">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
               </p>
@@ -307,7 +307,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 We Handle It
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -357,7 +357,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Is This Right For You?
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
@@ -368,43 +368,43 @@ export default function HowItWorksPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-              <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Facing Foreclosure</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Facing Foreclosure</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/inherited-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Inherited Property</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/inherited-property" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Inherited Property</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/divorce" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Going Through Divorce</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/divorce" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Going Through Divorce</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/job-relocation" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Job Relocation</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/job-relocation" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Job Relocation</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/major-repairs" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Major Repairs Needed</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/major-repairs" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Major Repairs Needed</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/tax-liens-code-violations" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Tax Liens or Code Violations</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/tax-liens-code-violations" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Tax Liens or Code Violations</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/tired-landlord" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Tired Landlord</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/tired-landlord" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Tired Landlord</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link href="/situations/vacant-property" className="relative bg-[#FAF8F5] hover:bg-[#00b332]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#00b332] transition-colors">Vacant Property</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#00b332] transition-transform group-hover:translate-x-1" />
+              <Link href="/situations/vacant-property" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
+                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Vacant Property</p>
+                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
             <div className="text-center">
               <a
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
               >
                 Not sure if you qualify? Reach out anyway
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -417,7 +417,7 @@ export default function HowItWorksPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Testimonial
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -425,7 +425,7 @@ export default function HowItWorksPage() {
               </h2>
             </div>
             <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
-              <div className="text-[#00b332] text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
               </blockquote>
@@ -434,7 +434,7 @@ export default function HowItWorksPage() {
               </p>
             </div>
             <div className="text-center mt-8">
-              <Link href="/testimonials" className="text-[#00b332] hover:text-[#009929] font-medium transition-colors">
+              <Link href="/testimonials" className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
                 Read more reviews &rarr;
               </Link>
             </div>

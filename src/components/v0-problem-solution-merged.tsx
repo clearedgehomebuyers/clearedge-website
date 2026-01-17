@@ -43,7 +43,7 @@ export function V0ProblemSolutionMerged() {
 
         {/* Problem/Solution Comparison */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             A Better Way to Sell
           </span>
           <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#1a1f1a] mb-4">
@@ -75,19 +75,19 @@ export function V0ProblemSolutionMerged() {
           </div>
 
           {/* Solution Card */}
-          <div className="bg-[#00b332]/5 rounded-2xl p-8 border border-[#00b332]/20 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#00b332]/10 rounded-full blur-3xl" />
+          <div className="bg-[#008a29]/5 rounded-2xl p-8 border border-[#008a29]/20 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#008a29]/10 rounded-full blur-3xl" />
             <div className="relative">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-[#00b332]/20 flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 text-[#00b332]" />
+                <div className="w-10 h-10 rounded-full bg-[#008a29]/20 flex items-center justify-center">
+                  <CheckCircle className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <h4 className="text-xl font-semibold text-[#1a1f1a]">The ClearEdge Way</h4>
               </div>
               <ul className="space-y-4">
                 {solutions.map((solution, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-[#00b332] flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-[#008a29] flex-shrink-0 mt-0.5" />
                     <span className="text-[#1a1f1a]">{solution}</span>
                   </li>
                 ))}
@@ -100,7 +100,7 @@ export function V0ProblemSolutionMerged() {
         <div className="text-center mt-10">
           <a
             href="#lead-form"
-            className="inline-flex items-center gap-2 text-[#00b332] font-medium hover:gap-3 transition-all"
+            className="inline-flex items-center gap-2 text-[#008a29] font-medium hover:gap-3 transition-all"
           >
             See if your property qualifies
             <ArrowRight className="w-4 h-4" />

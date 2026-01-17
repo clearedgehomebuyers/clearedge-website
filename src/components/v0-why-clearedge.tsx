@@ -38,7 +38,7 @@ export function V0WhyClearEdge() {
               className="bg-white rounded-xl p-8 shadow-sm border border-[#1a1f1a]/5 hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 bg-[#e6f7eb] rounded-full flex items-center justify-center mb-4">
-                <span className="text-[#00b332] font-bold text-xl">{reason.number}</span>
+                <span className="text-[#008a29] font-bold text-xl">{reason.number}</span>
               </div>
               <h3 className="text-xl font-bold text-[#1a1f1a] mb-3">{reason.title}</h3>
               <p className="text-[#1a1f1a]/70">
@@ -46,7 +46,7 @@ export function V0WhyClearEdge() {
                 {reason.number === "4" && (
                   <>
                     {" "}Call him now:{" "}
-                    <a href="tel:+15709042059" className="text-[#00b332] hover:text-[#009929] font-semibold">
+                    <a href="tel:+15709042059" className="text-[#008a29] hover:text-[#007a24] font-semibold">
                       (570) 904-2059
                     </a>
                   </>

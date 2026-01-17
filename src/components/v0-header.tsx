@@ -139,35 +139,35 @@ export function V0Header() {
               <Link
                 href="/how-it-works"
                 onClick={(e) => handleNavClick(e, "/how-it-works")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors whitespace-nowrap"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors whitespace-nowrap"
               >
                 How It Works
               </Link>
               <Link
                 href="/about"
                 onClick={(e) => handleNavClick(e, "/about")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
               >
                 About
               </Link>
               <Link
                 href="/testimonials"
                 onClick={(e) => handleNavClick(e, "/testimonials")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden md:block"
               >
                 Testimonials
               </Link>
               <Link
                 href="/blog"
                 onClick={(e) => handleNavClick(e, "/blog")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors hidden md:block"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden md:block"
               >
                 Blog
               </Link>
               <Link
                 href="/contact"
                 onClick={(e) => handleNavClick(e, "/contact")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
               >
                 Contact
               </Link>
@@ -176,7 +176,7 @@ export function V0Header() {
               <div className="relative" ref={locationsRef}>
                 <button
                   onClick={toggleLocations}
-                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                 >
                   <span>Locations</span>
                   <ChevronDown className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${locationsOpen ? 'rotate-180' : ''}`} />
@@ -190,7 +190,7 @@ export function V0Header() {
                             key={link.href}
                             href={link.href}
                             onClick={(e) => { handleNavClick(e, link.href); setLocationsOpen(false) }}
-                            className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                            className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
                           >
                             {link.label}
                           </Link>
@@ -205,7 +205,7 @@ export function V0Header() {
               <div className="relative" ref={situationsRef}>
                 <button
                   onClick={toggleSituations}
-                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                 >
                   <span>Situations</span>
                   <ChevronDown className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${situationsOpen ? 'rotate-180' : ''}`} />
@@ -219,7 +219,7 @@ export function V0Header() {
                             key={link.href}
                             href={link.href}
                             onClick={(e) => { handleNavClick(e, link.href); setSituationsOpen(false) }}
-                            className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#00b332]/10 hover:text-[#00b332] transition-colors"
+                            className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
                           >
                             {link.label}
                           </Link>
@@ -237,16 +237,16 @@ export function V0Header() {
             {/* Phone - icon only on tablet, icon + text on desktop */}
             <a
               href="tel:+15709042059"
-              className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#00b332] transition-colors"
+              className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#008a29] transition-colors"
             >
-              <div className="w-9 h-9 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                <Phone className="w-4 h-4 text-[#00b332]" />
+              <div className="w-9 h-9 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone className="w-4 h-4 text-[#008a29]" />
               </div>
               <span className="font-bold text-sm hidden lg:inline">(570) 904-2059</span>
             </a>
             <button
               onClick={scrollToForm}
-              className="px-3 lg:px-5 py-2 lg:py-2.5 bg-[#00b332] hover:bg-[#009929] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
+              className="px-3 lg:px-5 py-2 lg:py-2.5 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get My Offer
             </button>
@@ -269,35 +269,35 @@ export function V0Header() {
           <nav className="flex flex-col px-4 py-4 gap-2">
             <Link
               href="/how-it-works"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/how-it-works")}
             >
               How It Works
             </Link>
             <Link
               href="/about"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/about")}
             >
               About
             </Link>
             <Link
               href="/testimonials"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/testimonials")}
             >
               Testimonials
             </Link>
             <Link
               href="/blog"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/blog")}
             >
               Blog
             </Link>
             <Link
               href="/contact"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#00b332] py-3 px-2"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/contact")}
             >
               Contact
@@ -316,7 +316,7 @@ export function V0Header() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
+                      className="block py-2 px-2 text-sm text-slate-600 hover:text-[#008a29]"
                     >
                       {link.label}
                     </Link>
@@ -341,7 +341,7 @@ export function V0Header() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="block py-2 px-2 text-sm text-slate-600 hover:text-[#00b332]"
+                    className="block py-2 px-2 text-sm text-slate-600 hover:text-[#008a29]"
                   >
                     {link.label}
                   </Link>
@@ -352,7 +352,7 @@ export function V0Header() {
             {/* Mobile Phone */}
             <a
               href="tel:+15709042059"
-              className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-[#00b332]/10 text-[#00b332] font-bold"
+              className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-[#008a29]/10 text-[#008a29] font-bold"
             >
               <Phone className="w-5 h-5" />
               <span>(570) 904-2059</span>
@@ -361,7 +361,7 @@ export function V0Header() {
             {/* Mobile CTA */}
             <button
               onClick={scrollToForm}
-              className="w-full py-3 mt-2 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full"
+              className="w-full py-3 mt-2 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full"
             >
               Get My Offer
             </button>

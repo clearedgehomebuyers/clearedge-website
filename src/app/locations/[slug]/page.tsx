@@ -51,7 +51,7 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={value?.href}
-          className="text-[#00b332] hover:underline font-medium"
+          className="text-[#008a29] hover:underline font-medium"
         >
           {children}
         </a>
@@ -145,7 +145,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1f1a] mb-5 leading-[1.1]">
                 {location.heroHeadline || `Sell Your House Fast in`}
                 <br />
-                <span className="text-[#00b332]">{location.city}, {location.state}</span>
+                <span className="text-[#008a29]">{location.city}, {location.state}</span>
               </h1>
 
               {/* Subheadline */}
@@ -157,7 +157,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
                   href="#lead-form"
-                  className="inline-flex items-center justify-center bg-[#00b332] text-white hover:bg-[#009929] text-base px-8 py-4 rounded-full shadow-lg shadow-[#00b332]/25 transition-all hover:shadow-xl hover:shadow-[#00b332]/30 hover:-translate-y-0.5 group font-medium"
+                  className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
                 >
                   Get Your Free Cash Offer
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -186,7 +186,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                    <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
+                    <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
                       Just Closed
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
@@ -198,19 +198,19 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               {/* Trust Indicators - 2x2 GRID */}
               <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
                 <div className="flex items-center justify-center gap-3">
-                  <Clock className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <Clock className="w-6 h-6 text-[#008a29] flex-shrink-0" />
                   <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <DollarSign className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <DollarSign className="w-6 h-6 text-[#008a29] flex-shrink-0" />
                   <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Shield className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <Shield className="w-6 h-6 text-[#008a29] flex-shrink-0" />
                   <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Obligation</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin className="w-6 h-6 text-[#00b332] flex-shrink-0" />
+                  <MapPin className="w-6 h-6 text-[#008a29] flex-shrink-0" />
                   <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Local PA Company</span>
                 </div>
               </div>
@@ -252,7 +252,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
             </div>
 
@@ -267,7 +267,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <section className="py-16 md:py-20 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">We Help {location.city}{location.county ? ` & ${location.county}` : ''} Homeowners</h2>
             <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
           </div>
@@ -286,14 +286,14 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <Link
                 key={i}
                 href={`/situations/${item.slug}`}
-                className="relative bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#00b332]/30 transition-all duration-300 group"
+                className="relative bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#008a29]/30 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 bg-[#00b332]/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-[#00b332]" />
+                <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-[#008a29]" />
                 </div>
                 <h3 className="font-serif font-medium text-[#1a1f1a] mb-2">{item.title}</h3>
                 <p className="text-[#1a1f1a]/70 text-sm">{item.desc}</p>
-                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#00b332]" />
+                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#008a29]" />
               </Link>
             ))}
           </div>
@@ -305,7 +305,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Neighborhoods</span>
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Neighborhoods</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">{location.city} Areas We Serve</h2>
             </div>
 
@@ -322,7 +322,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   {mainCards.length > 0 && (
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {mainCards.map((neighborhood: string) => (
-                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5">
+                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5">
                           <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
                         </div>
                       ))}
@@ -333,7 +333,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   {lastRowCards.length > 0 && (
                     <div className={`flex flex-wrap justify-center gap-4 ${mainCards.length > 0 ? 'mt-4' : ''}`}>
                       {lastRowCards.map((neighborhood: string) => (
-                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#00b332]/5 transition-colors border border-[#1a1f1a]/5 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
+                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
                           <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
                         </div>
                       ))}
@@ -352,7 +352,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <section className="py-16 md:py-20 bg-[#FAF8F5]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling to ClearEdge vs. Listing in {location.city}</h2>
           </div>
 
@@ -362,7 +362,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <thead>
                 <tr>
                   <th className="text-left py-5 px-6 bg-[#FAF8F5] font-medium text-[#1a1f1a]/70"></th>
-                  <th className="text-center py-5 px-6 bg-[#00b332] text-white">
+                  <th className="text-center py-5 px-6 bg-[#008a29] text-white">
                     <div className="flex flex-col items-center">
                       <CheckCircle className="w-6 h-6 mb-1" />
                       <span className="font-semibold">ClearEdge</span>
@@ -379,37 +379,37 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <tbody>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Time to Close</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">7-14 Days</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">7-14 Days</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">60-90 Days</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">90+ Days</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Repairs Needed</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">None</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Fees & Commissions</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">$0</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">$0</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">5-6%</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">2-3%</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Closing Costs</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">We Pay</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">We Pay</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Showings Required</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">Zero</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Zero</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-[#00b332]/5 font-semibold text-[#00b332]">100% Guaranteed</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">100% Guaranteed</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
                   <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
                 </tr>
@@ -419,7 +419,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
 
           <div className="text-center mt-12">
-            <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all shadow-lg shadow-[#00b332]/20">
+            <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20">
               Get Your {location.city} Cash Offer
               <ArrowRight className="w-4 h-4" />
             </ScrollToFormButton>
@@ -437,7 +437,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Related Articles for {location.city} Homeowners</h2>
             </div>
 
@@ -449,15 +449,15 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00b332]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-[#00b332]" />
+                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-[#008a29]" />
                     </div>
                     <div>
                       <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-2">{post.title}</h3>
                       {post.excerpt && (
                         <p className="text-[#1a1f1a]/70 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
-                      <span className="inline-flex items-center text-[#00b332] font-medium text-sm mt-3">
+                      <span className="inline-flex items-center text-[#008a29] font-medium text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />
                       </span>
                     </div>
@@ -472,7 +472,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 href="/blog"
                 className="inline-flex items-center px-6 py-3 bg-white hover:bg-[#1a1f1a]/5 text-[#1a1f1a]/70 font-medium rounded-full border border-[#1a1f1a]/10 transition-colors"
               >
-                <BookOpen className="w-5 h-5 mr-2 text-[#00b332]" />
+                <BookOpen className="w-5 h-5 mr-2 text-[#008a29]" />
                 More Helpful Guides
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>

@@ -39,7 +39,7 @@ export function V0ComparisonTable() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             The Clear Choice
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-foreground mb-6 text-balance">
@@ -51,15 +51,15 @@ export function V0ComparisonTable() {
         </div>
 
         {/* Comparison Table */}
-        <div className="bg-white rounded-2xl shadow-xl shadow-foreground/5 overflow-hidden border border-[#00b332]/10">
+        <div className="bg-white rounded-2xl shadow-xl shadow-foreground/5 overflow-hidden border border-[#008a29]/10">
           {/* Table Header */}
           <div className="grid grid-cols-3">
             <div className="p-4 md:p-6 bg-[#FAF8F5]" />
-            <div className="p-4 md:p-6 bg-[#FAF8F5] text-center border-l border-[#00b332]/10">
+            <div className="p-4 md:p-6 bg-[#FAF8F5] text-center border-l border-[#008a29]/10">
               <p className="font-semibold text-foreground">Traditional Listing</p>
               <p className="text-xs text-muted-foreground mt-1">With a Real Estate Agent</p>
             </div>
-            <div className="p-4 md:p-6 bg-[#00b332] text-center">
+            <div className="p-4 md:p-6 bg-[#008a29] text-center">
               <p className="font-semibold text-white">ClearEdge</p>
               <p className="text-xs text-white/80 mt-1">Direct Cash Offer</p>
             </div>
@@ -69,17 +69,17 @@ export function V0ComparisonTable() {
           {comparisonData.map((row, index) => (
             <div
               key={index}
-              className={`grid grid-cols-3 ${index !== comparisonData.length - 1 ? "border-b border-[#00b332]/10" : ""}`}
+              className={`grid grid-cols-3 ${index !== comparisonData.length - 1 ? "border-b border-[#008a29]/10" : ""}`}
             >
               <div className="p-4 md:p-5 text-sm md:text-base font-medium text-foreground flex items-center bg-white">
                 {row.feature}
               </div>
-              <div className="p-4 md:p-5 text-sm text-muted-foreground border-l border-[#00b332]/10 flex items-center gap-2 bg-white">
+              <div className="p-4 md:p-5 text-sm text-muted-foreground border-l border-[#008a29]/10 flex items-center gap-2 bg-white">
                 <X className="w-4 h-4 text-red-500 flex-shrink-0 hidden sm:block" />
                 <span>{row.traditional}</span>
               </div>
-              <div className="p-4 md:p-5 text-sm text-foreground border-l border-[#00b332]/10 flex items-center gap-2 bg-[#00b332]/5">
-                <Check className="w-4 h-4 text-[#00b332] flex-shrink-0 hidden sm:block" />
+              <div className="p-4 md:p-5 text-sm text-foreground border-l border-[#008a29]/10 flex items-center gap-2 bg-[#008a29]/5">
+                <Check className="w-4 h-4 text-[#008a29] flex-shrink-0 hidden sm:block" />
                 <span className="font-medium">{row.clearEdge}</span>
               </div>
             </div>
@@ -90,7 +90,7 @@ export function V0ComparisonTable() {
         <div className="text-center mt-10">
           <a
             href="#lead-form"
-            className="inline-flex items-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-colors group"
+            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
           >
             Get Your Cash Offer Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

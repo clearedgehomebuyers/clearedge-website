@@ -273,7 +273,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
     return (
       <section id="lead-form" className="py-20 md:py-28 bg-[#FAF8F5]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <div className="w-20 h-20 rounded-full bg-[#00b332] flex items-center justify-center mx-auto mb-6">
+          <div className="w-20 h-20 rounded-full bg-[#008a29] flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">You&apos;re All Set!</h2>
@@ -281,9 +281,9 @@ Occupancy: ${formData.occupancy || 'Not specified'}
             Tyler will personally review your property and reach out within 24 hours with your no-obligation cash offer.
             Keep an eye on your phone and email.
           </p>
-          <div className="bg-white rounded-xl p-6 max-w-md mx-auto border border-[#00b332]/10 shadow-sm">
+          <div className="bg-white rounded-xl p-6 max-w-md mx-auto border border-[#008a29]/10 shadow-sm">
             <p className="text-[#1a1f1a]/70 text-sm mb-2">Need to talk sooner?</p>
-            <a href="tel:+15709042059" className="text-[#00b332] text-lg font-medium hover:underline">
+            <a href="tel:+15709042059" className="text-[#008a29] text-lg font-medium hover:underline">
               (570) 904-2059
             </a>
           </div>
@@ -297,7 +297,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
-          <span className="inline-flex items-center gap-2 text-[#00b332] text-sm font-medium mb-4 px-4 py-2 bg-white rounded-full border border-[#00b332]/10 shadow-sm">
+          <span className="inline-flex items-center gap-2 text-[#008a29] text-sm font-medium mb-4 px-4 py-2 bg-white rounded-full border border-[#008a29]/10 shadow-sm">
             <Shield className="w-4 h-4" />
             100% Free & No Obligation
           </span>
@@ -314,7 +314,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
           {/* Progress Line */}
           <div className="absolute top-5 left-0 right-0 h-0.5 bg-[#1a1f1a]/10">
             <div
-              className="h-full bg-[#00b332] transition-all duration-500 ease-out"
+              className="h-full bg-[#008a29] transition-all duration-500 ease-out"
               style={{ width: `${((currentStep - 1) / 4) * 100}%` }}
             />
           </div>
@@ -324,7 +324,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
               <div
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                   currentStep >= step.id
-                    ? "bg-[#00b332] text-white shadow-lg shadow-[#00b332]/20"
+                    ? "bg-[#008a29] text-white shadow-lg shadow-[#008a29]/20"
                     : "bg-white text-[#1a1f1a]/40 border border-[#1a1f1a]/10"
                 }`}
               >
@@ -365,7 +365,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       value={formData.address}
                       onChange={(e) => updateFormData("address", e.target.value)}
                       autoComplete="street-address"
-                      className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                      className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                     />
                   </div>
 
@@ -382,7 +382,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                         value={formData.city}
                         onChange={(e) => updateFormData("city", e.target.value)}
                         autoComplete="address-level2"
-                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                       />
                     </div>
 
@@ -395,7 +395,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                         value={formData.state}
                         onChange={(e) => updateFormData("state", e.target.value)}
                         autoComplete="address-level1"
-                        className="w-full h-12 px-3 border border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50 text-[#1a1f1a]"
+                        className="w-full h-12 px-3 border border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50 text-[#1a1f1a]"
                       >
                         {US_STATES.map((state) => (
                           <option key={state.value} value={state.value}>
@@ -418,7 +418,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                         autoComplete="postal-code"
                         inputMode="numeric"
                         maxLength={5}
-                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                       />
                     </div>
                   </div>
@@ -441,8 +441,8 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       onClick={() => updateFormData("situation", situation)}
                       className={`p-4 rounded-xl border text-left transition-all ${
                         formData.situation === situation
-                          ? "border-[#00b332] bg-[#00b332]/5 text-[#1a1f1a] ring-2 ring-[#00b332]/20"
-                          : "border-[#1a1f1a]/10 hover:border-[#00b332]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
+                          ? "border-[#008a29] bg-[#008a29]/5 text-[#1a1f1a] ring-2 ring-[#008a29]/20"
+                          : "border-[#1a1f1a]/10 hover:border-[#008a29]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
                       }`}
                     >
                       {situation}
@@ -467,8 +467,8 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       onClick={() => updateFormData("timeline", timeline)}
                       className={`w-full p-4 rounded-xl border text-left transition-all ${
                         formData.timeline === timeline
-                          ? "border-[#00b332] bg-[#00b332]/5 text-[#1a1f1a] ring-2 ring-[#00b332]/20"
-                          : "border-[#1a1f1a]/10 hover:border-[#00b332]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
+                          ? "border-[#008a29] bg-[#008a29]/5 text-[#1a1f1a] ring-2 ring-[#008a29]/20"
+                          : "border-[#1a1f1a]/10 hover:border-[#008a29]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
                       }`}
                     >
                       {timeline}
@@ -493,8 +493,8 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       onClick={() => updateFormData("occupancy", occupancy)}
                       className={`w-full p-4 rounded-xl border text-left transition-all ${
                         formData.occupancy === occupancy
-                          ? "border-[#00b332] bg-[#00b332]/5 text-[#1a1f1a] ring-2 ring-[#00b332]/20"
-                          : "border-[#1a1f1a]/10 hover:border-[#00b332]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
+                          ? "border-[#008a29] bg-[#008a29]/5 text-[#1a1f1a] ring-2 ring-[#008a29]/20"
+                          : "border-[#1a1f1a]/10 hover:border-[#008a29]/30 text-[#1a1f1a]/70 hover:text-[#1a1f1a] bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
                       }`}
                     >
                       {occupancy}
@@ -525,7 +525,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       value={formData.firstName}
                       onChange={(e) => updateFormData("firstName", e.target.value)}
                       autoComplete="given-name"
-                      className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                      className="h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                     />
                   </div>
                   <div>
@@ -539,7 +539,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       value={formData.lastName}
                       onChange={(e) => updateFormData("lastName", e.target.value)}
                       autoComplete="family-name"
-                      className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                      className="h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                     />
                   </div>
                 </div>
@@ -554,7 +554,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                     value={formData.phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
                     autoComplete="tel"
-                    className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                    className="h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                   />
                 </div>
                 <div>
@@ -568,7 +568,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                     value={formData.email}
                     onChange={(e) => updateFormData("email", e.target.value)}
                     autoComplete="email"
-                    className="h-12 border-[#1a1f1a]/10 focus:border-[#00b332] focus:ring-[#00b332]/20 rounded-xl bg-[#FAF8F5]/50"
+                    className="h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
                   />
                 </div>
               </div>
@@ -595,7 +595,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                   type="button"
                   onClick={handleNext}
                   disabled={!isStepValid(currentStep)}
-                  className="bg-[#00b332] text-white hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none"
+                  className="bg-[#008a29] text-white hover:bg-[#007a24] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#008a29]/20 disabled:shadow-none"
                 >
                   Continue
                   <ArrowRight className="w-4 h-4" />
@@ -604,7 +604,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                 <Button
                   type="submit"
                   disabled={isSubmitting || !isStepValid(5)}
-                  className="bg-[#00b332] text-white hover:bg-[#009929] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#00b332]/20 disabled:shadow-none"
+                  className="bg-[#008a29] text-white hover:bg-[#007a24] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#008a29]/20 disabled:shadow-none"
                 >
                   {isSubmitting ? "Submitting..." : "Get My Cash Offer"}
                   {!isSubmitting && <ArrowRight className="w-4 h-4" />}
@@ -616,15 +616,15 @@ Occupancy: ${formData.occupancy || 'Not specified'}
 
         <div className="flex flex-wrap justify-center gap-6 mt-10 text-[#1a1f1a]/70 text-sm">
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-[#00b332]" />
+            <Shield className="w-4 h-4 text-[#008a29]" />
             <span>Your info is 100% secure</span>
           </div>
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-[#00b332]" />
+            <Clock className="w-4 h-4 text-[#008a29]" />
             <span>Response within 24 hours</span>
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-[#00b332]" />
+            <Check className="w-4 h-4 text-[#008a29]" />
             <span>No obligation to accept</span>
           </div>
         </div>

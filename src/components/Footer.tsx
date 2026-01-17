@@ -78,13 +78,13 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-lg text-white">Quick Links</h3>
             <ul className="space-y-3 text-white/60">
-              <li><Link href="/how-it-works" className="hover:text-[#00b332] transition-colors">How It Works</Link></li>
-              <li><Link href="/about" className="hover:text-[#00b332] transition-colors">About Us</Link></li>
-              <li><Link href="/testimonials" className="hover:text-[#00b332] transition-colors">Testimonials</Link></li>
-              <li><Link href="/blog" className="hover:text-[#00b332] transition-colors">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-[#00b332] transition-colors">Contact</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-[#00b332] transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-[#00b332] transition-colors">Terms</Link></li>
+              <li><Link href="/how-it-works" className="hover:text-[#008a29] transition-colors">How It Works</Link></li>
+              <li><Link href="/about" className="hover:text-[#008a29] transition-colors">About Us</Link></li>
+              <li><Link href="/testimonials" className="hover:text-[#008a29] transition-colors">Testimonials</Link></li>
+              <li><Link href="/blog" className="hover:text-[#008a29] transition-colors">Blog</Link></li>
+              <li><Link href="/contact" className="hover:text-[#008a29] transition-colors">Contact</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-[#008a29] transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-[#008a29] transition-colors">Terms</Link></li>
             </ul>
           </div>
 
@@ -94,7 +94,7 @@ export function Footer() {
             <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-white/60 text-sm">
               {locations.map((location) => (
                 <li key={location.slug}>
-                  <Link href={`/locations/${location.slug}`} className="hover:text-[#00b332] transition-colors">
+                  <Link href={`/locations/${location.slug}`} className="hover:text-[#008a29] transition-colors">
                     {location.name}, PA
                   </Link>
                 </li>
@@ -106,15 +106,15 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-lg text-white">Contact Us</h3>
             <div className="space-y-4">
-              <a href="tel:+15709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#00b332] transition-colors group">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center group-hover:bg-[#00b332]/20 transition-colors">
-                  <Phone className="w-5 h-5 text-[#00b332]" />
+              <a href="tel:+15709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#008a29] transition-colors group">
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center group-hover:bg-[#008a29]/20 transition-colors">
+                  <Phone className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <span className="font-semibold">(570) 904-2059</span>
               </a>
               <div className="flex items-center space-x-3 text-white/60">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-[#00b332]" />
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <span className="text-sm">Serving Eastern Pennsylvania</span>
               </div>
@@ -125,8 +125,8 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-white/50 text-sm">
           <p>&copy; 2026 ClearEdge Home Buyers. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy-policy" className="hover:text-[#00b332] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[#00b332] transition-colors">Terms & Conditions</Link>
+            <Link href="/privacy-policy" className="hover:text-[#008a29] transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#008a29] transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

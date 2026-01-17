@@ -140,7 +140,7 @@ export default function AboutPage() {
             }}
           />
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               About Us
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
@@ -151,7 +151,7 @@ export default function AboutPage() {
             </p>
             <a
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
             >
               Get My Cash Offer
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -162,7 +162,7 @@ export default function AboutPage() {
         {/* Origin Story - White */}
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Story
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-8">
@@ -186,7 +186,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-12">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Our Difference
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -195,8 +195,8 @@ export default function AboutPage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold">1</span>
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold">1</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Local, Not Corporate</h3>
                 <p className="text-[#1a1f1a]/70">
@@ -204,8 +204,8 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold">2</span>
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold">2</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Transparent Pricing</h3>
                 <p className="text-[#1a1f1a]/70">
@@ -213,8 +213,8 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold">3</span>
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold">3</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Your Timeline</h3>
                 <p className="text-[#1a1f1a]/70">
@@ -222,8 +222,8 @@ export default function AboutPage() {
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#00b332]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#00b332] font-bold">4</span>
+                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-[#008a29] font-bold">4</span>
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">We Handle the Hard Stuff</h3>
                 <p className="text-[#1a1f1a]/70">
@@ -238,7 +238,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 We Can Help
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
@@ -253,12 +253,12 @@ export default function AboutPage() {
                 <Link
                   key={situation.href}
                   href={situation.href}
-                  className="relative flex flex-col items-center justify-center text-center min-h-[100px] p-4 bg-[#FAF8F5] rounded-2xl hover:bg-[#00b332]/10 transition-colors group border border-[#1a1f1a]/5"
+                  className="relative flex flex-col items-center justify-center text-center min-h-[100px] p-4 bg-[#FAF8F5] rounded-2xl hover:bg-[#008a29]/10 transition-colors group border border-[#1a1f1a]/5"
                 >
-                  <span className="text-[#1a1f1a]/70 group-hover:text-[#00b332] transition-colors font-medium">
+                  <span className="text-[#1a1f1a]/70 group-hover:text-[#008a29] transition-colors font-medium">
                     {situation.name}
                   </span>
-                  <ArrowRight className="absolute bottom-3 right-3 w-4 h-4 text-[#00b332] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                  <ArrowRight className="absolute bottom-3 right-3 w-4 h-4 text-[#008a29] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </Link>
               ))}
             </div>
@@ -269,7 +269,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Service Areas
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -278,50 +278,50 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8 mb-10">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
                   NEPA
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/scranton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Scranton</Link></li>
-                  <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Wilkes-Barre</Link></li>
-                  <li><Link href="/locations/hazleton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Hazleton</Link></li>
-                  <li><Link href="/locations/pittston" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pittston</Link></li>
-                  <li><Link href="/locations/kingston" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Kingston</Link></li>
-                  <li><Link href="/locations/nanticoke" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Nanticoke</Link></li>
-                  <li><Link href="/locations/carbondale" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Carbondale</Link></li>
-                  <li><Link href="/locations/dunmore" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Dunmore</Link></li>
-                  <li><Link href="/locations/honesdale" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Honesdale</Link></li>
-                  <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Bloomsburg</Link></li>
+                  <li><Link href="/locations/scranton" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Scranton</Link></li>
+                  <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Wilkes-Barre</Link></li>
+                  <li><Link href="/locations/hazleton" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Hazleton</Link></li>
+                  <li><Link href="/locations/pittston" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Pittston</Link></li>
+                  <li><Link href="/locations/kingston" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Kingston</Link></li>
+                  <li><Link href="/locations/nanticoke" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Nanticoke</Link></li>
+                  <li><Link href="/locations/carbondale" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Carbondale</Link></li>
+                  <li><Link href="/locations/dunmore" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Dunmore</Link></li>
+                  <li><Link href="/locations/honesdale" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Honesdale</Link></li>
+                  <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Bloomsburg</Link></li>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
                   Lehigh Valley
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/allentown" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Allentown</Link></li>
-                  <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Bethlehem</Link></li>
-                  <li><Link href="/locations/easton" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Easton</Link></li>
-                  <li><Link href="/locations/reading" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Reading</Link></li>
-                  <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pottsville</Link></li>
+                  <li><Link href="/locations/allentown" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Allentown</Link></li>
+                  <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Bethlehem</Link></li>
+                  <li><Link href="/locations/easton" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Easton</Link></li>
+                  <li><Link href="/locations/reading" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Reading</Link></li>
+                  <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Pottsville</Link></li>
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#00b332]">
+                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
                   Poconos
                 </h3>
                 <ul className="space-y-2">
-                  <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Stroudsburg</Link></li>
-                  <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">East Stroudsburg</Link></li>
-                  <li><Link href="/locations/pocono-pines" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Pocono Pines</Link></li>
-                  <li><Link href="/locations/tannersville" className="text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">Tannersville</Link></li>
+                  <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Stroudsburg</Link></li>
+                  <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">East Stroudsburg</Link></li>
+                  <li><Link href="/locations/pocono-pines" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Pocono Pines</Link></li>
+                  <li><Link href="/locations/tannersville" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Tannersville</Link></li>
                 </ul>
               </div>
             </div>
             <div className="text-center">
               <a
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#00b332] text-white px-8 py-4 rounded-full font-medium hover:bg-[#009929] transition-all group shadow-lg shadow-[#00b332]/20"
+                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
               >
                 Don&apos;t see your town? Reach out anyway
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -334,7 +334,7 @@ export default function AboutPage() {
         <section className="py-16 md:py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-10">
-              <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Local Expertise
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
@@ -343,8 +343,8 @@ export default function AboutPage() {
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#00b332]" />
+                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Municipal Pre-Sale Inspections</h3>
@@ -352,8 +352,8 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#00b332]" />
+                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Probate Process</h3>
@@ -361,8 +361,8 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#00b332]" />
+                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Mine Subsidence (NEPA)</h3>
@@ -370,8 +370,8 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#00b332]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#00b332]" />
+                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-[#008a29]" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-[#1a1f1a] mb-1">Title &amp; Lien Issues</h3>
@@ -385,21 +385,21 @@ export default function AboutPage() {
         {/* Testimonial Section - Cream */}
         <section className="py-16 md:py-20 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonial
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-10">
               What Homeowners Say
             </h2>
             <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
-              <div className="text-[#00b332] text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 First to take time to explain the process and make me feel comfortable.
               </blockquote>
               <p className="text-[#1a1f1a]/70">— Gavin S.</p>
             </div>
             <div className="mt-8">
-              <Link href="/testimonials" className="text-[#00b332] hover:text-[#009929] font-medium">
+              <Link href="/testimonials" className="text-[#008a29] hover:text-[#007a24] font-medium">
                 Read all reviews &rarr;
               </Link>
             </div>
@@ -429,7 +429,7 @@ export default function AboutPage() {
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">
               Prefer to call? Reach Tyler directly:{' '}
-              <a href="tel:+15709042059" className="font-semibold text-[#00b332] hover:underline">
+              <a href="tel:+15709042059" className="font-semibold text-[#008a29] hover:underline">
                 (570) 904-2059
               </a>
             </p>

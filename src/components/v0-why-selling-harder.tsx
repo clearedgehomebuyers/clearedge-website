@@ -29,7 +29,7 @@ export function V0WhySellingHarder() {
         <div className="mt-8">
           <Link
             href="/how-it-works"
-            className="text-[#00b332] hover:text-[#009929] font-medium inline-flex items-center gap-1"
+            className="text-[#008a29] hover:text-[#007a24] font-medium inline-flex items-center gap-1"
           >
             See How It Works
             <span aria-hidden="true">&rarr;</span>

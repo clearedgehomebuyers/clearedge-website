@@ -22,7 +22,7 @@ export function V0HiddenCost() {
                   <br />
                   <span className="font-normal text-white/70 text-sm">(90 Days)</span>
                 </th>
-                <th className="text-center py-4 px-6 font-semibold bg-[#00b332] text-white">
+                <th className="text-center py-4 px-6 font-semibold bg-[#008a29] text-white">
                   ClearEdge Sale
                   <br />
                   <span className="font-normal text-white/90 text-sm">(7–30 Days)</span>
@@ -33,7 +33,7 @@ export function V0HiddenCost() {
               <tr className="border-b border-[#1a1f1a]/10">
                 <td className="py-4 px-6 font-medium">Repairs Before Listing</td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$15,000+</td>
-                <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
+                <td className="py-4 px-6 text-center text-[#008a29] font-semibold bg-[#e6f7eb]">$0</td>
               </tr>
               <tr className="border-b border-[#1a1f1a]/10 bg-[#FAF8F5]">
                 <td className="py-4 px-6 font-medium">
@@ -42,7 +42,7 @@ export function V0HiddenCost() {
                   <span className="text-sm text-[#1a1f1a]/70">(Taxes, Utilities, Insurance, Mortgage)</span>
                 </td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$4,500+</td>
-                <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
+                <td className="py-4 px-6 text-center text-[#008a29] font-semibold bg-[#e6f7eb]">$0</td>
               </tr>
               <tr className="border-b border-[#1a1f1a]/10">
                 <td className="py-4 px-6 font-medium">
@@ -51,17 +51,17 @@ export function V0HiddenCost() {
                   <span className="text-sm text-[#1a1f1a]/70">(6% on a $200k home)</span>
                 </td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$12,000</td>
-                <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
+                <td className="py-4 px-6 text-center text-[#008a29] font-semibold bg-[#e6f7eb]">$0</td>
               </tr>
               <tr className="border-b border-[#1a1f1a]/10 bg-[#FAF8F5]">
                 <td className="py-4 px-6 font-medium">Closing Cost Contributions</td>
                 <td className="py-4 px-6 text-center text-red-600 font-semibold">$3,000+</td>
-                <td className="py-4 px-6 text-center text-[#00b332] font-semibold bg-[#e6f7eb]">$0</td>
+                <td className="py-4 px-6 text-center text-[#008a29] font-semibold bg-[#e6f7eb]">$0</td>
               </tr>
               <tr className="bg-[#1a1f1a] text-white">
                 <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
                 <td className="py-4 px-6 text-center font-bold text-red-400">$34,500+</td>
-                <td className="py-4 px-6 text-center font-bold text-[#00ff4d] bg-[#009929]">$0</td>
+                <td className="py-4 px-6 text-center font-bold text-[#00ff4d] bg-[#007a24]">$0</td>
               </tr>
             </tbody>
           </table>

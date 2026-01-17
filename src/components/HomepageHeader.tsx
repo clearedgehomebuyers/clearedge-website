@@ -57,7 +57,7 @@ export function HomepageHeader() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332] focus-visible:ring-offset-2 rounded-lg"
+            className="flex-shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#008a29] focus-visible:ring-offset-2 rounded-lg"
             aria-label="ClearEdge Home Buyers - Home"
           >
             <Image
@@ -87,7 +87,7 @@ export function HomepageHeader() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="tel:+15709042059"
-              className={`flex items-center gap-2 text-[#1a1f1a]/70 hover:text-[#00b332] transition-all duration-300 ${
+              className={`flex items-center gap-2 text-[#1a1f1a]/70 hover:text-[#008a29] transition-all duration-300 ${
                 scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
@@ -102,7 +102,7 @@ export function HomepageHeader() {
                   window.scrollTo({ top: y, behavior: 'smooth' })
                 }
               }}
-              className={`px-6 py-2.5 bg-[#00b332] hover:bg-[#009929] text-white text-sm font-semibold rounded-full shadow-lg shadow-[#00b332]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332] focus-visible:ring-offset-2 ${
+              className={`px-6 py-2.5 bg-[#008a29] hover:bg-[#007a24] text-white text-sm font-semibold rounded-full shadow-lg shadow-[#008a29]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#008a29] focus-visible:ring-offset-2 ${
                 scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
@@ -113,7 +113,7 @@ export function HomepageHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 -mr-2 rounded-full text-[#1a1f1a]/70 hover:bg-[#1a1f1a]/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b332]"
+            className="lg:hidden p-2 -mr-2 rounded-full text-[#1a1f1a]/70 hover:bg-[#1a1f1a]/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#008a29]"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -149,9 +149,9 @@ export function HomepageHeader() {
           {/* Mobile Phone */}
           <a
             href="tel:+15709042059"
-            className="flex items-center gap-3 px-4 py-3 mt-4 text-[#1a1f1a]/80 hover:text-[#00b332] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
+            className="flex items-center gap-3 px-4 py-3 mt-4 text-[#1a1f1a]/80 hover:text-[#008a29] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
           >
-            <Phone className="w-5 h-5 text-[#00b332]" />
+            <Phone className="w-5 h-5 text-[#008a29]" />
             <span className="font-semibold">(570) 904-2059</span>
           </a>
 
@@ -167,7 +167,7 @@ export function HomepageHeader() {
                 }
               }, 100)
             }}
-            className="block w-full text-center px-6 py-3.5 mt-3 bg-[#00b332] hover:bg-[#009929] text-white font-semibold rounded-full shadow-lg shadow-[#00b332]/20 transition-all"
+            className="block w-full text-center px-6 py-3.5 mt-3 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full shadow-lg shadow-[#008a29]/20 transition-all"
           >
             Get Cash Offer
           </button>

@@ -67,14 +67,14 @@ export function V0Footer() {
               <div className="space-y-3">
                 <a
                   href="tel:+15709042059"
-                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                 >
                   <Phone className="w-4 h-4" />
                   (570) 904-2059
                 </a>
                 <a
                   href="mailto:info@clearedgehomebuyers.com"
-                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   info@clearedgehomebuyers.com
@@ -92,7 +92,7 @@ export function V0Footer() {
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+                    <Link href={link.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -106,7 +106,7 @@ export function V0Footer() {
               <ul className="space-y-3">
                 {situations.map((situation) => (
                   <li key={situation.label}>
-                    <Link href={situation.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+                    <Link href={situation.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
                       {situation.label}
                     </Link>
                   </li>
@@ -122,7 +122,7 @@ export function V0Footer() {
                   <Link
                     key={area.label}
                     href={area.href}
-                    className="text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors"
+                    className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                   >
                     {area.label}
                   </Link>
@@ -141,10 +141,10 @@ export function V0Footer() {
               © {new Date().getFullYear()} ClearEdge Home Buyers. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy-policy" className="text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+              <Link href="/privacy-policy" className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-[#1a1f1a]/70 hover:text-[#00b332] transition-colors">
+              <Link href="/terms" className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
                 Terms of Service
               </Link>
             </div>

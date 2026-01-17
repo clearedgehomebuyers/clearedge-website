@@ -11,7 +11,7 @@ export function V0VideoSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-          <span className="text-[#00b332] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             Your Guide
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
@@ -26,7 +26,7 @@ export function V0VideoSection() {
         <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">
           {!isPlaying ? (
             <>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00b332]/20 via-transparent to-[#1a1f1a]/30">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#008a29]/20 via-transparent to-[#1a1f1a]/30">
                 <img
                   src="/tyler.jpg"
                   alt="Video thumbnail - Tyler from ClearEdge Home Buyers"
@@ -41,7 +41,7 @@ export function V0VideoSection() {
                 className="absolute inset-0 flex items-center justify-center group"
                 aria-label="Play video"
               >
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#00b332] flex items-center justify-center shadow-xl shadow-[#00b332]/30 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#008a29] flex items-center justify-center shadow-xl shadow-[#008a29]/30 group-hover:scale-110 transition-transform">
                   <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
                 </div>
               </button>
@@ -68,15 +68,15 @@ export function V0VideoSection() {
 
         <div className="grid grid-cols-3 gap-4 mt-8 max-w-2xl mx-auto">
           <div className="text-center">
-            <p className="text-2xl font-semibold text-[#00b332]">200+</p>
+            <p className="text-2xl font-semibold text-[#008a29]">200+</p>
             <p className="text-xs text-[#1a1f1a]/70">Happy Sellers</p>
           </div>
           <div className="text-center border-x border-[#1a1f1a]/10">
-            <p className="text-2xl font-semibold text-[#00b332]">24hrs</p>
+            <p className="text-2xl font-semibold text-[#008a29]">24hrs</p>
             <p className="text-xs text-[#1a1f1a]/70">Avg. Offer Time</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-semibold text-[#00b332]">$0</p>
+            <p className="text-2xl font-semibold text-[#008a29]">$0</p>
             <p className="text-xs text-[#1a1f1a]/70">Fees to You</p>
           </div>
         </div>

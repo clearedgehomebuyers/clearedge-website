@@ -88,7 +88,7 @@ export function V0Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <span className="inline-block px-2 py-0.5 bg-[#00b332] text-white text-xs font-bold rounded-full mb-1">
+                  <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
                     Just Closed
                   </span>
                   <p className="text-sm font-bold">Scranton, PA</p>

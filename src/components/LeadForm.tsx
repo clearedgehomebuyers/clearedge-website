@@ -259,8 +259,8 @@ export function LeadForm({
     return (
       <div id={id} className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
         <div className="text-center py-8">
-          <div className="w-16 h-16 bg-[#00b332]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle className="w-8 h-8 text-[#00b332]" />
+          <div className="w-16 h-16 bg-[#008a29]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle className="w-8 h-8 text-[#008a29]" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Thank You!</h3>
           <p className="text-slate-600">
@@ -291,7 +291,7 @@ export function LeadForm({
               value={formData.firstName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="John"
             />
           </div>
@@ -305,7 +305,7 @@ export function LeadForm({
               value={formData.lastName}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Smith"
             />
           </div>
@@ -323,7 +323,7 @@ export function LeadForm({
               value={formData.phone}
               onChange={handlePhoneChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
+              className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
               placeholder="(570) 555-0123"
             />
             {phoneError && (
@@ -340,7 +340,7 @@ export function LeadForm({
               value={formData.email}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 ${emailError ? 'border-red-400' : 'border-slate-200'} focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
+              className={`w-full px-4 py-3 rounded-xl border-2 ${emailError ? 'border-red-400' : 'border-slate-200'} focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
               placeholder="john@example.com"
             />
             {emailError && (
@@ -360,7 +360,7 @@ export function LeadForm({
             value={formData.address}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+            className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
             placeholder="123 Main Street"
           />
         </div>
@@ -377,7 +377,7 @@ export function LeadForm({
               value={formData.city}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="Scranton"
             />
           </div>
@@ -392,7 +392,7 @@ export function LeadForm({
               onChange={handleChange}
               required
               aria-label="State"
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all bg-white text-gray-900"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all bg-white text-gray-900"
             >
               {US_STATES.map((state) => (
                 <option key={state.value} value={state.value}>
@@ -413,7 +413,7 @@ export function LeadForm({
               required
               pattern="[0-9]{5}"
               maxLength={5}
-              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#00b332] focus:ring-4 focus:ring-[#00b332]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
+              className="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500"
               placeholder="18501"
             />
           </div>
@@ -428,7 +428,7 @@ export function LeadForm({
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-6 py-4 bg-gradient-to-r from-[#00b332] to-[#00d940] hover:from-[#009929] hover:to-[#00b332] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
+          className="w-full px-6 py-4 bg-gradient-to-r from-[#008a29] to-[#00d940] hover:from-[#007a24] hover:to-[#008a29] disabled:from-slate-400 disabled:to-slate-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>
