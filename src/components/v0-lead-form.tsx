@@ -210,7 +210,6 @@ export function V0LeadForm() {
 
       // Build message content with situation, timeline, and occupancy
       const messageContent = `
-Property: ${formData.address}, ${formData.city}, ${formData.state} ${formData.zip}
 Situation: ${formData.situation || 'Not specified'}
 Timeline: ${formData.timeline || 'Not specified'}
 Occupancy: ${formData.occupancy || 'Not specified'}
