@@ -424,7 +424,7 @@ export default function AboutPage() {
         </section>
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5]">
+        <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
           <div className="max-w-3xl mx-auto px-6">
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">

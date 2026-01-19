@@ -27,7 +27,7 @@ const testimonials = [
 
 export function V0Testimonials() {
   return (
-    <section id="testimonials" className="py-12 lg:py-14 bg-white">
+    <section id="testimonials" className="py-12 lg:py-14 bg-white scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6 text-center">

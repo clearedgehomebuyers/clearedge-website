@@ -38,7 +38,7 @@ export function V0ServiceAreas() {
   }
 
   return (
-    <section className="py-12 lg:py-14 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]" id="service-areas">
+    <section className="py-12 lg:py-14 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1] scroll-mt-20 md:scroll-mt-24" id="service-areas">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2e1a] mb-4">

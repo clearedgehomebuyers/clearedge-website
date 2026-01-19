@@ -271,7 +271,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
 
   if (isSubmitted) {
     return (
-      <section id="lead-form" className="py-8 md:py-12 bg-[#FAF8F5]">
+      <section id="lead-form" className="py-8 md:py-12 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div className="w-20 h-20 rounded-full bg-[#008a29] flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-white" />
@@ -293,7 +293,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
   }
 
   return (
-    <section id="lead-form" className="py-8 md:py-12 bg-[#FAF8F5]">
+    <section id="lead-form" className="py-8 md:py-12 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-6 md:mb-6">

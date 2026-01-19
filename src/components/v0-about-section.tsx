@@ -23,7 +23,7 @@ const values = [
 
 export function V0AboutSection() {
   return (
-    <section id="about" className="py-12 md:py-12 bg-[#FAF8F5]">
+    <section id="about" className="py-12 md:py-12 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           <div className="relative flex justify-center lg:justify-start">
