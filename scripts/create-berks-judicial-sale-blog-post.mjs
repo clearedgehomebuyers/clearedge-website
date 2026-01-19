@@ -2138,7 +2138,7 @@ const blogPost = {
         { _type: 'span', _key: 'cta4a', text: 'Request your free cash offer here →', marks: ['homeLink'] }
       ],
       markDefs: [
-        { _type: 'link', _key: 'homeLink', href: 'https://clearedgehomebuyers.com' }
+        { _type: 'link', _key: 'homeLink', href: 'https://www.clearedgehomebuyers.com' }
       ]
     },
 

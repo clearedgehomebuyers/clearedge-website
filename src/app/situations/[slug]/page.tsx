@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const situation = await getSituationBySlug(slug)
   if (!situation) return {}
 
-  const title = situation.metaTitle || `${situation.title} - Sell Your House Fast | ClearEdge Home Buyers`
+  const title = situation.metaTitle || `${situation.title} - Sell Your House Fast`
   const description = situation.metaDescription || `Dealing with ${situation.title.toLowerCase()}? Get a fair cash offer for your home in 24 hours. No repairs, no fees, no commissions.`
 
   return {

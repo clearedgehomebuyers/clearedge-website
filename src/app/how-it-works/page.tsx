@@ -7,7 +7,7 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 
 export const metadata: Metadata = {
-  title: 'How It Works | Sell Your PA House for Cash in 3 Simple Steps | ClearEdge',
+  title: 'How It Works | Sell Your PA House for Cash in 3 Simple Steps',
   description: 'See how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure.',
   keywords: ['how to sell house fast PA', 'cash home buying process', 'sell house as-is Pennsylvania', 'ClearEdge process'],
   openGraph: {

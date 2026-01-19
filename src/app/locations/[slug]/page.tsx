@@ -76,11 +76,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const location = await getLocationBySlug(slug)
   if (!location) {
     return {
-      title: 'Location Not Found | ClearEdge Home Buyers',
+      title: 'Location Not Found',
     }
   }
 
-  const title = location.metaTitle || `Sell Your House Fast in ${location.city}, PA | ClearEdge Home Buyers`
+  const title = location.metaTitle || `Sell Your House Fast in ${location.city}, PA`
   const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home. ClearEdge buys houses as-is for cash. No repairs, no fees. Call Tyler: (570) 904-2059.`
   const url = `https://www.clearedgehomebuyers.com/locations/${slug}`
 

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: "ClearEdge Home Buyers | Sell Your House Fast for Cash in PA",
     template: "%s | ClearEdge Home Buyers",
   },
-  description: "Sell your house fast for cash in Eastern Pennsylvania. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours. Serving NEPA, Lehigh Valley, and Poconos.",
+  description: "Sell your house fast for cash in Eastern PA. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours. Serving NEPA, Lehigh Valley & Poconos.",
   applicationName: "ClearEdge Home Buyers",
   metadataBase: new URL('https://www.clearedgehomebuyers.com'),
   keywords: [

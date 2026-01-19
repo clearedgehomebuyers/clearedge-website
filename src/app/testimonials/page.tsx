@@ -27,7 +27,7 @@ const testimonialsFaqs = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Testimonials | What Homeowners Say About ClearEdge Home Buyers',
+  title: 'Testimonials | Real Reviews from PA Homeowners',
   description: 'Real Google reviews from PA homeowners who sold to ClearEdge. See why families across NEPA, Lehigh Valley & Poconos trust Tyler.',
   keywords: ['ClearEdge reviews', 'cash home buyer reviews PA', 'sell house fast reviews Pennsylvania'],
   openGraph: {

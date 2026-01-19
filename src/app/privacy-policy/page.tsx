@@ -2,7 +2,7 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 
 export const metadata = {
-  title: 'Privacy Policy | ClearEdge Home Buyers',
+  title: 'Privacy Policy',
   description: 'Privacy Policy for ClearEdge Home Buyers. Learn how we collect, use, and protect your personal information.',
 }
 

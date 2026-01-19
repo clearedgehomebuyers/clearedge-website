@@ -7,7 +7,7 @@ import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
 
 export const metadata: Metadata = {
-  title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
+  title: 'About Us | Local Cash Home Buyers Since 2016',
   description: "Meet Tyler and the ClearEdge team. Family-owned cash home buyers based in Scranton, serving NEPA, Lehigh Valley & Poconos since 2016.",
   keywords: ['about ClearEdge', 'cash home buyers Scranton', 'Tyler ClearEdge', 'local home buyers PA'],
   openGraph: {

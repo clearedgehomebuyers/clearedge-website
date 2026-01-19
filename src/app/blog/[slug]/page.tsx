@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return { title: 'Post Not Found' }
 
   return {
-    title: post.metaTitle || `${post.title} | ClearEdge Home Buyers`,
+    title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
     openGraph: {
       title: post.metaTitle || post.title,

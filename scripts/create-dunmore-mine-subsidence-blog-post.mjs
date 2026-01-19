@@ -2902,7 +2902,7 @@ const blogPost = {
         { _type: 'span', _key: 'bottom8b', text: '.', marks: [] }
       ],
       markDefs: [
-        { _type: 'link', _key: 'ctaLink', href: 'https://clearedgehomebuyers.com' }
+        { _type: 'link', _key: 'ctaLink', href: 'https://www.clearedgehomebuyers.com' }
       ]
     },
     {
