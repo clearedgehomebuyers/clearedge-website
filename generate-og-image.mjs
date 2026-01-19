@@ -13,47 +13,81 @@ const logoSvg = readFileSync(join(__dirname, 'public/Primary.svg'), 'utf8');
 const logoPathsMatch = logoSvg.match(/<path[^>]*>/g);
 const logoPaths = logoPathsMatch ? logoPathsMatch.join('') : '';
 
-// Create the OG image SVG
+// Create the OG image SVG with new beige/green design
 const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#ffffff"/>
+  <!-- Top Section - Beige background (70% = 441px) -->
+  <rect width="1200" height="441" fill="#FAF8F5"/>
 
-  <!-- Subtle gradient overlay at top -->
-  <defs>
-    <linearGradient id="topGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="200" fill="url(#topGradient)"/>
+  <!-- Bottom Section - Green bar (30% = 189px) -->
+  <rect y="441" width="1200" height="189" fill="#008a29"/>
 
-  <!-- Logo - scaled and centered -->
-  <g transform="translate(250, 120) scale(0.43)">
+  <!-- Logo - scaled and centered in top section -->
+  <g transform="translate(234, 60) scale(0.55)">
     ${logoPaths}
   </g>
 
-  <!-- Tagline -->
-  <text x="600" y="420"
-        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="52"
-        font-weight="700"
-        fill="#1e293b"
+  <!-- Main Headline - Serif style -->
+  <text x="600" y="340"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="64"
+        font-weight="500"
+        fill="#1a1f1a"
         text-anchor="middle">
-    Sell Your House Fast for Cash
+    Sell Your PA House Fast
   </text>
 
-  <!-- Service Areas -->
-  <text x="600" y="490"
+  <!-- Subheadline -->
+  <text x="600" y="400"
         font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
         font-size="28"
         font-weight="400"
-        fill="#64748b"
+        fill="#1a1f1a"
+        opacity="0.6"
         text-anchor="middle">
-    Eastern Pennsylvania  •  NEPA  •  Lehigh Valley  •  Poconos
+    Cash Home Buyers Serving Eastern Pennsylvania
   </text>
 
-  <!-- Bottom accent line -->
-  <rect x="400" y="560" width="400" height="4" rx="2" fill="#00b332"/>
+  <!-- Trust Badges Row - White text on green -->
+  <!-- Badge 1: Cash Offer in 24hrs -->
+  <text x="200" y="510"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="26"
+        font-weight="600"
+        fill="#ffffff"
+        text-anchor="middle">
+    &#x2713; Cash Offer in 24hrs
+  </text>
+
+  <!-- Badge 2: No Fees -->
+  <text x="600" y="510"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="26"
+        font-weight="600"
+        fill="#ffffff"
+        text-anchor="middle">
+    &#x2713; No Fees
+  </text>
+
+  <!-- Badge 3: Close in 7 Days -->
+  <text x="1000" y="510"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="26"
+        font-weight="600"
+        fill="#ffffff"
+        text-anchor="middle">
+    &#x2713; Close in 7 Days
+  </text>
+
+  <!-- CTA Button/Pill -->
+  <rect x="400" y="545" width="400" height="50" rx="25" fill="#ffffff" opacity="0.15"/>
+  <text x="600" y="580"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="24"
+        font-weight="700"
+        fill="#ffffff"
+        text-anchor="middle">
+    Get Your Free Cash Offer &#x2192;
+  </text>
 </svg>`;
 
 // Write the SVG for debugging
@@ -68,8 +102,10 @@ async function generateOgImage() {
 
     console.log('OG image generated successfully!');
 
-    // Check file size
+    // Check file size and dimensions
+    const metadata = await sharp(join(__dirname, 'public/og-image.png')).metadata();
     const stats = await import('fs').then(fs => fs.promises.stat(join(__dirname, 'public/og-image.png')));
+    console.log(`Dimensions: ${metadata.width}x${metadata.height}`);
     console.log(`File size: ${(stats.size / 1024).toFixed(1)} KB`);
   } catch (error) {
     console.error('Error generating OG image:', error);
