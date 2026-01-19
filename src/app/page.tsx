@@ -33,11 +33,11 @@ import { V0ClosingSeo } from '@/components/v0-closing-seo'
 import { V0Footer } from '@/components/v0-footer'
 
 export const metadata: Metadata = {
-  title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
+  title: "Sell Your PA House Fast for Cash | ClearEdge",
   description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. ClearEdge has helped 200+ Eastern PA homeowners since 2016.",
   keywords: ["sell house fast Pennsylvania", "cash home buyers PA", "we buy houses Scranton", "sell house as-is Allentown", "cash offer Lehigh Valley", "sell inherited house PA"],
   openGraph: {
-    title: "Sell Your Pennsylvania House Fast for Cash | ClearEdge Home Buyers",
+    title: "Sell Your PA House Fast for Cash | ClearEdge",
     description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. Serving NEPA, Lehigh Valley & Poconos since 2016.",
     url: "https://www.clearedgehomebuyers.com",
     siteName: "ClearEdge Home Buyers",
@@ -51,6 +51,12 @@ export const metadata: Metadata = {
         alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sell Your PA House Fast for Cash | ClearEdge",
+    description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. Serving NEPA, Lehigh Valley & Poconos since 2016.",
+    images: ['https://www.clearedgehomebuyers.com/og-image.png'],
   },
 }
 
