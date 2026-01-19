@@ -98,6 +98,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* LCP Optimization: Preload hero image with responsive srcset */}
+        <link
+          rel="preload"
+          as="image"
+          href="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
+          imageSizes="(max-width: 1024px) 280px, 320px"
+          fetchPriority="high"
+        />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />

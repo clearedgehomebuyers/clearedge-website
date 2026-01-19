@@ -82,9 +82,13 @@ export function V0Hero() {
               <div className="relative aspect-[4/3]">
                 <img
                   src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
+                  srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
+                  sizes="(max-width: 1024px) 280px, 320px"
                   alt="Recently purchased home in Scranton, PA"
                   className="w-full h-full object-cover"
                   fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
