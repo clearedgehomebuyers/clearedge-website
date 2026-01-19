@@ -373,9 +373,9 @@ export default function TestimonialsPage() {
                 </div>
               ))}
             </div>
-            {/* 5th item centered on desktop */}
-            <div className="mt-6 lg:flex lg:justify-center">
-              <div className="flex items-start gap-4 lg:max-w-[calc(50%-0.75rem)]">
+            {/* 5th item centered on tablet and desktop */}
+            <div className="mt-6 sm:flex sm:justify-center">
+              <div className="flex items-start gap-4 sm:max-w-[calc(50%-0.75rem)]">
                 <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Check className="w-5 h-5 text-[#008a29]" />
                 </div>
