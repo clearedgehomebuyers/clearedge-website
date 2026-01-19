@@ -104,7 +104,7 @@ export default function RootLayout({
           as="image"
           href="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
           imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
-          imageSizes="(max-width: 1024px) 280px, 320px"
+          imageSizes="(max-width: 768px) 400px, 800px"
           fetchPriority="high"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

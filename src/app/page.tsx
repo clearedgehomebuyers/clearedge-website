@@ -1,36 +1,26 @@
 // src/app/page.tsx - Optimized 15-Section Homepage Structure
 
 import type { Metadata } from 'next'
-// 1. Header
+import dynamic from 'next/dynamic'
+
+// Above-fold components (regular imports for immediate loading)
 import { V0Header } from '@/components/v0-header'
-// 2. Hero
 import { V0Hero } from '@/components/v0-hero'
-// 3. Trust Bar
 import { V0TrustBar } from '@/components/v0-trust-bar'
-// 4. Problem/Solution (merged: Why Selling Harder + Problem/Solution)
-import { V0ProblemSolutionMerged } from '@/components/v0-problem-solution-merged'
-// 5. Video Intro (Meet Tyler)
-import { V0VideoSection } from '@/components/v0-video-section'
-// 6. How It Works
-import { V0HowItWorks } from '@/components/v0-how-it-works'
-// 7. Comparison Table (merged: Hidden Cost + Comparison)
-import { V0ComparisonMerged } from '@/components/v0-comparison-merged'
-// 8. Situations (8 cards)
-import { V0Situations } from '@/components/v0-situations'
-// 9. Why ClearEdge (4 cards)
-import { V0WhyClearEdge } from '@/components/v0-why-clearedge'
-// 10. Testimonials
-import { V0Testimonials } from '@/components/v0-testimonials'
-// 11. Main Lead Form
 import { V0LeadForm } from '@/components/v0-lead-form'
-// 12. Top 5 FAQs
-import { V0FAQ } from '@/components/v0-faq'
-// 13. Service Areas (21 locations)
-import { V0ServiceAreas } from '@/components/v0-service-areas'
-// 14. Closing SEO + CTA (beige)
-import { V0ClosingSeo } from '@/components/v0-closing-seo'
-// 15. Footer (white)
-import { V0Footer } from '@/components/v0-footer'
+
+// Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const V0ProblemSolutionMerged = dynamic(() => import('@/components/v0-problem-solution-merged').then(mod => ({ default: mod.V0ProblemSolutionMerged })), { ssr: true })
+const V0VideoSection = dynamic(() => import('@/components/v0-video-section').then(mod => ({ default: mod.V0VideoSection })), { ssr: true })
+const V0HowItWorks = dynamic(() => import('@/components/v0-how-it-works').then(mod => ({ default: mod.V0HowItWorks })), { ssr: true })
+const V0ComparisonMerged = dynamic(() => import('@/components/v0-comparison-merged').then(mod => ({ default: mod.V0ComparisonMerged })), { ssr: true })
+const V0Situations = dynamic(() => import('@/components/v0-situations').then(mod => ({ default: mod.V0Situations })), { ssr: true })
+const V0WhyClearEdge = dynamic(() => import('@/components/v0-why-clearedge').then(mod => ({ default: mod.V0WhyClearEdge })), { ssr: true })
+const V0Testimonials = dynamic(() => import('@/components/v0-testimonials').then(mod => ({ default: mod.V0Testimonials })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const V0ServiceAreas = dynamic(() => import('@/components/v0-service-areas').then(mod => ({ default: mod.V0ServiceAreas })), { ssr: true })
+const V0ClosingSeo = dynamic(() => import('@/components/v0-closing-seo').then(mod => ({ default: mod.V0ClosingSeo })), { ssr: true })
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 
 export const metadata: Metadata = {
   title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
