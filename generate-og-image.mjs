@@ -52,8 +52,16 @@ const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
     Eastern Pennsylvania  •  NEPA  •  Lehigh Valley  •  Poconos
   </text>
 
-  <!-- Bottom accent line -->
-  <rect x="400" y="560" width="400" height="4" rx="2" fill="#00b332"/>
+  <!-- CTA Button with pill background -->
+  <rect x="390" y="545" width="420" height="50" rx="25" fill="#e6f7eb"/>
+  <text x="600" y="580"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-size="28"
+        font-weight="700"
+        fill="#008a29"
+        text-anchor="middle">
+    Get Your Free Cash Offer &#x2192;
+  </text>
 </svg>`;
 
 // Write the SVG for debugging
