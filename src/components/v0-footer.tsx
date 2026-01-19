@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
 
@@ -53,13 +55,19 @@ export function V0Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-6">
             {/* Brand Column */}
             <div className="lg:col-span-3">
-              <img
-                src="/Primary.svg"
-                alt="ClearEdge Home Buyers"
-                className="h-10 w-auto mb-4"
-                width="120"
-                height="40"
-              />
+              <button
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="cursor-pointer"
+                aria-label="Scroll to top"
+              >
+                <img
+                  src="/Primary.svg"
+                  alt="ClearEdge Home Buyers"
+                  className="h-10 w-auto mb-4"
+                  width="120"
+                  height="40"
+                />
+              </button>
               <p className="text-[#1a1f1a]/70 text-sm leading-relaxed mb-6">
                 Pennsylvania&apos;s trusted cash home buyer since 2016. Fair offers, fast closings, and honest service —
                 guaranteed.
