@@ -7,21 +7,8 @@ export function V0VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <section className="py-16 md:py-24 bg-[#FAF8F5]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
-          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
-            Your Guide
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
-            Meet Tyler
-          </h2>
-          <p className="text-[#1a1f1a]/70 text-lg">
-            I started ClearEdge in 2016 to help Pennsylvania homeowners sell on their terms. Here&apos;s my story.
-          </p>
-        </div>
-
+    <section className="py-12 md:py-16 bg-[#FAF8F5]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Video Container */}
         <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">
           {!isPlaying ? (
@@ -45,14 +32,6 @@ export function V0VideoSection() {
                   <Play className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" />
                 </div>
               </button>
-
-              {/* Video Label */}
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <div className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg">
-                  <p className="text-sm font-medium text-[#1a1f1a]">Meet Tyler, Founder</p>
-                  <p className="text-xs text-[#1a1f1a]/70">3 min watch</p>
-                </div>
-              </div>
             </>
           ) : (
             /* YouTube Embed Placeholder - Replace VIDEO_ID with actual YouTube video ID */
@@ -64,21 +43,6 @@ export function V0VideoSection() {
               allowFullScreen
             />
           )}
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 mt-8 max-w-2xl mx-auto">
-          <div className="text-center">
-            <p className="text-2xl font-semibold text-[#008a29]">200+</p>
-            <p className="text-xs text-[#1a1f1a]/70">Happy Sellers</p>
-          </div>
-          <div className="text-center border-x border-[#1a1f1a]/10">
-            <p className="text-2xl font-semibold text-[#008a29]">24hrs</p>
-            <p className="text-xs text-[#1a1f1a]/70">Avg. Offer Time</p>
-          </div>
-          <div className="text-center">
-            <p className="text-2xl font-semibold text-[#008a29]">$0</p>
-            <p className="text-xs text-[#1a1f1a]/70">Fees to You</p>
-          </div>
         </div>
       </div>
     </section>
