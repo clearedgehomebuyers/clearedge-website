@@ -58,10 +58,10 @@ export function V0FAQ({
   const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-[#FAF8F5]"
 
   return (
-    <section className={`py-16 md:py-24 ${sectionBgClass}`}>
+    <section className={`py-12 md:py-12 ${sectionBgClass}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-6 md:mb-6">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             Common Questions
           </span>
@@ -109,7 +109,7 @@ export function V0FAQ({
         </div>
 
         {/* Still have questions */}
-        <div className={`text-center mt-10 p-6 ${footerBgClass} rounded-xl border border-[#1a1f1a]/5`}>
+        <div className={`text-center mt-6 p-6 ${footerBgClass} rounded-xl border border-[#1a1f1a]/5`}>
           <p className="text-[#1a1f1a] font-medium mb-2">Still have questions?</p>
           <p className="text-[#1a1f1a]/70 text-sm mb-4">
             We&apos;re here to help. Call Tyler directly or reach out.

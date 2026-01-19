@@ -4,12 +4,12 @@ import { ArrowRight } from "lucide-react"
 
 export function V0ClosingSeo() {
   return (
-    <section className="py-16 md:py-20 bg-[#FAF8F5]">
+    <section className="py-12 md:py-14 bg-[#FAF8F5]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
           Ready to Sell Your Pennsylvania House Fast?
         </h2>
-        <p className="text-[#1a1f1a]/70 text-lg mb-8 leading-relaxed">
+        <p className="text-[#1a1f1a]/70 text-lg mb-6 leading-relaxed">
           ClearEdge Home Buyers is a local, family-owned company serving Scranton, Wilkes-Barre, Allentown, Bethlehem, and communities throughout NEPA, Lehigh Valley, and the Poconos since 2016. We buy houses in any condition — no repairs, no fees, no agents. Get your fair cash offer within 24 hours.
         </p>
         <a

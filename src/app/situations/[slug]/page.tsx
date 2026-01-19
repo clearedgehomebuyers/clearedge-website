@@ -114,7 +114,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         />
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
             {/* LEFT COLUMN - Text content (centered within column) */}
             <div className="text-center lg:text-center">
               {/* Headline */}
@@ -125,7 +125,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
                 {situation.heroSubheadline || `Dealing with ${situation.title.toLowerCase()}? We understand. Get a fair cash offer and close on your timeline — no repairs, no fees, no hassle.`}
               </p>
 
@@ -149,7 +149,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
-            <div className="flex flex-col items-center justify-center h-full gap-10">
+            <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
@@ -197,9 +197,9 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Problem Description - White */}
       {situation.problemDescription && (
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">We Understand</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">
                 Dealing with {situation.title}?
@@ -215,9 +215,9 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Benefits Grid - Cream */}
       {situation.benefits && situation.benefits.length > 0 && (
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Benefits</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">Why Sell to ClearEdge?</h2>
               <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
@@ -243,14 +243,14 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       )}
 
       {/* How It Works - White */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-12 md:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Simple Process</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">How It Works</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               { step: '1', title: 'Contact Us', desc: 'Call or fill out our form. Tell us about your property and situation.' },
               { step: '2', title: 'Get Your Offer', desc: "We'll evaluate your property and present a fair, no-obligation cash offer within 24 hours." },
@@ -278,9 +278,9 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Related Blog Posts - Cream */}
       {relatedBlogPosts && relatedBlogPosts.length > 0 && (
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Related Articles</h2>
             </div>
@@ -311,7 +311,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             {/* More Helpful Guides Button */}
-            <div className="text-center mt-10">
+            <div className="text-center mt-6">
               <Link
                 href="/blog"
                 className="inline-flex items-center px-6 py-3 bg-white hover:bg-[#1a1f1a]/5 text-[#1a1f1a]/70 font-medium rounded-full border border-[#1a1f1a]/10 transition-colors"

@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Content - White */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 md:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg [&_h2]:font-serif [&_h2]:font-medium [&_h2]:text-[#1a1f1a] [&_h3]:font-serif [&_h3]:font-medium [&_h3]:text-[#1a1f1a] [&_p]:text-[#1a1f1a]/70 [&_li]:text-[#1a1f1a]/70 [&_strong]:text-[#1a1f1a]">
           <h2>Introduction</h2>
           <p>
@@ -155,12 +155,12 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Final CTA Section - Beige */}
-      <section className="py-16 md:py-20 bg-[#FAF8F5]">
+      <section className="py-12 md:py-14 bg-[#FAF8F5]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
             Ready to Sell Your House Fast?
           </h2>
-          <p className="text-[#1a1f1a]/70 mb-8">
+          <p className="text-[#1a1f1a]/70 mb-6">
             Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
           </p>
           <a

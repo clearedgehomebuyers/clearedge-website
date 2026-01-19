@@ -7,7 +7,7 @@ export function V0VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <section className="py-12 md:py-16 bg-[#FAF8F5]">
+    <section className="py-12 md:py-12 bg-[#FAF8F5]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Video Container */}
         <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">

@@ -34,10 +34,10 @@ const featureComparison = [
 
 export function V0ComparisonMerged() {
   return (
-    <section className="py-16 md:py-24 bg-[#FAF8F5]">
+    <section className="py-12 md:py-12 bg-[#FAF8F5]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             The Clear Choice
           </span>
@@ -50,7 +50,7 @@ export function V0ComparisonMerged() {
         </div>
 
         {/* Hidden Cost Table */}
-        <div className="mb-12">
+        <div className="mb-6">
           <h3 className="font-semibold text-[#1a1f1a] text-lg mb-4 text-center">The Hidden Cost of Waiting</h3>
           <div className="overflow-x-auto rounded-xl border border-[#008a29] shadow-lg bg-white">
             <table className="w-full border-collapse">
@@ -125,7 +125,7 @@ export function V0ComparisonMerged() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-6">
           <a
             href="#lead-form"
             className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"

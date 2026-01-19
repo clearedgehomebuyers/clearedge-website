@@ -20,7 +20,7 @@ export function V0Hero() {
 
       <div className="relative max-w-7xl mx-auto w-full">
         {/* Two-column layout for lg: and above, single column for mobile */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
           {/* LEFT COLUMN - Text content (centered within column) */}
           <div className="text-center lg:text-center">
             {/* Headline */}
@@ -31,12 +31,12 @@ export function V0Hero() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed font-light">
               Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <Button
                 onClick={scrollToForm}
                 size="lg"

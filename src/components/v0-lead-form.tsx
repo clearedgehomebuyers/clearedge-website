@@ -271,13 +271,13 @@ Occupancy: ${formData.occupancy || 'Not specified'}
 
   if (isSubmitted) {
     return (
-      <section id="lead-form" className="py-20 md:py-28 bg-[#FAF8F5]">
+      <section id="lead-form" className="py-14 md:py-28 bg-[#FAF8F5]">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <div className="w-20 h-20 rounded-full bg-[#008a29] flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-white" />
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">You&apos;re All Set!</h2>
-          <p className="text-[#1a1f1a]/70 text-lg mb-8">
+          <p className="text-[#1a1f1a]/70 text-lg mb-6">
             Tyler will personally review your property and reach out within 24 hours with your no-obligation cash offer.
             Keep an eye on your phone and email.
           </p>
@@ -293,10 +293,10 @@ Occupancy: ${formData.occupancy || 'Not specified'}
   }
 
   return (
-    <section id="lead-form" className="py-20 md:py-28 bg-[#FAF8F5]">
+    <section id="lead-form" className="py-14 md:py-28 bg-[#FAF8F5]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-6 md:mb-6">
           <span className="inline-flex items-center gap-2 text-[#008a29] text-sm font-medium mb-4 px-4 py-2 bg-white rounded-full border border-[#008a29]/10 shadow-sm">
             <Shield className="w-4 h-4" />
             100% Free & No Obligation
@@ -310,7 +310,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
         </div>
 
         {/* Progress Steps */}
-        <div className="flex justify-between mb-10 relative">
+        <div className="flex justify-between mb-6 relative">
           {/* Progress Line */}
           <div className="absolute top-5 left-0 right-0 h-0.5 bg-[#1a1f1a]/10">
             <div
@@ -614,7 +614,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
           </form>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 mt-10 text-[#1a1f1a]/70 text-sm">
+        <div className="flex flex-wrap justify-center gap-6 mt-6 text-[#1a1f1a]/70 text-sm">
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-[#008a29]" />
             <span>Your info is 100% secure</span>

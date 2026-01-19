@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export function V0WhySellingHarder() {
   return (
-    <section className="py-16 lg:py-20 bg-[#FAF8F5]">
+    <section className="py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6">
           Selling a House in Pennsylvania Just Got Harder

@@ -165,7 +165,7 @@ export default function HowItWorksPage() {
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
               How We Buy Houses — And Why It&apos;s Simpler Than You Think
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               No repairs. No agents. No waiting for buyers. Just a fair cash offer and a closing date that works for you.
             </p>
             <a
@@ -179,15 +179,15 @@ export default function HowItWorksPage() {
         </section>
 
         {/* WHY TRADITIONAL SELLING IS HARD - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <h2 className="font-serif text-3xl font-medium text-[#1a1f1a] mb-6">
               Why Selling a House in Pennsylvania Feels So Hard
             </h2>
-            <p className="text-lg text-[#1a1f1a]/70 mb-8">
+            <p className="text-lg text-[#1a1f1a]/70 mb-6">
               Selling through an agent means months of uncertainty. You&apos;ll deal with:
             </p>
-            <div className="grid sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
                 <h3 className="font-semibold text-[#1a1f1a] mb-2">Disclosure Requirements</h3>
                 <p className="text-[#1a1f1a]/70 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
@@ -212,9 +212,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* THREE STEPS TO SOLD - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Simple Process
               </span>
@@ -222,7 +222,7 @@ export default function HowItWorksPage() {
                 Three Steps to Sold
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
                 <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold text-xl">1</span>
@@ -267,9 +267,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* HOW WE CALCULATE YOUR OFFER - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <div className="mb-10">
+            <div className="mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Transparent Pricing
               </span>
@@ -289,10 +289,10 @@ export default function HowItWorksPage() {
               <li><span className="font-medium">Selling costs</span> — Agent commissions and closing costs when we resell</li>
               <li><span className="font-medium">Our margin</span> — What we need to make the project worthwhile</li>
             </ul>
-            <p className="text-[#1a1f1a]/70 mb-8">
+            <p className="text-[#1a1f1a]/70 mb-6">
               What&apos;s left is what we can offer you.
             </p>
-            <div className="bg-[#FAF8F5] border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-8 text-left">
+            <div className="bg-[#FAF8F5] border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-6 text-left">
               <p className="text-[#1a1f1a]/70">
                 <span className="font-semibold text-[#1a1f1a]">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
               </p>
@@ -304,9 +304,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* WHAT CLEAREDGE HANDLES - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 We Handle It
               </span>
@@ -354,9 +354,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* WHO THIS IS FOR - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Is This Right For You?
               </span>
@@ -367,7 +367,7 @@ export default function HowItWorksPage() {
                 We work with homeowners in all kinds of situations. If any of these sound familiar, we can probably help:
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
                 <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Facing Foreclosure</p>
                 <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
@@ -414,9 +414,9 @@ export default function HowItWorksPage() {
         </section>
 
         {/* TESTIMONIAL - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Testimonial
               </span>

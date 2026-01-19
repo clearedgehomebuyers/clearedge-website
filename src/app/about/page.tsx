@@ -146,7 +146,7 @@ export default function AboutPage() {
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
               We&apos;re Not a Franchise. We&apos;re Your Neighbors.
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania. We&apos;ve been helping homeowners sell fast since 2016.
             </p>
             <a
@@ -160,12 +160,12 @@ export default function AboutPage() {
         </section>
 
         {/* Origin Story - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Story
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-8">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
               How ClearEdge Started
             </h2>
             <div className="space-y-6 text-lg text-[#1a1f1a]/70">
@@ -183,9 +183,9 @@ export default function AboutPage() {
         </section>
 
         {/* What Makes ClearEdge Different - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Our Difference
               </span>
@@ -235,9 +235,9 @@ export default function AboutPage() {
         </section>
 
         {/* Homeowners We Work With - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 We Can Help
               </span>
@@ -266,9 +266,9 @@ export default function AboutPage() {
         </section>
 
         {/* Serving All of Eastern Pennsylvania - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Service Areas
               </span>
@@ -276,7 +276,7 @@ export default function AboutPage() {
                 Serving All of Eastern Pennsylvania
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-8 mb-10">
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
                   NEPA
@@ -331,9 +331,9 @@ export default function AboutPage() {
         </section>
 
         {/* Local Knowledge Section - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Local Expertise
               </span>
@@ -383,12 +383,12 @@ export default function AboutPage() {
         </section>
 
         {/* Testimonial Section - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonial
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
               What Homeowners Say
             </h2>
             <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
@@ -424,7 +424,7 @@ export default function AboutPage() {
         </section>
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section id="lead-form" className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6">
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">

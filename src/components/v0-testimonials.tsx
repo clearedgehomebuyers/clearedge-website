@@ -27,15 +27,15 @@ const testimonials = [
 
 export function V0Testimonials() {
   return (
-    <section id="testimonials" className="py-16 lg:py-20 bg-white">
+    <section id="testimonials" className="py-12 lg:py-14 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-12 text-center">
+        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6 text-center">
           What Our Clients Say
         </h2>
 
         {/* Featured Testimonial */}
-        <div className="bg-[#FAF8F5] rounded-2xl shadow-lg p-8 lg:p-12 mb-10 border border-[#1a1f1a]/5">
+        <div className="bg-[#FAF8F5] rounded-2xl shadow-lg p-8 lg:p-12 mb-6 border border-[#1a1f1a]/5">
           <div className="max-w-4xl mx-auto">
             <svg className="w-12 h-12 text-[#008a29] mb-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -68,7 +68,7 @@ export function V0Testimonials() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="text-center mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="text-center mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="/testimonials"
             className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors"

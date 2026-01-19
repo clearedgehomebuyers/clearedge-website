@@ -32,7 +32,7 @@ return (
         <div className="max-w-7xl mx-auto relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="text-white">
-              <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-8">
+              <div className="inline-flex items-center space-x-2 bg-[#0d9488]/20 backdrop-blur-sm border border-[#0d9488]/30 rounded-full px-4 py-2 mb-6">
                 <MapPin className="w-4 h-4 text-[#14b8a6]" />
                 <span className="text-sm font-medium text-[#14b8a6]">Scranton & Lackawanna County</span>
               </div>
@@ -44,11 +44,11 @@ return (
                 </span>
               </h1>
               
-              <p className="text-xl text-slate-300 mb-10 max-w-lg leading-relaxed">
+              <p className="text-xl text-slate-300 mb-6 max-w-lg leading-relaxed">
                 Get a fair cash offer for your Scranton home in 24 hours. We buy houses in any condition — no repairs, no fees, no hassle.
               </p>
               
-              <div className="grid grid-cols-2 gap-3 mb-10">
+              <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="flex items-center space-x-3 bg-white/5 rounded-lg px-4 py-3">
                   <CheckCircle className="w-5 h-5 text-[#14b8a6]" />
                   <span className="text-white font-medium">Close in 7-14 days</span>
@@ -97,9 +97,9 @@ return (
       </section>
 
       {/* Local Problem Statement */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">LOCAL EXPERTISE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling a House in Scranton Doesn&apos;t Have to Be Hard</h2>
           </div>
@@ -113,9 +113,9 @@ return (
       </section>
 
       {/* Situations */}
-      <section className="py-24 px-4 bg-slate-50">
+      <section className="py-12 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">WE CAN HELP</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">We Help Scranton Homeowners in Any Situation</h2>
           </div>
@@ -144,9 +144,9 @@ return (
       </section>
 
       {/* Neighborhoods */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">NEIGHBORHOODS</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Scranton Areas We Serve</h2>
           </div>
@@ -164,9 +164,9 @@ return (
       </section>
 
       {/* Comparison Section */}
-      <section className="py-24 px-4 bg-slate-50">
+      <section className="py-12 px-4 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">COMPARE</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Selling to ClearEdge vs. Listing in Scranton</h2>
           </div>
@@ -233,7 +233,7 @@ return (
           </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Link href="/#get-offer" className="inline-block px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg">
               Get Your Scranton Cash Offer
             </Link>
@@ -242,9 +242,9 @@ return (
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4 bg-white">
+      <section className="py-12 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 bg-[#0d9488]/10 text-[#047857] rounded-full text-sm font-semibold mb-4">FAQ</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">Common Questions About Selling in Scranton</h2>
           </div>
@@ -287,12 +287,12 @@ return (
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
+      <section className="py-12 px-4 bg-gradient-to-br from-[#1e3a5f] via-[#162d4a] to-[#1e3a5f] relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#0d9488]/10 rounded-full blur-3xl"></div>
 
         <div className="max-w-4xl mx-auto text-center relative">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Sell Your Scranton House?</h2>
-          <p className="text-xl text-slate-300 mb-10">Get your free, no-obligation cash offer today. We&apos;re local and respond fast.</p>
+          <p className="text-xl text-slate-300 mb-6">Get your free, no-obligation cash offer today. We&apos;re local and respond fast.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
               Get My Scranton Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />

@@ -138,7 +138,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         />
 
         <div className="relative max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
             {/* LEFT COLUMN - Text content (centered within column) */}
             <div className="text-center lg:text-center">
               {/* Headline */}
@@ -149,7 +149,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-8 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
                 {location.heroSubheadline || `Get a fair cash offer for your ${location.city} home in 24 hours. We buy houses in any condition — no repairs, no fees, no hassle.`}
               </p>
 
@@ -173,7 +173,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
-            <div className="flex flex-col items-center justify-center h-full gap-10">
+            <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
               <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
@@ -249,9 +249,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* Local Problem Statement - White */}
       {location.problemStatement && (
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
             </div>
@@ -264,9 +264,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       )}
 
       {/* Situations - Cream */}
-      <section className="py-16 md:py-20 bg-[#FAF8F5]">
+      <section className="py-12 md:py-14 bg-[#FAF8F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">We Help {location.city}{location.county ? ` & ${location.county}` : ''} Homeowners</h2>
             <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
@@ -302,9 +302,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* Neighborhoods - White */}
       {location.neighborhoods && location.neighborhoods.length > 0 && (
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Neighborhoods</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">{location.city} Areas We Serve</h2>
             </div>
@@ -349,9 +349,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       )}
 
       {/* Comparison Section - Cream */}
-      <section className="py-16 md:py-20 bg-[#FAF8F5]">
+      <section className="py-12 md:py-14 bg-[#FAF8F5]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling to ClearEdge vs. Listing in {location.city}</h2>
           </div>
@@ -418,7 +418,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20">
               Get Your {location.city} Cash Offer
               <ArrowRight className="w-4 h-4" />
@@ -434,9 +434,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* Helpful Guides Section - Cream */}
       {relatedBlogPosts && relatedBlogPosts.length > 0 && (
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
               <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Related Articles for {location.city} Homeowners</h2>
             </div>
@@ -467,7 +467,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             </div>
 
             {/* More Helpful Guides Button */}
-            <div className="text-center mt-10">
+            <div className="text-center mt-6">
               <Link
                 href="/blog"
                 className="inline-flex items-center px-6 py-3 bg-white hover:bg-[#1a1f1a]/5 text-[#1a1f1a]/70 font-medium rounded-full border border-[#1a1f1a]/10 transition-colors"

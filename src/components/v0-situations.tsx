@@ -48,9 +48,9 @@ const situations = [
 
 export function V0Situations() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-12 lg:py-14 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-4">
             We Buy Houses in Any Situation
           </h2>

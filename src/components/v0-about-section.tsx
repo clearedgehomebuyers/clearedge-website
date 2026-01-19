@@ -23,9 +23,9 @@ const values = [
 
 export function V0AboutSection() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-[#FAF8F5]">
+    <section id="about" className="py-12 md:py-12 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
           <div className="relative flex justify-center lg:justify-start">
             <div className="relative flex items-center gap-6">
               {/* Left property photos - stacked vertically */}
@@ -62,7 +62,7 @@ export function V0AboutSection() {
           </div>
 
           {/* Content Side */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 About ClearEdge

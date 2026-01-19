@@ -2,12 +2,12 @@
 
 export function V0HiddenCost() {
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-12 lg:py-14 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-4">
           The Hidden Cost of Waiting
         </h2>
-        <p className="text-lg text-[#1a1f1a]/70 mb-8">
+        <p className="text-lg text-[#1a1f1a]/70 mb-6">
           When you list traditionally, you&apos;re not just waiting — you&apos;re paying.
           Here&apos;s what a typical 90-day listing actually costs compared to a cash sale.
         </p>

@@ -4,12 +4,12 @@ import { ArrowRight } from "lucide-react"
 
 export function V0FinalCta() {
   return (
-    <section className="py-16 md:py-20 bg-[#FAF8F5]">
+    <section className="py-12 md:py-14 bg-[#FAF8F5]">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
           Ready to Get Your Cash Offer?
         </h2>
-        <p className="text-[#1a1f1a]/70 mb-8">
+        <p className="text-[#1a1f1a]/70 mb-6">
           No obligation. No pressure. Just a fair offer you can count on.
         </p>
         <a

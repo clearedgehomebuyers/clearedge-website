@@ -162,7 +162,7 @@ export default async function BlogPage() {
         </section>
 
         {/* What You'll Find Section - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Approach
@@ -186,9 +186,9 @@ export default async function BlogPage() {
         </section>
 
         {/* Category Navigation - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Topics
               </span>
@@ -229,9 +229,9 @@ export default async function BlogPage() {
         </section>
 
         {/* Latest Posts Section - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Recent Articles
               </span>
@@ -261,12 +261,12 @@ export default async function BlogPage() {
         </section>
 
         {/* Final CTA Section - Beige */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
               Have a Question We Haven&apos;t Covered?
             </h2>
-            <p className="text-[#1a1f1a]/70 mb-8">
+            <p className="text-[#1a1f1a]/70 mb-6">
               We add new Pennsylvania real estate guides based on the questions homeowners ask us.
               If you&apos;re looking for information on selling your house fast and can&apos;t find it here, let us know.
             </p>

@@ -25,13 +25,13 @@ const reasons = [
 
 export function V0WhyClearEdge() {
   return (
-    <section className="py-16 lg:py-20 bg-[#FAF8F5]">
+    <section className="py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-12 text-center">
+        <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6 text-center">
           Why Homeowners Choose ClearEdge
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-6">
           {reasons.map((reason) => (
             <div
               key={reason.number}

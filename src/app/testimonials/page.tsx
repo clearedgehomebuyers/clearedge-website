@@ -252,7 +252,7 @@ export default function TestimonialsPage() {
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
               Real Reviews From Real Homeowners
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               Don&apos;t take our word for it. Here&apos;s what Pennsylvania homeowners say about working with ClearEdge.
             </p>
             <a
@@ -268,7 +268,7 @@ export default function TestimonialsPage() {
         {/* Trust Bar - Sage gradient */}
         <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-4 gap-4 md:gap-12">
+            <div className="grid grid-cols-4 gap-4 md:gap-6">
               <div className="text-center">
                 <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">200+</p>
                 <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Homeowners Helped</p>
@@ -290,7 +290,7 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Featured Testimonial - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
               <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
@@ -309,9 +309,9 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Secondary Reviews Grid - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 More Reviews
               </span>
@@ -326,7 +326,7 @@ export default function TestimonialsPage() {
               ))}
             </div>
             {/* Second row - 2 cards centered on desktop */}
-            <div className="grid sm:grid-cols-2 gap-6 mb-10 lg:flex lg:justify-center lg:gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 mb-6 lg:flex lg:justify-center lg:gap-6">
               {secondaryReviews.slice(3).map((review, index) => (
                 <div key={index} className="lg:w-[calc(33.333%-1rem)]">
                   <ReviewCard review={review} />
@@ -347,9 +347,9 @@ export default function TestimonialsPage() {
         </section>
 
         {/* What Our Reviews Have in Common - White */}
-        <section className="py-16 md:py-20 bg-white">
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Common Themes
               </span>
@@ -404,7 +404,7 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section id="lead-form" className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8">

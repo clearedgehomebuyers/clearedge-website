@@ -110,7 +110,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
       )}
 
       {hasMorePosts && (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-6">
           <button
             onClick={() => setVisibleCount(prev => prev + POSTS_PER_PAGE)}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-[#FAF8F5] transition-all"

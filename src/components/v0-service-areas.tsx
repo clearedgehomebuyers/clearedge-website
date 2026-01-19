@@ -38,9 +38,9 @@ export function V0ServiceAreas() {
   }
 
   return (
-    <section className="py-16 lg:py-20 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]" id="service-areas">
+    <section className="py-12 lg:py-14 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]" id="service-areas">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2e1a] mb-4">
             Serving All of Eastern Pennsylvania
           </h2>
@@ -49,7 +49,7 @@ export function V0ServiceAreas() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
           {Object.entries(locationsByRegion).map(([region, cities]) => (
             <div key={region} className="bg-white rounded-xl p-6 border border-[#1a1f1a]/5">
               <h3 className="text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#008a29] pb-2">
@@ -71,7 +71,7 @@ export function V0ServiceAreas() {
           ))}
         </div>
 
-        <p className="text-center mt-10">
+        <p className="text-center mt-6">
           <button
             onClick={scrollToForm}
             className="text-[#008a29] hover:text-[#007a24] font-semibold"

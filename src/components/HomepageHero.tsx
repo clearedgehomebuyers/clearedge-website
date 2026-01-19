@@ -38,7 +38,7 @@ export function HomepageHero() {
       <div className="absolute inset-0 bg-dot-pattern opacity-50" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-6 items-center">
           {/* Left content - main messaging */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Trust badge pill */}
@@ -53,12 +53,12 @@ export function HomepageHero() {
             </h1>
 
             {/* Subheadline - PRESERVED EXISTING CONTENT */}
-            <p className="text-lg sm:text-xl text-[#1a1f1a]/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#1a1f1a]/70 mb-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               No repairs. No agents. No fees. Get a fair cash offer in 24 hours from a local buyer who&apos;s helped hundreds of Eastern PA homeowners since 2016.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
               <button
                 onClick={scrollToForm}
                 className="px-8 py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold text-lg rounded-full shadow-lg shadow-[#008a29]/20 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#008a29] focus-visible:ring-offset-2"
@@ -123,7 +123,7 @@ export function HomepageHero() {
         </div>
 
         {/* Mobile property card - shown below content on mobile */}
-        <div className="lg:hidden mt-10">
+        <div className="lg:hidden mt-6">
           <div className="relative bg-white rounded-2xl shadow-xl shadow-[#1a1f1a]/10 overflow-hidden border border-[#1a1f1a]/5 max-w-sm mx-auto">
             <div className="relative aspect-[16/9]">
               <Image

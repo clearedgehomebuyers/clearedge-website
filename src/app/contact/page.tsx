@@ -272,9 +272,9 @@ export default function ContactPage() {
         </section>
 
         {/* Areas We Serve Section - White */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-12 bg-white">
           <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
                 Service Areas
               </span>
@@ -300,9 +300,9 @@ export default function ContactPage() {
         </section>
 
         {/* Lead Form + Contact Widgets - Cream */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-6 items-start">
               {/* Left Column - Simple Lead Form */}
               <div>
                 <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a] mb-6">Request Your Cash Offer</h2>
@@ -406,11 +406,11 @@ export default function ContactPage() {
         </section>
 
         {/* Final CTA Section - Beige */}
-        <section className="py-16 md:py-20 px-4 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 px-4 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">Prefer to Talk on the Phone?</h2>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8">
+            <p className="text-xl text-[#1a1f1a]/70 mb-6">
               Skip the form. Call Tyler directly.
             </p>
             <a

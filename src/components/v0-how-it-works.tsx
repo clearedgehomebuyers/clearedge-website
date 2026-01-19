@@ -29,10 +29,10 @@ const steps = [
 
 export function V0HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-white">
+    <section id="how-it-works" className="py-12 md:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-16">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             Simple 3-Step Process
           </span>
@@ -45,7 +45,7 @@ export function V0HowItWorks() {
         </div>
 
         {/* Steps Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-6">
           {steps.map((step, index) => (
             <div key={index} className="relative group">
               {/* Connector Line */}

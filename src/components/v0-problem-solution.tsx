@@ -18,10 +18,10 @@ const solutions = [
 
 export function V0ProblemSolution() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-12 md:py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-16">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
             A Better Way to Sell
           </span>
@@ -34,7 +34,7 @@ export function V0ProblemSolution() {
         </div>
 
         {/* Problem / Solution Cards */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-6 max-w-5xl mx-auto">
           {/* Problem Card */}
           <div className="bg-[#FAF8F5] rounded-2xl p-8 border border-[#1a1f1a]/5">
             <div className="flex items-center gap-3 mb-6">
@@ -77,7 +77,7 @@ export function V0ProblemSolution() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-10">
+        <div className="text-center mt-6">
           <a
             href="#lead-form"
             className="inline-flex items-center gap-2 text-[#008a29] font-medium hover:gap-3 transition-all"

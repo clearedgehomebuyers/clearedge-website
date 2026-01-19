@@ -39,9 +39,9 @@ export function RandomizedServiceAreas() {
   }, [])
 
   return (
-    <section className="py-16 md:py-20 bg-[#FAF8F5]">
+    <section className="py-12 md:py-14 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Service Areas</span>
           <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Areas We Serve</h2>
         </div>

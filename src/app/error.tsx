@@ -17,7 +17,7 @@ export default function Error({
     <main className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="text-center max-w-md">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Something went wrong</h1>
-        <p className="text-slate-600 mb-8">
+        <p className="text-slate-600 mb-6">
           We&apos;re sorry, but something unexpected happened. Please try again.
         </p>
         <button

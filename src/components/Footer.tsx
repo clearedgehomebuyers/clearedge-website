@@ -55,9 +55,9 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="bg-[#1a1f1a] text-white py-16 px-4">
+    <footer className="bg-[#1a1f1a] text-white py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-5 gap-10 mb-12">
+        <div className="grid md:grid-cols-5 gap-6 mb-6">
           {/* Logo & Description */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">

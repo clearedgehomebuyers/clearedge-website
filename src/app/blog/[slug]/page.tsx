@@ -69,7 +69,7 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-serif font-medium mt-12 mb-4 text-[#1a1f1a]">
+      <h2 className="text-2xl md:text-3xl font-serif font-medium mt-8 mb-4 text-[#1a1f1a]">
         {children}
       </h2>
     ),
@@ -216,7 +216,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <section className="pt-32 md:pt-40 pb-10 md:pb-12 bg-[#FAF8F5]">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Breadcrumb */}
-              <nav className="flex items-center text-sm text-[#1a1f1a]/70 mb-8">
+              <nav className="flex items-center text-sm text-[#1a1f1a]/70 mb-6">
                 <Link href="/" className="hover:text-[#008a29] transition-colors">Home</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
                 <Link href="/blog" className="hover:text-[#008a29] transition-colors">Blog</Link>
@@ -259,7 +259,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Featured Image */}
           {post.featuredImage?.asset?.url && (
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
               <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-lg">
                 <Image
                   src={urlFor(post.featuredImage).width(1200).height(675).url()}
@@ -273,7 +273,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Content */}
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
             <div className="prose prose-lg max-w-none">
               <PortableText value={post.content} components={portableTextComponents} />
             </div>
@@ -291,7 +291,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Related Links */}
             {(post.relatedLocations?.length > 0 || post.relatedSituations?.length > 0) && (
-              <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">
+              <section className="mt-8 pt-10 border-t border-[#1a1f1a]/10">
                 <h2 className="text-xl font-serif font-medium text-[#1a1f1a] mb-4">Related Pages</h2>
                 <div className="flex flex-wrap gap-3">
                   {post.relatedLocations?.map((location: { _id: string; city: string; slug: { current: string } }) => (
@@ -317,7 +317,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Author Bio */}
-            <section className="mt-12 pt-10 border-t border-[#1a1f1a]/10">
+            <section className="mt-8 pt-10 border-t border-[#1a1f1a]/10">
               <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8">
                 <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">About the Author</h3>
                 <p className="text-[#1a1f1a]/70 leading-relaxed">
@@ -330,9 +330,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </section>
 
             {/* CTA */}
-            <section className="mt-12 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
+            <section className="mt-8 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
               <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Ready to Sell Your House Fast?</h2>
-              <p className="mb-8 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
+              <p className="mb-6 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
                 Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.
               </p>
               <Link
@@ -356,12 +356,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </section>
 
         {/* Final CTA Section - Beige */}
-        <section className="py-16 md:py-20 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
               Have Questions About Selling Your House?
             </h2>
-            <p className="text-[#1a1f1a]/70 mb-8">
+            <p className="text-[#1a1f1a]/70 mb-6">
               Browse more guides or get a free, no-obligation cash offer.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
