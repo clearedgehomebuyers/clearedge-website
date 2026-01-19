@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       url: `https://www.clearedgehomebuyers.com/blog/${post.slug.current}`,
       images: post.featuredImage?.asset?.url
         ? [{ url: post.featuredImage.asset.url }]
-        : [],
+        : [{ url: 'https://www.clearedgehomebuyers.com/og-image.png', width: 1200, height: 630, alt: 'ClearEdge Home Buyers' }],
     },
   }
 }

@@ -1,222 +1,91 @@
-'use client'
-
-import { useState } from 'react'
+import type { Metadata } from 'next'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
-import { Phone, Clock, CheckCircle, Users, Calendar, MapPin, Loader2 } from 'lucide-react'
+import { ContactForm } from '@/components/ContactForm'
+import { Users, Calendar, MapPin, Phone } from 'lucide-react'
 
-// HubSpot configuration
-const HUBSPOT_PORTAL_ID = '50832074'
-const HUBSPOT_FORM_ID = '2224a427-5b9b-406b-8253-c97ba2d4e39d'
-
-// Helper to get HubSpot tracking cookie
-function getHubspotCookie(): string | null {
-  if (typeof document === 'undefined') return null
-  const cookies = document.cookie.split(';')
-  for (const cookie of cookies) {
-    const [name, value] = cookie.trim().split('=')
-    if (name === 'hubspotutk') {
-      return value
-    }
-  }
-  return null
+export const metadata: Metadata = {
+  title: 'Contact Us | Get Your Free Cash Offer',
+  description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (570) 904-2059 or fill out our form. Response within 24 hours.',
+  openGraph: {
+    title: 'Contact Us | Get Your Free Cash Offer | ClearEdge Home Buyers',
+    description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (570) 904-2059 or fill out our form.',
+    url: 'https://www.clearedgehomebuyers.com/contact',
+    siteName: 'ClearEdge Home Buyers',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
+      },
+    ],
+  },
 }
 
-// Extract only the 10-digit phone number from any input
-function extractPhoneDigits(value: string): string {
-  // Remove the "+1 " prefix if present before extracting digits
-  const withoutPrefix = value.startsWith('+1 ') ? value.slice(3) : value
+const faqs = [
+  {
+    question: 'How quickly will you respond to my inquiry?',
+    answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (570) 904-2059.',
+  },
+  {
+    question: 'What information should I have ready when I call?',
+    answer: 'It helps to know your property address, general condition of the home, and your ideal timeline for selling. But don\'t worry if you don\'t have all the details — we can discuss everything during our conversation.',
+  },
+  {
+    question: 'Do you charge for consultations or property evaluations?',
+    answer: 'Never. Our consultations, property evaluations, and cash offers are completely free with no obligation. You have nothing to lose by reaching out.',
+  },
+  {
+    question: 'Can I just get information without committing to sell?',
+    answer: 'Absolutely. We\'re happy to answer your questions, explain our process, and provide information even if you\'re just exploring your options. No pressure, ever.',
+  },
+]
 
-  // Extract only digits
-  let digits = withoutPrefix.replace(/\D/g, '')
-
-  // If someone pasted a number with leading 1 country code (11+ digits starting with 1)
-  if (digits.length > 10 && digits.startsWith('1')) {
-    digits = digits.slice(1)
-  }
-
-  // Return only first 10 digits
-  return digits.slice(0, 10)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
 }
 
-// Format 10 digits as +1 (XXX) XXX-XXXX
-function formatPhoneNumber(value: string): string {
-  const digits = extractPhoneDigits(value)
-
-  if (digits.length === 0) return ''
-  if (digits.length <= 3) return `+1 (${digits}`
-  if (digits.length <= 6) return `+1 (${digits.slice(0, 3)}) ${digits.slice(3)}`
-  return `+1 (${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
-}
-
-// Get raw 10 digits for validation
-function getPhoneDigits(value: string): string {
-  return extractPhoneDigits(value)
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'ClearEdge Home Buyers',
+  telephone: '+1-570-904-2059',
+  url: 'https://www.clearedgehomebuyers.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Scranton',
+    addressRegion: 'PA',
+    addressCountry: 'US',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Scranton', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
+    { '@type': 'City', name: 'Wilkes-Barre', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
+    { '@type': 'City', name: 'Allentown', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
+    { '@type': 'City', name: 'Bethlehem', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
+    { '@type': 'City', name: 'Reading', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
+  ],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
 }
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
-  const [phoneError, setPhoneError] = useState('')
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatPhoneNumber(e.target.value)
-    setFormData((prev) => ({ ...prev, phone: formatted }))
-    if (phoneError) setPhoneError('')
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Validate phone number has 10 digits
-    const phoneDigits = getPhoneDigits(formData.phone)
-    if (phoneDigits.length < 10) {
-      setPhoneError('Please enter a valid 10-digit phone number')
-      return
-    }
-
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
-
-    try {
-      // Build HubSpot form submission payload
-      const hutk = getHubspotCookie()
-      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
-      const pageName = typeof document !== 'undefined' ? document.title : ''
-
-      const hubspotPayload = {
-        submittedAt: Date.now(),
-        fields: [
-          { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
-          { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
-          { objectTypeId: '0-1', name: 'email', value: formData.email },
-          { objectTypeId: '0-1', name: 'phone', value: formData.phone },
-          { objectTypeId: '0-1', name: 'message', value: formData.message },
-        ],
-        context: {
-          pageUri,
-          pageName,
-          ...(hutk && { hutk }),
-        },
-      }
-
-      // Debug: Log the payload being sent
-      console.log('HubSpot submission payload:', JSON.stringify(hubspotPayload, null, 2))
-
-      const response = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(hubspotPayload),
-        }
-      )
-
-      // Debug: Log response details
-      console.log('HubSpot response status:', response.status, response.statusText)
-
-      const responseText = await response.text()
-      console.log('HubSpot response body:', responseText)
-
-      if (!response.ok) {
-        let errorData = {}
-        try {
-          errorData = JSON.parse(responseText)
-        } catch {
-          errorData = { rawResponse: responseText }
-        }
-        console.error('HubSpot submission error:', {
-          status: response.status,
-          statusText: response.statusText,
-          error: errorData,
-        })
-        throw new Error(`Submission failed: ${response.status} ${response.statusText}`)
-      }
-
-      setSubmitStatus('success')
-      setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
-    } catch (error) {
-      console.error('Form submission error:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
-  const faqs = [
-    {
-      question: 'How quickly will you respond to my inquiry?',
-      answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (570) 904-2059.',
-    },
-    {
-      question: 'What information should I have ready when I call?',
-      answer: 'It helps to know your property address, general condition of the home, and your ideal timeline for selling. But don\'t worry if you don\'t have all the details — we can discuss everything during our conversation.',
-    },
-    {
-      question: 'Do you charge for consultations or property evaluations?',
-      answer: 'Never. Our consultations, property evaluations, and cash offers are completely free with no obligation. You have nothing to lose by reaching out.',
-    },
-    {
-      question: 'Can I just get information without committing to sell?',
-      answer: 'Absolutely. We\'re happy to answer your questions, explain our process, and provide information even if you\'re just exploring your options. No pressure, ever.',
-    },
-  ]
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'ClearEdge Home Buyers',
-    telephone: '+1-570-904-2059',
-    url: 'https://www.clearedgehomebuyers.com',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Scranton',
-      addressRegion: 'PA',
-      addressCountry: 'US',
-    },
-    areaServed: [
-      { '@type': 'City', name: 'Scranton', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
-      { '@type': 'City', name: 'Wilkes-Barre', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
-      { '@type': 'City', name: 'Allentown', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
-      { '@type': 'City', name: 'Bethlehem', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
-      { '@type': 'City', name: 'Reading', containedInPlace: { '@type': 'State', name: 'Pennsylvania' } },
-    ],
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '00:00',
-      closes: '23:59',
-    },
-  }
-
   return (
     <>
       <script
@@ -302,90 +171,7 @@ export default function ContactPage() {
         {/* Lead Form + Contact Widgets - Cream */}
         <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-6 items-start">
-              {/* Left Column - Simple Lead Form */}
-              <div>
-                <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a] mb-6">Request Your Cash Offer</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">First Name</label>
-                      <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Last Name</label>
-                      <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Email</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Phone</label>
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
-                    {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Tell us about your property (optional)</label>
-                    <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
-                  </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full bg-[#008a29] hover:bg-[#007a24] text-white font-semibold py-4 px-6 rounded-full transition-colors disabled:opacity-50 shadow-lg shadow-[#008a29]/20">
-                    {isSubmitting ? (
-                      <span className="flex items-center justify-center gap-2">
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Sending...
-                      </span>
-                    ) : 'Get My Cash Offer'}
-                  </button>
-                  {submitStatus === 'success' && (<p className="text-[#008a29] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
-                  {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call (570) 904-2059 instead.</p>)}
-                </form>
-              </div>
-
-              {/* Right Column - Contact Widgets */}
-              <div className="space-y-6">
-                {/* Phone Widget */}
-                <a href="tel:+15709042059" className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-[#008a29]" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
-                      <p className="text-2xl font-bold text-[#008a29]">(570) 904-2059</p>
-                      <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
-                    </div>
-                  </div>
-                </a>
-
-                {/* Quick Response Widget */}
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-[#008a29]" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Quick Response</h3>
-                      <p className="text-[#1a1f1a]/70">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* No Obligation Widget */}
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-[#008a29]" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">No Obligation</h3>
-                      <p className="text-[#1a1f1a]/70">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ContactForm />
           </div>
         </section>
 

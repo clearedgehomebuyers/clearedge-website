@@ -1,0 +1,212 @@
+'use client'
+
+import { useState } from 'react'
+import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
+
+// HubSpot configuration
+const HUBSPOT_PORTAL_ID = '50832074'
+const HUBSPOT_FORM_ID = '2224a427-5b9b-406b-8253-c97ba2d4e39d'
+
+// Helper to get HubSpot tracking cookie
+function getHubspotCookie(): string | null {
+  if (typeof document === 'undefined') return null
+  const cookies = document.cookie.split(';')
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=')
+    if (name === 'hubspotutk') {
+      return value
+    }
+  }
+  return null
+}
+
+// Extract only the 10-digit phone number from any input
+function extractPhoneDigits(value: string): string {
+  const withoutPrefix = value.startsWith('+1 ') ? value.slice(3) : value
+  let digits = withoutPrefix.replace(/\D/g, '')
+  if (digits.length > 10 && digits.startsWith('1')) {
+    digits = digits.slice(1)
+  }
+  return digits.slice(0, 10)
+}
+
+// Format 10 digits as +1 (XXX) XXX-XXXX
+function formatPhoneNumber(value: string): string {
+  const digits = extractPhoneDigits(value)
+  if (digits.length === 0) return ''
+  if (digits.length <= 3) return `+1 (${digits}`
+  if (digits.length <= 6) return `+1 (${digits.slice(0, 3)}) ${digits.slice(3)}`
+  return `+1 (${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+}
+
+// Get raw 10 digits for validation
+function getPhoneDigits(value: string): string {
+  return extractPhoneDigits(value)
+}
+
+export function ContactForm() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [phoneError, setPhoneError] = useState('')
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value)
+    setFormData((prev) => ({ ...prev, phone: formatted }))
+    if (phoneError) setPhoneError('')
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const phoneDigits = getPhoneDigits(formData.phone)
+    if (phoneDigits.length < 10) {
+      setPhoneError('Please enter a valid 10-digit phone number')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const hutk = getHubspotCookie()
+      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
+      const pageName = typeof document !== 'undefined' ? document.title : ''
+
+      const hubspotPayload = {
+        submittedAt: Date.now(),
+        fields: [
+          { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
+          { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
+          { objectTypeId: '0-1', name: 'email', value: formData.email },
+          { objectTypeId: '0-1', name: 'phone', value: formData.phone },
+          { objectTypeId: '0-1', name: 'message', value: formData.message },
+        ],
+        context: {
+          pageUri,
+          pageName,
+          ...(hutk && { hutk }),
+        },
+      }
+
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(hubspotPayload),
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(`Submission failed: ${response.status}`)
+      }
+
+      setSubmitStatus('success')
+      setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <div className="grid lg:grid-cols-2 gap-6 items-start">
+      {/* Left Column - Simple Lead Form */}
+      <div>
+        <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a] mb-6">Request Your Cash Offer</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="firstName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">First Name</label>
+              <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            </div>
+            <div>
+              <label htmlFor="lastName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Last Name</label>
+              <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Email</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+          </div>
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Phone</label>
+            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Tell us about your property (optional)</label>
+            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+          </div>
+          <button type="submit" disabled={isSubmitting} className="w-full bg-[#008a29] hover:bg-[#007a24] text-white font-semibold py-4 px-6 rounded-full transition-colors disabled:opacity-50 shadow-lg shadow-[#008a29]/20">
+            {isSubmitting ? (
+              <span className="flex items-center justify-center gap-2">
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Sending...
+              </span>
+            ) : 'Get My Cash Offer'}
+          </button>
+          {submitStatus === 'success' && (<p className="text-[#008a29] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
+          {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call (570) 904-2059 instead.</p>)}
+        </form>
+      </div>
+
+      {/* Right Column - Contact Widgets */}
+      <div className="space-y-6">
+        {/* Phone Widget */}
+        <a href="tel:+15709042059" className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Phone className="w-6 h-6 text-[#008a29]" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
+              <p className="text-2xl font-bold text-[#008a29]">(570) 904-2059</p>
+              <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
+            </div>
+          </div>
+        </a>
+
+        {/* Quick Response Widget */}
+        <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <Clock className="w-6 h-6 text-[#008a29]" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Quick Response</h3>
+              <p className="text-[#1a1f1a]/70">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* No Obligation Widget */}
+        <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-6 h-6 text-[#008a29]" />
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">No Obligation</h3>
+              <p className="text-[#1a1f1a]/70">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

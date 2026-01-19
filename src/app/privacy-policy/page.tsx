@@ -4,6 +4,22 @@ import { V0Footer } from '@/components/v0-footer'
 export const metadata = {
   title: 'Privacy Policy',
   description: 'Privacy Policy for ClearEdge Home Buyers. Learn how we collect, use, and protect your personal information.',
+  openGraph: {
+    title: 'Privacy Policy | ClearEdge Home Buyers',
+    description: 'Privacy Policy for ClearEdge Home Buyers. Learn how we collect, use, and protect your personal information.',
+    url: 'https://www.clearedgehomebuyers.com/privacy-policy',
+    siteName: 'ClearEdge Home Buyers',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
+      },
+    ],
+  },
 }
 
 export default function PrivacyPolicyPage() {

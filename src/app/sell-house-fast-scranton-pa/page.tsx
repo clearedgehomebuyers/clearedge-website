@@ -9,6 +9,22 @@ import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCirc
 export const metadata = {
   title: 'Sell My House Fast Scranton PA | Cash Home Buyers | ClearEdge',
   description: 'Sell your house fast in Scranton, PA for cash. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours. Close in as little as 7 days.',
+  openGraph: {
+    title: 'Sell My House Fast Scranton PA | Cash Home Buyers | ClearEdge',
+    description: 'Sell your house fast in Scranton, PA for cash. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours.',
+    url: 'https://www.clearedgehomebuyers.com/sell-house-fast-scranton-pa',
+    siteName: 'ClearEdge Home Buyers',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
+      },
+    ],
+  },
 }
 
 export default function ScrantonPage() {

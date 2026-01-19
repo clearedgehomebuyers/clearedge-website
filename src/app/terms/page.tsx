@@ -4,6 +4,22 @@ import { V0Footer } from '@/components/v0-footer'
 export const metadata = {
   title: 'Terms and Conditions',
   description: 'Terms and Conditions for ClearEdge Home Buyers. Read our terms of service for using our website and real estate services.',
+  openGraph: {
+    title: 'Terms and Conditions | ClearEdge Home Buyers',
+    description: 'Terms and Conditions for ClearEdge Home Buyers. Read our terms of service for using our website and real estate services.',
+    url: 'https://www.clearedgehomebuyers.com/terms',
+    siteName: 'ClearEdge Home Buyers',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers - Sell Your House Fast for Cash in Pennsylvania',
+      },
+    ],
+  },
 }
 
 export default function TermsPage() {
