@@ -319,18 +319,13 @@ export default function TestimonialsPage() {
                 More Reviews From Pennsylvania Homeowners
               </h2>
             </div>
-            {/* First row - 3 cards, flexbox for tablet centering */}
-            <div className="flex flex-wrap justify-center gap-6 mb-6">
-              {secondaryReviews.slice(0, 3).map((review, index) => (
-                <div key={index} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                  <ReviewCard review={review} />
-                </div>
-              ))}
-            </div>
-            {/* Second row - 2 cards centered on all breakpoints */}
-            <div className="flex flex-wrap justify-center gap-6 mb-6">
-              {secondaryReviews.slice(3).map((review, index) => (
-                <div key={index} className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+            {/* 5 cards: 2-2-1 on tablet, 3-2 on desktop */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+              {secondaryReviews.map((review, index) => (
+                <div
+                  key={index}
+                  className={index === 4 ? 'sm:col-span-2 sm:mx-auto sm:max-w-[calc(50%-12px)] lg:col-span-1 lg:max-w-none' : ''}
+                >
                   <ReviewCard review={review} />
                 </div>
               ))}
