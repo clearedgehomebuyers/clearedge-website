@@ -5,6 +5,7 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
+import { V0TrustBar } from '@/components/v0-trust-bar'
 
 const testimonialsFaqs = [
   {
@@ -265,29 +266,7 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        {/* Trust Bar - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-4 gap-4 md:gap-6 items-center lg:items-start">
-              <div className="text-center">
-                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">200+</p>
-                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Homeowners Helped</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">Since 2016</p>
-                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Serving PA</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">5.0</p>
-                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">Google Rating</p>
-              </div>
-              <div className="text-center">
-                <p className="text-xl sm:text-2xl md:text-4xl font-serif font-medium text-[#1a2e1a] mb-0.5 md:mb-1">A+</p>
-                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground tracking-wide">BBB Rating</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <V0TrustBar />
 
         {/* Featured Testimonial - White */}
         <section className="py-12 md:py-14 bg-white">
