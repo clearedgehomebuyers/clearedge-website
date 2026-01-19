@@ -221,7 +221,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* County Trust Section - Sage Green Gradient (homepage trust bar styling) */}
       {location.county && (
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-[#1a2e1a] mb-2">
               We Buy Houses in {location.city} and All of {location.county}
@@ -482,7 +482,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       )}
 
       {/* Closing SEO - Sage gradient */}
-      <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+      <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#1a2e1a] font-medium">
             ClearEdge Home Buyers is your trusted local cash home buyer in {location.city}, Pennsylvania. Get a fair offer and close on your timeline.

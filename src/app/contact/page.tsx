@@ -397,7 +397,7 @@ export default function ContactPage() {
         />
 
         {/* Closing SEO - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <p className="text-[#1a2e1a] font-medium">
               ClearEdge Home Buyers is here when you&apos;re ready. No pressure, no obligation — just an honest conversation about your options.

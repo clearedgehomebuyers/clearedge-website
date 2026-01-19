@@ -266,7 +266,7 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Trust Bar - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-4 gap-4 md:gap-6">
               <div className="text-center">
@@ -395,7 +395,7 @@ export default function TestimonialsPage() {
         />
 
         {/* Closing SEO - Sage gradient */}
-        <section className="py-8 md:py-12 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <p className="text-[#1a2e1a] font-medium">
               Pennsylvania homeowners trust ClearEdge for honest offers, clear communication, and closings that happen on time. See what your house is worth today.
@@ -404,7 +404,7 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8">
