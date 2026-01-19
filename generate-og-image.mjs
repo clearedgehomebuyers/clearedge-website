@@ -13,72 +13,118 @@ const logoSvg = readFileSync(join(__dirname, 'public/Primary.svg'), 'utf8');
 const logoPathsMatch = logoSvg.match(/<path[^>]*>/g);
 const logoPaths = logoPathsMatch ? logoPathsMatch.join('') : '';
 
-// Create the OG image SVG with beige top / green bottom design
-// Top: 70% (441px) - Beige with small centered logo
-// Bottom: 30% (189px) - Green bar with headline, badges, and CTA
+/*
+ * EXACT VALUES EXTRACTED FROM v0-trust-bar.tsx:
+ *
+ * Background: bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]
+ * Main text color: text-[#1a2e1a] = #1a2e1a
+ * Main text font: font-serif = "Playfair Display", Georgia, serif
+ * Main text weight: font-medium = 500
+ * Subtext color: text-muted-foreground = oklch(0.5 0.01 250) ≈ #6b7280
+ */
+
+// Create the OG image SVG
+// Upper section (75% = 472px): Beige #FAF8F5 with logo and headline
+// Lower section (25% = 158px): Sage gradient from #f5f7f5 to #f0f4f1 with trust items
 const ogSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- Top Section - Beige background (70% = 441px) -->
-  <rect width="1200" height="441" fill="#FAF8F5"/>
+  <defs>
+    <!-- Gradient matching trust bar: from-[#f5f7f5] to-[#f0f4f1] -->
+    <linearGradient id="trustBarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f4f1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
 
-  <!-- Bottom Section - Green bar (30% = 189px) -->
-  <rect y="441" width="1200" height="189" fill="#008a29"/>
+  <!-- Upper Section - Beige background (75% = 472px) -->
+  <rect width="1200" height="472" fill="#FAF8F5"/>
 
-  <!-- Logo - Small (~170px wide), centered horizontally, positioned in upper portion -->
-  <!-- Original SVG is 732x732, scale to ~170px = 0.23 scale -->
-  <!-- Center: (1200 - 732*0.23) / 2 = (1200 - 168) / 2 = 516 -->
-  <g transform="translate(516, 80) scale(0.23)">
+  <!-- Lower Section - Trust bar gradient (25% = 158px) -->
+  <rect y="472" width="1200" height="158" fill="url(#trustBarGradient)"/>
+
+  <!-- Logo - 180px wide, centered, 140px from top -->
+  <!-- Original SVG is 732x732, scale to 180px = 180/732 = 0.246 -->
+  <!-- Center X: (1200 - 732*0.246) / 2 = (1200 - 180) / 2 = 510 -->
+  <g transform="translate(510, 140) scale(0.246)">
     ${logoPaths}
   </g>
 
-  <!-- Bottom Green Section Content -->
-
-  <!-- Main Headline - White, serif font -->
-  <text x="600" y="490"
-        font-family="Georgia, 'Times New Roman', serif"
-        font-size="42"
+  <!-- Main Headline - 80px below logo bottom (140 + 180 + 80 = 400) -->
+  <!-- Using EXACT trust bar styling: #1a2e1a, Playfair Display/Georgia, font-medium (500) -->
+  <text x="600" y="400"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="52"
         font-weight="500"
-        fill="#ffffff"
+        fill="#1a2e1a"
         text-anchor="middle">
     Sell Your PA House Fast
   </text>
 
-  <!-- Trust Badges Row - White text with checkmarks -->
-  <text x="200" y="545"
-        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="22"
+  <!-- Lower Section: Trust Items -->
+  <!-- Using EXACT trust bar styling: #1a2e1a, Playfair Display/Georgia, font-medium (500) -->
+
+  <!-- Item 1: Cash Offer in 24hrs -->
+  <text x="200" y="535"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="32"
         font-weight="500"
-        fill="#ffffff"
+        fill="#1a2e1a"
         text-anchor="middle">
-    &#x2713; Cash Offer in 24hrs
+    Cash Offer in 24hrs
+  </text>
+  <text x="200" y="565"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="16"
+        font-weight="400"
+        fill="#6b7280"
+        text-anchor="middle">
+    Fast Response
   </text>
 
-  <text x="600" y="545"
-        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="22"
+  <!-- Item 2: No Fees -->
+  <text x="600" y="535"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="32"
         font-weight="500"
-        fill="#ffffff"
+        fill="#1a2e1a"
         text-anchor="middle">
-    &#x2713; No Fees
+    No Fees
+  </text>
+  <text x="600" y="565"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="16"
+        font-weight="400"
+        fill="#6b7280"
+        text-anchor="middle">
+    Zero Commissions
   </text>
 
-  <text x="1000" y="545"
-        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="22"
+  <!-- Item 3: Close in 7 Days -->
+  <text x="1000" y="535"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="32"
         font-weight="500"
-        fill="#ffffff"
+        fill="#1a2e1a"
         text-anchor="middle">
-    &#x2713; Close in 7 Days
+    Close in 7 Days
+  </text>
+  <text x="1000" y="565"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="16"
+        font-weight="400"
+        fill="#6b7280"
+        text-anchor="middle">
+    Your Timeline
   </text>
 
-  <!-- CTA Text -->
-  <text x="600" y="600"
-        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
-        font-size="20"
+  <!-- CTA at bottom -->
+  <text x="600" y="610"
+        font-family="Inter, system-ui, sans-serif"
+        font-size="18"
         font-weight="600"
-        fill="#ffffff"
-        opacity="0.9"
+        fill="#1a2e1a"
+        opacity="0.7"
         text-anchor="middle">
-    Get Your Free Cash Offer &#x2192;
+    Get Your Free Cash Offer at clearedgehomebuyers.com
   </text>
 </svg>`;
 
