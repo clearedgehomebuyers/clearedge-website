@@ -1,6 +1,9 @@
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 
+// Force static generation at build time
+export const dynamic = 'force-static'
+
 export const metadata = {
   title: 'Terms and Conditions',
   description: 'Terms and Conditions for ClearEdge Home Buyers. Read our terms of service for using our website and real estate services.',

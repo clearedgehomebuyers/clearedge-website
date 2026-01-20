@@ -1,6 +1,9 @@
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 
+// Force static generation at build time
+export const dynamic = 'force-static'
+
 export const metadata = {
   title: 'Privacy Policy',
   description: 'Privacy Policy for ClearEdge Home Buyers. Learn how we collect, use, and protect your personal information.',
