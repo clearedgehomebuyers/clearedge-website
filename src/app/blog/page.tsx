@@ -8,10 +8,10 @@ import { V0FAQ } from '@/components/v0-faq'
 import { BlogPostsGrid } from '@/components/BlogPostsGrid'
 
 export const metadata: Metadata = {
-  title: 'Pennsylvania Real Estate Guides | Sell House Fast PA',
+  title: 'PA Real Estate Guides | Sell House Fast',
   description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, and fast home sales. Local insights & 2026 rules.',
   openGraph: {
-    title: 'Pennsylvania Real Estate Guides | Sell House Fast PA',
+    title: 'PA Real Estate Guides | Sell House Fast | ClearEdge Home Buyers',
     description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales.',
     url: 'https://www.clearedgehomebuyers.com/blog',
     siteName: 'ClearEdge Home Buyers',
