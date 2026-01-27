@@ -155,6 +155,35 @@ export default function TermsPage() {
             <li>Any information you provide to us</li>
           </ul>
 
+          <h2>SMS/Text Messaging Terms</h2>
+          <p>
+            By providing your phone number and checking the SMS consent box on our forms, you expressly consent to receive SMS text messages and phone calls from ClearEdge Properties LLC (doing business as ClearEdge Home Buyers) regarding your property inquiry and our services.
+          </p>
+          <h3>Message Frequency</h3>
+          <p>
+            Message frequency varies based on your inquiry and transaction status. You may receive appointment reminders, offer updates, and follow-up communications.
+          </p>
+          <h3>Costs</h3>
+          <p>
+            Message and data rates may apply. Check with your mobile carrier for details.
+          </p>
+          <h3>Opt-Out</h3>
+          <p>
+            You may opt out at any time by replying STOP to any message. After opting out, you will receive one final confirmation message.
+          </p>
+          <h3>Help</h3>
+          <p>
+            For help, reply HELP to any message or contact us at (570) 904-2059 or info@clearedgehomebuyers.com.
+          </p>
+          <h3>Carrier Liability</h3>
+          <p>
+            Carriers are not liable for delayed or undelivered messages.
+          </p>
+          <h3>Privacy</h3>
+          <p>
+            Your phone number and information will not be sold to third parties. See our <a href="/privacy-policy" className="text-[#008a29] hover:underline">Privacy Policy</a> for details.
+          </p>
+
           <h2>Third-Party Links</h2>
           <p>
             Our website may contain links to third-party websites or services. We are not responsible for the content, privacy policies, or practices of any third-party websites. Your use of third-party websites is at your own risk.

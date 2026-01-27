@@ -92,10 +92,25 @@ export default function PrivacyPolicyPage() {
 
           <h2>SMS and Email Communications</h2>
           <p>
-            By submitting your phone number through our forms, you consent to receive SMS text messages and phone calls from ClearEdge Home Buyers regarding your property and our services. Message frequency may vary. Message and data rates may apply.
+            By submitting your phone number and checking the SMS consent box on our forms, you expressly consent to receive SMS text messages and phone calls from ClearEdge Properties LLC (doing business as ClearEdge Home Buyers) regarding your property inquiry and our services.
           </p>
           <p>
-            You can opt out of SMS messages at any time by replying &quot;STOP&quot; to any message. You can opt out of email communications by clicking the &quot;unsubscribe&quot; link in any email or by contacting us directly.
+            Message frequency varies based on your inquiry and transaction status. Message and data rates may apply. Check with your mobile carrier for details.
+          </p>
+          <p>
+            <strong>Opt-Out:</strong> You can opt out of SMS messages at any time by replying STOP to any message. After opting out, you will receive one final confirmation message.
+          </p>
+          <p>
+            <strong>Help:</strong> Reply HELP to any message for assistance, or contact us at (570) 904-2059 or info@clearedgehomebuyers.com.
+          </p>
+          <p>
+            <strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages.
+          </p>
+          <p>
+            <strong>Your Privacy:</strong> Your phone number will not be sold or shared with third parties for marketing purposes. See the &quot;How We Share Your Information&quot; section below for details on how we handle your data.
+          </p>
+          <p>
+            You can opt out of email communications by clicking the &quot;unsubscribe&quot; link in any email or by contacting us directly.
           </p>
 
           <h2>How We Share Your Information</h2>
