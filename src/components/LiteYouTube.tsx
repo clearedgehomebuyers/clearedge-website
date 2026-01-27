@@ -50,11 +50,7 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
       {/* Play Button - Centered */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-16 h-16 md:w-20 md:h-20 bg-[#4A7C59] rounded-full flex items-center justify-center shadow-lg shadow-black/30 transition-transform duration-200 group-hover:scale-110">
-          <svg
-            viewBox="0 0 24 24"
-            className="w-6 h-6 md:w-8 md:h-8 ml-1.5"
-            fill="white"
-          >
+          <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-1">
             <path d="M8 5v14l11-7z" />
           </svg>
         </div>
