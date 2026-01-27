@@ -9,6 +9,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/studio/', '/api/'],
       },
     ],
-    sitemap: 'https://www.clearedgehomebuyers.com/sitemap.xml',
+    sitemap: [
+      'https://www.clearedgehomebuyers.com/sitemap.xml',
+      'https://www.clearedgehomebuyers.com/video-sitemap.xml',
+    ],
   }
 }
