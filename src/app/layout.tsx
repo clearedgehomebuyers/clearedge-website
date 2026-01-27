@@ -101,12 +101,13 @@ export default function RootLayout({
         {/* Google Fonts preconnect for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* LCP Optimization: Preload hero image with responsive srcset */}
+        {/* LCP Optimization: Preload hero image with responsive srcset (WebP) */}
         <link
           rel="preload"
           as="image"
-          href="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
-          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
+          type="image/webp"
+          href="/properties/scranton-pa-cash-home-buyers-clearedge-1.webp"
+          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
           imageSizes="(max-width: 768px) 280px, 320px"
           fetchPriority="high"
         />
@@ -122,19 +123,16 @@ export default function RootLayout({
           .hero-subtext-critical{color:rgba(26,31,26,0.7);font-size:1.25rem;line-height:1.75}
           @media(min-width:1024px){.hero-text-critical{font-size:3.75rem}}
         ` }} />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
-            setTimeout(function() {
-              var script = document.createElement('script');
-              script.src = 'https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D';
-              script.async = true;
-              document.head.appendChild(script);
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', 'G-1H6CPZVB8D');
-            }, 3000);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1H6CPZVB8D');
           `}
         </Script>
       </head>

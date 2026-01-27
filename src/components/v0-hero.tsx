@@ -80,18 +80,27 @@ export function V0Hero() {
           <div className="flex items-center justify-center h-full">
             <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
               <div className="relative aspect-[4/3]">
-                <img
-                  src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
-                  srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
-                  sizes="(max-width: 768px) 280px, 320px"
-                  width={320}
-                  height={240}
-                  alt="Recently purchased home in Scranton, PA"
-                  className="w-full h-full object-cover"
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                />
+                <picture>
+                  {/* WebP sources for modern browsers */}
+                  <source
+                    type="image/webp"
+                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                    sizes="(max-width: 768px) 280px, 320px"
+                  />
+                  {/* JPEG fallback for older browsers */}
+                  <img
+                    src="/properties/scranton-pa-cash-home-buyers-clearedge-1.webp"
+                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                    sizes="(max-width: 768px) 280px, 320px"
+                    width={320}
+                    height={240}
+                    alt="Recently purchased home in Scranton, PA"
+                    className="w-full h-full object-cover"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                   <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
