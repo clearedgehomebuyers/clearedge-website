@@ -35,12 +35,10 @@ export function V0VideoSection() {
           </div>
 
           {/* Video Container - Lite YouTube Facade (no JS until click) */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]">
-            <LiteYouTube
-              videoId="YS6uDgxIjiI"
-              title="Sell Your House Fast in PA | Clear Edge Home Buyers"
-            />
-          </div>
+          <LiteYouTube
+            videoId="YS6uDgxIjiI"
+            title="Sell Your House Fast in PA | Clear Edge Home Buyers"
+          />
 
           {/* Collapsible Transcript */}
           <div className="mt-4">
