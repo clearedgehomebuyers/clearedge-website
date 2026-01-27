@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -156,6 +157,8 @@ export function V0LeadForm() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
+  const [showConsentError, setShowConsentError] = useState(false)
 
   // Check if current step is valid
   const isStepValid = (step: number): boolean => {
@@ -166,7 +169,8 @@ export function V0LeadForm() {
           formData.city.trim() &&
           formData.state &&
           formData.zip.trim() &&
-          /^\d{5}$/.test(formData.zip)
+          /^\d{5}$/.test(formData.zip) &&
+          smsConsent
         )
       case 2:
         return !!formData.situation
@@ -188,7 +192,12 @@ export function V0LeadForm() {
   }
 
   const handleNext = () => {
+    if (currentStep === 1 && !smsConsent) {
+      setShowConsentError(true)
+      return
+    }
     if (currentStep < 5 && isStepValid(currentStep)) {
+      setShowConsentError(false)
       setCurrentStep(currentStep + 1)
     }
   }
@@ -575,8 +584,28 @@ Occupancy: ${formData.occupancy || 'Not specified'}
             )}
 
             {/* Navigation */}
-            <div className="flex justify-between mt-8 pt-6 border-t border-[#1a1f1a]/5">
-              {currentStep > 1 ? (
+            <div className="flex justify-between items-start gap-4 mt-8 pt-6 border-t border-[#1a1f1a]/5">
+              {currentStep === 1 ? (
+                <div className="flex-1 max-w-[65%]">
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={smsConsent}
+                      onChange={(e) => {
+                        setSmsConsent(e.target.checked)
+                        if (e.target.checked) setShowConsentError(false)
+                      }}
+                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+                    />
+                    <span className="text-xs text-gray-500 leading-tight">
+                      I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Home Buyers. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
+                    </span>
+                  </label>
+                  {showConsentError && (
+                    <p className="text-red-500 text-xs mt-2">Please agree to the terms to continue.</p>
+                  )}
+                </div>
+              ) : currentStep > 1 ? (
                 <Button
                   type="button"
                   variant="outline"
@@ -594,8 +623,8 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                 <Button
                   type="button"
                   onClick={handleNext}
-                  disabled={!isStepValid(currentStep)}
-                  className="bg-[#008a29] text-white hover:bg-[#007a24] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#008a29]/20 disabled:shadow-none"
+                  disabled={currentStep !== 1 && !isStepValid(currentStep)}
+                  className="bg-[#008a29] text-white hover:bg-[#007a24] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#008a29]/20 disabled:shadow-none flex-shrink-0"
                 >
                   Continue
                   <ArrowRight className="w-4 h-4" />
