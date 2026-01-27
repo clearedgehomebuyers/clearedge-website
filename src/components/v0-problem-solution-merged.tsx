@@ -21,7 +21,7 @@ const solutions = [
 
 export function V0ProblemSolutionMerged() {
   return (
-    <section className="py-12 md:py-12 bg-white">
+    <section className="py-12 md:py-12 bg-[#FAF8F5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* SEO Content - Why Selling Is Harder */}
         <div className="max-w-3xl mx-auto mb-16 text-center">

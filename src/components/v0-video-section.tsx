@@ -16,7 +16,7 @@ export function V0VideoSection() {
   }
 
   return (
-    <section className="py-12 md:py-16 bg-[#FAF8F5]">
+    <section className="py-12 md:py-16 bg-white">
       <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8">
