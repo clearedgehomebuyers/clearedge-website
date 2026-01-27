@@ -9,8 +9,11 @@ interface LiteYouTubeProps {
 
 export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [imgError, setImgError] = useState(false)
 
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+  // Use hqdefault (always exists) instead of maxresdefault (might not exist)
+  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+  const fallbackUrl = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
 
   if (isPlaying) {
     return (
@@ -33,9 +36,12 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
     >
       {/* Thumbnail Image */}
       <img
-        src={thumbnailUrl}
+        src={imgError ? fallbackUrl : thumbnailUrl}
         alt={title}
         className="w-full h-full object-cover"
+        loading="eager"
+        fetchPriority="high"
+        onError={() => setImgError(true)}
       />
 
       {/* Dark Overlay */}
