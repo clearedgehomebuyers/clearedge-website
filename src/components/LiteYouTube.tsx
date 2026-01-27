@@ -1,29 +1,10 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState } from "react"
 
 interface LiteYouTubeProps {
   videoId: string
   title: string
-}
-
-// TypeScript declarations for YouTube IFrame API
-declare global {
-  interface Window {
-    YT: {
-      Player: new (
-        elementId: string,
-        options: {
-          videoId: string
-          playerVars?: Record<string, number>
-          events?: {
-            onReady?: (event: { target: { playVideo: () => void } }) => void
-          }
-        }
-      ) => void
-    }
-    onYouTubeIframeAPIReady: () => void
-  }
 }
 
 export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
@@ -34,50 +15,19 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
   const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
   const fallbackUrl = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
 
-  const createPlayer = useCallback(() => {
-    new window.YT.Player(`youtube-player-${videoId}`, {
-      videoId: videoId,
-      playerVars: {
-        autoplay: 1,
-        muted: 1,
-        playsinline: 1,
-        rel: 0,
-        modestbranding: 1,
-        cc_load_policy: 0
-      },
-      events: {
-        onReady: (event) => {
-          event.target.playVideo()
-        }
-      }
-    })
-  }, [videoId])
-
-  const loadVideo = useCallback(() => {
+  // Simple synchronous click handler - immediately show iframe
+  const handleClick = () => {
     setIsPlaying(true)
-
-    // Small delay to ensure the container div is rendered
-    setTimeout(() => {
-      // Load YouTube IFrame API if not already loaded
-      if (!window.YT) {
-        const tag = document.createElement("script")
-        tag.src = "https://www.youtube.com/iframe_api"
-        document.head.appendChild(tag)
-
-        window.onYouTubeIframeAPIReady = () => {
-          createPlayer()
-        }
-      } else {
-        createPlayer()
-      }
-    }, 100)
-  }, [createPlayer])
+  }
 
   if (isPlaying) {
     return (
       <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
-        <div
-          id={`youtube-player-${videoId}`}
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&muted=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
           className="absolute inset-0 w-full h-full"
         />
       </div>
@@ -86,7 +36,7 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
 
   return (
     <div
-      onClick={loadVideo}
+      onClick={handleClick}
       className="relative w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group"
       style={{ aspectRatio: '16/9' }}
     >
