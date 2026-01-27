@@ -45,13 +45,19 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-200" />
+      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-200" />
 
-      {/* Play Button - Centered */}
+      {/* YouTube Play Button - Red rounded rectangle with white triangle */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-[#4A7C59] rounded-full flex items-center justify-center shadow-lg shadow-black/30 transition-transform duration-200 group-hover:scale-110">
-          <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6 ml-1">
-            <path d="M8 5v14l11-7z" />
+        <div className="transition-transform duration-200 group-hover:scale-110">
+          <svg viewBox="0 0 68 48" width="68" height="48">
+            {/* Red rounded rectangle background */}
+            <path
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#FF0000"
+            />
+            {/* White triangle play icon */}
+            <path d="M45,24L27,14v20L45,24z" fill="white" />
           </svg>
         </div>
       </div>
