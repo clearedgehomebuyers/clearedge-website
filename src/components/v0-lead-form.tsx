@@ -158,7 +158,7 @@ export function V0LeadForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
-  const [showConsentError, setShowConsentError] = useState(false)
+  const [showStep1Errors, setShowStep1Errors] = useState(false)
 
   // Check if current step is valid
   const isStepValid = (step: number): boolean => {
@@ -192,12 +192,12 @@ export function V0LeadForm() {
   }
 
   const handleNext = () => {
-    if (currentStep === 1 && !smsConsent) {
-      setShowConsentError(true)
+    if (currentStep === 1 && !isStepValid(1)) {
+      setShowStep1Errors(true)
       return
     }
     if (currentStep < 5 && isStepValid(currentStep)) {
-      setShowConsentError(false)
+      setShowStep1Errors(false)
       setCurrentStep(currentStep + 1)
     }
   }
@@ -374,8 +374,11 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       value={formData.address}
                       onChange={(e) => updateFormData("address", e.target.value)}
                       autoComplete="street-address"
-                      className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
+                      className={`w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50 ${showStep1Errors && !formData.address.trim() ? 'border-red-500' : ''}`}
                     />
+                    {showStep1Errors && !formData.address.trim() && (
+                      <p className="text-red-500 text-xs mt-1">Street address is required</p>
+                    )}
                   </div>
 
                   {/* City (50%), State (25%), ZIP (25%) */}
@@ -391,8 +394,11 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                         value={formData.city}
                         onChange={(e) => updateFormData("city", e.target.value)}
                         autoComplete="address-level2"
-                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
+                        className={`w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50 ${showStep1Errors && !formData.city.trim() ? 'border-red-500' : ''}`}
                       />
+                      {showStep1Errors && !formData.city.trim() && (
+                        <p className="text-red-500 text-xs mt-1">City is required</p>
+                      )}
                     </div>
 
                     <div className="col-span-2 sm:col-span-1">
@@ -427,8 +433,14 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                         autoComplete="postal-code"
                         inputMode="numeric"
                         maxLength={5}
-                        className="w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50"
+                        className={`w-full h-12 border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20 rounded-xl bg-[#FAF8F5]/50 ${showStep1Errors && !/^\d{5}$/.test(formData.zip) ? 'border-red-500' : ''}`}
                       />
+                      {showStep1Errors && !formData.zip.trim() && (
+                        <p className="text-red-500 text-xs mt-1">ZIP code is required</p>
+                      )}
+                      {showStep1Errors && formData.zip.trim() && !/^\d{5}$/.test(formData.zip) && (
+                        <p className="text-red-500 text-xs mt-1">Enter a valid 5-digit ZIP</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -591,17 +603,14 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                     <input
                       type="checkbox"
                       checked={smsConsent}
-                      onChange={(e) => {
-                        setSmsConsent(e.target.checked)
-                        if (e.target.checked) setShowConsentError(false)
-                      }}
-                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+                      onChange={(e) => setSmsConsent(e.target.checked)}
+                      className={`mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0 ${showStep1Errors && !smsConsent ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                     />
                     <span className="text-xs text-gray-500 leading-tight">
                       I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Home Buyers. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
                     </span>
                   </label>
-                  {showConsentError && (
+                  {showStep1Errors && !smsConsent && (
                     <p className="text-red-500 text-xs mt-2">Please agree to the terms to continue.</p>
                   )}
                 </div>
@@ -623,7 +632,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                 <Button
                   type="button"
                   onClick={handleNext}
-                  disabled={currentStep !== 1 && !isStepValid(currentStep)}
+                  disabled={!isStepValid(currentStep)}
                   className="bg-[#008a29] text-white hover:bg-[#007a24] disabled:bg-slate-300 disabled:cursor-not-allowed flex items-center gap-2 h-12 px-8 rounded-full shadow-lg shadow-[#008a29]/20 disabled:shadow-none flex-shrink-0"
                 >
                   Continue
