@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState } from "react"
 
 interface LiteYouTubeProps {
   videoId: string
@@ -8,63 +8,51 @@ interface LiteYouTubeProps {
 }
 
 export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`
 
-  const loadVideo = useCallback(() => {
-    setIsLoaded(true)
-  }, [])
-
-  // If user has clicked, show the actual iframe
-  if (isLoaded) {
+  if (isPlaying) {
     return (
-      <div className="relative aspect-video w-full">
+      <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
         <iframe
-          width="100%"
-          height="100%"
           src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&cc_load_policy=0&autoplay=1`}
           title={title}
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className="absolute inset-0 w-full h-full rounded-2xl"
+          className="absolute inset-0 w-full h-full"
         />
       </div>
     )
   }
 
-  // Facade: thumbnail background + glass play button (zero YouTube JS loaded)
   return (
-    <button
-      onClick={loadVideo}
-      className="relative aspect-video w-full cursor-pointer group rounded-2xl overflow-hidden shadow-xl border border-[#1a1f1a]/10"
-      style={{
-        backgroundImage: `url(${thumbnailUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      aria-label={`Play video: ${title}`}
+    <div
+      onClick={() => setIsPlaying(true)}
+      className="relative aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer group"
     >
-      {/* Dark overlay for contrast */}
-      <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors duration-300" />
+      {/* Thumbnail Image */}
+      <img
+        src={thumbnailUrl}
+        alt={title}
+        className="w-full h-full object-cover"
+      />
 
-      {/* Glass-morphism play button */}
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-200" />
+
+      {/* Play Button - Centered */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover:scale-110">
-          {/* Play triangle icon */}
+        <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center shadow-xl transition-transform duration-200 group-hover:scale-110">
           <svg
             viewBox="0 0 24 24"
-            fill="none"
-            className="w-7 h-7 md:w-8 md:h-8 text-[#008a29] ml-1"
+            className="w-6 h-6 md:w-8 md:h-8 ml-1"
+            fill="#4A7C59"
           >
-            <path
-              d="M8 5.14v14.72a1 1 0 001.5.86l11-7.36a1 1 0 000-1.72l-11-7.36a1 1 0 00-1.5.86z"
-              fill="currentColor"
-            />
+            <path d="M8 5v14l11-7z" />
           </svg>
         </div>
       </div>
-    </button>
+    </div>
   )
 }
