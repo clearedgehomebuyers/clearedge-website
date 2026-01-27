@@ -16,83 +16,88 @@ export function V0VideoSection() {
   }
 
   return (
-    <section className="py-12 md:py-16 bg-white">
-      <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-8">
-          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
-            Real Help from Local People
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
-            A Faster, Easier Way to Sell Your Pennsylvania Home
-          </h2>
-          <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
-            Selling a house in Pennsylvania is a big decision. You deserve a transparent process from someone who actually knows the Lehigh Valley and the Poconos. Watch this 60-second message from our founder, Tyler.
-          </p>
-        </div>
+    <section className="bg-white">
+      {/* Main content area */}
+      <div className="py-12 md:py-16">
+        <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-8">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              Real Help from Local People
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
+              A Faster, Easier Way to Sell Your Pennsylvania Home
+            </h2>
+            <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
+              Selling a house in Pennsylvania is a big decision. You deserve a transparent process from someone who actually knows the Lehigh Valley and the Poconos. Watch this 60-second message from our founder, Tyler.
+            </p>
+          </div>
 
-        {/* Video Container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube-nocookie.com/embed/YS6uDgxIjiI?rel=0&modestbranding=1&cc_load_policy=0"
-            title="Sell Your House Fast in PA | Clear Edge Home Buyers"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            loading="lazy"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
+          {/* Video Container */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube-nocookie.com/embed/YS6uDgxIjiI?rel=0&modestbranding=1&cc_load_policy=0"
+              title="Sell Your House Fast in PA | Clear Edge Home Buyers"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
 
-        {/* Collapsible Transcript */}
-        <div className="mt-4">
-          <button
-            onClick={() => setIsTranscriptOpen(!isTranscriptOpen)}
-            className="w-full flex items-center justify-between p-4 bg-white rounded-xl border border-[#1a1f1a]/10 hover:border-[#008a29]/20 transition-colors"
-            aria-expanded={isTranscriptOpen}
-          >
-            <span className="font-medium text-[#1a1f1a]">Video Transcript</span>
+          {/* Collapsible Transcript */}
+          <div className="mt-4">
+            <button
+              onClick={() => setIsTranscriptOpen(!isTranscriptOpen)}
+              className="w-full flex items-center justify-between p-4 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/10 hover:border-[#008a29]/20 transition-colors"
+              aria-expanded={isTranscriptOpen}
+            >
+              <span className="font-medium text-[#1a1f1a]">Video Transcript</span>
+              <div
+                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                  isTranscriptOpen ? "bg-[#008a29] text-white" : "bg-[#008a29]/10 text-[#008a29]"
+                }`}
+              >
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isTranscriptOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </div>
+            </button>
+
             <div
-              className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                isTranscriptOpen ? "bg-[#008a29] text-white" : "bg-[#008a29]/10 text-[#008a29]"
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                isTranscriptOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
               }`}
             >
-              <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
-                  isTranscriptOpen ? "rotate-180" : ""
-                }`}
-              />
-            </div>
-          </button>
-
-          <div
-            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-              isTranscriptOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="p-4 mt-2 bg-white rounded-xl border border-[#1a1f1a]/10">
-              <p className="text-[#1a1f1a]/70 leading-relaxed text-sm">
-                {transcript}
-              </p>
+              <div className="p-4 mt-2 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/10">
+                <p className="text-[#1a1f1a]/70 leading-relaxed text-sm">
+                  {transcript}
+                </p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Outro & CTA */}
-        <div className="text-center mt-10">
-          <p className="text-xl md:text-2xl font-serif text-[#1a1f1a] mb-6">
+      {/* Full-width CTA bar - matches Trust Bar styling */}
+      <div className="py-6 md:py-8 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xl md:text-2xl font-serif text-[#1a2e1a] mb-6">
             Ready for your straight, truthful answer?
           </p>
           <button
             onClick={scrollToForm}
-            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
+            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group shadow-lg shadow-[#008a29]/20"
           >
             Get My Cash Offer Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <p className="text-sm text-[#1a1f1a]/70 mt-4">
+          <p className="text-sm text-[#1a2e1a]/70 mt-4 font-medium">
             No Obligation. No Fees. No Repairs.
           </p>
         </div>
