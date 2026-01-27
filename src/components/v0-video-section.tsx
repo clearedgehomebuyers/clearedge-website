@@ -30,7 +30,7 @@ export function V0VideoSection() {
               A Faster, Easier Way to Sell Your Pennsylvania Home
             </h2>
             <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
-              Selling a house in Pennsylvania is a big decision. You deserve a transparent process from someone who actually knows the Lehigh Valley and the Poconos. Watch this 60-second message from our founder, Tyler.
+              Selling a house in Pennsylvania is a big decision. You deserve a transparent process from someone who actually knows Northeastern PA, the Lehigh Valley, and the Poconos. Watch this 60-second message from our founder, Tyler.
             </p>
           </div>
 
