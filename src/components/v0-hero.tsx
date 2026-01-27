@@ -83,7 +83,9 @@ export function V0Hero() {
                 <img
                   src="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
                   srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
-                  sizes="(max-width: 768px) 400px, 800px"
+                  sizes="(max-width: 768px) 280px, 320px"
+                  width={320}
+                  height={240}
                   alt="Recently purchased home in Scranton, PA"
                   className="w-full h-full object-cover"
                   fetchPriority="high"

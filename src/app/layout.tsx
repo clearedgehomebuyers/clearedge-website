@@ -98,13 +98,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Fonts preconnect for faster font loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* LCP Optimization: Preload hero image with responsive srcset */}
         <link
           rel="preload"
           as="image"
           href="/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg"
           imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.jpg 400w, /properties/scranton-pa-cash-home-buyers-clearedge-1.jpg 800w"
-          imageSizes="(max-width: 768px) 400px, 800px"
+          imageSizes="(max-width: 768px) 280px, 320px"
           fetchPriority="high"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

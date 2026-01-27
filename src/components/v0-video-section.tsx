@@ -2,6 +2,7 @@
 
 import { ChevronDown, ArrowRight } from "lucide-react"
 import { useState } from "react"
+import { LiteYouTube } from "./LiteYouTube"
 
 export function V0VideoSection() {
   const [isTranscriptOpen, setIsTranscriptOpen] = useState(false)
@@ -33,18 +34,11 @@ export function V0VideoSection() {
             </p>
           </div>
 
-          {/* Video Container */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]/5">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube-nocookie.com/embed/YS6uDgxIjiI?rel=0&modestbranding=1&cc_load_policy=0"
+          {/* Video Container - Lite YouTube Facade (no JS until click) */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1a1f1a]/10 aspect-video bg-[#1a1f1a]">
+            <LiteYouTube
+              videoId="YS6uDgxIjiI"
               title="Sell Your House Fast in PA | Clear Edge Home Buyers"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
             />
           </div>
 
