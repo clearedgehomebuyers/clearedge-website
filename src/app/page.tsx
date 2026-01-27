@@ -230,16 +230,16 @@ export default function HomePage() {
       />
 
       <main className="min-h-screen">
-        {/* 1. Header */}
+        {/* 1. Sticky Header */}
         <V0Header />
         {/* 2. Hero */}
         <V0Hero />
         {/* 3. Trust Bar */}
         <V0TrustBar />
-        {/* 4. Problem/Solution (merged) */}
-        <V0ProblemSolutionMerged />
-        {/* 5. Video Intro - Meet Tyler */}
+        {/* 4. Video Section - Meet Tyler */}
         <V0VideoSection />
+        {/* 5. Problem/Solution - "Selling a House in PA Just Got Harder" */}
+        <V0ProblemSolutionMerged />
         {/* 6. How It Works */}
         <V0HowItWorks />
         {/* 7. Comparison Table (merged) */}
@@ -252,7 +252,7 @@ export default function HomePage() {
         <V0Testimonials />
         {/* 11. Main Lead Form */}
         <V0LeadForm />
-        {/* 12. Video FAQs */}
+        {/* 12. FAQs */}
         <V0FAQ
           faqs={videoFaqs}
           title="Frequently Asked Questions"
