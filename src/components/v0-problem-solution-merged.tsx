@@ -57,7 +57,7 @@ export function V0ProblemSolutionMerged() {
         {/* Problem / Solution Cards */}
         <div className="grid md:grid-cols-2 gap-6 md:gap-6 max-w-5xl mx-auto">
           {/* Problem Card */}
-          <div className="bg-[#FAF8F5] rounded-2xl p-8 border border-[#1a1f1a]/5">
+          <div className="bg-white rounded-2xl p-8 border border-[#008a29]">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
                 <XCircle className="w-5 h-5 text-red-600" />
