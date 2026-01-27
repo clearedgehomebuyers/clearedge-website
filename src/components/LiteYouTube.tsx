@@ -19,7 +19,7 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
     return (
       <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&muted=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

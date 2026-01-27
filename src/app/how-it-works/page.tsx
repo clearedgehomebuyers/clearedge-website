@@ -314,34 +314,33 @@ export default function HowItWorksPage() {
                 What ClearEdge Handles For You
               </h2>
             </div>
-            {/* 5 cards: 2-2-1 on tablet, 3-2 on desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+            {/* 5 cards: flexbox with justify-center to center incomplete rows */}
+            <div className="flex flex-wrap justify-center gap-6">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Repairs Needed</h3>
                 <p className="text-[#1a1f1a]/70">
                   Sell as-is. Foundation issues, roof damage, mold — doesn&apos;t matter.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Inspections</h3>
                 <p className="text-[#1a1f1a]/70">
                   We don&apos;t require you to fix violations or pass municipal inspection.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Mortgage Delays</h3>
                 <p className="text-[#1a1f1a]/70">
                   Cash means no lender approval, no appraisal contingencies.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Commissions</h3>
                 <p className="text-[#1a1f1a]/70">
                   We&apos;re not agents. You pay zero commission.
                 </p>
               </div>
-              {/* 5th card: centered on tablet */}
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 sm:col-span-2 sm:mx-auto sm:max-w-[calc(50%-12px)] lg:col-span-1 lg:max-w-none">
+              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Uncertainty</h3>
                 <p className="text-[#1a1f1a]/70">
                   When we make an offer and you accept, the deal closes. Period.
