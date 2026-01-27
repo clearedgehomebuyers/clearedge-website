@@ -40,10 +40,12 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
       className="relative w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group"
       style={{ aspectRatio: '16/9' }}
     >
-      {/* Thumbnail Image */}
+      {/* Thumbnail Image - explicit dimensions for layout stability */}
       <img
         src={imgError ? fallbackUrl : thumbnailUrl}
         alt={title}
+        width={800}
+        height={450}
         className="w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
