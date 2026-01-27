@@ -607,7 +607,7 @@ Occupancy: ${formData.occupancy || 'Not specified'}
                       className={`mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0 ${showStep1Errors && !smsConsent ? 'border-red-500 ring-1 ring-red-500' : ''}`}
                     />
                     <span className="text-xs text-gray-500 leading-tight">
-                      I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Home Buyers. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
+                      I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Properties LLC. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
                     </span>
                   </label>
                   {showStep1Errors && !smsConsent && (
