@@ -17,7 +17,7 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
 
   if (isPlaying) {
     return (
-      <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+      <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&cc_load_policy=0&autoplay=1`}
           title={title}
@@ -32,7 +32,8 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
   return (
     <div
       onClick={() => setIsPlaying(true)}
-      className="relative aspect-video rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+      className="relative w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+      style={{ aspectRatio: '16/9' }}
     >
       {/* Thumbnail Image */}
       <img
