@@ -62,11 +62,13 @@ export function V0VideoSection() {
             </button>
 
             <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isTranscriptOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+              className={`transition-all duration-300 ease-in-out ${
+                isTranscriptOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
               }`}
             >
-              <div className="p-4 mt-2 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/10">
+              <div className={`p-4 pb-6 mt-2 bg-[#FAF8F5] rounded-xl border border-[#1a1f1a]/10 ${
+                isTranscriptOpen ? "max-h-[380px] overflow-y-auto" : ""
+              }`}>
                 <p className="text-[#1a1f1a]/70 leading-relaxed text-sm">
                   {transcript}
                 </p>
