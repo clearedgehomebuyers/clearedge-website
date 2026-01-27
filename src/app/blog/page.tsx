@@ -141,7 +141,7 @@ export default async function BlogPage() {
       <V0Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section - Cream with dot pattern */}
-        <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 bg-[#FAF8F5] overflow-hidden">
+        <section className="relative pt-32 pb-10 md:pt-40 md:pb-12 bg-[#FAF8F5] overflow-hidden">
           {/* Background pattern */}
           <div
             className="absolute inset-0 opacity-[0.03]"

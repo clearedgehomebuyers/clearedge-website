@@ -151,7 +151,7 @@ export default function HowItWorksPage() {
         <V0Header />
 
         {/* HERO SECTION - Cream with dot pattern */}
-        <section className="relative pt-32 pb-16 md:pb-20 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{

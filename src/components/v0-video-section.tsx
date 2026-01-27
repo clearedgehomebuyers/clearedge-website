@@ -85,19 +85,19 @@ export function V0VideoSection() {
       </div>
 
       {/* Full-width CTA bar - matches Trust Bar styling */}
-      <div className="py-6 md:py-8 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+      <div className="pt-3 pb-4 md:pt-4 md:pb-5 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xl md:text-2xl font-serif text-[#1a2e1a] mb-6">
+          <p className="text-lg md:text-xl font-serif text-[#1a2e1a] mb-3">
             Ready for your straight, truthful answer?
           </p>
           <button
             onClick={scrollToForm}
-            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group shadow-lg shadow-[#008a29]/20"
+            className="inline-flex items-center gap-2 bg-[#008a29] text-white px-6 py-3 rounded-full font-medium hover:bg-[#007a24] transition-colors group shadow-lg shadow-[#008a29]/20"
           >
             Get My Cash Offer Now
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <p className="text-sm text-[#1a2e1a]/70 mt-4 font-medium">
+          <p className="text-sm text-[#1a2e1a]/70 mt-2 font-medium">
             No Obligation. No Fees. No Repairs.
           </p>
         </div>
