@@ -98,7 +98,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* LCP Optimization: Preload hero image FIRST */}
+        <meta charSet="utf-8" />
+        {/* LCP Optimization: Preload hero image FIRST - immediately after charset */}
         <link
           rel="preload"
           as="image"
