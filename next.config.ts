@@ -1,7 +1,13 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  images: { unoptimized: true },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  images: {
+    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
+  },
   experimental: {
     optimizeCss: true,
   },
