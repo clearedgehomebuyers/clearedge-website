@@ -83,7 +83,7 @@ export default function HomePage() {
             "name": "ClearEdge Home Buyers",
             "description": "Cash home buying company serving Eastern Pennsylvania. We buy houses as-is for cash with no fees or repairs required.",
             "url": "https://www.clearedgehomebuyers.com",
-            "telephone": "+1-570-904-2059",
+            "telephone": "+1-610-904-8526",
             "image": "https://www.clearedgehomebuyers.com/og-image.png",
             "priceRange": "$",
             "founder": {

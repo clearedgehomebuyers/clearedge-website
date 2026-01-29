@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 interface FAQ {
   question: string
@@ -14,6 +15,7 @@ interface SituationFAQAccordionProps {
 }
 
 export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAccordionProps) {
+  const { phone, phoneTel } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -74,8 +76,8 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="tel:+15709042059" className="text-[#008a29] font-medium hover:underline">
-              (570) 904-2059
+            <a href={`tel:${phoneTel}`} className="text-[#008a29] font-medium hover:underline">
+              {phone}
             </a>
             <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>
             <a href="/contact" className="text-[#008a29] font-medium hover:underline">

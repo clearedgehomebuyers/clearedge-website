@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 type FAQ = {
   question: string
@@ -49,6 +50,7 @@ export function V0FAQ({
   subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often.",
   sectionBg = "white"
 }: V0FAQProps) {
+  const { phone, phoneTel } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   // Background classes based on sectionBg prop
@@ -115,8 +117,8 @@ export function V0FAQ({
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="tel:+15709042059" className="text-[#008a29] font-medium hover:underline">
-              (570) 904-2059
+            <a href={`tel:${phoneTel}`} className="text-[#008a29] font-medium hover:underline">
+              {phone}
             </a>
             <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>
             <a href="/contact" className="text-[#008a29] font-medium hover:underline">

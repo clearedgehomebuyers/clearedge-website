@@ -119,7 +119,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function V0LeadForm() {
-  const { webhook, trafficSource } = useTrafficSource()
+  const { webhook, trafficSource, phone, phoneTel } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
     address: "",
@@ -253,8 +253,8 @@ export function V0LeadForm() {
           </p>
           <div className="bg-white rounded-xl p-6 max-w-md mx-auto border border-[#008a29]/10 shadow-sm">
             <p className="text-[#1a1f1a]/70 text-sm mb-2">Need to talk sooner?</p>
-            <a href="tel:+15709042059" className="text-[#008a29] text-lg font-medium hover:underline">
-              (570) 904-2059
+            <a href={`tel:${phoneTel}`} className="text-[#008a29] text-lg font-medium hover:underline">
+              {phone}
             </a>
           </div>
         </div>

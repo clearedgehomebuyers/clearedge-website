@@ -5,6 +5,7 @@ import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
+import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const title = location.metaTitle || `Sell Your House Fast in ${location.city}, PA`
-  const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home. ClearEdge buys houses as-is for cash. No repairs, no fees. Call Tyler: (570) 904-2059.`
+  const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home. ClearEdge buys houses as-is for cash. No repairs, no fees. Call Tyler: (610) 904-8526.`
   const url = `https://www.clearedgehomebuyers.com/locations/${slug}`
 
   return {
@@ -162,13 +163,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   Get Your Free Cash Offer
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a
-                  href="tel:+15709042059"
+                <DynamicPhoneLink
                   className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
-                >
-                  <Phone className="w-5 h-5 mr-2" />
-                  (570) 904-2059
-                </a>
+                  showIcon
+                  iconClassName="w-5 h-5 mr-2"
+                />
               </div>
             </div>
 

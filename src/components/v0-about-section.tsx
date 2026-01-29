@@ -1,4 +1,7 @@
+"use client"
+
 import { MapPin, Heart, Users, Phone } from "lucide-react"
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 const values = [
   {
@@ -22,6 +25,8 @@ const values = [
 ]
 
 export function V0AboutSection() {
+  const { phone, phoneTel } = useTrafficSource()
+
   return (
     <section id="about" className="py-12 md:py-12 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,13 +106,13 @@ export function V0AboutSection() {
             {/* Direct Contact */}
             <div className="pt-4">
               <a
-                href="tel:+15709042059"
+                href={`tel:${phoneTel}`}
                 className="inline-flex items-center gap-3 text-[#008a29] font-medium hover:gap-4 transition-all"
               >
                 <div className="w-10 h-10 rounded-full bg-[#008a29]/10 flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
-                Call Tyler directly: (570) 904-2059
+                Call Tyler directly: {phone}
               </a>
             </div>
           </div>

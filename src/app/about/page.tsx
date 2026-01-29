@@ -5,6 +5,7 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
+import { DynamicPhoneLink } from '@/components/DynamicPhone'
 
 export const metadata: Metadata = {
   title: 'About Us | Local Cash Home Buyers Since 2016',
@@ -118,7 +119,7 @@ export default function AboutPage() {
             ],
             contactPoint: {
               '@type': 'ContactPoint',
-              telephone: '+1-570-904-2059',
+              telephone: '+1-610-904-8526',
               contactType: 'sales',
               areaServed: 'US',
               availableLanguage: 'English',
@@ -429,9 +430,7 @@ export default function AboutPage() {
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">
               Prefer to call? Reach Tyler directly:{' '}
-              <a href="tel:+15709042059" className="font-semibold text-[#008a29] hover:underline">
-                (570) 904-2059
-              </a>
+              <DynamicPhoneLink className="font-semibold text-[#008a29] hover:underline" />
             </p>
           </div>
         </section>

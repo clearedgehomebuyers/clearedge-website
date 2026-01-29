@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 interface LeadFormProps {
   id?: string
@@ -120,6 +121,7 @@ export function LeadForm({
   subheading = 'No obligation • No fees • Response in 24 hours',
   buttonText = 'Get My Cash Offer',
 }: LeadFormProps) {
+  const { phone } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -421,7 +423,7 @@ export function LeadForm({
 
         {submitStatus === 'error' && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-red-700 text-sm">
-            Something went wrong. Please try again or call us at (570) 904-2059.
+            Something went wrong. Please try again or call us at {phone}.
           </div>
         )}
 

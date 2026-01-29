@@ -173,7 +173,7 @@ export default function TermsPage() {
           </p>
           <h3>Help</h3>
           <p>
-            For help, reply HELP to any message or contact us at (570) 904-2059 or info@clearedgehomebuyers.com.
+            For help, reply HELP to any message or contact us at (610) 904-8526 or info@clearedgehomebuyers.com.
           </p>
           <h3>Carrier Liability</h3>
           <p>
@@ -212,7 +212,7 @@ export default function TermsPage() {
           <h2>Contact Information</h2>
           <p>If you have any questions about these Terms, please contact us:</p>
           <ul>
-            <li><strong>Phone:</strong> (570) 904-2059</li>
+            <li><strong>Phone:</strong> (610) 904-8526</li>
             <li><strong>Website:</strong> www.clearedgehomebuyers.com</li>
           </ul>
         </div>
@@ -222,7 +222,7 @@ export default function TermsPage() {
       <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers operates with transparency and integrity. Questions about our terms? Call us at (570) 904-2059.
+            ClearEdge Home Buyers operates with transparency and integrity. Questions about our terms? Call us at (610) 904-8526.
           </p>
         </div>
       </section>

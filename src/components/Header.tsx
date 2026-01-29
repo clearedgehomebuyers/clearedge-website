@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Phone, Menu, X, ChevronDown } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 interface HeaderProps {
   currentPage?: string
@@ -51,6 +52,7 @@ const situationLinks = [
 ]
 
 export function Header({ currentPage }: HeaderProps) {
+  const { phone, phoneTel } = useTrafficSource()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -156,11 +158,11 @@ export function Header({ currentPage }: HeaderProps) {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-5">
-            <a href="tel:+15709042059" className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
+            <a href={`tel:${phoneTel}`} className="flex items-center space-x-2 text-slate-700 hover:text-[#0d9488] transition-colors">
               <div className="w-10 h-10 bg-[#0d9488]/10 rounded-full flex items-center justify-center">
                 <Phone className="w-5 h-5 text-[#0d9488]" />
               </div>
-              <span className="font-bold">(570) 904-2059</span>
+              <span className="font-bold">{phone}</span>
             </a>
             <button
               onClick={() => {
@@ -251,11 +253,11 @@ export function Header({ currentPage }: HeaderProps) {
           {/* Phone Number */}
           <div className="pt-4 border-t border-slate-100 mt-4">
             <a
-              href="tel:+15709042059"
+              href={`tel:${phoneTel}`}
               className="flex items-center space-x-3 px-4 py-3 rounded-lg bg-[#0d9488]/10 text-[#0d9488] font-bold"
             >
               <Phone className="w-5 h-5" />
-              <span>(570) 904-2059</span>
+              <span>{phone}</span>
             </a>
           </div>
 

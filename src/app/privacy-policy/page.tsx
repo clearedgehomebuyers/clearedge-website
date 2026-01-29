@@ -101,7 +101,7 @@ export default function PrivacyPolicyPage() {
             <strong>Opt-Out:</strong> You can opt out of SMS messages at any time by replying STOP to any message. After opting out, you will receive one final confirmation message.
           </p>
           <p>
-            <strong>Help:</strong> Reply HELP to any message for assistance, or contact us at (570) 904-2059 or info@clearedgehomebuyers.com.
+            <strong>Help:</strong> Reply HELP to any message for assistance, or contact us at (610) 904-8526 or info@clearedgehomebuyers.com.
           </p>
           <p>
             <strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages.
@@ -170,7 +170,7 @@ export default function PrivacyPolicyPage() {
           <h2>Contact Us</h2>
           <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
           <ul>
-            <li><strong>Phone:</strong> (570) 904-2059</li>
+            <li><strong>Phone:</strong> (610) 904-8526</li>
             <li><strong>Website:</strong> www.clearedgehomebuyers.com</li>
           </ul>
         </div>
@@ -183,7 +183,7 @@ export default function PrivacyPolicyPage() {
             ClearEdge Home Buyers is committed to protecting your privacy.
           </p>
           <p className="text-[#1a2e1a] font-medium">
-            Questions? Call us at (570) 904-2059.
+            Questions? Call us at (610) 904-8526.
           </p>
         </div>
       </section>

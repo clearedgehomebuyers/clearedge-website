@@ -4,6 +4,7 @@ import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
 import { LeadForm } from '@/components/LeadForm'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { DynamicPhoneLink, DynamicPhoneButton } from '@/components/DynamicPhone'
 import { Phone, Clock, DollarSign, Shield, Award, Star, Users, MapPin, CheckCircle, ArrowRight, FileText, Handshake, Building, Home, ChevronDown } from 'lucide-react'
 
 export const metadata = {
@@ -83,10 +84,11 @@ return (
                 </div>
               </div>
 
-              <a href="tel:+15709042059" className="inline-flex items-center space-x-3 text-[#14b8a6] font-bold text-lg hover:text-[#0d9488] transition-colors">
-                <Phone className="w-5 h-5" />
-                <span>(570) 904-2059</span>
-              </a>
+              <DynamicPhoneLink
+                className="inline-flex items-center space-x-3 text-[#14b8a6] font-bold text-lg hover:text-[#0d9488] transition-colors"
+                showIcon
+                iconClassName="w-5 h-5"
+              />
             </div>
             
             {/* Lead Form */}
@@ -313,10 +315,9 @@ return (
             <Link href="/#get-offer" className="px-8 py-4 bg-gradient-to-r from-[#0d9488] to-[#14b8a6] hover:from-[#0a7c72] hover:to-[#0d9488] text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all text-lg inline-flex items-center justify-center">
               Get My Scranton Cash Offer <ArrowRight className="w-5 h-5 inline ml-2" />
             </Link>
-            <a href="tel:+15709042059" className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center">
-              <Phone className="w-5 h-5 mr-2" />
-              (570) 904-2059
-            </a>
+            <DynamicPhoneButton
+              className="px-8 py-4 bg-transparent text-white border-2 border-white/40 hover:bg-white hover:text-slate-800 font-semibold rounded-xl transition-all inline-flex items-center justify-center"
+            />
           </div>
         </div>
       </section>

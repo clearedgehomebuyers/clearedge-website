@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useTrafficSource } from '@/components/TrafficSourceProvider'
 
 export default function Error({
   error,
@@ -9,6 +10,7 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  const { phone, phoneTel } = useTrafficSource()
   useEffect(() => {
     console.error(error)
   }, [error])
@@ -28,7 +30,7 @@ export default function Error({
         </button>
         <p className="text-slate-500 mt-8 text-sm">
           If this keeps happening, call us at{' '}
-          <a href="tel:+15709042059" className="text-blue-600 hover:underline">(570) 904-2059</a>
+          <a href={`tel:${phoneTel}`} className="text-blue-600 hover:underline">{phone}</a>
         </p>
       </div>
     </main>

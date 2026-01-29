@@ -6,6 +6,7 @@ import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0TrustBar } from '@/components/v0-trust-bar'
+import { DynamicPhoneLink } from '@/components/DynamicPhone'
 
 const testimonialsFaqs = [
   {
@@ -141,7 +142,7 @@ export default function TestimonialsPage() {
                 "@type": "LocalBusiness",
                 "name": "ClearEdge Home Buyers",
                 "url": "https://www.clearedgehomebuyers.com",
-                "telephone": "+1-570-904-2059",
+                "telephone": "+1-610-904-8526",
                 "address": {
                   "@type": "PostalAddress",
                   "addressLocality": "Scranton",
@@ -385,9 +386,7 @@ export default function TestimonialsPage() {
             <V0LeadForm />
             <p className="text-[#1a1f1a]/70 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}
-              <a href="tel:+15709042059" className="font-semibold text-[#008a29] hover:underline">
-                (570) 904-2059
-              </a>
+              <DynamicPhoneLink className="font-semibold text-[#008a29] hover:underline" />
             </p>
           </div>
         </section>

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Phone, Clock, DollarSign, ShieldCheck, MapPin } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 /**
  * HomepageHero - v0 Design Implementation
@@ -24,6 +25,7 @@ const trustFeatures = [
 ]
 
 export function HomepageHero() {
+  const { phone, phoneTel } = useTrafficSource()
   const scrollToForm = () => {
     const el = document.getElementById('lead-form')
     if (el) {
@@ -66,11 +68,11 @@ export function HomepageHero() {
                 Get My Cash Offer
               </button>
               <a
-                href="tel:+15709042059"
+                href={`tel:${phoneTel}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#1a1f1a]/20 hover:border-[#1a1f1a]/40 text-[#1a1f1a] rounded-full transition-all duration-200 text-lg font-medium hover:-translate-y-0.5"
               >
                 <Phone className="w-5 h-5" />
-                <span>Call (570) 904-2059</span>
+                <span>Call {phone}</span>
               </a>
             </div>
 

@@ -3,14 +3,15 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
 import { ContactForm } from '@/components/ContactForm'
+import { DynamicPhoneButton } from '@/components/DynamicPhone'
 import { Users, Calendar, MapPin, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Contact Us | Get Your Free Cash Offer',
-  description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (570) 904-2059 or fill out our form. Response within 24 hours.',
+  description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form. Response within 24 hours.',
   openGraph: {
     title: 'Contact Us | Get Your Free Cash Offer | ClearEdge Home Buyers',
-    description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (570) 904-2059 or fill out our form.',
+    description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form.',
     url: 'https://www.clearedgehomebuyers.com/contact',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'How quickly will you respond to my inquiry?',
-    answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (570) 904-2059.',
+    answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (610) 904-8526.',
   },
   {
     question: 'What information should I have ready when I call?',
@@ -62,7 +63,7 @@ const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'ClearEdge Home Buyers',
-  telephone: '+1-570-904-2059',
+  telephone: '+1-610-904-8526',
   url: 'https://www.clearedgehomebuyers.com',
   address: {
     '@type': 'PostalAddress',
@@ -200,13 +201,12 @@ export default function ContactPage() {
             <p className="text-xl text-[#1a1f1a]/70 mb-6">
               Skip the form. Call Tyler directly.
             </p>
-            <a
-              href="tel:+15709042059"
+            <DynamicPhoneButton
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full shadow-lg shadow-[#008a29]/20 hover:shadow-xl transition-all text-lg"
             >
               <Phone className="w-6 h-6" />
-              <span>Call (570) 904-2059</span>
-            </a>
+              <span>Call Now</span>
+            </DynamicPhoneButton>
           </div>
         </section>
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact ClearEdge Home Buyers | Get Your Cash Offer Today',
-  description: 'Ready to sell your Pennsylvania house fast? Contact ClearEdge for a no-obligation cash offer. Call Tyler at (570) 904-2059 or fill out our quick form.',
+  description: 'Ready to sell your Pennsylvania house fast? Contact ClearEdge for a no-obligation cash offer. Call Tyler at (610) 904-8526 or fill out our quick form.',
   openGraph: {
     title: 'Contact ClearEdge Home Buyers | Get Your Cash Offer Today',
     description: 'Ready to sell your Pennsylvania house fast? Contact ClearEdge for a no-obligation cash offer.',

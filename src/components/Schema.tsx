@@ -28,7 +28,7 @@ export function OrganizationSchema() {
     "legalName": "ClearEdge Home Buyers",
     "url": "https://www.clearedgehomebuyers.com",
     "logo": "https://www.clearedgehomebuyers.com/logo.webp",
-    "telephone": "+1-570-904-2059",
+    "telephone": "+1-610-904-8526",
     "sameAs": [
       "https://www.google.com/maps/place/ClearEdge+Home+Buyers"
     ]
@@ -49,7 +49,7 @@ export function LocalBusinessSchema() {
     "name": "ClearEdge Home Buyers",
     "description": "We buy houses for cash in Eastern Pennsylvania. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.",
     "url": "https://www.clearedgehomebuyers.com",
-    "telephone": "+1-570-904-2059",
+    "telephone": "+1-610-904-8526",
     "priceRange": "$$",
     "image": "https://www.clearedgehomebuyers.com/logo.webp",
     "address": {

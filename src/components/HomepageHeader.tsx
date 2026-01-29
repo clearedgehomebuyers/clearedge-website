@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Menu, X } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 /**
  * HomepageHeader - v0 Design Implementation
@@ -24,6 +25,7 @@ const navLinks = [
 ]
 
 export function HomepageHeader() {
+  const { phone, phoneTel } = useTrafficSource()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -86,13 +88,13 @@ export function HomepageHeader() {
           {/* Desktop CTA - appears on scroll */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+15709042059"
+              href={`tel:${phoneTel}`}
               className={`flex items-center gap-2 text-[#1a1f1a]/70 hover:text-[#008a29] transition-all duration-300 ${
                 scrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-semibold">(570) 904-2059</span>
+              <span className="text-sm font-semibold">{phone}</span>
             </a>
             <button
               onClick={() => {
@@ -148,11 +150,11 @@ export function HomepageHeader() {
 
           {/* Mobile Phone */}
           <a
-            href="tel:+15709042059"
+            href={`tel:${phoneTel}`}
             className="flex items-center gap-3 px-4 py-3 mt-4 text-[#1a1f1a]/80 hover:text-[#008a29] hover:bg-[#1a1f1a]/5 rounded-xl transition-colors"
           >
             <Phone className="w-5 h-5 text-[#008a29]" />
-            <span className="font-semibold">(570) 904-2059</span>
+            <span className="font-semibold">{phone}</span>
           </a>
 
           {/* Mobile CTA */}

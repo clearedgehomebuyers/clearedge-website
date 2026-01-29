@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, Mail } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 // Locations to always place at the end (long names need space below)
 const bottomRowLocations = [
@@ -45,6 +46,7 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export function Footer() {
+  const { phone, phoneTel } = useTrafficSource()
   // Initial state uses original order for SSR
   const [locations, setLocations] = useState([...otherLocations, ...bottomRowLocations])
 
@@ -106,11 +108,11 @@ export function Footer() {
           <div>
             <h3 className="font-bold mb-4 text-lg text-white">Contact Us</h3>
             <div className="space-y-4">
-              <a href="tel:+15709042059" className="flex items-center space-x-3 text-white/60 hover:text-[#008a29] transition-colors group">
+              <a href={`tel:${phoneTel}`} className="flex items-center space-x-3 text-white/60 hover:text-[#008a29] transition-colors group">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center group-hover:bg-[#008a29]/20 transition-colors">
                   <Phone className="w-5 h-5 text-[#008a29]" />
                 </div>
-                <span className="font-semibold">(570) 904-2059</span>
+                <span className="font-semibold">{phone}</span>
               </a>
               <div className="flex items-center space-x-3 text-white/60">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center">

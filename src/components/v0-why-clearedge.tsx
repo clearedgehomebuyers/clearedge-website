@@ -1,5 +1,7 @@
 "use client"
 
+import { useTrafficSource } from "./TrafficSourceProvider"
+
 const reasons = [
   {
     number: "1",
@@ -24,6 +26,8 @@ const reasons = [
 ]
 
 export function V0WhyClearEdge() {
+  const { phone, phoneTel } = useTrafficSource()
+
   return (
     <section className="py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,8 +50,8 @@ export function V0WhyClearEdge() {
                 {reason.number === "4" && (
                   <>
                     {" "}Call him now:{" "}
-                    <a href="tel:+15709042059" className="text-[#008a29] hover:text-[#007a24] font-semibold">
-                      (570) 904-2059
+                    <a href={`tel:${phoneTel}`} className="text-[#008a29] hover:text-[#007a24] font-semibold">
+                      {phone}
                     </a>
                   </>
                 )}
