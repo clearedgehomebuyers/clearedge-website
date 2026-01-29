@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     question: 'How quickly will you respond to my inquiry?',
-    answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at (610) 904-8526.',
+    answer: 'We typically respond within a few hours during business hours, and always within 24 hours. For urgent matters, call us directly at {{phone}}.',
   },
   {
     question: 'What information should I have ready when I call?',

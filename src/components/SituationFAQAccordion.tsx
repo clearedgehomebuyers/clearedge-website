@@ -62,7 +62,9 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
 
               {openIndex === index && (
                 <div className="px-5 pb-5">
-                  <p className="text-[#1a1f1a]/70 leading-relaxed">{faq.answer}</p>
+                  <p className="text-[#1a1f1a]/70 leading-relaxed">
+                    {faq.answer.replace(/\{\{phone\}\}/g, phone)}
+                  </p>
                 </div>
               )}
             </div>

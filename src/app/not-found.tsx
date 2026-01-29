@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { DynamicPhoneLink } from '@/components/DynamicPhone'
 
 export default function NotFound() {
   return (
@@ -25,7 +26,7 @@ export default function NotFound() {
         </div>
         <p className="text-slate-500 mt-8 text-sm">
           Need to sell your house fast? Call us at{' '}
-          <a href="tel:+16109048526" className="text-blue-600 hover:underline">(610) 904-8526</a>
+          <DynamicPhoneLink className="text-blue-600 hover:underline" />
         </p>
       </div>
     </main>
