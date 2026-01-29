@@ -7,9 +7,8 @@ import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-// HubSpot configuration
-const HUBSPOT_PORTAL_ID = '50832074'
-const HUBSPOT_FORM_ID = 'c1592c03-4f8c-42c1-8b4f-f1b64733f29d'
+// Zapier webhook for REsimpli integration
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/'
 
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
@@ -121,25 +120,6 @@ function getPhoneDigits(value: string): string {
   return extractPhoneDigits(value)
 }
 
-// Format phone for HubSpot submission
-function formatPhoneForHubspot(phone: string): string {
-  const digits = extractPhoneDigits(phone)
-  return `+1 (${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6,10)}`
-}
-
-// Helper to get HubSpot tracking cookie
-function getHubspotCookie(): string | null {
-  if (typeof document === 'undefined') return null
-  const cookies = document.cookie.split(';')
-  for (const cookie of cookies) {
-    const [name, value] = cookie.trim().split('=')
-    if (name === 'hubspotutk') {
-      return value
-    }
-  }
-  return null
-}
-
 export function V0LeadForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
@@ -212,52 +192,32 @@ export function V0LeadForm() {
     setIsSubmitting(true)
 
     try {
-      const hutk = getHubspotCookie()
-      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
-      const pageName = typeof document !== 'undefined' ? document.title : ''
-
-      // Build message content with situation, timeline, and occupancy
-      const messageContent = `
-Situation: ${formData.situation || 'Not specified'}
-Timeline: ${formData.timeline || 'Not specified'}
-Occupancy: ${formData.occupancy || 'Not specified'}
-`.trim()
-
-      const fields = [
-        { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
-        { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
-        { objectTypeId: '0-1', name: 'phone', value: formatPhoneForHubspot(formData.phone) },
-        { objectTypeId: '0-1', name: 'email', value: formData.email },
-        { objectTypeId: '0-1', name: 'address', value: formData.address },
-        { objectTypeId: '0-1', name: 'city', value: formData.city },
-        { objectTypeId: '0-1', name: 'state', value: formData.state },
-        { objectTypeId: '0-1', name: 'zip', value: formData.zip },
-        { objectTypeId: '0-1', name: 'message', value: messageContent },
-      ]
-
-      const hubspotPayload = {
-        submittedAt: Date.now(),
-        fields,
-        context: {
-          pageUri,
-          pageName,
-          ...(hutk && { hutk }),
-        },
+      // Build payload for Zapier/REsimpli
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        propertyAddress: formData.address,
+        city: formData.city,
+        state: formData.state,
+        zip: formData.zip,
+        situation: formData.situation || '',
+        timeline: formData.timeline || '',
+        occupancy: formData.occupancy || '',
+        smsConsent: smsConsent,
+        leadSource: 'Website - ClearEdge Home Buyers',
       }
 
-      const response = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(hubspotPayload),
-        }
-      )
+      // Send to Zapier webhook (no-cors mode required for browser requests)
+      await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        body: JSON.stringify(payload),
+      })
 
-      if (!response.ok) {
-        throw new Error(`Submission failed: ${response.status}`)
-      }
-
+      // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
     } catch (error) {
       console.error('Form submission error:', error)
