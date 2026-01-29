@@ -42,6 +42,7 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [phoneError, setPhoneError] = useState('')
+  const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -79,6 +80,7 @@ export function ContactForm() {
         city: '',
         state: '',
         zip: '',
+        termsConsent: termsConsent,
         smsConsent: smsConsent,
         leadSource: 'Website - Contact Form',
         notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
@@ -95,6 +97,7 @@ export function ContactForm() {
       // With no-cors mode, we can't read the response, so assume success
       setSubmitStatus('success')
       setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+      setTermsConsent(false)
       setSmsConsent(false)
     } catch (error) {
       console.error('Form submission error:', error)
@@ -133,7 +136,18 @@ export function ContactForm() {
             <label htmlFor="message" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Tell us about your property (optional)</label>
             <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
           </div>
-          <div>
+          <div className="space-y-3">
+            <label className="flex items-start gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={termsConsent}
+                onChange={(e) => setTermsConsent(e.target.checked)}
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+              />
+              <span className="text-xs text-gray-500 leading-tight">
+                I agree to the <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>.
+              </span>
+            </label>
             <label className="flex items-start gap-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -142,7 +156,7 @@ export function ContactForm() {
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
               />
               <span className="text-xs text-gray-500 leading-tight">
-                I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Properties LLC. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
+                I consent to receive SMS text messages, phone calls, and emails from ClearEdge Properties LLC including: property offer updates, appointment reminders, follow-up communications, and transaction-related notifications. Message frequency varies. Reply STOP to unsubscribe. Msg & data rates may apply. Text HELP for Help.
               </span>
             </label>
           </div>

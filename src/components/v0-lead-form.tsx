@@ -137,6 +137,7 @@ export function V0LeadForm() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
   const [showStep1Errors, setShowStep1Errors] = useState(false)
 
@@ -205,6 +206,7 @@ export function V0LeadForm() {
         situation: formData.situation || '',
         timeline: formData.timeline || '',
         occupancy: formData.occupancy || '',
+        termsConsent: termsConsent,
         smsConsent: smsConsent,
         leadSource: 'Website - ClearEdge Home Buyers',
       }
@@ -557,7 +559,18 @@ export function V0LeadForm() {
             {/* Navigation */}
             <div className="flex justify-between items-start gap-4 mt-8 pt-6 border-t border-[#1a1f1a]/5">
               {currentStep === 1 ? (
-                <div className="flex-1 max-w-[65%]">
+                <div className="flex-1 max-w-[70%] space-y-3">
+                  <label className="flex items-start gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={termsConsent}
+                      onChange={(e) => setTermsConsent(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+                    />
+                    <span className="text-xs text-gray-500 leading-tight">
+                      I agree to the <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>.
+                    </span>
+                  </label>
                   <label className="flex items-start gap-2 cursor-pointer">
                     <input
                       type="checkbox"
@@ -566,7 +579,7 @@ export function V0LeadForm() {
                       className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
                     />
                     <span className="text-xs text-gray-500 leading-tight">
-                      I agree to <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>. By submitting this form, you consent to receive SMS messages and/or calls from ClearEdge Properties LLC. To unsubscribe, follow the instructions provided in our communications. Msg & data rates may apply for SMS. Your information is secure and will not be sold to third parties. Message frequency varies. Text HELP for Help. Text STOP to cancel.
+                      I consent to receive SMS text messages, phone calls, and emails from ClearEdge Properties LLC including: property offer updates, appointment reminders, follow-up communications, and transaction-related notifications. Message frequency varies. Reply STOP to unsubscribe. Msg & data rates may apply. Text HELP for Help.
                     </span>
                   </label>
                 </div>
