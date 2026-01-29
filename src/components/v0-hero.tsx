@@ -84,13 +84,13 @@ export function V0Hero() {
                   {/* WebP sources for modern browsers */}
                   <source
                     type="image/webp"
-                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
                     sizes="(max-width: 768px) 280px, 320px"
                   />
-                  {/* JPEG fallback for older browsers */}
+                  {/* Fallback for older browsers */}
                   <img
-                    src="/properties/scranton-pa-cash-home-buyers-clearedge-1.webp"
-                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                    src="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
+                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
                     sizes="(max-width: 768px) 280px, 320px"
                     width={320}
                     height={240}

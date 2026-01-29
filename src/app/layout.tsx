@@ -102,9 +102,9 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp"
-          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1.webp 320w"
-          imageSizes="(max-width: 768px) 280px, 320px"
+          type="image/webp"
+          href="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
+          fetchPriority="high"
         />
         {/* Preconnect hints */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
