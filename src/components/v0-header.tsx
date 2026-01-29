@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 const locationLinks = [
   { href: '/locations/scranton', label: 'Scranton' },
@@ -49,6 +50,7 @@ export function V0Header() {
   const router = useRouter()
   const locationsRef = useRef<HTMLDivElement>(null)
   const situationsRef = useRef<HTMLDivElement>(null)
+  const { phone, phoneTel } = useTrafficSource()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -236,13 +238,13 @@ export function V0Header() {
           <div className="hidden md:flex items-center gap-2 lg:gap-4">
             {/* Phone - icon only on tablet, icon + text on desktop */}
             <a
-              href="tel:+15709042059"
+              href={`tel:${phoneTel}`}
               className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#008a29] transition-colors"
             >
               <div className="w-9 h-9 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
                 <Phone className="w-4 h-4 text-[#008a29]" />
               </div>
-              <span className="font-bold text-sm hidden lg:inline">(570) 904-2059</span>
+              <span className="font-bold text-sm hidden lg:inline">{phone}</span>
             </a>
             <button
               onClick={scrollToForm}
@@ -351,11 +353,11 @@ export function V0Header() {
 
             {/* Mobile Phone */}
             <a
-              href="tel:+15709042059"
+              href={`tel:${phoneTel}`}
               className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-[#008a29]/10 text-[#008a29] font-bold"
             >
               <Phone className="w-5 h-5" />
-              <span>(570) 904-2059</span>
+              <span>{phone}</span>
             </a>
 
             {/* Mobile CTA */}

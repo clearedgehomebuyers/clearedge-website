@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { FloatingTextButton } from "@/components/FloatingTextButton";
 import { DeferredAnalytics } from "@/components/DeferredAnalytics";
+import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -115,8 +116,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
-        {children}
-        <FloatingTextButton />
+        <TrafficSourceProvider>
+          {children}
+          <FloatingTextButton />
+        </TrafficSourceProvider>
         <DeferredAnalytics />
       </body>
     </html>

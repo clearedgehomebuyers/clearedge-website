@@ -3,9 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
-
-// Zapier webhook for REsimpli integration
-const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -32,6 +30,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function ContactForm() {
+  const { webhook, trafficSource, phone: dynamicPhone, phoneTel } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -83,11 +82,12 @@ export function ContactForm() {
         termsConsent: termsConsent,
         smsConsent: smsConsent,
         leadSource: 'Website - Contact Form',
+        trafficSource: trafficSource,
         notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
       }
 
-      // Send to Zapier webhook (no-cors mode required for browser requests)
-      await fetch(ZAPIER_WEBHOOK_URL, {
+      // Send to dynamic Zapier webhook based on traffic source
+      await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
@@ -169,21 +169,21 @@ export function ContactForm() {
             ) : 'Get My Cash Offer'}
           </button>
           {submitStatus === 'success' && (<p className="text-[#008a29] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
-          {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call (570) 904-2059 instead.</p>)}
+          {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call {dynamicPhone} instead.</p>)}
         </form>
       </div>
 
       {/* Right Column - Contact Widgets */}
       <div className="space-y-6">
         {/* Phone Widget */}
-        <a href="tel:+15709042059" className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
+        <a href={`tel:${phoneTel}`} className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
               <Phone className="w-6 h-6 text-[#008a29]" />
             </div>
             <div>
               <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
-              <p className="text-2xl font-bold text-[#008a29]">(570) 904-2059</p>
+              <p className="text-2xl font-bold text-[#008a29]">{dynamicPhone}</p>
               <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
             </div>
           </div>

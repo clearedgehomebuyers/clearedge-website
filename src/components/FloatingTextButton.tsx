@@ -1,11 +1,14 @@
 'use client'
 
 import { MessageCircle } from 'lucide-react'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 export function FloatingTextButton() {
+  const { phoneRaw } = useTrafficSource()
+
   return (
     <a
-      href="sms:5709042059"
+      href={`sms:${phoneRaw}`}
       className="fixed bottom-4 right-4 z-50 flex flex-col items-center md:hidden animate-fade-in-up"
       aria-label="Text us"
     >

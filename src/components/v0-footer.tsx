@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 const quickLinks = [
   { label: "How It Works", href: "/how-it-works" },
@@ -47,6 +48,8 @@ const serviceAreas = [
 ]
 
 export function V0Footer() {
+  const { phone, phoneTel } = useTrafficSource()
+
   return (
     <footer className="bg-white">
       {/* Main Footer */}
@@ -74,11 +77,11 @@ export function V0Footer() {
               </p>
               <div className="space-y-3">
                 <a
-                  href="tel:+15709042059"
+                  href={`tel:${phoneTel}`}
                   className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  (570) 904-2059
+                  {phone}
                 </a>
                 <a
                   href="mailto:info@clearedgehomebuyers.com"

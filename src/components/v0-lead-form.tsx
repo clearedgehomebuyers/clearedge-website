@@ -6,9 +6,7 @@ import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-
-// Zapier webhook for REsimpli integration
-const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/'
+import { useTrafficSource } from "./TrafficSourceProvider"
 
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
@@ -121,6 +119,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function V0LeadForm() {
+  const { webhook, trafficSource } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
     address: "",
@@ -209,10 +208,11 @@ export function V0LeadForm() {
         termsConsent: termsConsent,
         smsConsent: smsConsent,
         leadSource: 'Website - ClearEdge Home Buyers',
+        trafficSource: trafficSource,
       }
 
-      // Send to Zapier webhook (no-cors mode required for browser requests)
-      await fetch(ZAPIER_WEBHOOK_URL, {
+      // Send to dynamic Zapier webhook based on traffic source
+      await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
