@@ -4,22 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 
-// HubSpot configuration
-const HUBSPOT_PORTAL_ID = '50832074'
-const HUBSPOT_FORM_ID = '2224a427-5b9b-406b-8253-c97ba2d4e39d'
-
-// Helper to get HubSpot tracking cookie
-function getHubspotCookie(): string | null {
-  if (typeof document === 'undefined') return null
-  const cookies = document.cookie.split(';')
-  for (const cookie of cookies) {
-    const [name, value] = cookie.trim().split('=')
-    if (name === 'hubspotutk') {
-      return value
-    }
-  }
-  return null
-}
+// Zapier webhook for REsimpli integration
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -82,39 +68,31 @@ export function ContactForm() {
     setSubmitStatus('idle')
 
     try {
-      const hutk = getHubspotCookie()
-      const pageUri = typeof window !== 'undefined' ? window.location.href : ''
-      const pageName = typeof document !== 'undefined' ? document.title : ''
-
-      const hubspotPayload = {
-        submittedAt: Date.now(),
-        fields: [
-          { objectTypeId: '0-1', name: 'firstname', value: formData.firstName },
-          { objectTypeId: '0-1', name: 'lastname', value: formData.lastName },
-          { objectTypeId: '0-1', name: 'email', value: formData.email },
-          { objectTypeId: '0-1', name: 'phone', value: formData.phone },
-          { objectTypeId: '0-1', name: 'message', value: formData.message },
-        ],
-        context: {
-          pageUri,
-          pageName,
-          ...(hutk && { hutk }),
-        },
+      // Build payload for Zapier/REsimpli
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+        propertyAddress: '',
+        city: '',
+        state: '',
+        zip: '',
+        smsConsent: smsConsent,
+        leadSource: 'Website - Contact Form',
+        notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
       }
 
-      const response = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(hubspotPayload),
-        }
-      )
+      // Send to Zapier webhook (no-cors mode required for browser requests)
+      await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
+        body: JSON.stringify(payload),
+      })
 
-      if (!response.ok) {
-        throw new Error(`Submission failed: ${response.status}`)
-      }
-
+      // With no-cors mode, we can't read the response, so assume success
       setSubmitStatus('success')
       setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
       setSmsConsent(false)
