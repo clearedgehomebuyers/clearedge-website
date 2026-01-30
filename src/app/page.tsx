@@ -127,6 +127,19 @@ export default function HomePage() {
         }}
       />
 
+      {/* WebSite Schema - helps Google display correct site name */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "ClearEdge Home Buyers",
+            "url": "https://www.clearedgehomebuyers.com/"
+          })
+        }}
+      />
+
       {/* VideoObject Schema */}
       <script
         type="application/ld+json"
