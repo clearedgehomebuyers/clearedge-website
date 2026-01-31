@@ -25,6 +25,30 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://www.clearedgehomebuyers.com/',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Terms and Conditions',
+                item: 'https://www.clearedgehomebuyers.com/terms',
+              },
+            ],
+          }),
+        }}
+      />
     <main className="bg-white">
       <V0Header />
 
@@ -245,5 +269,6 @@ export default function TermsPage() {
 
       <V0Footer />
     </main>
+    </>
   )
 }

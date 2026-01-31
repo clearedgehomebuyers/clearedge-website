@@ -127,8 +127,48 @@ export default async function BlogPage() {
     },
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://www.clearedgehomebuyers.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: 'https://www.clearedgehomebuyers.com/blog',
+      },
+    ],
+  }
+
+  const collectionPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Blog - ClearEdge Home Buyers',
+    description: 'Tips, guides, and insights for Pennsylvania homeowners looking to sell their house fast for cash.',
+    url: 'https://www.clearedgehomebuyers.com/blog',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'ClearEdge Home Buyers',
+      url: 'https://www.clearedgehomebuyers.com/',
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
