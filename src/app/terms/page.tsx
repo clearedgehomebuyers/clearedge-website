@@ -78,6 +78,11 @@ export default function TermsPage() {
             By accessing our website or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website or services.
           </p>
 
+          <h2>Age Requirement</h2>
+          <p>
+            You must be at least 18 years of age to use our website and services, including opting in to receive SMS messages. By using this website and submitting any forms, you represent and warrant that you are at least 18 years old.
+          </p>
+
           <h2>Description of Services</h2>
           <p>
             ClearEdge Home Buyers is a real estate investment company that purchases residential properties directly from homeowners in Eastern Pennsylvania. Our services include:
