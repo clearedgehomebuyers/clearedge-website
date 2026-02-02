@@ -156,7 +156,7 @@ export function ContactForm() {
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
               />
               <span className="text-xs text-gray-500 leading-tight">
-                I consent to receive SMS text messages, phone calls, and emails from ClearEdge Properties LLC including: property offer updates, appointment reminders, follow-up communications, and transaction-related notifications. Message frequency varies. Reply STOP to unsubscribe. Msg & data rates may apply. Text HELP for Help.
+                I am 18 years or older and agree to receive SMS messages from ClearEdge Properties LLC including property offer updates, appointment reminders, follow-up communications, and transaction-related notifications. Message frequency varies. Message and data rates may apply. Reply STOP to opt-out, HELP for help.
               </span>
             </label>
           </div>
