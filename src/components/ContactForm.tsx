@@ -101,11 +101,14 @@ export function ContactForm() {
       setSmsConsent(false)
 
       // Track GA4 conversion event
-      window.gtag?.('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'Contact Form',
-        value: 1
-      })
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Lead Form',
+          event_label: 'Contact Form',
+          value: 1
+        });
+        console.log('GA4 generate_lead event fired:', 'Contact Form');
+      }
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')

@@ -223,11 +223,14 @@ export function V0LeadForm() {
       setIsSubmitted(true)
 
       // Track GA4 conversion event
-      window.gtag?.('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'Multi-Step Lead Form',
-        value: 1
-      })
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Lead Form',
+          event_label: 'Multi-Step Lead Form',
+          value: 1
+        });
+        console.log('GA4 generate_lead event fired:', 'Multi-Step Lead Form');
+      }
     } catch (error) {
       console.error('Form submission error:', error)
       // Still show success to user, log error for debugging
