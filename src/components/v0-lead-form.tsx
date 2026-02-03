@@ -221,6 +221,13 @@ export function V0LeadForm() {
 
       // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
+
+      // Track GA4 conversion event
+      window.gtag?.('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Multi-Step Lead Form',
+        value: 1
+      })
     } catch (error) {
       console.error('Form submission error:', error)
       // Still show success to user, log error for debugging

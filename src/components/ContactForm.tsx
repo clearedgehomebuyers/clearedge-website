@@ -99,6 +99,13 @@ export function ContactForm() {
       setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
       setTermsConsent(false)
       setSmsConsent(false)
+
+      // Track GA4 conversion event
+      window.gtag?.('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Contact Form',
+        value: 1
+      })
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')

@@ -239,6 +239,14 @@ export function LeadForm({
       }
 
       setSubmitStatus('success')
+
+      // Track GA4 conversion event
+      window.gtag?.('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'HubSpot Lead Form',
+        value: 1
+      })
+
       setFormData({
         firstName: '',
         lastName: '',
