@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -185,23 +185,22 @@ export function V0LeadForm() {
     if (currentStep > 1) setCurrentStep(currentStep - 1)
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    console.log('FORM SUBMIT HANDLER CALLED');
-    alert('Form handler triggered');
-    e.preventDefault()
-    if (!isStepValid(5)) return
-
-    setIsSubmitting(true)
-
-    // Track GA4 conversion event immediately on submit
-    if (typeof window !== 'undefined' && window.gtag) {
+  // Track GA4 conversion when form is successfully submitted
+  useEffect(() => {
+    if (isSubmitted && typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'generate_lead', {
         event_category: 'Lead Form',
         event_label: 'Multi-Step Lead Form',
         value: 1
       });
-      console.log('GA4 generate_lead event fired:', 'Multi-Step Lead Form');
     }
+  }, [isSubmitted]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!isStepValid(5)) return
+
+    setIsSubmitting(true)
 
     try {
       // Build payload for Zapier/REsimpli

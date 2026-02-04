@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource } from './TrafficSourceProvider'
@@ -44,6 +44,17 @@ export function ContactForm() {
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
 
+  // Track GA4 conversion when form is successfully submitted
+  useEffect(() => {
+    if (submitStatus === 'success' && typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Contact Form',
+        value: 1
+      });
+    }
+  }, [submitStatus]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -66,16 +77,6 @@ export function ContactForm() {
 
     setIsSubmitting(true)
     setSubmitStatus('idle')
-
-    // Track GA4 conversion event immediately on submit
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'Contact Form',
-        value: 1
-      });
-      console.log('GA4 generate_lead event fired:', 'Contact Form');
-    }
 
     try {
       // Build payload for Zapier/REsimpli
