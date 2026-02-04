@@ -10,7 +10,7 @@ export async function GET() {
     <loc>${baseUrl}/</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg</video:thumbnail_loc>
-      <video:title>Sell Your House Fast in PA | Clear Edge Home Buyers</video:title>
+      <video:title>Sell Your House Fast in PA | ClearEdge Home Buyers</video:title>
       <video:description>Learn how to sell your house fast in PA without fees, repairs, or commissions. Local family-owned company buying houses in Scranton, Allentown, and Bethlehem.</video:description>
       <video:content_loc>https://www.youtube.com/watch?v=YS6uDgxIjiI</video:content_loc>
       <video:player_loc>https://www.youtube.com/embed/YS6uDgxIjiI</video:player_loc>

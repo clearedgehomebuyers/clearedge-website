@@ -7,7 +7,7 @@ import { LiteYouTube } from "./LiteYouTube"
 export function V0VideoSection() {
   const [isTranscriptOpen, setIsTranscriptOpen] = useState(false)
 
-  const transcript = `Selling a property in Pennsylvania is tedious and overwhelming, especially if you're facing a difficult situation. I'm Tyler with Clear Edge Home Buyers. We provide Pennsylvania homeowners a transparent, stress-free alternative to the traditional real estate route. We aren't a national franchise. We're a local family-owned company that's purchased over 200 homes since 2016 across Northeastern Pennsylvania, the Lehigh Valley, and the Poconos. Whether you're in Allentown, Scranton, or Bethlehem, we do the heavy lifting. We provide a full cash offer within 24 hours with zero obligation. That means no realtor commissions, no fees, and no cleaning or repairs. You won't have to lift a finger even if the property has code violations, is in probate, or is facing foreclosure. We've seen it all and we can handle it for you. With Clear Edge, you'll always get a straight, truthful answer. Visit ClearEdgeHomeBuyers.com or call us today for your no-obligation cash offer, and let us help you move on to what's next.`
+  const transcript = `Selling a property in Pennsylvania is tedious and overwhelming, especially if you're facing a difficult situation. I'm Tyler with ClearEdge Home Buyers. We provide Pennsylvania homeowners a transparent, stress-free alternative to the traditional real estate route. We aren't a national franchise. We're a local family-owned company that's purchased over 200 homes since 2016 across Northeastern Pennsylvania, the Lehigh Valley, and the Poconos. Whether you're in Allentown, Scranton, or Bethlehem, we do the heavy lifting. We provide a full cash offer within 24 hours with zero obligation. That means no realtor commissions, no fees, and no cleaning or repairs. You won't have to lift a finger even if the property has code violations, is in probate, or is facing foreclosure. We've seen it all and we can handle it for you. With ClearEdge, you'll always get a straight, truthful answer. Visit ClearEdgeHomeBuyers.com or call us today for your no-obligation cash offer, and let us help you move on to what's next.`
 
   const scrollToForm = () => {
     const form = document.getElementById('lead-form')
@@ -37,7 +37,7 @@ export function V0VideoSection() {
           {/* Video Container - Lite YouTube Facade (no JS until click) */}
           <LiteYouTube
             videoId="YS6uDgxIjiI"
-            title="Sell Your House Fast in PA | Clear Edge Home Buyers"
+            title="Sell Your House Fast in PA | ClearEdge Home Buyers"
           />
 
           {/* Collapsible Transcript */}
