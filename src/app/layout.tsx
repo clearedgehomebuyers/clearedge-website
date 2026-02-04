@@ -103,6 +103,17 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-1H6CPZVB8D');
         `}} />
+        {/* WebSite Schema - appears on every page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "ClearEdge Home Buyers",
+            "alternateName": "ClearEdge",
+            "url": "https://www.clearedgehomebuyers.com"
+          })}}
+        />
         {/* LCP Optimization: Preload hero image FIRST */}
         <link
           rel="preload"
