@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { FloatingTextButton } from "@/components/FloatingTextButton";
-import { DeferredAnalytics } from "@/components/DeferredAnalytics";
 import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
 
 const inter = Inter({
@@ -96,6 +95,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* GA4 Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"></script>
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-1H6CPZVB8D');
+        `}} />
         {/* LCP Optimization: Preload hero image FIRST */}
         <link
           rel="preload"
@@ -117,7 +124,6 @@ export default function RootLayout({
           {children}
           <FloatingTextButton />
         </TrafficSourceProvider>
-        <DeferredAnalytics />
       </body>
     </html>
   );
