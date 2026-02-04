@@ -186,6 +186,8 @@ export function V0LeadForm() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
+    console.log('FORM SUBMIT HANDLER CALLED');
+    alert('Form handler triggered');
     e.preventDefault()
     if (!isStepValid(5)) return
 
