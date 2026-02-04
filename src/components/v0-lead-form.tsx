@@ -191,6 +191,16 @@ export function V0LeadForm() {
 
     setIsSubmitting(true)
 
+    // Track GA4 conversion event immediately on submit
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Multi-Step Lead Form',
+        value: 1
+      });
+      console.log('GA4 generate_lead event fired:', 'Multi-Step Lead Form');
+    }
+
     try {
       // Build payload for Zapier/REsimpli
       const payload = {
@@ -221,16 +231,6 @@ export function V0LeadForm() {
 
       // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
-
-      // Track GA4 conversion event
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'generate_lead', {
-          event_category: 'Lead Form',
-          event_label: 'Multi-Step Lead Form',
-          value: 1
-        });
-        console.log('GA4 generate_lead event fired:', 'Multi-Step Lead Form');
-      }
     } catch (error) {
       console.error('Form submission error:', error)
       // Still show success to user, log error for debugging
