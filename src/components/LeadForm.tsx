@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource } from './TrafficSourceProvider'
 
@@ -136,6 +137,8 @@ export function LeadForm({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [phoneError, setPhoneError] = useState('')
   const [emailError, setEmailError] = useState('')
+  const [termsConsent, setTermsConsent] = useState(false)
+  const [smsConsent, setSmsConsent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -257,6 +260,8 @@ export function LeadForm({
         state: 'PA',
         zip: '',
       })
+      setTermsConsent(false)
+      setSmsConsent(false)
     } catch (error) {
       console.error('Form submission error:', error)
       setSubmitStatus('error')
@@ -434,6 +439,34 @@ export function LeadForm({
             Something went wrong. Please try again or call us at {phone}.
           </div>
         )}
+
+        {/* TCPA Consent Checkboxes */}
+        <div className="space-y-3">
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={termsConsent}
+              onChange={(e) => setTermsConsent(e.target.checked)}
+              required
+              className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+            />
+            <span className="text-xs text-gray-500 leading-tight">
+              I agree to the <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>.
+            </span>
+          </label>
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={smsConsent}
+              onChange={(e) => setSmsConsent(e.target.checked)}
+              required
+              className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+            />
+            <span className="text-xs text-gray-500 leading-tight">
+              I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.
+            </span>
+          </label>
+        </div>
 
         <button
           type="submit"
