@@ -167,7 +167,7 @@ export function ContactForm() {
                 className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
               />
               <span className="text-xs text-gray-500 leading-tight">
-                I am 18 years or older and agree to receive SMS messages from ClearEdge Properties LLC including property offer updates, appointment reminders, follow-up communications, and transaction-related notifications. Message frequency varies. Message and data rates may apply. Reply STOP to opt-out, HELP for help.
+                I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.
               </span>
             </label>
           </div>
