@@ -543,7 +543,7 @@ export function V0LeadForm() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="(570) 555-0123"
+                    placeholder="(610) 555-0123"
                     value={formData.phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
                     autoComplete="tel"

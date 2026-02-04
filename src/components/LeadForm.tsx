@@ -334,7 +334,7 @@ export function LeadForm({
               onChange={handlePhoneChange}
               required
               className={`w-full px-4 py-3 rounded-xl border-2 ${phoneError ? 'border-red-400' : 'border-slate-200'} focus:border-[#008a29] focus:ring-4 focus:ring-[#008a29]/10 outline-none transition-all text-gray-900 placeholder:text-gray-500`}
-              placeholder="(570) 555-0123"
+              placeholder="(610) 555-0123"
             />
             {phoneError && (
               <p className="text-red-500 text-sm mt-1">{phoneError}</p>

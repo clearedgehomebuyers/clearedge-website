@@ -30,11 +30,11 @@ interface TrafficSourceContextType {
 }
 
 const TrafficSourceContext = createContext<TrafficSourceContextType>({
-  trafficSource: 'direct',
-  phone: TRAFFIC_CONFIG.direct.phone,
-  phoneRaw: TRAFFIC_CONFIG.direct.phoneRaw,
-  phoneTel: TRAFFIC_CONFIG.direct.phoneTel,
-  webhook: TRAFFIC_CONFIG.direct.webhook,
+  trafficSource: 'seo',
+  phone: TRAFFIC_CONFIG.seo.phone,
+  phoneRaw: TRAFFIC_CONFIG.seo.phoneRaw,
+  phoneTel: TRAFFIC_CONFIG.seo.phoneTel,
+  webhook: TRAFFIC_CONFIG.seo.webhook,
   isLoaded: false,
 })
 
@@ -76,7 +76,7 @@ function detectTrafficSource(): TrafficSource {
 }
 
 export function TrafficSourceProvider({ children }: { children: ReactNode }) {
-  const [trafficSource, setTrafficSource] = useState<TrafficSource>('direct')
+  const [trafficSource, setTrafficSource] = useState<TrafficSource>('seo')
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
