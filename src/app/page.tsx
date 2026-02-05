@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     description: "Get a fair cash offer in 24 hours. No repairs, no agents, no fees. Serving NEPA, Lehigh Valley & Poconos since 2016.",
     images: ['https://www.clearedgehomebuyers.com/og-image.png'],
   },
+  alternates: {
+    canonical: 'https://www.clearedgehomebuyers.com',
+  },
 }
 
 // Video-specific FAQs for the homepage

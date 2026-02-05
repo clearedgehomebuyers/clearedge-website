@@ -65,7 +65,7 @@ export function Footer() {
             <div className="flex items-center mb-4">
               <Image
                 src="/logo.webp"
-                alt="ClearEdge Home Buyers"
+                alt="ClearEdge Home Buyers logo"
                 width={180}
                 height={40}
                 className="h-10 w-auto brightness-0 invert"

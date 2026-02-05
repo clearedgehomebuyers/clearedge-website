@@ -21,6 +21,9 @@ export const metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: 'https://www.clearedgehomebuyers.com/privacy-policy',
+  },
 }
 
 export default function PrivacyPolicyPage() {

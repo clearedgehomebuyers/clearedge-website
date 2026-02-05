@@ -38,14 +38,14 @@ export function V0AboutSection() {
                 <div className="w-36 lg:w-44 rounded-xl overflow-hidden shadow-lg -rotate-3 transform hover:rotate-0 transition-transform duration-300">
                   <img
                     src="/properties/wilkes-barre-pa-inherited-property-sale-3.jpg"
-                    alt="Property in Wilkes-Barre"
+                    alt="Inherited property in Wilkes-Barre, PA purchased by ClearEdge Home Buyers"
                     className="w-full h-48 lg:h-56 object-cover"
                   />
                 </div>
                 <div className="w-36 lg:w-44 rounded-xl overflow-hidden shadow-lg rotate-2 transform hover:rotate-0 transition-transform duration-300">
                   <img
                     src="/properties/allentown-pa-sell-house-fast-as-is-2.jpg"
-                    alt="Property in Allentown"
+                    alt="As-is property in Allentown, PA purchased by ClearEdge Home Buyers"
                     className="w-full h-48 lg:h-56 object-cover"
                   />
                 </div>

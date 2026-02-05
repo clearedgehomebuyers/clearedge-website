@@ -65,7 +65,7 @@ export function V0Footer() {
               >
                 <img
                   src="/Primary.svg"
-                  alt="ClearEdge Home Buyers"
+                  alt="ClearEdge Home Buyers logo"
                   className="h-10 w-auto mb-4"
                   width="120"
                   height="40"

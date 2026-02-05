@@ -101,7 +101,7 @@ export function V0Hero() {
                     sizes="(max-width: 768px) 280px, 320px"
                     width={320}
                     height={240}
-                    alt="Recently purchased home in Scranton, PA"
+                    alt="Cash home purchase in Scranton, PA - sold as-is to ClearEdge Home Buyers"
                     className="w-full h-full object-cover"
                     fetchPriority="high"
                     loading="eager"

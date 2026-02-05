@@ -21,6 +21,9 @@ export const metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: 'https://www.clearedgehomebuyers.com/terms',
+  },
 }
 
 export default function TermsPage() {

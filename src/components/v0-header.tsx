@@ -132,7 +132,7 @@ export function V0Header() {
             onClick={handleLogoClick}
             className="flex-shrink-0 cursor-pointer"
           >
-            <img src="/Primary.svg" alt="ClearEdge Home Buyers" className="h-10 md:h-12 lg:h-14 w-auto" width="168" height="56" />
+            <img src="/Primary.svg" alt="ClearEdge Home Buyers logo" className="h-10 md:h-12 lg:h-14 w-auto" width="168" height="56" />
           </a>
 
           {/* Desktop/Tablet Navigation - centered with responsive spacing */}

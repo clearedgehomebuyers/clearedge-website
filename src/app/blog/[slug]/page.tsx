@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         ? [{ url: post.featuredImage.asset.url }]
         : [{ url: 'https://www.clearedgehomebuyers.com/og-image.png', width: 1200, height: 630, alt: 'ClearEdge Home Buyers' }],
     },
+    alternates: {
+      canonical: `https://www.clearedgehomebuyers.com/blog/${post.slug.current}`,
+    },
   }
 }
 
@@ -54,7 +57,7 @@ const portableTextComponents: PortableTextComponents = {
         <figure className="my-8">
           <Image
             src={urlFor(value).width(800).url()}
-            alt={value.alt || ''}
+            alt={value.alt || 'Blog article image'}
             width={800}
             height={500}
             className="rounded-2xl w-full"

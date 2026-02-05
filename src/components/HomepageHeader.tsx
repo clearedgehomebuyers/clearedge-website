@@ -64,7 +64,7 @@ export function HomepageHeader() {
           >
             <Image
               src="/Primary.svg"
-              alt="ClearEdge Home Buyers"
+              alt="ClearEdge Home Buyers logo"
               width={200}
               height={68}
               className="h-10 lg:h-12 w-auto"
