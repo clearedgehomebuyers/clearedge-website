@@ -95,14 +95,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* GA4 Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"></script>
-        <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-1H6CPZVB8D');
-        `}} />
+        {/* GA4 Analytics - Production only */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"></script>
+            <script dangerouslySetInnerHTML={{ __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-1H6CPZVB8D');
+            `}} />
+          </>
+        )}
         {/* WebSite Schema - appears on every page */}
         <script
           type="application/ld+json"

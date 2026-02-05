@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource } from './TrafficSourceProvider'
@@ -140,6 +140,19 @@ export function LeadForm({
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
 
+  // Track GA4 conversion when form is successfully submitted
+  useEffect(() => {
+    if (submitStatus === 'success' && typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'Lead Form',
+        event_label: 'Lead Form',
+        value: 1,
+        page_location: window.location.href,
+        page_path: window.location.pathname
+      });
+    }
+  }, [submitStatus]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -242,13 +255,6 @@ export function LeadForm({
       }
 
       setSubmitStatus('success')
-
-      // Track GA4 conversion event
-      window.gtag?.('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'HubSpot Lead Form',
-        value: 1
-      })
 
       setFormData({
         firstName: '',

@@ -50,7 +50,9 @@ export function ContactForm() {
       window.gtag('event', 'generate_lead', {
         event_category: 'Lead Form',
         event_label: 'Contact Form',
-        value: 1
+        value: 1,
+        page_location: window.location.href,
+        page_path: window.location.pathname
       });
     }
   }, [submitStatus]);

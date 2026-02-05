@@ -191,7 +191,9 @@ export function V0LeadForm() {
       window.gtag('event', 'generate_lead', {
         event_category: 'Lead Form',
         event_label: 'Multi-Step Lead Form',
-        value: 1
+        value: 1,
+        page_location: window.location.href,
+        page_path: window.location.pathname
       });
     }
   }, [isSubmitted]);

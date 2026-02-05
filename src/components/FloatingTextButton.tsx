@@ -9,6 +9,15 @@ export function FloatingTextButton() {
   return (
     <a
       href={`sms:${phoneRaw}`}
+      onClick={() => {
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'click_to_text', {
+            event_category: 'Contact',
+            event_label: 'Floating Text Button',
+            page_path: window.location.pathname
+          });
+        }
+      }}
       className="fixed bottom-4 right-4 z-50 flex flex-col items-center md:hidden animate-fade-in-up"
       aria-label="Text us"
     >

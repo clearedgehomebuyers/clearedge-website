@@ -17,6 +17,14 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
 
   // Simple synchronous click handler - immediately show iframe
   const handleClick = () => {
+    // Track video play in GA4
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'video_play', {
+        event_category: 'Video',
+        event_label: 'Homepage Intro Video',
+        page_path: window.location.pathname
+      });
+    }
     setIsPlaying(true)
   }
 

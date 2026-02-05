@@ -239,6 +239,15 @@ export function V0Header() {
             {/* Phone - icon only on tablet, icon + text on desktop */}
             <a
               href={`tel:${phoneTel}`}
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'click_to_call', {
+                    event_category: 'Contact',
+                    event_label: 'Header Phone - Desktop',
+                    page_path: window.location.pathname
+                  });
+                }
+              }}
               className="flex items-center gap-2 text-[#1a1f1a] hover:text-[#008a29] transition-colors"
             >
               <div className="w-9 h-9 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -247,7 +256,16 @@ export function V0Header() {
               <span className="font-bold text-sm hidden lg:inline">{phone}</span>
             </a>
             <button
-              onClick={scrollToForm}
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'cta_click', {
+                    event_category: 'CTA',
+                    event_label: 'Get My Offer - Header Desktop',
+                    page_path: window.location.pathname
+                  });
+                }
+                scrollToForm();
+              }}
               className="px-3 lg:px-5 py-2 lg:py-2.5 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold text-sm rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
             >
               Get My Offer
@@ -354,6 +372,15 @@ export function V0Header() {
             {/* Mobile Phone */}
             <a
               href={`tel:${phoneTel}`}
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'click_to_call', {
+                    event_category: 'Contact',
+                    event_label: 'Header Phone - Mobile',
+                    page_path: window.location.pathname
+                  });
+                }
+              }}
               className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-[#008a29]/10 text-[#008a29] font-bold"
             >
               <Phone className="w-5 h-5" />
@@ -362,7 +389,16 @@ export function V0Header() {
 
             {/* Mobile CTA */}
             <button
-              onClick={scrollToForm}
+              onClick={() => {
+                if (typeof window !== 'undefined' && window.gtag) {
+                  window.gtag('event', 'cta_click', {
+                    event_category: 'CTA',
+                    event_label: 'Get My Offer - Header Mobile',
+                    page_path: window.location.pathname
+                  });
+                }
+                scrollToForm();
+              }}
               className="w-full py-3 mt-2 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full"
             >
               Get My Offer
