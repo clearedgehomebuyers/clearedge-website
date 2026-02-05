@@ -83,11 +83,21 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateAgent",
+            "@id": "https://www.clearedgehomebuyers.com/#organization",
             "name": "ClearEdge Home Buyers",
+            "legalName": "ClearEdge Properties LLC",
             "description": "Cash home buying company serving Eastern Pennsylvania. We buy houses as-is for cash with no fees or repairs required.",
             "url": "https://www.clearedgehomebuyers.com",
             "telephone": "+1-610-904-8526",
             "email": "info@clearedgehomebuyers.com",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://www.clearedgehomebuyers.com/#logo",
+              "url": "https://www.clearedgehomebuyers.com/logo.webp",
+              "width": 400,
+              "height": 100,
+              "caption": "ClearEdge Home Buyers logo"
+            },
             "image": "https://www.clearedgehomebuyers.com/og-image.png",
             "priceRange": "$",
             "founder": {
@@ -95,6 +105,11 @@ export default function HomePage() {
               "name": "Tyler"
             },
             "foundingDate": "2016",
+            "numberOfEmployees": {
+              "@type": "QuantitativeValue",
+              "minValue": 2,
+              "maxValue": 10
+            },
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Scranton",
@@ -106,15 +121,21 @@ export default function HomePage() {
               "latitude": 40.8603424,
               "longitude": -75.8193544
             },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "00:00",
+              "closes": "23:59"
+            },
             "areaServed": [
-              { "@type": "City", "name": "Scranton" },
-              { "@type": "City", "name": "Wilkes-Barre" },
-              { "@type": "City", "name": "Allentown" },
-              { "@type": "City", "name": "Bethlehem" },
-              { "@type": "City", "name": "Easton" },
-              { "@type": "City", "name": "Reading" },
-              { "@type": "City", "name": "Hazleton" },
-              { "@type": "City", "name": "Stroudsburg" },
+              { "@type": "City", "name": "Scranton", "sameAs": "https://www.wikidata.org/wiki/Q3412" },
+              { "@type": "City", "name": "Wilkes-Barre", "sameAs": "https://www.wikidata.org/wiki/Q1015173" },
+              { "@type": "City", "name": "Allentown", "sameAs": "https://www.wikidata.org/wiki/Q3414" },
+              { "@type": "City", "name": "Bethlehem", "sameAs": "https://www.wikidata.org/wiki/Q182087" },
+              { "@type": "City", "name": "Easton", "sameAs": "https://www.wikidata.org/wiki/Q985378" },
+              { "@type": "City", "name": "Reading", "sameAs": "https://www.wikidata.org/wiki/Q191555" },
+              { "@type": "City", "name": "Hazleton", "sameAs": "https://www.wikidata.org/wiki/Q988681" },
+              { "@type": "City", "name": "Stroudsburg", "sameAs": "https://www.wikidata.org/wiki/Q2071166" },
               { "@type": "City", "name": "East Stroudsburg" },
               { "@type": "City", "name": "Honesdale" },
               { "@type": "City", "name": "Carbondale" },
@@ -139,9 +160,18 @@ export default function HomePage() {
               { "@type": "AdministrativeArea", "name": "Schuylkill County" },
               { "@type": "AdministrativeArea", "name": "Carbon County" },
               { "@type": "AdministrativeArea", "name": "Pike County" },
-              { "@type": "State", "name": "Pennsylvania" },
+              { "@type": "State", "name": "Pennsylvania", "sameAs": "https://www.wikidata.org/wiki/Q1400" },
               { "@type": "Place", "name": "Eastern Pennsylvania" },
               { "@type": "Place", "name": "Northeastern Pennsylvania" }
+            ],
+            "knowsAbout": [
+              "Cash home buying",
+              "Selling inherited property",
+              "Foreclosure prevention",
+              "Probate real estate sales",
+              "As-is home sales",
+              "Quick home closings",
+              "Pennsylvania real estate"
             ],
             "aggregateRating": {
               "@type": "AggregateRating",
@@ -157,6 +187,7 @@ export default function HomePage() {
             "sameAs": [
               "https://www.facebook.com/profile.php?id=61578297005995",
               "https://www.instagram.com/clearedge_home_buyers/",
+              "https://www.youtube.com/@ClearEdgeHomeBuyers",
               "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm",
               "https://www.bbb.org/us/ny/long-is-city/profile/real-estate/clearedge-properties-llc-0121-87169161"
             ]

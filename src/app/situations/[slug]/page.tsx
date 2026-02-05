@@ -98,8 +98,38 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
     notFound()
   }
 
+  // BreadcrumbList Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.clearedgehomebuyers.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Situations",
+        "item": "https://www.clearedgehomebuyers.com/situations"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": situation.title,
+        "item": `https://www.clearedgehomebuyers.com/situations/${slug}`
+      }
+    ]
+  }
+
   return (
     <main className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <LocalBusinessSchema />
       {situation.faqs && <FAQSchema faqs={situation.faqs} />}
 

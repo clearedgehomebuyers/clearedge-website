@@ -1,5 +1,5 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
-import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
+import { FAQSchema } from '@/components/Schema'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
@@ -122,9 +122,90 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
+  // BreadcrumbList Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.clearedgehomebuyers.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Locations",
+        "item": "https://www.clearedgehomebuyers.com/locations"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": `${location.city}, PA`,
+        "item": `https://www.clearedgehomebuyers.com/locations/${slug}`
+      }
+    ]
+  }
+
+  // City-specific LocalBusiness Schema
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `https://www.clearedgehomebuyers.com/locations/${slug}#localbusiness`,
+    "name": `ClearEdge Home Buyers - ${location.city}`,
+    "description": `We buy houses for cash in ${location.city}, PA. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.`,
+    "url": `https://www.clearedgehomebuyers.com/locations/${slug}`,
+    "telephone": "+1-610-904-8526",
+    "email": "info@clearedgehomebuyers.com",
+    "priceRange": "$$",
+    "image": "https://www.clearedgehomebuyers.com/logo.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": location.city,
+      "addressRegion": "PA",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": location.city,
+      "containedInPlace": {
+        "@type": "AdministrativeArea",
+        "name": location.county || "Pennsylvania"
+      }
+    },
+    "parentOrganization": {
+      "@id": "https://www.clearedgehomebuyers.com/#organization"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "6"
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61578297005995",
+      "https://www.instagram.com/clearedge_home_buyers/",
+      "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm",
+      "https://www.bbb.org/us/ny/long-is-city/profile/real-estate/clearedge-properties-llc-0121-87169161"
+    ]
+  }
+
   return (
     <main className="bg-white">
-      <LocalBusinessSchema />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       {location.faqs && <FAQSchema faqs={location.faqs} />}
 
       <V0Header />
