@@ -1,8 +1,17 @@
 "use client"
 
-import { ChevronDown, ArrowRight } from "lucide-react"
+import { ChevronDown, ArrowRight, CheckCircle } from "lucide-react"
 import { useState } from "react"
 import { LiteYouTube } from "./LiteYouTube"
+
+// Quick Answer bullets for featured snippet optimization
+const quickAnswers = [
+  "Cash offer in 24 hours — no waiting for buyer financing",
+  "Close in as little as 7 days (or on your timeline)",
+  "Sell 100% as-is — no repairs, no cleaning, no showings",
+  "Zero fees, zero commissions — keep more of your equity",
+  "Local PA company since 2016 — 200+ homes purchased",
+]
 
 export function V0VideoSection() {
   const [isTranscriptOpen, setIsTranscriptOpen] = useState(false)
@@ -81,6 +90,19 @@ export function V0VideoSection() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Quick Answer Bullets - SEO optimization for featured snippets */}
+          <div className="mt-8 bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
+            <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-3">What You Get With ClearEdge</p>
+            <ul className="space-y-3">
+              {quickAnswers.map((answer, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-[#008a29] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#1a1f1a] font-medium">{answer}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

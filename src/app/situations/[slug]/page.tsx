@@ -28,6 +28,42 @@ const heroPhotos: Record<string, { src: string; location: string; days: number }
 // Default photo if slug not found
 const defaultPhoto = { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 }
 
+// Answer-First Summaries for each situation (SEO optimization)
+const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
+  'foreclosure': {
+    question: "Can I sell my house to avoid foreclosure?",
+    answer: "Yes. If you're behind on mortgage payments, you can sell your house before the sheriff sale and walk away with cash instead of losing everything to the bank. ClearEdge can close in as little as 7 days — often fast enough to stop foreclosure proceedings and protect your credit."
+  },
+  'inherited-property': {
+    question: "How do I sell an inherited house in Pennsylvania?",
+    answer: "You can sell an inherited house in PA by working with the estate executor (or administrator) to transfer the property. If probate is required, we can close around the court timeline. If the property passed outside probate (via deed, trust, or joint ownership), you may be able to sell immediately. We buy inherited houses as-is — no cleanout or repairs needed."
+  },
+  'divorce': {
+    question: "How do I sell my house fast during a divorce?",
+    answer: "The fastest way to sell during divorce is a direct cash sale. Both parties sign off, we close in 7-14 days, and proceeds are wired according to your agreement. No showings, no repairs, no waiting for buyer financing to fall through. This eliminates the house as a point of conflict so you can finalize your divorce and move forward."
+  },
+  'job-relocation': {
+    question: "How can I sell my house quickly for job relocation?",
+    answer: "When you need to relocate for work, a cash sale is often the best option. We can close in as little as 7 days (or match your start date), so you're not paying two mortgages or rushing back for showings. Some employers offer relocation buyout programs — if not, we provide a guaranteed cash offer with flexible closing."
+  },
+  'major-repairs': {
+    question: "Can I sell a house that needs major repairs?",
+    answer: "Yes. You can sell a house with foundation issues, roof damage, mold, fire damage, or any other major repair needs. Cash buyers like ClearEdge purchase homes as-is with no inspection contingencies. You don't need to spend $30K-$50K on repairs before selling — we factor the repair costs into our offer and handle everything after closing."
+  },
+  'tax-liens-code-violations': {
+    question: "Can I sell a house with tax liens or code violations?",
+    answer: "Yes. Tax liens and code violations don't prevent a sale — they just need to be resolved at closing. We purchase houses with back taxes, municipal liens, and code violations regularly. The liens get paid from the sale proceeds, violations get transferred to us, and you walk away clean. We've handled hundreds of these situations across Eastern PA."
+  },
+  'tired-landlord': {
+    question: "How do I sell a rental property with tenants?",
+    answer: "You can sell a rental property with tenants in place — no eviction required. We buy occupied rentals and handle the tenant situation after closing. Whether your tenants are paying, non-paying, or on Section 8, we'll make a fair cash offer and close on your timeline. Stop dealing with midnight calls and late rent — sell and get your life back."
+  },
+  'vacant-property': {
+    question: "Should I sell my vacant house or keep paying to maintain it?",
+    answer: "If your vacant house is costing you money every month (mortgage, taxes, insurance, utilities, maintenance), selling for cash is often the smart financial move. Every month you hold an empty property, you're losing money. We buy vacant houses as-is — no repairs, no cleaning, no showings. Close in 7 days and stop the financial bleeding."
+  },
+}
+
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
   marks: {
@@ -223,6 +259,23 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
           </div>
         </div>
       </section>
+
+      {/* Answer-First Summary - White */}
+      {answerFirstSummaries[slug] && (
+        <section className="py-8 md:py-10 bg-white border-b border-[#1a1f1a]/5">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
+              <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
+              <h2 className="font-serif text-xl md:text-2xl font-medium text-[#1a1f1a] mb-4">
+                {answerFirstSummaries[slug].question}
+              </h2>
+              <p className="text-[#1a1f1a]/80 leading-relaxed text-lg">
+                {answerFirstSummaries[slug].answer}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Problem Description - White */}
       {situation.problemDescription && (

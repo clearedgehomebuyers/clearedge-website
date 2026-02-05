@@ -15,6 +15,110 @@ interface BlogPostPageProps {
   params: Promise<{ slug: string }>
 }
 
+// Answer-First Summaries for blog posts (SEO optimization for AI/featured snippets)
+const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
+  'sell-my-house-fast-poconos-pa': {
+    question: "How do I sell my Poconos vacation home fast?",
+    answer: "You can sell your Poconos house fast by working with a local cash buyer who understands the vacation home market. Cash sales typically close in 7-14 days with no repairs, no STR compliance issues, and no seasonal timing concerns. This is especially valuable for out-of-state owners or those facing new Monroe County regulations."
+  },
+  'sell-house-wilkes-barre-code-violations': {
+    question: "Can I sell a house in Wilkes-Barre with code violations?",
+    answer: "Yes. You can sell a Wilkes-Barre house with code violations to a cash buyer who takes on the violations at closing. You won't need to fix the issues first — the violations transfer with the property. This avoids the $100+/day fines from the city while getting you a fair cash offer within 24 hours."
+  },
+  'sell-my-house-fast-lehigh-valley': {
+    question: "What's the fastest way to sell my Lehigh Valley house?",
+    answer: "The fastest way to sell in the Lehigh Valley (Allentown, Bethlehem, Easton) is a direct cash sale, which can close in 7-14 days. This bypasses the typical 60-90 day traditional sale process, eliminates repair requirements, and avoids agent commissions. Cash buyers purchase as-is regardless of condition."
+  },
+  'cash-home-buyers-pottsville-pa': {
+    question: "Are there legitimate cash home buyers in Pottsville PA?",
+    answer: "Yes. Legitimate cash home buyers in Pottsville purchase Coal Region properties in any condition, close in 7-14 days, and charge zero fees. Look for local companies with Google reviews, a physical presence in the area, and transparent offer calculations. Avoid anyone who asks for upfront fees or won't explain their pricing."
+  },
+  'hazleton-residential-occupancy-inspection-checklist': {
+    question: "What does Hazleton check during a residential occupancy inspection?",
+    answer: "Hazleton's occupancy inspection checks: working smoke/CO detectors on every level, proper guardrails (36\" minimum height), GFCIs in wet areas, egress windows in bedrooms, functional plumbing with no leaks, hot water temperature under 120°F, and no visible electrical hazards. The fee is $50 and inspections are required before any tenant moves in."
+  },
+  'how-to-stop-berks-county-judicial-sale-2026': {
+    question: "How can I stop a Berks County judicial tax sale?",
+    answer: "You have 6 options to stop a Berks County judicial sale: (1) pay the full tax debt before the sale, (2) enter a payment plan with the Tax Claim Bureau, (3) file for bankruptcy to trigger automatic stay, (4) sell the property before the sale date, (5) contest the sale if proper procedures weren't followed, or (6) redeem the property within 9 months after sale (residential only)."
+  },
+  'stop-govos-fines-poconos-house': {
+    question: "How do I stop GovOS fines on my Poconos rental property?",
+    answer: "To stop GovOS fines in the Poconos, you must either: (1) register your STR with the county and become compliant, (2) convert to long-term rental (12+ month leases), (3) stop renting entirely and use it personally, or (4) sell the property. Monroe County's MCOCA system tracks all major booking platforms, so operating unregistered leads to cumulative daily fines."
+  },
+  'sell-my-house-fast-allentown': {
+    question: "What's the fastest way to sell my house in Allentown?",
+    answer: "The fastest way to sell in Allentown is a cash sale, which can close in as little as 7 days. You avoid repairs, skip the 60-90 day listing process, and don't pay the 6% agent commission. Cash buyers purchase as-is — whether you're in Center City, the West End, or South Allentown. Get an offer within 24 hours."
+  },
+  'sell-deceased-parents-house-without-probate-pennsylvania': {
+    question: "Can I sell my deceased parents' house without probate in PA?",
+    answer: "Sometimes yes. You can avoid probate in Pennsylvania if: (1) you were joint owner with rights of survivorship, (2) the house was in a living trust, (3) there's a transfer-on-death deed, or (4) you're the surviving spouse and the estate is under $50,000. Otherwise, probate is required — but a cash buyer can work around the probate timeline and close once you have Letters Testamentary."
+  },
+  'documents-required-selling-inherited-property-pennsylvania': {
+    question: "What documents do I need to sell an inherited house in Pennsylvania?",
+    answer: "To sell inherited property in PA, you need: (1) certified death certificate, (2) Letters Testamentary or Letters of Administration from the Register of Wills, (3) the deed showing current ownership, (4) REU-500 inheritance tax waiver (if required), and (5) signed agreement from all heirs. If the property passed outside probate, you'll need the transfer documentation (trust, TOD deed, or survivorship deed)."
+  },
+  'sell-my-house-fast-bethlehem-pa-18015-tax-lien': {
+    question: "Can I sell my Bethlehem house with a tax lien?",
+    answer: "Yes. You can sell a Bethlehem house with a tax lien — the lien gets paid from the sale proceeds at closing. A cash buyer can close in 7-14 days, which is often fast enough to avoid the escalating penalties and potential sheriff sale. You don't need to pay off the lien first; it's settled through the title company at closing."
+  },
+  'pennsylvania-job-relocation-home-buyout-fast-equity-release-2026': {
+    question: "How do I sell my PA house fast for job relocation?",
+    answer: "For job relocation in Pennsylvania, you have three main options: (1) employer relocation buyout program (if offered), (2) iBuyer instant offer (limited availability), or (3) direct cash buyer sale. Cash buyers can close in 7-14 days, let you pick your closing date to match your start date, and purchase as-is with no repair requirements. This prevents paying two mortgages."
+  },
+  'selling-water-damaged-house-18102-mold-issues': {
+    question: "Can I sell a water-damaged house with mold in Allentown?",
+    answer: "Yes. You can sell a water-damaged house with mold in Allentown's 18102 zip code to a cash buyer. Pennsylvania requires disclosure of known water damage and mold, but you don't have to remediate before selling. Cash buyers purchase as-is and factor remediation costs into their offer. This avoids the $10K-$30K in remediation costs you'd need for a traditional sale."
+  },
+  'scranton-pa-major-structural-damage-disclosure-law-2026': {
+    question: "What must I disclose about structural damage when selling in Scranton?",
+    answer: "Under Pennsylvania's Real Estate Seller Disclosure Law (RESDL), you must disclose any known structural defects in a Scranton home sale. This includes: foundation cracks, settling, bowing walls, roof structural damage, mine subsidence damage, and any repairs made to structural issues. Disclosure is required on the standard PA disclosure form — failure to disclose can result in legal liability."
+  },
+  'avoid-foreclosure-scranton-pa': {
+    question: "How can I avoid foreclosure in Scranton PA?",
+    answer: "You have 7 options to avoid foreclosure in Scranton: (1) loan modification with your lender, (2) forbearance agreement, (3) refinancing if you have equity, (4) sell the house before sheriff sale, (5) short sale if underwater, (6) deed in lieu of foreclosure, or (7) file Chapter 13 bankruptcy for automatic stay. Selling to a cash buyer is often fastest — close in 7-14 days and walk away with equity."
+  },
+  'cash-home-buyers-lackawanna-county-no-fees': {
+    question: "Are there really cash home buyers in Lackawanna County with no fees?",
+    answer: "Yes. Legitimate cash home buyers in Lackawanna County don't charge fees to sellers — they make their profit by renovating and reselling the home. 'No fees' means no agent commissions, no closing costs, and no hidden charges. The offer you accept is the amount you receive (minus any mortgage payoff). Be wary of anyone asking for upfront payments."
+  },
+  'sell-my-house-fast-luzerne-county-pa': {
+    question: "What's the fastest way to sell my Luzerne County house?",
+    answer: "The fastest way to sell in Luzerne County (Wilkes-Barre, Hazleton, Pittston, Kingston) is a cash sale, which closes in 7-14 days. This is significantly faster than the 90+ day average for traditional listings in the area. Cash buyers purchase as-is with no repairs, no inspections, and no financing contingencies that could derail the sale."
+  },
+  'cash-home-buyers-berks-county': {
+    question: "How do cash home buyers work in Berks County?",
+    answer: "Cash home buyers in Berks County (Reading, West Reading, Wyomissing, Shillington) purchase houses directly, skipping the traditional listing process. You contact them, they assess your property, and provide a cash offer within 24 hours. If accepted, closing happens in 7-30 days. No repairs needed, no showings, no agent commissions. The trade-off is typically a lower price than market value in exchange for speed and certainty."
+  },
+  'sell-my-house-fast-dunmore-mine-subsidence': {
+    question: "Can I sell my Dunmore house with mine subsidence damage?",
+    answer: "Yes. You can sell a Dunmore house with mine subsidence damage to a cash buyer who understands NEPA's coal mining history. Traditional buyers often can't get insurance or financing on mine-damaged properties, but cash buyers purchase as-is. You must disclose the damage, but you don't need to repair it. Get a fair offer that accounts for the structural issues."
+  },
+  'selling-house-international-property-maintenance-code-violations-bethlehem': {
+    question: "Can I sell a house with IPMC violations in Bethlehem?",
+    answer: "Yes. You can sell a Bethlehem house with International Property Maintenance Code (IPMC/Article 1733) violations to a cash buyer. The violations transfer with the property at closing — you don't need to fix them first. This stops the daily fine accumulation and gets you out of a property that's costing you money. Cash buyers handle the violation abatement after purchase."
+  },
+  'easton-pa-rental-inspection-checklist-2026': {
+    question: "What does Easton PA check in rental inspections?",
+    answer: "Easton rental inspections check: smoke detectors (one per level + bedrooms), CO detectors (one per level), working locks on all exterior doors, window screens and locks, functional HVAC, no exposed wiring, working plumbing with no leaks, handrails on stairs (4+ steps), and 36\" guardrails. Inspections are ward-based on a 3-year cycle. Fee is $75/unit."
+  },
+  'pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights': {
+    question: "What are my rights if someone files an Act 135 conservatorship on my property?",
+    answer: "If you're facing an Act 135 conservatorship petition in Pennsylvania, you have the right to: (1) receive notice and a hearing, (2) present evidence that your property isn't blighted, (3) propose a remediation plan, (4) appeal the court's decision, and (5) pay to terminate the conservatorship. The best defense is demonstrating active improvement efforts. If a conservator is appointed, they can repair and lien your property — or sell it."
+  },
+  'sell-house-fast-during-divorce-lehigh-county-pa': {
+    question: "How do I sell my house fast during divorce in Lehigh County?",
+    answer: "To sell during a Lehigh County divorce: both parties must agree to sell (or the court orders it), sign the listing agreement and sales contracts, and agree on proceeds distribution. A cash sale is fastest — close in 7-14 days vs. 60-90 days traditional. The proceeds go to a title company and are distributed according to your divorce agreement or court order. No repairs, no showings, no delays."
+  },
+  'sell-hoarder-house-reading-pa-without-cleanout': {
+    question: "Can I sell a hoarder house in Reading without cleaning it out?",
+    answer: "Yes. You can sell a hoarder house in Reading PA without cleaning it out. Cash buyers purchase as-is and handle all cleanout after closing — you don't need to spend $5,000-$15,000 on professional cleanout services. Leave everything behind: furniture, junk, personal items. The cash offer accounts for cleanout costs, but you avoid the emotional and physical burden of doing it yourself."
+  },
+  'luzerne-county-rental-property-registration-inspection-requirements-2026': {
+    question: "What are Luzerne County's rental registration requirements?",
+    answer: "Luzerne County rental requirements vary by municipality: Wilkes-Barre requires registration ($35/unit) + inspection, Hazleton requires occupancy permits ($50) + inspection, Pittston requires licensing ($50/unit), and Kingston requires registration + Certificate of Occupancy. Most require inspections before new tenants move in. Failure to register can result in fines of $100-$1,000/day depending on the municipality."
+  },
+}
+
 export async function generateStaticParams() {
   const slugs: string[] = await getBlogPostSlugs()
   return slugs.map((slug) => ({ slug }))
@@ -294,6 +398,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
           </section>
+
+          {/* Answer-First Summary */}
+          {answerFirstSummaries[post.slug.current] && (
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+              <div className="bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
+                <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
+                <h2 className="font-serif text-xl md:text-2xl font-medium text-[#1a1f1a] mb-4">
+                  {answerFirstSummaries[post.slug.current].question}
+                </h2>
+                <p className="text-[#1a1f1a]/80 leading-relaxed text-lg">
+                  {answerFirstSummaries[post.slug.current].answer}
+                </p>
+              </div>
+            </div>
+          )}
 
           {/* Featured Image */}
           {post.featuredImage?.asset?.url && (
