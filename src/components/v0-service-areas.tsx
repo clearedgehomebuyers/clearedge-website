@@ -34,6 +34,13 @@ const locationsByRegion = {
 
 export function V0ServiceAreas() {
   const scrollToForm = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'cta_click', {
+        event_category: 'CTA',
+        event_label: 'Request Offer Anyway - Service Areas',
+        page_path: window.location.pathname
+      });
+    }
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
   }
 

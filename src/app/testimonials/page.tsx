@@ -7,6 +7,7 @@ import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0TrustBar } from '@/components/v0-trust-bar'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
+import { TrackedCTALink } from '@/components/TrackedCTALink'
 
 const testimonialsFaqs = [
   {
@@ -292,13 +293,11 @@ export default function TestimonialsPage() {
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               Don&apos;t take our word for it. Here&apos;s what Pennsylvania homeowners say about working with ClearEdge.
             </p>
-            <a
+            <TrackedCTALink
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-            >
-              Get My Cash Offer
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              label="Get My Cash Offer"
+              eventLabel="Get My Cash Offer - Testimonials Hero"
+            />
           </div>
         </section>
 

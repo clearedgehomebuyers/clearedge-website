@@ -6,6 +6,7 @@ import { V0Footer } from '@/components/v0-footer'
 import { SituationFAQAccordion } from '@/components/SituationFAQAccordion'
 import { RandomizedServiceAreas } from '@/components/RandomizedServiceAreas'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
+import { TrackedCTALink } from '@/components/TrackedCTALink'
 import Link from 'next/link'
 import { Phone, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, BookOpen, MapPin } from 'lucide-react'
 import { notFound } from 'next/navigation'
@@ -132,13 +133,12 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a
+                <TrackedCTALink
                   href="#lead-form"
+                  label="Get Your Free Cash Offer"
+                  eventLabel="Get Your Free Cash Offer - Situation Hero"
                   className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
-                >
-                  Get Your Free Cash Offer
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                />
                 <DynamicPhoneLink
                   className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
                   showIcon

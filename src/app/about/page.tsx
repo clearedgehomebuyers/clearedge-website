@@ -6,6 +6,7 @@ import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
+import { TrackedCTALink } from '@/components/TrackedCTALink'
 
 export const metadata: Metadata = {
   title: 'About Us | Local Cash Home Buyers Since 2016',
@@ -208,13 +209,11 @@ export default function AboutPage() {
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania. We&apos;ve been helping homeowners sell fast since 2016.
             </p>
-            <a
+            <TrackedCTALink
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-            >
-              Get My Cash Offer
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              label="Get My Cash Offer"
+              eventLabel="Get My Cash Offer - About Hero"
+            />
           </div>
         </section>
 
@@ -378,13 +377,11 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="text-center">
-              <a
+              <TrackedCTALink
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-              >
-                Don&apos;t see your town? Reach out anyway
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+                label="Don't see your town? Reach out anyway"
+                eventLabel="Reach Out Anyway - About Service Areas"
+              />
             </div>
           </div>
         </section>

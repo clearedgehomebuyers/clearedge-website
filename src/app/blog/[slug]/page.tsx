@@ -9,6 +9,7 @@ import { V0FAQ } from '@/components/v0-faq'
 import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
+import { TrackedCTALink } from '@/components/TrackedCTALink'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -335,13 +336,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <p className="mb-6 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
                 Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.
               </p>
-              <Link
+              <TrackedCTALink
                 href="/#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
-              >
-                Get My Cash Offer
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+                label="Get My Cash Offer"
+                eventLabel="Get My Cash Offer - Blog Article CTA"
+              />
             </section>
           </div>
         </article>
@@ -371,13 +370,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               >
                 More Guides
               </Link>
-              <Link
+              <TrackedCTALink
                 href="/#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
-              >
-                Get My Cash Offer
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+                label="Get My Cash Offer"
+                eventLabel="Get My Cash Offer - Blog Bottom CTA"
+              />
             </div>
           </div>
         </section>

@@ -5,6 +5,7 @@ import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
+import { TrackedCTALink } from '@/components/TrackedCTALink'
 
 export const metadata: Metadata = {
   title: 'How It Works | Sell Your PA House Fast',
@@ -168,13 +169,11 @@ export default function HowItWorksPage() {
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
               No repairs. No agents. No waiting for buyers. Just a fair cash offer and a closing date that works for you.
             </p>
-            <a
+            <TrackedCTALink
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-            >
-              Get My Cash Offer
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+              label="Get My Cash Offer"
+              eventLabel="Get My Cash Offer - How It Works Hero"
+            />
           </div>
         </section>
 
@@ -255,13 +254,11 @@ export default function HowItWorksPage() {
               </div>
             </div>
             <div className="text-center">
-              <a
+              <TrackedCTALink
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-              >
-                Ready to Start? Get Your Offer
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+                label="Ready to Start? Get Your Offer"
+                eventLabel="Ready to Start - How It Works Steps"
+              />
             </div>
           </div>
         </section>
@@ -399,13 +396,11 @@ export default function HowItWorksPage() {
               </Link>
             </div>
             <div className="text-center">
-              <a
+              <TrackedCTALink
                 href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
-              >
-                Not sure if you qualify? Reach out anyway
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+                label="Not sure if you qualify? Reach out anyway"
+                eventLabel="Not Sure If Qualify - How It Works Situations"
+              />
             </div>
           </div>
         </section>

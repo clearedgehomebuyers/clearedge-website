@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button"
 
 export function V0Hero() {
   const scrollToForm = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'cta_click', {
+        event_category: 'CTA',
+        event_label: 'Get Your Free Cash Offer - Hero',
+        page_path: window.location.pathname
+      });
+    }
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
   }
 
