@@ -14,7 +14,8 @@ export function V0ClosingSeo() {
         </p>
         <a
           href="#lead-form"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault()
             if (typeof window !== 'undefined' && window.gtag) {
               window.gtag('event', 'cta_click', {
                 event_category: 'CTA',
@@ -22,6 +23,7 @@ export function V0ClosingSeo() {
                 page_path: window.location.pathname
               });
             }
+            document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
           }}
           className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20"
         >

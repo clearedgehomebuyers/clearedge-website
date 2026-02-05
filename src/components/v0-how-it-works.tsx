@@ -82,7 +82,8 @@ export function V0HowItWorks() {
         <div className="text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
             href="#lead-form"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault()
               if (typeof window !== 'undefined' && window.gtag) {
                 window.gtag('event', 'cta_click', {
                   event_category: 'CTA',
@@ -90,6 +91,7 @@ export function V0HowItWorks() {
                   page_path: window.location.pathname
                 });
               }
+              document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
             }}
             className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
           >

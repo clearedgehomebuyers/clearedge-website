@@ -160,15 +160,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     image: post.featuredImage?.asset?.url,
     author: {
       '@type': 'Person',
-      name: post.author,
-      jobTitle: post.authorTitle,
+      '@id': 'https://www.clearedgehomebuyers.com/#tyler',
+      name: 'Tyler',
+      jobTitle: 'Owner',
       worksFor: {
-        '@type': 'Organization',
-        name: 'ClearEdge Home Buyers',
+        '@id': 'https://www.clearedgehomebuyers.com/#organization',
       },
+      description: 'Tyler is the owner of ClearEdge Home Buyers and has personally purchased over 200 homes across Eastern Pennsylvania since 2016.',
     },
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://www.clearedgehomebuyers.com/#organization',
       name: 'ClearEdge Home Buyers',
       logo: {
         '@type': 'ImageObject',
@@ -284,7 +286,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.updatedAt && post.updatedAt !== post.publishedAt && (
                   <>
                     <span className="text-[#1a2e1a]/30">|</span>
-                    <span className="text-[#1a2e1a]/70 text-sm">Updated {formatDate(post.updatedAt)}</span>
+                    <time dateTime={post.updatedAt} className="text-[#1a2e1a]/70 text-sm">
+                      Last Updated: {formatDate(post.updatedAt)}
+                    </time>
                   </>
                 )}
               </div>
@@ -353,13 +357,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Author Bio */}
             <section className="mt-8 pt-10 border-t border-[#1a1f1a]/10">
               <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8">
-                <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-3">About the Author</h3>
-                <p className="text-[#1a1f1a]/70 leading-relaxed">
-                  <strong>{post.author}</strong> is the founder of ClearEdge Home Buyers,
-                  a cash home buying company serving Eastern Pennsylvania. He has helped
-                  hundreds of homeowners sell their properties quickly for cash, with no repairs,
-                  fees, or commissions.
-                </p>
+                <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-4">About the Author</h3>
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                  <div className="flex-shrink-0">
+                    <Image
+                      src="/tyler.jpg"
+                      alt="Tyler - Owner of ClearEdge Home Buyers"
+                      width={80}
+                      height={80}
+                      className="rounded-full object-cover w-20 h-20"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#1a1f1a] mb-1">Tyler</p>
+                    <p className="text-sm text-[#008a29] font-medium mb-3">Owner, ClearEdge Home Buyers</p>
+                    <p className="text-[#1a1f1a]/70 leading-relaxed">
+                      Tyler is the owner of ClearEdge Home Buyers and has personally purchased over 200 homes across Eastern Pennsylvania since 2016. He specializes in helping homeowners navigate difficult situations including foreclosure, inherited properties, divorce, and more — providing fair cash offers and closing on the seller&apos;s timeline.
+                    </p>
+                  </div>
+                </div>
               </div>
             </section>
 

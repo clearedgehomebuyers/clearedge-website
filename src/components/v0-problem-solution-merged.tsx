@@ -106,7 +106,8 @@ export function V0ProblemSolutionMerged() {
           <div className="text-center mt-6">
             <a
               href="#lead-form"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault()
                 if (typeof window !== 'undefined' && window.gtag) {
                   window.gtag('event', 'cta_click', {
                     event_category: 'CTA',
@@ -114,6 +115,7 @@ export function V0ProblemSolutionMerged() {
                     page_path: window.location.pathname
                   });
                 }
+                document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
               }}
               className="inline-flex items-center gap-2 text-[#008a29] font-medium hover:gap-3 transition-all"
             >

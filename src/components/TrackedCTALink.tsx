@@ -17,13 +17,26 @@ export function TrackedCTALink({
   className = "inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20",
   showArrow = true,
 }: TrackedCTALinkProps) {
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Track GA4 event
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
         event_label: eventLabel,
         page_path: window.location.pathname
       });
+    }
+
+    // Use scrollIntoView for #lead-form links (works on repeat clicks)
+    if (href.includes('#lead-form')) {
+      e.preventDefault()
+      const element = document.getElementById('lead-form')
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      } else if (href.startsWith('/')) {
+        // If element not found and href has a path, navigate to page
+        window.location.href = href
+      }
     }
   }
 

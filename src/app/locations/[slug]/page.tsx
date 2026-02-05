@@ -82,8 +82,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
   }
 
-  const title = location.metaTitle || `Sell Your House Fast in ${location.city}, PA`
-  const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home. ClearEdge buys houses as-is for cash. No repairs, no fees. Call Tyler: (610) 904-8526.`
+  const title = location.metaTitle || `Sell My House Fast ${location.city} PA | Cash Home Buyers | ClearEdge`
+  const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home in 24 hours. ClearEdge buys houses as-is for cash. No repairs, no fees, no commissions. Call Tyler: (610) 904-8526.`
   const url = `https://www.clearedgehomebuyers.com/locations/${slug}`
 
   return {
