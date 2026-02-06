@@ -7,6 +7,7 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
+import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
   title: 'How It Works | Sell Your PA House Fast',
@@ -144,6 +145,25 @@ export default function HowItWorksPage() {
                   },
                 })),
               },
+              {
+                '@type': 'VideoObject',
+                '@id': 'https://www.clearedgehomebuyers.com/how-it-works/#video',
+                name: 'Sell Your House Fast in PA | ClearEdge Home Buyers',
+                description: 'Tyler from ClearEdge Home Buyers explains the easiest way to sell your house fast in Northeastern PA, the Lehigh Valley, and the Poconos. Get a full cash offer in 24 hours with no fees, no commissions, and no repairs needed.',
+                thumbnailUrl: 'https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg',
+                uploadDate: '2026-01-27T08:00:00-05:00',
+                duration: 'PT1M10S',
+                contentUrl: 'https://www.youtube.com/watch?v=YS6uDgxIjiI',
+                embedUrl: 'https://www.youtube.com/embed/YS6uDgxIjiI',
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'ClearEdge Home Buyers',
+                  logo: {
+                    '@type': 'ImageObject',
+                    url: 'https://www.clearedgehomebuyers.com/logo.webp',
+                  },
+                },
+              },
             ],
           }),
         }}
@@ -264,8 +284,29 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* HOW WE CALCULATE YOUR OFFER - White */}
+        {/* Watch How It Works Video - White */}
         <section className="py-12 md:py-14 bg-white">
+          <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+                See It In Action
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
+                Watch How It Works
+              </h2>
+              <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
+                In just 60 seconds, Tyler explains exactly how ClearEdge helps Pennsylvania homeowners sell fast without the traditional hassles.
+              </p>
+            </div>
+            <LiteYouTube
+              videoId="YS6uDgxIjiI"
+              title="Sell Your House Fast in PA | ClearEdge Home Buyers"
+            />
+          </div>
+        </section>
+
+        {/* HOW WE CALCULATE YOUR OFFER - Cream */}
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <div className="mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -290,7 +331,7 @@ export default function HowItWorksPage() {
             <p className="text-[#1a1f1a]/70 mb-6">
               What&apos;s left is what we can offer you.
             </p>
-            <div className="bg-[#FAF8F5] border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-6 text-left">
+            <div className="bg-white border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-6 text-left">
               <p className="text-[#1a1f1a]/70">
                 <span className="font-semibold text-[#1a1f1a]">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
               </p>
@@ -306,8 +347,8 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* WHAT CLEAREDGE HANDLES - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        {/* WHAT CLEAREDGE HANDLES - White */}
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -319,31 +360,31 @@ export default function HowItWorksPage() {
             </div>
             {/* 5 cards: flexbox with justify-center to center incomplete rows */}
             <div className="flex flex-wrap justify-center gap-6">
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Repairs Needed</h3>
                 <p className="text-[#1a1f1a]/70">
                   Sell as-is. Foundation issues, roof damage, mold — doesn&apos;t matter.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Inspections</h3>
                 <p className="text-[#1a1f1a]/70">
                   We don&apos;t require you to fix violations or pass municipal inspection.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Mortgage Delays</h3>
                 <p className="text-[#1a1f1a]/70">
                   Cash means no lender approval, no appraisal contingencies.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Commissions</h3>
                 <p className="text-[#1a1f1a]/70">
                   We&apos;re not agents. You pay zero commission.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Uncertainty</h3>
                 <p className="text-[#1a1f1a]/70">
                   When we make an offer and you accept, the deal closes. Period.
@@ -353,8 +394,8 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* WHO THIS IS FOR - White */}
-        <section className="py-12 md:py-14 bg-white">
+        {/* WHO THIS IS FOR - Cream */}
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -411,8 +452,8 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* TESTIMONIAL - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        {/* TESTIMONIAL - White */}
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -422,7 +463,7 @@ export default function HowItWorksPage() {
                 Don&apos;t Just Take Our Word For It
               </h2>
             </div>
-            <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
+            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
               <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.

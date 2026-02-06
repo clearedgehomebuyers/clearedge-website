@@ -8,6 +8,7 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
+import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
   title: 'About Us | Local Cash Home Buyers Since 2016',
@@ -88,6 +89,30 @@ export default function AboutPage() {
                 text: faq.answer,
               },
             })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            name: 'Sell Your House Fast in PA | ClearEdge Home Buyers',
+            description: 'Tyler from ClearEdge Home Buyers explains the easiest way to sell your house fast in Northeastern PA, the Lehigh Valley, and the Poconos. Get a full cash offer in 24 hours with no fees, no commissions, and no repairs needed.',
+            thumbnailUrl: 'https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg',
+            uploadDate: '2026-01-27T08:00:00-05:00',
+            duration: 'PT1M10S',
+            contentUrl: 'https://www.youtube.com/watch?v=YS6uDgxIjiI',
+            embedUrl: 'https://www.youtube.com/embed/YS6uDgxIjiI',
+            publisher: {
+              '@type': 'Organization',
+              name: 'ClearEdge Home Buyers',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.clearedgehomebuyers.com/logo.webp',
+              },
+            },
           }),
         }}
       />
@@ -241,8 +266,29 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* What Makes ClearEdge Different - Cream */}
+        {/* Meet Tyler Video - Cream */}
         <section className="py-12 md:py-14 bg-[#FAF8F5]">
+          <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+                Meet Tyler
+              </span>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
+                A Quick Message From Our Founder
+              </h2>
+              <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
+                Watch this 60-second video to learn how we help Pennsylvania homeowners sell fast without the hassle.
+              </p>
+            </div>
+            <LiteYouTube
+              videoId="YS6uDgxIjiI"
+              title="Sell Your House Fast in PA | ClearEdge Home Buyers"
+            />
+          </div>
+        </section>
+
+        {/* What Makes ClearEdge Different - White */}
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -253,7 +299,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold">1</span>
                 </div>
@@ -262,7 +308,7 @@ export default function AboutPage() {
                   We&apos;re based in Scranton, not a call center in another state. When you call, you talk to Tyler — not a script reader.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold">2</span>
                 </div>
@@ -271,7 +317,7 @@ export default function AboutPage() {
                   We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you. <Link href="/how-it-works" className="text-[#008a29] hover:underline">See how our process works</Link>.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold">3</span>
                 </div>
@@ -280,7 +326,7 @@ export default function AboutPage() {
                   Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too. You&apos;re in control.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold">4</span>
                 </div>
@@ -293,8 +339,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Homeowners We Work With - White */}
-        <section className="py-12 md:py-14 bg-white">
+        {/* Homeowners We Work With - Cream */}
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -324,8 +370,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Serving All of Eastern Pennsylvania - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        {/* Serving All of Eastern Pennsylvania - White */}
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -336,7 +382,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <Link href="/locations/nepa" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
                   NEPA →
                 </Link>
@@ -353,7 +399,7 @@ export default function AboutPage() {
                   <li><Link href="/locations/bloomsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Bloomsburg</Link></li>
                 </ul>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <Link href="/locations/lehigh-valley" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
                   Lehigh Valley →
                 </Link>
@@ -365,7 +411,7 @@ export default function AboutPage() {
                   <li><Link href="/locations/pottsville" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Pottsville</Link></li>
                 </ul>
               </div>
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <Link href="/locations/poconos" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
                   Poconos →
                 </Link>
@@ -387,8 +433,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Local Knowledge Section - White */}
-        <section className="py-12 md:py-14 bg-white">
+        {/* Local Knowledge Section - Cream */}
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-6">
               <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
@@ -444,8 +490,8 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Testimonial Section - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        {/* Testimonial Section - White */}
+        <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonial
@@ -453,7 +499,7 @@ export default function AboutPage() {
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
               What Homeowners Say
             </h2>
-            <div className="bg-white rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
+            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
               <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
                 First to take time to explain the process and make me feel comfortable.
