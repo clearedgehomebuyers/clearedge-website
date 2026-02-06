@@ -81,15 +81,23 @@ const situationLinks = [
   { href: '/situations/foundation-structural-issues', label: 'Foundation & Structural Issues' },
 ]
 
+const resourceLinks = [
+  { href: '/cash-buyer-vs-realtor', label: 'Cash Buyer vs. Realtor' },
+  { href: '/are-cash-home-buyers-legit', label: 'Are Cash Buyers Legit?' },
+  { href: '/calculator', label: 'Sale Calculator' },
+]
+
 export function V0Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [locationsOpen, setLocationsOpen] = useState(false)
   const [situationsOpen, setSituationsOpen] = useState(false)
+  const [resourcesOpen, setResourcesOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
   const locationsRef = useRef<HTMLDivElement>(null)
   const situationsRef = useRef<HTMLDivElement>(null)
+  const resourcesRef = useRef<HTMLDivElement>(null)
   const { phone, phoneTel } = useTrafficSource()
 
   useEffect(() => {
@@ -108,6 +116,9 @@ export function V0Header() {
       }
       if (situationsRef.current && !situationsRef.current.contains(event.target as Node)) {
         setSituationsOpen(false)
+      }
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setResourcesOpen(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside)
@@ -141,11 +152,19 @@ export function V0Header() {
   const toggleLocations = () => {
     setLocationsOpen(!locationsOpen)
     setSituationsOpen(false)
+    setResourcesOpen(false)
   }
 
   const toggleSituations = () => {
     setSituationsOpen(!situationsOpen)
     setLocationsOpen(false)
+    setResourcesOpen(false)
+  }
+
+  const toggleResources = () => {
+    setResourcesOpen(!resourcesOpen)
+    setLocationsOpen(false)
+    setSituationsOpen(false)
   }
 
   const handleNavClick = (e: React.MouseEvent, href: string) => {
@@ -205,27 +224,6 @@ export function V0Header() {
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden md:block"
               >
                 Blog
-              </Link>
-              <Link
-                href="/cash-buyer-vs-realtor"
-                onClick={(e) => handleNavClick(e, "/cash-buyer-vs-realtor")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden lg:block"
-              >
-                Compare
-              </Link>
-              <Link
-                href="/are-cash-home-buyers-legit"
-                onClick={(e) => handleNavClick(e, "/are-cash-home-buyers-legit")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden lg:block"
-              >
-                Legit?
-              </Link>
-              <Link
-                href="/calculator"
-                onClick={(e) => handleNavClick(e, "/calculator")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden lg:block"
-              >
-                Calculator
               </Link>
               <Link
                 href="/contact"
@@ -295,6 +293,35 @@ export function V0Header() {
                             key={link.href}
                             href={link.href}
                             onClick={(e) => { handleNavClick(e, link.href); setSituationsOpen(false) }}
+                            className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Resources Dropdown - Click to toggle */}
+              <div className="relative" ref={resourcesRef}>
+                <button
+                  onClick={toggleResources}
+                  className="flex items-center gap-1 text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
+                >
+                  <span>Resources</span>
+                  <ChevronDown className={`w-3 h-3 lg:w-4 lg:h-4 transition-transform ${resourcesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {resourcesOpen && (
+                  <div className="absolute top-full right-0 pt-2 z-50">
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[240px]">
+                      <div className="space-y-1">
+                        {resourceLinks.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={(e) => { handleNavClick(e, link.href); setResourcesOpen(false) }}
                             className="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
                           >
                             {link.label}
@@ -390,27 +417,6 @@ export function V0Header() {
               Blog
             </Link>
             <Link
-              href="/cash-buyer-vs-realtor"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/cash-buyer-vs-realtor")}
-            >
-              Cash Buyer vs. Realtor
-            </Link>
-            <Link
-              href="/are-cash-home-buyers-legit"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/are-cash-home-buyers-legit")}
-            >
-              Are Cash Buyers Legit?
-            </Link>
-            <Link
-              href="/calculator"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/calculator")}
-            >
-              Sale Calculator
-            </Link>
-            <Link
               href="/contact"
               className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
               onClick={(e) => handleNavClick(e, "/contact")}
@@ -456,6 +462,26 @@ export function V0Header() {
               </summary>
               <div className="ml-4 mt-1 space-y-1">
                 {situationLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="block py-2 px-2 text-sm text-slate-600 hover:text-[#008a29]"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </details>
+
+            {/* Mobile Resources */}
+            <details className="group">
+              <summary className="flex items-center justify-between py-3 px-2 text-base font-semibold text-[#1a1f1a]/70 cursor-pointer list-none">
+                <span>Resources</span>
+                <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="ml-4 mt-1 space-y-1">
+                {resourceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
