@@ -6,28 +6,67 @@ import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 
+const regionLinks = {
+  'NEPA': {
+    hub: { href: '/locations/nepa', label: 'NEPA' },
+    cities: [
+      { href: '/locations/scranton', label: 'Scranton' },
+      { href: '/locations/wilkes-barre', label: 'Wilkes-Barre' },
+      { href: '/locations/hazleton', label: 'Hazleton' },
+      { href: '/locations/pittston', label: 'Pittston' },
+      { href: '/locations/kingston', label: 'Kingston' },
+      { href: '/locations/nanticoke', label: 'Nanticoke' },
+      { href: '/locations/carbondale', label: 'Carbondale' },
+      { href: '/locations/dunmore', label: 'Dunmore' },
+      { href: '/locations/honesdale', label: 'Honesdale' },
+      { href: '/locations/bloomsburg', label: 'Bloomsburg' },
+    ],
+  },
+  'Lehigh Valley': {
+    hub: { href: '/locations/lehigh-valley', label: 'Lehigh Valley' },
+    cities: [
+      { href: '/locations/allentown', label: 'Allentown' },
+      { href: '/locations/bethlehem', label: 'Bethlehem' },
+      { href: '/locations/easton', label: 'Easton' },
+      { href: '/locations/reading', label: 'Reading' },
+      { href: '/locations/pottsville', label: 'Pottsville' },
+    ],
+  },
+  'Poconos': {
+    hub: { href: '/locations/poconos', label: 'Poconos' },
+    cities: [
+      { href: '/locations/stroudsburg', label: 'Stroudsburg' },
+      { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
+      { href: '/locations/pocono-pines', label: 'Pocono Pines' },
+      { href: '/locations/tannersville', label: 'Tannersville' },
+    ],
+  },
+}
+
+// Flat list for mobile menu
 const locationLinks = [
+  { href: '/locations/nepa', label: 'NEPA (Regional Hub)', isHub: true },
   { href: '/locations/scranton', label: 'Scranton' },
   { href: '/locations/wilkes-barre', label: 'Wilkes-Barre' },
+  { href: '/locations/hazleton', label: 'Hazleton' },
+  { href: '/locations/pittston', label: 'Pittston' },
+  { href: '/locations/kingston', label: 'Kingston' },
+  { href: '/locations/nanticoke', label: 'Nanticoke' },
+  { href: '/locations/carbondale', label: 'Carbondale' },
+  { href: '/locations/dunmore', label: 'Dunmore' },
+  { href: '/locations/honesdale', label: 'Honesdale' },
+  { href: '/locations/bloomsburg', label: 'Bloomsburg' },
+  { href: '/locations/lehigh-valley', label: 'Lehigh Valley (Regional Hub)', isHub: true },
   { href: '/locations/allentown', label: 'Allentown' },
   { href: '/locations/bethlehem', label: 'Bethlehem' },
   { href: '/locations/easton', label: 'Easton' },
   { href: '/locations/reading', label: 'Reading' },
-  { href: '/locations/hazleton', label: 'Hazleton' },
+  { href: '/locations/pottsville', label: 'Pottsville' },
+  { href: '/locations/poconos', label: 'Poconos (Regional Hub)', isHub: true },
   { href: '/locations/stroudsburg', label: 'Stroudsburg' },
   { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
-  { href: '/locations/honesdale', label: 'Honesdale' },
-  { href: '/locations/carbondale', label: 'Carbondale' },
-  { href: '/locations/pittston', label: 'Pittston' },
-  { href: '/locations/kingston', label: 'Kingston' },
-  { href: '/locations/nanticoke', label: 'Nanticoke' },
-  { href: '/locations/dunmore', label: 'Dunmore' },
-  { href: '/locations/bloomsburg', label: 'Bloomsburg' },
-  { href: '/locations/pottsville', label: 'Pottsville' },
   { href: '/locations/pocono-pines', label: 'Pocono Pines' },
   { href: '/locations/tannersville', label: 'Tannersville' },
-  { href: '/locations/lehigh-valley', label: 'Lehigh Valley' },
-  { href: '/locations/poconos', label: 'Poconos' },
 ]
 
 const situationLinks = [
@@ -185,17 +224,30 @@ export function V0Header() {
                 </button>
                 {locationsOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                    <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[320px] lg:w-[480px] max-h-[400px] overflow-y-auto">
-                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                        {locationLinks.map((link) => (
-                          <Link
-                            key={link.href}
-                            href={link.href}
-                            onClick={(e) => { handleNavClick(e, link.href); setLocationsOpen(false) }}
-                            className="px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
-                          >
-                            {link.label}
-                          </Link>
+                    <div className="bg-white rounded-xl shadow-xl border border-slate-100 p-4 w-[580px] lg:w-[720px] max-h-[450px] overflow-y-auto">
+                      <div className="grid grid-cols-3 gap-6">
+                        {Object.entries(regionLinks).map(([regionName, region]) => (
+                          <div key={regionName}>
+                            <Link
+                              href={region.hub.href}
+                              onClick={(e) => { handleNavClick(e, region.hub.href); setLocationsOpen(false) }}
+                              className="block px-3 py-2 text-sm font-bold text-[#008a29] hover:bg-[#008a29]/10 rounded-lg transition-colors border-b border-[#008a29]/20 mb-2"
+                            >
+                              {regionName} →
+                            </Link>
+                            <div className="space-y-0.5">
+                              {region.cities.map((city) => (
+                                <Link
+                                  key={city.href}
+                                  href={city.href}
+                                  onClick={(e) => { handleNavClick(e, city.href); setLocationsOpen(false) }}
+                                  className="block px-3 py-1.5 rounded-lg text-sm text-slate-600 hover:bg-[#008a29]/10 hover:text-[#008a29] transition-colors"
+                                >
+                                  {city.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -336,7 +388,11 @@ export function V0Header() {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className="block py-2 px-2 text-sm text-slate-600 hover:text-[#008a29]"
+                      className={`block py-2 px-2 text-sm hover:text-[#008a29] ${
+                        link.isHub
+                          ? 'font-bold text-[#008a29] border-b border-[#008a29]/20 mt-3 first:mt-0'
+                          : 'text-slate-600 pl-4'
+                      }`}
                     >
                       {link.label}
                     </Link>

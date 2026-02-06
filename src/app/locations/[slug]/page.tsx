@@ -1,4 +1,5 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
+import { cityToHub, hubDisplayNames } from '@/lib/regional-hub-data'
 import { FAQSchema } from '@/components/Schema'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
@@ -124,7 +125,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
-  // BreadcrumbList Schema
+  // Get parent hub info for this city
+  const parentHubSlug = cityToHub[slug]
+  const parentHubName = parentHubSlug ? hubDisplayNames[parentHubSlug] : null
+
+  // BreadcrumbList Schema - includes hub if this city belongs to one
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -135,15 +140,15 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         "name": "Home",
         "item": "https://www.clearedgehomebuyers.com/"
       },
-      {
+      ...(parentHubSlug ? [{
         "@type": "ListItem",
         "position": 2,
-        "name": "Locations",
-        "item": "https://www.clearedgehomebuyers.com/locations"
-      },
+        "name": parentHubName,
+        "item": `https://www.clearedgehomebuyers.com/locations/${parentHubSlug}`
+      }] : []),
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": parentHubSlug ? 3 : 2,
         "name": `${location.city}, PA`,
         "item": `https://www.clearedgehomebuyers.com/locations/${slug}`
       }
@@ -223,6 +228,29 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         />
 
         <div className="relative max-w-7xl mx-auto w-full">
+          {/* Visual Breadcrumb */}
+          {parentHubSlug && parentHubName && (
+            <nav className="mb-6 text-center" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center gap-2 text-sm">
+                <li>
+                  <Link href="/" className="text-[#1a1f1a]/60 hover:text-[#008a29] transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li className="text-[#1a1f1a]/40">/</li>
+                <li>
+                  <Link href={`/locations/${parentHubSlug}`} className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
+                    {parentHubName}
+                  </Link>
+                </li>
+                <li className="text-[#1a1f1a]/40">/</li>
+                <li className="text-[#1a1f1a]/80 font-medium">
+                  {location.city}
+                </li>
+              </ol>
+            </nav>
+          )}
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
             {/* LEFT COLUMN - Text content (centered within column) */}
             <div className="text-center lg:text-center">

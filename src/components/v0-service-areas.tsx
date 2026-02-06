@@ -4,33 +4,40 @@ import Link from "next/link"
 import { CoverageMapWrapper } from './CoverageMapWrapper'
 
 const locationsByRegion = {
-  'NEPA': [
-    { name: 'Scranton', href: '/locations/scranton' },
-    { name: 'Wilkes-Barre', href: '/locations/wilkes-barre' },
-    { name: 'Hazleton', href: '/locations/hazleton' },
-    { name: 'Pittston', href: '/locations/pittston' },
-    { name: 'Kingston', href: '/locations/kingston' },
-    { name: 'Nanticoke', href: '/locations/nanticoke' },
-    { name: 'Carbondale', href: '/locations/carbondale' },
-    { name: 'Dunmore', href: '/locations/dunmore' },
-    { name: 'Honesdale', href: '/locations/honesdale' },
-    { name: 'Bloomsburg', href: '/locations/bloomsburg' },
-  ],
-  'Lehigh Valley': [
-    { name: 'Allentown', href: '/locations/allentown' },
-    { name: 'Bethlehem', href: '/locations/bethlehem' },
-    { name: 'Easton', href: '/locations/easton' },
-    { name: 'Reading', href: '/locations/reading' },
-    { name: 'Pottsville', href: '/locations/pottsville' },
-    { name: 'Lehigh Valley', href: '/locations/lehigh-valley' },
-  ],
-  'Poconos': [
-    { name: 'Stroudsburg', href: '/locations/stroudsburg' },
-    { name: 'East Stroudsburg', href: '/locations/east-stroudsburg' },
-    { name: 'Pocono Pines', href: '/locations/pocono-pines' },
-    { name: 'Tannersville', href: '/locations/tannersville' },
-    { name: 'Poconos', href: '/locations/poconos' },
-  ],
+  'NEPA': {
+    hub: { name: 'View All NEPA', href: '/locations/nepa' },
+    cities: [
+      { name: 'Scranton', href: '/locations/scranton' },
+      { name: 'Wilkes-Barre', href: '/locations/wilkes-barre' },
+      { name: 'Hazleton', href: '/locations/hazleton' },
+      { name: 'Pittston', href: '/locations/pittston' },
+      { name: 'Kingston', href: '/locations/kingston' },
+      { name: 'Nanticoke', href: '/locations/nanticoke' },
+      { name: 'Carbondale', href: '/locations/carbondale' },
+      { name: 'Dunmore', href: '/locations/dunmore' },
+      { name: 'Honesdale', href: '/locations/honesdale' },
+      { name: 'Bloomsburg', href: '/locations/bloomsburg' },
+    ],
+  },
+  'Lehigh Valley': {
+    hub: { name: 'View All Lehigh Valley', href: '/locations/lehigh-valley' },
+    cities: [
+      { name: 'Allentown', href: '/locations/allentown' },
+      { name: 'Bethlehem', href: '/locations/bethlehem' },
+      { name: 'Easton', href: '/locations/easton' },
+      { name: 'Reading', href: '/locations/reading' },
+      { name: 'Pottsville', href: '/locations/pottsville' },
+    ],
+  },
+  'Poconos': {
+    hub: { name: 'View All Poconos', href: '/locations/poconos' },
+    cities: [
+      { name: 'Stroudsburg', href: '/locations/stroudsburg' },
+      { name: 'East Stroudsburg', href: '/locations/east-stroudsburg' },
+      { name: 'Pocono Pines', href: '/locations/pocono-pines' },
+      { name: 'Tannersville', href: '/locations/tannersville' },
+    ],
+  },
 }
 
 export function V0ServiceAreas() {
@@ -63,13 +70,16 @@ export function V0ServiceAreas() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
-          {Object.entries(locationsByRegion).map(([region, cities]) => (
+          {Object.entries(locationsByRegion).map(([region, data]) => (
             <div key={region} className="bg-white rounded-xl p-6 border border-[#1a1f1a]/5">
-              <h3 className="text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#008a29] pb-2">
+              <Link
+                href={data.hub.href}
+                className="block text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#008a29] pb-2 hover:text-[#008a29] transition-colors"
+              >
                 {region}
-              </h3>
+              </Link>
               <ul className="space-y-2">
-                {cities.map((city) => (
+                {data.cities.map((city) => (
                   <li key={city.href}>
                     <Link
                       href={city.href}
@@ -80,6 +90,12 @@ export function V0ServiceAreas() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={data.hub.href}
+                className="inline-block mt-4 text-sm font-semibold text-[#008a29] hover:text-[#007a24] transition-colors"
+              >
+                {data.hub.name} →
+              </Link>
             </div>
           ))}
         </div>
