@@ -447,6 +447,9 @@ export default function CashBuyerVsRealtorPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
                 Let&apos;s Do the Math: Cash Sale vs. Traditional in Eastern PA
               </h2>
+              <p className="text-[#1a1f1a]/70 mt-4">
+                Want to see numbers for YOUR property? <Link href="/calculator" className="text-[#008a29] hover:underline font-medium">Try our interactive calculator</Link> to get a personalized estimate.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">

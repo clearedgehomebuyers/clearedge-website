@@ -221,6 +221,13 @@ export function V0Header() {
                 Legit?
               </Link>
               <Link
+                href="/calculator"
+                onClick={(e) => handleNavClick(e, "/calculator")}
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden lg:block"
+              >
+                Calculator
+              </Link>
+              <Link
                 href="/contact"
                 onClick={(e) => handleNavClick(e, "/contact")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
@@ -395,6 +402,13 @@ export function V0Header() {
               onClick={(e) => handleNavClick(e, "/are-cash-home-buyers-legit")}
             >
               Are Cash Buyers Legit?
+            </Link>
+            <Link
+              href="/calculator"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
+              onClick={(e) => handleNavClick(e, "/calculator")}
+            >
+              Sale Calculator
             </Link>
             <Link
               href="/contact"
