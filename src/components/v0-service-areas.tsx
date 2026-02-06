@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { CoverageMapWrapper } from './CoverageMapWrapper'
 
 const locationsByRegion = {
   'NEPA': [
@@ -54,6 +55,11 @@ export function V0ServiceAreas() {
           <p className="text-lg text-[#1a2e1a]/70 max-w-3xl mx-auto">
             We purchase properties throughout NEPA, the Lehigh Valley, and the Poconos. If you own a house in any of these areas, we&apos;d love to make you a fair cash offer.
           </p>
+        </div>
+
+        {/* Interactive Coverage Map */}
+        <div className="mb-10">
+          <CoverageMapWrapper />
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-6">

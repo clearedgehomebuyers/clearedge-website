@@ -8,6 +8,7 @@ import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
+import { LocationMapWrapper } from '@/components/LocationMapWrapper'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
@@ -429,8 +430,22 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Comparison Section - Cream */}
+      {/* Service Area Map - Cream */}
       <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-6">
+            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Service Area</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Our {location.city} Coverage Area</h2>
+            <p className="text-[#1a1f1a]/70 mt-2 max-w-2xl mx-auto">
+              We buy houses throughout {location.city} and the surrounding communities shown on the map below.
+            </p>
+          </div>
+          <LocationMapWrapper slug={slug} cityName={location.city} />
+        </div>
+      </section>
+
+      {/* Comparison Section - White */}
+      <section className="py-12 md:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
