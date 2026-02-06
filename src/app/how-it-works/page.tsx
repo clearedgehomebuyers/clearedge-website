@@ -295,8 +295,13 @@ export default function HowItWorksPage() {
                 <span className="font-semibold text-[#1a1f1a]">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
               </p>
             </div>
-            <p className="text-[#1a1f1a]/70">
+            <p className="text-[#1a1f1a]/70 mb-6">
               This isn&apos;t about lowballing you. It&apos;s about being honest so you can make an informed decision. If the numbers don&apos;t work for your situation, we&apos;ll tell you — and we might even suggest listing with an agent instead.
+            </p>
+            <p className="text-center">
+              <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
+                Not sure if a cash sale is right for you? See our honest comparison &rarr;
+              </Link>
             </p>
           </div>
         </section>

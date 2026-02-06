@@ -206,6 +206,13 @@ export function V0Header() {
                 Blog
               </Link>
               <Link
+                href="/cash-buyer-vs-realtor"
+                onClick={(e) => handleNavClick(e, "/cash-buyer-vs-realtor")}
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden lg:block"
+              >
+                Compare
+              </Link>
+              <Link
                 href="/contact"
                 onClick={(e) => handleNavClick(e, "/contact")}
                 className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
@@ -366,6 +373,13 @@ export function V0Header() {
               onClick={(e) => handleNavClick(e, "/blog")}
             >
               Blog
+            </Link>
+            <Link
+              href="/cash-buyer-vs-realtor"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
+              onClick={(e) => handleNavClick(e, "/cash-buyer-vs-realtor")}
+            >
+              Cash Buyer vs. Realtor
             </Link>
             <Link
               href="/contact"
