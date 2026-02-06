@@ -75,7 +75,14 @@ const videoFaqs = [
   }
 ]
 
-export default function HomePage() {
+interface HomePageProps {
+  searchParams: Promise<{ city?: string }>
+}
+
+export default async function HomePage({ searchParams }: HomePageProps) {
+  const params = await searchParams
+  const city = params.city
+
   return (
     <>
       {/* RealEstateAgent Schema */}
@@ -302,7 +309,7 @@ export default function HomePage() {
         {/* 1. Sticky Header */}
         <V0Header />
         {/* 2. Hero */}
-        <V0Hero />
+        <V0Hero city={city} />
         {/* 3. Social Proof Wall - sage green with stats + reviews */}
         <SocialProofWall />
         {/* 4. Video Section - Meet Tyler */}

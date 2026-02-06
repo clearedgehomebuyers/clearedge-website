@@ -3,7 +3,39 @@
 import { ArrowRight, Shield, Clock, DollarSign, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export function V0Hero() {
+// City slug to display name mapping
+const cityDisplayNames: Record<string, string> = {
+  "scranton": "Scranton",
+  "wilkes-barre": "Wilkes-Barre",
+  "hazleton": "Hazleton",
+  "pittston": "Pittston",
+  "kingston": "Kingston",
+  "nanticoke": "Nanticoke",
+  "carbondale": "Carbondale",
+  "dunmore": "Dunmore",
+  "honesdale": "Honesdale",
+  "bloomsburg": "Bloomsburg",
+  "allentown": "Allentown",
+  "bethlehem": "Bethlehem",
+  "easton": "Easton",
+  "reading": "Reading",
+  "lehigh-valley": "Lehigh Valley",
+  "pottsville": "Pottsville",
+  "stroudsburg": "Stroudsburg",
+  "east-stroudsburg": "East Stroudsburg",
+  "pocono-pines": "Pocono Pines",
+  "tannersville": "Tannersville",
+  "poconos": "the Poconos",
+}
+
+interface V0HeroProps {
+  city?: string
+}
+
+export function V0Hero({ city }: V0HeroProps) {
+  // Validate and get display name for city
+  const citySlug = city?.toLowerCase().trim()
+  const cityDisplayName = citySlug ? cityDisplayNames[citySlug] : null
   const scrollToForm = () => {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'cta_click', {
@@ -32,14 +64,27 @@ export function V0Hero() {
           <div className="text-center lg:text-center">
             {/* Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mb-5 leading-[1.1]">
-              Sell Your House Fast.
-              <br />
-              <span className="text-primary">Skip the Hassle.</span>
+              {cityDisplayName ? (
+                <>
+                  Sell Your House Fast in {cityDisplayName}, PA.
+                  <br />
+                  <span className="text-primary">Skip the Hassle.</span>
+                </>
+              ) : (
+                <>
+                  Sell Your House Fast.
+                  <br />
+                  <span className="text-primary">Skip the Hassle.</span>
+                </>
+              )}
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed font-light">
-              Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.
+              {cityDisplayName
+                ? `Get a fair cash offer within 24 hours for your ${cityDisplayName} home. No repairs. No fees. No stress.`
+                : 'Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.'
+              }
             </p>
 
             {/* CTA Buttons */}
