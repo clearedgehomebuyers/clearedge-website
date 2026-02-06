@@ -9,22 +9,23 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 
-// PA Counties with transfer tax rates
+// PA Counties with transfer tax rates (seller's portion of combined state + local)
+// State transfer tax is 1% total (seller pays 0.5%), local varies by municipality
 const paCounties = [
-  { value: '', label: 'Select county (optional)' },
-  { value: 'lackawanna', label: 'Lackawanna County' },
-  { value: 'luzerne', label: 'Luzerne County' },
-  { value: 'lehigh', label: 'Lehigh County' },
-  { value: 'northampton', label: 'Northampton County' },
-  { value: 'monroe', label: 'Monroe County' },
-  { value: 'schuylkill', label: 'Schuylkill County' },
-  { value: 'berks', label: 'Berks County' },
-  { value: 'carbon', label: 'Carbon County' },
-  { value: 'pike', label: 'Pike County' },
-  { value: 'wayne', label: 'Wayne County' },
-  { value: 'wyoming', label: 'Wyoming County' },
-  { value: 'columbia', label: 'Columbia County' },
-  { value: 'susquehanna', label: 'Susquehanna County' },
+  { value: '', label: 'Select county (optional)', transferTaxRate: 0.01 }, // Default: 1% seller portion (state average)
+  { value: 'lackawanna', label: 'Lackawanna County', transferTaxRate: 0.01 }, // 2% total, seller pays ~1%
+  { value: 'luzerne', label: 'Luzerne County', transferTaxRate: 0.01 },
+  { value: 'lehigh', label: 'Lehigh County', transferTaxRate: 0.01 },
+  { value: 'northampton', label: 'Northampton County', transferTaxRate: 0.01 },
+  { value: 'monroe', label: 'Monroe County', transferTaxRate: 0.01 },
+  { value: 'schuylkill', label: 'Schuylkill County', transferTaxRate: 0.01 },
+  { value: 'berks', label: 'Berks County', transferTaxRate: 0.01 },
+  { value: 'carbon', label: 'Carbon County', transferTaxRate: 0.01 },
+  { value: 'pike', label: 'Pike County', transferTaxRate: 0.0125 }, // 2.5% total, seller pays ~1.25%
+  { value: 'wayne', label: 'Wayne County', transferTaxRate: 0.01 },
+  { value: 'wyoming', label: 'Wyoming County', transferTaxRate: 0.01 },
+  { value: 'columbia', label: 'Columbia County', transferTaxRate: 0.01 },
+  { value: 'susquehanna', label: 'Susquehanna County', transferTaxRate: 0.005 }, // 1% total, seller pays ~0.5%
 ]
 
 // Repair level quick-select options
@@ -122,6 +123,7 @@ export default function CalculatorPage() {
       netProceeds: number
       timelineMonths: string
       outOfPocket: number
+      countyName: string | null
     }
     cash: {
       offer: number
@@ -157,7 +159,13 @@ export default function CalculatorPage() {
 
     // Traditional sale calculation
     const agentCommissionRate = 0.0581 // 5.81% PA average
-    const closingCostRate = 0.02 // 2% seller closing costs
+
+    // Get county-specific transfer tax rate, or use default
+    const selectedCounty = paCounties.find(c => c.value === county)
+    const transferTaxRate = selectedCounty?.transferTaxRate ?? 0.01 // Default 1% if no county
+    const otherClosingCosts = 0.01 // Title insurance, recording fees, etc.
+    const closingCostRate = transferTaxRate + otherClosingCosts
+    const countyName = county ? selectedCounty?.label ?? null : null
 
     // Determine months based on repairs
     let carryingMonths = repairs > 0 ? 5 : 3
@@ -211,6 +219,7 @@ export default function CalculatorPage() {
         netProceeds: Math.round(traditionalNet),
         timelineMonths: timelineEstimate,
         outOfPocket: repairs,
+        countyName,
       },
       cash: {
         offer: Math.round(cashOffer),
@@ -463,6 +472,10 @@ export default function CalculatorPage() {
                       </option>
                     ))}
                   </select>
+                  <p className="mt-1.5 text-sm text-[#1a1f1a]/50 flex items-start gap-1">
+                    <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                    Selecting your county gives you a more accurate estimate based on local transfer tax rates.
+                  </p>
                 </div>
 
                 {/* Timeline Radio Buttons */}
@@ -542,7 +555,7 @@ export default function CalculatorPage() {
                         <span>-${results.traditional.commission.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Seller closing costs (~2%):</span>
+                        <span>Seller closing costs{results.traditional.countyName ? ` (${results.traditional.countyName})` : ''}:</span>
                         <span>-${results.traditional.closingCosts.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
