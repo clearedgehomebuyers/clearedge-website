@@ -211,7 +211,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
               I&apos;m Tyler, the founder of ClearEdge Home Buyers. Since 2016, I&apos;ve personally helped over 200 homeowners across Eastern Pennsylvania sell properties they no longer wanted or couldn&apos;t maintain. {data.regionName} isn&apos;t just a market we serve — it&apos;s where we know the neighborhoods, understand the local challenges, and have the relationships to close deals that other buyers walk away from.
             </p>
             <p className="text-lg text-[#1a1f1a]/70 leading-relaxed">
-              We&apos;re not a national franchise or a call center. When you call ClearEdge, you talk to me directly. Every offer we make is backed by our local market knowledge and our commitment to treating every homeowner with honesty and respect.
+              We&apos;re not a national franchise or a call center. When you call ClearEdge, you talk to me directly. Every offer we make is backed by our local market knowledge and our commitment to treating every homeowner with honesty and respect. <Link href="/how-it-works" className="text-[#008a29] hover:underline">Learn how our process works</Link> or <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:underline">compare cash buyers vs. realtors</Link>.
             </p>
           </div>
         </div>
@@ -249,7 +249,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
       <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers is your trusted local cash home buyer serving {data.regionName}. Get a fair offer and close on your timeline — no fees, no repairs, no hassle.
+            ClearEdge Home Buyers is your trusted local cash home buyer serving {data.regionName}. Get a fair offer and close on your timeline — no fees, no repairs, no hassle. <Link href="/testimonials" className="text-[#008a29] hover:underline">See what our sellers say</Link> or <Link href="/blog" className="text-[#008a29] hover:underline">browse our guides</Link>.
           </p>
         </div>
       </section>

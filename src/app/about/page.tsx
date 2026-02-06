@@ -268,7 +268,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Transparent Pricing</h3>
                 <p className="text-[#1a1f1a]/70">
-                  We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you.
+                  We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you. <Link href="/how-it-works" className="text-[#008a29] hover:underline">See how our process works</Link>.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
@@ -304,7 +304,7 @@ export default function AboutPage() {
                 Homeowners We Work With
               </h2>
               <p className="text-lg text-[#1a1f1a]/70 max-w-2xl mx-auto">
-                We buy houses in all kinds of situations. If any of these sound familiar, we can help:
+                We buy houses in all kinds of situations. If any of these sound familiar, we can help. Not sure if selling to a cash buyer is right for you? Check out our <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:underline">cash buyer vs. realtor comparison</Link>.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -337,9 +337,9 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-6">
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
-                  NEPA
-                </h3>
+                <Link href="/locations/nepa" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
+                  NEPA →
+                </Link>
                 <ul className="space-y-2">
                   <li><Link href="/locations/scranton" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Scranton</Link></li>
                   <li><Link href="/locations/wilkes-barre" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Wilkes-Barre</Link></li>
@@ -354,9 +354,9 @@ export default function AboutPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
-                  Lehigh Valley
-                </h3>
+                <Link href="/locations/lehigh-valley" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
+                  Lehigh Valley →
+                </Link>
                 <ul className="space-y-2">
                   <li><Link href="/locations/allentown" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Allentown</Link></li>
                   <li><Link href="/locations/bethlehem" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Bethlehem</Link></li>
@@ -366,9 +366,9 @@ export default function AboutPage() {
                 </ul>
               </div>
               <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29]">
-                  Poconos
-                </h3>
+                <Link href="/locations/poconos" className="text-lg font-semibold text-[#1a1f1a] mb-4 pb-2 border-b-2 border-[#008a29] block hover:text-[#008a29] transition-colors">
+                  Poconos →
+                </Link>
                 <ul className="space-y-2">
                   <li><Link href="/locations/stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">Stroudsburg</Link></li>
                   <li><Link href="/locations/east-stroudsburg" className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">East Stroudsburg</Link></li>
@@ -435,6 +435,11 @@ export default function AboutPage() {
                   <p className="text-[#1a1f1a]/70">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
                 </div>
               </div>
+            </div>
+            <div className="mt-8 text-center">
+              <p className="text-[#1a1f1a]/70">
+                Want to learn more about selling in your specific situation? <Link href="/blog" className="text-[#008a29] hover:underline">Browse our guides and resources</Link>.
+              </p>
             </div>
           </div>
         </section>
