@@ -6,8 +6,10 @@ import dynamic from 'next/dynamic'
 // Above-fold components (regular imports for immediate loading)
 import { V0Header } from '@/components/v0-header'
 import { V0Hero } from '@/components/v0-hero'
-import { V0TrustBar } from '@/components/v0-trust-bar'
+import { SocialProofWall } from '@/components/SocialProofWall'
 import { V0LeadForm } from '@/components/v0-lead-form'
+import { HowWeCalculateOffer } from '@/components/HowWeCalculateOffer'
+import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const V0ProblemSolutionMerged = dynamic(() => import('@/components/v0-problem-solution-merged').then(mod => ({ default: mod.V0ProblemSolutionMerged })), { ssr: true })
@@ -188,8 +190,7 @@ export default function HomePage() {
               "https://www.facebook.com/profile.php?id=61578297005995",
               "https://www.instagram.com/clearedge_home_buyers/",
               "https://www.youtube.com/@ClearEdgeHomeBuyers",
-              "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm",
-              "https://www.bbb.org/us/ny/long-is-city/profile/real-estate/clearedge-properties-llc-0121-87169161"
+              "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm"
             ]
           })
         }}
@@ -302,8 +303,8 @@ export default function HomePage() {
         <V0Header />
         {/* 2. Hero */}
         <V0Hero />
-        {/* 3. Trust Bar */}
-        <V0TrustBar />
+        {/* 3. Social Proof Wall - sage green with stats + reviews */}
+        <SocialProofWall />
         {/* 4. Video Section - Meet Tyler */}
         <V0VideoSection />
         {/* 5. Problem/Solution - "Selling a House in PA Just Got Harder" */}
@@ -316,22 +317,26 @@ export default function HomePage() {
         <V0Situations />
         {/* 9. Why ClearEdge (4 cards) */}
         <V0WhyClearEdge />
-        {/* 10. Testimonials */}
+        {/* 10. How We Calculate Your Cash Offer */}
+        <HowWeCalculateOffer bgColor="cream" />
+        {/* 11. Testimonials */}
         <V0Testimonials />
-        {/* 11. Main Lead Form */}
+        {/* 12. Main Lead Form */}
         <V0LeadForm />
-        {/* 12. FAQs */}
+        {/* 13. Post-Submission Steps */}
+        <PostSubmissionSteps bgColor="white" />
+        {/* 14. FAQs */}
         <V0FAQ
           faqs={videoFaqs}
           title="Frequently Asked Questions"
           subtitle="Get quick answers about selling your Pennsylvania house for cash."
           sectionBg="beige"
         />
-        {/* 13. Service Areas (21 locations) */}
+        {/* 15. Service Areas (21 locations) */}
         <V0ServiceAreas />
-        {/* 14. Closing SEO + CTA (beige) */}
+        {/* 16. Closing SEO + CTA (beige) */}
         <V0ClosingSeo />
-        {/* 15. Footer (white) */}
+        {/* 17. Footer (white) */}
         <V0Footer />
       </main>
     </>

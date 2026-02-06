@@ -490,7 +490,7 @@ const blogPostContent = [
     style: 'normal',
     children: [
       { _type: 'span', text: 'No reviews or references. ', marks: ['strong'] },
-      { _type: 'span', text: 'Check Google. Check BBB. Ask for references. We\'ve got dozens of 5-star reviews from real Lehigh Valley homeowners.' },
+      { _type: 'span', text: 'Check Google reviews. Ask for references. We\'ve got dozens of 5-star reviews from real Lehigh Valley homeowners.' },
     ],
   },
   {

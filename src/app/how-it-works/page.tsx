@@ -6,6 +6,7 @@ import { V0Footer } from '@/components/v0-footer'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 
 export const metadata: Metadata = {
   title: 'How It Works | Sell Your PA House Fast',
@@ -451,6 +452,8 @@ export default function HowItWorksPage() {
 
         {/* Final CTA Section - Beige */}
         <V0LeadForm />
+
+        <PostSubmissionSteps bgColor="white" />
 
         <V0Footer />
       </main>

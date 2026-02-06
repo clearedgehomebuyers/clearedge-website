@@ -142,8 +142,8 @@ const localBusinessSchema = {
   sameAs: [
     'https://www.facebook.com/profile.php?id=61578297005995',
     'https://www.instagram.com/clearedge_home_buyers/',
+    'https://www.youtube.com/@ClearEdgeHomeBuyers',
     'https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm',
-    'https://www.bbb.org/us/ny/long-is-city/profile/real-estate/clearedge-properties-llc-0121-87169161',
   ],
 }
 

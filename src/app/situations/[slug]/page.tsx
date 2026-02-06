@@ -7,6 +7,7 @@ import { SituationFAQAccordion } from '@/components/SituationFAQAccordion'
 import { RandomizedServiceAreas } from '@/components/RandomizedServiceAreas'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 import Link from 'next/link'
 import { Phone, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, BookOpen, MapPin } from 'lucide-react'
 import { notFound } from 'next/navigation'
@@ -418,6 +419,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Lead Form - Same as Homepage */}
       <V0LeadForm />
+
+      <PostSubmissionSteps bgColor="white" />
 
       <V0Footer />
     </main>

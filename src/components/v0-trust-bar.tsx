@@ -1,4 +1,4 @@
-import { Home, Calendar, Star, Award } from "lucide-react"
+import { Home, Calendar, Star, MapPin } from "lucide-react"
 
 const stats = [
   {
@@ -17,9 +17,9 @@ const stats = [
     label: "Google Rating",
   },
   {
-    icon: Award,
-    value: "A+",
-    label: "BBB Rating",
+    icon: MapPin,
+    value: "21",
+    label: "PA Communities Served",
   },
 ]
 
