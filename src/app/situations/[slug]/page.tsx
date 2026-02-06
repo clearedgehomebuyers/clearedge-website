@@ -24,6 +24,7 @@ const heroPhotos: Record<string, { src: string; location: string; days: number }
   'tax-liens-code-violations': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
   'tired-landlord': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
   'vacant-property': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
+  'foundation-structural-issues': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Scranton, PA', days: 16 },
 }
 
 // Default photo if slug not found
@@ -62,6 +63,10 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   'vacant-property': {
     question: "Should I sell my vacant house or keep paying to maintain it?",
     answer: "If your vacant house is costing you money every month (mortgage, taxes, insurance, utilities, maintenance), selling for cash is often the smart financial move. Every month you hold an empty property, you're losing money. We buy vacant houses as-is — no repairs, no cleaning, no showings. Close in 7 days and stop the financial bleeding."
+  },
+  'foundation-structural-issues': {
+    question: "Can I sell a house with foundation problems in Pennsylvania?",
+    answer: "Yes. Pennsylvania law allows you to sell a home in any condition — you're required to disclose known structural defects, but NOT required to repair them. Foundation repairs typically cost $10,000-$50,000+, and most lenders won't approve mortgages on homes with structural issues. ClearEdge buys houses with foundation cracks, bowing walls, settling, and mine subsidence damage across Eastern PA. We pay cash, close in 14-30 days, and you don't fix a thing."
   },
 }
 
