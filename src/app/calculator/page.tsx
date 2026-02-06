@@ -58,6 +58,16 @@ const faqs = [
   },
 ]
 
+// Format number with commas as user types
+function formatWithCommas(value: string, maxDigits: number): string {
+  // Strip all non-numeric characters
+  const numericOnly = value.replace(/[^0-9]/g, '')
+  // Limit to max digits
+  const limited = numericOnly.slice(0, maxDigits)
+  // Add commas
+  return limited.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
 // Animated number component
 function AnimatedNumber({ value, prefix = '$', duration = 800 }: { value: number; prefix?: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0)
@@ -126,12 +136,12 @@ export default function CalculatorPage() {
   // Handle repair quick-select
   const handleRepairOption = (value: number) => {
     setSelectedRepairOption(value)
-    setRepairCosts(value.toString())
+    setRepairCosts(value.toLocaleString())
   }
 
   // Handle custom repair input
   const handleRepairInput = (value: string) => {
-    setRepairCosts(value)
+    setRepairCosts(formatWithCommas(value, 6))
     setSelectedRepairOption(null)
   }
 
@@ -384,8 +394,9 @@ export default function CalculatorPage() {
                     <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#1a1f1a]/40" />
                     <input
                       type="text"
+                      inputMode="numeric"
                       value={homeValue}
-                      onChange={(e) => setHomeValue(e.target.value.replace(/[^0-9]/g, ''))}
+                      onChange={(e) => setHomeValue(formatWithCommas(e.target.value, 8))}
                       placeholder="280,000"
                       className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-2 focus:ring-[#008a29]/20 outline-none transition-all text-lg"
                     />
@@ -423,8 +434,9 @@ export default function CalculatorPage() {
                     <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#1a1f1a]/40" />
                     <input
                       type="text"
+                      inputMode="numeric"
                       value={repairCosts}
-                      onChange={(e) => handleRepairInput(e.target.value.replace(/[^0-9]/g, ''))}
+                      onChange={(e) => handleRepairInput(e.target.value)}
                       placeholder="0"
                       className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-2 focus:ring-[#008a29]/20 outline-none transition-all text-lg"
                     />
