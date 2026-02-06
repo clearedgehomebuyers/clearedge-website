@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     question: 'How do I know if a cash buyer is legitimate?',
-    answer: "Check Google reviews, ask for proof of funds, verify they have a local presence, and make sure they can explain exactly how they calculated their offer. If anything feels off, walk away.",
+    answer: "Check Google reviews, ask for proof of funds, verify they have a local presence, and make sure they can explain exactly how they calculated their offer. If anything feels off, walk away. For a complete guide on spotting scams, see our page on whether cash home buyers are legit.",
   },
   {
     question: 'Do cash buyers in Pennsylvania pay fair prices?',
@@ -720,7 +720,7 @@ export default function CashBuyerVsRealtorPage() {
             </div>
 
             <p className="text-lg text-[#1a1f1a]/70 mb-8 text-center max-w-2xl mx-auto">
-              The cash home buying industry has legitimate companies and shady operators. Here&apos;s what to watch for:
+              The cash home buying industry has legitimate companies and shady operators. Here&apos;s what to watch for. For a complete guide on spotting scams and vetting buyers, see our <Link href="/are-cash-home-buyers-legit" className="text-[#008a29] hover:underline">full page on whether cash home buyers are legit</Link>.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
