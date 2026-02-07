@@ -409,7 +409,7 @@ export default function CalculatorPage() {
     const repairs = results.traditional.repairs
     const months = results.traditional.carryingMonths
 
-    if (!results.cashBetter && diff > 15000) {
+    if (!results.cashBetter && diff >= 15000) {
       return (
         <div className="bg-[#FAF8F5] border-l-4 border-[#1a1f1a]/30 p-6 rounded-r-2xl">
           <p className="text-[#1a1f1a]/80">
@@ -998,9 +998,23 @@ export default function CalculatorPage() {
               </div>
 
               <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Home Warranty + Compliance (~$850)</h3>
+                <p className="text-[#1a1f1a]/70">
+                  Buyers in PA frequently request a home warranty ($500), and sellers need to cover a use &amp; occupancy inspection ($150), smoke/CO detector compliance ($100), and pest/termite inspection ($100). Small individually, but they add up.
+                </p>
+              </div>
+
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
                 <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Carrying Costs (while listed)</h3>
                 <p className="text-[#1a1f1a]/70">
                   Every month your house sits on the market, you&apos;re paying mortgage principal &amp; interest, property taxes, homeowner&apos;s insurance, utilities (must stay on for showings), and lawn/maintenance. For a $280,000 home in Lehigh County, that&apos;s approximately $1,720 per month. If your home needs repairs before listing, add 1–3 months of repair time before you even hit the market.
+                </p>
+              </div>
+
+              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
+                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Repair Costs</h3>
+                <p className="text-[#1a1f1a]/70">
+                  The repair estimates in our calculator use current Pennsylvania contractor pricing sourced from HomeAdvisor, Angi, This Old House, and PA-based contractors. We use the midpoint of each range — not the high end — to give you a realistic (not inflated) estimate of what these repairs actually cost homeowners in Eastern PA.
                 </p>
               </div>
             </div>
