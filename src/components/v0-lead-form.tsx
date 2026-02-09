@@ -119,7 +119,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function V0LeadForm() {
-  const { webhook, trafficSource, phone, phoneTel } = useTrafficSource()
+  const { webhook, trafficSource, utmParams, phone, phoneTel } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({
     address: "",
@@ -170,6 +170,32 @@ export function V0LeadForm() {
     }
   }
 
+  // Track form step transitions in GA4
+  const trackStep = (step: number) => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      const stepNames = ['', 'address', 'situation', 'timeline', 'occupancy', 'contact']
+      window.gtag('event', `form_step_${step}`, {
+        event_category: 'Lead Form',
+        event_label: stepNames[step],
+        page_path: window.location.pathname,
+      })
+    }
+  }
+
+  // Track form abandonment on unmount
+  useEffect(() => {
+    return () => {
+      if (!isSubmitted && currentStep > 1 && typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'form_abandoned', {
+          event_category: 'Lead Form',
+          event_label: `Abandoned at step ${currentStep}`,
+          last_step: currentStep,
+          page_path: window.location.pathname,
+        })
+      }
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleNext = () => {
     if (currentStep === 1 && !isStepValid(1)) {
       setShowStep1Errors(true)
@@ -177,7 +203,9 @@ export function V0LeadForm() {
     }
     if (currentStep < 5 && isStepValid(currentStep)) {
       setShowStep1Errors(false)
-      setCurrentStep(currentStep + 1)
+      const nextStep = currentStep + 1
+      trackStep(nextStep)
+      setCurrentStep(nextStep)
     }
   }
 
@@ -192,6 +220,10 @@ export function V0LeadForm() {
         event_category: 'Lead Form',
         event_label: 'Multi-Step Lead Form',
         value: 1,
+        traffic_source: trafficSource,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
         page_location: window.location.href,
         page_path: window.location.pathname
       });
@@ -222,6 +254,11 @@ export function V0LeadForm() {
         smsConsent: smsConsent,
         leadSource: 'Website - ClearEdge Home Buyers',
         trafficSource: trafficSource,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
+        utm_content: utmParams.utm_content,
+        utm_term: utmParams.utm_term,
       }
 
       // Send to dynamic Zapier webhook based on traffic source

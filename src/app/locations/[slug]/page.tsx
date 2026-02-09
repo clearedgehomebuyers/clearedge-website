@@ -1,5 +1,5 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
-import { cityToHub, hubDisplayNames } from '@/lib/regional-hub-data'
+import { cityToHub, hubDisplayNames, allHubData } from '@/lib/regional-hub-data'
 import { FAQSchema } from '@/components/Schema'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
@@ -8,11 +8,10 @@ import { V0Footer } from '@/components/v0-footer'
 import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 import { LocationMapWrapper } from '@/components/LocationMapWrapper'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Users, Building, Home, FileText, BookOpen } from 'lucide-react'
+import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -217,16 +216,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       <V0Header />
 
-      {/* Hero Section - Cream with dot pattern (matching homepage) */}
+      {/* Hero Section - Cream */}
       <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
-        {/* Background pattern (matching homepage) */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-          }}
-        />
-
         <div className="relative max-w-7xl mx-auto w-full">
           {/* Visual Breadcrumb */}
           {parentHubSlug && parentHubName && (
@@ -343,19 +334,6 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Local Trust Bar - Cream */}
-      {location.nearbyTowns && location.nearbyTowns.length > 0 && (
-        <section className="py-6 bg-[#FAF8F5] border-b border-[#1a1f1a]/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center items-center gap-6 text-[#1a1f1a]/70">
-              <span className="text-sm font-medium">Trusted by homeowners in:</span>
-              {location.nearbyTowns.map((town: string) => (
-                <span key={town} className="text-sm font-semibold text-[#1a1f1a]">{town}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Local Problem Statement - White */}
       {location.problemStatement && (
@@ -373,44 +351,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Situations - Cream */}
-      <section className="py-12 md:py-14 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">We Help {location.city}{location.county ? ` & ${location.county}` : ''} Homeowners</h2>
-            <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">No matter what situation you&apos;re facing, we can help you sell your house fast for cash.</p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { icon: Building, title: 'Inherited Property', slug: 'inherited-property', desc: 'Sell without probate delays' },
-              { icon: Shield, title: 'Facing Foreclosure', slug: 'foreclosure', desc: 'Avoid foreclosure, protect credit' },
-              { icon: Users, title: 'Divorce', slug: 'divorce', desc: 'Liquidate quickly and move on' },
-              { icon: MapPin, title: 'Job Relocation', slug: 'job-relocation', desc: 'Sell fast when you need to move' },
-              { icon: Home, title: 'Tired Landlord', slug: 'tired-landlord', desc: 'Exit the landlord business' },
-              { icon: FileText, title: 'Major Repairs', slug: 'major-repairs', desc: 'Sell as-is, skip renovations' },
-              { icon: DollarSign, title: 'Tax or Code Issues', slug: 'tax-liens-code-violations', desc: 'We work with liens & violations' },
-              { icon: Clock, title: 'Vacant Property', slug: 'vacant-property', desc: 'Stop paying for an empty house' },
-            ].map((item, i) => (
-              <Link
-                key={i}
-                href={`/situations/${item.slug}`}
-                className="relative bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#008a29]/30 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-[#008a29]" />
-                </div>
-                <h3 className="font-serif font-medium text-[#1a1f1a] mb-2">{item.title}</h3>
-                <p className="text-[#1a1f1a]/70 text-sm">{item.desc}</p>
-                <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#008a29]" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Neighborhoods - White */}
+      {/* Neighborhoods - White - Progressive disclosure on mobile */}
       {location.neighborhoods && location.neighborhoods.length > 0 && (
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -421,33 +363,34 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
             {(() => {
               const neighborhoods = location.neighborhoods as string[]
-              const itemsPerRow = 4
-              const fullRowCount = Math.floor(neighborhoods.length / itemsPerRow) * itemsPerRow
-              const mainCards = neighborhoods.slice(0, fullRowCount)
-              const lastRowCards = neighborhoods.slice(fullRowCount)
+              const MOBILE_INITIAL = 8
 
               return (
                 <>
-                  {/* Main grid for full rows */}
-                  {mainCards.length > 0 && (
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {mainCards.map((neighborhood: string) => (
-                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5">
-                          <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {neighborhoods.map((neighborhood: string, index: number) => (
+                      <div
+                        key={neighborhood}
+                        className={`bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5${index >= MOBILE_INITIAL ? ' hidden md:block' : ''}`}
+                      >
+                        <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                      </div>
+                    ))}
+                  </div>
 
-                  {/* Centered last row for remaining cards */}
-                  {lastRowCards.length > 0 && (
-                    <div className={`flex flex-wrap justify-center gap-4 ${mainCards.length > 0 ? 'mt-4' : ''}`}>
-                      {lastRowCards.map((neighborhood: string) => (
-                        <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5 w-[calc(50%-0.5rem)] md:w-[calc(25%-0.75rem)]">
-                          <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
-                        </div>
-                      ))}
-                    </div>
+                  {neighborhoods.length > MOBILE_INITIAL && (
+                    <details className="md:hidden mt-4">
+                      <summary className="text-center text-[#008a29] font-medium text-sm cursor-pointer hover:text-[#007a24] transition-colors">
+                        Show all {neighborhoods.length} neighborhoods
+                      </summary>
+                      <div className="grid grid-cols-2 gap-4 mt-4">
+                        {neighborhoods.slice(MOBILE_INITIAL).map((neighborhood: string) => (
+                          <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5">
+                            <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
                   )}
                 </>
               )
@@ -551,6 +494,44 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {/* Nearby Communities - Cross-linking to sibling cities in same region */}
+      {parentHubSlug && allHubData[parentHubSlug] && (
+        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-6">
+              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Nearby Communities</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">
+                We Also Buy Houses Across {parentHubName}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {allHubData[parentHubSlug].cities
+                .filter(city => city.slug !== slug)
+                .map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={`/locations/${city.slug}`}
+                    className="bg-white rounded-2xl p-4 text-center border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#008a29]/30 transition-all duration-300 group"
+                  >
+                    <span className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">{city.name}</span>
+                  </Link>
+                ))}
+            </div>
+
+            <div className="text-center mt-6">
+              <Link
+                href={`/locations/${parentHubSlug}`}
+                className="inline-flex items-center text-[#008a29] font-medium hover:text-[#007a24] transition-colors"
+              >
+                View all {parentHubName} communities
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FAQ Section - White - Using Homepage Style Accordion */}
       {location.faqs && location.faqs.length > 0 && (
         <LocationFAQAccordion faqs={location.faqs} cityName={location.city} />
@@ -605,19 +586,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Closing SEO - Sage gradient */}
-      <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers is your trusted local cash home buyer in {location.city}, Pennsylvania. Get a fair offer and close on your timeline.
-          </p>
-        </div>
-      </section>
 
       {/* Lead Form - Same as Homepage */}
       <V0LeadForm />
 
-      <PostSubmissionSteps bgColor="white" />
 
       <V0Footer />
     </main>

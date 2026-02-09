@@ -7,9 +7,10 @@ import { useTrafficSource } from "./TrafficSourceProvider"
 const quickLinks = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "About", href: "/about" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Blog & Guides", href: "/blog" },
+  { label: "Sale Calculator", href: "/calculator" },
+  { label: "Cash Buyer vs. Realtor", href: "/cash-buyer-vs-realtor" },
 ]
 
 const situations = [
@@ -21,30 +22,47 @@ const situations = [
   { label: "Tax Liens & Code Violations", href: "/situations/tax-liens-code-violations" },
   { label: "Tired Landlord", href: "/situations/tired-landlord" },
   { label: "Vacant Property", href: "/situations/vacant-property" },
+  { label: "Foundation & Structural Issues", href: "/situations/foundation-structural-issues" },
 ]
 
-const serviceAreas = [
-  { label: "Scranton", href: "/locations/scranton" },
-  { label: "Wilkes-Barre", href: "/locations/wilkes-barre" },
-  { label: "Allentown", href: "/locations/allentown" },
-  { label: "Bethlehem", href: "/locations/bethlehem" },
-  { label: "Easton", href: "/locations/easton" },
-  { label: "Stroudsburg", href: "/locations/stroudsburg" },
-  { label: "East Stroudsburg", href: "/locations/east-stroudsburg" },
-  { label: "Hazleton", href: "/locations/hazleton" },
-  { label: "Pottsville", href: "/locations/pottsville" },
-  { label: "Carbondale", href: "/locations/carbondale" },
-  { label: "Pittston", href: "/locations/pittston" },
-  { label: "Kingston", href: "/locations/kingston" },
-  { label: "Dunmore", href: "/locations/dunmore" },
-  { label: "Nanticoke", href: "/locations/nanticoke" },
-  { label: "Honesdale", href: "/locations/honesdale" },
-  { label: "Bloomsburg", href: "/locations/bloomsburg" },
-  { label: "Lehigh Valley", href: "/locations/lehigh-valley" },
-  { label: "Poconos", href: "/locations/poconos" },
-  { label: "Pocono Pines", href: "/locations/pocono-pines" },
-  { label: "Tannersville", href: "/locations/tannersville" },
-  { label: "Reading", href: "/locations/reading" },
+const serviceAreaRegions = [
+  {
+    name: "NEPA",
+    hub: { label: "NEPA Hub", href: "/locations/nepa" },
+    cities: [
+      { label: "Scranton", href: "/locations/scranton" },
+      { label: "Wilkes-Barre", href: "/locations/wilkes-barre" },
+      { label: "Hazleton", href: "/locations/hazleton" },
+      { label: "Pittston", href: "/locations/pittston" },
+      { label: "Kingston", href: "/locations/kingston" },
+      { label: "Nanticoke", href: "/locations/nanticoke" },
+      { label: "Carbondale", href: "/locations/carbondale" },
+      { label: "Dunmore", href: "/locations/dunmore" },
+      { label: "Honesdale", href: "/locations/honesdale" },
+      { label: "Bloomsburg", href: "/locations/bloomsburg" },
+    ],
+  },
+  {
+    name: "Lehigh Valley",
+    hub: { label: "Lehigh Valley Hub", href: "/locations/lehigh-valley" },
+    cities: [
+      { label: "Allentown", href: "/locations/allentown" },
+      { label: "Bethlehem", href: "/locations/bethlehem" },
+      { label: "Easton", href: "/locations/easton" },
+      { label: "Reading", href: "/locations/reading" },
+      { label: "Pottsville", href: "/locations/pottsville" },
+    ],
+  },
+  {
+    name: "Poconos",
+    hub: { label: "Poconos Hub", href: "/locations/poconos" },
+    cities: [
+      { label: "Stroudsburg", href: "/locations/stroudsburg" },
+      { label: "East Stroudsburg", href: "/locations/east-stroudsburg" },
+      { label: "Pocono Pines", href: "/locations/pocono-pines" },
+      { label: "Tannersville", href: "/locations/tannersville" },
+    ],
+  },
 ]
 
 export function V0Footer() {
@@ -134,18 +152,28 @@ export function V0Footer() {
               </ul>
             </div>
 
-            {/* Service Areas - 3 columns on desktop */}
+            {/* Service Areas - Regional hierarchy */}
             <div className="lg:col-span-5">
               <h3 className="font-semibold text-[#1a1f1a] mb-4">Service Areas</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-3">
-                {serviceAreas.map((area) => (
-                  <Link
-                    key={area.label}
-                    href={area.href}
-                    className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
-                  >
-                    {area.label}
-                  </Link>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {serviceAreaRegions.map((region) => (
+                  <div key={region.name}>
+                    <Link
+                      href={region.hub.href}
+                      className="text-sm font-semibold text-[#008a29] hover:text-[#007a24] transition-colors block mb-2"
+                    >
+                      {region.name} →
+                    </Link>
+                    <ul className="space-y-1.5">
+                      {region.cities.map((city) => (
+                        <li key={city.label}>
+                          <Link href={city.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
+                            {city.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
               </div>
             </div>

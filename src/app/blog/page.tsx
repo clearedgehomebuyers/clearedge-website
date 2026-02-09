@@ -180,16 +180,8 @@ export default async function BlogPage() {
 
       <V0Header />
       <main className="min-h-screen bg-white">
-        {/* Hero Section - Cream with dot pattern */}
+        {/* Hero Section - Cream */}
         <section className="relative pt-32 pb-10 md:pt-40 md:pb-12 bg-[#FAF8F5] overflow-hidden">
-          {/* Background pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-            }}
-          />
-
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
             <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-6">
@@ -291,14 +283,6 @@ export default async function BlogPage() {
           sectionBg="beige"
         />
 
-        {/* Closing SEO - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              ClearEdge Home Buyers helps Pennsylvania homeowners sell fast for cash. Browse our guides or get a free, no-obligation offer today.
-            </p>
-          </div>
-        </section>
 
         {/* Final CTA Section - Beige */}
         <section className="py-12 md:py-14 bg-[#FAF8F5]">

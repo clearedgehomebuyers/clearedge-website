@@ -8,20 +8,15 @@ import { V0Header } from '@/components/v0-header'
 import { V0Hero } from '@/components/v0-hero'
 import { SocialProofWall } from '@/components/SocialProofWall'
 import { V0LeadForm } from '@/components/v0-lead-form'
-import { HowWeCalculateOffer } from '@/components/HowWeCalculateOffer'
-import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const V0ProblemSolutionMerged = dynamic(() => import('@/components/v0-problem-solution-merged').then(mod => ({ default: mod.V0ProblemSolutionMerged })), { ssr: true })
-const V0VideoSection = dynamic(() => import('@/components/v0-video-section').then(mod => ({ default: mod.V0VideoSection })), { ssr: true })
 const V0HowItWorks = dynamic(() => import('@/components/v0-how-it-works').then(mod => ({ default: mod.V0HowItWorks })), { ssr: true })
 const V0ComparisonMerged = dynamic(() => import('@/components/v0-comparison-merged').then(mod => ({ default: mod.V0ComparisonMerged })), { ssr: true })
-const V0Situations = dynamic(() => import('@/components/v0-situations').then(mod => ({ default: mod.V0Situations })), { ssr: true })
-const V0WhyClearEdge = dynamic(() => import('@/components/v0-why-clearedge').then(mod => ({ default: mod.V0WhyClearEdge })), { ssr: true })
+const V0VideoSection = dynamic(() => import('@/components/v0-video-section').then(mod => ({ default: mod.V0VideoSection })), { ssr: true })
 const V0Testimonials = dynamic(() => import('@/components/v0-testimonials').then(mod => ({ default: mod.V0Testimonials })), { ssr: true })
 const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 const V0ServiceAreas = dynamic(() => import('@/components/v0-service-areas').then(mod => ({ default: mod.V0ServiceAreas })), { ssr: true })
-const V0ClosingSeo = dynamic(() => import('@/components/v0-closing-seo').then(mod => ({ default: mod.V0ClosingSeo })), { ssr: true })
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 
 export const metadata: Metadata = {
@@ -306,44 +301,34 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       />
 
       <main className="min-h-screen">
-        {/* 1. Sticky Header */}
+        {/* 1. Header */}
         <V0Header />
-        {/* 2. Hero */}
+        {/* 2. Hero (Situation) */}
         <V0Hero city={city} />
-        {/* 3. Social Proof Wall - sage green with stats + reviews */}
+        {/* 3. Social Proof Wall (Trust anchor) */}
         <SocialProofWall />
-        {/* 4. Video Section - Meet Tyler */}
-        <V0VideoSection />
-        {/* 5. Problem/Solution - "Selling a House in PA Just Got Harder" */}
+        {/* 4. Problem/Solution (Problem awareness — moved up before solution) */}
         <V0ProblemSolutionMerged />
-        {/* 6. How It Works */}
+        {/* 5. How It Works (Solution) */}
         <V0HowItWorks />
-        {/* 7. Comparison Table (merged) */}
+        {/* 6. Comparison Table (Solution contrast — natural decision point) */}
         <V0ComparisonMerged />
-        {/* 8. Situations (8 cards) */}
-        <V0Situations />
-        {/* 9. Why ClearEdge (4 cards) */}
-        <V0WhyClearEdge />
-        {/* 10. How We Calculate Your Cash Offer */}
-        <HowWeCalculateOffer bgColor="cream" />
-        {/* 11. Testimonials */}
+        {/* 7. Video (Trust reinforcement — moved after solution) */}
+        <V0VideoSection />
+        {/* 8. Testimonials (Positive proof) */}
         <V0Testimonials />
-        {/* 12. Main Lead Form */}
+        {/* 9. Lead Form (Conversion) */}
         <V0LeadForm />
-        {/* 13. Post-Submission Steps */}
-        <PostSubmissionSteps bgColor="white" />
-        {/* 14. FAQs */}
+        {/* 10. FAQ (Objection handling — moved before service areas) */}
         <V0FAQ
           faqs={videoFaqs}
           title="Frequently Asked Questions"
           subtitle="Get quick answers about selling your Pennsylvania house for cash."
           sectionBg="beige"
         />
-        {/* 15. Service Areas (21 locations) */}
+        {/* 11. Service Areas (SEO/navigation) */}
         <V0ServiceAreas />
-        {/* 16. Closing SEO + CTA (beige) */}
-        <V0ClosingSeo />
-        {/* 17. Footer (white) */}
+        {/* 12. Footer */}
         <V0Footer />
       </main>
     </>

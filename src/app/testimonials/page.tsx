@@ -8,7 +8,6 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0TrustBar } from '@/components/v0-trust-bar'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 
 const testimonialsFaqs = [
   {
@@ -276,14 +275,8 @@ export default function TestimonialsPage() {
       <main className="bg-white">
         <V0Header />
 
-        {/* Hero Section - Cream with dot pattern */}
+        {/* Hero Section - Cream */}
         <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-            }}
-          />
           <div className="relative max-w-3xl mx-auto text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonials
@@ -334,12 +327,12 @@ export default function TestimonialsPage() {
                 More Reviews From Pennsylvania Homeowners
               </h2>
             </div>
-            {/* 5 cards: 2-2-1 on tablet, 3-2 on desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {/* 5 cards: 2-2-1 on tablet, 3-2 on desktop — last row centered */}
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
               {secondaryReviews.map((review, index) => (
                 <div
                   key={index}
-                  className={index === 4 ? 'sm:col-span-2 sm:mx-auto sm:max-w-[calc(50%-12px)] lg:col-span-1 lg:max-w-none' : ''}
+                  className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 >
                   <ReviewCard review={review} />
                 </div>
@@ -406,14 +399,6 @@ export default function TestimonialsPage() {
           sectionBg="beige"
         />
 
-        {/* Closing SEO - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              Pennsylvania homeowners trust ClearEdge for honest offers, clear communication, and closings that happen on time. See what your house is worth today.
-            </p>
-          </div>
-        </section>
 
         {/* Lead Form Section - Beige */}
         <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
@@ -426,7 +411,6 @@ export default function TestimonialsPage() {
           </div>
         </section>
 
-        <PostSubmissionSteps bgColor="white" />
 
         <V0Footer />
       </main>

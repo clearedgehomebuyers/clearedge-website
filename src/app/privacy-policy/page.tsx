@@ -55,15 +55,8 @@ export default function PrivacyPolicyPage() {
     <main className="bg-white">
       <V0Header />
 
-      {/* Header - Cream with dot pattern */}
+      {/* Hero Section - Cream */}
       <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-[#FAF8F5] overflow-hidden">
-        {/* Dot pattern background */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a1f1a' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='1.5'/%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-4">Privacy Policy</h1>
           <p className="text-[#1a1f1a]/70">Last updated: January 3, 2026</p>
@@ -201,17 +194,6 @@ export default function PrivacyPolicyPage() {
         </div>
       </section>
 
-      {/* Closing SEO - Sage gradient */}
-      <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers is committed to protecting your privacy.
-          </p>
-          <p className="text-[#1a2e1a] font-medium">
-            Questions? Call us at <DynamicPhoneLink className="text-[#008a29] hover:underline" />.
-          </p>
-        </div>
-      </section>
 
       {/* Final CTA Section - Beige */}
       <section className="py-12 md:py-14 bg-[#FAF8F5]">

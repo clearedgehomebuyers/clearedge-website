@@ -115,7 +115,12 @@ export default function RootLayout({
             "@type": "WebSite",
             "name": "ClearEdge Home Buyers",
             "alternateName": "ClearEdge",
-            "url": "https://www.clearedgehomebuyers.com"
+            "url": "https://www.clearedgehomebuyers.com",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://www.clearedgehomebuyers.com/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
           })}}
         />
         {/* LCP Optimization: Preload hero image FIRST */}

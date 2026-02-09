@@ -137,6 +137,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
       type: 'article',
+      siteName: 'ClearEdge Home Buyers',
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt || post.publishedAt,
       authors: [post.author],
@@ -513,14 +514,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </article>
 
-        {/* Closing SEO - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              ClearEdge Home Buyers helps Pennsylvania homeowners sell their houses fast for cash. Read more guides or get your free offer today.
-            </p>
-          </div>
-        </section>
 
         {/* Final CTA Section - Beige */}
         <section className="py-12 md:py-14 bg-[#FAF8F5]">

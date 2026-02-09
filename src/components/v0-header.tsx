@@ -82,9 +82,10 @@ const situationLinks = [
 ]
 
 const resourceLinks = [
+  { href: '/calculator', label: 'Sale Calculator' },
   { href: '/cash-buyer-vs-realtor', label: 'Cash Buyer vs. Realtor' },
   { href: '/are-cash-home-buyers-legit', label: 'Are Cash Buyers Legit?' },
-  { href: '/calculator', label: 'Sale Calculator' },
+  { href: '/blog', label: 'Blog & Guides' },
 ]
 
 export function V0Header() {
@@ -204,36 +205,8 @@ export function V0Header() {
               >
                 How It Works
               </Link>
-              <Link
-                href="/about"
-                onClick={(e) => handleNavClick(e, "/about")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href="/testimonials"
-                onClick={(e) => handleNavClick(e, "/testimonials")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden md:block"
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="/blog"
-                onClick={(e) => handleNavClick(e, "/blog")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors hidden md:block"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/contact"
-                onClick={(e) => handleNavClick(e, "/contact")}
-                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
-              >
-                Contact
-              </Link>
 
-              {/* Locations Dropdown - Click to toggle */}
+              {/* Locations Dropdown - Click to toggle (position 2) */}
               <div className="relative" ref={locationsRef}>
                 <button
                   onClick={toggleLocations}
@@ -332,6 +305,21 @@ export function V0Header() {
                   </div>
                 )}
               </div>
+
+              <Link
+                href="/about"
+                onClick={(e) => handleNavClick(e, "/about")}
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                onClick={(e) => handleNavClick(e, "/contact")}
+                className="text-xs lg:text-sm font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
+              >
+                Contact
+              </Link>
             </div>
           </nav>
 
@@ -394,34 +382,6 @@ export function V0Header() {
               onClick={(e) => handleNavClick(e, "/how-it-works")}
             >
               How It Works
-            </Link>
-            <Link
-              href="/about"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/about")}
-            >
-              About
-            </Link>
-            <Link
-              href="/testimonials"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/testimonials")}
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="/blog"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/blog")}
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contact"
-              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
-              onClick={(e) => handleNavClick(e, "/contact")}
-            >
-              Contact
             </Link>
 
             {/* Mobile Locations */}
@@ -493,6 +453,21 @@ export function V0Header() {
                 ))}
               </div>
             </details>
+
+            <Link
+              href="/about"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
+              onClick={(e) => handleNavClick(e, "/about")}
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="text-base font-semibold text-[#1a1f1a]/70 hover:text-[#008a29] py-3 px-2"
+              onClick={(e) => handleNavClick(e, "/contact")}
+            >
+              Contact
+            </Link>
 
             {/* Mobile Phone */}
             <a

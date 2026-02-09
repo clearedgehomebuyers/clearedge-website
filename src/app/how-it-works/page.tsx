@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0FAQ } from '@/components/v0-faq'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
@@ -172,14 +170,8 @@ export default function HowItWorksPage() {
       <main className="bg-white">
         <V0Header />
 
-        {/* HERO SECTION - Cream with dot pattern */}
+        {/* HERO SECTION - Cream */}
         <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-            }}
-          />
           <div className="relative max-w-3xl mx-auto text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Process
@@ -347,111 +339,6 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
-        {/* WHAT CLEAREDGE HANDLES - White */}
-        <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
-                We Handle It
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
-                What ClearEdge Handles For You
-              </h2>
-            </div>
-            {/* 5 cards: flexbox with justify-center to center incomplete rows */}
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Repairs Needed</h3>
-                <p className="text-[#1a1f1a]/70">
-                  Sell as-is. Foundation issues, roof damage, mold — doesn&apos;t matter.
-                </p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Inspections</h3>
-                <p className="text-[#1a1f1a]/70">
-                  We don&apos;t require you to fix violations or pass municipal inspection.
-                </p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Mortgage Delays</h3>
-                <p className="text-[#1a1f1a]/70">
-                  Cash means no lender approval, no appraisal contingencies.
-                </p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Commissions</h3>
-                <p className="text-[#1a1f1a]/70">
-                  We&apos;re not agents. You pay zero commission.
-                </p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">No Uncertainty</h3>
-                <p className="text-[#1a1f1a]/70">
-                  When we make an offer and you accept, the deal closes. Period.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* WHO THIS IS FOR - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
-                Is This Right For You?
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
-                Situations We Help With
-              </h2>
-              <p className="text-lg text-[#1a1f1a]/70 max-w-2xl mx-auto">
-                We work with homeowners in all kinds of situations. If any of these sound familiar, we can probably help:
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <Link href="/situations/foreclosure" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Facing Foreclosure</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/inherited-property" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Inherited Property</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/divorce" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Going Through Divorce</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/job-relocation" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Job Relocation</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/major-repairs" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Major Repairs Needed</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/tax-liens-code-violations" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Tax Liens or Code Violations</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/tired-landlord" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Tired Landlord</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href="/situations/vacant-property" className="relative bg-[#FAF8F5] hover:bg-[#008a29]/10 p-5 pb-10 rounded-2xl transition-all duration-200 hover:shadow-lg hover:-translate-y-1 group border border-[#1a1f1a]/5 flex flex-col items-center justify-center text-center min-h-[100px]">
-                <p className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">Vacant Property</p>
-                <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-[#008a29] transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-            <div className="text-center">
-              <TrackedCTALink
-                href="#lead-form"
-                label="Not sure if you qualify? Reach out anyway"
-                eventLabel="Not Sure If Qualify - How It Works Situations"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* TESTIMONIAL - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
@@ -487,19 +374,10 @@ export default function HowItWorksPage() {
           subtitle="Here's what homeowners typically ask about our process."
         />
 
-        {/* Closing SEO - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-6 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              When you&apos;re ready to sell your Pennsylvania house fast without repairs, showings, or uncertainty, ClearEdge is here. Get your cash offer today.
-            </p>
-          </div>
-        </section>
 
         {/* Final CTA Section - Beige */}
         <V0LeadForm />
 
-        <PostSubmissionSteps bgColor="white" />
 
         <V0Footer />
       </main>

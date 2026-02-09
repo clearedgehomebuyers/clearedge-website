@@ -165,15 +165,8 @@ export default function ContactPage() {
       <main className="bg-white">
         <V0Header />
 
-        {/* Hero Section - Cream with dot pattern */}
+        {/* Hero Section - Cream */}
         <section className="relative pt-32 pb-12 md:pb-16 px-4 overflow-hidden bg-[#FAF8F5]">
-          {/* Background pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-            }}
-          />
           <div className="relative max-w-3xl mx-auto text-center">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
               Contact Us
@@ -207,34 +200,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* Areas We Serve Section - White */}
-        <section className="py-12 md:py-12 bg-white">
-          <div className="max-w-5xl mx-auto px-4">
-            <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
-                Service Areas
-              </span>
-              <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a]">
-                Areas We Serve
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">NEPA</h3>
-                <p className="text-[#1a1f1a]/70">Scranton, Wilkes-Barre, Hazleton, and surrounding areas</p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">Lehigh Valley</h3>
-                <p className="text-[#1a1f1a]/70">Allentown, Bethlehem, Easton, Reading</p>
-              </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-lg text-[#1a1f1a] mb-3">Poconos</h3>
-                <p className="text-[#1a1f1a]/70">Stroudsburg, East Stroudsburg, and mountain communities</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Lead Form + Contact Widgets - Cream */}
         <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-6xl mx-auto px-4">
@@ -249,14 +214,6 @@ export default function ContactPage() {
           subtitle="Here are answers to common questions about contacting ClearEdge."
         />
 
-        {/* Closing SEO - Sage gradient */}
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-[#1a2e1a] font-medium">
-              ClearEdge Home Buyers is here when you&apos;re ready. No pressure, no obligation — just an honest conversation about your options.
-            </p>
-          </div>
-        </section>
 
         {/* Final CTA Section - Beige */}
         <section className="py-12 md:py-14 px-4 bg-[#FAF8F5]">

@@ -4,12 +4,10 @@ import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { SituationFAQAccordion } from '@/components/SituationFAQAccordion'
-import { RandomizedServiceAreas } from '@/components/RandomizedServiceAreas'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { PostSubmissionSteps } from '@/components/PostSubmissionSteps'
 import Link from 'next/link'
-import { Phone, CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, BookOpen, MapPin } from 'lucide-react'
+import { CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, BookOpen, MapPin } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
@@ -177,16 +175,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       <V0Header />
 
-      {/* Hero Section - Cream with dot pattern (matching homepage) */}
+      {/* Hero Section - Cream */}
       <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
-        {/* Background pattern (matching homepage) */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000' fillOpacity='1' fillRule='evenodd'/%3E%3C/svg%3E")`,
-          }}
-        />
-
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
             {/* LEFT COLUMN - Text content (centered within column) */}
@@ -356,9 +346,6 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
-      {/* Service Areas - Randomized 6 from all 21 locations (client-side) */}
-      <RandomizedServiceAreas />
-
       {/* FAQ Section - White - Using Homepage Style Accordion */}
       {situation.faqs && situation.faqs.length > 0 && (
         <SituationFAQAccordion faqs={situation.faqs} situationTitle={situation.title} />
@@ -413,19 +400,10 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         </section>
       )}
 
-      {/* Closing SEO - Sage gradient */}
-      <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-[#1a2e1a] font-medium">
-            ClearEdge Home Buyers helps Pennsylvania homeowners facing {situation.title.toLowerCase()} sell their homes fast for cash. No repairs, no fees, no hassle.
-          </p>
-        </div>
-      </section>
 
       {/* Lead Form - Same as Homepage */}
       <V0LeadForm />
 
-      <PostSubmissionSteps bgColor="white" />
 
       <V0Footer />
     </main>

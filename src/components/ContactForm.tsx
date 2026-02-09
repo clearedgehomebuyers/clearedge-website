@@ -30,7 +30,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function ContactForm() {
-  const { webhook, trafficSource, phone: dynamicPhone, phoneTel } = useTrafficSource()
+  const { webhook, trafficSource, utmParams, phone: dynamicPhone, phoneTel } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -51,6 +51,10 @@ export function ContactForm() {
         event_category: 'Lead Form',
         event_label: 'Contact Form',
         value: 1,
+        traffic_source: trafficSource,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
         page_location: window.location.href,
         page_path: window.location.pathname
       });
@@ -96,6 +100,11 @@ export function ContactForm() {
         smsConsent: smsConsent,
         leadSource: 'Website - Contact Form',
         trafficSource: trafficSource,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
+        utm_content: utmParams.utm_content,
+        utm_term: utmParams.utm_term,
         notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
       }
 

@@ -16,9 +16,31 @@ const TRAFFIC_CONFIG = {
     phoneTel: '+16106280671',
     webhook: 'https://hooks.zapier.com/hooks/catch/26244252/ultjlsu/',
   },
+  sms: {
+    phone: '(610) 628-0671',    // TBD — update when SMS tracking number is provisioned
+    phoneRaw: '6106280671',
+    phoneTel: '+16106280671',
+    webhook: 'https://hooks.zapier.com/hooks/catch/26244252/ultjlsu/',  // TBD — update when SMS webhook is created
+  },
 } as const
 
-type TrafficSource = 'seo' | 'direct'
+type TrafficSource = 'seo' | 'direct' | 'sms'
+
+export interface UTMParams {
+  utm_source: string
+  utm_medium: string
+  utm_campaign: string
+  utm_content: string
+  utm_term: string
+}
+
+const EMPTY_UTM: UTMParams = {
+  utm_source: '',
+  utm_medium: '',
+  utm_campaign: '',
+  utm_content: '',
+  utm_term: '',
+}
 
 interface TrafficSourceContextType {
   trafficSource: TrafficSource
@@ -26,6 +48,7 @@ interface TrafficSourceContextType {
   phoneRaw: string
   phoneTel: string
   webhook: string
+  utmParams: UTMParams
   isLoaded: boolean
 }
 
@@ -35,6 +58,7 @@ const TrafficSourceContext = createContext<TrafficSourceContextType>({
   phoneRaw: TRAFFIC_CONFIG.seo.phoneRaw,
   phoneTel: TRAFFIC_CONFIG.seo.phoneTel,
   webhook: TRAFFIC_CONFIG.seo.webhook,
+  utmParams: EMPTY_UTM,
   isLoaded: false,
 })
 
@@ -54,8 +78,16 @@ function detectTrafficSource(): TrafficSource {
 
   // Check if we already have a stored source (persist across page navigation)
   const storedSource = sessionStorage.getItem('trafficSource')
-  if (storedSource === 'seo' || storedSource === 'direct') {
+  if (storedSource === 'seo' || storedSource === 'direct' || storedSource === 'sms') {
     return storedSource
+  }
+
+  // Check UTM params in URL (highest priority — explicit campaign tagging)
+  const params = new URLSearchParams(window.location.search)
+  const utmSource = params.get('utm_source')
+  if (utmSource === 'sms') {
+    sessionStorage.setItem('trafficSource', 'sms')
+    return 'sms'
   }
 
   // Detect from referrer
@@ -75,13 +107,42 @@ function detectTrafficSource(): TrafficSource {
   return source
 }
 
+function captureUTMParams(): UTMParams {
+  if (typeof window === 'undefined') return EMPTY_UTM
+
+  // Check sessionStorage first (persist across page navigation)
+  const stored = sessionStorage.getItem('utmParams')
+  if (stored) {
+    try { return JSON.parse(stored) } catch { /* fall through */ }
+  }
+
+  const params = new URLSearchParams(window.location.search)
+  const utmParams: UTMParams = {
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_content: params.get('utm_content') || '',
+    utm_term: params.get('utm_term') || '',
+  }
+
+  // Store in sessionStorage if any UTM param is present
+  if (utmParams.utm_source) {
+    sessionStorage.setItem('utmParams', JSON.stringify(utmParams))
+  }
+
+  return utmParams
+}
+
 export function TrafficSourceProvider({ children }: { children: ReactNode }) {
   const [trafficSource, setTrafficSource] = useState<TrafficSource>('seo')
+  const [utmParams, setUtmParams] = useState<UTMParams>(EMPTY_UTM)
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const source = detectTrafficSource()
+    const utm = captureUTMParams()
     setTrafficSource(source)
+    setUtmParams(utm)
     setIsLoaded(true)
   }, [])
 
@@ -93,6 +154,7 @@ export function TrafficSourceProvider({ children }: { children: ReactNode }) {
     phoneRaw: config.phoneRaw,
     phoneTel: config.phoneTel,
     webhook: config.webhook,
+    utmParams,
     isLoaded,
   }
 
