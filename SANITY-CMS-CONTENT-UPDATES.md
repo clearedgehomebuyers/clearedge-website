@@ -1563,7 +1563,7 @@ Easton sits at the confluence of the Lehigh and Delaware Rivers in Northampton C
 
 Paragraph 2:
 ```
-Easton also has a ward-based rental inspection program on a 3-year cycle ($75/unit), which creates additional compliance requirements for landlords. For property owners looking to exit the rental market or sell a home that needs more work than it's worth, ClearEdge offers a direct path. We buy throughout Easton and surrounding Northampton County communities — including properties with code violations, tenant issues, and deferred maintenance.
+Easton also has a ward-based rental inspection program on a 4-year cycle, which creates additional compliance requirements for landlords. For property owners looking to exit the rental market or sell a home that needs more work than it's worth, ClearEdge offers a direct path. We buy throughout Easton and surrounding Northampton County communities — including properties with code violations, tenant issues, and deferred maintenance.
 ```
 
 **Field: `neighborhoods`**
