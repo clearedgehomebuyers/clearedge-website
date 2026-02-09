@@ -6,38 +6,38 @@ const stats = [
   {
     icon: Star,
     value: "5.0",
-    label: "Google Rating",
+    label: "Google Rating (All 5-Star)",
   },
   {
     icon: Home,
     value: "200+",
-    label: "Homes Purchased",
+    label: "PA Homes Purchased Since 2016",
   },
   {
     icon: Calendar,
-    value: "Since 2016",
-    label: "Trusted Local Buyer",
+    value: "14 Days",
+    label: "Average Time to Close",
   },
   {
     icon: MapPin,
     value: "21",
-    label: "PA Communities Served",
+    label: "Eastern PA Markets Served",
   },
 ]
 
 const reviews = [
   {
-    text: "Tyler and his team bought it completely as-is. We closed in under two weeks. It's rare to find someone who actually does exactly what they say they're going to do.",
+    text: "Tyler and his team bought our house completely as-is. No repairs, no cleaning, closed in under two weeks. It's rare to find someone who actually does exactly what they say they're going to do.",
     name: "Lawrence G.",
     location: "Allentown",
   },
   {
-    text: "He was incredibly patient, explained the whole process, and gave us a fair cash offer that allowed our family to move on without doing a single repair.",
+    text: "He was incredibly patient, explained every step, and gave us a fair cash offer that let our family move on without doing a single repair. The whole experience was stress-free.",
     name: "Nicole V.",
     location: "Scranton",
   },
   {
-    text: "Tyler and his team were the first to take the time to explain the process and make me feel comfortable. We got a very fair number for our property.",
+    text: "Tyler and his team were the first to take the time to explain the process and make me feel comfortable. No pressure, no games. We got a very fair number for our property.",
     name: "Gavin S.",
     location: "",
   },

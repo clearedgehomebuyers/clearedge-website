@@ -7,8 +7,8 @@ import { DynamicPhoneButton } from '@/components/DynamicPhone'
 import { Users, Calendar, MapPin, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Get Your Free Cash Offer',
-  description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form. Response within 24 hours.',
+  title: 'Contact ClearEdge Home Buyers | Talk to Tyler Directly',
+  description: 'Contact ClearEdge Home Buyers for a fair cash offer on your PA home. Call Tyler directly at (610) 904-8526 or fill out our form. Response within 24 hours, no obligation.',
   openGraph: {
     title: 'Contact Us | Get Your Free Cash Offer | ClearEdge Home Buyers',
     description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form.',
@@ -172,10 +172,10 @@ export default function ContactPage() {
               Contact Us
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
-              Let&apos;s Talk About Your Property
+              Talk to Tyler — Not a Call Center, Not a Salesperson
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto">
-              Get a no-obligation cash offer in 24 hours. Call Tyler directly or fill out the form below.
+              Get a fair, no-obligation cash offer in 24 hours. Every inquiry is personally reviewed by Tyler, the owner of ClearEdge.
             </p>
           </div>
         </section>
@@ -186,15 +186,15 @@ export default function ContactPage() {
             <div className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-16 gap-y-4">
               <div className="flex items-center gap-3">
                 <Users className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">200+ Homeowners Helped</span>
+                <span className="text-[#1a2e1a] font-medium">200+ PA Homes Purchased</span>
               </div>
               <div className="flex items-center gap-3">
                 <Calendar className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">Founded 2016</span>
+                <span className="text-[#1a2e1a] font-medium">Buying Since 2016</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">21 Communities Served</span>
+                <span className="text-[#1a2e1a] font-medium">21 Eastern PA Markets</span>
               </div>
             </div>
           </div>

@@ -31,40 +31,40 @@ const defaultPhoto = { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jp
 // Answer-First Summaries for each situation (SEO optimization)
 const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
   'foreclosure': {
-    question: "Can I sell my house to avoid foreclosure?",
-    answer: "Yes. If you're behind on mortgage payments, you can sell your house before the sheriff sale and walk away with cash instead of losing everything to the bank. ClearEdge can close in as little as 7 days — often fast enough to stop foreclosure proceedings and protect your credit."
+    question: "Can I sell my house to avoid foreclosure in Pennsylvania?",
+    answer: "Yes. If you're behind on mortgage payments in PA, you can sell your house before the sheriff sale and walk away with cash instead of losing everything to the bank. ClearEdge can close in as little as 7 days — often fast enough to stop foreclosure proceedings, satisfy the lender, and protect your credit score. Under Pennsylvania's Act 91, you have rights during foreclosure — selling to a cash buyer is one of the fastest ways to exercise them."
   },
   'inherited-property': {
     question: "How do I sell an inherited house in Pennsylvania?",
-    answer: "You can sell an inherited house in PA by working with the estate executor (or administrator) to transfer the property. If probate is required, we can close around the court timeline. If the property passed outside probate (via deed, trust, or joint ownership), you may be able to sell immediately. We buy inherited houses as-is — no cleanout or repairs needed."
+    answer: "You can sell an inherited house in PA by working with the estate executor (or administrator) to transfer the property through probate court. If the property passed outside probate (via a joint deed, living trust, or transfer-on-death deed), you may be able to sell immediately. ClearEdge works with estate attorneys regularly and can close during or after probate. We buy inherited houses 100% as-is — no cleanout, no repairs, no dealing with decades of belongings."
   },
   'divorce': {
-    question: "How do I sell my house fast during a divorce?",
-    answer: "The fastest way to sell during divorce is a direct cash sale. Both parties sign off, we close in 7-14 days, and proceeds are wired according to your agreement. No showings, no repairs, no waiting for buyer financing to fall through. This eliminates the house as a point of conflict so you can finalize your divorce and move forward."
+    question: "How do I sell my house fast during a divorce in PA?",
+    answer: "The fastest way to sell during a Pennsylvania divorce is a direct cash sale. Both parties agree on the sale, we close in 7–14 days, and proceeds are wired according to your separation agreement or court order. No showings, no repairs, no waiting months for buyer financing to fall through. This eliminates the marital home as a point of conflict so both parties can finalize the divorce and move forward with their lives."
   },
   'job-relocation': {
-    question: "How can I sell my house quickly for job relocation?",
-    answer: "When you need to relocate for work, a cash sale is often the best option. We can close in as little as 7 days (or match your start date), so you're not paying two mortgages or rushing back for showings. Some employers offer relocation buyout programs — if not, we provide a guaranteed cash offer with flexible closing."
+    question: "How can I sell my house quickly for a job relocation?",
+    answer: "When you need to relocate for work, a cash sale lets you close before your start date — no double mortgage payments, no flying back for showings. ClearEdge can close in as little as 7 days (or match your employer's timeline). Some companies offer relocation buyout programs; if yours doesn't, we provide a guaranteed cash offer with a flexible closing date so you can focus on your new role, not your old house."
   },
   'major-repairs': {
-    question: "Can I sell a house that needs major repairs?",
-    answer: "Yes. You can sell a house with foundation issues, roof damage, mold, fire damage, or any other major repair needs. Cash buyers like ClearEdge purchase homes as-is with no inspection contingencies. You don't need to spend $30K-$50K on repairs before selling — we factor the repair costs into our offer and handle everything after closing."
+    question: "Can I sell a house that needs major repairs without fixing it?",
+    answer: "Yes. You can sell a house with foundation issues, roof damage, mold, fire damage, outdated electrical, or any other major repair needs without spending a dollar. Cash buyers like ClearEdge purchase homes 100% as-is with no inspection contingencies. Instead of spending $15,000–$50,000+ on repairs before listing (and still waiting months to maybe get an offer), we factor the repair costs into our offer and handle everything after closing."
   },
   'tax-liens-code-violations': {
-    question: "Can I sell a house with tax liens or code violations?",
-    answer: "Yes. Tax liens and code violations don't prevent a sale — they just need to be resolved at closing. We purchase houses with back taxes, municipal liens, and code violations regularly. The liens get paid from the sale proceeds, violations get transferred to us, and you walk away clean. We've handled hundreds of these situations across Eastern PA."
+    question: "Can I sell a house with tax liens or code violations in PA?",
+    answer: "Yes. Tax liens and code violations don't prevent a sale — they just need to be resolved at or before closing. ClearEdge purchases houses with back property taxes, municipal water/sewer liens, and code violations regularly throughout Eastern PA. The liens get paid from the sale proceeds at closing, code violations transfer to us as the new owner, and you walk away clean with no outstanding obligations."
   },
   'tired-landlord': {
-    question: "How do I sell a rental property with tenants?",
-    answer: "You can sell a rental property with tenants in place — no eviction required. We buy occupied rentals and handle the tenant situation after closing. Whether your tenants are paying, non-paying, or on Section 8, we'll make a fair cash offer and close on your timeline. Stop dealing with midnight calls and late rent — sell and get your life back."
+    question: "How do I sell a rental property with tenants in it?",
+    answer: "You can sell a rental property with tenants in place — no eviction required. ClearEdge buys occupied rentals and handles the tenant situation after closing. Whether your tenants are paying, non-paying, month-to-month, or on Section 8, we'll make a fair cash offer and close on your timeline. Stop dealing with midnight maintenance calls, late rent, and the liability of being a landlord — sell the property and get your time and money back."
   },
   'vacant-property': {
     question: "Should I sell my vacant house or keep paying to maintain it?",
-    answer: "If your vacant house is costing you money every month (mortgage, taxes, insurance, utilities, maintenance), selling for cash is often the smart financial move. Every month you hold an empty property, you're losing money. We buy vacant houses as-is — no repairs, no cleaning, no showings. Close in 7 days and stop the financial bleeding."
+    answer: "If your vacant house is costing you $1,000–$2,000+ per month in mortgage, property taxes, insurance, utilities, and maintenance, selling for cash is almost always the smarter financial move. Every month you hold an empty property in Pennsylvania, you're losing money — and risking vandalism, pipe bursts, and code violations. ClearEdge buys vacant houses 100% as-is. No repairs, no cleaning, no showings. Close in as few as 7 days and stop the monthly drain."
   },
   'foundation-structural-issues': {
     question: "Can I sell a house with foundation problems in Pennsylvania?",
-    answer: "Yes. Pennsylvania law allows you to sell a home in any condition — you're required to disclose known structural defects, but NOT required to repair them. Foundation repairs typically cost $10,000-$50,000+, and most lenders won't approve mortgages on homes with structural issues. ClearEdge buys houses with foundation cracks, bowing walls, settling, and mine subsidence damage across Eastern PA. We pay cash, close in 14-30 days, and you don't fix a thing."
+    answer: "Yes. Pennsylvania law allows you to sell a home in any condition — you're required to disclose known structural defects on the PA Seller's Disclosure (SPD), but you are NOT required to repair them. Foundation repairs typically cost $10,000–$50,000+, and most mortgage lenders won't approve loans on homes with structural issues — which means traditional buyers can't purchase your home even if they want to. ClearEdge buys houses with foundation cracks, bowing walls, settling, and mine subsidence damage across Eastern PA. We pay cash, close in 14–30 days, and you don't fix a thing."
   },
 }
 
@@ -197,8 +197,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <TrackedCTALink
                   href="#lead-form"
-                  label="Get Your Free Cash Offer"
-                  eventLabel="Get Your Free Cash Offer - Situation Hero"
+                  label="Get My Fair Cash Offer"
+                  eventLabel="Get My Fair Cash Offer - Situation Hero"
                   className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink
@@ -236,19 +236,19 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
                 <div className="flex items-center justify-center gap-3">
                   <Clock className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7 Days</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <DollarSign className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees Ever</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <Shield className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Obligation</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Sell 100% As-Is</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <MapPin className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Local PA Company</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>
@@ -330,9 +330,9 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { step: '1', title: 'Contact Us', desc: 'Call or fill out our form. Tell us about your property and situation.' },
-              { step: '2', title: 'Get Your Offer', desc: "We'll evaluate your property and present a fair, no-obligation cash offer within 24 hours." },
-              { step: '3', title: 'Close & Get Paid', desc: 'Accept and pick your closing date. We handle all the paperwork and pay closing costs.' },
+              { step: '1', title: 'Tell Us Your Situation', desc: 'Fill out our 2-minute form or call Tyler directly. Share your property details and what you\'re dealing with — no judgment.' },
+              { step: '2', title: 'Get a Fair Cash Offer in 24 Hours', desc: "Tyler personally reviews your property using local PA market data and presents a transparent, no-obligation cash offer." },
+              { step: '3', title: 'Close on Your Timeline', desc: 'Accept and choose your closing date — as fast as 7 days. We handle all paperwork, pay all closing costs, and wire your funds directly.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
                 <div className="w-16 h-16 bg-[#008a29] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#008a29]/20">

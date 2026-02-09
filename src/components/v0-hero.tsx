@@ -40,7 +40,7 @@ export function V0Hero({ city }: V0HeroProps) {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
-        event_label: 'Get Your Free Cash Offer - Hero',
+        event_label: 'Get My Fair Cash Offer - Hero',
         page_path: window.location.pathname
       });
     }
@@ -58,15 +58,15 @@ export function V0Hero({ city }: V0HeroProps) {
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mb-5 leading-[1.1]">
               {cityDisplayName ? (
                 <>
-                  Sell Your House Fast in {cityDisplayName}, PA.
+                  Cash Home Buyers in {cityDisplayName}, PA
                   <br />
-                  <span className="text-primary">Skip the Hassle.</span>
+                  <span className="text-primary">Who Actually Close.</span>
                 </>
               ) : (
                 <>
-                  Sell Your House Fast.
+                  Pennsylvania Cash Home Buyers
                   <br />
-                  <span className="text-primary">Skip the Hassle.</span>
+                  <span className="text-primary">Who Actually Close.</span>
                 </>
               )}
             </h1>
@@ -74,8 +74,8 @@ export function V0Hero({ city }: V0HeroProps) {
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed font-light">
               {cityDisplayName
-                ? `Get a fair cash offer within 24 hours for your ${cityDisplayName} home. No repairs. No fees. No stress.`
-                : 'Get a fair cash offer within 24 hours from a local, family-owned company. No repairs. No fees. No stress.'
+                ? `Your ${cityDisplayName} house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours — close in as few as 7 days.`
+                : 'Your house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours from a local, family-owned company — close in as few as 7 days.'
               }
             </p>
 
@@ -86,7 +86,7 @@ export function V0Hero({ city }: V0HeroProps) {
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary-hover text-base px-8 py-6 rounded-full shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
               >
-                Get Your Free Cash Offer
+                Get My Fair Cash Offer
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -103,19 +103,19 @@ export function V0Hero({ city }: V0HeroProps) {
             <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Close in 7 Days</span>
+                <span className="text-sm text-foreground/60 whitespace-nowrap">Close in 7–30 Days</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Zero Fees</span>
+                <span className="text-sm text-foreground/60 whitespace-nowrap">Zero Fees or Commissions</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">No Obligation</span>
+                <span className="text-sm text-foreground/60 whitespace-nowrap">No Repairs Needed</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Local PA Company</span>
+                <span className="text-sm text-foreground/60 whitespace-nowrap">200+ PA Homes Bought</span>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@ export function V0Hero({ city }: V0HeroProps) {
                     Just Closed
                   </span>
                   <p className="text-sm font-bold">Scranton, PA</p>
-                  <p className="text-xs text-white/90">14 Days to Close</p>
+                  <p className="text-xs text-white/90">Closed in 14 Days, As-Is</p>
                 </div>
               </div>
             </div>

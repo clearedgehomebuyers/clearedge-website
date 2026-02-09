@@ -296,13 +296,12 @@ export function V0LeadForm() {
           <div className="w-20 h-20 rounded-full bg-[#008a29] flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-white" />
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">You&apos;re All Set!</h2>
+          <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">We&apos;ve Got Your Details</h2>
           <p className="text-[#1a1f1a]/70 text-lg mb-6">
-            Tyler will personally review your property and reach out within 24 hours with your no-obligation cash offer.
-            Keep an eye on your phone and email.
+            Tyler is personally reviewing your property right now. You&apos;ll receive your no-obligation cash offer within 24 hours — most homeowners hear back the same day. Check your phone and email.
           </p>
           <div className="bg-white rounded-xl p-6 max-w-md mx-auto border border-[#008a29]/10 shadow-sm">
-            <p className="text-[#1a1f1a]/70 text-sm mb-2">Need to talk sooner?</p>
+            <p className="text-[#1a1f1a]/70 text-sm mb-2">Can&apos;t wait? Call Tyler directly:</p>
             <a href={`tel:${phoneTel}`} className="text-[#008a29] text-lg font-medium hover:underline">
               {phone}
             </a>
@@ -322,10 +321,10 @@ export function V0LeadForm() {
             100% Free & No Obligation
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-4 text-balance">
-            Get Your Cash Offer Today
+            Find Out What Your House Is Worth in Cash
           </h2>
           <p className="text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
-            Complete these 5 quick questions and we'll have your offer within 24 hours.
+            Answer 5 quick questions. Tyler will personally review your property and send your no-obligation offer within 24 hours.
           </p>
         </div>
 
@@ -369,7 +368,7 @@ export function V0LeadForm() {
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Where is your property?</h3>
                   <p className="text-[#1a1f1a]/70 text-sm">
-                    We use this to pull local market data for your personalized offer.
+                    We use this to pull local PA market data for your personalized cash offer.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -463,7 +462,7 @@ export function V0LeadForm() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">What&apos;s your situation?</h3>
-                  <p className="text-[#1a1f1a]/70 text-sm">This helps us understand how we can best serve you.</p>
+                  <p className="text-[#1a1f1a]/70 text-sm">This helps us tailor our offer to your specific needs. No judgment — we&apos;ve seen it all.</p>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   {situations.map((situation) => (
@@ -540,9 +539,9 @@ export function V0LeadForm() {
             {currentStep === 5 && (
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Almost there! How can we reach you?</h3>
+                  <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Last step — where should we send your offer?</h3>
                   <p className="text-[#1a1f1a]/70 text-sm">
-                    We&apos;ll be in touch soon regarding your offer.
+                    Tyler will personally reach out within 24 hours. Your info stays private — we never sell or share it.
                   </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -674,15 +673,15 @@ export function V0LeadForm() {
         <div className="flex flex-wrap justify-center gap-6 mt-6 text-[#1a1f1a]/70 text-sm">
           <div className="flex items-center gap-2">
             <Shield className="w-4 h-4 text-[#008a29]" />
-            <span>Your info is 100% secure</span>
+            <span>Your info stays private — never sold</span>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4 text-[#008a29]" />
-            <span>Response within 24 hours</span>
+            <span>Personal response within 24 hours</span>
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-[#008a29]" />
-            <span>No obligation to accept</span>
+            <span>Zero obligation — say no anytime</span>
           </div>
         </div>
       </div>

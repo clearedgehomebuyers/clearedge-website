@@ -8,12 +8,12 @@ import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
-  title: 'How It Works | Sell Your PA House Fast',
-  description: 'See how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure.',
-  keywords: ['how to sell house fast PA', 'cash home buying process', 'sell house as-is Pennsylvania', 'ClearEdge process'],
+  title: 'How We Buy Houses for Cash in PA | 3-Step Process | ClearEdge',
+  description: 'See exactly how ClearEdge buys Pennsylvania houses for cash: Tell us about your property, get a fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions.',
+  keywords: ['how to sell house fast PA', 'cash home buying process', 'sell house as-is Pennsylvania', 'how cash home buyers work', 'ClearEdge process'],
   openGraph: {
-    title: 'How It Works | Sell Your PA House Fast | ClearEdge Home Buyers',
-    description: 'See exactly how ClearEdge buys houses: Discovery call, cash offer in 24 hours, close on your timeline. No repairs, no fees, no pressure.',
+    title: 'How We Buy Houses for Cash in PA | 3-Step Process | ClearEdge',
+    description: 'See exactly how ClearEdge buys Pennsylvania houses for cash: Tell us about your property, get a fair offer in 24 hours, close in 7–30 days.',
     url: 'https://www.clearedgehomebuyers.com/how-it-works',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -177,10 +177,10 @@ export default function HowItWorksPage() {
               Our Process
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
-              How We Buy Houses — And Why It&apos;s Simpler Than You Think
+              How We Buy Houses for Cash in Pennsylvania
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
-              No repairs. No agents. No waiting for buyers. Just a fair cash offer and a closing date that works for you.
+              No repairs. No agents. No open houses. Tell us about your property, get a fair cash offer in 24 hours, and close on a date that works for your life.
             </p>
             <TrackedCTALink
               href="#lead-form"
@@ -194,10 +194,10 @@ export default function HowItWorksPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <h2 className="font-serif text-3xl font-medium text-[#1a1f1a] mb-6">
-              Why Selling a House in Pennsylvania Feels So Hard
+              Why Selling a House in Pennsylvania Has Gotten Harder in 2026
             </h2>
             <p className="text-lg text-[#1a1f1a]/70 mb-6">
-              Selling through an agent means months of uncertainty. You&apos;ll deal with:
+              New PA building codes, stricter municipal inspections, and tighter scrutiny on unpermitted work mean selling through an agent now costs more time and money than ever. You&apos;ll deal with:
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
               <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
@@ -239,20 +239,20 @@ export default function HowItWorksPage() {
                 <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Discovery Call</h3>
-                <p className="text-[#008a29] font-medium text-sm mb-3">A 10-Minute Conversation</p>
+                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Tell Us About Your Property</h3>
+                <p className="text-[#008a29] font-medium text-sm mb-3">Under 2 Minutes Online (or a 10-Minute Call)</p>
                 <p className="text-[#1a1f1a]/70">
-                  Tell us about your property and situation. We&apos;ll ask about the condition, timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
+                  Fill out our quick form or call Tyler directly. We&apos;ll ask about the condition, your timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
                 <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
                   <span className="text-[#008a29] font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Get Your Cash Offer</h3>
-                <p className="text-[#008a29] font-medium text-sm mb-3">Within 24 Hours</p>
+                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Get a Fair Cash Offer in 24 Hours</h3>
+                <p className="text-[#008a29] font-medium text-sm mb-3">Tyler Personally Reviews Every Property</p>
                 <p className="text-[#1a1f1a]/70">
-                  We&apos;ll evaluate your property and present a written cash offer. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
+                  Tyler evaluates your property using local PA market data — not a national algorithm — and presents a written cash offer within 24 hours. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
                 </p>
               </div>
               <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">

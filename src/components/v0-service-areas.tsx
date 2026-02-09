@@ -57,10 +57,10 @@ export function V0ServiceAreas() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2e1a] mb-4">
-            Serving All of Eastern Pennsylvania
+            Cash Home Buyers Across Eastern Pennsylvania
           </h2>
           <p className="text-lg text-[#1a2e1a]/70 max-w-3xl mx-auto">
-            We purchase properties throughout NEPA, the Lehigh Valley, and the Poconos. If you own a house in any of these areas, we&apos;d love to make you a fair cash offer.
+            We buy houses in any condition throughout NEPA, the Lehigh Valley, and the Poconos — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer.
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export function V0ServiceAreas() {
             onClick={scrollToForm}
             className="text-[#008a29] hover:text-[#007a24] font-semibold"
           >
-            Don&apos;t see your city? Request an offer anyway &rarr;
+            Don&apos;t see your city? We still buy throughout Eastern PA — get your offer &rarr;
           </button>
         </p>
       </div>

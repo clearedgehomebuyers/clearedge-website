@@ -271,7 +271,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       worksFor: {
         '@id': 'https://www.clearedgehomebuyers.com/#organization',
       },
-      description: 'Tyler is the owner of ClearEdge Home Buyers and has personally purchased over 200 homes across Eastern Pennsylvania since 2016.',
+      description: 'Tyler founded ClearEdge Home Buyers in 2016 and has personally purchased over 200 homes across 21 Eastern Pennsylvania markets. He writes in-depth guides to help PA homeowners understand their options when selling.',
     },
     publisher: {
       '@type': 'Organization',
@@ -492,7 +492,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <p className="font-semibold text-[#1a1f1a] mb-1">Tyler</p>
                     <p className="text-sm text-[#008a29] font-medium mb-3">Owner, ClearEdge Home Buyers</p>
                     <p className="text-[#1a1f1a]/70 leading-relaxed">
-                      Tyler is the owner of ClearEdge Home Buyers and has personally purchased over 200 homes across Eastern Pennsylvania since 2016. He specializes in helping homeowners navigate difficult situations including foreclosure, inherited properties, divorce, and more — providing fair cash offers and closing on the seller&apos;s timeline.
+                      Tyler founded ClearEdge Home Buyers in 2016 and has personally purchased over 200 homes across 21 Eastern Pennsylvania markets — from Scranton and Wilkes-Barre to the Lehigh Valley and Poconos. He writes these guides to help PA homeowners understand their options, whether they&apos;re facing foreclosure, navigating probate, dealing with code violations, or simply want a faster alternative to the traditional listing process.
                     </p>
                   </div>
                 </div>
@@ -501,14 +501,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* CTA */}
             <section className="mt-8 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
-              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Ready to Sell Your House Fast?</h2>
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Want to Know What Your House Is Worth in Cash?</h2>
               <p className="mb-6 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
-                Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.
+                Tyler personally reviews every property. Fair cash offer in 24 hours — no repairs, no fees, no obligation.
               </p>
               <TrackedCTALink
                 href="/#lead-form"
-                label="Get My Cash Offer"
-                eventLabel="Get My Cash Offer - Blog Article CTA"
+                label="Get My Fair Cash Offer"
+                eventLabel="Get My Fair Cash Offer - Blog Article CTA"
               />
             </section>
           </div>
@@ -519,10 +519,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <section className="py-12 md:py-14 bg-[#FAF8F5]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
-              Have Questions About Selling Your House?
+              Still Have Questions? We Have Answers.
             </h2>
             <p className="text-[#1a1f1a]/70 mb-6">
-              Browse more guides or get a free, no-obligation cash offer.
+              Browse more guides written by Tyler, or get a fair, no-obligation cash offer for your PA home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -533,8 +533,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </Link>
               <TrackedCTALink
                 href="/#lead-form"
-                label="Get My Cash Offer"
-                eventLabel="Get My Cash Offer - Blog Bottom CTA"
+                label="Get My Fair Cash Offer"
+                eventLabel="Get My Fair Cash Offer - Blog Bottom CTA"
               />
             </div>
           </div>

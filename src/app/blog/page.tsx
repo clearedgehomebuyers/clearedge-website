@@ -8,8 +8,8 @@ import { V0FAQ } from '@/components/v0-faq'
 import { BlogPostsGrid } from '@/components/BlogPostsGrid'
 
 export const metadata: Metadata = {
-  title: 'PA Real Estate Guides | Sell House Fast',
-  description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, and fast home sales. Local insights & 2026 rules.',
+  title: 'Pennsylvania Home Selling Guides | Cash Sale Tips & 2026 PA Laws | ClearEdge',
+  description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, code violations, and fast cash home sales. Written by Tyler from direct experience buying 200+ homes.',
   openGraph: {
     title: 'PA Real Estate Guides | Sell House Fast | ClearEdge Home Buyers',
     description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales.',
@@ -185,10 +185,10 @@ export default async function BlogPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
             <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-6">
-              Pennsylvania Real Estate Guides to Sell Your House Fast
+              Pennsylvania Home Selling Guides — Written From Direct Experience
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto">
-              No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and every situation in between.
+              No-fluff guides for Eastern PA homeowners. Every article is based on real situations Tyler has handled buying 200+ homes since 2016 — not generic advice copied from national websites.
             </p>
           </div>
         </section>

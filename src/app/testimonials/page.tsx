@@ -29,8 +29,8 @@ const testimonialsFaqs = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Testimonials | Real Reviews from PA Homeowners',
-  description: 'Real Google reviews from PA homeowners who sold to ClearEdge. See why families across NEPA, Lehigh Valley & Poconos trust Tyler.',
+  title: 'ClearEdge Home Buyers Reviews | Real PA Homeowner Testimonials',
+  description: 'Every ClearEdge Google review is 5 stars. Read real testimonials from PA homeowners who sold inherited properties, avoided foreclosure, and closed in as few as 14 days.',
   keywords: ['ClearEdge reviews', 'cash home buyer reviews PA', 'sell house fast reviews Pennsylvania'],
   openGraph: {
     title: 'Testimonials | What Homeowners Say About ClearEdge Home Buyers',
@@ -282,15 +282,15 @@ export default function TestimonialsPage() {
               Testimonials
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
-              Real Reviews From Real Homeowners
+              Every Google Review Is 5 Stars. Here&apos;s Why.
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
-              Don&apos;t take our word for it. Here&apos;s what Pennsylvania homeowners say about working with ClearEdge.
+              We don&apos;t have hundreds of reviews — we have a perfect rating from every homeowner we&apos;ve worked with. Read what real Pennsylvania sellers say about working with Tyler.
             </p>
             <TrackedCTALink
               href="#lead-form"
-              label="Get My Cash Offer"
-              eventLabel="Get My Cash Offer - Testimonials Hero"
+              label="Get My Fair Cash Offer"
+              eventLabel="Get My Fair Cash Offer - Testimonials Hero"
             />
           </div>
         </section>

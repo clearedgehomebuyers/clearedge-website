@@ -3,32 +3,32 @@
 import { Check, X, ArrowRight } from "lucide-react"
 
 const costBreakdown = [
-  { expense: "Repairs Before Listing", traditional: "$15,000+", clearEdge: "$0" },
-  { expense: "Holding Costs (Taxes, Utilities, Insurance)", traditional: "$4,500+", clearEdge: "$0" },
-  { expense: "Agent Commissions (6%)", traditional: "$12,000", clearEdge: "$0" },
-  { expense: "Closing Cost Contributions", traditional: "$3,000+", clearEdge: "$0" },
+  { expense: "Repairs & Pre-Sale Inspections", traditional: "$15,000–$25,000", clearEdge: "$0" },
+  { expense: "Holding Costs (Mortgage, Taxes, Insurance)", traditional: "$3,000–$6,000", clearEdge: "$0" },
+  { expense: "Agent Commissions (5–6%)", traditional: "$10,000–$18,000", clearEdge: "$0" },
+  { expense: "Closing Costs & Title Fees", traditional: "$3,000–$5,000", clearEdge: "$0 (we pay)" },
 ]
 
 const featureComparison = [
   {
     feature: "Time to Close",
-    traditional: "60–90+ days (if it sells)",
-    clearEdge: "As fast as 7 days",
+    traditional: "90–180 days average in PA",
+    clearEdge: "7–30 days, your choice",
   },
   {
-    feature: "Showings",
-    traditional: "Dozens of strangers in your home",
-    clearEdge: "One visit from our team",
+    feature: "Showings & Open Houses",
+    traditional: "Dozens of strangers walking through",
+    clearEdge: "One walkthrough, that's it",
   },
   {
-    feature: "Repairs Required",
-    traditional: "Must fix to list",
-    clearEdge: "Sell 100% as-is",
+    feature: "Repairs & Inspections",
+    traditional: "Must fix to pass 2026 PA inspections",
+    clearEdge: "Sell 100% as-is, any condition",
   },
   {
-    feature: "Certainty",
-    traditional: "Buyers back out, deals fall through",
-    clearEdge: "Guaranteed cash — no financing issues",
+    feature: "Certainty of Closing",
+    traditional: "38% of deals fall through nationally",
+    clearEdge: "Cash in hand — guaranteed close",
   },
 ]
 
@@ -42,16 +42,16 @@ export function V0ComparisonMerged() {
             The Clear Choice
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-4">
-            Traditional Sale vs. ClearEdge
+            The Real Cost of Listing vs. Selling to ClearEdge
           </h2>
           <p className="text-[#1a1f1a]/70 text-lg">
-            When you list traditionally, you&apos;re not just waiting — you&apos;re paying. See the real difference.
+            Most homeowners don&apos;t realize how much a traditional sale actually costs until they&apos;re deep into the process. Here&apos;s the math on a typical Eastern PA home.
           </p>
         </div>
 
         {/* Hidden Cost Table */}
         <div className="mb-6">
-          <h3 className="font-semibold text-[#1a1f1a] text-lg mb-4 text-center">The Hidden Cost of Waiting</h3>
+          <h3 className="font-semibold text-[#1a1f1a] text-lg mb-4 text-center">What a Traditional Sale Really Costs You</h3>
           <div className="overflow-x-auto rounded-xl border border-[#008a29] shadow-lg bg-white">
             <table className="w-full border-collapse">
               <thead>
@@ -76,15 +76,15 @@ export function V0ComparisonMerged() {
                   </tr>
                 ))}
                 <tr className="bg-white text-[#1a1f1a]">
-                  <td className="py-4 px-6 font-bold">Total Out-of-Pocket Risk</td>
-                  <td className="py-4 px-6 text-center font-bold text-red-600 border-l border-[#1a1f1a]/10">$34,500+</td>
+                  <td className="py-4 px-6 font-bold">Total Out-of-Pocket Cost</td>
+                  <td className="py-4 px-6 text-center font-bold text-red-600 border-l border-[#1a1f1a]/10">$31,000–$54,000</td>
                   <td className="py-4 px-6 text-center font-bold text-white bg-[#008a29] border-l border-[#1a1f1a]/10">$0</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p className="text-[#1a1f1a]/70 text-sm mt-3 italic text-center">
-            *Based on a $200,000 home with typical Eastern PA repair needs and 90-day market time.
+            *Ranges based on a $200,000–$300,000 Eastern PA home with typical repair needs and 90–180 day market time (2026 data).
           </p>
         </div>
 
@@ -141,10 +141,10 @@ export function V0ComparisonMerged() {
             }}
             className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
           >
-            Get Your Cash Offer Now
+            See What We&apos;d Offer for Your House
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-          <p className="text-sm text-[#1a1f1a]/70 mt-4">No fees. No obligation. Just a fair offer.</p>
+          <p className="text-sm text-[#1a1f1a]/70 mt-4">No fees. No obligation. Takes 2 minutes.</p>
         </div>
       </div>
     </section>

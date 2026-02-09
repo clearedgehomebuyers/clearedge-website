@@ -493,10 +493,10 @@ export default function CalculatorPage() {
               Free Calculator
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6 leading-tight">
-              How Much Will You Actually Net From Selling Your Home?
+              Pennsylvania Home Sale Calculator: Cash Offer vs. Traditional Net Proceeds
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 mb-4 max-w-3xl mx-auto">
-              Compare your estimated net proceeds from a traditional sale vs. a cash offer — with county-specific closing costs, itemized fees, and real Pennsylvania repair pricing.
+              See exactly what you&apos;d walk away with from a traditional sale vs. a cash offer — with county-specific PA closing costs, itemized fees, and real 2026 contractor repair pricing. No guessing.
             </p>
           </div>
         </section>

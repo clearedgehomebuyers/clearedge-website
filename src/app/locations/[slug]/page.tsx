@@ -84,8 +84,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
   }
 
-  const title = location.metaTitle || `Sell My House Fast ${location.city} PA | Cash Home Buyers | ClearEdge`
-  const description = location.metaDescription || `Get a fair cash offer for your ${location.city} home in 24 hours. ClearEdge buys houses as-is for cash. No repairs, no fees, no commissions. Call Tyler: (610) 904-8526.`
+  const title = location.metaTitle || `Cash Home Buyers in ${location.city}, PA | Fair Offer in 24 Hours | ClearEdge`
+  const description = location.metaDescription || `Cash home buyers in ${location.city}, PA. ClearEdge buys houses as-is for cash — fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions. 200+ PA homes purchased since 2016.`
   const url = `https://www.clearedgehomebuyers.com/locations/${slug}`
 
   return {
@@ -160,7 +160,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     "@type": "LocalBusiness",
     "@id": `https://www.clearedgehomebuyers.com/locations/${slug}#localbusiness`,
     "name": `ClearEdge Home Buyers - ${location.city}`,
-    "description": `We buy houses for cash in ${location.city}, PA. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.`,
+    "description": `Cash home buyers in ${location.city}, PA. ClearEdge buys houses as-is for cash — fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions. 200+ PA homes purchased since 2016.`,
     "url": `https://www.clearedgehomebuyers.com/locations/${slug}`,
     "telephone": "+1-610-904-8526",
     "email": "info@clearedgehomebuyers.com",
@@ -261,8 +261,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <TrackedCTALink
                   href="#lead-form"
-                  label="Get Your Free Cash Offer"
-                  eventLabel="Get Your Free Cash Offer - Location Hero"
+                  label="Get My Fair Cash Offer"
+                  eventLabel="Get My Fair Cash Offer - Location Hero"
                   className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink
@@ -291,7 +291,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                       Just Closed
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
-                    <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>
+                    <p className="text-xs text-white/90">Closed in {(heroPhotos[slug] || defaultPhoto).days} Days, As-Is</p>
                   </div>
                 </div>
               </div>
@@ -300,19 +300,19 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
                 <div className="flex items-center justify-center gap-3">
                   <Clock className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7 Days</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <DollarSign className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees or Commissions</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <Shield className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Obligation</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Repairs Needed</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
                   <MapPin className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Local PA Company</span>
+                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>
@@ -447,14 +447,14 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Time to Close</td>
                   <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">7-14 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">60-90 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">90+ Days</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">90–180 Days</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">120+ Days</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Repairs Needed</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Usually Required</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None — We Buy As-Is</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">$10K–$40K+ Typical</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">$10K–$40K+ Typical</td>
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Fees & Commissions</td>
@@ -476,9 +476,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 </tr>
                 <tr className="border-t border-[#1a1f1a]/5">
                   <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">100% Guaranteed</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Uncertain</td>
+                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Guaranteed — Cash</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">38% Fall Through</td>
+                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Even Less Certain</td>
                 </tr>
               </tbody>
             </table>
@@ -487,7 +487,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
           <div className="text-center mt-8">
             <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20">
-              Get Your {location.city} Cash Offer
+              See What We&apos;d Offer for Your {location.city} Home
               <ArrowRight className="w-4 h-4" />
             </ScrollToFormButton>
           </div>

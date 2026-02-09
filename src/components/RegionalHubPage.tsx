@@ -12,10 +12,10 @@ import type { RegionalHubData } from '@/lib/regional-hub-data'
 
 // Trust stats for the hero section
 const trustStats = [
-  { icon: Star, value: '5.0', label: 'Google Rating' },
-  { icon: Home, value: '200+', label: 'Homes Purchased' },
-  { icon: Calendar, value: 'Since 2016', label: 'Trusted Buyer' },
-  { icon: MapPin, value: '21', label: 'PA Communities' },
+  { icon: Star, value: '5.0', label: 'Google Rating (All 5-Star)' },
+  { icon: Home, value: '200+', label: 'PA Homes Purchased Since 2016' },
+  { icon: Calendar, value: '14 Days', label: 'Average Time to Close' },
+  { icon: MapPin, value: '21', label: 'Eastern PA Markets Served' },
 ]
 
 interface RegionalHubPageProps {
@@ -27,7 +27,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
-        event_label: `Get Your Cash Offer - ${data.regionName} Hub Hero`,
+        event_label: `Get My Fair Cash Offer - ${data.regionName} Hub Hero`,
         page_path: window.location.pathname
       })
     }
@@ -56,7 +56,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
               onClick={scrollToForm}
               className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 font-medium"
             >
-              Get Your Cash Offer
+              Get My Fair Cash Offer
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
             <DynamicPhoneLink
@@ -86,10 +86,10 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
-              Regional Expertise
+              Local Market Knowledge
             </span>
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
-              Selling a House in {data.regionName} — What You Need to Know
+              Why Selling a House in {data.regionName} Is Harder Than You Think
             </h2>
           </div>
 
@@ -142,14 +142,14 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
             Why ClearEdge
           </span>
           <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
-            Local Expertise. Real Results.
+            You Talk to Tyler, Not a Call Center.
           </h2>
           <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
             <p className="text-lg text-[#1a1f1a]/70 leading-relaxed mb-6">
-              I&apos;m Tyler, the founder of ClearEdge Home Buyers. Since 2016, I&apos;ve personally helped over 200 homeowners across Eastern Pennsylvania sell properties they no longer wanted or couldn&apos;t maintain. {data.regionName} isn&apos;t just a market we serve — it&apos;s where we know the neighborhoods, understand the local challenges, and have the relationships to close deals that other buyers walk away from.
+              I&apos;m Tyler, the founder of ClearEdge Home Buyers. Since 2016, I&apos;ve personally bought over 200 homes across Eastern Pennsylvania — from properties with serious structural issues to inherited homes full of decades of belongings. {data.regionName} isn&apos;t just a market we serve — I know the neighborhoods, understand the local challenges (mine subsidence in Lackawanna County, aging row homes in the valley, seasonal vacancies in the mountains), and have the contractor and title relationships to close deals that other cash buyers walk away from.
             </p>
             <p className="text-lg text-[#1a1f1a]/70 leading-relaxed">
-              We&apos;re not a national franchise or a call center. When you call ClearEdge, you talk to me directly. Every offer we make is backed by our local market knowledge and our commitment to treating every homeowner with honesty and respect. <Link href="/how-it-works" className="text-[#008a29] hover:underline">Learn how our process works</Link> or <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:underline">compare cash buyers vs. realtors</Link>.
+              We&apos;re not a national franchise, a wholesaler, or an algorithm. When you call ClearEdge, you talk to me directly — not a sales team, not a call center. I personally review every property, make every offer, and show up at every closing. That&apos;s why every one of our Google reviews is 5 stars. <Link href="/how-it-works" className="text-[#008a29] hover:underline">See exactly how our 3-step process works</Link> or <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:underline">compare cash buyers vs. realtors with real math</Link>.
             </p>
           </div>
         </div>

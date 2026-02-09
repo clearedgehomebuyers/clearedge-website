@@ -90,8 +90,7 @@ export function V0Footer() {
                 />
               </button>
               <p className="text-[#1a1f1a]/70 text-sm leading-relaxed mb-6">
-                Pennsylvania&apos;s trusted cash home buyer since 2016. Fair offers, fast closings, and honest service —
-                guaranteed.
+                Eastern Pennsylvania&apos;s local cash home buyer since 2016. Tyler has personally purchased 200+ homes across 21 markets — fair offers, fast closings, and honest service every time.
               </p>
               <div className="space-y-3">
                 <a

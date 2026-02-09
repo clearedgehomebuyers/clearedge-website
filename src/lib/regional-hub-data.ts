@@ -36,15 +36,15 @@ export interface RegionalHubData {
 export const nepaHubData: RegionalHubData = {
   slug: 'nepa',
   regionName: 'NEPA',
-  h1: 'Sell Your House Fast in Northeastern Pennsylvania',
-  subheading: "ClearEdge Home Buyers serves homeowners across NEPA — from Scranton and Wilkes-Barre to Hazleton, Carbondale, and beyond. Get a fair cash offer in 24 hours.",
-  metaTitle: 'Sell My House Fast NEPA | Cash Home Buyers | ClearEdge',
-  metaDescription: "Need to sell your house fast in Northeastern Pennsylvania? ClearEdge Home Buyers provides fair cash offers in 24 hours across Scranton, Wilkes-Barre, Hazleton & all of NEPA. No fees, no repairs.",
+  h1: 'Cash Home Buyers in Northeastern Pennsylvania — Fair Offers, Fast Closings',
+  subheading: "Selling a house in NEPA shouldn't mean six months of showings, $30K in repairs, and praying a buyer's financing doesn't fall through. ClearEdge has bought 200+ homes across Scranton, Wilkes-Barre, Hazleton, and beyond since 2016 — and we can make you a fair cash offer within 24 hours.",
+  metaTitle: 'Cash Home Buyers in NEPA | Fair Offer in 24 Hours | ClearEdge',
+  metaDescription: "Cash home buyers in Northeastern Pennsylvania. ClearEdge buys houses as-is across Scranton, Wilkes-Barre, Hazleton & all NEPA. No fees, no repairs, close in 7–30 days. Get your offer today.",
   overviewContent: [
-    "Northeastern Pennsylvania's housing market has its own set of challenges that make selling a home the traditional way difficult. NEPA's housing stock is among the oldest in the state — many homes in Scranton, Wilkes-Barre, and surrounding communities were built before 1950. That means sellers frequently face expensive issues like knob-and-tube wiring, lead paint, asbestos, aging foundations, and outdated plumbing that can derail a traditional sale during inspection.",
-    "The region's coal mining heritage also left a lasting mark on the housing landscape. Mine subsidence is a real concern in parts of Lackawanna and Luzerne counties, and properties built over former mine shafts may have structural complications that scare off traditional buyers and their lenders. For homeowners sitting on properties with these issues, the traditional listing process becomes an expensive gamble.",
-    "Despite these challenges, NEPA's real estate market has seen significant price growth — Scranton is projected for approximately 10% price growth, making it one of the strongest performers in the Northeast. Demand continues to outpace available inventory across Lackawanna and Luzerne counties, with well-priced homes selling in under 10 days. But that seller's market primarily benefits move-in-ready properties. Homes that need work — the kind we specialize in — face a very different reality.",
-    "Whether you're dealing with an inherited property in Scranton, a rental that's become more trouble than it's worth in Wilkes-Barre, or a home with code violations in Hazleton, ClearEdge provides a straightforward path to selling. We've been buying homes across NEPA since 2016 — this is where we started, and it's where we buy most frequently."
+    "If you're trying to sell a house in Northeastern Pennsylvania, you already know the challenges. NEPA's housing stock is among the oldest in the state — most homes in Scranton, Wilkes-Barre, and surrounding communities were built before 1950. That means sellers frequently face expensive issues like knob-and-tube wiring, lead paint, asbestos, aging foundations, and outdated plumbing that scare off traditional buyers during inspection. Fixing these problems before listing can cost $20,000–$50,000 — money most homeowners don't have sitting around.",
+    "NEPA's coal mining heritage adds another layer of complexity. Mine subsidence is a documented concern across Lackawanna and Luzerne counties, and properties built over former mine shafts may have structural complications that make mortgage lenders refuse to finance. For homeowners sitting on properties with these issues, the traditional listing process isn't just difficult — it's often impossible.",
+    "Here's the frustrating part: NEPA's market is actually strong right now. Scranton saw approximately 10% price growth in recent years, making it one of the strongest performers in the Northeast. Demand outpaces inventory, and well-priced, move-in-ready homes sell in under 10 days. But that seller's market doesn't help you if your home needs work. The homes we specialize in — the ones with deferred maintenance, mine subsidence risk, code violations, or complicated ownership situations — face a completely different reality on the open market.",
+    "That's why ClearEdge exists. Whether you're dealing with an inherited property in Scranton, a rental that's bleeding money in Wilkes-Barre, or a home with L&I violations in Hazleton, we provide a direct path to closing. No repairs, no commissions, no waiting for buyer financing. We've been buying homes across NEPA since 2016 — this is where Tyler started ClearEdge, and it's where we buy most frequently."
   ],
   cities: [
     { name: 'Scranton', slug: 'scranton', description: 'Where ClearEdge started. We know every neighborhood from the Hill Section to Green Ridge.' },
@@ -68,23 +68,23 @@ export const nepaHubData: RegionalHubData = {
   faqs: [
     {
       question: 'Does ClearEdge buy houses with mine subsidence issues in NEPA?',
-      answer: "Yes. Mine subsidence is common across Lackawanna and Luzerne counties, and it doesn't stop us from making an offer. We assess the structural situation and factor it into our offer — you don't need to fix anything first."
+      answer: "Yes — and we're one of the few cash buyers in the region who will. Mine subsidence is documented across Lackawanna and Luzerne counties, and most traditional buyers (and their mortgage lenders) won't touch it. We assess the structural situation, factor it into our offer, and close as-is. You don't need to fix anything, get engineering reports, or file mine subsidence insurance claims first."
     },
     {
       question: 'How fast can you close on a house in Scranton or Wilkes-Barre?',
-      answer: 'We can close in as few as 7 days when the title is clear. Most NEPA transactions close within 14 to 30 days, depending on the complexity of the title work.'
+      answer: 'We can close in as few as 7 days when the title is clear. Most NEPA transactions close within 14 to 21 days. If there are title complications — like a probate that needs to be opened or a tax lien that needs resolved — we handle the coordination and typically close within 30 days. You choose the closing date that works for you.'
     },
     {
       question: 'Do you buy houses that need major renovations in NEPA?',
-      answer: "Absolutely. Many NEPA homes were built before 1950 and need significant work — knob-and-tube wiring, lead paint remediation, foundation repair, full gut renovations. We buy them all as-is."
+      answer: "That's actually our specialty. Many NEPA homes were built before 1950 and need work that would cost $20,000–$50,000+ to address — knob-and-tube wiring, lead paint, asbestos, foundation cracks, full gut renovations. Traditional buyers can't get financing on these properties, so they sit on the market for months. We buy them all as-is, in any condition."
     },
     {
       question: 'I inherited a house in NEPA. Can you help with probate?',
-      answer: 'Yes. We regularly buy properties during the probate process across Lackawanna, Luzerne, and surrounding counties. We can work with your estate attorney to close once Letters Testamentary are issued.'
+      answer: "Yes — inherited properties are one of the most common situations we handle in NEPA. We regularly buy during the probate process across Lackawanna, Luzerne, and surrounding counties. We can work directly with your estate attorney and close once Letters Testamentary are issued. If you haven't started probate yet, we can also refer you to local attorneys who handle it efficiently."
     },
     {
       question: 'What areas in NEPA does ClearEdge serve?',
-      answer: 'We buy properties throughout Northeastern Pennsylvania, including Scranton, Wilkes-Barre, Hazleton, Pittston, Kingston, Nanticoke, Carbondale, Dunmore, Honesdale, Bloomsburg, and surrounding communities.'
+      answer: 'We buy properties throughout Northeastern Pennsylvania, including Scranton, Wilkes-Barre, Hazleton, Pittston, Kingston, Nanticoke, Carbondale, Dunmore, Honesdale, Bloomsburg, and all surrounding communities in Lackawanna, Luzerne, Wayne, and Columbia counties. NEPA is where ClearEdge started in 2016 — it\'s where we buy most frequently and know every neighborhood.'
     },
   ],
   mapCenter: { lat: 41.35, lng: -75.75 },
@@ -94,15 +94,15 @@ export const nepaHubData: RegionalHubData = {
 export const lehighValleyHubData: RegionalHubData = {
   slug: 'lehigh-valley',
   regionName: 'Lehigh Valley',
-  h1: 'Sell Your House Fast in the Lehigh Valley',
-  subheading: "ClearEdge Home Buyers serves homeowners across the Lehigh Valley — from Allentown and Bethlehem to Easton, Reading, and beyond. Get a fair cash offer in 24 hours.",
-  metaTitle: 'Sell My House Fast Lehigh Valley | Cash Home Buyers | ClearEdge',
-  metaDescription: "Need to sell your house fast in the Lehigh Valley? ClearEdge Home Buyers provides fair cash offers in 24 hours across Allentown, Bethlehem, Easton & the entire Lehigh Valley. No fees.",
+  h1: 'Cash Home Buyers in the Lehigh Valley — Skip the Repairs, Commissions & Uncertainty',
+  subheading: "The Lehigh Valley market is hot — if your home is move-in ready. If it's not, you're looking at $30K+ in repairs, 5–6% in commissions, and months of showings. ClearEdge buys Lehigh Valley houses as-is for cash. Fair offer in 24 hours, close in as few as 7 days.",
+  metaTitle: 'Cash Home Buyers in Lehigh Valley | Fair Offer in 24 Hours | ClearEdge',
+  metaDescription: "Cash home buyers in the Lehigh Valley. ClearEdge buys houses as-is in Allentown, Bethlehem, Easton, Reading & more. No fees, no repairs, close in 7–30 days. Get your cash offer today.",
   overviewContent: [
-    "The Lehigh Valley is one of the fastest-growing regions in Pennsylvania — and that growth has made the housing market increasingly competitive. The median home sales price hit $350,000 in 2025, with single-family home prices up 5% year over year. Homes that are move-in ready sell in just 22 days on average, and sellers are receiving over 100% of their asking price in many cases.",
-    "But that seller's market doesn't benefit everyone equally. If your home needs significant repairs, has code violations, or comes with complicated circumstances like probate or tenant issues, the traditional market works against you. Buyers in the Lehigh Valley are savvy and competitive — they're not looking for projects. They want turnkey homes, and they have plenty to choose from. Properties that don't meet that standard sit on the market, rack up carrying costs, and often sell well below expectations after multiple price reductions.",
-    "The Lehigh Valley's housing stock tells two stories. The region has beautiful historic homes in areas like Bethlehem's south side and Easton's West Ward — but many of these homes are 80 to 100+ years old and come with expensive structural, electrical, and plumbing challenges. Meanwhile, Allentown has seen increased municipal code enforcement and higher transfer taxes (now 2.5% as of 2026), adding even more cost to the traditional selling process.",
-    "Housing affordability has also become a major concern. With the median home price stretching beyond what average household incomes can comfortably support, many homeowners are feeling the squeeze — particularly those who bought at lower prices and are now sitting on significant equity but can't afford the repairs needed to list traditionally. That's where we come in. ClearEdge offers a direct path to selling that skips the repair costs, agent commissions, and months of uncertainty."
+    "The Lehigh Valley is one of the fastest-growing regions in Pennsylvania — and that growth has made the housing market brutally competitive. The median home sales price hit $350,000, with single-family home prices up 5% year over year. Move-in-ready homes sell in just 22 days on average, often above asking price. But here's what the market reports don't tell you: that seller's market only works if your home is perfect.",
+    "If your house needs significant repairs, has code violations, or comes with complicated circumstances like probate, tenant issues, or a divorce timeline — the Lehigh Valley market actually works against you. Buyers here are savvy and have options. They're not looking for projects. Properties that aren't turnkey sit on the market for months, rack up carrying costs in mortgage payments, taxes, and insurance, and often sell well below expectations after multiple price reductions. By the time you factor in the 5–6% agent commission, 2–4% closing costs, and the $20K–$40K in repairs the buyer's inspector will demand, that \"hot market\" advantage disappears.",
+    "The Lehigh Valley's housing stock tells two stories. Beautiful historic homes line Bethlehem's south side and Easton's West Ward — but many are 80 to 100+ years old with expensive structural, electrical, and plumbing challenges lurking behind the charm. Allentown has increased municipal code enforcement, and the city's transfer tax is now 2.5% as of 2026, adding even more cost to the traditional selling process. If your property has deferred maintenance or open violations, the path to a traditional sale gets expensive fast.",
+    "That's the gap ClearEdge fills. If you're sitting on a Lehigh Valley property with significant equity but can't afford the repairs needed to list traditionally — or you simply don't want to deal with 90 days of showings, negotiations, and uncertainty — we offer a direct path. Cash offer in 24 hours, no repairs, no commissions, and you choose your closing date. For homes that need work, homeowners often net more with us after factoring in the true cost of a traditional sale."
   ],
   cities: [
     { name: 'Allentown', slug: 'allentown', description: "The Lehigh Valley's largest city with a diverse housing stock from downtown rowhomes to suburban single-families." },
@@ -120,24 +120,24 @@ export const lehighValleyHubData: RegionalHubData = {
   ],
   faqs: [
     {
-      question: "What's the Lehigh Valley housing market like right now?",
-      answer: "Competitive for move-in ready homes — they sell in about 22 days at or above asking price. But homes needing repairs sit much longer and sell for less. If your property needs work, a direct cash sale often nets you more after you factor in repair costs, commissions, and carrying costs."
+      question: "What's the Lehigh Valley housing market like in 2026?",
+      answer: "It's a strong seller's market — but only for move-in-ready homes. Those sell in about 22 days at or above asking price. If your property needs repairs, has code violations, or comes with complications like probate or tenant issues, the traditional market works against you. Homes that aren't turnkey sit for 90+ days and often sell well below expectations after multiple price reductions. For those properties, a direct cash sale often nets you more after you factor in the $20K–$40K in repairs, 5–6% commissions, and months of carrying costs."
     },
     {
       question: 'Does ClearEdge buy houses in all Lehigh Valley communities?',
-      answer: 'Yes. We buy throughout Lehigh and Northampton counties, including Allentown, Bethlehem, Easton, and surrounding townships and boroughs. We also serve Reading in Berks County and Pottsville in Schuylkill County.'
+      answer: 'Yes. We buy throughout Lehigh and Northampton counties — Allentown, Bethlehem, Easton, and all surrounding townships and boroughs. We also serve Reading in Berks County and Pottsville in Schuylkill County. No property is too far if it\'s in our service area.'
     },
     {
       question: 'How does selling to ClearEdge compare to listing with a Lehigh Valley agent?',
-      answer: "Traditional listings in the Lehigh Valley involve 5-6% commission, potential repairs, staging, and 60-90 days on market. With ClearEdge, you get a cash offer in 24 hours, zero fees, zero repairs, and you choose your closing date. For homes that need work, the net proceeds are often comparable — without the hassle."
+      answer: "Here's the honest math: a traditional listing in the Lehigh Valley involves 5–6% commission ($17,500–$21,000 on a $350K home), 2–4% in closing costs, potential repairs of $10,000–$40,000, and 60–90 days on market while you keep paying the mortgage, taxes, and insurance. With ClearEdge, you get a cash offer in 24 hours, zero fees, zero repairs, and you choose your closing date. For homes that need work, the net proceeds are often comparable — without the 90 days of uncertainty."
     },
     {
       question: 'I just inherited a property in Bethlehem. What are my options?',
-      answer: "We buy inherited properties regularly, including during probate. You don't need to clean it out, repair it, or even visit. We handle everything and can work directly with your estate attorney."
+      answer: "We buy inherited properties regularly across the Lehigh Valley, including during probate. You don't need to clean it out, repair it, or even visit the property. We handle everything — from the initial walkthrough to coordinating with the title company and your estate attorney. If you haven't opened probate yet, we can connect you with local attorneys who handle it efficiently."
     },
     {
       question: 'Are there any fees when I sell to ClearEdge in the Lehigh Valley?',
-      answer: 'None. No commissions, no closing costs, no junk fees. The offer we make is what you receive at closing.'
+      answer: "None. Zero commissions, zero closing costs, zero junk fees. The cash offer we make is exactly what you receive at closing. That's especially significant in the Lehigh Valley where Allentown's transfer tax alone is 2.5% — a cost we absorb completely."
     },
   ],
   mapCenter: { lat: 40.62, lng: -75.43 },
@@ -147,16 +147,16 @@ export const lehighValleyHubData: RegionalHubData = {
 export const poconosHubData: RegionalHubData = {
   slug: 'poconos',
   regionName: 'Poconos',
-  h1: 'Sell Your House Fast in the Poconos',
-  subheading: "ClearEdge Home Buyers helps Pocono property owners sell vacation homes, cabins, and residential properties fast for cash. Get a fair offer in 24 hours.",
-  metaTitle: 'Sell My House Fast Poconos | Cash Home Buyers | ClearEdge',
-  metaDescription: "Need to sell your Pocono house or vacation property fast? ClearEdge buys cabins, A-frames, lakefront homes & all Pocono properties for cash. No fees, no repairs. Offer in 24 hours.",
+  h1: 'Cash Home Buyers in the Poconos — Cabins, Vacation Homes & Residential Properties',
+  subheading: "Vacation homes, A-frames, lakefront properties, Airbnbs that stopped producing — whatever you own in the Poconos, ClearEdge buys it as-is for cash. No seasonal waiting, no buyer financing falling through, no $20K septic repair before you can list. Fair offer in 24 hours.",
+  metaTitle: 'Cash Home Buyers in the Poconos | Fair Offer in 24 Hours | ClearEdge',
+  metaDescription: "Cash home buyers in the Poconos. ClearEdge buys cabins, A-frames, lakefront homes & vacation properties as-is for cash. No fees, no repairs. Close in 7–30 days. Get your offer today.",
   overviewContent: [
-    "The Poconos isn't like selling a house anywhere else in Eastern Pennsylvania. The market has unique dynamics that make traditional sales especially challenging — seasonal demand cycles, vacation home financing hurdles, and property issues that are specific to mountain and lakefront living.",
-    "Most Pocono buyers shop in spring and summer. If you need to sell in the off-season, you could be waiting months for serious interest. And because most Pocono purchases are second homes or investment properties, buyers are pickier and more likely to walk away over inspection issues. They can afford to — this isn't their primary residence. Financing is harder too, with second-home mortgages requiring 10-20% down payments, which shrinks the buyer pool significantly.",
-    "Pocono properties also come with complications that traditional buyers avoid. Septic system failures can cost $15,000-$30,000 to replace — and that's a deal-killer for most financed buyers. Well water issues, winterization damage from frozen pipes, aging A-frame structures, and HOA complications add more friction. We've bought Pocono properties with all of these issues and more. These complications don't scare us — they're exactly what we specialize in.",
-    "The short-term rental landscape has also shifted. Many Pocono property owners invested in Airbnb and VRBO properties during the pandemic boom, only to see bookings decline and some townships crack down on STR regulations. If you're sitting on a vacation rental that's no longer producing the returns you expected, selling to a cash buyer lets you exit quickly without waiting for seasonal demand to pick back up.",
-    "Whether you own a cabin in the woods, a lakefront home, a ski chalet in an HOA community, or a residential property in Stroudsburg or East Stroudsburg, ClearEdge can make you a fair cash offer and close on your timeline."
+    "Selling a Pocono property isn't like selling a house anywhere else in Eastern Pennsylvania. If you've tried — or even thought about trying — you already know the challenges: seasonal demand that disappears after Labor Day, vacation-home financing that shrinks your buyer pool, and property issues specific to mountain and lakefront living that scare off every traditional buyer who walks through the door.",
+    "Here's the reality most Pocono sellers face: buyers shop in spring and summer. If you need to sell in the off-season, you could wait 4–6 months for serious interest. And because most Pocono purchases are second homes or investment properties, those buyers are pickier and more likely to walk away over inspection issues — this isn't their primary residence, so they have zero urgency to close. Financing is harder too, with second-home mortgages requiring 10–20% down payments, which eliminates a huge chunk of the buyer pool before you even get a showing.",
+    "Then there are the property-specific complications that make traditional sales nearly impossible. Septic system failures cost $15,000–$30,000 to replace — and that's a deal-killer for any financed buyer. Well water issues, winterization damage from frozen pipes, aging A-frame structures with roof and insulation problems, and HOA transfer complications add more friction. ClearEdge has bought Pocono properties with all of these issues. They don't scare us — they're exactly what we specialize in.",
+    "The short-term rental landscape has also shifted dramatically. Many Pocono property owners invested in Airbnb and VRBO properties during the pandemic boom, only to see bookings decline 30–40% and some townships crack down on STR regulations. If you're sitting on a vacation rental that's costing you more in maintenance, insurance, and management fees than it's generating in bookings, a cash sale lets you exit quickly without waiting for seasonal demand to come back.",
+    "Whether you own a cabin in the woods, a lakefront home on Lake Wallenpaupack, a ski chalet in an HOA community, or a residential property in Stroudsburg or East Stroudsburg — ClearEdge can make you a fair cash offer and close on your timeline. No repairs, no seasonal waiting, no buyer financing contingencies."
   ],
   cities: [
     { name: 'Stroudsburg', slug: 'stroudsburg', description: "The Poconos' main commercial hub with a mix of residential homes and investment properties." },
@@ -174,23 +174,23 @@ export const poconosHubData: RegionalHubData = {
   faqs: [
     {
       question: 'Does ClearEdge buy vacation homes and cabins in the Poconos?',
-      answer: "Yes. We buy all types of Pocono properties — A-frames, lakefront homes, ski chalets, HOA community properties, cabins, and standard residential homes. Condition doesn't matter."
+      answer: "Yes — vacation properties are a major part of what we buy. A-frames, lakefront homes on Lake Wallenpaupack, ski chalets, HOA community properties, cabins, and standard residential homes. Condition doesn't matter. We've bought Pocono properties with failed septics, winterization damage, mold, and structural issues that no traditional buyer would touch."
     },
     {
       question: 'Can you buy my Pocono property if it has septic or well issues?',
-      answer: 'Absolutely. Failed septic systems and well water problems are among the most common issues we see in Pocono properties. We factor the repair costs into our offer so you don\'t have to deal with any of it.'
+      answer: "Absolutely — and this is actually one of the most common reasons Pocono owners call us. A failed septic system costs $15,000–$30,000 to replace, and that's a deal-killer for any financed buyer. Well water contamination and low-yield wells create similar problems. We factor these repair costs into our offer so you don't have to spend a dime or wait months for contractors."
     },
     {
       question: "I'm an out-of-state owner. Can you handle everything remotely?",
-      answer: "Yes. Many Pocono property owners live in New Jersey, New York, or Connecticut. We handle everything — from the initial walkthrough to coordinating with the title company. You don't need to be present for any of it."
+      answer: "Yes — and most of our Pocono sellers are out-of-state. Property owners in New Jersey, New York, Connecticut, and beyond call us specifically because they don't want to make the trip up to deal with repairs, cleanouts, or showings. We handle everything from the initial walkthrough to coordinating with the title company and managing any HOA transfer requirements. You can sign closing documents remotely through a mobile notary in your area."
     },
     {
       question: 'How does selling a Pocono vacation home differ from selling a primary residence?',
-      answer: 'Vacation homes face seasonal demand (most buyers shop spring/summer), tighter financing requirements (10-20% down for second homes), and pickier buyers who will walk away over any inspection issue. A cash sale eliminates all of these challenges.'
+      answer: "Three major differences work against you: (1) seasonal demand means most buyers only shop spring through summer — listing in October means waiting until May for serious interest, (2) second-home mortgages require 10–20% down, which eliminates a large portion of the buyer pool, and (3) vacation-home buyers are pickier and more likely to walk away over inspection issues since this isn't their primary home. A cash sale to ClearEdge eliminates all three of these challenges — we buy year-round, don't need financing, and buy as-is."
     },
     {
       question: 'My Pocono property is in an HOA. Is that a problem?',
-      answer: "Not at all. We regularly buy properties in Pocono HOA communities. We'll work with the association on any transfer requirements and cover any fees."
+      answer: "Not at all. We regularly buy properties in Pocono HOA communities — including those with outstanding assessments, pending special assessments, or transfer fee requirements. We'll work directly with the association, handle all transfer paperwork, and cover any applicable fees."
     },
   ],
   mapCenter: { lat: 41.05, lng: -75.35 },

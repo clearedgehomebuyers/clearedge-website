@@ -4,19 +4,19 @@ import Link from "next/link"
 import { XCircle, CheckCircle, ArrowRight } from "lucide-react"
 
 const problems = [
-  "Expensive repairs before you can list",
-  "Months of showings and open houses",
-  "6% realtor commissions eating your equity",
-  "Deals falling through at the last minute",
-  "Uncertainty about when (or if) you'll sell",
+  "Spend $10K–$25K on repairs before you can even list",
+  "Endure 3–6 months of showings, strangers, and open houses",
+  "Pay 5–6% in agent commissions ($10K–$18K on a typical PA home)",
+  "Watch deals fall through when buyer financing collapses",
+  "Keep paying the mortgage, taxes, and insurance while you wait",
 ]
 
 const solutions = [
-  "Sell completely as-is — we handle repairs",
-  "One visit from us, that's it",
-  "Zero fees, zero commissions, ever",
-  "Guaranteed cash offer, no financing contingencies",
-  "You choose your closing date",
+  "Sell completely as-is — foundation cracks, mold, hoarding, we buy it all",
+  "One walkthrough from our team, that's it — no open houses ever",
+  "Zero fees, zero commissions, zero closing costs to you",
+  "Guaranteed cash — our offers never fall through",
+  "You pick your closing date: 7 days, 30 days, or 60 days",
 ]
 
 export function V0ProblemSolutionMerged() {
@@ -27,17 +27,17 @@ export function V0ProblemSolutionMerged() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6">
-              Selling a House in Pennsylvania Just Got Harder
+              Selling a House in Pennsylvania Shouldn&apos;t Cost You Everything
             </h2>
             <div className="space-y-4 text-lg text-[#1a1f1a]/70">
               <p>
-                Pennsylvania&apos;s real estate requirements tightened in 2026. New building codes. Municipal pre-sale inspections. Stricter scrutiny on unpermitted work.
+                Pennsylvania&apos;s 2026 building codes and municipal pre-sale inspection requirements have made traditional sales harder — and more expensive — than ever. Stricter scrutiny on unpermitted work means more surprises at closing.
               </p>
               <p>
-                If your house needs repairs, has code issues, or you simply don&apos;t have 90 days to wait — the traditional sale process works against you.
+                If your house needs repairs, has code violations, or you simply can&apos;t afford to wait 90+ days and spend thousands upfront — the traditional process isn&apos;t built for you.
               </p>
               <p className="font-semibold text-[#1a1f1a]">
-                We offer a different path.
+                That&apos;s exactly why we started ClearEdge.
               </p>
             </div>
           </div>
@@ -53,10 +53,10 @@ export function V0ProblemSolutionMerged() {
               A Better Way to Sell
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#1a1f1a] mb-4">
-              Tired of the Traditional Home Selling Hassle?
+              What If You Could Skip All of That?
             </h3>
             <p className="text-[#1a1f1a]/70">
-              We created ClearEdge because we knew there had to be a simpler, fairer way for homeowners to sell.
+              We started ClearEdge in 2016 because we watched good people lose money, time, and sleep trying to sell houses the &ldquo;normal&rdquo; way. Here&apos;s how the two paths compare.
             </p>
           </div>
 

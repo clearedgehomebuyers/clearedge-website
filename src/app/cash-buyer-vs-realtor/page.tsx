@@ -9,12 +9,12 @@ import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 
 export const metadata: Metadata = {
-  title: 'Cash Buyer vs. Realtor in PA — Honest Comparison | ClearEdge Home Buyers',
-  description: "Should you sell your PA house to a cash buyer or list with a realtor? Honest side-by-side comparison with real math from a local cash buyer who'll tell you when we're NOT your best option.",
+  title: 'Cash Buyer vs Realtor: Which Nets You More in PA? (2026 Math) | ClearEdge',
+  description: "Should you sell your PA house to a cash buyer or list with a realtor? Honest side-by-side comparison with 2026 math from a local cash buyer who'll tell you when we're NOT your best option.",
   keywords: ['cash buyer vs realtor', 'sell house to investor or agent', 'is selling to cash buyer worth it', 'we buy houses vs listing with agent', 'should I sell to cash buyer or realtor PA'],
   openGraph: {
-    title: 'Cash Buyer vs. Realtor in PA — Honest Comparison | ClearEdge Home Buyers',
-    description: "Should you sell your PA house to a cash buyer or list with a realtor? Honest side-by-side comparison with real math from a local cash buyer who'll tell you when we're NOT your best option.",
+    title: 'Cash Buyer vs Realtor: Which Nets You More in PA? (2026 Math) | ClearEdge',
+    description: "Should you sell your PA house to a cash buyer or list with a realtor? Honest side-by-side comparison with 2026 math from a local cash buyer who'll tell you when we're NOT your best option.",
     url: 'https://www.clearedgehomebuyers.com/cash-buyer-vs-realtor',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',

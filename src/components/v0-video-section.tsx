@@ -6,11 +6,11 @@ import { LiteYouTube } from "./LiteYouTube"
 
 // Quick Answer bullets for featured snippet optimization
 const quickAnswers = [
-  "Cash offer in 24 hours — no waiting for buyer financing",
-  "Close in as little as 7 days (or on your timeline)",
-  "Sell 100% as-is — no repairs, no cleaning, no showings",
-  "Zero fees, zero commissions — keep more of your equity",
-  "Local PA company since 2016 — 200+ homes purchased",
+  "Cash offer within 24 hours — no waiting for mortgage approvals or buyer financing",
+  "Close in as few as 7 days or up to 60 — you pick the date that works for your life",
+  "Sell 100% as-is — foundation issues, mold, fire damage, hoarding, code violations, we buy it all",
+  "Zero fees, zero agent commissions, zero closing costs — the offer you accept is the amount you receive",
+  "Local family-owned PA company since 2016 — 200+ homes purchased across 21 Eastern PA markets",
 ]
 
 export function V0VideoSection() {
@@ -43,10 +43,10 @@ export function V0VideoSection() {
               Real Help from Local People
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
-              A Faster, Easier Way to Sell Your Pennsylvania Home
+              Meet Tyler — The Person Behind Every ClearEdge Offer
             </h2>
             <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
-              Selling a house in Pennsylvania is a big decision. You deserve a transparent process from someone who actually knows Northeastern PA, the Lehigh Valley, and the Poconos. Watch this 60-second message from our founder, Tyler.
+              You&apos;re not selling to a faceless corporation. Tyler personally reviews every property and makes every offer. Here&apos;s a 60-second look at who we are and how we work.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ export function V0VideoSection() {
 
           {/* Quick Answer Bullets - SEO optimization for featured snippets */}
           <div className="mt-8 bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
-            <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-3">What You Get With ClearEdge</p>
+            <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-3">Why 200+ PA Homeowners Chose ClearEdge</p>
             <ul className="space-y-3">
               {quickAnswers.map((answer, index) => (
                 <li key={index} className="flex items-start gap-3">
@@ -111,7 +111,7 @@ export function V0VideoSection() {
       <div className="py-6 md:py-8 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xl md:text-2xl font-serif text-[#1a2e1a] mb-6">
-            Ready for your straight, truthful answer?
+            Ready to find out what your house is worth in cash?
           </p>
           <button
             onClick={scrollToForm}
@@ -121,7 +121,7 @@ export function V0VideoSection() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           <p className="text-sm text-[#1a2e1a]/70 mt-4 font-medium">
-            No Obligation. No Fees. No Repairs.
+            No obligation. No fees. Takes 2 minutes.
           </p>
         </div>
       </div>

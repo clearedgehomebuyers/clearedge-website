@@ -6,26 +6,26 @@ const steps = [
   {
     number: "01",
     icon: FileText,
-    title: "Share Your Property Details",
+    title: "Tell Us About Your Property",
     description:
-      "Fill out our simple form — just your address and a few quick questions. Takes less than 2 minutes. No commitment, no strings attached.",
-    accent: "2 min to complete",
+      "Fill out our quick form with your address and a few details about your situation. Takes under 2 minutes. No commitment, no personal info required yet.",
+    accent: "Under 2 minutes",
   },
   {
     number: "02",
     icon: Phone,
-    title: "Get Your Cash Offer",
+    title: "Get a Fair Cash Offer in 24 Hours",
     description:
-      "We'll analyze your property using local market data and present a fair, transparent cash offer within 24 hours. No haggling, no pressure.",
-    accent: "Within 24 hours",
+      "Tyler personally reviews every property using local PA market data — not a national algorithm. You'll receive a transparent cash offer within 24 hours, with a clear breakdown of how we got the number.",
+    accent: "Offer within 24 hours",
   },
   {
     number: "03",
     icon: HandshakeIcon,
-    title: "Close On Your Schedule",
+    title: "Close on Your Timeline, Not Ours",
     description:
-      "Accept your offer and pick your closing date — as fast as 7 days or up to 60 days. We handle all the paperwork and pay closing costs.",
-    accent: "You choose when",
+      "Accept your offer and pick your closing date — as fast as 7 days or up to 60 days. We pay all closing costs, handle the paperwork, and wire your funds directly.",
+    accent: "You choose the date",
   },
 ]
 
@@ -39,10 +39,10 @@ export function V0HowItWorks() {
             Simple 3-Step Process
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-foreground mb-6 text-balance">
-            From First Click to Closing Check
+            How We Buy Your House for Cash
           </h2>
           <p className="text-muted-foreground text-lg">
-            No repairs. No showings. No waiting months to maybe get an offer. Just a clear path to selling your house.
+            No repairs. No showings. No months of waiting for a maybe. Three steps between you and a cash closing check.
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export function V0HowItWorks() {
               if (typeof window !== 'undefined' && window.gtag) {
                 window.gtag('event', 'cta_click', {
                   event_category: 'CTA',
-                  event_label: 'Start Step 1 Now - How It Works',
+                  event_label: 'Get My Cash Offer - How It Works',
                   page_path: window.location.pathname
                 });
               }
@@ -95,14 +95,14 @@ export function V0HowItWorks() {
             }}
             className="inline-flex items-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-colors group"
           >
-            Start Step 1 Now
+            Get My Cash Offer
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="/how-it-works"
             className="inline-flex items-center gap-2 text-[#008a29] font-medium hover:text-[#007a24] transition-colors"
           >
-            See Our Full Process
+            See the Full Process
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

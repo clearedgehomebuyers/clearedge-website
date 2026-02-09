@@ -10,8 +10,8 @@ import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
-  title: 'About Us | Local Cash Home Buyers Since 2016',
-  description: "Meet Tyler and the ClearEdge team. Family-owned cash home buyers based in Scranton, serving NEPA, Lehigh Valley & Poconos since 2016.",
+  title: 'About ClearEdge Home Buyers | PA Cash Home Buyers Since 2016',
+  description: "Meet Tyler and the ClearEdge team — family-owned Pennsylvania cash home buyers based in Eastern PA. 200+ homes purchased since 2016 across Scranton, Allentown, and 21 markets.",
   keywords: ['about ClearEdge', 'cash home buyers Scranton', 'Tyler ClearEdge', 'local home buyers PA'],
   openGraph: {
     title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
@@ -211,10 +211,10 @@ export default function AboutPage() {
               About Us
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
-              We&apos;re Not a Franchise. We&apos;re Your Neighbors.
+              About ClearEdge Home Buyers — Local PA Cash Buyers Since 2016
             </h1>
             <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
-              ClearEdge Home Buyers is a family-owned business based in Eastern Pennsylvania. We&apos;ve been helping homeowners sell fast since 2016.
+              We&apos;re not a franchise or a national call center. We&apos;re a family-owned company that buys houses directly from Pennsylvania homeowners — 200+ and counting since 2016.
             </p>
             <TrackedCTALink
               href="#lead-form"
