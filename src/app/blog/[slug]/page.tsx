@@ -499,18 +499,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </section>
 
-            {/* CTA */}
-            <section className="mt-8 bg-surface-cream rounded-2xl p-8 md:p-10 text-center">
-              <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-4">Want to Know What Your House Is Worth in Cash?</h2>
-              <p className="mb-6 text-ce-ink/70 text-lg max-w-xl mx-auto">
-                Tyler personally reviews every property. Fair cash offer in 24 hours — no repairs, no fees, no obligation.
-              </p>
-              <TrackedCTALink
-                href="/#lead-form"
-                label="Get My Fair Cash Offer"
-                eventLabel="Get My Fair Cash Offer - Blog Article CTA"
-              />
-            </section>
+
           </div>
         </article>
 
