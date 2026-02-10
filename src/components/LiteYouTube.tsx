@@ -1,10 +1,25 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface LiteYouTubeProps {
   videoId: string
   title: string
+}
+
+// Preconnect to YouTube origins so the iframe loads faster after tap.
+// Called on first hover/touch — by the time the user taps, the TCP+TLS
+// handshake is already done, keeping us inside the browser's gesture timeout.
+let preconnected = false
+function warmConnections() {
+  if (preconnected) return
+  preconnected = true
+  for (const origin of ['https://www.youtube.com', 'https://www.google.com', 'https://i.ytimg.com']) {
+    const link = document.createElement('link')
+    link.rel = 'preconnect'
+    link.href = origin
+    document.head.appendChild(link)
+  }
 }
 
 export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
@@ -15,43 +30,62 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
   const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
   const fallbackUrl = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
 
-  const handleClick = () => {
+  useEffect(() => {
     const container = containerRef.current
-    if (!container || container.querySelector('iframe')) return
+    if (!container) return
 
-    // Track video play in GA4
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'video_play', {
-        event_category: 'Video',
-        event_label: 'Homepage Intro Video',
-        page_path: window.location.pathname
-      });
+    // Warm YouTube connections on first hover/touch so iframe loads faster on tap
+    const handleWarm = () => warmConnections()
+    container.addEventListener('pointerover', handleWarm, { once: true })
+
+    // CRITICAL: Use a native DOM event listener — NOT React's onClick.
+    // React 18's event delegation processes clicks through the fiber tree,
+    // which can break the browser's user gesture chain on mobile.
+    // Native listeners fire directly from the user tap, preserving the
+    // gesture context that YouTube's embed needs for autoplay=1 to work.
+    const handleClick = () => {
+      if (container.querySelector('iframe')) return
+
+      // Track video play in GA4
+      if (window.gtag) {
+        window.gtag('event', 'video_play', {
+          event_category: 'Video',
+          event_label: 'Homepage Intro Video',
+          page_path: window.location.pathname
+        });
+      }
+
+      // Ensure connections are warm even if user tapped without hovering first
+      warmConnections()
+
+      const iframe = document.createElement('iframe')
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`
+      iframe.title = title
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      iframe.allowFullscreen = true
+      Object.assign(iframe.style, {
+        position: 'absolute',
+        inset: '0',
+        width: '100%',
+        height: '100%',
+        border: 'none',
+        zIndex: '10',
+      })
+
+      container.appendChild(iframe)
     }
 
-    // Insert iframe synchronously within click event to preserve user gesture chain.
-    // This ensures autoplay fires on mobile without requiring a second tap.
-    // React state-based swaps break the gesture chain due to async rendering.
-    const iframe = document.createElement('iframe')
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`
-    iframe.title = title
-    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share')
-    iframe.setAttribute('allowfullscreen', '')
-    Object.assign(iframe.style, {
-      position: 'absolute',
-      inset: '0',
-      width: '100%',
-      height: '100%',
-      border: 'none',
-      zIndex: '10',
-    })
+    container.addEventListener('click', handleClick)
 
-    container.appendChild(iframe)
-  }
+    return () => {
+      container.removeEventListener('pointerover', handleWarm)
+      container.removeEventListener('click', handleClick)
+    }
+  }, [videoId, title])
 
   return (
     <div
       ref={containerRef}
-      onClick={handleClick}
       className="relative w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group"
       style={{ aspectRatio: '16/9' }}
     >
