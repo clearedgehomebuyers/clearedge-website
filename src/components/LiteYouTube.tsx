@@ -90,7 +90,6 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
           events: {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onReady: (event: any) => {
-              // Style the API-generated iframe to fill the container
               const iframe = event.target.getIframe()
               Object.assign(iframe.style, {
                 position: 'absolute',
@@ -100,36 +99,11 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
                 border: 'none',
                 zIndex: '10',
               })
-
-              // Start muted playback (guaranteed on mobile)
+              // Muted autoplay is guaranteed on mobile. User can
+              // unmute via YouTube's native controls (video has
+              // burned-in captions so muted start is fine).
               event.target.playVideo()
-
-              // Try to unmute immediately — works on some browsers
-              // since unmuting is a volume change, not a play action
-              event.target.unMute()
-              event.target.setVolume(100)
-
-              // Remove spinner
               if (playBtn) playBtn.remove()
-
-              // Check if unmute succeeded after player settles
-              setTimeout(() => {
-                if (event.target.isMuted()) {
-                  // Unmute failed — show "Tap for Sound" button
-                  const unmuteBtn = document.createElement('button')
-                  unmuteBtn.style.cssText = 'position:absolute;bottom:16px;left:16px;z-index:30;background:rgba(0,0,0,0.75);color:white;border:none;padding:8px 16px;border-radius:9999px;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px;transition:background 0.2s;'
-                  unmuteBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg> Tap for Sound'
-                  unmuteBtn.onmouseenter = () => { unmuteBtn.style.background = 'rgba(0,0,0,0.9)' }
-                  unmuteBtn.onmouseleave = () => { unmuteBtn.style.background = 'rgba(0,0,0,0.75)' }
-                  unmuteBtn.onclick = (e) => {
-                    e.stopPropagation()
-                    event.target.unMute()
-                    event.target.setVolume(100)
-                    unmuteBtn.remove()
-                  }
-                  container.appendChild(unmuteBtn)
-                }
-              }, 500)
             },
           },
         })
