@@ -148,14 +148,14 @@ export function V0Footer() {
                     });
                   }
                 }}
-                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
+                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors py-1"
               >
                 <Phone className="w-4 h-4 text-ce-blue-light" />
                 {phone}
               </a>
               <a
                 href="mailto:info@clearedgehomebuyers.com"
-                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
+                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors py-1"
               >
                 <Mail className="w-4 h-4 text-ce-blue-light" />
                 info@clearedgehomebuyers.com
@@ -173,7 +173,7 @@ export function V0Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors py-1 inline-block">
                     {link.label}
                   </Link>
                 </li>
@@ -187,7 +187,7 @@ export function V0Footer() {
             <ul className="space-y-3">
               {situations.map((situation) => (
                 <li key={situation.label}>
-                  <Link href={situation.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                  <Link href={situation.href} className="text-sm text-white/60 hover:text-white transition-colors py-1 inline-block">
                     {situation.label}
                   </Link>
                 </li>
@@ -210,7 +210,7 @@ export function V0Footer() {
                   <ul className="space-y-1 sm:space-y-1.5">
                     {region.cities.map((city) => (
                       <li key={city.label}>
-                        <Link href={city.href} className="text-xs sm:text-sm text-white/60 hover:text-white transition-colors">
+                        <Link href={city.href} className="text-xs sm:text-sm text-white/60 hover:text-white transition-colors py-0.5 inline-block">
                           {city.label}
                         </Link>
                       </li>
@@ -233,7 +233,7 @@ export function V0Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.label}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-white/60 hover:text-white"
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-white/60 hover:text-white"
             >
               {social.icon}
             </a>

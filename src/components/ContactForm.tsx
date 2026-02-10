@@ -138,25 +138,25 @@ export function ContactForm() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink/70 mb-1">First Name</label>
-              <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
+              <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required autoComplete="given-name" className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors text-base" />
             </div>
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-ce-ink/70 mb-1">Last Name</label>
-              <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
+              <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required autoComplete="family-name" className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors text-base" />
             </div>
           </div>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-ce-ink/70 mb-1">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required autoComplete="email" inputMode="email" className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors text-base" />
           </div>
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-ce-ink/70 mb-1">Phone</label>
-            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
+            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required autoComplete="tel" inputMode="tel" className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors text-base" />
             {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
           </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium text-ce-ink/70 mb-1">Tell us about your property (optional)</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
+            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors text-base" />
           </div>
           <div className="space-y-3">
             <label className="flex items-start gap-2 cursor-pointer">
@@ -164,7 +164,7 @@ export function ContactForm() {
                 type="checkbox"
                 checked={termsConsent}
                 onChange={(e) => setTermsConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
               />
               <span className="text-xs text-ce-ink/50 leading-tight">
                 I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
@@ -175,7 +175,7 @@ export function ContactForm() {
                 type="checkbox"
                 checked={smsConsent}
                 onChange={(e) => setSmsConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
               />
               <span className="text-xs text-ce-ink/50 leading-tight">
                 I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.

@@ -91,7 +91,7 @@ export function V0FAQ({
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex items-center justify-between p-5 text-left"
+                  className="w-full flex items-center justify-between p-6 text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="font-medium text-ce-ink pr-4">{faq.question}</span>
@@ -107,7 +107,7 @@ export function V0FAQ({
                 {/* Smooth height animation */}
                 <div className={`accordion-content ${isOpen ? 'is-open' : ''}`}>
                   <div>
-                    <div className="px-5 pb-5">
+                    <div className="px-6 pb-6">
                       <p className="text-ce-ink/70 leading-relaxed">
                         {faq.answer.replace(/\{\{phone\}\}/g, phone)}
                       </p>

@@ -310,7 +310,7 @@ export function V0LeadForm() {
 
   if (isSubmitted) {
     return (
-      <section id="lead-form" className="py-8 md:py-12 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
+      <section id="lead-form" className="py-8 md:py-12 bg-surface-cream scroll-mt-24 md:scroll-mt-28">
         <div className="max-w-2xl mx-auto px-4 text-center">
           {/* Celebration */}
           <div className="relative inline-block mb-6">
@@ -340,7 +340,7 @@ export function V0LeadForm() {
   }
 
   return (
-    <section id="lead-form" className="py-8 md:py-12 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
+    <section id="lead-form" className="py-8 md:py-12 bg-surface-cream scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-6 md:mb-6">
@@ -380,7 +380,7 @@ export function V0LeadForm() {
                 {currentStep > step.id ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <step.icon className="w-4 h-4 sm:w-5 sm:h-5" />}
               </div>
               <span
-                className={`text-[10px] sm:text-xs mt-1.5 sm:mt-2 transition-colors ${
+                className={`text-xs mt-1.5 sm:mt-2 transition-colors ${
                   currentStep === step.id ? "font-semibold text-ce-ink" : currentStep > step.id ? "font-medium text-ce-ink/60" : "text-ce-ink/40"
                 }`}
               >
@@ -424,7 +424,7 @@ export function V0LeadForm() {
                           className={showStep1Errors && !formData.address.trim() ? 'border-red-500' : ''}
                         />
                         {showStep1Errors && !formData.address.trim() && (
-                          <p className="text-red-500 text-xs mt-1">Street address is required</p>
+                          <p className="text-red-500 text-sm mt-1">Street address is required</p>
                         )}
                       </div>
 
@@ -444,7 +444,7 @@ export function V0LeadForm() {
                             className={showStep1Errors && !formData.city.trim() ? 'border-red-500' : ''}
                           />
                           {showStep1Errors && !formData.city.trim() && (
-                            <p className="text-red-500 text-xs mt-1">City is required</p>
+                            <p className="text-red-500 text-sm mt-1">City is required</p>
                           )}
                         </div>
 
@@ -483,10 +483,10 @@ export function V0LeadForm() {
                             className={showStep1Errors && !/^\d{5}$/.test(formData.zip) ? 'border-red-500' : ''}
                           />
                           {showStep1Errors && !formData.zip.trim() && (
-                            <p className="text-red-500 text-xs mt-1">ZIP code is required</p>
+                            <p className="text-red-500 text-sm mt-1">ZIP code is required</p>
                           )}
                           {showStep1Errors && formData.zip.trim() && !/^\d{5}$/.test(formData.zip) && (
-                            <p className="text-red-500 text-xs mt-1">Enter a valid 5-digit ZIP</p>
+                            <p className="text-red-500 text-sm mt-1">Enter a valid 5-digit ZIP</p>
                           )}
                         </div>
                       </div>
@@ -620,6 +620,7 @@ export function V0LeadForm() {
                       <Input
                         id="phone"
                         type="tel"
+                        inputMode="tel"
                         placeholder="(610) 555-0123"
                         value={formData.phone}
                         onChange={(e) => handlePhoneChange(e.target.value)}
@@ -633,6 +634,7 @@ export function V0LeadForm() {
                       <Input
                         id="email"
                         type="email"
+                        inputMode="email"
                         placeholder="john@example.com"
                         value={formData.email}
                         onChange={(e) => updateFormData("email", e.target.value)}
@@ -653,7 +655,7 @@ export function V0LeadForm() {
                           type="checkbox"
                           checked={termsConsent}
                           onChange={(e) => setTermsConsent(e.target.checked)}
-                          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                          className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
                         />
                         <span className="text-xs text-gray-500 leading-tight">
                           I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
@@ -664,7 +666,7 @@ export function V0LeadForm() {
                           type="checkbox"
                           checked={smsConsent}
                           onChange={(e) => setSmsConsent(e.target.checked)}
-                          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                          className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
                         />
                         <span className="text-xs text-gray-500 leading-tight">
                           I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.

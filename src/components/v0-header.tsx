@@ -346,7 +346,7 @@ export function V0Header() {
               }}
               className="flex items-center gap-2 text-ce-ink hover:text-ce-blue transition-colors"
             >
-              <div className="w-9 h-9 bg-ce-blue-subtle rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-ce-blue-subtle rounded-full flex items-center justify-center flex-shrink-0">
                 <Phone className="w-4 h-4 text-ce-blue" />
               </div>
               <span className="font-bold text-sm hidden lg:inline">{phone}</span>
@@ -370,7 +370,7 @@ export function V0Header() {
 
           {/* Mobile Menu Button - only on mobile, not tablet */}
           <button
-            className="md:hidden p-2 rounded-md text-ce-ink"
+            className="md:hidden p-2.5 rounded-md text-ce-ink"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
