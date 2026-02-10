@@ -6,7 +6,7 @@ const stats = [
   {
     icon: Star,
     value: "5.0",
-    label: "Google Rating (All 5-Star)",
+    label: "Google Rating",
   },
   {
     icon: Home,

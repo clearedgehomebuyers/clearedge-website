@@ -31,7 +31,7 @@ export function V0ProblemSolutionMerged() {
             </h2>
             <div className="space-y-4 text-lg text-ce-ink/70">
               <p>
-                Pennsylvania&apos;s 2026 building codes and municipal pre-sale inspection requirements have made traditional sales harder — and more expensive — than ever. Stricter scrutiny on unpermitted work means more surprises at closing.
+                You already know the math doesn&apos;t work. Realtors want $15,000 or more in repairs before they&apos;ll even list your Pennsylvania home. Then you wait 4 to 6 months while buyers fall through, inspections fail, and you keep paying the mortgage on a house you need gone. The 2026 municipal inspection requirements and building codes across PA have only made this process slower, more expensive, and more stressful for homeowners.
               </p>
               <p>
                 If your house needs repairs, has code violations, or you simply can&apos;t afford to wait 90+ days and spend thousands upfront — the traditional process isn&apos;t built for you.

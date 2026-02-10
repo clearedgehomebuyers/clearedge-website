@@ -88,7 +88,7 @@ export const nepaHubData: RegionalHubData = {
     },
   ],
   mapCenter: { lat: 41.35, lng: -75.75 },
-  mapZoom: 9,
+  mapZoom: 8,
 }
 
 export const lehighValleyHubData: RegionalHubData = {
@@ -141,7 +141,7 @@ export const lehighValleyHubData: RegionalHubData = {
     },
   ],
   mapCenter: { lat: 40.62, lng: -75.43 },
-  mapZoom: 10,
+  mapZoom: 9,
 }
 
 export const poconosHubData: RegionalHubData = {
@@ -194,7 +194,7 @@ export const poconosHubData: RegionalHubData = {
     },
   ],
   mapCenter: { lat: 41.05, lng: -75.35 },
-  mapZoom: 10,
+  mapZoom: 9,
 }
 
 // Export all hub data

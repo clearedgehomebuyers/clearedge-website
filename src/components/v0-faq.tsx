@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { Plus, Minus } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 
 type FAQ = {
@@ -60,7 +60,7 @@ export function V0FAQ({
   const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-surface-cream"
 
   return (
-    <section className={`py-12 md:py-16 ${sectionBgClass}`}>
+    <section className={`pt-12 md:pt-16 pb-8 md:pb-10 ${sectionBgClass}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 animate-on-scroll">
@@ -82,12 +82,11 @@ export function V0FAQ({
             return (
               <div
                 key={index}
-                className={`animate-on-scroll border rounded-xl transition-all ${
+                className={`border rounded-xl transition-all ${
                   isOpen
                     ? `border-ce-green/20 ${cardBgOpen}`
                     : `border-ce-ink/10 ${cardBgClosed}`
                 }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -100,7 +99,7 @@ export function V0FAQ({
                       isOpen ? "bg-ce-green text-white" : "bg-ce-ink/5 text-ce-ink/40"
                     }`}
                   >
-                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                   </div>
                 </button>
 

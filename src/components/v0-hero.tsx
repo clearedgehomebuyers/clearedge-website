@@ -98,7 +98,7 @@ export function V0Hero({ city }: V0HeroProps) {
                 variant="ghost"
                 size="xl"
                 onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5"
+                className="text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 border border-ce-ink/10 hover:border-ce-ink/20"
               >
                 See How It Works
               </Button>
@@ -158,7 +158,7 @@ export function V0Hero({ city }: V0HeroProps) {
                   </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <span className="inline-block px-2.5 py-1 bg-ce-green text-white text-xs font-bold rounded-full mb-1.5 badge-shimmer">
+                    <span className="inline-block px-2.5 py-1 bg-ce-green text-white text-xs font-bold rounded-full mb-1.5">
                       Just Closed
                     </span>
                     <p className="text-sm font-bold">Scranton, PA</p>

@@ -53,7 +53,7 @@ export function V0ServiceAreas() {
   }
 
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-b from-surface-green-wash to-surface-green-tint scroll-mt-20 md:scroll-mt-24" id="service-areas">
+    <section className="pt-8 md:pt-10 pb-12 md:pb-16 bg-gradient-to-b from-surface-green-wash to-surface-green-tint scroll-mt-20 md:scroll-mt-24" id="service-areas">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 animate-on-scroll">
           <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">

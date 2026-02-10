@@ -12,7 +12,7 @@ import type { RegionalHubData } from '@/lib/regional-hub-data'
 
 // Trust stats for the hero section
 const trustStats = [
-  { icon: Star, value: '5.0', label: 'Google Rating (All 5-Star)' },
+  { icon: Star, value: '5.0', label: 'Google Rating' },
   { icon: Home, value: '200+', label: 'PA Homes Purchased Since 2016' },
   { icon: Calendar, value: '14 Days', label: 'Average Time to Close' },
   { icon: MapPin, value: '21', label: 'Eastern PA Markets Served' },

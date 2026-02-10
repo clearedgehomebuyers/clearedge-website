@@ -6,6 +6,7 @@ import { useEffect, useRef, useCallback } from "react"
  * IntersectionObserver-based scroll animation hook.
  * Adds 'is-visible' class to elements with 'animate-on-scroll' when they enter the viewport.
  * Also supports count-up animation for stat numbers.
+ * Uses MutationObserver to catch dynamically loaded components (fixes back-button navigation).
  */
 export function useScrollAnimation() {
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -67,11 +68,29 @@ export function useScrollAnimation() {
     )
 
     // Observe all elements with the animation class
-    const elements = document.querySelectorAll(".animate-on-scroll, [data-count-target]")
+    const elements = document.querySelectorAll(".animate-on-scroll:not(.is-visible), [data-count-target]:not(.is-visible)")
     elements.forEach((el) => observerRef.current?.observe(el))
+
+    // Watch for dynamically loaded elements (e.g. Next.js dynamic imports, back-button navigation)
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node instanceof HTMLElement) {
+            if (node.classList?.contains('animate-on-scroll') && !node.classList.contains('is-visible')) {
+              observerRef.current?.observe(node)
+            }
+            const children = node.querySelectorAll?.('.animate-on-scroll:not(.is-visible), [data-count-target]:not(.is-visible)')
+            children?.forEach((el) => observerRef.current?.observe(el))
+          }
+        })
+      })
+    })
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       observerRef.current?.disconnect()
+      mutationObserver.disconnect()
     }
   }, [])
 }

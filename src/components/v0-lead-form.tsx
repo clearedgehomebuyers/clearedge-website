@@ -234,18 +234,24 @@ export function V0LeadForm() {
 
   // Track GA4 conversion when form is successfully submitted
   useEffect(() => {
-    if (isSubmitted && typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'Multi-Step Lead Form',
-        value: 1,
-        traffic_source: trafficSource,
-        utm_source: utmParams.utm_source,
-        utm_medium: utmParams.utm_medium,
-        utm_campaign: utmParams.utm_campaign,
-        page_location: window.location.href,
-        page_path: window.location.pathname
-      });
+    if (isSubmitted && typeof window !== 'undefined') {
+      if (window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'Lead Form',
+          event_label: 'Multi-Step Lead Form',
+          value: 1,
+          traffic_source: trafficSource,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          page_location: window.location.href,
+          page_path: window.location.pathname
+        });
+      }
+      // Scroll to confirmation so user sees submission was successful
+      setTimeout(() => {
+        document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 100)
     }
   }, [isSubmitted]);
 
@@ -706,7 +712,7 @@ export function V0LeadForm() {
                     variant="brand"
                     size="xl"
                     disabled={isSubmitting || !isStepValid(5)}
-                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed ${isStepValid(5) && !isSubmitting ? 'ring-4 ring-ce-green/20 animate-pulse' : ''}`}
+                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed ${isStepValid(5) && !isSubmitting ? 'ring-4 ring-ce-green/20' : ''}`}
                   >
                     {isSubmitting ? "Submitting..." : "Get My Cash Offer"}
                     {!isSubmitting && <ArrowRight className="w-4 h-4" />}
@@ -730,6 +736,13 @@ export function V0LeadForm() {
             <Lock className="w-4 h-4 text-ce-blue" />
             <span>100% secure & encrypted</span>
           </div>
+        </div>
+
+        {/* Visual separator */}
+        <div className="flex items-center justify-center gap-3 mt-10">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-ce-ink/10" />
+          <div className="w-1.5 h-1.5 rounded-full bg-ce-green/30" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-ce-ink/10" />
         </div>
       </div>
     </section>
