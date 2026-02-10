@@ -30,7 +30,7 @@ const testimonialsFaqs = [
 
 export const metadata: Metadata = {
   title: 'ClearEdge Home Buyers Reviews | Real PA Homeowner Testimonials',
-  description: 'Every ClearEdge Google review is 5 stars. Read real testimonials from PA homeowners who sold inherited properties, avoided foreclosure, and closed in as few as 14 days.',
+  description: 'Read verified Google reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Inherited properties, foreclosure, fast closings — real stories from real sellers across Eastern PA.',
   keywords: ['ClearEdge reviews', 'cash home buyer reviews PA', 'sell house fast reviews Pennsylvania'],
   openGraph: {
     title: 'Testimonials | What Homeowners Say About ClearEdge Home Buyers',
@@ -282,10 +282,10 @@ export default function TestimonialsPage() {
               Testimonials
             </span>
             <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6">
-              Every Google Review Is 5 Stars. Here&apos;s Why.
+              Most Cash Buyers Won&apos;t Show You Their Reviews. We Lead With Ours.
             </h1>
             <p className="text-xl text-ce-ink/70 mb-6 max-w-2xl mx-auto">
-              We don&apos;t have hundreds of reviews — we have a perfect rating from every homeowner we&apos;ve worked with. Read what real Pennsylvania sellers say about working with Tyler.
+              Every review on this page is verified on Google — from real Pennsylvania homeowners who sold inherited properties, avoided foreclosure, and closed on their timeline. No scripts. No cherry-picking. Read their words and decide for yourself.
             </p>
             <TrackedCTALink
               href="#lead-form"
@@ -402,9 +402,9 @@ export default function TestimonialsPage() {
 
         {/* Lead Form Section - Beige */}
         <section id="lead-form" className="py-8 md:py-10 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <V0LeadForm />
-            <p className="text-ce-ink/70 text-sm mt-8">
+            <p className="text-ce-ink/70 text-sm mt-8 text-center">
               Prefer to talk? Call Tyler directly:{' '}
               <DynamicPhoneLink className="font-semibold text-ce-green hover:underline" />
             </p>

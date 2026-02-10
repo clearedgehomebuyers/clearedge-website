@@ -72,7 +72,7 @@ export function V0TrustBar() {
               )}
 
               {/* Label */}
-              <div className="text-xs sm:text-sm tracking-wide uppercase text-ce-ink/60 font-medium" style={{ letterSpacing: '0.05em' }}>
+              <div className="text-xs sm:text-sm tracking-wide uppercase text-ce-ink/60 font-medium text-center" style={{ letterSpacing: '0.05em' }}>
                 {stat.label}
               </div>
             </div>
