@@ -48,31 +48,35 @@ export function V0Hero({ city }: V0HeroProps) {
   }
 
   return (
-    <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
+    <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream surface-grain">
+      {/* Ambient decoration circles */}
+      <div className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full bg-ce-green/[0.03] blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] rounded-full bg-ce-blue/[0.03] blur-3xl pointer-events-none" />
+
       <div className="relative max-w-7xl mx-auto w-full">
         {/* Two-column layout for lg: and above, single column for mobile */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
           {/* LEFT COLUMN - Text content (centered within column) */}
           <div className="text-center lg:text-center">
             {/* Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-foreground mb-5 leading-[1.1]">
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ce-ink mb-5 leading-[1.1]">
               {cityDisplayName ? (
                 <>
                   Cash Home Buyers in {cityDisplayName}, PA
                   <br />
-                  <span className="text-primary">Who Actually Close.</span>
+                  <span className="text-gradient-brand">Who Actually Close.</span>
                 </>
               ) : (
                 <>
                   Pennsylvania Cash Home Buyers
                   <br />
-                  <span className="text-primary">Who Actually Close.</span>
+                  <span className="text-gradient-brand">Who Actually Close.</span>
                 </>
               )}
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed font-light">
+            <p className="text-lg sm:text-xl text-ce-ink-70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
               {cityDisplayName
                 ? `Your ${cityDisplayName} house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours — close in as few as 7 days.`
                 : 'Your house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours from a local, family-owned company — close in as few as 7 days.'
@@ -83,17 +87,18 @@ export function V0Hero({ city }: V0HeroProps) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <Button
                 onClick={scrollToForm}
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary-hover text-base px-8 py-6 rounded-full shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 group"
+                variant="brand"
+                size="xl"
+                className="group"
               >
                 Get My Fair Cash Offer
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 variant="ghost"
-                size="lg"
+                size="xl"
                 onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-base px-8 py-6 rounded-full text-foreground/80 hover:text-foreground hover:bg-foreground/5"
+                className="text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5"
               >
                 See How It Works
               </Button>
@@ -102,56 +107,63 @@ export function V0Hero({ city }: V0HeroProps) {
             {/* Trust Indicators - 2x2 GRID */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
               <div className="flex items-center justify-center gap-2">
-                <Clock className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Close in 7–30 Days</span>
+                <Clock className="w-4 h-4 text-ce-green flex-shrink-0" />
+                <span className="text-sm text-ce-ink/60 whitespace-nowrap">Close in 7–30 Days</span>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">Zero Fees or Commissions</span>
+                <DollarSign className="w-4 h-4 text-ce-green flex-shrink-0" />
+                <span className="text-sm text-ce-ink/60 whitespace-nowrap">Zero Fees or Commissions</span>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <Shield className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">No Repairs Needed</span>
+                <Shield className="w-4 h-4 text-ce-green flex-shrink-0" />
+                <span className="text-sm text-ce-ink/60 whitespace-nowrap">No Repairs Needed</span>
               </div>
               <div className="flex items-center justify-center gap-2">
-                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm text-foreground/60 whitespace-nowrap">200+ PA Homes Bought</span>
+                <MapPin className="w-4 h-4 text-ce-green flex-shrink-0" />
+                <span className="text-sm text-ce-ink/60 whitespace-nowrap">200+ PA Homes Bought</span>
               </div>
             </div>
           </div>
 
           {/* RIGHT COLUMN - Property widget (centered horizontally and vertically) */}
           <div className="flex items-center justify-center h-full">
-            <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
-              <div className="relative aspect-[4/3]">
-                <picture>
-                  {/* WebP sources for modern browsers */}
-                  <source
-                    type="image/webp"
-                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
-                    sizes="(max-width: 768px) 280px, 320px"
-                  />
-                  {/* Fallback for older browsers */}
-                  <img
-                    src="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
-                    srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
-                    sizes="(max-width: 768px) 280px, 320px"
-                    width={320}
-                    height={240}
-                    alt="Cash home purchase in Scranton, PA - sold as-is to ClearEdge Home Buyers"
-                    className="w-full h-full object-cover"
-                    fetchPriority="high"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
-                    Just Closed
-                  </span>
-                  <p className="text-sm font-bold">Scranton, PA</p>
-                  <p className="text-xs text-white/90">Closed in 14 Days, As-Is</p>
+            {/* Stacked card effect container */}
+            <div className="relative">
+              {/* Background stacked card */}
+              <div className="absolute inset-0 bg-white rounded-2xl shadow-lg border border-ce-ink/5 transform rotate-2 scale-[0.97] translate-x-2 translate-y-1" />
+
+              {/* Main card */}
+              <div className="relative bg-white rounded-2xl shadow-2xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[380px] hover:-translate-y-1 transition-transform duration-300">
+                <div className="relative aspect-[4/3]">
+                  <picture>
+                    {/* WebP sources for modern browsers */}
+                    <source
+                      type="image/webp"
+                      srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                      sizes="(max-width: 768px) 280px, 380px"
+                    />
+                    {/* Fallback for older browsers */}
+                    <img
+                      src="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
+                      srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                      sizes="(max-width: 768px) 280px, 380px"
+                      width={380}
+                      height={285}
+                      alt="Cash home purchase in Scranton, PA - sold as-is to ClearEdge Home Buyers"
+                      className="w-full h-full object-cover"
+                      fetchPriority="high"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </picture>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                    <span className="inline-block px-2.5 py-1 bg-ce-green text-white text-xs font-bold rounded-full mb-1.5 badge-shimmer">
+                      Just Closed
+                    </span>
+                    <p className="text-sm font-bold">Scranton, PA</p>
+                    <p className="text-xs text-white/90">Closed in 14 Days, As-Is</p>
+                  </div>
                 </div>
               </div>
             </div>

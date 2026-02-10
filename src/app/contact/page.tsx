@@ -166,42 +166,42 @@ export default function ContactPage() {
         <V0Header />
 
         {/* Hero Section - Cream */}
-        <section className="relative pt-32 pb-12 md:pb-16 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-12 md:pb-16 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Contact Us
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6">
               Talk to Tyler — Not a Call Center, Not a Salesperson
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto">
+            <p className="text-xl text-ce-ink/70 max-w-2xl mx-auto">
               Get a fair, no-obligation cash offer in 24 hours. Every inquiry is personally reviewed by Tyler, the owner of ClearEdge.
             </p>
           </div>
         </section>
 
         {/* Trust Bar - Sage Green Gradient */}
-        <section className="py-6 md:py-8 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-6 md:py-8 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-wrap items-center justify-center gap-x-8 md:gap-x-16 gap-y-4">
               <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">200+ PA Homes Purchased</span>
+                <Users className="w-5 h-5 text-ce-green" />
+                <span className="text-ce-ink font-medium">200+ PA Homes Purchased</span>
               </div>
               <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">Buying Since 2016</span>
+                <Calendar className="w-5 h-5 text-ce-green" />
+                <span className="text-ce-ink font-medium">Buying Since 2016</span>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-[#008a29]" />
-                <span className="text-[#1a2e1a] font-medium">21 Eastern PA Markets</span>
+                <MapPin className="w-5 h-5 text-ce-green" />
+                <span className="text-ce-ink font-medium">21 Eastern PA Markets</span>
               </div>
             </div>
           </div>
         </section>
 
         {/* Lead Form + Contact Widgets - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-6xl mx-auto px-4">
             <ContactForm />
           </div>
@@ -216,15 +216,15 @@ export default function ContactPage() {
 
 
         {/* Final CTA Section - Beige */}
-        <section className="py-12 md:py-14 px-4 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 px-4 bg-surface-cream">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">Prefer to Talk on the Phone?</h2>
-            <p className="text-xl text-[#1a1f1a]/70 mb-6">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">Call Now</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink mb-6">Prefer to Talk on the Phone?</h2>
+            <p className="text-xl text-ce-ink/70 mb-6">
               Skip the form. Call Tyler directly.
             </p>
             <DynamicPhoneButton
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold rounded-full shadow-lg shadow-[#008a29]/20 hover:shadow-xl transition-all text-lg"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-ce-green hover:bg-ce-green-hover text-white font-semibold rounded-full shadow-lg shadow-green hover:shadow-xl transition-all text-lg"
             >
               <Phone className="w-6 h-6" />
               <span>Call Now</span>

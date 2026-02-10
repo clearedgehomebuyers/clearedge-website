@@ -59,33 +59,39 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
           <Link
             key={post._id}
             href={`/blog/${post.slug.current}`}
-            className="group relative bg-[#FAF8F5] rounded-2xl overflow-hidden border border-[#1a1f1a]/5 hover:shadow-lg transition-all"
+            className="group relative bg-surface-cream rounded-2xl overflow-hidden border border-ce-ink/5 shadow-sm hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
           >
-            {post.featuredImage?.asset?.url && (
-              <img
-                src={post.featuredImage.asset.url}
-                alt={post.featuredImage.alt || post.title}
-                className="w-full h-48 object-cover"
-              />
+            {post.featuredImage?.asset?.url ? (
+              <div className="overflow-hidden">
+                <img
+                  src={post.featuredImage.asset.url}
+                  alt={post.featuredImage.alt || post.title}
+                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ) : (
+              <div className="w-full h-48 bg-gradient-to-br from-surface-cream to-surface-green-wash flex items-center justify-center">
+                <FileText className="w-12 h-12 text-ce-ink/20" />
+              </div>
             )}
             <div className="p-6">
               {post.category && (
-                <span className="text-sm text-[#008a29] font-medium">
+                <span className="text-ce-green text-xs font-medium uppercase tracking-wide">
                   {formatCategory(post.category)}
                 </span>
               )}
-              <h3 className="text-lg font-serif font-medium text-[#1a1f1a] mt-2 mb-3 group-hover:text-[#008a29] transition-colors">
+              <h3 className="text-lg font-serif font-medium text-ce-ink mt-2 mb-3 group-hover:text-ce-green transition-colors">
                 {post.title}
               </h3>
               {post.excerpt && (
-                <p className="text-[#1a1f1a]/70 text-sm line-clamp-3">
+                <p className="text-ce-ink/70 text-sm line-clamp-3">
                   {post.excerpt}
                 </p>
               )}
-              <div className="mt-4 pt-4 border-t border-[#1a1f1a]/5 flex items-center justify-between">
+              <div className="mt-4 pt-4 border-t border-ce-ink/5 flex items-center justify-between">
                 <time
                   dateTime={post.publishedAt}
-                  className="text-sm text-[#1a1f1a]/50"
+                  className="text-sm text-ce-ink/50"
                 >
                   {new Date(post.publishedAt).toLocaleDateString('en-US', {
                     year: 'numeric',
@@ -93,7 +99,7 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
                     day: 'numeric',
                   })}
                 </time>
-                <ArrowRight className="w-4 h-4 text-[#008a29] opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-ce-green opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
               </div>
             </div>
           </Link>
@@ -102,18 +108,18 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
 
       {posts.length === 0 && (
         <div className="text-center py-12">
-          <FileText className="w-12 h-12 text-[#1a1f1a]/30 mx-auto mb-4" />
-          <p className="text-[#1a1f1a]/70">
+          <FileText className="w-12 h-12 text-ce-ink/30 mx-auto mb-4" />
+          <p className="text-ce-ink/70">
             New guides coming soon. Check back shortly.
           </p>
         </div>
       )}
 
       {hasMorePosts && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8">
           <button
             onClick={() => setVisibleCount(prev => prev + POSTS_PER_PAGE)}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-[#FAF8F5] transition-all"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-ce-ink/10 text-ce-ink rounded-full font-medium hover:bg-surface-cream transition-all"
           >
             Load More Guides
             <ArrowRight className="w-4 h-4" />

@@ -75,7 +75,7 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={value?.href}
-          className="text-[#008a29] hover:underline font-medium"
+          className="text-ce-green hover:underline font-medium"
         >
           {children}
         </a>
@@ -176,20 +176,20 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       <V0Header />
 
       {/* Hero Section - Cream */}
-      <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
+      <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream">
         <div className="relative max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-6 items-center">
             {/* LEFT COLUMN - Text content (centered within column) */}
             <div className="text-center lg:text-center">
               {/* Headline */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1f1a] mb-5 leading-[1.1]">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ce-ink mb-5 leading-[1.1]">
                 {situation.heroHeadline || `Sell Your House Fast.`}
                 <br />
-                <span className="text-[#008a29]">{situation.title}</span>
+                <span className="text-ce-green">{situation.title}</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-ce-ink/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
                 {situation.heroSubheadline || `Dealing with ${situation.title.toLowerCase()}? We understand. Get a fair cash offer and close on your timeline — no repairs, no fees, no hassle.`}
               </p>
 
@@ -199,10 +199,10 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   href="#lead-form"
                   label="Get My Fair Cash Offer"
                   eventLabel="Get My Fair Cash Offer - Situation Hero"
-                  className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
+                  className="inline-flex items-center justify-center bg-ce-green text-white hover:bg-ce-green-hover text-base px-8 py-4 rounded-full shadow-lg shadow-green transition-all hover:shadow-xl hover:shadow-green-lg hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink
-                  className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
+                  className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 font-medium"
                   showIcon
                   iconClassName="w-5 h-5 mr-2"
                 />
@@ -212,7 +212,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
-              <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
+              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={(heroPhotos[slug] || defaultPhoto).src}
@@ -223,7 +223,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                    <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
+                    <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
                       Just Closed
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
@@ -235,20 +235,20 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               {/* Trust Indicators - 2x2 GRID */}
               <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
                 <div className="flex items-center justify-center gap-3">
-                  <Clock className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
+                  <Clock className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <DollarSign className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees Ever</span>
+                  <DollarSign className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Zero Fees Ever</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Shield className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Sell 100% As-Is</span>
+                  <Shield className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Sell 100% As-Is</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
+                  <MapPin className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>
@@ -258,14 +258,14 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Answer-First Summary - White */}
       {answerFirstSummaries[slug] && (
-        <section className="py-8 md:py-10 bg-white border-b border-[#1a1f1a]/5">
+        <section className="py-8 md:py-10 bg-white border-b border-ce-ink/5">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
-              <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
-              <h2 className="font-serif text-xl md:text-2xl font-medium text-[#1a1f1a] mb-4">
+            <div className="bg-ce-green-subtle border border-ce-green/20 rounded-2xl p-6 md:p-8">
+              <p className="text-ce-green font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
+              <h2 className="font-serif text-xl md:text-2xl font-medium text-ce-ink mb-4">
                 {answerFirstSummaries[slug].question}
               </h2>
-              <p className="text-[#1a1f1a]/80 leading-relaxed text-lg">
+              <p className="text-ce-ink/80 leading-relaxed text-lg">
                 {answerFirstSummaries[slug].answer}
               </p>
             </div>
@@ -278,13 +278,13 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">We Understand</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">We Understand</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">
                 Dealing with {situation.title}?
               </h2>
             </div>
 
-            <div className="text-[#1a1f1a]/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
+            <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
               <PortableText value={situation.problemDescription} components={portableTextComponents} />
             </div>
           </div>
@@ -293,12 +293,12 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Benefits Grid - Cream */}
       {situation.benefits && situation.benefits.length > 0 && (
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Benefits</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a] mb-4">Why Sell to ClearEdge?</h2>
-              <p className="text-[#1a1f1a]/70 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Benefits</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink mb-4">Why Sell to ClearEdge?</h2>
+              <p className="text-ce-ink/70 max-w-2xl mx-auto">We specialize in helping homeowners facing {situation.title.toLowerCase()} situations.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -306,12 +306,12 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 const icons = [Clock, DollarSign, Shield, Home, CheckCircle, ArrowRight]
                 const Icon = icons[i % icons.length]
                 return (
-                  <div key={i} className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5 hover:shadow-lg transition-all duration-300">
-                    <div className="w-14 h-14 bg-[#008a29]/10 rounded-xl flex items-center justify-center mb-5">
-                      <Icon className="w-7 h-7 text-[#008a29]" />
+                  <div key={i} className="bg-white rounded-2xl p-8 border border-ce-ink/5 hover:shadow-lg transition-all duration-300">
+                    <div className="w-14 h-14 bg-ce-green/10 rounded-xl flex items-center justify-center mb-5">
+                      <Icon className="w-7 h-7 text-ce-green" />
                     </div>
-                    <h3 className="font-serif font-medium text-xl text-[#1a1f1a] mb-3">{benefit.title}</h3>
-                    <p className="text-[#1a1f1a]/70 leading-relaxed">{benefit.description}</p>
+                    <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">{benefit.title}</h3>
+                    <p className="text-ce-ink/70 leading-relaxed">{benefit.description}</p>
                   </div>
                 )
               })}
@@ -324,8 +324,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       <section className="py-12 md:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Simple Process</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">How It Works</h2>
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Simple Process</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">How It Works</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -335,11 +335,11 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               { step: '3', title: 'Close on Your Timeline', desc: 'Accept and choose your closing date — as fast as 7 days. We handle all paperwork, pay all closing costs, and wire your funds directly.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-16 h-16 bg-[#008a29] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#008a29]/20">
+                <div className="w-16 h-16 bg-ce-green rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green">
                   <span className="text-2xl font-bold text-white">{item.step}</span>
                 </div>
-                <h3 className="font-serif font-medium text-xl text-[#1a1f1a] mb-3">{item.title}</h3>
-                <p className="text-[#1a1f1a]/70">{item.desc}</p>
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">{item.title}</h3>
+                <p className="text-ce-ink/70">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -353,11 +353,11 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
 
       {/* Related Blog Posts - Cream */}
       {relatedBlogPosts && relatedBlogPosts.length > 0 && (
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Related Articles</h2>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Related Articles</h2>
             </div>
 
             <div className="space-y-4">
@@ -365,18 +365,18 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug.current}`}
-                  className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg transition-all duration-300"
+                  className="block bg-white rounded-2xl p-6 border border-ce-ink/5 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-[#008a29]" />
+                    <div className="w-12 h-12 bg-ce-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-ce-green" />
                     </div>
                     <div>
-                      <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-2 group-hover:text-[#008a29] transition-colors">{post.title}</h3>
+                      <h3 className="font-serif font-medium text-lg text-ce-ink mb-2 group-hover:text-ce-green transition-colors">{post.title}</h3>
                       {post.excerpt && (
-                        <p className="text-[#1a1f1a]/70 text-sm line-clamp-2">{post.excerpt}</p>
+                        <p className="text-ce-ink/70 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
-                      <span className="inline-flex items-center text-[#008a29] font-medium text-sm mt-3">
+                      <span className="inline-flex items-center text-ce-green font-medium text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />
                       </span>
                     </div>
@@ -389,9 +389,9 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             <div className="text-center mt-6">
               <Link
                 href="/blog"
-                className="inline-flex items-center px-6 py-3 bg-white hover:bg-[#1a1f1a]/5 text-[#1a1f1a]/70 font-medium rounded-full border border-[#1a1f1a]/10 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white hover:bg-ce-ink/5 text-ce-ink/70 font-medium rounded-full border border-ce-ink/10 transition-colors"
               >
-                <BookOpen className="w-5 h-5 mr-2 text-[#008a29]" />
+                <BookOpen className="w-5 h-5 mr-2 text-ce-green" />
                 More Helpful Guides
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>

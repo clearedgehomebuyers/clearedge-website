@@ -137,15 +137,15 @@ export default function CashBuyerVsRealtorPage() {
         <V0Header />
 
         {/* HERO SECTION */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-4xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Honest Comparison
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6 leading-tight">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6 leading-tight">
               Cash Buyer vs. Realtor: Which Is the Right Way to Sell Your PA House?
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-8 max-w-3xl mx-auto">
               An honest, side-by-side comparison from a local cash buyer who&apos;ll tell you when we&apos;re NOT your best option.
             </p>
             <TrackedCTALink
@@ -157,7 +157,7 @@ export default function CashBuyerVsRealtorPage() {
         </section>
 
         {/* TABLE OF CONTENTS - Sticky on desktop */}
-        <section className="py-4 bg-white border-b border-[#1a1f1a]/10 sticky top-20 md:top-24 z-40">
+        <section className="py-4 bg-white border-b border-ce-ink/10 sticky top-20 md:top-24 z-40">
           <div className="max-w-6xl mx-auto px-4">
             <nav className="overflow-x-auto">
               <ul className="flex gap-4 md:gap-6 justify-start md:justify-center min-w-max">
@@ -165,7 +165,7 @@ export default function CashBuyerVsRealtorPage() {
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}
-                      className="text-sm text-[#1a1f1a]/60 hover:text-[#008a29] transition-colors whitespace-nowrap"
+                      className="text-sm text-ce-ink/60 hover:text-ce-green transition-colors whitespace-nowrap"
                     >
                       {section.label}
                     </a>
@@ -180,14 +180,14 @@ export default function CashBuyerVsRealtorPage() {
         <section id="honest-truth" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Real Talk
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 The Honest Truth: Neither Option Is Always Better
               </h2>
             </div>
-            <div className="text-lg text-[#1a1f1a]/70 space-y-6 leading-relaxed">
+            <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
                 Most comparison pages you&apos;ll find online are written by cash buyers trying to convince you to sell to them, or by agents trying to justify their commission. We&apos;re going to give you the real picture.
               </p>
@@ -197,9 +197,9 @@ export default function CashBuyerVsRealtorPage() {
               <p>
                 This guide breaks down both options honestly so you can make the decision that&apos;s right for you.
               </p>
-              <div className="bg-[#FAF8F5] border-l-4 border-[#008a29] p-6 rounded-r-2xl">
-                <p className="text-[#1a1f1a]/80">
-                  <span className="font-semibold text-[#1a1f1a]">One thing worth knowing upfront:</span> cash sales are more common than most people think. According to the National Association of Realtors, nearly 1 in 3 home sales in late 2025 were all-cash transactions — the highest rate in over a decade. Meanwhile, 91% of sellers still use a real estate agent. Both paths work. The question is which one works for YOUR situation.
+              <div className="bg-surface-cream border-l-4 border-ce-green p-6 rounded-r-2xl">
+                <p className="text-ce-ink/80">
+                  <span className="font-semibold text-ce-ink">One thing worth knowing upfront:</span> cash sales are more common than most people think. According to the National Association of Realtors, nearly 1 in 3 home sales in late 2025 were all-cash transactions — the highest rate in over a decade. Meanwhile, 91% of sellers still use a real estate agent. Both paths work. The question is which one works for YOUR situation.
                 </p>
               </div>
             </div>
@@ -207,90 +207,90 @@ export default function CashBuyerVsRealtorPage() {
         </section>
 
         {/* SECTION 3: COMPARISON TABLE */}
-        <section id="comparison-table" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="comparison-table" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Full Comparison
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Cash Buyer vs. Realtor: The Full Comparison
               </h2>
             </div>
 
             {/* Desktop Table */}
             <div className="hidden md:block overflow-x-auto">
-              <div className="overflow-hidden rounded-2xl border border-[#1a1f1a]/10 shadow-lg bg-white">
+              <div className="overflow-hidden rounded-2xl border border-ce-ink/10 shadow-lg bg-white">
                 <table className="w-full">
                   <thead>
                     <tr>
-                      <th className="text-left py-5 px-6 bg-[#FAF8F5] font-medium text-[#1a1f1a]/70 w-1/3">Factor</th>
-                      <th className="text-center py-5 px-6 bg-[#008a29] text-white w-1/3">
+                      <th className="text-left py-5 px-6 bg-surface-cream font-medium text-ce-ink/70 w-1/3">Factor</th>
+                      <th className="text-center py-5 px-6 bg-ce-green text-white w-1/3">
                         <div className="flex flex-col items-center">
                           <CheckCircle className="w-6 h-6 mb-1" />
                           <span className="font-semibold">Cash Buyer</span>
                         </div>
                       </th>
-                      <th className="text-center py-5 px-6 bg-[#FAF8F5] text-[#1a1f1a]/70 w-1/3">
+                      <th className="text-center py-5 px-6 bg-surface-cream text-ce-ink/70 w-1/3">
                         <span className="font-semibold">Realtor</span>
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Timeline to Close</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">7–30 days</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">60–120+ days</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Timeline to Close</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">7–30 days</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">60–120+ days</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Repairs Required</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None — sell 100% as-is</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">$10,000–$30,000+ typically</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Repairs Required</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">None — sell 100% as-is</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">$10,000–$30,000+ typically</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Commissions & Fees</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">$0</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">5.81% avg in PA (~$16K on $280K home)</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Commissions & Fees</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">$0</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">5.81% avg in PA (~$16K on $280K home)</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Showings</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">One visit from our team</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Dozens of showings, open houses</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Showings</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">One visit from our team</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Dozens of showings, open houses</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Certainty of Sale</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Guaranteed — no financing contingencies</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">15–20% fall through</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Certainty of Sale</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Guaranteed — no financing contingencies</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">15–20% fall through</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Sale Price</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 text-[#1a1f1a]/70">Below market value (we&apos;re transparent)</td>
-                      <td className="py-5 px-6 text-center font-semibold text-[#008a29]">Potentially full market value</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Sale Price</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle text-ce-ink/70">Below market value (we&apos;re transparent)</td>
+                      <td className="py-5 px-6 text-center font-semibold text-ce-green">Potentially full market value</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Out-of-Pocket Costs</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">$0</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Repairs, staging, carrying costs, commissions</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Out-of-Pocket Costs</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">$0</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Repairs, staging, carrying costs, commissions</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Inspections / Appraisals</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None required</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Can derail deals</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Inspections / Appraisals</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">None required</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Can derail deals</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Negotiation</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">One straightforward offer</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Back-and-forth, potential price reductions</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Negotiation</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">One straightforward offer</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Back-and-forth, potential price reductions</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Privacy</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Completely private</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Public listing with photos online</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Privacy</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Completely private</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Public listing with photos online</td>
                     </tr>
-                    <tr className="border-t border-[#1a1f1a]/5">
-                      <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Stress Level</td>
-                      <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Minimal — one point of contact</td>
-                      <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Can be significant</td>
+                    <tr className="border-t border-ce-ink/5">
+                      <td className="py-5 px-6 font-medium text-ce-ink/70">Stress Level</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Minimal — one point of contact</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">Can be significant</td>
                     </tr>
                   </tbody>
                 </table>
@@ -309,16 +309,16 @@ export default function CashBuyerVsRealtorPage() {
                 { factor: 'Out-of-Pocket Costs', cash: '$0', realtor: 'Repairs, staging, commissions', cashWins: true },
                 { factor: 'Privacy', cash: 'Completely private', realtor: 'Public listing online', cashWins: true },
               ].map((row, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 border border-[#1a1f1a]/10">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-3">{row.factor}</h3>
+                <div key={i} className="bg-white rounded-xl p-5 border border-ce-ink/10">
+                  <h3 className="font-semibold text-ce-ink mb-3">{row.factor}</h3>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className={`p-3 rounded-lg ${row.cashWins ? 'bg-[#008a29]/10' : 'bg-gray-50'}`}>
-                      <p className="text-xs text-[#1a1f1a]/50 mb-1">Cash Buyer</p>
-                      <p className={`text-sm font-medium ${row.cashWins ? 'text-[#008a29]' : 'text-[#1a1f1a]/70'}`}>{row.cash}</p>
+                    <div className={`p-3 rounded-lg ${row.cashWins ? 'bg-ce-green/10' : 'bg-gray-50'}`}>
+                      <p className="text-xs text-ce-ink/50 mb-1">Cash Buyer</p>
+                      <p className={`text-sm font-medium ${row.cashWins ? 'text-ce-green' : 'text-ce-ink/70'}`}>{row.cash}</p>
                     </div>
-                    <div className={`p-3 rounded-lg ${!row.cashWins ? 'bg-[#008a29]/10' : 'bg-gray-50'}`}>
-                      <p className="text-xs text-[#1a1f1a]/50 mb-1">Realtor</p>
-                      <p className={`text-sm font-medium ${!row.cashWins ? 'text-[#008a29]' : 'text-[#1a1f1a]/70'}`}>{row.realtor}</p>
+                    <div className={`p-3 rounded-lg ${!row.cashWins ? 'bg-ce-green/10' : 'bg-gray-50'}`}>
+                      <p className="text-xs text-ce-ink/50 mb-1">Realtor</p>
+                      <p className={`text-sm font-medium ${!row.cashWins ? 'text-ce-green' : 'text-ce-ink/70'}`}>{row.realtor}</p>
                     </div>
                   </div>
                 </div>
@@ -331,47 +331,47 @@ export default function CashBuyerVsRealtorPage() {
         <section id="when-realtor-better" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Being Honest
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 When You Should List with a Realtor
               </h2>
             </div>
-            <div className="text-lg text-[#1a1f1a]/70 space-y-6 leading-relaxed">
+            <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
                 A traditional listing with a realtor is likely your best option if:
               </p>
 
               <div className="space-y-6">
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">Your home is in good, move-in-ready condition.</h3>
-                  <p>If your property doesn&apos;t need major repairs and shows well, you&apos;ll likely get the highest price by exposing it to the open market. Well-maintained homes in desirable Eastern PA neighborhoods are selling quickly — in the <Link href="/locations/lehigh-valley" className="text-[#008a29] hover:underline">Lehigh Valley</Link>, move-in ready homes sell in about 22 days at or above asking price. <Link href="/locations/nepa" className="text-[#008a29] hover:underline">NEPA&apos;s</Link> hottest markets like <Link href="/locations/scranton" className="text-[#008a29] hover:underline">Scranton</Link> see well-priced homes go in under 10 days.</p>
+                <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">Your home is in good, move-in-ready condition.</h3>
+                  <p>If your property doesn&apos;t need major repairs and shows well, you&apos;ll likely get the highest price by exposing it to the open market. Well-maintained homes in desirable Eastern PA neighborhoods are selling quickly — in the <Link href="/locations/lehigh-valley" className="text-ce-green hover:underline">Lehigh Valley</Link>, move-in ready homes sell in about 22 days at or above asking price. <Link href="/locations/nepa" className="text-ce-green hover:underline">NEPA&apos;s</Link> hottest markets like <Link href="/locations/scranton" className="text-ce-green hover:underline">Scranton</Link> see well-priced homes go in under 10 days.</p>
                 </div>
 
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You have time to wait.</h3>
+                <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You have time to wait.</h3>
                   <p>The traditional process typically takes 60 to 120 days from listing to closing. If you&apos;re not under time pressure, this timeline allows for maximum market exposure and competitive offers.</p>
                 </div>
 
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You want to maximize sale price above all else.</h3>
+                <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You want to maximize sale price above all else.</h3>
                   <p>Cash buyers need to account for repair costs, carrying costs, and operating margins. A realtor sale to a retail buyer will generally yield a higher gross sale price — though the net difference narrows significantly once you subtract commissions, repairs, and carrying costs.</p>
                 </div>
 
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">Your property will pass a standard inspection.</h3>
+                <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">Your property will pass a standard inspection.</h3>
                   <p>Buyers who finance their purchase need a lender-approved appraisal and will typically request an inspection. If your home will pass both without major issues, the traditional route works in your favor.</p>
                 </div>
 
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You&apos;re comfortable with the process.</h3>
+                <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You&apos;re comfortable with the process.</h3>
                   <p>Showings, negotiations, contingencies, and the possibility of deals falling through are all part of traditional selling. If you&apos;re prepared for that, a good agent can guide you through it.</p>
                 </div>
               </div>
 
-              <div className="bg-[#008a29]/10 border-l-4 border-[#008a29] p-6 rounded-r-2xl mt-8">
-                <p className="text-[#1a1f1a] font-medium">
+              <div className="bg-ce-green/10 border-l-4 border-ce-green p-6 rounded-r-2xl mt-8">
+                <p className="text-ce-ink font-medium">
                   Bottom line: If your house is in solid shape and you have 90+ days, talk to a local agent. We&apos;ll be the first to tell you that.
                 </p>
               </div>
@@ -380,49 +380,49 @@ export default function CashBuyerVsRealtorPage() {
         </section>
 
         {/* SECTION 5: WHEN CASH IS BETTER */}
-        <section id="when-cash-better" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="when-cash-better" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 When We Can Help
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 When Selling to a Cash Buyer Makes More Sense
               </h2>
             </div>
-            <div className="text-lg text-[#1a1f1a]/70 space-y-6 leading-relaxed">
+            <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
                 A direct cash sale is likely the smarter path if:
               </p>
 
               <div className="space-y-6">
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">Your home needs significant repairs.</h3>
-                  <p>Foundation issues, roof damage, mold, outdated electrical, code violations — these problems cost $10,000 to $50,000+ to fix before you can list. If your property needs <Link href="/situations/major-repairs" className="text-[#008a29] hover:underline">major work</Link>, selling as-is to a cash buyer often nets you more after you factor in repair costs, commissions, and months of carrying costs.</p>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">Your home needs significant repairs.</h3>
+                  <p>Foundation issues, roof damage, mold, outdated electrical, code violations — these problems cost $10,000 to $50,000+ to fix before you can list. If your property needs <Link href="/situations/major-repairs" className="text-ce-green hover:underline">major work</Link>, selling as-is to a cash buyer often nets you more after you factor in repair costs, commissions, and months of carrying costs.</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You need to sell quickly.</h3>
-                  <p><Link href="/situations/job-relocation" className="text-[#008a29] hover:underline">Job relocation</Link>, <Link href="/situations/foreclosure" className="text-[#008a29] hover:underline">foreclosure</Link>, <Link href="/situations/divorce" className="text-[#008a29] hover:underline">divorce</Link>, financial pressure — when time matters, a cash sale that closes in 7 to 30 days solves the problem. Traditional sales simply can&apos;t match that timeline.</p>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You need to sell quickly.</h3>
+                  <p><Link href="/situations/job-relocation" className="text-ce-green hover:underline">Job relocation</Link>, <Link href="/situations/foreclosure" className="text-ce-green hover:underline">foreclosure</Link>, <Link href="/situations/divorce" className="text-ce-green hover:underline">divorce</Link>, financial pressure — when time matters, a cash sale that closes in 7 to 30 days solves the problem. Traditional sales simply can&apos;t match that timeline.</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">The property has complications.</h3>
-                  <p><Link href="/situations/inherited-property" className="text-[#008a29] hover:underline">Inherited homes</Link> in probate, properties with <Link href="/situations/tax-liens-code-violations" className="text-[#008a29] hover:underline">liens or code violations</Link>, homes with <Link href="/situations/tired-landlord" className="text-[#008a29] hover:underline">difficult tenants</Link>, properties in condemned status — these situations make traditional sales extremely difficult. Cash buyers like ClearEdge deal with these situations routinely.</p>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">The property has complications.</h3>
+                  <p><Link href="/situations/inherited-property" className="text-ce-green hover:underline">Inherited homes</Link> in probate, properties with <Link href="/situations/tax-liens-code-violations" className="text-ce-green hover:underline">liens or code violations</Link>, homes with <Link href="/situations/tired-landlord" className="text-ce-green hover:underline">difficult tenants</Link>, properties in condemned status — these situations make traditional sales extremely difficult. Cash buyers like ClearEdge deal with these situations routinely.</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You want certainty.</h3>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You want certainty.</h3>
                   <p>Cash offers don&apos;t fall through due to financing, appraisals, or buyer cold feet. Once you accept, the sale is happening. In the traditional market, roughly 1 in 5 deals fall through before closing.</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You want zero out-of-pocket costs.</h3>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You want zero out-of-pocket costs.</h3>
                   <p>No repairs, no staging, no commissions, no closing costs. The offer is your net.</p>
                 </div>
 
-                <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
-                  <h3 className="font-semibold text-[#1a1f1a] mb-2">You value privacy and simplicity.</h3>
+                <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
+                  <h3 className="font-semibold text-ce-ink mb-2">You value privacy and simplicity.</h3>
                   <p>No public listing, no open houses, no dozens of strangers walking through your home. One point of contact, one clear process.</p>
                 </div>
               </div>
@@ -434,60 +434,60 @@ export default function CashBuyerVsRealtorPage() {
         <section id="real-math" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Numbers
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Let&apos;s Do the Math: Cash Sale vs. Traditional in Eastern PA
               </h2>
-              <p className="text-[#1a1f1a]/70 mt-4">
-                Want to see numbers for YOUR property? <Link href="/calculator" className="text-[#008a29] hover:underline font-medium">Try our interactive calculator</Link> to get a personalized estimate.
+              <p className="text-ce-ink/70 mt-4">
+                Want to see numbers for YOUR property? <Link href="/calculator" className="text-ce-green hover:underline font-medium">Try our interactive calculator</Link> to get a personalized estimate.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
               {/* Scenario A: Needs Work */}
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="bg-[#008a29]/10 text-[#008a29] text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="bg-ce-green/10 text-ce-green text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
                   Scenario A: Needs Work
                 </div>
-                <h3 className="font-serif text-xl font-medium text-[#1a1f1a] mb-4">
-                  3-bedroom in <Link href="/locations/allentown" className="text-[#008a29] hover:underline">Allentown</Link> worth $280,000 after repairs, but needs $35,000 in work
+                <h3 className="font-serif text-xl font-medium text-ce-ink mb-4">
+                  3-bedroom in <Link href="/locations/allentown" className="text-ce-green hover:underline">Allentown</Link> worth $280,000 after repairs, but needs $35,000 in work
                 </h3>
 
                 <div className="space-y-6">
                   {/* Traditional Route */}
                   <div>
-                    <h4 className="font-semibold text-[#1a1f1a] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-ce-ink mb-3 flex items-center gap-2">
                       <span className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs">R</span>
                       Traditional Route
                     </h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Repairs before listing:</span>
+                        <span className="text-ce-ink/70">Repairs before listing:</span>
                         <span className="text-red-600 font-medium">-$35,000</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Listing price after repairs:</span>
-                        <span className="text-[#1a1f1a]">$280,000</span>
+                        <span className="text-ce-ink/70">Listing price after repairs:</span>
+                        <span className="text-ce-ink">$280,000</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Agent commissions (5.81%):</span>
+                        <span className="text-ce-ink/70">Agent commissions (5.81%):</span>
                         <span className="text-red-600 font-medium">-$16,268</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Seller closing costs (~2%):</span>
+                        <span className="text-ce-ink/70">Seller closing costs (~2%):</span>
                         <span className="text-red-600 font-medium">-$5,600</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Carrying costs (~5 months):</span>
+                        <span className="text-ce-ink/70">Carrying costs (~5 months):</span>
                         <span className="text-red-600 font-medium">-$7,500</span>
                       </div>
-                      <div className="flex justify-between pt-2 border-t border-[#1a1f1a]/10">
-                        <span className="font-semibold text-[#1a1f1a]">Net to seller:</span>
-                        <span className="font-bold text-[#1a1f1a]">~$215,632</span>
+                      <div className="flex justify-between pt-2 border-t border-ce-ink/10">
+                        <span className="font-semibold text-ce-ink">Net to seller:</span>
+                        <span className="font-bold text-ce-ink">~$215,632</span>
                       </div>
-                      <div className="flex justify-between text-[#1a1f1a]/50">
+                      <div className="flex justify-between text-ce-ink/50">
                         <span>Timeline:</span>
                         <span>5–7 months</span>
                       </div>
@@ -496,40 +496,40 @@ export default function CashBuyerVsRealtorPage() {
 
                   {/* ClearEdge Route */}
                   <div>
-                    <h4 className="font-semibold text-[#008a29] mb-3 flex items-center gap-2">
-                      <span className="w-6 h-6 bg-[#008a29] text-white rounded-full flex items-center justify-center text-xs">C</span>
+                    <h4 className="font-semibold text-ce-green mb-3 flex items-center gap-2">
+                      <span className="w-6 h-6 bg-ce-green text-white rounded-full flex items-center justify-center text-xs">C</span>
                       ClearEdge Cash Offer
                     </h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Cash offer (as-is):</span>
-                        <span className="text-[#008a29] font-medium">$210,000</span>
+                        <span className="text-ce-ink/70">Cash offer (as-is):</span>
+                        <span className="text-ce-green font-medium">$210,000</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Repairs:</span>
-                        <span className="text-[#008a29] font-medium">$0</span>
+                        <span className="text-ce-ink/70">Repairs:</span>
+                        <span className="text-ce-green font-medium">$0</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Commissions:</span>
-                        <span className="text-[#008a29] font-medium">$0</span>
+                        <span className="text-ce-ink/70">Commissions:</span>
+                        <span className="text-ce-green font-medium">$0</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Closing costs:</span>
-                        <span className="text-[#008a29] font-medium">$0</span>
+                        <span className="text-ce-ink/70">Closing costs:</span>
+                        <span className="text-ce-green font-medium">$0</span>
                       </div>
-                      <div className="flex justify-between pt-2 border-t border-[#008a29]/20">
-                        <span className="font-semibold text-[#1a1f1a]">Net to seller:</span>
-                        <span className="font-bold text-[#008a29]">$210,000</span>
+                      <div className="flex justify-between pt-2 border-t border-ce-green/20">
+                        <span className="font-semibold text-ce-ink">Net to seller:</span>
+                        <span className="font-bold text-ce-green">$210,000</span>
                       </div>
-                      <div className="flex justify-between text-[#1a1f1a]/50">
+                      <div className="flex justify-between text-ce-ink/50">
                         <span>Timeline:</span>
                         <span>14–30 days</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-4 border border-[#008a29]/20">
-                    <p className="text-sm text-[#1a1f1a]">
+                  <div className="bg-white rounded-xl p-4 border border-ce-green/20">
+                    <p className="text-sm text-ce-ink">
                       <span className="font-semibold">The difference: ~$5,600</span> — but you saved 5+ months, risked $0 out of pocket, and had zero chance of the deal falling through.
                     </p>
                   </div>
@@ -537,47 +537,47 @@ export default function CashBuyerVsRealtorPage() {
               </div>
 
               {/* Scenario B: Move-In Ready */}
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="bg-gray-200 text-[#1a1f1a]/70 text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="bg-gray-200 text-ce-ink/70 text-sm font-semibold px-3 py-1 rounded-full inline-block mb-4">
                   Scenario B: Move-In Ready
                 </div>
-                <h3 className="font-serif text-xl font-medium text-[#1a1f1a] mb-4">
-                  Well-maintained home in <Link href="/locations/bethlehem" className="text-[#008a29] hover:underline">Bethlehem</Link> worth $320,000 with only $5,000 in cosmetic updates
+                <h3 className="font-serif text-xl font-medium text-ce-ink mb-4">
+                  Well-maintained home in <Link href="/locations/bethlehem" className="text-ce-green hover:underline">Bethlehem</Link> worth $320,000 with only $5,000 in cosmetic updates
                 </h3>
 
                 <div className="space-y-6">
                   {/* Traditional Route */}
                   <div>
-                    <h4 className="font-semibold text-[#008a29] mb-3 flex items-center gap-2">
-                      <span className="w-6 h-6 bg-[#008a29] text-white rounded-full flex items-center justify-center text-xs">R</span>
+                    <h4 className="font-semibold text-ce-green mb-3 flex items-center gap-2">
+                      <span className="w-6 h-6 bg-ce-green text-white rounded-full flex items-center justify-center text-xs">R</span>
                       Traditional Route
                     </h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Minor repairs/staging:</span>
+                        <span className="text-ce-ink/70">Minor repairs/staging:</span>
                         <span className="text-red-600 font-medium">-$5,000</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Listing price:</span>
-                        <span className="text-[#1a1f1a]">$320,000</span>
+                        <span className="text-ce-ink/70">Listing price:</span>
+                        <span className="text-ce-ink">$320,000</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Agent commissions (5.81%):</span>
+                        <span className="text-ce-ink/70">Agent commissions (5.81%):</span>
                         <span className="text-red-600 font-medium">-$18,592</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Seller closing costs (~2%):</span>
+                        <span className="text-ce-ink/70">Seller closing costs (~2%):</span>
                         <span className="text-red-600 font-medium">-$6,400</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Carrying costs (60 days):</span>
+                        <span className="text-ce-ink/70">Carrying costs (60 days):</span>
                         <span className="text-red-600 font-medium">-$3,000</span>
                       </div>
-                      <div className="flex justify-between pt-2 border-t border-[#008a29]/20">
-                        <span className="font-semibold text-[#1a1f1a]">Net to seller:</span>
-                        <span className="font-bold text-[#008a29]">~$287,008</span>
+                      <div className="flex justify-between pt-2 border-t border-ce-green/20">
+                        <span className="font-semibold text-ce-ink">Net to seller:</span>
+                        <span className="font-bold text-ce-green">~$287,008</span>
                       </div>
-                      <div className="flex justify-between text-[#1a1f1a]/50">
+                      <div className="flex justify-between text-ce-ink/50">
                         <span>Timeline:</span>
                         <span>2–3 months</span>
                       </div>
@@ -586,20 +586,20 @@ export default function CashBuyerVsRealtorPage() {
 
                   {/* ClearEdge Route */}
                   <div>
-                    <h4 className="font-semibold text-[#1a1f1a] mb-3 flex items-center gap-2">
+                    <h4 className="font-semibold text-ce-ink mb-3 flex items-center gap-2">
                       <span className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-xs">C</span>
                       ClearEdge Cash Offer
                     </h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Cash offer (as-is):</span>
-                        <span className="text-[#1a1f1a] font-medium">~$256,000</span>
+                        <span className="text-ce-ink/70">Cash offer (as-is):</span>
+                        <span className="text-ce-ink font-medium">~$256,000</span>
                       </div>
-                      <div className="flex justify-between pt-2 border-t border-[#1a1f1a]/10">
-                        <span className="font-semibold text-[#1a1f1a]">Net to seller:</span>
-                        <span className="font-bold text-[#1a1f1a]">$256,000</span>
+                      <div className="flex justify-between pt-2 border-t border-ce-ink/10">
+                        <span className="font-semibold text-ce-ink">Net to seller:</span>
+                        <span className="font-bold text-ce-ink">$256,000</span>
                       </div>
-                      <div className="flex justify-between text-[#1a1f1a]/50">
+                      <div className="flex justify-between text-ce-ink/50">
                         <span>Timeline:</span>
                         <span>14–30 days</span>
                       </div>
@@ -607,7 +607,7 @@ export default function CashBuyerVsRealtorPage() {
                   </div>
 
                   <div className="bg-white rounded-xl p-4 border border-gray-200">
-                    <p className="text-sm text-[#1a1f1a]">
+                    <p className="text-sm text-ce-ink">
                       <span className="font-semibold">The difference: ~$31,000 in favor of listing traditionally.</span> This is when we&apos;d tell you to call a realtor.
                     </p>
                   </div>
@@ -615,11 +615,11 @@ export default function CashBuyerVsRealtorPage() {
               </div>
             </div>
 
-            <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/10">
-              <p className="text-sm text-[#1a1f1a]/70 mb-4">
-                <span className="font-semibold text-[#1a1f1a]">Note:</span> These examples use estimated figures for illustration based on current Pennsylvania market data. PA average realtor commission is 5.81% (source: Clever/Real Estate Witch agent survey, Sept 2025), PA seller closing costs average 5.33% of sale price. Every property is different — request your free, no-obligation offer for real numbers specific to your situation.
+            <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/10">
+              <p className="text-sm text-ce-ink/70 mb-4">
+                <span className="font-semibold text-ce-ink">Note:</span> These examples use estimated figures for illustration based on current Pennsylvania market data. PA average realtor commission is 5.81% (source: Clever/Real Estate Witch agent survey, Sept 2025), PA seller closing costs average 5.33% of sale price. Every property is different — request your free, no-obligation offer for real numbers specific to your situation.
               </p>
-              <p className="text-[#1a1f1a]/70 text-sm">
+              <p className="text-ce-ink/70 text-sm">
                 And remember: Scenario A assumes everything goes perfectly with the traditional route. If repairs uncover additional issues, if the buyer&apos;s financing falls through, or if the home sits on the market longer than expected — the gap closes or reverses entirely.
               </p>
             </div>
@@ -627,21 +627,21 @@ export default function CashBuyerVsRealtorPage() {
         </section>
 
         {/* SECTION 7: SELF-ASSESSMENT */}
-        <section id="assessment" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="assessment" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Quick Assessment
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Which Selling Method Fits Your Situation?
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Cash Sale Checklist */}
-              <div className="bg-white rounded-2xl p-6 border border-[#008a29]/20">
-                <h3 className="font-semibold text-[#008a29] mb-4 flex items-center gap-2">
+              <div className="bg-white rounded-2xl p-6 border border-ce-green/20">
+                <h3 className="font-semibold text-ce-green mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   A cash sale might be right for you if:
                 </h3>
@@ -659,17 +659,17 @@ export default function CashBuyerVsRealtorPage() {
                     'You value speed and simplicity over maximizing every dollar',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 border-2 border-[#008a29] rounded flex-shrink-0 mt-0.5" />
-                      <span className="text-[#1a1f1a]/70 text-sm">{item}</span>
+                      <div className="w-5 h-5 border-2 border-ce-green rounded flex-shrink-0 mt-0.5" />
+                      <span className="text-ce-ink/70 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Realtor Checklist */}
-              <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/10">
-                <h3 className="font-semibold text-[#1a1f1a] mb-4 flex items-center gap-2">
-                  <span className="w-5 h-5 border-2 border-[#1a1f1a]/30 rounded-full" />
+              <div className="bg-white rounded-2xl p-6 border border-ce-ink/10">
+                <h3 className="font-semibold text-ce-ink mb-4 flex items-center gap-2">
+                  <span className="w-5 h-5 border-2 border-ce-ink/30 rounded-full" />
                   A traditional listing might be better if:
                 </h3>
                 <ul className="space-y-3">
@@ -682,8 +682,8 @@ export default function CashBuyerVsRealtorPage() {
                     "You're comfortable with the traditional selling process",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 border-2 border-[#1a1f1a]/20 rounded flex-shrink-0 mt-0.5" />
-                      <span className="text-[#1a1f1a]/70 text-sm">{item}</span>
+                      <div className="w-5 h-5 border-2 border-ce-ink/20 rounded flex-shrink-0 mt-0.5" />
+                      <span className="text-ce-ink/70 text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -691,7 +691,7 @@ export default function CashBuyerVsRealtorPage() {
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-[#1a1f1a]/70 mb-6">
+              <p className="text-ce-ink/70 mb-6">
                 If you checked more boxes on the left, a cash offer is worth exploring. If you checked more on the right, a realtor may serve you better. Either way, getting a no-obligation cash offer gives you a real number to compare against — and it costs you nothing.
               </p>
               <TrackedCTALink
@@ -707,16 +707,16 @@ export default function CashBuyerVsRealtorPage() {
         <section id="red-flags" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Protect Yourself
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Not All Cash Buyers Are Created Equal
               </h2>
             </div>
 
-            <p className="text-lg text-[#1a1f1a]/70 mb-8 text-center max-w-2xl mx-auto">
-              The cash home buying industry has legitimate companies and shady operators. Here&apos;s what to watch for. For a complete guide on spotting scams and vetting buyers, see our <Link href="/are-cash-home-buyers-legit" className="text-[#008a29] hover:underline">full page on whether cash home buyers are legit</Link>.
+            <p className="text-lg text-ce-ink/70 mb-8 text-center max-w-2xl mx-auto">
+              The cash home buying industry has legitimate companies and shady operators. Here&apos;s what to watch for. For a complete guide on spotting scams and vetting buyers, see our <Link href="/are-cash-home-buyers-legit" className="text-ce-green hover:underline">full page on whether cash home buyers are legit</Link>.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -745,8 +745,8 @@ export default function CashBuyerVsRealtorPage() {
               </div>
 
               {/* What ClearEdge Does */}
-              <div className="bg-[#008a29]/5 rounded-2xl p-6 border border-[#008a29]/20">
-                <h3 className="font-semibold text-[#008a29] mb-4 flex items-center gap-2">
+              <div className="bg-ce-green-subtle rounded-2xl p-6 border border-ce-green/20">
+                <h3 className="font-semibold text-ce-green mb-4 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5" />
                   What ClearEdge Does Differently
                 </h3>
@@ -761,10 +761,10 @@ export default function CashBuyerVsRealtorPage() {
                     { text: 'Tyler answers the phone: (610) 904-8526', link: null },
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-[#008a29] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#1a1f1a]/70 text-sm">
+                      <Check className="w-5 h-5 text-ce-green flex-shrink-0 mt-0.5" />
+                      <span className="text-ce-ink/70 text-sm">
                         {item.link ? (
-                          <Link href={item.link} className="text-[#008a29] hover:underline">{item.text}</Link>
+                          <Link href={item.link} className="text-ce-green hover:underline">{item.text}</Link>
                         ) : (
                           item.text
                         )}

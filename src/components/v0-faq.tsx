@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Plus, Minus } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 
 type FAQ = {
@@ -54,76 +54,83 @@ export function V0FAQ({
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   // Background classes based on sectionBg prop
-  const sectionBgClass = sectionBg === "beige" ? "bg-[#FAF8F5]" : "bg-white"
-  const cardBgOpen = sectionBg === "beige" ? "bg-white" : "bg-[#FAF8F5]"
-  const cardBgClosed = sectionBg === "beige" ? "bg-white/80 hover:bg-white" : "bg-[#FAF8F5]/50 hover:bg-[#FAF8F5]"
-  const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-[#FAF8F5]"
+  const sectionBgClass = sectionBg === "beige" ? "bg-surface-cream" : "bg-white"
+  const cardBgOpen = sectionBg === "beige" ? "bg-white" : "bg-surface-cream"
+  const cardBgClosed = sectionBg === "beige" ? "bg-white/80 hover:bg-white" : "bg-surface-cream/50 hover:bg-surface-cream"
+  const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-surface-cream"
 
   return (
-    <section className={`py-12 md:py-12 ${sectionBgClass}`}>
+    <section className={`py-12 md:py-16 ${sectionBgClass}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-6 md:mb-6">
-          <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+        <div className="text-center mb-8 animate-on-scroll">
+          <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
             Common Questions
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-[#1a1f1a] mb-6 text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-6 text-balance">
             {title}
           </h2>
-          <p className="text-[#1a1f1a]/70 text-lg">
+          <p className="text-ce-ink/70 text-lg">
             {subtitle}
           </p>
         </div>
 
         {/* FAQ Accordion */}
         <div className="space-y-3">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={`border rounded-xl overflow-hidden transition-all ${
-                openIndex === index
-                  ? `border-[#008a29]/20 ${cardBgOpen}`
-                  : `border-[#1a1f1a]/10 ${cardBgClosed}`
-              }`}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-5 text-left"
-                aria-expanded={openIndex === index}
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={index}
+                className={`animate-on-scroll border rounded-xl transition-all ${
+                  isOpen
+                    ? `border-ce-green/20 ${cardBgOpen}`
+                    : `border-ce-ink/10 ${cardBgClosed}`
+                }`}
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
-                <span className="font-medium text-[#1a1f1a] pr-4">{faq.question}</span>
-                <div
-                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
-                    openIndex === index ? "bg-[#008a29] text-white" : "bg-[#008a29]/10 text-[#008a29]"
-                  }`}
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex items-center justify-between p-5 text-left"
+                  aria-expanded={isOpen}
                 >
-                  {openIndex === index ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
-                </div>
-              </button>
+                  <span className="font-medium text-ce-ink pr-4">{faq.question}</span>
+                  <div
+                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                      isOpen ? "bg-ce-green text-white" : "bg-ce-ink/5 text-ce-ink/40"
+                    }`}
+                  >
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                </button>
 
-              {openIndex === index && (
-                <div className="px-5 pb-5">
-                  <p className="text-[#1a1f1a]/70 leading-relaxed">
-                    {faq.answer.replace(/\{\{phone\}\}/g, phone)}
-                  </p>
+                {/* Smooth height animation */}
+                <div className={`accordion-content ${isOpen ? 'is-open' : ''}`}>
+                  <div>
+                    <div className="px-5 pb-5">
+                      <p className="text-ce-ink/70 leading-relaxed">
+                        {faq.answer.replace(/\{\{phone\}\}/g, phone)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            )
+          })}
         </div>
 
         {/* Still have questions */}
-        <div className={`text-center mt-6 p-6 ${footerBgClass} rounded-xl border border-[#1a1f1a]/5`}>
-          <p className="text-[#1a1f1a] font-medium mb-2">Still have questions?</p>
-          <p className="text-[#1a1f1a]/70 text-sm mb-4">
+        <div className={`text-center mt-8 p-6 ${footerBgClass} rounded-xl border border-ce-ink/5 animate-on-scroll`}>
+          <p className="text-ce-ink font-medium mb-2">Still have questions?</p>
+          <p className="text-ce-ink/70 text-sm mb-4">
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href={`tel:${phoneTel}`} className="text-[#008a29] font-medium hover:underline">
+            <a href={`tel:${phoneTel}`} className="text-ce-green font-medium link-animated">
               {phone}
             </a>
-            <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>
-            <a href="/contact" className="text-[#008a29] font-medium hover:underline">
+            <span className="hidden sm:inline text-ce-ink/30">|</span>
+            <a href="/contact" className="text-ce-green font-medium link-animated">
               Have More Questions? &rarr;
             </a>
           </div>

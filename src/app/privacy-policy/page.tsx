@@ -56,16 +56,16 @@ export default function PrivacyPolicyPage() {
       <V0Header />
 
       {/* Hero Section - Cream */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-[#FAF8F5] overflow-hidden">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-surface-cream overflow-hidden">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-4">Privacy Policy</h1>
-          <p className="text-[#1a1f1a]/70">Last updated: January 3, 2026</p>
+          <h1 className="text-4xl md:text-5xl font-serif font-medium text-ce-ink mb-4">Privacy Policy</h1>
+          <p className="text-ce-ink/70">Last updated: January 3, 2026</p>
         </div>
       </section>
 
       {/* Content - White */}
       <section className="py-12 md:py-12 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg [&_h2]:font-serif [&_h2]:font-medium [&_h2]:text-[#1a1f1a] [&_h3]:font-serif [&_h3]:font-medium [&_h3]:text-[#1a1f1a] [&_p]:text-[#1a1f1a]/70 [&_li]:text-[#1a1f1a]/70 [&_strong]:text-[#1a1f1a]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg [&_h2]:font-serif [&_h2]:font-medium [&_h2]:text-ce-ink [&_h3]:font-serif [&_h3]:font-medium [&_h3]:text-ce-ink [&_p]:text-ce-ink/70 [&_li]:text-ce-ink/70 [&_strong]:text-ce-ink">
           <h2>Introduction</h2>
           <p>
             ClearEdge Home Buyers (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at www.clearedgehomebuyers.com or submit information through our contact forms.
@@ -119,7 +119,7 @@ export default function PrivacyPolicyPage() {
             <strong>Opt-Out:</strong> You can opt out of SMS messages at any time by replying STOP to any message. After opting out, you will receive one final confirmation message.
           </p>
           <p>
-            <strong>Help:</strong> Reply HELP to any message for assistance, or contact us at <DynamicPhoneLink className="text-[#008a29] hover:underline" /> or info@clearedgehomebuyers.com.
+            <strong>Help:</strong> Reply HELP to any message for assistance, or contact us at <DynamicPhoneLink className="text-ce-green hover:underline" /> or info@clearedgehomebuyers.com.
           </p>
           <p>
             <strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages.
@@ -196,17 +196,17 @@ export default function PrivacyPolicyPage() {
 
 
       {/* Final CTA Section - Beige */}
-      <section className="py-12 md:py-14 bg-[#FAF8F5]">
+      <section className="py-12 md:py-14 bg-surface-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
+          <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-4">
             Ready to Sell Your House Fast?
           </h2>
-          <p className="text-[#1a1f1a]/70 mb-6">
+          <p className="text-ce-ink/70 mb-6">
             Get a fair cash offer in 24 hours. No repairs, no fees, no obligation.
           </p>
           <a
             href="/#lead-form"
-            className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
+            className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green"
           >
             Get Your Free Offer
           </a>

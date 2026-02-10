@@ -53,28 +53,35 @@ export function V0ServiceAreas() {
   }
 
   return (
-    <section className="py-12 lg:py-14 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1] scroll-mt-20 md:scroll-mt-24" id="service-areas">
+    <section className="py-12 md:py-16 bg-gradient-to-b from-surface-green-wash to-surface-green-tint scroll-mt-20 md:scroll-mt-24" id="service-areas">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-6">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a2e1a] mb-4">
+        <div className="text-center mb-8 animate-on-scroll">
+          <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
+            Where We Buy
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-4">
             Cash Home Buyers Across Eastern Pennsylvania
           </h2>
-          <p className="text-lg text-[#1a2e1a]/70 max-w-3xl mx-auto">
+          <p className="text-lg text-ce-ink/70 max-w-3xl mx-auto">
             We buy houses in any condition throughout NEPA, the Lehigh Valley, and the Poconos — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer.
           </p>
         </div>
 
         {/* Interactive Coverage Map */}
-        <div className="mb-10">
+        <div className="mb-10 animate-on-scroll stagger-1">
           <CoverageMapWrapper />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-6">
-          {Object.entries(locationsByRegion).map(([region, data]) => (
-            <div key={region} className="bg-white rounded-xl p-6 border border-[#1a1f1a]/5">
+        <div className="grid md:grid-cols-3 gap-6">
+          {Object.entries(locationsByRegion).map(([region, data], index) => (
+            <div
+              key={region}
+              className="bg-white rounded-2xl p-6 border border-ce-ink/10 shadow-sm hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 animate-on-scroll"
+              style={{ transitionDelay: `${(index + 2) * 100}ms` }}
+            >
               <Link
                 href={data.hub.href}
-                className="block text-xl font-bold text-[#1a1f1a] mb-4 border-b-2 border-[#008a29] pb-2 hover:text-[#008a29] transition-colors"
+                className="block text-xl font-bold text-ce-ink mb-4 border-b-2 border-ce-green pb-2 hover:text-ce-green transition-colors"
               >
                 {region}
               </Link>
@@ -83,7 +90,7 @@ export function V0ServiceAreas() {
                   <li key={city.href}>
                     <Link
                       href={city.href}
-                      className="text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
+                      className="text-ce-ink/70 hover:text-ce-green transition-colors"
                     >
                       {city.name}
                     </Link>
@@ -92,18 +99,18 @@ export function V0ServiceAreas() {
               </ul>
               <Link
                 href={data.hub.href}
-                className="inline-block mt-4 text-sm font-semibold text-[#008a29] hover:text-[#007a24] transition-colors"
+                className="inline-block mt-4 text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors link-animated"
               >
-                {data.hub.name} →
+                {data.hub.name} &rarr;
               </Link>
             </div>
           ))}
         </div>
 
-        <p className="text-center mt-6">
+        <p className="text-center mt-8 animate-on-scroll stagger-5">
           <button
             onClick={scrollToForm}
-            className="text-[#008a29] hover:text-[#007a24] font-semibold"
+            className="text-ce-green hover:text-ce-green-hover font-semibold link-animated"
           >
             Don&apos;t see your city? We still buy throughout Eastern PA — get your offer &rarr;
           </button>

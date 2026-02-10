@@ -43,28 +43,34 @@ const reviews = [
   },
 ]
 
-function StarRating() {
+function GoldStarRating() {
   return (
     <div className="flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-white text-white" />
+        <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
       ))}
     </div>
   )
 }
 
+function getInitials(name: string) {
+  const parts = name.replace(/[^a-zA-Z ]/g, '').trim().split(' ')
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase()
+  return parts[0]?.[0]?.toUpperCase() || '?'
+}
+
 export function SocialProofWall() {
   return (
-    <section className="bg-[#008a29] py-10 md:py-14">
+    <section className="bg-gradient-to-b from-ce-green to-[#006E21] py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10 md:mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="animate-on-scroll text-center" style={{ transitionDelay: `${index * 100}ms` }}>
               <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/10 flex items-center justify-center">
                 <stat.icon className="w-6 h-6 text-white" />
               </div>
-              <div className="text-3xl md:text-4xl font-serif font-medium text-white mb-1">
+              <div className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1">
                 {stat.value}
               </div>
               <div className="text-sm text-white/80 tracking-wide">
@@ -79,17 +85,26 @@ export function SocialProofWall() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+              className="animate-on-scroll bg-white/[0.08] backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:bg-white/[0.14] hover:-translate-y-1 transition-all duration-300"
+              style={{ transitionDelay: `${(index + 4) * 100}ms` }}
             >
-              <StarRating />
+              <GoldStarRating />
               <blockquote className="mt-4 text-white/90 leading-relaxed italic">
                 &ldquo;{review.text}&rdquo;
               </blockquote>
-              <div className="mt-4 text-white font-semibold">
-                — {review.name}
-                {review.location && (
-                  <span className="font-normal text-white/70">, {review.location}</span>
-                )}
+              <div className="mt-4 flex items-center gap-3">
+                {/* Avatar initials circle */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white/20 to-white/10 text-white font-semibold text-sm flex items-center justify-center flex-shrink-0">
+                  {getInitials(review.name)}
+                </div>
+                <div>
+                  <div className="text-white font-semibold">
+                    {review.name}
+                  </div>
+                  {review.location && (
+                    <div className="text-white/60 text-sm">{review.location}</div>
+                  )}
+                </div>
               </div>
             </div>
           ))}

@@ -23,20 +23,20 @@ export function V0ProblemSolutionMerged() {
   return (
     <>
       {/* Part 1: "Selling a House in PA Just Got Harder" - WHITE background */}
-      <section className="py-12 md:py-12 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#1a1f1a] mb-6">
+          <div className="max-w-3xl mx-auto text-center animate-on-scroll">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-6">
               Selling a House in Pennsylvania Shouldn&apos;t Cost You Everything
             </h2>
-            <div className="space-y-4 text-lg text-[#1a1f1a]/70">
+            <div className="space-y-4 text-lg text-ce-ink/70">
               <p>
                 Pennsylvania&apos;s 2026 building codes and municipal pre-sale inspection requirements have made traditional sales harder — and more expensive — than ever. Stricter scrutiny on unpermitted work means more surprises at closing.
               </p>
               <p>
                 If your house needs repairs, has code violations, or you simply can&apos;t afford to wait 90+ days and spend thousands upfront — the traditional process isn&apos;t built for you.
               </p>
-              <p className="font-semibold text-[#1a1f1a]">
+              <p className="font-semibold text-ce-ink">
                 That&apos;s exactly why we started ClearEdge.
               </p>
             </div>
@@ -45,56 +45,56 @@ export function V0ProblemSolutionMerged() {
       </section>
 
       {/* Part 2: "A Better Way to Sell" comparison - BEIGE background */}
-      <section className="py-12 md:py-12 bg-[#FAF8F5]">
+      <section className="py-12 md:py-16 bg-surface-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Problem/Solution Comparison */}
-          <div className="text-center max-w-3xl mx-auto mb-6">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+          <div className="text-center max-w-3xl mx-auto mb-8 animate-on-scroll">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               A Better Way to Sell
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-medium text-[#1a1f1a] mb-4">
+            <h3 className="font-serif text-2xl sm:text-3xl font-medium text-ce-ink mb-4">
               What If You Could Skip All of That?
             </h3>
-            <p className="text-[#1a1f1a]/70">
+            <p className="text-ce-ink/70">
               We started ClearEdge in 2016 because we watched good people lose money, time, and sleep trying to sell houses the &ldquo;normal&rdquo; way. Here&apos;s how the two paths compare.
             </p>
           </div>
 
           {/* Problem / Solution Cards */}
-          <div className="grid md:grid-cols-2 gap-6 md:gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* Problem Card */}
-            <div className="bg-white rounded-2xl p-8 border border-[#008a29]">
+            <div className="animate-on-scroll animate-from-left bg-white rounded-2xl p-8 border-l-4 border-l-red-400 border border-ce-ink/10 shadow-sm hover:shadow-card-hover transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
                   <XCircle className="w-5 h-5 text-red-600" />
                 </div>
-                <h4 className="text-xl font-semibold text-[#1a1f1a]">Traditional Sale</h4>
+                <h4 className="text-xl font-semibold text-ce-ink">Traditional Sale</h4>
               </div>
               <ul className="space-y-4">
                 {problems.map((problem, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-[#1a1f1a]/70">{problem}</span>
+                    <span className="text-ce-ink/70">{problem}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Solution Card */}
-            <div className="bg-[#008a29]/5 rounded-2xl p-8 border border-[#008a29]/20 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#008a29]/10 rounded-full blur-3xl" />
+            <div className="animate-on-scroll animate-from-right bg-ce-green-subtle rounded-2xl p-8 border border-ce-green/20 relative overflow-hidden shadow-sm hover:shadow-card-hover transition-all duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-ce-green/10 rounded-full blur-3xl" />
               <div className="relative">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-[#008a29]/20 flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-[#008a29]" />
+                  <div className="w-10 h-10 rounded-full bg-ce-green/20 flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-ce-green" />
                   </div>
-                  <h4 className="text-xl font-semibold text-[#1a1f1a]">The ClearEdge Way</h4>
+                  <h4 className="text-xl font-semibold text-ce-ink">The ClearEdge Way</h4>
                 </div>
                 <ul className="space-y-4">
                   {solutions.map((solution, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#008a29] flex-shrink-0 mt-0.5" />
-                      <span className="text-[#1a1f1a]">{solution}</span>
+                      <CheckCircle className="w-5 h-5 text-ce-green flex-shrink-0 mt-0.5" />
+                      <span className="text-ce-ink">{solution}</span>
                     </li>
                   ))}
                 </ul>
@@ -103,7 +103,7 @@ export function V0ProblemSolutionMerged() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="text-center mt-6">
+          <div className="text-center mt-8 animate-on-scroll stagger-3">
             <a
               href="#lead-form"
               onClick={(e) => {
@@ -117,7 +117,7 @@ export function V0ProblemSolutionMerged() {
                 }
                 document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="inline-flex items-center gap-2 text-[#008a29] font-medium hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-ce-green font-medium link-animated"
             >
               See if your property qualifies
               <ArrowRight className="w-4 h-4" />

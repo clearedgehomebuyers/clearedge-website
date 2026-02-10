@@ -1,0 +1,1319 @@
+{
+  "allPages": [
+    "/",
+    "/how-it-works",
+    "/about",
+    "/contact",
+    "/testimonials",
+    "/blog",
+    "/cash-buyer-vs-realtor",
+    "/privacy-policy",
+    "/terms",
+    "/sell-house-fast-scranton-pa",
+    "/locations/nepa",
+    "/locations/lehigh-valley",
+    "/locations/poconos",
+    "/locations/easton",
+    "/locations/pittston",
+    "/locations/carbondale",
+    "/locations/reading",
+    "/locations/pocono-pines",
+    "/locations/scranton",
+    "/locations/bethlehem",
+    "/locations/hazleton",
+    "/locations/east-stroudsburg",
+    "/locations/honesdale",
+    "/locations/dunmore",
+    "/locations/tannersville",
+    "/locations/allentown",
+    "/locations/stroudsburg",
+    "/locations/nanticoke",
+    "/locations/kingston",
+    "/locations/bloomsburg",
+    "/locations/pottsville",
+    "/locations/lehigh-valley",
+    "/locations/poconos",
+    "/locations/wilkes-barre",
+    "/situations/divorce",
+    "/situations/job-relocation",
+    "/situations/tax-liens-code-violations",
+    "/situations/vacant-property",
+    "/situations/inherited-property",
+    "/situations/foreclosure",
+    "/situations/tired-landlord",
+    "/situations/major-repairs",
+    "/blog/sell-my-house-fast-poconos-pa",
+    "/blog/sell-house-wilkes-barre-code-violations",
+    "/blog/sell-my-house-fast-lehigh-valley",
+    "/blog/cash-home-buyers-pottsville-pa",
+    "/blog/hazleton-residential-occupancy-inspection-checklist",
+    "/blog/how-to-stop-berks-county-judicial-sale-2026",
+    "/blog/stop-govos-fines-poconos-house",
+    "/blog/sell-my-house-fast-allentown",
+    "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+    "/blog/documents-required-selling-inherited-property-pennsylvania",
+    "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+    "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+    "/blog/selling-water-damaged-house-18102-mold-issues",
+    "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+    "/blog/avoid-foreclosure-scranton-pa",
+    "/blog/cash-home-buyers-lackawanna-county-no-fees",
+    "/blog/sell-my-house-fast-luzerne-county-pa",
+    "/blog/cash-home-buyers-berks-county",
+    "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+    "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+    "/blog/easton-pa-rental-inspection-checklist-2026",
+    "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+    "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+    "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+    "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026"
+  ],
+  "linkGraph": {
+    "/": [],
+    "/how-it-works": [
+      "/cash-buyer-vs-realtor",
+      "/situations/foreclosure",
+      "/situations/inherited-property",
+      "/situations/divorce",
+      "/situations/job-relocation",
+      "/situations/major-repairs",
+      "/situations/tax-liens-code-violations",
+      "/situations/tired-landlord",
+      "/situations/vacant-property",
+      "/testimonials"
+    ],
+    "/about": [
+      "/how-it-works",
+      "/cash-buyer-vs-realtor",
+      "/locations/nepa",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/locations/hazleton",
+      "/locations/pittston",
+      "/locations/kingston",
+      "/locations/nanticoke",
+      "/locations/carbondale",
+      "/locations/dunmore",
+      "/locations/honesdale",
+      "/locations/bloomsburg",
+      "/locations/lehigh-valley",
+      "/locations/allentown",
+      "/locations/bethlehem",
+      "/locations/easton",
+      "/locations/reading",
+      "/locations/pottsville",
+      "/locations/poconos",
+      "/locations/stroudsburg",
+      "/locations/east-stroudsburg",
+      "/locations/pocono-pines",
+      "/locations/tannersville",
+      "/blog",
+      "/testimonials"
+    ],
+    "/contact": [],
+    "/testimonials": [],
+    "/blog": [
+      "/contact"
+    ],
+    "/cash-buyer-vs-realtor": [
+      "/locations/lehigh-valley",
+      "/locations/nepa",
+      "/locations/scranton",
+      "/situations/major-repairs",
+      "/situations/job-relocation",
+      "/situations/foreclosure",
+      "/situations/divorce",
+      "/situations/inherited-property",
+      "/situations/tax-liens-code-violations",
+      "/situations/tired-landlord",
+      "/locations/allentown",
+      "/locations/bethlehem"
+    ],
+    "/privacy-policy": [],
+    "/terms": [],
+    "/sell-house-fast-scranton-pa": [
+      "/"
+    ],
+    "/locations/nepa": [],
+    "/locations/lehigh-valley": [
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/poconos": [
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/stop-govos-fines-poconos-house",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/easton": [
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/locations/lehigh-valley",
+      "/situations/tired-landlord",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/pittston": [
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/locations/nepa",
+      "/situations/foreclosure",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/carbondale": [
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/locations/nepa",
+      "/situations/inherited-property",
+      "/situations/major-repairs",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/reading": [
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/blog/cash-home-buyers-berks-county",
+      "/locations/lehigh-valley",
+      "/situations/major-repairs",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/pocono-pines": [
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/locations/poconos",
+      "/situations/vacant-property",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/scranton": [
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/locations/nepa",
+      "/situations/foreclosure",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/bethlehem": [
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/locations/lehigh-valley",
+      "/situations/tax-liens-code-violations",
+      "/situations/divorce",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/hazleton": [
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/locations/nepa",
+      "/situations/tired-landlord",
+      "/situations/tax-liens-code-violations",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/east-stroudsburg": [
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/locations/poconos",
+      "/situations/vacant-property",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/honesdale": [
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/locations/nepa",
+      "/situations/inherited-property",
+      "/situations/vacant-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/dunmore": [
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/locations/nepa",
+      "/situations/major-repairs",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/tannersville": [
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/locations/poconos",
+      "/situations/vacant-property",
+      "/situations/job-relocation",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/allentown": [
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/locations/lehigh-valley",
+      "/situations/divorce",
+      "/situations/foreclosure",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/stroudsburg": [
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/locations/poconos",
+      "/situations/vacant-property",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/nanticoke": [
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/locations/nepa",
+      "/situations/foreclosure",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/kingston": [
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/locations/nepa",
+      "/situations/inherited-property",
+      "/situations/divorce",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/bloomsburg": [
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/locations/nepa",
+      "/situations/inherited-property",
+      "/situations/job-relocation",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/pottsville": [
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/locations/lehigh-valley",
+      "/situations/tax-liens-code-violations",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/locations/wilkes-barre": [
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/locations/nepa",
+      "/situations/tax-liens-code-violations",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/divorce": [
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/locations/allentown",
+      "/locations/bethlehem",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/job-relocation": [
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/locations/allentown",
+      "/locations/bethlehem",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/tax-liens-code-violations": [
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/locations/wilkes-barre",
+      "/locations/hazleton",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/vacant-property": [
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/blog/stop-govos-fines-poconos-house",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/inherited-property": [
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+      "/blog/documents-required-selling-inherited-property-pennsylvania",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/foreclosure": [
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/tired-landlord": [
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/situations/major-repairs": [
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/locations/scranton",
+      "/locations/wilkes-barre",
+      "/cash-buyer-vs-realtor",
+      "/how-it-works"
+    ],
+    "/blog/sell-my-house-fast-poconos-pa": [
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/divorce",
+      "/",
+      "/how-it-works",
+      "/situations/vacant-property",
+      "/locations/stroudsburg",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/sell-house-wilkes-barre-code-violations": [
+      "/locations/wilkes-barre",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/",
+      "/how-it-works",
+      "/situations/tax-liens-code-violations",
+      "/situations/tired-landlord",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/sell-my-house-fast-lehigh-valley": [
+      "/locations/allentown",
+      "/locations/bethlehem",
+      "/locations/easton",
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/divorce",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/",
+      "/how-it-works",
+      "/blog/sell-my-house-fast-allentown",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/cash-home-buyers-pottsville-pa": [
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/divorce",
+      "/",
+      "/how-it-works",
+      "/situations/tax-liens-code-violations",
+      "/locations/pottsville",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/hazleton-residential-occupancy-inspection-checklist": [
+      "/locations/hazleton",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/",
+      "/how-it-works",
+      "/situations/tired-landlord",
+      "/situations/tax-liens-code-violations",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/how-to-stop-berks-county-judicial-sale-2026": [
+      "/how-it-works",
+      "/situations/tax-liens-code-violations",
+      "/situations/foreclosure",
+      "/locations/reading"
+    ],
+    "/blog/stop-govos-fines-poconos-house": [
+      "/how-it-works",
+      "/",
+      "/situations/vacant-property",
+      "/situations/tired-landlord",
+      "/locations/stroudsburg"
+    ],
+    "/blog/sell-my-house-fast-allentown": [
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/situations/divorce",
+      "/situations/foreclosure",
+      "/locations/allentown"
+    ],
+    "/blog/sell-deceased-parents-house-without-probate-pennsylvania": [
+      "/blog/documents-required-selling-inherited-property-pennsylvania",
+      "/situations/inherited-property",
+      "/locations/scranton",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/documents-required-selling-inherited-property-pennsylvania": [
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+      "/situations/inherited-property",
+      "/locations/scranton",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien": [
+      "/locations/bethlehem",
+      "/how-it-works",
+      "/",
+      "/situations/tax-liens-code-violations",
+      "/situations/foreclosure",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026": [
+      "/how-it-works",
+      "/",
+      "/situations/job-relocation",
+      "/locations/allentown",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/selling-water-damaged-house-18102-mold-issues": [
+      "/",
+      "/how-it-works",
+      "/locations/allentown",
+      "/situations/major-repairs",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/scranton-pa-major-structural-damage-disclosure-law-2026": [
+      "/locations/scranton",
+      "/",
+      "/how-it-works",
+      "/situations/major-repairs",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/avoid-foreclosure-scranton-pa": [
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/situations/foreclosure",
+      "/locations/scranton",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/cash-home-buyers-lackawanna-county-no-fees": [
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/situations/foreclosure",
+      "/situations/inherited-property",
+      "/locations/scranton"
+    ],
+    "/blog/sell-my-house-fast-luzerne-county-pa": [
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/situations/foreclosure",
+      "/situations/inherited-property",
+      "/locations/wilkes-barre"
+    ],
+    "/blog/cash-home-buyers-berks-county": [
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/locations/reading"
+    ],
+    "/blog/sell-my-house-fast-dunmore-mine-subsidence": [
+      "/locations/scranton",
+      "/situations/major-repairs",
+      "/how-it-works",
+      "/locations/dunmore",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/selling-house-international-property-maintenance-code-violations-bethlehem": [
+      "/how-it-works",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/",
+      "/situations/tax-liens-code-violations",
+      "/situations/tired-landlord",
+      "/locations/bethlehem"
+    ],
+    "/blog/easton-pa-rental-inspection-checklist-2026": [
+      "/",
+      "/situations/tired-landlord",
+      "/locations/easton",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights": [
+      "/how-it-works",
+      "/",
+      "/situations/vacant-property",
+      "/situations/tax-liens-code-violations",
+      "/locations/scranton"
+    ],
+    "/blog/sell-house-fast-during-divorce-lehigh-county-pa": [
+      "/locations/allentown",
+      "/situations/divorce",
+      "/locations/bethlehem",
+      "/how-it-works",
+      "/",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/sell-hoarder-house-reading-pa-without-cleanout": [
+      "/locations/reading",
+      "/how-it-works",
+      "/",
+      "/situations/major-repairs",
+      "/situations/inherited-property",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026": [
+      "/locations/wilkes-barre",
+      "/locations/hazleton",
+      "/how-it-works",
+      "/",
+      "/situations/tired-landlord",
+      "/situations/tax-liens-code-violations",
+      "/cash-buyer-vs-realtor"
+    ]
+  },
+  "inboundLinks": {
+    "/": [
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/sell-house-fast-scranton-pa"
+    ],
+    "/how-it-works": [
+      "/locations/easton",
+      "/locations/pittston",
+      "/locations/carbondale",
+      "/locations/reading",
+      "/locations/pocono-pines",
+      "/locations/scranton",
+      "/locations/bethlehem",
+      "/locations/hazleton",
+      "/locations/east-stroudsburg",
+      "/locations/honesdale",
+      "/locations/dunmore",
+      "/locations/tannersville",
+      "/locations/allentown",
+      "/locations/stroudsburg",
+      "/locations/nanticoke",
+      "/locations/kingston",
+      "/locations/bloomsburg",
+      "/locations/pottsville",
+      "/locations/lehigh-valley",
+      "/locations/poconos",
+      "/locations/wilkes-barre",
+      "/situations/divorce",
+      "/situations/job-relocation",
+      "/situations/tax-liens-code-violations",
+      "/situations/vacant-property",
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/tired-landlord",
+      "/situations/major-repairs",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/about"
+    ],
+    "/about": [],
+    "/contact": [
+      "/blog"
+    ],
+    "/testimonials": [
+      "/how-it-works",
+      "/about"
+    ],
+    "/blog": [
+      "/about"
+    ],
+    "/cash-buyer-vs-realtor": [
+      "/locations/easton",
+      "/locations/pittston",
+      "/locations/carbondale",
+      "/locations/reading",
+      "/locations/pocono-pines",
+      "/locations/scranton",
+      "/locations/bethlehem",
+      "/locations/hazleton",
+      "/locations/east-stroudsburg",
+      "/locations/honesdale",
+      "/locations/dunmore",
+      "/locations/tannersville",
+      "/locations/allentown",
+      "/locations/stroudsburg",
+      "/locations/nanticoke",
+      "/locations/kingston",
+      "/locations/bloomsburg",
+      "/locations/pottsville",
+      "/locations/lehigh-valley",
+      "/locations/poconos",
+      "/locations/wilkes-barre",
+      "/situations/divorce",
+      "/situations/job-relocation",
+      "/situations/tax-liens-code-violations",
+      "/situations/vacant-property",
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/tired-landlord",
+      "/situations/major-repairs",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+      "/blog/documents-required-selling-inherited-property-pennsylvania",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/how-it-works",
+      "/about"
+    ],
+    "/privacy-policy": [],
+    "/terms": [],
+    "/sell-house-fast-scranton-pa": [],
+    "/locations/nepa": [
+      "/locations/pittston",
+      "/locations/carbondale",
+      "/locations/scranton",
+      "/locations/hazleton",
+      "/locations/honesdale",
+      "/locations/dunmore",
+      "/locations/nanticoke",
+      "/locations/kingston",
+      "/locations/bloomsburg",
+      "/locations/wilkes-barre",
+      "/about",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/locations/lehigh-valley": [
+      "/locations/easton",
+      "/locations/reading",
+      "/locations/bethlehem",
+      "/locations/allentown",
+      "/locations/pottsville",
+      "/about",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/locations/poconos": [
+      "/locations/pocono-pines",
+      "/locations/east-stroudsburg",
+      "/locations/tannersville",
+      "/locations/stroudsburg",
+      "/about"
+    ],
+    "/locations/easton": [
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/about"
+    ],
+    "/locations/pittston": [
+      "/about"
+    ],
+    "/locations/carbondale": [
+      "/about"
+    ],
+    "/locations/reading": [
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/blog/cash-home-buyers-berks-county",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/about"
+    ],
+    "/locations/pocono-pines": [
+      "/about"
+    ],
+    "/locations/scranton": [
+      "/situations/vacant-property",
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/tired-landlord",
+      "/situations/major-repairs",
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+      "/blog/documents-required-selling-inherited-property-pennsylvania",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/about",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/locations/bethlehem": [
+      "/situations/divorce",
+      "/situations/job-relocation",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/about",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/locations/hazleton": [
+      "/situations/tax-liens-code-violations",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/about"
+    ],
+    "/locations/east-stroudsburg": [
+      "/about"
+    ],
+    "/locations/honesdale": [
+      "/about"
+    ],
+    "/locations/dunmore": [
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/about"
+    ],
+    "/locations/tannersville": [
+      "/about"
+    ],
+    "/locations/allentown": [
+      "/situations/divorce",
+      "/situations/job-relocation",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/about",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/locations/stroudsburg": [
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/stop-govos-fines-poconos-house",
+      "/about"
+    ],
+    "/locations/nanticoke": [
+      "/about"
+    ],
+    "/locations/kingston": [
+      "/about"
+    ],
+    "/locations/bloomsburg": [
+      "/about"
+    ],
+    "/locations/pottsville": [
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/about"
+    ],
+    "/locations/wilkes-barre": [
+      "/situations/tax-liens-code-violations",
+      "/situations/vacant-property",
+      "/situations/inherited-property",
+      "/situations/foreclosure",
+      "/situations/tired-landlord",
+      "/situations/major-repairs",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/about"
+    ],
+    "/situations/divorce": [
+      "/locations/bethlehem",
+      "/locations/allentown",
+      "/locations/kingston",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/sell-house-fast-during-divorce-lehigh-county-pa",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/job-relocation": [
+      "/locations/tannersville",
+      "/locations/bloomsburg",
+      "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/tax-liens-code-violations": [
+      "/locations/bethlehem",
+      "/locations/hazleton",
+      "/locations/pottsville",
+      "/locations/wilkes-barre",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/vacant-property": [
+      "/locations/pocono-pines",
+      "/locations/east-stroudsburg",
+      "/locations/honesdale",
+      "/locations/tannersville",
+      "/locations/stroudsburg",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "/how-it-works"
+    ],
+    "/situations/inherited-property": [
+      "/locations/easton",
+      "/locations/pittston",
+      "/locations/carbondale",
+      "/locations/reading",
+      "/locations/scranton",
+      "/locations/honesdale",
+      "/locations/dunmore",
+      "/locations/kingston",
+      "/locations/bloomsburg",
+      "/locations/pottsville",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania",
+      "/blog/documents-required-selling-inherited-property-pennsylvania",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/blog/cash-home-buyers-berks-county",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/foreclosure": [
+      "/locations/pittston",
+      "/locations/scranton",
+      "/locations/allentown",
+      "/locations/nanticoke",
+      "/blog/sell-my-house-fast-poconos-pa",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/cash-home-buyers-pottsville-pa",
+      "/blog/how-to-stop-berks-county-judicial-sale-2026",
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees",
+      "/blog/sell-my-house-fast-luzerne-county-pa",
+      "/blog/cash-home-buyers-berks-county",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/tired-landlord": [
+      "/locations/easton",
+      "/locations/pocono-pines",
+      "/locations/hazleton",
+      "/locations/east-stroudsburg",
+      "/locations/stroudsburg",
+      "/locations/nanticoke",
+      "/locations/wilkes-barre",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/stop-govos-fines-poconos-house",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem",
+      "/blog/easton-pa-rental-inspection-checklist-2026",
+      "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/situations/major-repairs": [
+      "/locations/carbondale",
+      "/locations/reading",
+      "/locations/dunmore",
+      "/blog/selling-water-damaged-house-18102-mold-issues",
+      "/blog/scranton-pa-major-structural-damage-disclosure-law-2026",
+      "/blog/sell-my-house-fast-dunmore-mine-subsidence",
+      "/blog/sell-hoarder-house-reading-pa-without-cleanout",
+      "/how-it-works",
+      "/cash-buyer-vs-realtor"
+    ],
+    "/blog/sell-my-house-fast-poconos-pa": [
+      "/locations/pocono-pines",
+      "/locations/east-stroudsburg",
+      "/locations/honesdale",
+      "/locations/tannersville",
+      "/locations/stroudsburg",
+      "/locations/poconos",
+      "/situations/vacant-property"
+    ],
+    "/blog/sell-house-wilkes-barre-code-violations": [
+      "/locations/wilkes-barre",
+      "/situations/tax-liens-code-violations",
+      "/blog/hazleton-residential-occupancy-inspection-checklist"
+    ],
+    "/blog/sell-my-house-fast-lehigh-valley": [
+      "/locations/easton",
+      "/locations/bethlehem",
+      "/locations/lehigh-valley"
+    ],
+    "/blog/cash-home-buyers-pottsville-pa": [
+      "/locations/pottsville"
+    ],
+    "/blog/hazleton-residential-occupancy-inspection-checklist": [
+      "/locations/hazleton",
+      "/situations/tired-landlord"
+    ],
+    "/blog/how-to-stop-berks-county-judicial-sale-2026": [
+      "/locations/reading",
+      "/locations/bloomsburg",
+      "/situations/foreclosure"
+    ],
+    "/blog/stop-govos-fines-poconos-house": [
+      "/locations/pocono-pines",
+      "/locations/east-stroudsburg",
+      "/locations/tannersville",
+      "/locations/stroudsburg",
+      "/locations/poconos",
+      "/situations/tax-liens-code-violations",
+      "/situations/vacant-property"
+    ],
+    "/blog/sell-my-house-fast-allentown": [
+      "/locations/allentown",
+      "/locations/lehigh-valley",
+      "/blog/sell-my-house-fast-lehigh-valley"
+    ],
+    "/blog/sell-deceased-parents-house-without-probate-pennsylvania": [
+      "/situations/inherited-property",
+      "/blog/documents-required-selling-inherited-property-pennsylvania"
+    ],
+    "/blog/documents-required-selling-inherited-property-pennsylvania": [
+      "/situations/inherited-property",
+      "/blog/sell-deceased-parents-house-without-probate-pennsylvania"
+    ],
+    "/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien": [
+      "/locations/bethlehem",
+      "/situations/tax-liens-code-violations"
+    ],
+    "/blog/pennsylvania-job-relocation-home-buyout-fast-equity-release-2026": [
+      "/situations/job-relocation"
+    ],
+    "/blog/selling-water-damaged-house-18102-mold-issues": [
+      "/situations/major-repairs",
+      "/blog/sell-my-house-fast-lehigh-valley",
+      "/blog/sell-my-house-fast-allentown",
+      "/blog/selling-house-international-property-maintenance-code-violations-bethlehem"
+    ],
+    "/blog/scranton-pa-major-structural-damage-disclosure-law-2026": [
+      "/locations/scranton",
+      "/situations/major-repairs"
+    ],
+    "/blog/avoid-foreclosure-scranton-pa": [
+      "/locations/scranton",
+      "/situations/foreclosure"
+    ],
+    "/blog/cash-home-buyers-lackawanna-county-no-fees": [
+      "/locations/carbondale",
+      "/locations/honesdale",
+      "/locations/dunmore",
+      "/blog/avoid-foreclosure-scranton-pa",
+      "/blog/sell-my-house-fast-luzerne-county-pa"
+    ],
+    "/blog/sell-my-house-fast-luzerne-county-pa": [
+      "/locations/nanticoke",
+      "/locations/kingston",
+      "/locations/bloomsburg",
+      "/locations/wilkes-barre",
+      "/blog/sell-house-wilkes-barre-code-violations",
+      "/blog/hazleton-residential-occupancy-inspection-checklist",
+      "/blog/cash-home-buyers-lackawanna-county-no-fees"
+    ],
+    "/blog/cash-home-buyers-berks-county": [
+      "/locations/reading"
+    ],
+    "/blog/sell-my-house-fast-dunmore-mine-subsidence": [
+      "/locations/pittston",
+      "/locations/carbondale",
+      "/locations/dunmore",
+      "/locations/pottsville",
+      "/situations/major-repairs"
+    ],
+    "/blog/selling-house-international-property-maintenance-code-violations-bethlehem": [
+      "/locations/bethlehem",
+      "/locations/allentown",
+      "/locations/lehigh-valley",
+      "/situations/tax-liens-code-violations"
+    ],
+    "/blog/easton-pa-rental-inspection-checklist-2026": [
+      "/locations/easton",
+      "/locations/lehigh-valley",
+      "/situations/tired-landlord"
+    ],
+    "/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights": [
+      "/situations/tax-liens-code-violations"
+    ],
+    "/blog/sell-house-fast-during-divorce-lehigh-county-pa": [
+      "/situations/divorce"
+    ],
+    "/blog/sell-hoarder-house-reading-pa-without-cleanout": [
+      "/locations/reading",
+      "/situations/inherited-property"
+    ],
+    "/blog/luzerne-county-rental-property-registration-inspection-requirements-2026": [
+      "/locations/pittston",
+      "/locations/hazleton",
+      "/locations/nanticoke",
+      "/locations/kingston",
+      "/locations/wilkes-barre",
+      "/situations/tired-landlord"
+    ]
+  },
+  "locations": [
+    {
+      "slug": "easton",
+      "city": "Easton"
+    },
+    {
+      "slug": "pittston",
+      "city": "Pittston"
+    },
+    {
+      "slug": "carbondale",
+      "city": "Carbondale"
+    },
+    {
+      "slug": "reading",
+      "city": "Reading"
+    },
+    {
+      "slug": "pocono-pines",
+      "city": "Pocono Pines"
+    },
+    {
+      "slug": "scranton",
+      "city": "Scranton"
+    },
+    {
+      "slug": "bethlehem",
+      "city": "Bethlehem"
+    },
+    {
+      "slug": "hazleton",
+      "city": "Hazleton"
+    },
+    {
+      "slug": "east-stroudsburg",
+      "city": "East Stroudsburg"
+    },
+    {
+      "slug": "honesdale",
+      "city": "Honesdale"
+    },
+    {
+      "slug": "dunmore",
+      "city": "Dunmore"
+    },
+    {
+      "slug": "tannersville",
+      "city": "Tannersville"
+    },
+    {
+      "slug": "allentown",
+      "city": "Allentown"
+    },
+    {
+      "slug": "stroudsburg",
+      "city": "Stroudsburg"
+    },
+    {
+      "slug": "nanticoke",
+      "city": "Nanticoke"
+    },
+    {
+      "slug": "kingston",
+      "city": "Kingston"
+    },
+    {
+      "slug": "bloomsburg",
+      "city": "Bloomsburg"
+    },
+    {
+      "slug": "pottsville",
+      "city": "Pottsville"
+    },
+    {
+      "slug": "lehigh-valley",
+      "city": "Lehigh Valley"
+    },
+    {
+      "slug": "poconos",
+      "city": "Poconos"
+    },
+    {
+      "slug": "wilkes-barre",
+      "city": "Wilkes-Barre"
+    }
+  ],
+  "situations": [
+    {
+      "slug": "divorce",
+      "title": "Divorce"
+    },
+    {
+      "slug": "job-relocation",
+      "title": "Job Relocation"
+    },
+    {
+      "slug": "tax-liens-code-violations",
+      "title": "Tax Liens & Code Violations"
+    },
+    {
+      "slug": "vacant-property",
+      "title": "Vacant Property"
+    },
+    {
+      "slug": "inherited-property",
+      "title": "Inherited Property"
+    },
+    {
+      "slug": "foreclosure",
+      "title": "Foreclosure"
+    },
+    {
+      "slug": "tired-landlord",
+      "title": "Tired Landlord"
+    },
+    {
+      "slug": "major-repairs",
+      "title": "Major Repairs Needed"
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "sell-my-house-fast-poconos-pa",
+      "title": "Sell My House Fast Poconos PA: The Complete Guide for Vacation Home Owners"
+    },
+    {
+      "slug": "sell-house-wilkes-barre-code-violations",
+      "title": "How to Sell a House in Wilkes-Barre With Code Violations (Without Losing Your Mind)"
+    },
+    {
+      "slug": "sell-my-house-fast-lehigh-valley",
+      "title": "Sell My House Fast Lehigh Valley: Your Complete Guide to a Quick Sale"
+    },
+    {
+      "slug": "cash-home-buyers-pottsville-pa",
+      "title": "Cash Home Buyers Pottsville PA: The Complete Guide to Selling Your Coal Region House Fast"
+    },
+    {
+      "slug": "hazleton-residential-occupancy-inspection-checklist",
+      "title": "Hazleton Residential Occupancy Inspection Checklist: Pass Your Inspection the First Time"
+    },
+    {
+      "slug": "how-to-stop-berks-county-judicial-sale-2026",
+      "title": "How to Stop Berks County Judicial Sale 2026: Your Complete Guide"
+    },
+    {
+      "slug": "stop-govos-fines-poconos-house",
+      "title": "Stop GovOS Fines Poconos House: The Complete 2026 Escape Guide for STR Owners"
+    },
+    {
+      "slug": "sell-my-house-fast-allentown",
+      "title": "Sell My House Fast Allentown: The No-BS Guide From a Local Cash Buyer"
+    },
+    {
+      "slug": "sell-deceased-parents-house-without-probate-pennsylvania",
+      "title": "Can I Sell My Deceased Parents' House Without Probate in Pennsylvania?"
+    },
+    {
+      "slug": "documents-required-selling-inherited-property-pennsylvania",
+      "title": "Documents Required for Selling Inherited Property in Pennsylvania"
+    },
+    {
+      "slug": "sell-my-house-fast-bethlehem-pa-18015-tax-lien",
+      "title": "Sell My House Fast Bethlehem PA 18015 Tax Lien: Your Complete Guide to Getting Out Fast"
+    },
+    {
+      "slug": "pennsylvania-job-relocation-home-buyout-fast-equity-release-2026",
+      "title": "Pennsylvania Job Relocation Home Buyout and Fast Equity Release 2026: The Complete Guide for PA Homeowners"
+    },
+    {
+      "slug": "selling-water-damaged-house-18102-mold-issues",
+      "title": "Selling a Water-Damaged House in 18102 With Mold Issues: Your Complete Guide to Getting Out Fast"
+    },
+    {
+      "slug": "scranton-pa-major-structural-damage-disclosure-law-2026",
+      "title": "Scranton PA Major Structural Damage Disclosure Law 2026: The Complete Seller's Guide"
+    },
+    {
+      "slug": "avoid-foreclosure-scranton-pa",
+      "title": "How to Avoid Foreclosure in Scranton PA: 7 Options Before It's Too Late"
+    },
+    {
+      "slug": "cash-home-buyers-lackawanna-county-no-fees",
+      "title": "Cash Home Buyers in Lackawanna County With No Fees: What to Know Before You Sell"
+    },
+    {
+      "slug": "sell-my-house-fast-luzerne-county-pa",
+      "title": "Sell My House Fast Luzerne County PA: The Complete Local Guide"
+    },
+    {
+      "slug": "cash-home-buyers-berks-county",
+      "title": "Cash Home Buyers Berks County: The Complete 2026 Guide"
+    },
+    {
+      "slug": "sell-my-house-fast-dunmore-mine-subsidence",
+      "title": "Sell My House Fast Dunmore Mine Subsidence: Your Complete Guide to Selling a Home With Mining Damage"
+    },
+    {
+      "slug": "selling-house-international-property-maintenance-code-violations-bethlehem",
+      "title": "Selling a House with International Property Maintenance Code Violations Bethlehem: The Complete 2026 Guide"
+    },
+    {
+      "slug": "easton-pa-rental-inspection-checklist-2026",
+      "title": "Easton PA Rental Inspection Checklist 2026: The Complete Landlord Survival Guide"
+    },
+    {
+      "slug": "pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights",
+      "title": "Pennsylvania Act 135 Blighted Property Conservatorship Help and Owner Rights: The Complete 2025 Guide"
+    },
+    {
+      "slug": "sell-house-fast-during-divorce-lehigh-county-pa",
+      "title": "Sell House Fast During Divorce Lehigh County: Your Complete Guide to Moving Forward"
+    },
+    {
+      "slug": "sell-hoarder-house-reading-pa-without-cleanout",
+      "title": "How to Sell a Hoarder House in Reading, PA Without a Cleanout"
+    },
+    {
+      "slug": "luzerne-county-rental-property-registration-inspection-requirements-2026",
+      "title": "Luzerne County Rental Property Registration and Inspection Requirements 2026: The Complete Landlord Guide"
+    }
+  ]
+}

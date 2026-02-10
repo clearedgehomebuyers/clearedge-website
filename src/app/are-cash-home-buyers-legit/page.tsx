@@ -136,20 +136,20 @@ export default function AreCashHomeBuyersLegitPage() {
         <V0Header />
 
         {/* HERO SECTION */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-4xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Trust & Transparency
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6 leading-tight">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6 leading-tight">
               Are Cash Home Buyers Legit? An Honest Answer from a PA Cash Buyer
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-8 max-w-3xl mx-auto">
               The industry has real problems. Here&apos;s how to tell the difference between a legitimate local buyer and a scam — from someone who&apos;s been doing this since 2016.
             </p>
             <a
               href="#clearedge-difference"
-              className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium border border-[#1a1f1a]/10"
+              className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 font-medium border border-ce-ink/10"
             >
               Skip ahead — see how ClearEdge is different
               <ArrowRight className="w-4 h-4 ml-2" />
@@ -158,7 +158,7 @@ export default function AreCashHomeBuyersLegitPage() {
         </section>
 
         {/* TABLE OF CONTENTS - Sticky on desktop */}
-        <section className="py-4 bg-white border-b border-[#1a1f1a]/10 sticky top-20 md:top-24 z-40">
+        <section className="py-4 bg-white border-b border-ce-ink/10 sticky top-20 md:top-24 z-40">
           <div className="max-w-6xl mx-auto px-4">
             <nav className="overflow-x-auto">
               <ul className="flex gap-4 md:gap-6 justify-start md:justify-center min-w-max">
@@ -166,7 +166,7 @@ export default function AreCashHomeBuyersLegitPage() {
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}
-                      className="text-sm text-[#1a1f1a]/60 hover:text-[#008a29] transition-colors whitespace-nowrap"
+                      className="text-sm text-ce-ink/60 hover:text-ce-green transition-colors whitespace-nowrap"
                     >
                       {section.label}
                     </a>
@@ -181,39 +181,39 @@ export default function AreCashHomeBuyersLegitPage() {
         <section id="short-answer" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Short Answer
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Yes, Most Cash Home Buyers Are Legitimate
               </h2>
             </div>
-            <div className="text-lg text-[#1a1f1a]/70 space-y-6 leading-relaxed">
+            <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
-                According to the <a href="https://www.nar.realtor/" target="_blank" rel="noopener noreferrer" className="text-[#008a29] hover:underline">National Association of Realtors</a>, roughly 29% of all U.S. home sales in late 2025 were all-cash transactions — the highest share in over a decade. Cash buying is a real, established part of the housing market, not some fringe scheme.
+                According to the <a href="https://www.nar.realtor/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">National Association of Realtors</a>, roughly 29% of all U.S. home sales in late 2025 were all-cash transactions — the highest share in over a decade. Cash buying is a real, established part of the housing market, not some fringe scheme.
               </p>
               <p>
-                That said, the industry has a trust problem — and it&apos;s earned. Scammers use the same &quot;We Buy Houses&quot; signs, postcards, and cold calls that legitimate buyers use. The <a href="https://www.attorneygeneral.gov/" target="_blank" rel="noopener noreferrer" className="text-[#008a29] hover:underline">PA Attorney General&apos;s office</a> has issued consumer alerts about home-buying scams. And some operators, while technically legal, use high-pressure tactics, hidden fees, and lowball offers that leave homeowners feeling ripped off.
+                That said, the industry has a trust problem — and it&apos;s earned. Scammers use the same &quot;We Buy Houses&quot; signs, postcards, and cold calls that legitimate buyers use. The <a href="https://www.attorneygeneral.gov/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">PA Attorney General&apos;s office</a> has issued consumer alerts about home-buying scams. And some operators, while technically legal, use high-pressure tactics, hidden fees, and lowball offers that leave homeowners feeling ripped off.
               </p>
               <p>
-                The goal of this page is to help you tell the difference. I&apos;m Tyler, the founder of <Link href="/about" className="text-[#008a29] hover:underline">ClearEdge Home Buyers</Link>. I&apos;ve been buying homes across Eastern Pennsylvania since 2016. I&apos;m going to be completely transparent about how this industry works — the good and the bad — so you can make an informed decision.
+                The goal of this page is to help you tell the difference. I&apos;m Tyler, the founder of <Link href="/about" className="text-ce-green hover:underline">ClearEdge Home Buyers</Link>. I&apos;ve been buying homes across Eastern Pennsylvania since 2016. I&apos;m going to be completely transparent about how this industry works — the good and the bad — so you can make an informed decision.
               </p>
             </div>
           </div>
         </section>
 
         {/* SECTION 2: HOW LEGITIMATE CASH HOME BUYING WORKS */}
-        <section id="how-it-works" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="how-it-works" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Process
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 How Legitimate Cash Home Buying Works
               </h2>
             </div>
-            <div className="text-lg text-[#1a1f1a]/70 space-y-6 leading-relaxed">
+            <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
                 A legitimate cash home buyer purchases properties directly from homeowners using their own funds (or a private credit line), without relying on mortgage financing. Here&apos;s the standard process:
               </p>
@@ -227,21 +227,21 @@ export default function AreCashHomeBuyersLegitPage() {
                   { step: '5', title: 'The buyer does a property walkthrough', desc: 'to verify condition.' },
                   { step: '6', title: 'You close on your timeline', desc: 'Typically 7-30 days. The buyer covers closing costs. You get paid.' },
                 ].map((item) => (
-                  <div key={item.step} className="flex gap-4 bg-white rounded-xl p-5 border border-[#1a1f1a]/5">
-                    <div className="w-10 h-10 bg-[#008a29] rounded-full flex items-center justify-center flex-shrink-0">
+                  <div key={item.step} className="flex gap-4 bg-white rounded-xl p-5 border border-ce-ink/5">
+                    <div className="w-10 h-10 bg-ce-green rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold">{item.step}</span>
                     </div>
                     <div>
-                      <span className="font-semibold text-[#1a1f1a]">{item.title}</span>
-                      <span className="text-[#1a1f1a]/70"> {item.desc}</span>
+                      <span className="font-semibold text-ce-ink">{item.title}</span>
+                      <span className="text-ce-ink/70"> {item.desc}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-white border-l-4 border-[#008a29] p-6 rounded-r-2xl">
-                <p className="text-[#1a1f1a]/80">
-                  <span className="font-semibold text-[#1a1f1a]">The trade-off is straightforward:</span> you accept a lower price (typically 70-85% of after-repair market value) in exchange for speed, certainty, zero repairs, zero commissions, and zero hassle. For many homeowners — especially those facing <Link href="/situations/foreclosure" className="text-[#008a29] hover:underline">foreclosure</Link>, <Link href="/situations/inherited-property" className="text-[#008a29] hover:underline">inherited properties</Link>, <Link href="/situations/major-repairs" className="text-[#008a29] hover:underline">major repairs</Link>, or time pressure — that trade-off makes sense.
+              <div className="bg-white border-l-4 border-ce-green p-6 rounded-r-2xl">
+                <p className="text-ce-ink/80">
+                  <span className="font-semibold text-ce-ink">The trade-off is straightforward:</span> you accept a lower price (typically 70-85% of after-repair market value) in exchange for speed, certainty, zero repairs, zero commissions, and zero hassle. For many homeowners — especially those facing <Link href="/situations/foreclosure" className="text-ce-green hover:underline">foreclosure</Link>, <Link href="/situations/inherited-property" className="text-ce-green hover:underline">inherited properties</Link>, <Link href="/situations/major-repairs" className="text-ce-green hover:underline">major repairs</Link>, or time pressure — that trade-off makes sense.
                 </p>
               </div>
             </div>
@@ -252,10 +252,10 @@ export default function AreCashHomeBuyersLegitPage() {
         <section id="red-flags" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Protect Yourself
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 The 8 Red Flags That Signal a Scam or Bad Operator
               </h2>
             </div>
@@ -320,18 +320,18 @@ export default function AreCashHomeBuyersLegitPage() {
         </section>
 
         {/* SECTION 4: WHAT LEGITIMATE CASH BUYERS LOOK LIKE */}
-        <section id="legit-buyers" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="legit-buyers" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Green Flags
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 What Legitimate Cash Buyers Look Like
               </h2>
             </div>
 
-            <p className="text-lg text-[#1a1f1a]/70 mb-8 text-center max-w-2xl mx-auto">
+            <p className="text-lg text-ce-ink/70 mb-8 text-center max-w-2xl mx-auto">
               Here&apos;s what you SHOULD see when dealing with a real, reputable cash home buyer:
             </p>
 
@@ -346,13 +346,13 @@ export default function AreCashHomeBuyersLegitPage() {
                 { icon: Building, title: 'They buy properties themselves', desc: "Not wholesaling. Not assigning contracts. They're the actual end buyer." },
                 { icon: Phone, title: 'They answer the phone', desc: 'You talk to a real person, not a call center script reader.' },
               ].map((item, i) => (
-                <div key={i} className="bg-white rounded-xl p-5 border border-[#1a1f1a]/5 flex gap-4">
-                  <div className="w-10 h-10 bg-[#008a29]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-[#008a29]" />
+                <div key={i} className="bg-white rounded-xl p-5 border border-ce-ink/5 flex gap-4">
+                  <div className="w-10 h-10 bg-ce-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-5 h-5 text-ce-green" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1a1f1a] mb-1">{item.title}</h3>
-                    <p className="text-sm text-[#1a1f1a]/70">{item.desc}</p>
+                    <h3 className="font-semibold text-ce-ink mb-1">{item.title}</h3>
+                    <p className="text-sm text-ce-ink/70">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -364,15 +364,15 @@ export default function AreCashHomeBuyersLegitPage() {
         <section id="clearedge-difference" className="py-12 md:py-14 bg-white scroll-mt-32">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Our Approach
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 How ClearEdge Is Different
               </h2>
             </div>
 
-            <p className="text-lg text-[#1a1f1a]/70 mb-8 text-center max-w-2xl mx-auto">
+            <p className="text-lg text-ce-ink/70 mb-8 text-center max-w-2xl mx-auto">
               I&apos;m not going to pretend every cash buyer is a scam — most aren&apos;t. But I also know this industry has earned its reputation for opacity. Here&apos;s how we operate differently:
             </p>
 
@@ -419,20 +419,20 @@ export default function AreCashHomeBuyersLegitPage() {
                   phone: true,
                 },
               ].map((item, i) => (
-                <div key={i} className="bg-[#008a29]/5 rounded-xl p-5 border border-[#008a29]/20">
+                <div key={i} className="bg-ce-green-subtle rounded-xl p-5 border border-ce-green/20">
                   <div className="flex gap-4">
-                    <Check className="w-6 h-6 text-[#008a29] flex-shrink-0 mt-0.5" />
+                    <Check className="w-6 h-6 text-ce-green flex-shrink-0 mt-0.5" />
                     <div>
-                      <h3 className="font-semibold text-[#1a1f1a] mb-1">{item.title}</h3>
-                      <p className="text-[#1a1f1a]/70 mb-2">{item.desc}</p>
+                      <h3 className="font-semibold text-ce-ink mb-1">{item.title}</h3>
+                      <p className="text-ce-ink/70 mb-2">{item.desc}</p>
                       {item.link && (
-                        <Link href={item.link.href} className="text-[#008a29] hover:underline text-sm font-medium inline-flex items-center gap-1">
+                        <Link href={item.link.href} className="text-ce-green hover:underline text-sm font-medium inline-flex items-center gap-1">
                           {item.link.text} <ArrowRight className="w-4 h-4" />
                         </Link>
                       )}
                       {item.phone && (
                         <DynamicPhoneLink
-                          className="text-[#008a29] hover:underline text-sm font-medium"
+                          className="text-ce-green hover:underline text-sm font-medium"
                           showIcon={false}
                         />
                       )}
@@ -445,22 +445,22 @@ export default function AreCashHomeBuyersLegitPage() {
         </section>
 
         {/* SECTION 6: VETTING CHECKLIST */}
-        <section id="checklist" className="py-12 md:py-14 bg-[#FAF8F5] scroll-mt-32">
+        <section id="checklist" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
           <div className="max-w-3xl mx-auto px-6">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Before You Sign
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 How to Vet ANY Cash Buyer (Checklist)
               </h2>
             </div>
 
-            <p className="text-lg text-[#1a1f1a]/70 mb-8 text-center">
+            <p className="text-lg text-ce-ink/70 mb-8 text-center">
               Before accepting any cash offer in Pennsylvania, run through this checklist:
             </p>
 
-            <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
+            <div className="bg-white rounded-2xl p-8 border border-ce-ink/5">
               <ul className="space-y-4">
                 {[
                   'Google the company name + "reviews" — read at least 5 recent reviews from real people',
@@ -475,17 +475,17 @@ export default function AreCashHomeBuyersLegitPage() {
                   'Take your time — if they pressure you, walk away',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 border-2 border-[#008a29] rounded flex-shrink-0 mt-0.5 flex items-center justify-center">
-                      <span className="text-[#008a29] text-xs font-bold">{i + 1}</span>
+                    <div className="w-6 h-6 border-2 border-ce-green rounded flex-shrink-0 mt-0.5 flex items-center justify-center">
+                      <span className="text-ce-green text-xs font-bold">{i + 1}</span>
                     </div>
-                    <span className="text-[#1a1f1a]/70">{item}</span>
+                    <span className="text-ce-ink/70">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-[#1a1f1a]/70 mb-6">
+              <p className="text-ce-ink/70 mb-6">
                 Want a baseline to compare against? Get a no-obligation offer from ClearEdge — it&apos;s free, transparent, and comes with zero pressure.
               </p>
               <TrackedCTALink

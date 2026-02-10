@@ -171,15 +171,15 @@ export default function HowItWorksPage() {
         <V0Header />
 
         {/* HERO SECTION - Cream */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Process
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6">
               How We Buy Houses for Cash in Pennsylvania
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-6 max-w-2xl mx-auto">
               No repairs. No agents. No open houses. Tell us about your property, get a fair cash offer in 24 hours, and close on a date that works for your life.
             </p>
             <TrackedCTALink
@@ -193,75 +193,75 @@ export default function HowItWorksPage() {
         {/* WHY TRADITIONAL SELLING IS HARD - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <h2 className="font-serif text-3xl font-medium text-[#1a1f1a] mb-6">
+            <h2 className="font-serif text-3xl font-medium text-ce-ink mb-6">
               Why Selling a House in Pennsylvania Has Gotten Harder in 2026
             </h2>
-            <p className="text-lg text-[#1a1f1a]/70 mb-6">
+            <p className="text-lg text-ce-ink/70 mb-6">
               New PA building codes, stricter municipal inspections, and tighter scrutiny on unpermitted work mean selling through an agent now costs more time and money than ever. You&apos;ll deal with:
             </p>
             <div className="grid sm:grid-cols-2 gap-6 mb-6">
-              <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-[#1a1f1a] mb-2">Disclosure Requirements</h3>
-                <p className="text-[#1a1f1a]/70 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
+              <div className="bg-surface-cream p-5 rounded-2xl border border-ce-ink/5 text-center">
+                <h3 className="font-semibold text-ce-ink mb-2">Disclosure Requirements</h3>
+                <p className="text-ce-ink/70 text-sm">PA law requires detailed property disclosures. Miss something and face legal trouble later.</p>
               </div>
-              <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-[#1a1f1a] mb-2">Municipal Inspections</h3>
-                <p className="text-[#1a1f1a]/70 text-sm">Cities like Allentown require pre-sale inspections. Violations must be fixed before closing.</p>
+              <div className="bg-surface-cream p-5 rounded-2xl border border-ce-ink/5 text-center">
+                <h3 className="font-semibold text-ce-ink mb-2">Municipal Inspections</h3>
+                <p className="text-ce-ink/70 text-sm">Cities like Allentown require pre-sale inspections. Violations must be fixed before closing.</p>
               </div>
-              <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-[#1a1f1a] mb-2">Buyer Financing Delays</h3>
-                <p className="text-[#1a1f1a]/70 text-sm">Mortgage approvals fall through. Appraisals come in low. Deals collapse at the last minute.</p>
+              <div className="bg-surface-cream p-5 rounded-2xl border border-ce-ink/5 text-center">
+                <h3 className="font-semibold text-ce-ink mb-2">Buyer Financing Delays</h3>
+                <p className="text-ce-ink/70 text-sm">Mortgage approvals fall through. Appraisals come in low. Deals collapse at the last minute.</p>
               </div>
-              <div className="bg-[#FAF8F5] p-5 rounded-2xl border border-[#1a1f1a]/5 text-center">
-                <h3 className="font-semibold text-[#1a1f1a] mb-2">Repairs and Staging</h3>
-                <p className="text-[#1a1f1a]/70 text-sm">Most buyers want move-in ready. That means spending money before you see a dime.</p>
+              <div className="bg-surface-cream p-5 rounded-2xl border border-ce-ink/5 text-center">
+                <h3 className="font-semibold text-ce-ink mb-2">Repairs and Staging</h3>
+                <p className="text-ce-ink/70 text-sm">Most buyers want move-in ready. That means spending money before you see a dime.</p>
               </div>
             </div>
-            <p className="text-[#1a1f1a]/70 font-medium">
+            <p className="text-ce-ink/70 font-medium">
               There&apos;s a simpler path.
             </p>
           </div>
         </section>
 
         {/* THREE STEPS TO SOLD - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Simple Process
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Three Steps to Sold
               </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold text-xl">1</span>
+              <div className="bg-white rounded-2xl p-8 border border-ce-ink/5">
+                <div className="w-12 h-12 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold text-xl">1</span>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Tell Us About Your Property</h3>
-                <p className="text-[#008a29] font-medium text-sm mb-3">Under 2 Minutes Online (or a 10-Minute Call)</p>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-xl font-semibold text-ce-ink mb-2">Tell Us About Your Property</h3>
+                <p className="text-ce-green font-medium text-sm mb-3">Under 2 Minutes Online (or a 10-Minute Call)</p>
+                <p className="text-ce-ink/70">
                   Fill out our quick form or call Tyler directly. We&apos;ll ask about the condition, your timeline, and what matters most to you. No pressure, no obligation — just a straightforward conversation to see if we can help.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold text-xl">2</span>
+              <div className="bg-white rounded-2xl p-8 border border-ce-ink/5">
+                <div className="w-12 h-12 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold text-xl">2</span>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Get a Fair Cash Offer in 24 Hours</h3>
-                <p className="text-[#008a29] font-medium text-sm mb-3">Tyler Personally Reviews Every Property</p>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-xl font-semibold text-ce-ink mb-2">Get a Fair Cash Offer in 24 Hours</h3>
+                <p className="text-ce-green font-medium text-sm mb-3">Tyler Personally Reviews Every Property</p>
+                <p className="text-ce-ink/70">
                   Tyler evaluates your property using local PA market data — not a national algorithm — and presents a written cash offer within 24 hours. Our offers are good for 30 days, so you have time to think. We&apos;ll walk you through exactly how we calculated the number — no mystery math.
                 </p>
               </div>
-              <div className="bg-white rounded-2xl p-8 border border-[#1a1f1a]/5">
-                <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold text-xl">3</span>
+              <div className="bg-white rounded-2xl p-8 border border-ce-ink/5">
+                <div className="w-12 h-12 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold text-xl">3</span>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1a1f1a] mb-2">Close On Your Terms</h3>
-                <p className="text-[#008a29] font-medium text-sm mb-3">You Pick the Date</p>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-xl font-semibold text-ce-ink mb-2">Close On Your Terms</h3>
+                <p className="text-ce-green font-medium text-sm mb-3">You Pick the Date</p>
+                <p className="text-ce-ink/70">
                   Accept the offer and choose your closing date — as fast as 7 days or as far out as 60+ days. We handle the title work, paperwork, and coordination. You show up, sign, and get paid.
                 </p>
               </div>
@@ -280,13 +280,13 @@ export default function HowItWorksPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 See It In Action
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink mb-4">
                 Watch How It Works
               </h2>
-              <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
+              <p className="text-ce-ink/70 text-lg max-w-2xl mx-auto">
                 In just 60 seconds, Tyler explains exactly how ClearEdge helps Pennsylvania homeowners sell fast without the traditional hassles.
               </p>
             </div>
@@ -298,41 +298,41 @@ export default function HowItWorksPage() {
         </section>
 
         {/* HOW WE CALCULATE YOUR OFFER - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <div className="mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Transparent Pricing
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 How We Calculate Your Offer
               </h2>
             </div>
-            <p className="text-lg text-[#1a1f1a]/70 mb-6">
+            <p className="text-lg text-ce-ink/70 mb-6">
               We&apos;re not going to hide the math. Here&apos;s exactly how we determine what we can pay:
             </p>
-            <p className="text-[#1a1f1a]/70 mb-4">
+            <p className="text-ce-ink/70 mb-4">
               We start with what your house will be worth after it&apos;s fully renovated — that&apos;s called the After Repair Value (ARV). Then we subtract:
             </p>
-            <ul className="text-[#1a1f1a]/70 mb-6 space-y-2">
+            <ul className="text-ce-ink/70 mb-6 space-y-2">
               <li><span className="font-medium">Repair costs</span> — What it takes to get the property market-ready</li>
               <li><span className="font-medium">Holding costs</span> — Taxes, insurance, utilities while we renovate</li>
               <li><span className="font-medium">Selling costs</span> — Agent commissions and closing costs when we resell</li>
               <li><span className="font-medium">Our margin</span> — What we need to make the project worthwhile</li>
             </ul>
-            <p className="text-[#1a1f1a]/70 mb-6">
+            <p className="text-ce-ink/70 mb-6">
               What&apos;s left is what we can offer you.
             </p>
-            <div className="bg-white border-l-4 border-[#008a29] p-6 rounded-r-2xl mb-6 text-left">
-              <p className="text-[#1a1f1a]/70">
-                <span className="font-semibold text-[#1a1f1a]">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
+            <div className="bg-white border-l-4 border-ce-green p-6 rounded-r-2xl mb-6 text-left">
+              <p className="text-ce-ink/70">
+                <span className="font-semibold text-ce-ink">Example:</span> If a renovated home sells for $200,000 and total costs plus margin are $70,000, we&apos;d offer around $130,000.
               </p>
             </div>
-            <p className="text-[#1a1f1a]/70 mb-6">
+            <p className="text-ce-ink/70 mb-6">
               This isn&apos;t about lowballing you. It&apos;s about being honest so you can make an informed decision. If the numbers don&apos;t work for your situation, we&apos;ll tell you — and we might even suggest listing with an agent instead.
             </p>
             <p className="text-center">
-              <Link href="/cash-buyer-vs-realtor" className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
+              <Link href="/cash-buyer-vs-realtor" className="text-ce-green hover:text-ce-green-hover font-medium transition-colors">
                 Not sure if a cash sale is right for you? See our honest comparison &rarr;
               </Link>
             </p>
@@ -343,24 +343,24 @@ export default function HowItWorksPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Testimonial
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Don&apos;t Just Take Our Word For It
               </h2>
             </div>
-            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
-              <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
-              <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
+            <div className="bg-surface-cream rounded-2xl p-8 lg:p-12 border border-ce-ink/5">
+              <div className="text-ce-green text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-ce-ink/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
               </blockquote>
-              <p className="text-[#1a1f1a]/70 font-medium">
+              <p className="text-ce-ink/70 font-medium">
                 — Kandra G., sold inherited property from Texas
               </p>
             </div>
             <div className="text-center mt-8">
-              <Link href="/testimonials" className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
+              <Link href="/testimonials" className="text-ce-green hover:text-ce-green-hover font-medium transition-colors">
                 Read more reviews &rarr;
               </Link>
             </div>

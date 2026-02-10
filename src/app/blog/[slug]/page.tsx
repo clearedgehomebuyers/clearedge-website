@@ -168,7 +168,7 @@ const portableTextComponents: PortableTextComponents = {
             className="rounded-2xl w-full"
           />
           {value.caption && (
-            <figcaption className="text-center text-sm text-[#1a1f1a]/70 mt-3">
+            <figcaption className="text-center text-sm text-ce-ink/70 mt-3">
               {value.caption}
             </figcaption>
           )}
@@ -178,23 +178,23 @@ const portableTextComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }) => (
-      <h2 className="text-2xl md:text-3xl font-serif font-medium mt-8 mb-4 text-[#1a1f1a]">
+      <h2 className="text-2xl md:text-3xl font-serif font-medium mt-8 mb-4 text-ce-ink">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-xl md:text-2xl font-serif font-medium mt-8 mb-3 text-[#1a1f1a]">
+      <h3 className="text-xl md:text-2xl font-serif font-medium mt-8 mb-3 text-ce-ink">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-lg font-serif font-medium mt-6 mb-2 text-[#1a1f1a]">{children}</h4>
+      <h4 className="text-lg font-serif font-medium mt-6 mb-2 text-ce-ink">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="mb-4 text-[#1a1f1a]/70 leading-relaxed text-lg">{children}</p>
+      <p className="mb-4 text-ce-ink/70 leading-relaxed text-lg">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[#008a29] pl-6 my-8 italic text-[#1a1f1a]/70 text-lg">
+      <blockquote className="border-l-4 border-ce-green pl-6 my-8 italic text-ce-ink/70 text-lg">
         {children}
       </blockquote>
     ),
@@ -208,7 +208,7 @@ const portableTextComponents: PortableTextComponents = {
           href={value?.href}
           target={target}
           rel={rel}
-          className="text-[#008a29] hover:underline font-medium"
+          className="text-ce-green hover:underline font-medium"
         >
           {children}
         </a>
@@ -220,12 +220,12 @@ const portableTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-[#1a1f1a]/70 text-lg">
+      <ul className="list-disc list-outside ml-6 mb-6 space-y-2 text-ce-ink/70 text-lg">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-[#1a1f1a]/70 text-lg">
+      <ol className="list-decimal list-outside ml-6 mb-6 space-y-2 text-ce-ink/70 text-lg">
         {children}
       </ol>
     ),
@@ -354,44 +354,44 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <article className="pb-16">
           {/* Title Section - Beige */}
-          <section className="pt-32 md:pt-40 pb-10 md:pb-12 bg-[#FAF8F5]">
+          <section className="pt-32 md:pt-40 pb-10 md:pb-12 bg-surface-cream">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Breadcrumb */}
-              <nav className="flex items-center text-sm text-[#1a1f1a]/70 mb-6">
-                <Link href="/" className="hover:text-[#008a29] transition-colors">Home</Link>
+              <nav className="flex items-center text-sm text-ce-ink/70 mb-6">
+                <Link href="/" className="hover:text-ce-green transition-colors">Home</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
-                <Link href="/blog" className="hover:text-[#008a29] transition-colors">Blog</Link>
+                <Link href="/blog" className="hover:text-ce-green transition-colors">Blog</Link>
                 <ChevronRight className="w-4 h-4 mx-2" />
-                <span className="text-[#1a1f1a]/70 truncate max-w-[200px]">{post.title}</span>
+                <span className="text-ce-ink/70 truncate max-w-[200px]">{post.title}</span>
               </nav>
 
               {/* Category */}
               {post.category && (
-                <span className="inline-block px-3 py-1 bg-[#008a29]/10 text-[#008a29] rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
+                <span className="inline-block px-3 py-1 bg-ce-green/10 text-ce-green rounded-full text-xs font-semibold uppercase tracking-wide mb-4">
                   {formatCategory(post.category)}
                 </span>
               )}
 
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-[#1a1f1a] leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-ce-ink leading-tight">
                 {post.title}
               </h1>
             </div>
           </section>
 
           {/* Author Bar - Sage Green Gradient (matches homepage trust bar) */}
-          <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+          <section className="py-4 md:py-6 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm md:text-base">
-                <span className="text-[#1a2e1a] font-medium">{post.author}</span>
-                <span className="text-[#1a2e1a]/30">|</span>
-                <time dateTime={post.publishedAt} className="text-[#1a2e1a]/70">
+                <span className="text-ce-ink font-medium">{post.author}</span>
+                <span className="text-ce-ink/30">|</span>
+                <time dateTime={post.publishedAt} className="text-ce-ink/70">
                   {formatDate(post.publishedAt)}
                 </time>
                 {post.updatedAt && post.updatedAt !== post.publishedAt && (
                   <>
-                    <span className="text-[#1a2e1a]/30">|</span>
-                    <time dateTime={post.updatedAt} className="text-[#1a2e1a]/70 text-sm">
+                    <span className="text-ce-ink/30">|</span>
+                    <time dateTime={post.updatedAt} className="text-ce-ink/70 text-sm">
                       Last Updated: {formatDate(post.updatedAt)}
                     </time>
                   </>
@@ -403,12 +403,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Answer-First Summary */}
           {answerFirstSummaries[post.slug.current] && (
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-              <div className="bg-[#008a29]/5 border border-[#008a29]/20 rounded-2xl p-6 md:p-8">
-                <p className="text-[#008a29] font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
-                <h2 className="font-serif text-xl md:text-2xl font-medium text-[#1a1f1a] mb-4">
+              <div className="bg-ce-green-subtle border border-ce-green/20 rounded-2xl p-6 md:p-8">
+                <p className="text-ce-green font-medium text-sm uppercase tracking-wide mb-2">Quick Answer</p>
+                <h2 className="font-serif text-xl md:text-2xl font-medium text-ce-ink mb-4">
                   {answerFirstSummaries[post.slug.current].question}
                 </h2>
-                <p className="text-[#1a1f1a]/80 leading-relaxed text-lg">
+                <p className="text-ce-ink/80 leading-relaxed text-lg">
                   {answerFirstSummaries[post.slug.current].answer}
                 </p>
               </div>
@@ -449,14 +449,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Related Links */}
             {(post.relatedLocations?.length > 0 || post.relatedSituations?.length > 0) && (
-              <section className="mt-8 pt-10 border-t border-[#1a1f1a]/10">
-                <h2 className="text-xl font-serif font-medium text-[#1a1f1a] mb-4">Related Pages</h2>
+              <section className="mt-8 pt-10 border-t border-ce-ink/10">
+                <h2 className="text-xl font-serif font-medium text-ce-ink mb-4">Related Pages</h2>
                 <div className="flex flex-wrap gap-3">
                   {post.relatedLocations?.map((location: { _id: string; city: string; slug: { current: string } }) => (
                     <Link
                       key={location._id}
                       href={`/locations/${location.slug.current}`}
-                      className="bg-[#FAF8F5] hover:bg-[#008a29] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-surface-cream hover:bg-ce-green hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {location.city}, PA
                     </Link>
@@ -465,7 +465,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <Link
                       key={situation._id}
                       href={`/situations/${situation.slug.current}`}
-                      className="bg-[#FAF8F5] hover:bg-[#008a29] hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                      className="bg-surface-cream hover:bg-ce-green hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       {situation.title}
                     </Link>
@@ -475,9 +475,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
 
             {/* Author Bio */}
-            <section className="mt-8 pt-10 border-t border-[#1a1f1a]/10">
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8">
-                <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-4">About the Author</h3>
+            <section className="mt-8 pt-10 border-t border-ce-ink/10">
+              <div className="bg-surface-cream rounded-2xl p-6 md:p-8">
+                <h3 className="font-serif font-medium text-lg text-ce-ink mb-4">About the Author</h3>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                   <div className="flex-shrink-0">
                     <Image
@@ -489,9 +489,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-[#1a1f1a] mb-1">Tyler</p>
-                    <p className="text-sm text-[#008a29] font-medium mb-3">Owner, ClearEdge Home Buyers</p>
-                    <p className="text-[#1a1f1a]/70 leading-relaxed">
+                    <p className="font-semibold text-ce-ink mb-1">Tyler</p>
+                    <p className="text-sm text-ce-green font-medium mb-3">Owner, ClearEdge Home Buyers</p>
+                    <p className="text-ce-ink/70 leading-relaxed">
                       Tyler founded ClearEdge Home Buyers in 2016 and has personally purchased over 200 homes across 21 Eastern Pennsylvania markets — from Scranton and Wilkes-Barre to the Lehigh Valley and Poconos. He writes these guides to help PA homeowners understand their options, whether they&apos;re facing foreclosure, navigating probate, dealing with code violations, or simply want a faster alternative to the traditional listing process.
                     </p>
                   </div>
@@ -500,9 +500,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </section>
 
             {/* CTA */}
-            <section className="mt-8 bg-[#FAF8F5] rounded-2xl p-8 md:p-10 text-center">
-              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">Want to Know What Your House Is Worth in Cash?</h2>
-              <p className="mb-6 text-[#1a1f1a]/70 text-lg max-w-xl mx-auto">
+            <section className="mt-8 bg-surface-cream rounded-2xl p-8 md:p-10 text-center">
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-4">Want to Know What Your House Is Worth in Cash?</h2>
+              <p className="mb-6 text-ce-ink/70 text-lg max-w-xl mx-auto">
                 Tyler personally reviews every property. Fair cash offer in 24 hours — no repairs, no fees, no obligation.
               </p>
               <TrackedCTALink
@@ -516,18 +516,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 
         {/* Final CTA Section - Beige */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-4">
               Still Have Questions? We Have Answers.
             </h2>
-            <p className="text-[#1a1f1a]/70 mb-6">
+            <p className="text-ce-ink/70 mb-6">
               Browse more guides written by Tyler, or get a fair, no-obligation cash offer for your PA home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/blog"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[#1a1f1a]/10 text-[#1a1f1a] rounded-full font-medium hover:bg-white transition-all"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-ce-ink/10 text-ce-ink rounded-full font-medium hover:bg-white transition-all"
               >
                 More Guides
               </Link>

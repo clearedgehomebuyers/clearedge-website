@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { FloatingTextButton } from "@/components/FloatingTextButton";
 import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
+import { ScrollAnimationProvider } from "@/components/ScrollAnimationProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -141,7 +142,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <TrafficSourceProvider>
-          {children}
+          <ScrollAnimationProvider>
+            {children}
+          </ScrollAnimationProvider>
           <FloatingTextButton />
         </TrafficSourceProvider>
       </body>

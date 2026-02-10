@@ -14,7 +14,7 @@ export function TrackedCTALink({
   href,
   label,
   eventLabel,
-  className = "inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all group shadow-lg shadow-[#008a29]/20",
+  className = "inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 transition-all group",
   showArrow = true,
 }: TrackedCTALinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {

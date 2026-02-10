@@ -130,33 +130,33 @@ export function ContactForm() {
   }
 
   return (
-    <div className="grid lg:grid-cols-2 gap-6 items-start">
+    <div className="grid lg:grid-cols-2 gap-8 items-start">
       {/* Left Column - Simple Lead Form */}
       <div>
-        <h2 className="font-serif text-2xl md:text-3xl font-medium text-[#1a1f1a] mb-6">Request Your Cash Offer</h2>
+        <h2 className="font-serif text-2xl md:text-3xl font-medium text-ce-ink mb-6">Request Your Cash Offer</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">First Name</label>
-              <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+              <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink/70 mb-1">First Name</label>
+              <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Last Name</label>
-              <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+              <label htmlFor="lastName" className="block text-sm font-medium text-ce-ink/70 mb-1">Last Name</label>
+              <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
             </div>
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            <label htmlFor="email" className="block text-sm font-medium text-ce-ink/70 mb-1">Email</label>
+            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
           </div>
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Phone</label>
-            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            <label htmlFor="phone" className="block text-sm font-medium text-ce-ink/70 mb-1">Phone</label>
+            <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handlePhoneChange} required className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
             {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-[#1a1f1a]/70 mb-1">Tell us about your property (optional)</label>
-            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-[#1a1f1a]/10 rounded-xl focus:ring-2 focus:ring-[#008a29] focus:border-[#008a29] bg-white" />
+            <label htmlFor="message" className="block text-sm font-medium text-ce-ink/70 mb-1">Tell us about your property (optional)</label>
+            <textarea id="message" name="message" value={formData.message} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-ce-ink/10 rounded-xl focus:ring-2 focus:ring-ce-green/20 focus:border-ce-green bg-white hover:border-ce-ink/20 transition-colors" />
           </div>
           <div className="space-y-3">
             <label className="flex items-start gap-2 cursor-pointer">
@@ -164,10 +164,10 @@ export function ContactForm() {
                 type="checkbox"
                 checked={termsConsent}
                 onChange={(e) => setTermsConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
               />
-              <span className="text-xs text-gray-500 leading-tight">
-                I agree to the <Link href="/terms" className="underline hover:text-[#008a29]">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-[#008a29]">Privacy Policy</Link>.
+              <span className="text-xs text-ce-ink/50 leading-tight">
+                I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
               </span>
             </label>
             <label className="flex items-start gap-2 cursor-pointer">
@@ -175,14 +175,14 @@ export function ContactForm() {
                 type="checkbox"
                 checked={smsConsent}
                 onChange={(e) => setSmsConsent(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-[#008a29] focus:ring-[#008a29] flex-shrink-0"
+                className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
               />
-              <span className="text-xs text-gray-500 leading-tight">
+              <span className="text-xs text-ce-ink/50 leading-tight">
                 I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.
               </span>
             </label>
           </div>
-          <button type="submit" disabled={isSubmitting} className="w-full bg-[#008a29] hover:bg-[#007a24] text-white font-semibold py-4 px-6 rounded-full transition-colors disabled:opacity-50 shadow-lg shadow-[#008a29]/20">
+          <button type="submit" disabled={isSubmitting} className="w-full bg-ce-green hover:bg-ce-green-hover text-white font-semibold py-4 px-6 rounded-full transition-all disabled:opacity-50 shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0">
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -190,7 +190,7 @@ export function ContactForm() {
               </span>
             ) : 'Get My Cash Offer'}
           </button>
-          {submitStatus === 'success' && (<p className="text-[#008a29] text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
+          {submitStatus === 'success' && (<p className="text-ce-green text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
           {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call {dynamicPhone} instead.</p>)}
         </form>
       </div>
@@ -198,41 +198,41 @@ export function ContactForm() {
       {/* Right Column - Contact Widgets */}
       <div className="space-y-6">
         {/* Phone Widget */}
-        <a href={`tel:${phoneTel}`} className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:border-[#008a29]/30 hover:shadow-lg transition-all group">
+        <a href={`tel:${phoneTel}`} className="block bg-white rounded-2xl p-6 border border-ce-ink/5 hover:border-ce-green/30 hover:shadow-card-hover transition-all duration-300 group">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <Phone className="w-6 h-6 text-[#008a29]" />
+            <div className="w-12 h-12 bg-ce-blue-subtle rounded-xl flex items-center justify-center flex-shrink-0">
+              <Phone className="w-6 h-6 text-ce-blue" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Call Tyler Directly</h3>
-              <p className="text-2xl font-bold text-[#008a29]">{dynamicPhone}</p>
-              <p className="text-[#1a1f1a]/70 text-sm mt-1">Available 7 days a week</p>
+              <h3 className="font-semibold text-lg text-ce-ink mb-1">Call Tyler Directly</h3>
+              <p className="text-2xl font-bold text-ce-green">{dynamicPhone}</p>
+              <p className="text-ce-ink/70 text-sm mt-1">Available 7 days a week</p>
             </div>
           </div>
         </a>
 
         {/* Quick Response Widget */}
-        <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+        <div className="bg-white rounded-2xl p-6 border border-ce-ink/5 hover:shadow-card-hover transition-all duration-300">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <Clock className="w-6 h-6 text-[#008a29]" />
+            <div className="w-12 h-12 bg-ce-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <Clock className="w-6 h-6 text-ce-green" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">Quick Response</h3>
-              <p className="text-[#1a1f1a]/70">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
+              <h3 className="font-semibold text-lg text-ce-ink mb-1">Quick Response</h3>
+              <p className="text-ce-ink/70">Cash offer within 24 hours of your inquiry. We respond to every message personally.</p>
             </div>
           </div>
         </div>
 
         {/* No Obligation Widget */}
-        <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+        <div className="bg-white rounded-2xl p-6 border border-ce-ink/5 hover:shadow-card-hover transition-all duration-300">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="w-6 h-6 text-[#008a29]" />
+            <div className="w-12 h-12 bg-ce-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <CheckCircle className="w-6 h-6 text-ce-green" />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-[#1a1f1a] mb-1">No Obligation</h3>
-              <p className="text-[#1a1f1a]/70">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
+              <h3 className="font-semibold text-lg text-ce-ink mb-1">No Obligation</h3>
+              <p className="text-ce-ink/70">Free consultation, no pressure. Get information and explore your options with zero commitment.</p>
             </div>
           </div>
         </div>

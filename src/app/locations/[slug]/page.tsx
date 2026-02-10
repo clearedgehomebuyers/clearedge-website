@@ -55,7 +55,7 @@ const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={value?.href}
-          className="text-[#008a29] hover:underline font-medium"
+          className="text-ce-green hover:underline font-medium"
         >
           {children}
         </a>
@@ -217,25 +217,25 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <V0Header />
 
       {/* Hero Section - Cream */}
-      <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-[#FAF8F5]">
+      <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream">
         <div className="relative max-w-7xl mx-auto w-full">
           {/* Visual Breadcrumb */}
           {parentHubSlug && parentHubName && (
             <nav className="mb-6 text-center" aria-label="Breadcrumb">
               <ol className="inline-flex items-center gap-2 text-sm">
                 <li>
-                  <Link href="/" className="text-[#1a1f1a]/60 hover:text-[#008a29] transition-colors">
+                  <Link href="/" className="text-ce-ink/60 hover:text-ce-green transition-colors">
                     Home
                   </Link>
                 </li>
-                <li className="text-[#1a1f1a]/40">/</li>
+                <li className="text-ce-ink/40">/</li>
                 <li>
-                  <Link href={`/locations/${parentHubSlug}`} className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors">
+                  <Link href={`/locations/${parentHubSlug}`} className="text-ce-green hover:text-ce-green-hover font-medium transition-colors">
                     {parentHubName}
                   </Link>
                 </li>
-                <li className="text-[#1a1f1a]/40">/</li>
-                <li className="text-[#1a1f1a]/80 font-medium">
+                <li className="text-ce-ink/40">/</li>
+                <li className="text-ce-ink/80 font-medium">
                   {location.city}
                 </li>
               </ol>
@@ -246,14 +246,14 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             {/* LEFT COLUMN - Text content (centered within column) */}
             <div className="text-center lg:text-center">
               {/* Headline */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1a1f1a] mb-5 leading-[1.1]">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ce-ink mb-5 leading-[1.1]">
                 {location.heroHeadline || `Sell Your House Fast in`}
                 <br />
-                <span className="text-[#008a29]">{location.city}, {location.state}</span>
+                <span className="text-ce-green">{location.city}, {location.state}</span>
               </h1>
 
               {/* Subheadline */}
-              <p className="text-lg sm:text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
+              <p className="text-lg sm:text-xl text-ce-ink/70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
                 {location.heroSubheadline || `Get a fair cash offer for your ${location.city} home in 24 hours. We buy houses in any condition — no repairs, no fees, no hassle.`}
               </p>
 
@@ -263,10 +263,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   href="#lead-form"
                   label="Get My Fair Cash Offer"
                   eventLabel="Get My Fair Cash Offer - Location Hero"
-                  className="inline-flex items-center justify-center bg-[#008a29] text-white hover:bg-[#007a24] text-base px-8 py-4 rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 group font-medium"
+                  className="inline-flex items-center justify-center bg-ce-green text-white hover:bg-ce-green-hover text-base px-8 py-4 rounded-full shadow-lg shadow-green transition-all hover:shadow-xl hover:shadow-green-lg hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink
-                  className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-[#1a1f1a]/80 hover:text-[#1a1f1a] hover:bg-[#1a1f1a]/5 font-medium"
+                  className="inline-flex items-center justify-center text-base px-8 py-4 rounded-full text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 font-medium"
                   showIcon
                   iconClassName="w-5 h-5 mr-2"
                 />
@@ -276,7 +276,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
-              <div className="bg-white rounded-xl shadow-xl border border-[#1a1f1a]/10 overflow-hidden w-[280px] lg:w-[320px]">
+              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={(heroPhotos[slug] || defaultPhoto).src}
@@ -287,7 +287,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                    <span className="inline-block px-2 py-0.5 bg-[#008a29] text-white text-xs font-bold rounded-full mb-1">
+                    <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
                       Just Closed
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
@@ -299,20 +299,20 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               {/* Trust Indicators - 2x2 GRID */}
               <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
                 <div className="flex items-center justify-center gap-3">
-                  <Clock className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
+                  <Clock className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <DollarSign className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">Zero Fees or Commissions</span>
+                  <DollarSign className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Zero Fees or Commissions</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <Shield className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">No Repairs Needed</span>
+                  <Shield className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">No Repairs Needed</span>
                 </div>
                 <div className="flex items-center justify-center gap-3">
-                  <MapPin className="w-6 h-6 text-[#008a29] flex-shrink-0" />
-                  <span className="text-base text-[#1a1f1a]/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
+                  <MapPin className="w-6 h-6 text-ce-green flex-shrink-0" />
+                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>
@@ -322,12 +322,12 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* County Trust Section - Sage Green Gradient (homepage trust bar styling) */}
       {location.county && (
-        <section className="py-4 md:py-6 bg-gradient-to-b from-[#f5f7f5] to-[#f0f4f1]">
+        <section className="py-4 md:py-6 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-[#1a2e1a] mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-2">
               We Buy Houses in {location.city} and All of {location.county}
             </h2>
-            <p className="text-sm md:text-base text-[#1a2e1a]/70 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-ce-ink/70 max-w-2xl mx-auto">
               Whether you&apos;re in {location.city} or anywhere else in {location.county}, we can make you a fair cash offer within 24 hours.
             </p>
           </div>
@@ -340,11 +340,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
             </div>
 
-            <div className="text-[#1a1f1a]/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
+            <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
               <PortableText value={location.problemStatement} components={portableTextComponents} />
             </div>
           </div>
@@ -357,8 +357,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Neighborhoods</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">{location.city} Areas We Serve</h2>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Neighborhoods</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">{location.city} Areas We Serve</h2>
             </div>
 
             {(() => {
@@ -371,22 +371,22 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     {neighborhoods.map((neighborhood: string, index: number) => (
                       <div
                         key={neighborhood}
-                        className={`bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5${index >= MOBILE_INITIAL ? ' hidden md:block' : ''}`}
+                        className={`bg-surface-cream rounded-2xl p-4 text-center hover:bg-ce-green-subtle transition-colors border border-ce-ink/5${index >= MOBILE_INITIAL ? ' hidden md:block' : ''}`}
                       >
-                        <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                        <span className="font-medium text-ce-ink/70">{neighborhood}</span>
                       </div>
                     ))}
                   </div>
 
                   {neighborhoods.length > MOBILE_INITIAL && (
                     <details className="md:hidden mt-4">
-                      <summary className="text-center text-[#008a29] font-medium text-sm cursor-pointer hover:text-[#007a24] transition-colors">
+                      <summary className="text-center text-ce-green font-medium text-sm cursor-pointer hover:text-ce-green-hover transition-colors">
                         Show all {neighborhoods.length} neighborhoods
                       </summary>
                       <div className="grid grid-cols-2 gap-4 mt-4">
                         {neighborhoods.slice(MOBILE_INITIAL).map((neighborhood: string) => (
-                          <div key={neighborhood} className="bg-[#FAF8F5] rounded-2xl p-4 text-center hover:bg-[#008a29]/5 transition-colors border border-[#1a1f1a]/5">
-                            <span className="font-medium text-[#1a1f1a]/70">{neighborhood}</span>
+                          <div key={neighborhood} className="bg-surface-cream rounded-2xl p-4 text-center hover:bg-ce-green-subtle transition-colors border border-ce-ink/5">
+                            <span className="font-medium text-ce-ink/70">{neighborhood}</span>
                           </div>
                         ))}
                       </div>
@@ -396,18 +396,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               )
             })()}
 
-            <p className="text-center text-[#1a1f1a]/70 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
+            <p className="text-center text-ce-ink/70 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
           </div>
         </section>
       )}
 
       {/* Service Area Map - Cream */}
-      <section className="py-12 md:py-14 bg-[#FAF8F5]">
+      <section className="py-12 md:py-14 bg-surface-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Service Area</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Our {location.city} Coverage Area</h2>
-            <p className="text-[#1a1f1a]/70 mt-2 max-w-2xl mx-auto">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Service Area</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Our {location.city} Coverage Area</h2>
+            <p className="text-ce-ink/70 mt-2 max-w-2xl mx-auto">
               We buy houses throughout {location.city} and the surrounding communities shown on the map below.
             </p>
           </div>
@@ -419,66 +419,66 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       <section className="py-12 md:py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
-            <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Selling to ClearEdge vs. Listing in {location.city}</h2>
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Compare</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Selling to ClearEdge vs. Listing in {location.city}</h2>
           </div>
 
           <div className="overflow-x-auto -mx-4 px-4 pb-2">
-            <div className="overflow-hidden rounded-2xl border border-[#1a1f1a]/10 shadow-lg bg-white min-w-[640px]">
+            <div className="overflow-hidden rounded-2xl border border-ce-ink/10 shadow-lg bg-white min-w-[640px]">
             <table className="w-full">
               <thead>
                 <tr>
-                  <th className="text-left py-5 px-6 bg-[#FAF8F5] font-medium text-[#1a1f1a]/70"></th>
-                  <th className="text-center py-5 px-6 bg-[#008a29] text-white">
+                  <th className="text-left py-5 px-6 bg-surface-cream font-medium text-ce-ink/70"></th>
+                  <th className="text-center py-5 px-6 bg-ce-green text-white">
                     <div className="flex flex-col items-center">
                       <CheckCircle className="w-6 h-6 mb-1" />
                       <span className="font-semibold">ClearEdge</span>
                     </div>
                   </th>
-                  <th className="text-center py-5 px-6 bg-[#FAF8F5] text-[#1a1f1a]/70">
+                  <th className="text-center py-5 px-6 bg-surface-cream text-ce-ink/70">
                     <span className="font-semibold">Traditional Agent</span>
                   </th>
-                  <th className="text-center py-5 px-6 bg-[#FAF8F5] text-[#1a1f1a]/70">
+                  <th className="text-center py-5 px-6 bg-surface-cream text-ce-ink/70">
                     <span className="font-semibold">FSBO</span>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Time to Close</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">7-14 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">90–180 Days</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">120+ Days</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Time to Close</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">7-14 Days</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">90–180 Days</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">120+ Days</td>
                 </tr>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Repairs Needed</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">None — We Buy As-Is</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">$10K–$40K+ Typical</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">$10K–$40K+ Typical</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Repairs Needed</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">None — We Buy As-Is</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">$10K–$40K+ Typical</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">$10K–$40K+ Typical</td>
                 </tr>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Fees & Commissions</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">$0</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">5-6%</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">2-3%</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Fees & Commissions</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">$0</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">5-6%</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">2-3%</td>
                 </tr>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Closing Costs</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">We Pay</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">You Pay</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Closing Costs</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">We Pay</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">You Pay</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">You Pay</td>
                 </tr>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Showings Required</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Zero</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Many</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Showings Required</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Zero</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">Many</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">Many</td>
                 </tr>
-                <tr className="border-t border-[#1a1f1a]/5">
-                  <td className="py-5 px-6 font-medium text-[#1a1f1a]/70">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-[#008a29]/5 font-semibold text-[#008a29]">Guaranteed — Cash</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">38% Fall Through</td>
-                  <td className="py-5 px-6 text-center text-[#1a1f1a]/70">Even Less Certain</td>
+                <tr className="border-t border-ce-ink/5">
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Sale Certainty</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Guaranteed — Cash</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">38% Fall Through</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">Even Less Certain</td>
                 </tr>
               </tbody>
             </table>
@@ -486,7 +486,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
 
           <div className="text-center mt-8">
-            <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20">
+            <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green">
               See What We&apos;d Offer for Your {location.city} Home
               <ArrowRight className="w-4 h-4" />
             </ScrollToFormButton>
@@ -496,11 +496,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* Nearby Communities - Cross-linking to sibling cities in same region */}
       {parentHubSlug && allHubData[parentHubSlug] && (
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Nearby Communities</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Nearby Communities</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">
                 We Also Buy Houses Across {parentHubName}
               </h2>
             </div>
@@ -512,9 +512,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <Link
                     key={city.slug}
                     href={`/locations/${city.slug}`}
-                    className="bg-white rounded-2xl p-4 text-center border border-[#1a1f1a]/5 hover:shadow-lg hover:border-[#008a29]/30 transition-all duration-300 group"
+                    className="bg-white rounded-2xl p-4 text-center border border-ce-ink/5 hover:shadow-lg hover:border-ce-green/30 transition-all duration-300 group"
                   >
-                    <span className="font-medium text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">{city.name}</span>
+                    <span className="font-medium text-ce-ink group-hover:text-ce-green transition-colors">{city.name}</span>
                   </Link>
                 ))}
             </div>
@@ -522,7 +522,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <div className="text-center mt-6">
               <Link
                 href={`/locations/${parentHubSlug}`}
-                className="inline-flex items-center text-[#008a29] font-medium hover:text-[#007a24] transition-colors"
+                className="inline-flex items-center text-ce-green font-medium hover:text-ce-green-hover transition-colors"
               >
                 View all {parentHubName} communities
                 <ArrowRight className="w-4 h-4 ml-1" />
@@ -539,11 +539,11 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
       {/* Helpful Guides Section - Cream */}
       {relatedBlogPosts && relatedBlogPosts.length > 0 && (
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-[#1a1f1a]">Related Articles for {location.city} Homeowners</h2>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Helpful Guides</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Related Articles for {location.city} Homeowners</h2>
             </div>
 
             <div className="space-y-4">
@@ -551,18 +551,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug.current}`}
-                  className="block bg-white rounded-2xl p-6 border border-[#1a1f1a]/5 hover:shadow-lg transition-all duration-300"
+                  className="block bg-white rounded-2xl p-6 border border-ce-ink/5 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-6 h-6 text-[#008a29]" />
+                    <div className="w-12 h-12 bg-ce-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-6 h-6 text-ce-green" />
                     </div>
                     <div>
-                      <h3 className="font-serif font-medium text-lg text-[#1a1f1a] mb-2">{post.title}</h3>
+                      <h3 className="font-serif font-medium text-lg text-ce-ink mb-2">{post.title}</h3>
                       {post.excerpt && (
-                        <p className="text-[#1a1f1a]/70 text-sm line-clamp-2">{post.excerpt}</p>
+                        <p className="text-ce-ink/70 text-sm line-clamp-2">{post.excerpt}</p>
                       )}
-                      <span className="inline-flex items-center text-[#008a29] font-medium text-sm mt-3">
+                      <span className="inline-flex items-center text-ce-green font-medium text-sm mt-3">
                         Read Article <ArrowRight className="w-4 h-4 ml-1" />
                       </span>
                     </div>
@@ -575,9 +575,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <div className="text-center mt-6">
               <Link
                 href="/blog"
-                className="inline-flex items-center px-6 py-3 bg-white hover:bg-[#1a1f1a]/5 text-[#1a1f1a]/70 font-medium rounded-full border border-[#1a1f1a]/10 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white hover:bg-ce-ink/5 text-ce-ink/70 font-medium rounded-full border border-ce-ink/10 transition-colors"
               >
-                <BookOpen className="w-5 h-5 mr-2 text-[#008a29]" />
+                <BookOpen className="w-5 h-5 mr-2 text-ce-green" />
                 More Helpful Guides
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>

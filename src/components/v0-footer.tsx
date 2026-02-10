@@ -65,133 +65,194 @@ const serviceAreaRegions = [
   },
 ]
 
+const socialLinks = [
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/clearedgehomebuyers",
+    icon: (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/clearedgehomebuyers",
+    icon: (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+      </svg>
+    ),
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@ClearEdgeHomeBuyers",
+    icon: (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Google",
+    href: "https://www.google.com/maps/place/ClearEdge+Home+Buyers",
+    icon: (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+      </svg>
+    ),
+  },
+]
+
 export function V0Footer() {
   const { phone, phoneTel } = useTrafficSource()
 
   return (
-    <footer className="bg-white">
+    <footer className="bg-bg-deep">
+      {/* Gradient accent line at top */}
+      <div className="h-0.5 bg-gradient-to-r from-ce-green via-ce-blue to-ce-green" />
+
       {/* Main Footer */}
-      <div className="bg-white border-t border-[#1a1f1a]/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-6">
-            {/* Brand Column */}
-            <div className="lg:col-span-3">
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="cursor-pointer"
-                aria-label="Scroll to top"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-6">
+          {/* Brand Column */}
+          <div className="lg:col-span-3">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="cursor-pointer"
+              aria-label="Scroll to top"
+            >
+              <img
+                src="/Primary.svg"
+                alt="ClearEdge Home Buyers logo"
+                className="h-10 w-auto mb-4 brightness-0 invert"
+                width="120"
+                height="40"
+              />
+            </button>
+            <p className="text-white/50 text-sm leading-relaxed mb-6">
+              Eastern Pennsylvania&apos;s local cash home buyer since 2016. Tyler has personally purchased 200+ homes across 21 markets — fair offers, fast closings, and honest service every time.
+            </p>
+            <div className="space-y-3">
+              <a
+                href={`tel:${phoneTel}`}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'click_to_call', {
+                      event_category: 'Contact',
+                      event_label: 'Footer Phone',
+                      page_path: window.location.pathname
+                    });
+                  }
+                }}
+                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
               >
-                <img
-                  src="/Primary.svg"
-                  alt="ClearEdge Home Buyers logo"
-                  className="h-10 w-auto mb-4"
-                  width="120"
-                  height="40"
-                />
-              </button>
-              <p className="text-[#1a1f1a]/70 text-sm leading-relaxed mb-6">
-                Eastern Pennsylvania&apos;s local cash home buyer since 2016. Tyler has personally purchased 200+ homes across 21 markets — fair offers, fast closings, and honest service every time.
-              </p>
-              <div className="space-y-3">
-                <a
-                  href={`tel:${phoneTel}`}
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && window.gtag) {
-                      window.gtag('event', 'click_to_call', {
-                        event_category: 'Contact',
-                        event_label: 'Footer Phone',
-                        page_path: window.location.pathname
-                      });
-                    }
-                  }}
-                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  {phone}
-                </a>
-                <a
-                  href="mailto:info@clearedgehomebuyers.com"
-                  className="flex items-center gap-3 text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  info@clearedgehomebuyers.com
-                </a>
-                <div className="flex items-start gap-3 text-sm text-[#1a1f1a]/70">
-                  <MapPin className="w-4 h-4 mt-0.5" />
-                  <span>Scranton, Pennsylvania</span>
+                <Phone className="w-4 h-4 text-ce-blue-light" />
+                {phone}
+              </a>
+              <a
+                href="mailto:info@clearedgehomebuyers.com"
+                className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors"
+              >
+                <Mail className="w-4 h-4 text-ce-blue-light" />
+                info@clearedgehomebuyers.com
+              </a>
+              <div className="flex items-start gap-3 text-sm text-white/60">
+                <MapPin className="w-4 h-4 mt-0.5 text-ce-blue-light" />
+                <span>Scranton, Pennsylvania</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* We Help With */}
+          <div className="lg:col-span-2">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-4">We Help With</h3>
+            <ul className="space-y-3">
+              {situations.map((situation) => (
+                <li key={situation.label}>
+                  <Link href={situation.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    {situation.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Service Areas - Regional hierarchy */}
+          <div className="lg:col-span-5">
+            <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-4">Service Areas</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {serviceAreaRegions.map((region) => (
+                <div key={region.name}>
+                  <Link
+                    href={region.hub.href}
+                    className="text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors block mb-2"
+                  >
+                    {region.name} &rarr;
+                  </Link>
+                  <ul className="space-y-1.5">
+                    {region.cities.map((city) => (
+                      <li key={city.label}>
+                        <Link href={city.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                          {city.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div className="lg:col-span-2">
-              <h3 className="font-semibold text-[#1a1f1a] mb-4">Quick Links</h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* We Help With */}
-            <div className="lg:col-span-2">
-              <h3 className="font-semibold text-[#1a1f1a] mb-4">We Help With</h3>
-              <ul className="space-y-3">
-                {situations.map((situation) => (
-                  <li key={situation.label}>
-                    <Link href={situation.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
-                      {situation.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Service Areas - Regional hierarchy */}
-            <div className="lg:col-span-5">
-              <h3 className="font-semibold text-[#1a1f1a] mb-4">Service Areas</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                {serviceAreaRegions.map((region) => (
-                  <div key={region.name}>
-                    <Link
-                      href={region.hub.href}
-                      className="text-sm font-semibold text-[#008a29] hover:text-[#007a24] transition-colors block mb-2"
-                    >
-                      {region.name} →
-                    </Link>
-                    <ul className="space-y-1.5">
-                      {region.cities.map((city) => (
-                        <li key={city.label}>
-                          <Link href={city.href} className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
-                            {city.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
+      {/* Social Icons Row */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="flex justify-center gap-3">
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-white/60 hover:text-white"
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Copyright Bar */}
-      <div className="bg-white border-t border-[#1a1f1a]/5">
+      <div className="bg-[#151719] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-[#1a1f1a]/70">
-              © {new Date().getFullYear()} ClearEdge Home Buyers. All rights reserved.
+            <p className="text-sm text-white/40">
+              &copy; {new Date().getFullYear()} ClearEdge Home Buyers. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacy-policy" className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
+              <Link href="/privacy-policy" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-sm text-[#1a1f1a]/70 hover:text-[#008a29] transition-colors">
+              <Link href="/terms" className="text-sm text-white/40 hover:text-white/60 transition-colors">
                 Terms of Service
               </Link>
             </div>

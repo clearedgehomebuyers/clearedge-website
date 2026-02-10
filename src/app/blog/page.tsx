@@ -181,13 +181,13 @@ export default async function BlogPage() {
       <V0Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section - Cream */}
-        <section className="relative pt-32 pb-10 md:pt-40 md:pb-12 bg-[#FAF8F5] overflow-hidden">
+        <section className="relative pt-32 pb-10 md:pt-40 md:pb-12 bg-surface-cream overflow-hidden">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
-            <h1 className="text-4xl md:text-5xl font-serif font-medium text-[#1a1f1a] mb-6">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
+            <h1 className="text-4xl md:text-5xl font-serif font-medium text-ce-ink mb-6">
               Pennsylvania Home Selling Guides — Written From Direct Experience
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 max-w-2xl mx-auto">
+            <p className="text-xl text-ce-ink/70 max-w-2xl mx-auto">
               No-fluff guides for Eastern PA homeowners. Every article is based on real situations Tyler has handled buying 200+ homes since 2016 — not generic advice copied from national websites.
             </p>
           </div>
@@ -196,13 +196,13 @@ export default async function BlogPage() {
         {/* What You'll Find Section - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Approach
             </span>
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-6">
+            <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-6">
               What Makes These Guides Different?
             </h2>
-            <div className="space-y-4 text-[#1a1f1a]/70 text-lg">
+            <div className="space-y-4 text-ce-ink/70 text-lg">
               <p>
                 Every guide is written from direct experience helping 200+ Pennsylvania homeowners since 2016.
               </p>
@@ -218,13 +218,13 @@ export default async function BlogPage() {
         </section>
 
         {/* Category Navigation - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Topics
               </span>
-              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink">
                 Browse by Topic
               </h2>
             </div>
@@ -232,22 +232,22 @@ export default async function BlogPage() {
               {categories.map((category) => (
                 <div
                   key={category.title}
-                  className="bg-white border border-[#1a1f1a]/5 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center"
+                  className="bg-white border border-ce-ink/5 rounded-2xl p-6 hover:shadow-lg transition-shadow text-center"
                 >
                   <div className="flex flex-col items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-[#008a29]/10 rounded-xl flex items-center justify-center">
-                      <category.icon className="w-5 h-5 text-[#008a29]" />
+                    <div className="w-10 h-10 bg-ce-green/10 rounded-xl flex items-center justify-center">
+                      <category.icon className="w-5 h-5 text-ce-green" />
                     </div>
-                    <h3 className="text-lg font-serif font-medium text-[#1a1f1a]">
+                    <h3 className="text-lg font-serif font-medium text-ce-ink">
                       {category.title}
                     </h3>
                   </div>
-                  <ul className="space-y-2 text-[#1a1f1a]/70">
+                  <ul className="space-y-2 text-ce-ink/70">
                     {category.links.map((link) => (
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="hover:text-[#008a29] transition-colors"
+                          className="hover:text-ce-green transition-colors"
                         >
                           {link.label}
                         </Link>
@@ -264,10 +264,10 @@ export default async function BlogPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Recent Articles
               </span>
-              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a]">
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink">
                 Latest Guides
               </h2>
             </div>
@@ -285,18 +285,18 @@ export default async function BlogPage() {
 
 
         {/* Final CTA Section - Beige */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#1a1f1a] mb-4">
+            <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-4">
               Have a Question We Haven&apos;t Covered?
             </h2>
-            <p className="text-[#1a1f1a]/70 mb-6">
+            <p className="text-ce-ink/70 mb-6">
               We add new Pennsylvania real estate guides based on the questions homeowners ask us.
               If you&apos;re looking for information on selling your house fast and can&apos;t find it here, let us know.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20"
+              className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green"
             >
               Ask a Question
               <ArrowRight className="w-4 h-4" />

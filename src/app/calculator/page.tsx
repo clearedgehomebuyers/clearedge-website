@@ -410,25 +410,25 @@ export default function CalculatorPage() {
 
     if (!results.cashBetter && diff >= 15000) {
       return (
-        <div className="bg-[#FAF8F5] border-l-4 border-[#1a1f1a]/30 p-6 rounded-r-2xl">
-          <p className="text-[#1a1f1a]/80">
-            Based on these estimates, listing with a local agent may net you more — and that&apos;s okay. We always recommend the option that puts the most money in your pocket. But keep in mind: this estimate assumes everything goes perfectly. No price reductions, no second round of negotiations, no deal falling through. If certainty and speed matter to you, <button onClick={scrollToForm} className="text-[#008a29] hover:underline font-medium">get your real cash offer →</button>
+        <div className="bg-surface-cream border-l-4 border-ce-ink/30 p-6 rounded-r-2xl">
+          <p className="text-ce-ink/80">
+            Based on these estimates, listing with a local agent may net you more — and that&apos;s okay. We always recommend the option that puts the most money in your pocket. But keep in mind: this estimate assumes everything goes perfectly. No price reductions, no second round of negotiations, no deal falling through. If certainty and speed matter to you, <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">get your real cash offer →</button>
           </p>
         </div>
       )
     } else if (!results.cashBetter && diff >= 5000) {
       return (
-        <div className="bg-[#FAF8F5] border-l-4 border-yellow-500 p-6 rounded-r-2xl">
-          <p className="text-[#1a1f1a]/80">
-            The numbers are closer than most sellers expect. The traditional route shows a slightly higher net — but that comes with {months} months of carrying costs{repairs > 0 && `, $${repairs.toLocaleString()} in upfront repair spending`}, and a 15–20% chance the deal falls through entirely. Many sellers in this situation choose the certainty of a guaranteed cash offer. <button onClick={scrollToForm} className="text-[#008a29] hover:underline font-medium">Get your real cash offer →</button>
+        <div className="bg-surface-cream border-l-4 border-yellow-500 p-6 rounded-r-2xl">
+          <p className="text-ce-ink/80">
+            The numbers are closer than most sellers expect. The traditional route shows a slightly higher net — but that comes with {months} months of carrying costs{repairs > 0 && `, $${repairs.toLocaleString()} in upfront repair spending`}, and a 15–20% chance the deal falls through entirely. Many sellers in this situation choose the certainty of a guaranteed cash offer. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your real cash offer →</button>
           </p>
         </div>
       )
     } else {
       return (
-        <div className="bg-[#008a29]/5 border-l-4 border-[#008a29] p-6 rounded-r-2xl">
-          <p className="text-[#1a1f1a]/80">
-            At this repair level, a cash sale likely puts more money in your pocket — faster, with zero out-of-pocket costs and zero risk. The traditional route&apos;s commissions, closing costs, and carrying costs eat into what would otherwise be a higher sale price. <button onClick={scrollToForm} className="text-[#008a29] hover:underline font-medium">Get your real cash offer →</button>
+        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl">
+          <p className="text-ce-ink/80">
+            At this repair level, a cash sale likely puts more money in your pocket — faster, with zero out-of-pocket costs and zero risk. The traditional route&apos;s commissions, closing costs, and carrying costs eat into what would otherwise be a higher sale price. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your real cash offer →</button>
           </p>
         </div>
       )
@@ -487,15 +487,15 @@ export default function CalculatorPage() {
         <V0Header />
 
         {/* HERO SECTION */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-4xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Free Calculator
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6 leading-tight">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6 leading-tight">
               Pennsylvania Home Sale Calculator: Cash Offer vs. Traditional Net Proceeds
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-4 max-w-3xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-4 max-w-3xl mx-auto">
               See exactly what you&apos;d walk away with from a traditional sale vs. a cash offer — with county-specific PA closing costs, itemized fees, and real 2026 contractor repair pricing. No guessing.
             </p>
           </div>
@@ -506,25 +506,25 @@ export default function CalculatorPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
             {/* Input Form */}
-            <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8 border border-[#1a1f1a]/5 mb-8">
+            <div className="bg-surface-cream rounded-2xl p-6 md:p-8 border border-ce-ink/5 mb-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-[#008a29]/10 rounded-xl flex items-center justify-center">
-                  <Calculator className="w-6 h-6 text-[#008a29]" />
+                <div className="w-12 h-12 bg-ce-green/10 rounded-xl flex items-center justify-center">
+                  <Calculator className="w-6 h-6 text-ce-green" />
                 </div>
                 <div>
-                  <h2 className="font-serif text-xl font-medium text-[#1a1f1a]">Enter Your Property Details</h2>
-                  <p className="text-sm text-[#1a1f1a]/60">Required fields are marked with *</p>
+                  <h2 className="font-serif text-xl font-medium text-ce-ink">Enter Your Property Details</h2>
+                  <p className="text-sm text-ce-ink/60">Required fields are marked with *</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 {/* Home Value Input */}
                 <div>
-                  <label className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                  <label className="block text-sm font-medium text-ce-ink mb-2">
                     Estimated Home Value <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
-                    <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#1a1f1a]/40" />
+                    <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
                     <input
                       type="text"
                       inputMode="numeric"
@@ -534,13 +534,13 @@ export default function CalculatorPage() {
                         setHomeValueError(false)
                       }}
                       placeholder="280,000"
-                      className={`w-full pl-11 pr-4 py-3 rounded-xl border ${homeValueError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20'} focus:ring-2 outline-none transition-all text-lg`}
+                      className={`w-full pl-11 pr-4 py-3 rounded-xl border ${homeValueError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
                     />
                   </div>
                   {homeValueError && (
                     <p className="mt-1.5 text-sm text-red-500">Please enter your estimated home value.</p>
                   )}
-                  <p className="mt-1.5 text-sm text-[#1a1f1a]/50 flex items-start gap-1">
+                  <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
                     <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                     What would your home be worth in move-in-ready condition?
                   </p>
@@ -548,7 +548,7 @@ export default function CalculatorPage() {
 
                 {/* County Dropdown - Required */}
                 <div>
-                  <label className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                  <label className="block text-sm font-medium text-ce-ink mb-2">
                     PA County <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -557,7 +557,7 @@ export default function CalculatorPage() {
                       setCounty(e.target.value)
                       setCountyError(false)
                     }}
-                    className={`w-full px-4 py-3 rounded-xl border ${countyError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-[#008a29]/20'} focus:ring-2 outline-none transition-all text-lg bg-white`}
+                    className={`w-full px-4 py-3 rounded-xl border ${countyError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg bg-white`}
                   >
                     {paCounties.map((c) => (
                       <option key={c.value} value={c.value}>
@@ -568,7 +568,7 @@ export default function CalculatorPage() {
                   {countyError && (
                     <p className="mt-1.5 text-sm text-red-500">Please select your county for accurate local pricing.</p>
                   )}
-                  <p className="mt-1.5 text-sm text-[#1a1f1a]/50 flex items-start gap-1">
+                  <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
                     <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                     Selecting your county gives you a more accurate estimate based on local transfer tax rates.
                   </p>
@@ -576,10 +576,10 @@ export default function CalculatorPage() {
 
                 {/* Repair Estimator */}
                 <div>
-                  <label className="block text-sm font-medium text-[#1a1f1a] mb-2">
+                  <label className="block text-sm font-medium text-ce-ink mb-2">
                     Repair Estimator
                   </label>
-                  <p className="text-sm text-[#1a1f1a]/60 mb-4">
+                  <p className="text-sm text-ce-ink/60 mb-4">
                     Select the repairs your home needs. Prices are PA averages from HomeAdvisor, Angi, and local contractors.
                   </p>
 
@@ -590,24 +590,24 @@ export default function CalculatorPage() {
                       const checkedCount = getCategoryCheckedCount(category)
 
                       return (
-                        <div key={category.id} className="border border-[#1a1f1a]/10 rounded-xl overflow-hidden bg-white">
+                        <div key={category.id} className="border border-ce-ink/10 rounded-xl overflow-hidden bg-white">
                           <button
                             onClick={() => toggleCategory(category.id)}
-                            className="w-full flex items-center justify-between p-4 hover:bg-[#FAF8F5] transition-colors"
+                            className="w-full flex items-center justify-between p-4 hover:bg-surface-cream transition-colors"
                           >
                             <div className="flex items-center gap-3">
-                              <span className="font-medium text-[#1a1f1a]">{category.name}</span>
+                              <span className="font-medium text-ce-ink">{category.name}</span>
                               {checkedCount > 0 && (
-                                <span className="bg-[#008a29] text-white text-xs px-2 py-0.5 rounded-full">
+                                <span className="bg-ce-green text-white text-xs px-2 py-0.5 rounded-full">
                                   {checkedCount} selected
                                 </span>
                               )}
                             </div>
-                            <ChevronDown className={`w-5 h-5 text-[#1a1f1a]/40 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                            <ChevronDown className={`w-5 h-5 text-ce-ink/40 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                           </button>
 
                           {isExpanded && (
-                            <div className="border-t border-[#1a1f1a]/10 p-4 space-y-3">
+                            <div className="border-t border-ce-ink/10 p-4 space-y-3">
                               {category.items.map((item) => (
                                 <label
                                   key={item.id}
@@ -621,8 +621,8 @@ export default function CalculatorPage() {
                                       }}
                                       className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
                                         checkedRepairs.has(item.id)
-                                          ? 'bg-[#008a29] border-[#008a29]'
-                                          : 'border-[#1a1f1a]/20 group-hover:border-[#008a29]/50'
+                                          ? 'bg-ce-green border-ce-green'
+                                          : 'border-ce-ink/20 group-hover:border-ce-green/50'
                                       }`}
                                     >
                                       {checkedRepairs.has(item.id) && (
@@ -632,14 +632,14 @@ export default function CalculatorPage() {
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div className="flex items-start justify-between gap-2">
-                                      <span className="text-[#1a1f1a] group-hover:text-[#008a29] transition-colors">
+                                      <span className="text-ce-ink group-hover:text-ce-green transition-colors">
                                         {item.name}
                                       </span>
-                                      <span className="font-semibold text-[#1a1f1a] whitespace-nowrap">
+                                      <span className="font-semibold text-ce-ink whitespace-nowrap">
                                         ${item.cost.toLocaleString()}
                                       </span>
                                     </div>
-                                    <span className="text-xs text-[#1a1f1a]/50">
+                                    <span className="text-xs text-ce-ink/50">
                                       PA range: {item.range}
                                     </span>
                                   </div>
@@ -653,36 +653,36 @@ export default function CalculatorPage() {
                   </div>
 
                   {/* Running Repair Total */}
-                  <div className="bg-white border border-[#1a1f1a]/10 rounded-xl p-4 mb-4">
+                  <div className="bg-white border border-ce-ink/10 rounded-xl p-4 mb-4">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="font-medium text-[#1a1f1a]">Selected Repairs Total:</span>
-                      <span className="text-xl font-bold text-[#1a1f1a]">
+                      <span className="font-medium text-ce-ink">Selected Repairs Total:</span>
+                      <span className="text-xl font-bold text-ce-ink">
                         ${checkedRepairsTotal.toLocaleString()}
                       </span>
                     </div>
 
                     {/* Custom Amount Input */}
                     <div>
-                      <label className="block text-sm text-[#1a1f1a]/70 mb-2">
+                      <label className="block text-sm text-ce-ink/70 mb-2">
                         Have other repair costs? Add a custom amount:
                       </label>
                       <div className="relative">
-                        <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#1a1f1a]/40" />
+                        <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
                         <input
                           type="text"
                           inputMode="numeric"
                           value={customRepairCost}
                           onChange={(e) => setCustomRepairCost(formatWithCommas(e.target.value, 6))}
                           placeholder="0"
-                          className="w-full pl-11 pr-4 py-2.5 rounded-lg border border-[#1a1f1a]/10 focus:border-[#008a29] focus:ring-2 focus:ring-[#008a29]/20 outline-none transition-all"
+                          className="w-full pl-11 pr-4 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all"
                         />
                       </div>
                     </div>
 
                     {/* Grand Total */}
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#1a1f1a]/10">
-                      <span className="font-semibold text-[#1a1f1a]">Grand Total Repairs:</span>
-                      <span className="text-2xl font-bold text-[#008a29]">
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-ce-ink/10">
+                      <span className="font-semibold text-ce-ink">Grand Total Repairs:</span>
+                      <span className="text-2xl font-bold text-ce-green">
                         ${totalRepairs.toLocaleString()}
                       </span>
                     </div>
@@ -691,7 +691,7 @@ export default function CalculatorPage() {
 
                 {/* Timeline Radio Buttons */}
                 <div>
-                  <label className="block text-sm font-medium text-[#1a1f1a] mb-3">
+                  <label className="block text-sm font-medium text-ce-ink mb-3">
                     Timeline Flexibility (Optional)
                   </label>
                   <div className="space-y-2">
@@ -700,8 +700,8 @@ export default function CalculatorPage() {
                         key={option.value}
                         className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                           timeline === option.value
-                            ? 'border-[#008a29] bg-[#008a29]/5'
-                            : 'border-[#1a1f1a]/10 hover:border-[#008a29]/30'
+                            ? 'border-ce-green bg-ce-green-subtle'
+                            : 'border-ce-ink/10 hover:border-ce-green/30'
                         }`}
                       >
                         <input
@@ -710,9 +710,9 @@ export default function CalculatorPage() {
                           value={option.value}
                           checked={timeline === option.value}
                           onChange={(e) => setTimeline(e.target.value)}
-                          className="w-4 h-4 text-[#008a29] focus:ring-[#008a29]"
+                          className="w-4 h-4 text-ce-green focus:ring-ce-green"
                         />
-                        <span className="text-[#1a1f1a]/80">{option.label}</span>
+                        <span className="text-ce-ink/80">{option.label}</span>
                       </label>
                     ))}
                   </div>
@@ -721,7 +721,7 @@ export default function CalculatorPage() {
                 {/* Calculate Button */}
                 <button
                   onClick={calculate}
-                  className="w-full py-4 bg-[#008a29] hover:bg-[#007a24] text-white font-semibold text-lg rounded-full shadow-lg shadow-[#008a29]/25 transition-all hover:shadow-xl hover:shadow-[#008a29]/30 hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                  className="w-full py-4 bg-ce-green hover:bg-ce-green-hover text-white font-semibold text-lg rounded-full shadow-lg shadow-green transition-all hover:shadow-xl hover:shadow-green hover:-translate-y-0.5 flex items-center justify-center gap-2"
                 >
                   <Calculator className="w-5 h-5" />
                   Calculate My Net Proceeds
@@ -733,10 +733,10 @@ export default function CalculatorPage() {
             {showResults && results && (
               <div ref={resultsRef} className="scroll-mt-32">
                 <div className="text-center mb-8">
-                  <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+                  <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                     Your Results
                   </span>
-                  <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+                  <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                     Estimated Net Proceeds Comparison
                   </h2>
                 </div>
@@ -744,17 +744,17 @@ export default function CalculatorPage() {
                 {/* Results Cards */}
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                   {/* Traditional Sale Card */}
-                  <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/10 shadow-lg">
-                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#1a1f1a]/10">
+                  <div className="bg-white rounded-2xl p-6 border border-ce-ink/10 shadow-lg">
+                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-ce-ink/10">
                       <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
                         <Home className="w-5 h-5 text-gray-600" />
                       </div>
-                      <h3 className="font-serif text-lg font-medium text-[#1a1f1a]">Traditional Sale with Realtor</h3>
+                      <h3 className="font-serif text-lg font-medium text-ce-ink">Traditional Sale with Realtor</h3>
                     </div>
 
                     <div className="space-y-2.5 mb-6 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">Sale price:</span>
+                        <span className="text-ce-ink/70">Sale price:</span>
                         <span className="font-medium">${results.traditional.salePrice.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
@@ -791,24 +791,24 @@ export default function CalculatorPage() {
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-[#1a1f1a]/10">
+                    <div className="pt-4 border-t border-ce-ink/10">
                       <div className="flex justify-between items-center mb-4">
-                        <span className="font-semibold text-[#1a1f1a]">YOUR ESTIMATED NET:</span>
-                        <span className="text-2xl font-bold text-[#1a1f1a]">
+                        <span className="font-semibold text-ce-ink">YOUR ESTIMATED NET:</span>
+                        <span className="text-2xl font-bold text-ce-ink">
                           <AnimatedNumber value={results.traditional.netProceeds} />
                         </span>
                       </div>
 
                       <div className="space-y-2 text-sm">
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Timeline:</span>
                           <span>{results.traditional.carryingMonths} months</span>
                         </div>
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Out of pocket upfront:</span>
                           <span>${results.traditional.repairs.toLocaleString()}</span>
                         </div>
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Risk of deal falling through:</span>
                           <span>15–20%</span>
                         </div>
@@ -817,61 +817,61 @@ export default function CalculatorPage() {
                   </div>
 
                   {/* Cash Offer Card */}
-                  <div className="bg-[#008a29]/5 rounded-2xl p-6 border-2 border-[#008a29]/30 shadow-lg relative">
-                    <div className="absolute -top-3 right-4 bg-[#008a29] text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <div className="bg-ce-green-subtle rounded-2xl p-6 border-2 border-ce-green/30 shadow-lg relative">
+                    <div className="absolute -top-3 right-4 bg-ce-green text-white text-xs font-bold px-3 py-1 rounded-full">
                       GUARANTEED
                     </div>
 
-                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#008a29]/20">
-                      <div className="w-10 h-10 bg-[#008a29]/20 rounded-lg flex items-center justify-center">
-                        <DollarSign className="w-5 h-5 text-[#008a29]" />
+                    <div className="flex items-center gap-3 mb-6 pb-4 border-b border-ce-green/20">
+                      <div className="w-10 h-10 bg-ce-green/20 rounded-lg flex items-center justify-center">
+                        <DollarSign className="w-5 h-5 text-ce-green" />
                       </div>
-                      <h3 className="font-serif text-lg font-medium text-[#1a1f1a]">ClearEdge Cash Offer</h3>
+                      <h3 className="font-serif text-lg font-medium text-ce-ink">ClearEdge Cash Offer</h3>
                     </div>
 
                     <div className="space-y-2.5 mb-6 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-[#1a1f1a]/70">ClearEdge cash offer:</span>
+                        <span className="text-ce-ink/70">ClearEdge cash offer:</span>
                         <span className="font-medium">${results.cash.offer.toLocaleString()}</span>
                       </div>
-                      <div className="flex justify-between text-[#008a29]">
+                      <div className="flex justify-between text-ce-green">
                         <span>Repairs:</span>
                         <span>$0</span>
                       </div>
-                      <div className="flex justify-between text-[#008a29]">
+                      <div className="flex justify-between text-ce-green">
                         <span>Commissions:</span>
                         <span>$0</span>
                       </div>
-                      <div className="flex justify-between text-[#008a29]">
+                      <div className="flex justify-between text-ce-green">
                         <span>Closing costs:</span>
                         <span>$0</span>
                       </div>
-                      <div className="flex justify-between text-[#008a29]">
+                      <div className="flex justify-between text-ce-green">
                         <span>Carrying costs:</span>
                         <span>$0</span>
                       </div>
                     </div>
 
-                    <div className="pt-4 border-t border-[#008a29]/20">
+                    <div className="pt-4 border-t border-ce-green/20">
                       <div className="flex justify-between items-center mb-4">
-                        <span className="font-semibold text-[#1a1f1a]">YOUR ESTIMATED NET:</span>
-                        <span className="text-2xl font-bold text-[#008a29]">
+                        <span className="font-semibold text-ce-ink">YOUR ESTIMATED NET:</span>
+                        <span className="text-2xl font-bold text-ce-green">
                           <AnimatedNumber value={results.cash.netProceeds} />
                         </span>
                       </div>
 
                       <div className="space-y-2 text-sm">
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Timeline:</span>
-                          <span className="text-[#008a29] font-medium">14–30 days</span>
+                          <span className="text-ce-green font-medium">14–30 days</span>
                         </div>
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Out of pocket:</span>
-                          <span className="text-[#008a29] font-medium">$0</span>
+                          <span className="text-ce-green font-medium">$0</span>
                         </div>
-                        <div className="flex justify-between text-[#1a1f1a]/60">
+                        <div className="flex justify-between text-ce-ink/60">
                           <span>Risk of deal falling through:</span>
-                          <span className="text-[#008a29] font-medium">0%</span>
+                          <span className="text-ce-green font-medium">0%</span>
                         </div>
                       </div>
                     </div>
@@ -879,7 +879,7 @@ export default function CalculatorPage() {
                 </div>
 
                 {/* Difference Summary */}
-                <div className="bg-[#1a1f1a] text-white rounded-2xl p-6 mb-8 text-center">
+                <div className="bg-ce-ink text-white rounded-2xl p-6 mb-8 text-center">
                   <p className="text-lg">
                     <span className="font-bold text-2xl">${results.difference.toLocaleString()}</span>{' '}
                     {results.cashBetter ? 'more' : 'less'} with the{' '}
@@ -893,16 +893,16 @@ export default function CalculatorPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="bg-[#FAF8F5] rounded-2xl p-6 md:p-8 text-center">
-                  <h3 className="font-serif text-2xl font-medium text-[#1a1f1a] mb-4">
+                <div className="bg-surface-cream rounded-2xl p-6 md:p-8 text-center">
+                  <h3 className="font-serif text-2xl font-medium text-ce-ink mb-4">
                     Want to see your REAL number?
                   </h3>
-                  <p className="text-[#1a1f1a]/70 mb-6 max-w-xl mx-auto">
+                  <p className="text-ce-ink/70 mb-6 max-w-xl mx-auto">
                     This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
                   </p>
                   <button
                     onClick={scrollToForm}
-                    className="inline-flex items-center justify-center gap-2 bg-[#008a29] text-white px-8 py-4 rounded-full font-medium hover:bg-[#007a24] transition-all shadow-lg shadow-[#008a29]/20 hover:shadow-xl hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green hover:shadow-xl hover:-translate-y-0.5"
                   >
                     Get Your Real Cash Offer
                     <ArrowRight className="w-5 h-5" />
@@ -913,7 +913,7 @@ export default function CalculatorPage() {
 
             {/* Disclaimer */}
             <div className="mt-8 p-4 bg-gray-50 rounded-xl">
-              <p className="text-xs text-[#1a1f1a]/50 text-center">
+              <p className="text-xs text-ce-ink/50 text-center">
                 This calculator provides estimates based on PA market data and averages. Your actual results will vary based on property condition, negotiations, and market conditions. ClearEdge&apos;s actual cash offer may be higher or lower than the estimate shown. For an accurate number, request a no-obligation offer.
               </p>
             </div>
@@ -921,17 +921,17 @@ export default function CalculatorPage() {
         </section>
 
         {/* WHERE DO THESE NUMBERS COME FROM */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Our Methodology
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Where Do These Numbers Come From?
               </h2>
             </div>
-            <div className="space-y-6 text-[#1a1f1a]/70">
+            <div className="space-y-6 text-ce-ink/70">
               <p>
                 This calculator uses real Pennsylvania data — PA-regulated title insurance rates, county-specific transfer taxes, current contractor pricing from sources like HomeAdvisor, Angi, This Old House, and PA-based contractors.
               </p>
@@ -946,67 +946,67 @@ export default function CalculatorPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Full Picture
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 Costs Most Sellers Don&apos;t Expect
               </h2>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Agent Commissions (5.81%)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Agent Commissions (5.81%)</h3>
+                <p className="text-ce-ink/70">
                   This is the combined PA average for listing agent + buyer&apos;s agent commissions. Even after the 2024 NAR settlement that made buyer&apos;s agent commission technically negotiable, most PA sellers still offer it because homes that don&apos;t attract fewer showings. On a $280,000 home, that&apos;s over $16,000.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Transfer Tax (varies by county)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Transfer Tax (varies by county)</h3>
+                <p className="text-ce-ink/70">
                   PA charges a real estate transfer tax split between buyer and seller. The state portion is 1% (you pay half — 0.5%). Your municipality adds its own local transfer tax on top. This varies by county, which is why we ask for yours. Example: In Lehigh County, your seller portion totals about 1.0% of the sale price.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Title Insurance</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Title Insurance</h3>
+                <p className="text-ce-ink/70">
                   PA title insurance rates are regulated by the state — every title company charges the same rates. The seller typically pays for the owner&apos;s title insurance policy, which protects the buyer&apos;s lender. The rate is tiered: $5.75 per $1,000 on the first $100K, $5.00 per $1,000 from $100K–$500K, and lower rates above that. On a $280,000 home, that&apos;s approximately $1,475.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Settlement &amp; Recording Fees (~$1,575)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Settlement &amp; Recording Fees (~$1,575)</h3>
+                <p className="text-ce-ink/70">
                   These are the fees charged by the title company and county to process your sale: settlement/closing fee ($650), title search ($300), document preparation ($150), notary ($100), recording fees ($200), and the municipal lien letter ($175) that confirms you have no outstanding water, sewer, trash, or code liens.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Post-Inspection Concessions (1.5%)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Post-Inspection Concessions (1.5%)</h3>
+                <p className="text-ce-ink/70">
                   This is the cost most traditional sellers don&apos;t see coming. After a buyer&apos;s home inspector walks through, they almost always find issues and negotiate credits or repairs. In Eastern Pennsylvania — where much of the housing stock dates to the early 1900s — this averages 1.5% of the sale price, and can run 3%+ on older homes. That&apos;s $4,200 on a $280,000 home that wasn&apos;t in your plan.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Home Warranty + Compliance (~$850)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Home Warranty + Compliance (~$850)</h3>
+                <p className="text-ce-ink/70">
                   Buyers in PA frequently request a home warranty ($500), and sellers need to cover a use &amp; occupancy inspection ($150), smoke/CO detector compliance ($100), and pest/termite inspection ($100). Small individually, but they add up.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Carrying Costs (while listed)</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Carrying Costs (while listed)</h3>
+                <p className="text-ce-ink/70">
                   Every month your house sits on the market, you&apos;re paying mortgage principal &amp; interest, property taxes, homeowner&apos;s insurance, utilities (must stay on for showings), and lawn/maintenance. For a $280,000 home in Lehigh County, that&apos;s approximately $1,720 per month. If your home needs repairs before listing, add 1–3 months of repair time before you even hit the market.
                 </p>
               </div>
 
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <h3 className="font-semibold text-[#1a1f1a] text-lg mb-3">Repair Costs</h3>
-                <p className="text-[#1a1f1a]/70">
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Repair Costs</h3>
+                <p className="text-ce-ink/70">
                   The repair estimates in our calculator use current Pennsylvania contractor pricing sourced from HomeAdvisor, Angi, This Old House, and PA-based contractors. We use the midpoint of each range — not the high end — to give you a realistic (not inflated) estimate of what these repairs actually cost homeowners in Eastern PA.
                 </p>
               </div>
@@ -1015,25 +1015,25 @@ export default function CalculatorPage() {
         </section>
 
         {/* HOW WE CALCULATE CASH OFFER */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Transparent Pricing
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 How We Calculate the ClearEdge Cash Offer
               </h2>
             </div>
-            <div className="space-y-6 text-[#1a1f1a]/70">
+            <div className="space-y-6 text-ce-ink/70">
               <p>
                 ClearEdge&apos;s offer is a percentage of your home&apos;s market value. That percentage adjusts based on the condition of the property — homes needing more work receive a lower percentage because ClearEdge takes on all repair costs and risk.
               </p>
               <p>
                 The offer covers ALL closing costs, commissions, and fees. The number you see is the number you walk away with.
               </p>
-              <div className="bg-white border-l-4 border-[#008a29] p-6 rounded-r-2xl">
-                <p className="text-[#1a1f1a]/80">
+              <div className="bg-white border-l-4 border-ce-green p-6 rounded-r-2xl">
+                <p className="text-ce-ink/80">
                   This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
                 </p>
               </div>
@@ -1045,33 +1045,33 @@ export default function CalculatorPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Honest Limitations
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 What This Calculator Can&apos;t Account For
               </h2>
             </div>
-            <div className="space-y-4 text-[#1a1f1a]/70">
+            <div className="space-y-4 text-ce-ink/70">
               <div className="flex gap-4">
-                <div className="w-2 h-2 bg-[#008a29] rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-[#1a1f1a]">Price reductions:</strong> 30–40% of PA listings reduce price at least once. This calculator assumes you sell at full asking price.</p>
+                <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
+                <p><strong className="text-ce-ink">Price reductions:</strong> 30–40% of PA listings reduce price at least once. This calculator assumes you sell at full asking price.</p>
               </div>
               <div className="flex gap-4">
-                <div className="w-2 h-2 bg-[#008a29] rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-[#1a1f1a]">Deal fall-through:</strong> 15–20% of traditional sales collapse after going under contract (financing falls through, inspection issues, buyer gets cold feet). This calculator assumes a clean close.</p>
+                <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
+                <p><strong className="text-ce-ink">Deal fall-through:</strong> 15–20% of traditional sales collapse after going under contract (financing falls through, inspection issues, buyer gets cold feet). This calculator assumes a clean close.</p>
               </div>
               <div className="flex gap-4">
-                <div className="w-2 h-2 bg-[#008a29] rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-[#1a1f1a]">Multiple rounds of negotiation:</strong> Buyers often negotiate twice — once on price, once after inspection. This calculator only accounts for one round of inspection concessions.</p>
+                <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
+                <p><strong className="text-ce-ink">Multiple rounds of negotiation:</strong> Buyers often negotiate twice — once on price, once after inspection. This calculator only accounts for one round of inspection concessions.</p>
               </div>
               <div className="flex gap-4">
-                <div className="w-2 h-2 bg-[#008a29] rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-[#1a1f1a]">Seasonal timing:</strong> Homes listed in winter in Eastern PA typically take longer to sell and may sell for less.</p>
+                <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
+                <p><strong className="text-ce-ink">Seasonal timing:</strong> Homes listed in winter in Eastern PA typically take longer to sell and may sell for less.</p>
               </div>
               <div className="flex gap-4">
-                <div className="w-2 h-2 bg-[#008a29] rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-[#1a1f1a]">Emotional cost:</strong> The stress of keeping a home show-ready for months, coordinating with agents, managing repairs, and uncertainty isn&apos;t reflected in any number.</p>
+                <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
+                <p><strong className="text-ce-ink">Emotional cost:</strong> The stress of keeping a home show-ready for months, coordinating with agents, managing repairs, and uncertainty isn&apos;t reflected in any number.</p>
               </div>
             </div>
           </div>

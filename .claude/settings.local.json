@@ -17,7 +17,14 @@
       "Bash(git pull:*)",
       "Bash(npx next build:*)",
       "Bash(npx tsc:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(node scripts/migrate-sanity-content.mjs:*)",
+      "Bash(del:*)",
+      "Bash(Remove-Item -Force \"src\\\\app\\\\page.tsx.backup\", \"src\\\\app\\\\how-it-works\\\\page.tsx.backup\", \"src\\\\app\\\\contact\\\\page.tsx.backup\", \"src\\\\app\\\\about\\\\page.tsx.backup\", \"src\\\\app\\\\blog\\\\page.tsx.backup\", \"src\\\\app\\\\testimonials\\\\page.tsx.backup\")",
+      "Bash(taskkill:*)",
+      "Bash(git reset:*)",
+      "Bash(dir:*)",
+      "Bash(cmd /c \"del \\\\?\\\\C:\\\\Users\\\\trs35\\\\OneDrive\\\\Desktop\\\\clearedge-website\\\\nul\")"
     ]
   }
 }

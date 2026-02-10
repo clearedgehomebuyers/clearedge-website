@@ -109,7 +109,7 @@ function StarRating() {
   return (
     <div className="flex items-center gap-1 mb-4">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} className="w-5 h-5 text-[#008a29] fill-current" />
+        <Star key={i} className="w-5 h-5 text-ce-green fill-current" />
       ))}
     </div>
   )
@@ -117,14 +117,14 @@ function StarRating() {
 
 function ReviewCard({ review }: { review: typeof secondaryReviews[0] }) {
   return (
-    <div className="bg-white rounded-2xl p-6 border border-[#1a1f1a]/5">
+    <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
       <StarRating />
-      <blockquote className="text-[#1a1f1a]/70 mb-4">
+      <blockquote className="text-ce-ink/70 mb-4">
         &ldquo;{review.quote}&rdquo;
       </blockquote>
-      <div className="border-t border-[#1a1f1a]/10 pt-4">
-        <p className="font-semibold text-[#1a1f1a]">{review.name}</p>
-        <p className="text-sm text-[#1a1f1a]/70">{review.context}</p>
+      <div className="border-t border-ce-ink/10 pt-4">
+        <p className="font-semibold text-ce-ink">{review.name}</p>
+        <p className="text-sm text-ce-ink/70">{review.context}</p>
       </div>
     </div>
   )
@@ -276,15 +276,15 @@ export default function TestimonialsPage() {
         <V0Header />
 
         {/* Hero Section - Cream */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonials
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6">
               Every Google Review Is 5 Stars. Here&apos;s Why.
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-6 max-w-2xl mx-auto">
               We don&apos;t have hundreds of reviews — we have a perfect rating from every homeowner we&apos;ve worked with. Read what real Pennsylvania sellers say about working with Tyler.
             </p>
             <TrackedCTALink
@@ -300,30 +300,30 @@ export default function TestimonialsPage() {
         {/* Featured Testimonial - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
-              <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
-              <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
+            <div className="bg-surface-cream rounded-2xl p-8 lg:p-12 border border-ce-ink/5">
+              <div className="text-ce-green text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-ce-ink/70 leading-relaxed mb-6">
                 Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless. He handled everything — from coordinating with my dad&apos;s caregivers to managing repairs I couldn&apos;t oversee myself. I never felt pressured, and he kept me informed every step of the way. If you&apos;re dealing with an inherited property or just need someone you can trust, call Tyler.
               </blockquote>
               <div className="flex items-center gap-2 mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-[#008a29] fill-current" />
+                  <Star key={i} className="w-5 h-5 text-ce-green fill-current" />
                 ))}
               </div>
-              <p className="font-semibold text-[#1a1f1a]">Kandra Gunter</p>
-              <p className="text-sm text-[#1a1f1a]/70">Sold inherited property from Texas while caring for elderly father</p>
+              <p className="font-semibold text-ce-ink">Kandra Gunter</p>
+              <p className="text-sm text-ce-ink/70">Sold inherited property from Texas while caring for elderly father</p>
             </div>
           </div>
         </section>
 
         {/* Secondary Reviews Grid - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 More Reviews
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 More Reviews From Pennsylvania Homeowners
               </h2>
             </div>
@@ -343,7 +343,7 @@ export default function TestimonialsPage() {
                 href="https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8549074,-77.1384488,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#008a29] hover:text-[#007a24] font-medium transition-colors"
+                className="text-ce-green hover:text-ce-green-hover font-medium transition-colors"
               >
                 See all reviews on Google &rarr;
               </a>
@@ -355,10 +355,10 @@ export default function TestimonialsPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Common Themes
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 What Our Reviews Have in Common
               </h2>
             </div>
@@ -366,12 +366,12 @@ export default function TestimonialsPage() {
             <div className="grid sm:grid-cols-2 gap-6">
               {reviewHighlights.slice(0, 4).map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Check className="w-5 h-5 text-[#008a29]" />
+                  <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Check className="w-5 h-5 text-ce-green" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1a1f1a] mb-1">{item.title}</h3>
-                    <p className="text-[#1a1f1a]/70">{item.description}</p>
+                    <h3 className="font-semibold text-ce-ink mb-1">{item.title}</h3>
+                    <p className="text-ce-ink/70">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -379,12 +379,12 @@ export default function TestimonialsPage() {
             {/* 5th item centered on tablet and desktop */}
             <div className="mt-6 sm:flex sm:justify-center">
               <div className="flex items-start gap-4 sm:max-w-[calc(50%-0.75rem)]">
-                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#008a29]" />
+                <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-ce-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1a1f1a] mb-1">{reviewHighlights[4].title}</h3>
-                  <p className="text-[#1a1f1a]/70">{reviewHighlights[4].description}</p>
+                  <h3 className="font-semibold text-ce-ink mb-1">{reviewHighlights[4].title}</h3>
+                  <p className="text-ce-ink/70">{reviewHighlights[4].description}</p>
                 </div>
               </div>
             </div>
@@ -401,12 +401,12 @@ export default function TestimonialsPage() {
 
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
+        <section id="lead-form" className="py-8 md:py-10 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <V0LeadForm />
-            <p className="text-[#1a1f1a]/70 text-sm mt-8">
+            <p className="text-ce-ink/70 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}
-              <DynamicPhoneLink className="font-semibold text-[#008a29] hover:underline" />
+              <DynamicPhoneLink className="font-semibold text-ce-green hover:underline" />
             </p>
           </div>
         </section>

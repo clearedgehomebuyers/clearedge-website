@@ -205,15 +205,15 @@ export default function AboutPage() {
         <V0Header />
 
         {/* Hero Section - Cream */}
-        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-[#FAF8F5]">
+        <section className="relative pt-32 pb-10 md:pb-12 px-4 overflow-hidden bg-surface-cream">
           <div className="relative max-w-3xl mx-auto text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               About Us
             </span>
-            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-[#1a1f1a] mb-6">
+            <h1 className="font-serif text-4xl lg:text-5xl font-medium text-ce-ink mb-6">
               About ClearEdge Home Buyers — Local PA Cash Buyers Since 2016
             </h1>
-            <p className="text-xl text-[#1a1f1a]/70 mb-6 max-w-2xl mx-auto">
+            <p className="text-xl text-ce-ink/70 mb-6 max-w-2xl mx-auto">
               We&apos;re not a franchise or a national call center. We&apos;re a family-owned company that buys houses directly from Pennsylvania homeowners — 200+ and counting since 2016.
             </p>
             <TrackedCTALink
@@ -227,13 +227,13 @@ export default function AboutPage() {
         {/* Origin Story - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Story
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink mb-6">
               How ClearEdge Started
             </h2>
-            <div className="space-y-6 text-lg text-[#1a1f1a]/70">
+            <div className="space-y-6 text-lg text-ce-ink/70">
               <p>
                 I&apos;m Tyler, the founder of ClearEdge Home Buyers. In 2016, my high school friend and I bought our first property — a duplex on Birch Street in Scranton. We didn&apos;t have a business plan or investors. Just a belief that we could help homeowners while building something we&apos;d be proud of.
               </p>
@@ -248,16 +248,16 @@ export default function AboutPage() {
         </section>
 
         {/* Meet Tyler Video - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Meet Tyler
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-4">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink mb-4">
                 A Quick Message From Our Founder
               </h2>
-              <p className="text-[#1a1f1a]/70 text-lg max-w-2xl mx-auto">
+              <p className="text-ce-ink/70 text-lg max-w-2xl mx-auto">
                 Watch this 60-second video to learn how we help Pennsylvania homeowners sell fast without the hassle.
               </p>
             </div>
@@ -272,47 +272,47 @@ export default function AboutPage() {
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Our Difference
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 What Makes ClearEdge Different
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold">1</span>
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold">1</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Local, Not Corporate</h3>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-lg font-semibold text-ce-ink mb-2">Local, Not Corporate</h3>
+                <p className="text-ce-ink/70">
                   We&apos;re based in Scranton, not a call center in another state. When you call, you talk to Tyler — not a script reader.
                 </p>
               </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold">2</span>
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold">2</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Transparent Pricing</h3>
-                <p className="text-[#1a1f1a]/70">
-                  We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you. <Link href="/how-it-works" className="text-[#008a29] hover:underline">See how our process works</Link>.
+                <h3 className="text-lg font-semibold text-ce-ink mb-2">Transparent Pricing</h3>
+                <p className="text-ce-ink/70">
+                  We show you exactly how we calculate our offer. No mystery math, no pressure tactics. If the numbers don&apos;t work for you, we&apos;ll tell you. <Link href="/how-it-works" className="text-ce-green hover:underline">See how our process works</Link>.
                 </p>
               </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold">3</span>
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold">3</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">Your Timeline</h3>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-lg font-semibold text-ce-ink mb-2">Your Timeline</h3>
+                <p className="text-ce-ink/70">
                   Need to close in 7 days? We can do that. Need 60 days to find your next place? That works too. You&apos;re in control.
                 </p>
               </div>
-              <div className="bg-[#FAF8F5] rounded-2xl p-6 border border-[#1a1f1a]/5">
-                <div className="w-10 h-10 bg-[#008a29]/10 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-[#008a29] font-bold">4</span>
+              <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-ce-green font-bold">4</span>
                 </div>
-                <h3 className="text-lg font-semibold text-[#1a1f1a] mb-2">We Handle the Hard Stuff</h3>
-                <p className="text-[#1a1f1a]/70">
+                <h3 className="text-lg font-semibold text-ce-ink mb-2">We Handle the Hard Stuff</h3>
+                <p className="text-ce-ink/70">
                   Probate, liens, code violations, out-of-state sellers, tenant issues — we&apos;ve seen it all and know how to navigate it.
                 </p>
               </div>
@@ -321,57 +321,57 @@ export default function AboutPage() {
         </section>
 
         {/* Local Knowledge Section - Cream */}
-        <section className="py-12 md:py-14 bg-[#FAF8F5]">
+        <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-6">
-              <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Local Expertise
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a]">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
                 We Know Pennsylvania Real Estate
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#008a29]" />
+                <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-ce-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Municipal Pre-Sale Inspections</h3>
-                  <p className="text-[#1a1f1a]/70">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
+                  <h3 className="font-semibold text-ce-ink mb-1">Municipal Pre-Sale Inspections</h3>
+                  <p className="text-ce-ink/70">Cities like Allentown require inspections before closing. We know which municipalities have requirements and how to navigate them.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#008a29]" />
+                <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-ce-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Probate Process</h3>
-                  <p className="text-[#1a1f1a]/70">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
+                  <h3 className="font-semibold text-ce-ink mb-1">Probate Process</h3>
+                  <p className="text-ce-ink/70">Pennsylvania probate can take months. We work with estate attorneys regularly and can close during or after the process.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#008a29]" />
+                <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-ce-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Mine Subsidence (NEPA)</h3>
-                  <p className="text-[#1a1f1a]/70">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
+                  <h3 className="font-semibold text-ce-ink mb-1">Mine Subsidence (NEPA)</h3>
+                  <p className="text-ce-ink/70">Parts of Northeastern PA have underground mine issues. We understand the risks and factor them into our offers fairly.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-[#008a29]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Check className="w-5 h-5 text-[#008a29]" />
+                <div className="w-8 h-8 bg-ce-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Check className="w-5 h-5 text-ce-green" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#1a1f1a] mb-1">Title &amp; Lien Issues</h3>
-                  <p className="text-[#1a1f1a]/70">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
+                  <h3 className="font-semibold text-ce-ink mb-1">Title &amp; Lien Issues</h3>
+                  <p className="text-ce-ink/70">Tax liens, judgments, code violations — we&apos;ve closed deals with complicated title situations that scared off other buyers.</p>
                 </div>
               </div>
             </div>
             <div className="mt-8 text-center">
-              <p className="text-[#1a1f1a]/70">
-                Want to learn more about selling in your specific situation? <Link href="/blog" className="text-[#008a29] hover:underline">Browse our guides and resources</Link>.
+              <p className="text-ce-ink/70">
+                Want to learn more about selling in your specific situation? <Link href="/blog" className="text-ce-green hover:underline">Browse our guides and resources</Link>.
               </p>
             </div>
           </div>
@@ -380,21 +380,21 @@ export default function AboutPage() {
         {/* Testimonial Section - White */}
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-3xl mx-auto px-6 text-center">
-            <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-4 block">
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonial
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#1a1f1a] mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink mb-6">
               What Homeowners Say
             </h2>
-            <div className="bg-[#FAF8F5] rounded-2xl p-8 lg:p-12 border border-[#1a1f1a]/5">
-              <div className="text-[#008a29] text-6xl font-serif leading-none mb-4">&ldquo;</div>
-              <blockquote className="text-xl lg:text-2xl text-[#1a1f1a]/70 leading-relaxed mb-6">
+            <div className="bg-surface-cream rounded-2xl p-8 lg:p-12 border border-ce-ink/5">
+              <div className="text-ce-green text-6xl font-serif leading-none mb-4">&ldquo;</div>
+              <blockquote className="text-xl lg:text-2xl text-ce-ink/70 leading-relaxed mb-6">
                 First to take time to explain the process and make me feel comfortable.
               </blockquote>
-              <p className="text-[#1a1f1a]/70">— Gavin S.</p>
+              <p className="text-ce-ink/70">— Gavin S.</p>
             </div>
             <div className="mt-8">
-              <Link href="/testimonials" className="text-[#008a29] hover:text-[#007a24] font-medium">
+              <Link href="/testimonials" className="text-ce-green hover:text-ce-green-hover font-medium">
                 Read all reviews &rarr;
               </Link>
             </div>
@@ -411,12 +411,12 @@ export default function AboutPage() {
 
 
         {/* Lead Form Section - Beige */}
-        <section id="lead-form" className="py-8 md:py-10 bg-[#FAF8F5] scroll-mt-20 md:scroll-mt-24">
+        <section id="lead-form" className="py-8 md:py-10 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
           <div className="max-w-3xl mx-auto px-6">
             <V0LeadForm />
-            <p className="text-[#1a1f1a]/70 text-sm mt-8 text-center">
+            <p className="text-ce-ink/70 text-sm mt-8 text-center">
               Prefer to call? Reach Tyler directly:{' '}
-              <DynamicPhoneLink className="font-semibold text-[#008a29] hover:underline" />
+              <DynamicPhoneLink className="font-semibold text-ce-green hover:underline" />
             </p>
           </div>
         </section>
