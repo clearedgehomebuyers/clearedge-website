@@ -212,7 +212,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
-              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[320px]">
+              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={(heroPhotos[slug] || defaultPhoto).src}
@@ -233,22 +233,22 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </div>
 
               {/* Trust Indicators - 2x2 GRID */}
-              <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
-                <div className="flex items-center justify-center gap-3">
-                  <Clock className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
+              <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 w-full max-w-md mx-auto">
+                <div className="flex items-center justify-center gap-2">
+                  <Clock className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Close in 7–30 Days</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <DollarSign className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Zero Fees Ever</span>
+                <div className="flex items-center justify-center gap-2">
+                  <DollarSign className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Zero Fees Ever</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Shield className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Sell 100% As-Is</span>
+                <div className="flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Sell 100% As-Is</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
+                <div className="flex items-center justify-center gap-2">
+                  <MapPin className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>

@@ -133,7 +133,7 @@ export function V0Hero({ city }: V0HeroProps) {
               <div className="absolute inset-0 bg-white rounded-2xl shadow-lg border border-ce-ink/5 transform rotate-2 scale-[0.97] translate-x-2 translate-y-1" />
 
               {/* Main card */}
-              <div className="relative bg-white rounded-2xl shadow-2xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[380px] hover:-translate-y-1 transition-transform duration-300">
+              <div className="relative bg-white rounded-2xl shadow-2xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[380px] hover:-translate-y-1 transition-transform duration-300">
                 <div className="relative aspect-[4/3]">
                   <picture>
                     {/* WebP sources for modern browsers */}

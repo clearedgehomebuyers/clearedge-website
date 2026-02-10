@@ -226,7 +226,7 @@ export default function AboutPage() {
 
         {/* Origin Story - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Our Story
             </span>
@@ -270,7 +270,7 @@ export default function AboutPage() {
 
         {/* What Makes ClearEdge Different - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-5xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Our Difference
@@ -322,7 +322,7 @@ export default function AboutPage() {
 
         {/* Local Knowledge Section - Cream */}
         <section className="py-12 md:py-14 bg-surface-cream">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Local Expertise
@@ -379,7 +379,7 @@ export default function AboutPage() {
 
         {/* Testimonial Section - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
               Testimonial
             </span>
@@ -412,7 +412,7 @@ export default function AboutPage() {
 
         {/* Lead Form Section - Beige */}
         <section id="lead-form" className="py-8 md:py-10 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <V0LeadForm />
             <p className="text-ce-ink/70 text-sm mt-8 text-center">
               Prefer to call? Reach Tyler directly:{' '}

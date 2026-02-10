@@ -51,7 +51,7 @@ export function CoverageMap() {
   if (!isLoaded) {
     return (
       <div
-        className="w-full h-[350px] md:h-[500px] bg-[#f5f5f5] rounded-2xl flex items-center justify-center border border-[#1a1f1a]/5"
+        className="w-full h-[280px] md:h-[500px] bg-[#f5f5f5] rounded-2xl flex items-center justify-center border border-[#1a1f1a]/5"
         aria-label="Loading coverage map"
       >
         <div className="text-center">
@@ -69,7 +69,7 @@ export function CoverageMap() {
 
   return (
     <div
-      className="w-full h-[350px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg border border-[#1a1f1a]/5"
+      className="w-full h-[280px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg border border-[#1a1f1a]/5"
       aria-label="Map showing all ClearEdge Home Buyers service locations across Eastern Pennsylvania"
     >
       <GoogleMap

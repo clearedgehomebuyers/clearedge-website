@@ -359,7 +359,7 @@ export function V0LeadForm() {
         {/* Progress Steps */}
         <div className="flex justify-between mb-6 relative">
           {/* Progress Line */}
-          <div className="absolute top-6 left-0 right-0 h-0.5 bg-ce-ink/10">
+          <div className="absolute top-5 sm:top-6 left-0 right-0 h-0.5 bg-ce-ink/10">
             <div
               className="h-full bg-gradient-to-r from-ce-green to-ce-blue transition-all duration-500 ease-out"
               style={{ width: `${((currentStep - 1) / 4) * 100}%` }}
@@ -369,7 +369,7 @@ export function V0LeadForm() {
           {steps.map((step) => (
             <div key={step.id} className="relative flex flex-col items-center z-10">
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
                   currentStep > step.id
                     ? "bg-ce-green text-white shadow-green"
                     : currentStep === step.id
@@ -377,10 +377,10 @@ export function V0LeadForm() {
                     : "bg-white text-ce-ink/40 border border-ce-ink/10"
                 }`}
               >
-                {currentStep > step.id ? <Check className="w-5 h-5" /> : <step.icon className="w-5 h-5" />}
+                {currentStep > step.id ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : <step.icon className="w-4 h-4 sm:w-5 sm:h-5" />}
               </div>
               <span
-                className={`text-xs mt-2 transition-colors ${
+                className={`text-[10px] sm:text-xs mt-1.5 sm:mt-2 transition-colors ${
                   currentStep === step.id ? "font-semibold text-ce-ink" : currentStep > step.id ? "font-medium text-ce-ink/60" : "text-ce-ink/40"
                 }`}
               >
@@ -585,7 +585,7 @@ export function V0LeadForm() {
                         Tyler will personally reach out within 24 hours. Your info stays private — we never sell or share it.
                       </p>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink mb-2">
                           First Name <span className="text-red-500">*</span>
@@ -644,32 +644,34 @@ export function V0LeadForm() {
               </div>
 
               {/* Navigation */}
-              <div className="flex justify-between items-start gap-4 mt-8 pt-6 border-t border-ce-ink/5">
+              <div className={`mt-8 pt-6 border-t border-ce-ink/5 ${currentStep === 1 ? 'flex flex-col gap-4' : 'flex justify-between items-start gap-4'}`}>
                 {currentStep === 1 ? (
-                  <div className="flex-1 max-w-[70%] space-y-3">
-                    <label className="flex items-start gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={termsConsent}
-                        onChange={(e) => setTermsConsent(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
-                      />
-                      <span className="text-xs text-gray-500 leading-tight">
-                        I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
-                      </span>
-                    </label>
-                    <label className="flex items-start gap-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={smsConsent}
-                        onChange={(e) => setSmsConsent(e.target.checked)}
-                        className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
-                      />
-                      <span className="text-xs text-gray-500 leading-tight">
-                        I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.
-                      </span>
-                    </label>
-                  </div>
+                  <>
+                    <div className="space-y-3">
+                      <label className="flex items-start gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={termsConsent}
+                          onChange={(e) => setTermsConsent(e.target.checked)}
+                          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                        />
+                        <span className="text-xs text-gray-500 leading-tight">
+                          I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
+                        </span>
+                      </label>
+                      <label className="flex items-start gap-2 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={smsConsent}
+                          onChange={(e) => setSmsConsent(e.target.checked)}
+                          className="mt-0.5 w-4 h-4 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
+                        />
+                        <span className="text-xs text-gray-500 leading-tight">
+                          I agree to receive transactional or conversational communications from ClearEdge Home Buyers via text messages, phone calls, and emails related to my real estate inquiry, such as property details, responses, and appointment confirmations. Message frequency varies. Reply STOP to opt out. Reply HELP for help. Msg & data rates may apply. Your information is secure and will not be sold or shared with third parties or affiliates for promotional purposes.
+                        </span>
+                      </label>
+                    </div>
+                  </>
                 ) : currentStep > 1 ? (
                   <Button
                     type="button"
@@ -691,7 +693,7 @@ export function V0LeadForm() {
                     size="xl"
                     onClick={handleNext}
                     disabled={!isStepValid(currentStep)}
-                    className="disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed flex-shrink-0"
+                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed flex-shrink-0 ${currentStep === 1 ? 'w-full sm:w-auto sm:self-end' : ''}`}
                   >
                     Continue
                     <ArrowRight className="w-4 h-4" />

@@ -179,7 +179,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 1: THE SHORT ANSWER */}
         <section id="short-answer" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Short Answer
@@ -204,7 +204,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 2: HOW LEGITIMATE CASH HOME BUYING WORKS */}
         <section id="how-it-works" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Process
@@ -250,7 +250,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 3: THE 8 RED FLAGS */}
         <section id="red-flags" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Protect Yourself
@@ -321,7 +321,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 4: WHAT LEGITIMATE CASH BUYERS LOOK LIKE */}
         <section id="legit-buyers" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Green Flags
@@ -362,7 +362,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 5: HOW CLEAREDGE IS DIFFERENT */}
         <section id="clearedge-difference" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Our Approach
@@ -446,7 +446,7 @@ export default function AreCashHomeBuyersLegitPage() {
 
         {/* SECTION 6: VETTING CHECKLIST */}
         <section id="checklist" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Before You Sign

@@ -403,7 +403,7 @@ export function V0Header() {
               <ChevronDown className="w-5 h-5 transition-transform duration-300 group-open:rotate-180" />
             </summary>
             <div className="relative ml-4 mt-1">
-              <div className="space-y-1 max-h-48 overflow-y-auto pb-6">
+              <div className="space-y-1 max-h-64 overflow-y-auto pb-6">
                 {locationLinks.map((link) => (
                   <Link
                     key={link.href}

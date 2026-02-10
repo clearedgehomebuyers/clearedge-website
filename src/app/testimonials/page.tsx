@@ -299,7 +299,7 @@ export default function TestimonialsPage() {
 
         {/* Featured Testimonial - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-surface-cream rounded-2xl p-8 lg:p-12 border border-ce-ink/5">
               <div className="text-ce-green text-6xl font-serif leading-none mb-4">&ldquo;</div>
               <blockquote className="text-xl lg:text-2xl text-ce-ink/70 leading-relaxed mb-6">
@@ -318,7 +318,7 @@ export default function TestimonialsPage() {
 
         {/* Secondary Reviews Grid - Cream */}
         <section className="py-12 md:py-14 bg-surface-cream">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 More Reviews
@@ -353,7 +353,7 @@ export default function TestimonialsPage() {
 
         {/* What Our Reviews Have in Common - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Common Themes
@@ -402,7 +402,7 @@ export default function TestimonialsPage() {
 
         {/* Lead Form Section - Beige */}
         <section id="lead-form" className="py-8 md:py-10 bg-surface-cream scroll-mt-20 md:scroll-mt-24">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <V0LeadForm />
             <p className="text-ce-ink/70 text-sm mt-8">
               Prefer to talk? Call Tyler directly:{' '}

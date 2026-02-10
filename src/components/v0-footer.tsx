@@ -198,19 +198,19 @@ export function V0Footer() {
           {/* Service Areas - Regional hierarchy */}
           <div className="lg:col-span-5">
             <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-4">Service Areas</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {serviceAreaRegions.map((region) => (
                 <div key={region.name}>
                   <Link
                     href={region.hub.href}
-                    className="text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors block mb-2"
+                    className="text-xs sm:text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors block mb-2"
                   >
                     {region.name} &rarr;
                   </Link>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1 sm:space-y-1.5">
                     {region.cities.map((city) => (
                       <li key={city.label}>
-                        <Link href={city.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                        <Link href={city.href} className="text-xs sm:text-sm text-white/60 hover:text-white transition-colors">
                           {city.label}
                         </Link>
                       </li>

@@ -178,7 +178,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 2: THE HONEST TRUTH */}
         <section id="honest-truth" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Real Talk
@@ -329,7 +329,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 4: WHEN REALTOR IS BETTER */}
         <section id="when-realtor-better" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Being Honest
@@ -381,7 +381,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 5: WHEN CASH IS BETTER */}
         <section id="when-cash-better" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 When We Can Help
@@ -432,7 +432,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 6: THE REAL MATH */}
         <section id="real-math" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-5xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 The Numbers
@@ -628,7 +628,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 7: SELF-ASSESSMENT */}
         <section id="assessment" className="py-12 md:py-14 bg-surface-cream scroll-mt-32">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Quick Assessment
@@ -705,7 +705,7 @@ export default function CashBuyerVsRealtorPage() {
 
         {/* SECTION 8: RED FLAGS */}
         <section id="red-flags" className="py-12 md:py-14 bg-white scroll-mt-32">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">
                 Protect Yourself

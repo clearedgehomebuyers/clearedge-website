@@ -192,7 +192,7 @@ export default function HowItWorksPage() {
 
         {/* WHY TRADITIONAL SELLING IS HARD - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-serif text-3xl font-medium text-ce-ink mb-6">
               Why Selling a House in Pennsylvania Has Gotten Harder in 2026
             </h2>
@@ -225,7 +225,7 @@ export default function HowItWorksPage() {
 
         {/* THREE STEPS TO SOLD - Cream */}
         <section className="py-12 md:py-14 bg-surface-cream">
-          <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Simple Process
@@ -299,7 +299,7 @@ export default function HowItWorksPage() {
 
         {/* HOW WE CALCULATE YOUR OFFER - Cream */}
         <section className="py-12 md:py-14 bg-surface-cream">
-          <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Transparent Pricing
@@ -341,7 +341,7 @@ export default function HowItWorksPage() {
 
         {/* TESTIMONIAL - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
                 Testimonial

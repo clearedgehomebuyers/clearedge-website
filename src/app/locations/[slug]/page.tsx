@@ -276,7 +276,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             {/* RIGHT COLUMN - Property widget + Trust Indicators */}
             <div className="flex flex-col items-center justify-center h-full gap-6">
               {/* Property Photo Widget */}
-              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-[280px] lg:w-[320px]">
+              <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={(heroPhotos[slug] || defaultPhoto).src}
@@ -297,22 +297,22 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               </div>
 
               {/* Trust Indicators - 2x2 GRID */}
-              <div className="grid grid-cols-2 gap-x-10 gap-y-4 w-full max-w-[360px]">
-                <div className="flex items-center justify-center gap-3">
-                  <Clock className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Close in 7–30 Days</span>
+              <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 w-full max-w-md mx-auto">
+                <div className="flex items-center justify-center gap-2">
+                  <Clock className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Close in 7–30 Days</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <DollarSign className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">Zero Fees or Commissions</span>
+                <div className="flex items-center justify-center gap-2">
+                  <DollarSign className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Zero Fees or Commissions</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <Shield className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">No Repairs Needed</span>
+                <div className="flex items-center justify-center gap-2">
+                  <Shield className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">No Repairs Needed</span>
                 </div>
-                <div className="flex items-center justify-center gap-3">
-                  <MapPin className="w-6 h-6 text-ce-green flex-shrink-0" />
-                  <span className="text-base text-ce-ink/70 whitespace-nowrap font-medium">200+ PA Homes Bought</span>
+                <div className="flex items-center justify-center gap-2">
+                  <MapPin className="w-4 h-4 text-ce-green flex-shrink-0" />
+                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>
@@ -423,8 +423,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Selling to ClearEdge vs. Listing in {location.city}</h2>
           </div>
 
-          <div className="overflow-x-auto -mx-4 px-4 pb-2">
-            <div className="overflow-hidden rounded-2xl border border-ce-ink/10 shadow-lg bg-white min-w-[640px]">
+          {/* Desktop Table */}
+          <div className="hidden md:block overflow-hidden rounded-2xl border border-ce-ink/10 shadow-lg bg-white">
             <table className="w-full">
               <thead>
                 <tr>
@@ -483,6 +483,35 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               </tbody>
             </table>
           </div>
+
+          {/* Mobile Stacked Cards */}
+          <div className="md:hidden space-y-3">
+            {[
+              { feature: 'Time to Close', clearEdge: '7-14 Days', traditional: '90–180 Days', fsbo: '120+ Days' },
+              { feature: 'Repairs Needed', clearEdge: 'None — We Buy As-Is', traditional: '$10K–$40K+ Typical', fsbo: '$10K–$40K+ Typical' },
+              { feature: 'Fees & Commissions', clearEdge: '$0', traditional: '5-6%', fsbo: '2-3%' },
+              { feature: 'Closing Costs', clearEdge: 'We Pay', traditional: 'You Pay', fsbo: 'You Pay' },
+              { feature: 'Showings Required', clearEdge: 'Zero', traditional: 'Many', fsbo: 'Many' },
+              { feature: 'Sale Certainty', clearEdge: 'Guaranteed — Cash', traditional: '38% Fall Through', fsbo: 'Even Less Certain' },
+            ].map((row, index) => (
+              <div key={index} className="bg-white rounded-2xl border border-ce-ink/10 shadow-sm p-4">
+                <p className="font-medium text-ce-ink mb-3">{row.feature}</p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 bg-ce-green-subtle rounded-lg px-3 py-1.5">
+                    <CheckCircle className="w-4 h-4 text-ce-green flex-shrink-0" />
+                    <span className="text-sm text-ce-green font-semibold">ClearEdge: {row.clearEdge}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 flex-shrink-0 text-center text-xs text-ce-ink/40">&#x2715;</span>
+                    <span className="text-sm text-ce-ink/60">Agent: {row.traditional}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-4 h-4 flex-shrink-0 text-center text-xs text-ce-ink/40">&#x2715;</span>
+                    <span className="text-sm text-ce-ink/60">FSBO: {row.fsbo}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="text-center mt-8">
