@@ -712,7 +712,7 @@ export function V0LeadForm() {
                     variant="brand"
                     size="xl"
                     disabled={isSubmitting || !isStepValid(5)}
-                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed ${isStepValid(5) && !isSubmitting ? 'ring-4 ring-ce-green/20' : ''}`}
+                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed px-6 sm:px-10 ${isStepValid(5) && !isSubmitting ? 'ring-4 ring-ce-green/20' : ''}`}
                   >
                     {isSubmitting ? "Submitting..." : "Get My Cash Offer"}
                     {!isSubmitting && <ArrowRight className="w-4 h-4" />}
@@ -739,7 +739,7 @@ export function V0LeadForm() {
         </div>
 
         {/* Visual separator */}
-        <div className="flex items-center justify-center gap-3 mt-10">
+        <div className="flex items-center justify-center gap-3 mt-8">
           <div className="h-px w-16 bg-gradient-to-r from-transparent to-ce-ink/10" />
           <div className="w-1.5 h-1.5 rounded-full bg-ce-green/30" />
           <div className="h-px w-16 bg-gradient-to-l from-transparent to-ce-ink/10" />

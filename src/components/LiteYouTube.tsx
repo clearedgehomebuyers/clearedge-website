@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 
 interface LiteYouTubeProps {
   videoId: string
@@ -8,15 +8,17 @@ interface LiteYouTubeProps {
 }
 
 export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
   const [imgError, setImgError] = useState(false)
 
   // Use hqdefault (always exists) instead of maxresdefault (might not exist)
   const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
   const fallbackUrl = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`
 
-  // Simple synchronous click handler - immediately show iframe
   const handleClick = () => {
+    const container = containerRef.current
+    if (!container || container.querySelector('iframe')) return
+
     // Track video play in GA4
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'video_play', {
@@ -25,25 +27,30 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
         page_path: window.location.pathname
       });
     }
-    setIsPlaying(true)
-  }
 
-  if (isPlaying) {
-    return (
-      <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ aspectRatio: '16/9' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&muted=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`}
-          title={title}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          className="absolute inset-0 w-full h-full"
-        />
-      </div>
-    )
+    // Insert iframe synchronously within click event to preserve user gesture chain.
+    // This ensures autoplay fires on mobile without requiring a second tap.
+    // React state-based swaps break the gesture chain due to async rendering.
+    const iframe = document.createElement('iframe')
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&cc_load_policy=0`
+    iframe.title = title
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share')
+    iframe.setAttribute('allowfullscreen', '')
+    Object.assign(iframe.style, {
+      position: 'absolute',
+      inset: '0',
+      width: '100%',
+      height: '100%',
+      border: 'none',
+      zIndex: '10',
+    })
+
+    container.appendChild(iframe)
   }
 
   return (
     <div
+      ref={containerRef}
       onClick={handleClick}
       className="relative w-full rounded-xl overflow-hidden shadow-lg cursor-pointer group"
       style={{ aspectRatio: '16/9' }}

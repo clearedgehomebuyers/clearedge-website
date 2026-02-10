@@ -60,7 +60,7 @@ export function V0FAQ({
   const footerBgClass = sectionBg === "beige" ? "bg-white" : "bg-surface-cream"
 
   return (
-    <section className={`pt-12 md:pt-16 pb-8 md:pb-10 ${sectionBgClass}`}>
+    <section className={`pt-6 md:pt-8 pb-8 md:pb-10 ${sectionBgClass}`}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-8 animate-on-scroll">
