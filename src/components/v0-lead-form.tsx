@@ -395,7 +395,7 @@ export function V0LeadForm() {
           {/* Gradient top bar */}
           <div className="h-1 bg-gradient-to-r from-ce-green via-ce-blue to-ce-green" />
 
-          <div className="p-8 md:p-12">
+          <div className="p-5 sm:p-8 md:p-12">
             <form onSubmit={handleSubmit}>
               {/* Step content with slide animation */}
               <div key={stepKeyRef.current} data-direction={slideDirection}>

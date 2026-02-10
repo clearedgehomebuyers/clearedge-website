@@ -402,14 +402,14 @@ export function V0Header() {
               <span>Locations</span>
               <ChevronDown className="w-5 h-5 transition-transform duration-300 group-open:rotate-180" />
             </summary>
-            <div className="relative ml-4 mt-1">
-              <div className="space-y-1 max-h-64 overflow-y-auto pb-6">
+            <div className="ml-4 mt-1">
+              <div className="space-y-1 pb-2">
                 {locationLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block py-2 px-2 text-sm hover:text-ce-green ${
+                    className={`block py-2.5 px-2 text-sm hover:text-ce-green ${
                       link.isHub
                         ? 'font-bold text-ce-green border-b border-ce-green/20 mt-3 first:mt-0'
                         : 'text-ce-ink/60 pl-4'
@@ -418,10 +418,6 @@ export function V0Header() {
                     {link.label}
                   </Link>
                 ))}
-              </div>
-              {/* Mobile scroll indicator */}
-              <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none flex items-end justify-center pb-1">
-                <span className="text-xs text-ce-ink/40">Scroll for more ↓</span>
               </div>
             </div>
           </details>
@@ -438,7 +434,7 @@ export function V0Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block py-2 px-2 text-sm text-ce-ink/60 hover:text-ce-green"
+                  className="block py-2.5 px-2 text-sm text-ce-ink/60 hover:text-ce-green"
                 >
                   {link.label}
                 </Link>
@@ -458,7 +454,7 @@ export function V0Header() {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="block py-2 px-2 text-sm text-ce-ink/60 hover:text-ce-green"
+                  className="block py-2.5 px-2 text-sm text-ce-ink/60 hover:text-ce-green"
                 >
                   {link.label}
                 </Link>

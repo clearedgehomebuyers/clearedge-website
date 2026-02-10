@@ -18,7 +18,7 @@ export function FloatingTextButton() {
           });
         }
       }}
-      className="fixed bottom-4 right-4 z-50 flex flex-col items-center md:hidden animate-fade-in-up"
+      className="fixed bottom-6 right-4 z-50 flex flex-col items-center md:hidden animate-fade-in-up"
       aria-label="Text us"
     >
       <div className="w-14 h-14 bg-[#008a29] rounded-full flex items-center justify-center shadow-lg hover:bg-[#007a24] transition-colors">

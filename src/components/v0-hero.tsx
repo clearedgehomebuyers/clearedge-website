@@ -108,19 +108,19 @@ export function V0Hero({ city }: V0HeroProps) {
             <div className="grid grid-cols-2 gap-x-8 gap-y-3 max-w-md mx-auto">
               <div className="flex items-center justify-center gap-2">
                 <Clock className="w-4 h-4 text-ce-green flex-shrink-0" />
-                <span className="text-sm text-ce-ink/60 whitespace-nowrap">Close in 7–30 Days</span>
+                <span className="text-sm text-ce-ink/60 whitespace-normal">Close in 7–30 Days</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <DollarSign className="w-4 h-4 text-ce-green flex-shrink-0" />
-                <span className="text-sm text-ce-ink/60 whitespace-nowrap">Zero Fees or Commissions</span>
+                <span className="text-sm text-ce-ink/60 whitespace-normal">Zero Fees or Commissions</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Shield className="w-4 h-4 text-ce-green flex-shrink-0" />
-                <span className="text-sm text-ce-ink/60 whitespace-nowrap">No Repairs Needed</span>
+                <span className="text-sm text-ce-ink/60 whitespace-normal">No Repairs Needed</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <MapPin className="w-4 h-4 text-ce-green flex-shrink-0" />
-                <span className="text-sm text-ce-ink/60 whitespace-nowrap">200+ PA Homes Bought</span>
+                <span className="text-sm text-ce-ink/60 whitespace-normal">200+ PA Homes Bought</span>
               </div>
             </div>
           </div>
