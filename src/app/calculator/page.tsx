@@ -534,7 +534,7 @@ export default function CalculatorPage() {
                         setHomeValueError(false)
                       }}
                       placeholder="280,000"
-                      className={`w-full pl-11 pr-4 py-3 rounded-xl border ${homeValueError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
+                      className={`w-full pl-11 pr-4 py-3 rounded-xl border bg-white ${homeValueError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
                     />
                   </div>
                   {homeValueError && (
@@ -701,7 +701,7 @@ export default function CalculatorPage() {
                         className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                           timeline === option.value
                             ? 'border-ce-green bg-ce-green-subtle'
-                            : 'border-ce-ink/10 hover:border-ce-green/30'
+                            : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
                         }`}
                       >
                         <input
@@ -933,7 +933,7 @@ export default function CalculatorPage() {
             </div>
             <div className="space-y-6 text-ce-ink/70">
               <p>
-                This calculator uses real Pennsylvania data — PA-regulated title insurance rates, county-specific transfer taxes, current contractor pricing from sources like HomeAdvisor, Angi, This Old House, and PA-based contractors.
+                Every number in this calculator is sourced from real Pennsylvania data: PA-regulated title insurance rates, county-specific transfer taxes, and current contractor pricing from HomeAdvisor, Angi, This Old House, and PA-based contractors.
               </p>
               <p>
                 ClearEdge built this calculator to help homeowners make informed decisions, not to push anyone toward a particular option. If the numbers say listing with an agent makes more sense for your situation, we&apos;ll tell you that.
