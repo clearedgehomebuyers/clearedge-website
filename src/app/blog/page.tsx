@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { getBlogPosts } from '@/sanity/lib/queries'
-import { MapPin, Scale, Home, ArrowRight } from 'lucide-react'
+import { MapPin, Scale, Home, ArrowRight, FileCheck, Clock, DollarSign } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
@@ -55,6 +55,7 @@ const categories = [
       { label: 'Facing Foreclosure', href: '/situations/foreclosure' },
       { label: 'Inherited Property', href: '/situations/inherited-property' },
       { label: 'Divorce Sales', href: '/situations/divorce' },
+      { label: 'Behind on Payments', href: '/situations/behind-on-payments' },
     ],
   },
   {
@@ -63,8 +64,7 @@ const categories = [
     links: [
       { label: 'Tax Liens & Code Violations', href: '/situations/tax-liens-code-violations' },
       { label: 'How It Works', href: '/how-it-works' },
-      { label: 'About ClearEdge', href: '/about' },
-      { label: 'Contact Us', href: '/contact' },
+      { label: 'Cash Buyer vs. Realtor', href: '/cash-buyer-vs-realtor' },
     ],
   },
   {
@@ -75,6 +75,7 @@ const categories = [
       { label: 'Wilkes-Barre', href: '/locations/wilkes-barre' },
       { label: 'Allentown', href: '/locations/allentown' },
       { label: 'Lehigh Valley', href: '/locations/lehigh-valley' },
+      { label: 'Poconos', href: '/locations/poconos' },
     ],
   },
 ]
@@ -183,36 +184,49 @@ export default async function BlogPage() {
         {/* Hero Section - Cream */}
         <section className="relative pt-32 pb-10 md:pt-40 md:pb-12 bg-surface-cream overflow-hidden">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">Helpful Guides</span>
+            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">Homeowner Guides</span>
             <h1 className="text-4xl md:text-5xl font-serif font-medium text-ce-ink mb-6">
-              Pennsylvania Home Selling Guides — Written From Direct Experience
+              Selling a House in Pennsylvania? Start Here.
             </h1>
             <p className="text-xl text-ce-ink/70 max-w-2xl mx-auto">
-              No-fluff guides for Eastern PA homeowners. Every article is based on real situations Tyler has handled buying 200+ homes since 2016 — not generic advice copied from national websites.
+              Step-by-step guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, code violations, and cash sales. Every guide includes 2026 PA-specific regulations and county-level requirements.
             </p>
           </div>
         </section>
 
-        {/* What You'll Find Section - White */}
+        {/* What These Guides Cover - White */}
         <section className="py-12 md:py-14 bg-white">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
-              Our Approach
-            </span>
-            <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink mb-6">
-              What Makes These Guides Different?
-            </h2>
-            <div className="space-y-4 text-ce-ink/70 text-lg">
-              <p>
-                Every guide is written from direct experience helping 200+ Pennsylvania homeowners since 2016.
-              </p>
-              <p>
-                We don&apos;t write content to rank.
-                We write content to answer the questions homeowners actually ask us on calls.
-              </p>
-              <p>
-                You&apos;ll find 2026 PA-specific regulations, county-by-county requirements, and step-by-step breakdowns—not generic advice copied from national websites.
-              </p>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
+                Inside Each Guide
+              </span>
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-ce-ink">
+                What These Guides Cover
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-xl flex items-center justify-center">
+                  <FileCheck className="w-5 h-5 text-ce-green" />
+                </div>
+                <h3 className="text-lg font-serif font-medium text-ce-ink">2026 PA Regulations</h3>
+                <p className="text-ce-ink/70 text-sm">Municipal inspections, building codes, and transfer taxes by county</p>
+              </div>
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-xl flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-ce-green" />
+                </div>
+                <h3 className="text-lg font-serif font-medium text-ce-ink">Situation Timelines</h3>
+                <p className="text-ce-ink/70 text-sm">How long foreclosure, probate, and cash closings actually take in Eastern PA</p>
+              </div>
+              <div className="flex flex-col items-center text-center gap-3">
+                <div className="w-10 h-10 bg-ce-green/10 rounded-xl flex items-center justify-center">
+                  <DollarSign className="w-5 h-5 text-ce-green" />
+                </div>
+                <h3 className="text-lg font-serif font-medium text-ce-ink">Cost Breakdowns</h3>
+                <p className="text-ce-ink/70 text-sm">What you&apos;ll pay (and what you won&apos;t) selling to a cash buyer vs. listing with a realtor</p>
+              </div>
             </div>
           </div>
         </section>

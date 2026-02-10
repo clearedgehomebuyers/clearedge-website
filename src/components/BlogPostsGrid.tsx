@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, FileText } from 'lucide-react'
 
@@ -46,8 +46,16 @@ function formatCategory(category: string): string {
 
 const POSTS_PER_PAGE = 9
 
+const MOBILE_POSTS_COUNT = 4
+
 export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE)
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setVisibleCount(MOBILE_POSTS_COUNT)
+    }
+  }, [])
 
   const visiblePosts = posts.slice(0, visibleCount)
   const hasMorePosts = posts.length > visibleCount
@@ -61,19 +69,6 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
             href={`/blog/${post.slug.current}`}
             className="group relative bg-surface-cream rounded-2xl overflow-hidden border border-ce-ink/5 shadow-sm hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300"
           >
-            {post.featuredImage?.asset?.url ? (
-              <div className="overflow-hidden">
-                <img
-                  src={post.featuredImage.asset.url}
-                  alt={post.featuredImage.alt || post.title}
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ) : (
-              <div className="w-full h-48 bg-gradient-to-br from-surface-cream to-surface-green-wash flex items-center justify-center">
-                <FileText className="w-12 h-12 text-ce-ink/20" />
-              </div>
-            )}
             <div className="p-6">
               {post.category && (
                 <span className="text-ce-green text-xs font-medium uppercase tracking-wide">
