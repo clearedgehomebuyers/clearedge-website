@@ -218,6 +218,7 @@ export default function CalculatorPage() {
   // Repair checkboxes state
   const [checkedRepairs, setCheckedRepairs] = useState<Set<string>>(new Set())
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
+  const [bathroomQuantities, setBathroomQuantities] = useState<Record<string, number>>({})
 
   // Validation state
   const [countyError, setCountyError] = useState(false)
@@ -250,11 +251,17 @@ export default function CalculatorPage() {
 
   const resultsRef = useRef<HTMLDivElement>(null)
 
+  // IDs that support per-bathroom quantity
+  const bathroomItemIds = ['bathroom-full', 'bathroom-cosmetic']
+
   // Calculate total from checked repairs
   const checkedRepairsTotal = Array.from(checkedRepairs).reduce((sum, itemId) => {
     for (const category of repairCategories) {
       const item = category.items.find(i => i.id === itemId)
-      if (item) return sum + item.cost
+      if (item) {
+        const qty = bathroomItemIds.includes(itemId) ? (bathroomQuantities[itemId] || 1) : 1
+        return sum + item.cost * qty
+      }
     }
     return sum
   }, 0)
@@ -281,6 +288,14 @@ export default function CalculatorPage() {
     const newChecked = new Set(checkedRepairs)
     if (newChecked.has(itemId)) {
       newChecked.delete(itemId)
+      // Clean up bathroom quantity when unchecked
+      if (bathroomItemIds.includes(itemId)) {
+        setBathroomQuantities(prev => {
+          const next = { ...prev }
+          delete next[itemId]
+          return next
+        })
+      }
     } else {
       newChecked.add(itemId)
     }
@@ -636,9 +651,53 @@ export default function CalculatorPage() {
                                         {item.name}
                                       </span>
                                       <span className="font-semibold text-ce-ink whitespace-nowrap">
-                                        ${item.cost.toLocaleString()}
+                                        ${(bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id)
+                                          ? item.cost * (bathroomQuantities[item.id] || 1)
+                                          : item.cost
+                                        ).toLocaleString()}
                                       </span>
                                     </div>
+                                    {bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id) && (
+                                      <div className="flex items-center gap-2 mt-1.5">
+                                        <span className="text-xs text-ce-ink/60">Bathrooms:</span>
+                                        <div className="inline-flex items-center border border-ce-ink/15 rounded-lg overflow-hidden">
+                                          <button
+                                            type="button"
+                                            onClick={(e) => {
+                                              e.preventDefault()
+                                              e.stopPropagation()
+                                              setBathroomQuantities(prev => ({
+                                                ...prev,
+                                                [item.id]: Math.max(1, (prev[item.id] || 1) - 1)
+                                              }))
+                                            }}
+                                            className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
+                                          >
+                                            −
+                                          </button>
+                                          <span className="w-7 h-7 flex items-center justify-center text-sm font-semibold text-ce-ink border-x border-ce-ink/15 bg-white">
+                                            {bathroomQuantities[item.id] || 1}
+                                          </span>
+                                          <button
+                                            type="button"
+                                            onClick={(e) => {
+                                              e.preventDefault()
+                                              e.stopPropagation()
+                                              setBathroomQuantities(prev => ({
+                                                ...prev,
+                                                [item.id]: Math.min(5, (prev[item.id] || 1) + 1)
+                                              }))
+                                            }}
+                                            className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
+                                          >
+                                            +
+                                          </button>
+                                        </div>
+                                        <span className="text-xs text-ce-ink/40">
+                                          × ${item.cost.toLocaleString()} each
+                                        </span>
+                                      </div>
+                                    )}
                                     <span className="text-xs text-ce-ink/50">
                                       PA range: {item.range}
                                     </span>
@@ -882,7 +941,7 @@ export default function CalculatorPage() {
                 <div className="bg-ce-ink text-white rounded-2xl p-6 mb-8 text-center">
                   <p className="text-lg">
                     <span className="font-bold text-2xl">${results.difference.toLocaleString()}</span>{' '}
-                    {results.cashBetter ? 'more' : 'less'} with the{' '}
+                    more with the{' '}
                     <span className="font-semibold">{results.cashBetter ? 'cash' : 'traditional'}</span> route
                   </p>
                 </div>
