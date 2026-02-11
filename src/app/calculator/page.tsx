@@ -32,79 +32,79 @@ const repairCategories = [
     id: 'structure',
     name: 'Structure / Foundation',
     items: [
-      { id: 'foundation-cracks', name: 'Foundation cracks or bowing walls', cost: 10000, range: '$5,000–$15,000' },
-      { id: 'settling', name: 'Settling / sinking (needs piers)', cost: 18000, range: '$10,000–$30,000' },
-      { id: 'waterproofing', name: 'Basement waterproofing', cost: 7000, range: '$3,000–$12,000' },
+      { id: 'foundation-cracks', name: 'Foundation cracks or bowing walls', cost: 12500, range: '$7,000–$18,000' },
+      { id: 'settling', name: 'Settling / sinking (needs piers)', cost: 23500, range: '$12,000–$35,000' },
+      { id: 'waterproofing', name: 'Basement waterproofing', cost: 9000, range: '$4,000–$14,000' },
     ],
   },
   {
     id: 'roof',
     name: 'Roof',
     items: [
-      { id: 'roof-full', name: 'Full roof replacement', cost: 12500, range: '$8,000–$20,000' },
-      { id: 'roof-partial', name: 'Partial roof repair / leaks', cost: 3000, range: '$1,500–$5,000' },
+      { id: 'roof-full', name: 'Full roof replacement', cost: 17500, range: '$10,000–$25,000' },
+      { id: 'roof-partial', name: 'Partial roof repair / leaks', cost: 4000, range: '$2,000–$6,000' },
     ],
   },
   {
     id: 'hvac',
     name: 'HVAC / Mechanical',
     items: [
-      { id: 'furnace', name: 'Furnace / boiler replacement', cost: 6500, range: '$3,800–$10,000' },
-      { id: 'ac', name: 'Central AC replacement', cost: 5500, range: '$3,300–$7,800' },
-      { id: 'hvac-full', name: 'Full HVAC system (furnace + AC)', cost: 10000, range: '$5,000–$14,000' },
-      { id: 'water-heater', name: 'Water heater', cost: 1800, range: '$1,200–$2,800' },
+      { id: 'furnace', name: 'Furnace / boiler replacement', cost: 8250, range: '$4,500–$12,000' },
+      { id: 'ac', name: 'Central AC replacement', cost: 6500, range: '$4,000–$9,000' },
+      { id: 'hvac-full', name: 'Full HVAC system (furnace + AC)', cost: 11500, range: '$7,000–$16,000' },
+      { id: 'water-heater', name: 'Water heater', cost: 2500, range: '$1,500–$3,500' },
     ],
   },
   {
     id: 'plumbing',
     name: 'Plumbing',
     items: [
-      { id: 'plumbing-major', name: 'Major plumbing overhaul (pipe replacement)', cost: 8500, range: '$5,000–$15,000' },
-      { id: 'sewer', name: 'Sewer line replacement', cost: 5500, range: '$3,000–$8,000' },
-      { id: 'plumbing-minor', name: 'Minor plumbing repairs', cost: 1500, range: '$500–$2,500' },
+      { id: 'plumbing-major', name: 'Major plumbing overhaul (pipe replacement)', cost: 12000, range: '$6,000–$18,000' },
+      { id: 'sewer', name: 'Sewer line replacement', cost: 7000, range: '$4,000–$10,000' },
+      { id: 'plumbing-minor', name: 'Minor plumbing repairs', cost: 1900, range: '$800–$3,000' },
     ],
   },
   {
     id: 'electrical',
     name: 'Electrical',
     items: [
-      { id: 'rewiring', name: 'Full rewiring + panel upgrade', cost: 13000, range: '$8,000–$20,000' },
-      { id: 'panel', name: 'Panel upgrade only (100 to 200 amp)', cost: 2500, range: '$1,300–$4,000' },
-      { id: 'electrical-minor', name: 'Minor electrical work', cost: 1200, range: '$500–$2,000' },
+      { id: 'rewiring', name: 'Full rewiring + panel upgrade', cost: 17500, range: '$10,000–$25,000' },
+      { id: 'panel', name: 'Panel upgrade only (100 to 200 amp)', cost: 3400, range: '$1,800–$5,000' },
+      { id: 'electrical-minor', name: 'Minor electrical work', cost: 1550, range: '$600–$2,500' },
     ],
   },
   {
     id: 'interior',
     name: 'Interior',
     items: [
-      { id: 'kitchen-full', name: 'Kitchen remodel (full)', cost: 25000, range: '$30,000–$65,000' },
-      { id: 'kitchen-cosmetic', name: 'Kitchen update (cosmetic)', cost: 12000, range: '$8,000–$18,000' },
-      { id: 'bathroom-full', name: 'Bathroom remodel (full, per bathroom)', cost: 15000, range: '$12,000–$35,000' },
-      { id: 'bathroom-cosmetic', name: 'Bathroom update (cosmetic, per bathroom)', cost: 6000, range: '$4,000–$10,000' },
-      { id: 'flooring', name: 'Flooring throughout', cost: 6000, range: '$3,000–$10,000' },
-      { id: 'paint', name: 'Paint throughout (interior)', cost: 3500, range: '$2,000–$5,000' },
-      { id: 'drywall', name: 'Drywall / plaster repair', cost: 2500, range: '$1,000–$4,000' },
+      { id: 'kitchen-full', name: 'Kitchen remodel (full)', cost: 35000, range: '$25,000–$45,000' },
+      { id: 'kitchen-cosmetic', name: 'Kitchen update (cosmetic)', cost: 16000, range: '$10,000–$22,000' },
+      { id: 'bathroom-full', name: 'Bathroom remodel (full, per bathroom)', cost: 27500, range: '$15,000–$40,000' },
+      { id: 'bathroom-cosmetic', name: 'Bathroom update (cosmetic, per bathroom)', cost: 8500, range: '$5,000–$12,000' },
+      { id: 'flooring', name: 'Flooring throughout', cost: 8000, range: '$4,000–$12,000' },
+      { id: 'paint', name: 'Paint throughout (interior)', cost: 4250, range: '$2,500–$6,000' },
+      { id: 'drywall', name: 'Drywall / plaster repair', cost: 3250, range: '$1,500–$5,000' },
     ],
   },
   {
     id: 'exterior',
     name: 'Exterior',
     items: [
-      { id: 'siding', name: 'Siding replacement', cost: 10000, range: '$6,000–$16,000' },
-      { id: 'windows', name: 'Window replacement (all)', cost: 13000, range: '$8,000–$20,000' },
-      { id: 'concrete', name: 'Concrete / driveway', cost: 3500, range: '$2,000–$6,000' },
-      { id: 'landscaping', name: 'Landscaping / grading / drainage', cost: 2500, range: '$1,000–$5,000' },
+      { id: 'siding', name: 'Siding replacement', cost: 14000, range: '$8,000–$20,000' },
+      { id: 'windows', name: 'Window replacement (all)', cost: 17500, range: '$10,000–$25,000' },
+      { id: 'concrete', name: 'Concrete / driveway', cost: 4750, range: '$2,500–$7,000' },
+      { id: 'landscaping', name: 'Landscaping / grading / drainage', cost: 3750, range: '$1,500–$6,000' },
     ],
   },
   {
     id: 'environmental',
     name: 'Environmental / Code',
     items: [
-      { id: 'mold', name: 'Mold remediation', cost: 5000, range: '$2,000–$10,000' },
-      { id: 'asbestos', name: 'Asbestos abatement', cost: 8000, range: '$3,000–$15,000' },
-      { id: 'lead', name: 'Lead paint remediation', cost: 5000, range: '$2,000–$8,000' },
-      { id: 'code', name: 'Code violation remediation', cost: 5000, range: '$2,000–$10,000' },
-      { id: 'septic', name: 'Septic system replacement', cost: 10000, range: '$5,000–$15,000' },
+      { id: 'mold', name: 'Mold remediation', cost: 7500, range: '$3,000–$12,000' },
+      { id: 'asbestos', name: 'Asbestos abatement', cost: 11000, range: '$4,000–$18,000' },
+      { id: 'lead', name: 'Lead paint remediation', cost: 6500, range: '$3,000–$10,000' },
+      { id: 'code', name: 'Code violation remediation', cost: 7500, range: '$3,000–$12,000' },
+      { id: 'septic', name: 'Septic system replacement', cost: 12500, range: '$7,000–$18,000' },
     ],
   },
 ]
@@ -166,7 +166,8 @@ function getCashOfferPercent(totalRepairs: number): number {
   if (totalRepairs <= 25000) return 0.72
   if (totalRepairs <= 40000) return 0.70
   if (totalRepairs <= 60000) return 0.68
-  return 0.65
+  if (totalRepairs <= 100000) return 0.65
+  return 0.62
 }
 
 // Get months on market based on repair total
