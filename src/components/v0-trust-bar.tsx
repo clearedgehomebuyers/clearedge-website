@@ -49,28 +49,30 @@ export function V0TrustBar() {
                 <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-ce-green" />
               </div>
 
-              {/* Stat number with count-up */}
-              <div
-                className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1 text-center"
-                {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
-                  'data-count-target': stat.countTarget,
-                  'data-count-suffix': stat.countSuffix || '',
-                  'data-count-decimals': stat.countDecimals?.toString() || '0',
-                } : {})}
-                style={{ [`--stagger` as string]: index }}
-              >
-                {stat.value}
-              </div>
+              {/* Value + stars - flex-1 centers content vertically across all columns */}
+              <div className="flex-1 flex flex-col items-center justify-center">
+                <div
+                  className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1 text-center"
+                  {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
+                    'data-count-target': stat.countTarget,
+                    'data-count-suffix': stat.countSuffix || '',
+                    'data-count-decimals': stat.countDecimals?.toString() || '0',
+                  } : {})}
+                  style={{ [`--stagger` as string]: index }}
+                >
+                  {stat.value}
+                </div>
 
-              {/* Stars area - fixed height for consistent alignment */}
-              <div className="h-[18px] flex items-center justify-center">
-                {stat.showStars && (
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                    ))}
-                  </div>
-                )}
+                {/* Stars area - fixed height for consistent alignment */}
+                <div className="h-[18px] flex items-center justify-center">
+                  {stat.showStars && (
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Label - pinned to bottom so all labels align */}
