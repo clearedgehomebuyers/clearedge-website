@@ -38,7 +38,7 @@ export function V0TrustBar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 items-start md:items-center">
           {stats.map((stat, index) => (
-            <div key={index} className="relative flex flex-col items-center">
+            <div key={index} className="relative flex flex-col items-center text-center">
               {/* Vertical divider (desktop only, between items) */}
               {index > 0 && (
                 <div className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-ce-ink/10" />
@@ -49,24 +49,23 @@ export function V0TrustBar() {
                 <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-ce-green" />
               </div>
 
-              {/* Value + stars wrapper - consistent height so labels align on tablet */}
-              <div className="min-h-[3.5rem] sm:min-h-[4rem] md:min-h-0 flex flex-col items-center justify-center">
-                {/* Stat number with count-up */}
-                <div
-                  className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1"
-                  {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
-                    'data-count-target': stat.countTarget,
-                    'data-count-suffix': stat.countSuffix || '',
-                    'data-count-decimals': stat.countDecimals?.toString() || '0',
-                  } : {})}
-                  style={{ [`--stagger` as string]: index }}
-                >
-                  {stat.value}
-                </div>
+              {/* Stat number with count-up */}
+              <div
+                className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1 text-center"
+                {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
+                  'data-count-target': stat.countTarget,
+                  'data-count-suffix': stat.countSuffix || '',
+                  'data-count-decimals': stat.countDecimals?.toString() || '0',
+                } : {})}
+                style={{ [`--stagger` as string]: index }}
+              >
+                {stat.value}
+              </div>
 
-                {/* Gold stars for 5.0 rating */}
+              {/* Stars area - fixed height on tablet for consistent alignment */}
+              <div className="h-[18px] md:h-auto flex items-center justify-center">
                 {stat.showStars && (
-                  <div className="flex gap-0.5 mb-1">
+                  <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                     ))}
