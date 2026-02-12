@@ -137,10 +137,8 @@ export function V0ComparisonMerged() {
               <div className="p-4 md:p-6 bg-white text-center border-l border-ce-ink/10">
                 <p className="font-semibold text-ce-ink">Traditional Listing</p>
               </div>
-              <div className="p-4 md:p-6 bg-ce-green text-center border-l border-ce-ink/10 relative">
-                <span className="absolute -top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ce-green text-white text-xs font-semibold px-3 py-1 rounded-full shadow-green">
-                  Recommended
-                </span>
+              <div className="p-4 md:p-6 bg-ce-green text-center border-l border-ce-ink/10">
+                <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Recommended</span>
                 <p className="font-semibold text-white">ClearEdge</p>
               </div>
             </div>
