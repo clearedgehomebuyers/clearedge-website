@@ -130,14 +130,14 @@ export function V0ComparisonMerged() {
           {/* Desktop Grid */}
           <div className="hidden md:block bg-white rounded-2xl shadow-xl shadow-ce-ink/5 overflow-hidden border border-ce-green">
             {/* Table Header */}
-            <div className="grid grid-cols-3 border-b border-ce-ink/10">
-              <div className="p-4 md:p-6 bg-white">
+            <div className="grid grid-cols-3 items-center border-b border-ce-ink/10">
+              <div className="py-4 px-6 bg-white">
                 <p className="font-semibold text-ce-ink">Feature</p>
               </div>
-              <div className="p-4 md:p-6 bg-white text-center border-l border-ce-ink/10">
+              <div className="py-4 px-6 bg-white text-center border-l border-ce-ink/10">
                 <p className="font-semibold text-ce-ink">Traditional Listing</p>
               </div>
-              <div className="p-4 md:p-6 bg-ce-green text-center border-l border-ce-ink/10">
+              <div className="py-4 px-6 bg-ce-green text-center border-l border-ce-ink/10 self-stretch flex flex-col justify-center">
                 <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Recommended</span>
                 <p className="font-semibold text-white">ClearEdge</p>
               </div>
