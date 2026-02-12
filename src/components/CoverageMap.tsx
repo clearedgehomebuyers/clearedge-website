@@ -75,7 +75,7 @@ export function CoverageMap() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={centerCoords}
-        zoom={7}
+        zoom={8}
         onLoad={onLoad}
         onUnmount={onUnmount}
         options={{
