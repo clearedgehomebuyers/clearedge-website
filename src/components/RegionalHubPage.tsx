@@ -67,7 +67,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+          <div className="grid grid-cols-2 gap-y-4 gap-x-6 justify-items-center md:flex md:flex-wrap md:justify-center md:gap-10">
             {trustStats.map((stat) => (
               <div key={stat.label} className="flex items-center gap-2">
                 <stat.icon className="w-5 h-5 text-[#008a29]" />
@@ -136,7 +136,7 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
       </section>
 
       {/* Section 4: Regional Market Knowledge */}
-      <section className="py-12 md:py-16 bg-[#FAF8F5]">
+      <section className="pt-4 pb-12 md:py-16 bg-[#FAF8F5]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#008a29] font-medium text-sm tracking-wide uppercase mb-3 block">
             Why ClearEdge
