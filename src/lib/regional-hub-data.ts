@@ -88,7 +88,7 @@ export const nepaHubData: RegionalHubData = {
     },
   ],
   mapCenter: { lat: 41.35, lng: -75.75 },
-  mapZoom: 8,
+  mapZoom: 9,
 }
 
 export const lehighValleyHubData: RegionalHubData = {
