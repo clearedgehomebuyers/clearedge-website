@@ -194,7 +194,7 @@ export const poconosHubData: RegionalHubData = {
     },
   ],
   mapCenter: { lat: 41.05, lng: -75.35 },
-  mapZoom: 9,
+  mapZoom: 11,
 }
 
 // Export all hub data

@@ -34,9 +34,13 @@ export function RegionalCoverageMap({ regionSlug, cities, center, zoom }: Region
 
   const onLoad = useCallback((map: google.maps.Map) => {
     setMap(map)
-    // Reduce zoom by 1 on mobile for Lehigh Valley
-    if (regionSlug === 'lehigh-valley' && window.innerWidth < 768) {
-      map.setZoom(zoom - 1)
+    if (window.innerWidth < 768) {
+      // Mobile zoom overrides per region
+      if (regionSlug === 'lehigh-valley') {
+        map.setZoom(zoom - 1)
+      } else if (regionSlug === 'poconos') {
+        map.setZoom(10)
+      }
     }
   }, [regionSlug, zoom])
 
