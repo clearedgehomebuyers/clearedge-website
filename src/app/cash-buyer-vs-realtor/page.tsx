@@ -60,17 +60,6 @@ const faqs = [
   },
 ]
 
-// Table of contents sections
-const tocSections = [
-  { id: 'honest-truth', label: 'The Honest Truth' },
-  { id: 'comparison-table', label: 'Full Comparison' },
-  { id: 'when-realtor-better', label: 'When Realtor Is Better' },
-  { id: 'when-cash-better', label: 'When Cash Is Better' },
-  { id: 'real-math', label: 'The Real Math' },
-  { id: 'assessment', label: 'Self-Assessment' },
-  { id: 'red-flags', label: 'Red Flags to Avoid' },
-  { id: 'faq', label: 'FAQ' },
-]
 
 export default function CashBuyerVsRealtorPage() {
   return (
@@ -156,25 +145,6 @@ export default function CashBuyerVsRealtorPage() {
           </div>
         </section>
 
-        {/* TABLE OF CONTENTS - Sticky on desktop */}
-        <section className="py-4 bg-white border-b border-ce-ink/10 sticky top-20 md:top-24 z-40">
-          <div className="max-w-6xl mx-auto px-4">
-            <nav className="overflow-x-auto">
-              <ul className="flex gap-4 md:gap-6 justify-start md:justify-center min-w-max">
-                {tocSections.map((section) => (
-                  <li key={section.id}>
-                    <a
-                      href={`#${section.id}`}
-                      className="text-sm text-ce-ink/60 hover:text-ce-green transition-colors whitespace-nowrap"
-                    >
-                      {section.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </section>
 
         {/* SECTION 2: THE HONEST TRUTH */}
         <section id="honest-truth" className="py-12 md:py-14 bg-white scroll-mt-32">

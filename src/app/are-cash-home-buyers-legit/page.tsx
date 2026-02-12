@@ -60,16 +60,6 @@ const faqs = [
   },
 ]
 
-// Table of contents sections
-const tocSections = [
-  { id: 'short-answer', label: 'The Short Answer' },
-  { id: 'how-it-works', label: 'How It Works' },
-  { id: 'red-flags', label: '8 Red Flags' },
-  { id: 'legit-buyers', label: 'Legit Buyers Look Like' },
-  { id: 'clearedge-difference', label: 'How ClearEdge Is Different' },
-  { id: 'checklist', label: 'Vetting Checklist' },
-  { id: 'faq', label: 'FAQ' },
-]
 
 export default function AreCashHomeBuyersLegitPage() {
   return (
@@ -157,25 +147,6 @@ export default function AreCashHomeBuyersLegitPage() {
           </div>
         </section>
 
-        {/* TABLE OF CONTENTS - Sticky on desktop */}
-        <section className="py-4 bg-white border-b border-ce-ink/10 sticky top-20 md:top-24 z-40">
-          <div className="max-w-6xl mx-auto px-4">
-            <nav className="overflow-x-auto">
-              <ul className="flex gap-4 md:gap-6 justify-start md:justify-center min-w-max">
-                {tocSections.map((section) => (
-                  <li key={section.id}>
-                    <a
-                      href={`#${section.id}`}
-                      className="text-sm text-ce-ink/60 hover:text-ce-green transition-colors whitespace-nowrap"
-                    >
-                      {section.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </section>
 
         {/* SECTION 1: THE SHORT ANSWER */}
         <section id="short-answer" className="py-12 md:py-14 bg-white scroll-mt-32">
