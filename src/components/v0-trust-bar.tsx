@@ -36,7 +36,7 @@ export function V0TrustBar() {
   return (
     <section className="py-6 md:py-8 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 items-start md:items-center">
           {stats.map((stat, index) => (
             <div key={index} className="relative flex flex-col items-center">
               {/* Vertical divider (desktop only, between items) */}
@@ -49,27 +49,30 @@ export function V0TrustBar() {
                 <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-ce-green" />
               </div>
 
-              {/* Stat number with count-up */}
-              <div
-                className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1"
-                {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
-                  'data-count-target': stat.countTarget,
-                  'data-count-suffix': stat.countSuffix || '',
-                  'data-count-decimals': stat.countDecimals?.toString() || '0',
-                } : {})}
-                style={{ [`--stagger` as string]: index }}
-              >
-                {stat.value}
-              </div>
-
-              {/* Gold stars for 5.0 rating */}
-              {stat.showStars && (
-                <div className="flex gap-0.5 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                  ))}
+              {/* Value + stars wrapper - consistent height so labels align on tablet */}
+              <div className="min-h-[3.5rem] sm:min-h-[4rem] md:min-h-0 flex flex-col items-center justify-center">
+                {/* Stat number with count-up */}
+                <div
+                  className="animate-on-scroll font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-none text-ce-ink mb-1"
+                  {...(stat.countTarget !== null && stat.countTarget !== undefined ? {
+                    'data-count-target': stat.countTarget,
+                    'data-count-suffix': stat.countSuffix || '',
+                    'data-count-decimals': stat.countDecimals?.toString() || '0',
+                  } : {})}
+                  style={{ [`--stagger` as string]: index }}
+                >
+                  {stat.value}
                 </div>
-              )}
+
+                {/* Gold stars for 5.0 rating */}
+                {stat.showStars && (
+                  <div className="flex gap-0.5 mb-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                )}
+              </div>
 
               {/* Label */}
               <div className="text-xs sm:text-sm tracking-wide uppercase text-ce-ink/60 font-medium text-center" style={{ letterSpacing: '0.05em' }}>
