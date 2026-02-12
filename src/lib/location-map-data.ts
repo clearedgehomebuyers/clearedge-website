@@ -72,7 +72,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Pittston',
     latitude: 41.3259,
     longitude: -75.7891,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.3700, lng: -75.8400 },
       { lat: 41.3750, lng: -75.7900 },
@@ -90,7 +90,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Kingston',
     latitude: 41.2618,
     longitude: -75.8910,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.3100, lng: -75.9400 },
       { lat: 41.3150, lng: -75.8900 },
@@ -108,7 +108,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Nanticoke',
     latitude: 41.2054,
     longitude: -75.9874,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.2550, lng: -76.0400 },
       { lat: 41.2600, lng: -75.9900 },
@@ -126,7 +126,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Carbondale',
     latitude: 41.5737,
     longitude: -75.5018,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.6200, lng: -75.5600 },
       { lat: 41.6250, lng: -75.5100 },
@@ -144,7 +144,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Dunmore',
     latitude: 41.4198,
     longitude: -75.6327,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.4650, lng: -75.6800 },
       { lat: 41.4700, lng: -75.6350 },
@@ -162,7 +162,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Honesdale',
     latitude: 41.5765,
     longitude: -75.2585,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.6250, lng: -75.3200 },
       { lat: 41.6300, lng: -75.2700 },
@@ -180,7 +180,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Bloomsburg',
     latitude: 41.0037,
     longitude: -76.4549,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.0550, lng: -76.5200 },
       { lat: 41.0600, lng: -76.4650 },
@@ -272,7 +272,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Pottsville',
     latitude: 40.6856,
     longitude: -76.1955,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 40.7350, lng: -76.2600 },
       { lat: 40.7400, lng: -76.2050 },
@@ -311,7 +311,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Stroudsburg',
     latitude: 40.9862,
     longitude: -75.1946,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.0350, lng: -75.2550 },
       { lat: 41.0400, lng: -75.2000 },
@@ -329,7 +329,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'East Stroudsburg',
     latitude: 40.9995,
     longitude: -75.1810,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.0500, lng: -75.2400 },
       { lat: 41.0550, lng: -75.1850 },
@@ -365,7 +365,7 @@ export const locationMapData: Record<string, LocationMapData> = {
     cityName: 'Tannersville',
     latitude: 41.0401,
     longitude: -75.3208,
-    zoomLevel: 12,
+    zoomLevel: 11,
     boundaryCoords: [
       { lat: 41.0900, lng: -75.3850 },
       { lat: 41.0950, lng: -75.3300 },
