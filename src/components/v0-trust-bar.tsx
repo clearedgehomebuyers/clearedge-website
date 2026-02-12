@@ -36,7 +36,7 @@ export function V0TrustBar() {
   return (
     <section className="py-6 md:py-8 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 items-start md:items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
           {stats.map((stat, index) => (
             <div key={index} className="relative flex flex-col items-center text-center">
               {/* Vertical divider (desktop only, between items) */}
@@ -62,8 +62,8 @@ export function V0TrustBar() {
                 {stat.value}
               </div>
 
-              {/* Stars area - fixed height on tablet for consistent alignment */}
-              <div className="h-[18px] md:h-auto flex items-center justify-center">
+              {/* Stars area - fixed height for consistent alignment */}
+              <div className="h-[18px] flex items-center justify-center">
                 {stat.showStars && (
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
@@ -73,8 +73,8 @@ export function V0TrustBar() {
                 )}
               </div>
 
-              {/* Label */}
-              <div className="text-xs sm:text-sm tracking-wide uppercase text-ce-ink/60 font-medium text-center" style={{ letterSpacing: '0.05em' }}>
+              {/* Label - pinned to bottom so all labels align */}
+              <div className="mt-auto text-xs sm:text-sm tracking-wide uppercase text-ce-ink/60 font-medium text-center" style={{ letterSpacing: '0.05em' }}>
                 {stat.label}
               </div>
             </div>
