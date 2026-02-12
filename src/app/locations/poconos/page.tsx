@@ -11,6 +11,14 @@ export const metadata: Metadata = {
     url: 'https://www.clearedgehomebuyers.com/locations/poconos',
     siteName: 'ClearEdge Home Buyers',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers - Cash Home Buyers in the Poconos',
+      },
+    ],
   },
   alternates: {
     canonical: 'https://www.clearedgehomebuyers.com/locations/poconos',

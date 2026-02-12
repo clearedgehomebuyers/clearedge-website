@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: {
     default: "ClearEdge Home Buyers | Sell Your House Fast for Cash in PA",
-    template: "%s | ClearEdge Home Buyers",
+    template: "%s",
   },
   description: "Sell your house fast for cash in Eastern PA. No repairs, no fees, no commissions. Get a fair cash offer in 24 hours. Serving NEPA, Lehigh Valley & Poconos.",
   applicationName: "ClearEdge Home Buyers",

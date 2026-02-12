@@ -8,7 +8,7 @@ import { Users, Calendar, MapPin, Phone } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Contact ClearEdge Home Buyers | Talk to Tyler Directly',
-  description: 'Contact ClearEdge Home Buyers for a fair cash offer on your PA home. Call Tyler directly at (610) 904-8526 or fill out our form. Response within 24 hours, no obligation.',
+  description: 'Contact ClearEdge for a fair cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form. Response within 24 hours, no obligation.',
   openGraph: {
     title: 'Contact Us | Get Your Free Cash Offer | ClearEdge Home Buyers',
     description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form.',

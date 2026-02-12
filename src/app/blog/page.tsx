@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { getBlogPosts } from '@/sanity/lib/queries'
-import { MapPin, Scale, Home, ArrowRight, FileCheck, Clock, DollarSign } from 'lucide-react'
+import { MapPin, Scale, Home, ArrowRight, FileCheck, Clock, DollarSign, BookOpen } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0Footer } from '@/components/v0-footer'
 import { V0FAQ } from '@/components/v0-faq'
@@ -9,7 +9,7 @@ import { BlogPostsGrid } from '@/components/BlogPostsGrid'
 
 export const metadata: Metadata = {
   title: 'Pennsylvania Home Selling Guides | Cash Sale Tips & 2026 PA Laws | ClearEdge',
-  description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, code violations, and fast cash home sales. Written by Tyler from direct experience buying 200+ homes.',
+  description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, and fast cash sales. From direct experience buying 200+ homes.',
   openGraph: {
     title: 'PA Real Estate Guides | Sell House Fast | ClearEdge Home Buyers',
     description: 'No-fluff guides for Eastern PA homeowners navigating foreclosure, probate, inherited property, and fast home sales.',
@@ -55,7 +55,7 @@ const categories = [
       { label: 'Facing Foreclosure', href: '/situations/foreclosure' },
       { label: 'Inherited Property', href: '/situations/inherited-property' },
       { label: 'Divorce Sales', href: '/situations/divorce' },
-      { label: 'Behind on Payments', href: '/situations/behind-on-payments' },
+      { label: 'Behind on Payments', href: '/situations/foreclosure' },
     ],
   },
   {
@@ -76,6 +76,16 @@ const categories = [
       { label: 'Allentown', href: '/locations/allentown' },
       { label: 'Lehigh Valley', href: '/locations/lehigh-valley' },
       { label: 'Poconos', href: '/locations/poconos' },
+    ],
+  },
+  {
+    title: 'Popular Guides',
+    icon: BookOpen,
+    links: [
+      { label: 'Sell a Hoarder House in Reading', href: '/blog/sell-hoarder-house-reading-pa-without-cleanout' },
+      { label: 'Sell Your House Fast in the Poconos', href: '/blog/sell-my-house-fast-poconos-pa' },
+      { label: 'Avoid Foreclosure in Scranton', href: '/blog/avoid-foreclosure-scranton-pa' },
+      { label: 'Hazleton Occupancy Inspection Guide', href: '/blog/hazleton-residential-occupancy-inspection-checklist' },
     ],
   },
 ]
@@ -242,7 +252,7 @@ export default async function BlogPage() {
                 Browse by Topic
               </h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {categories.map((category) => (
                 <div
                   key={category.title}

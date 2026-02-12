@@ -9,7 +9,7 @@ import { LiteYouTube } from '@/components/LiteYouTube'
 
 export const metadata: Metadata = {
   title: 'How We Buy Houses for Cash in PA | 3-Step Process | ClearEdge',
-  description: 'See exactly how ClearEdge buys Pennsylvania houses for cash: Tell us about your property, get a fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions.',
+  description: 'See how ClearEdge buys PA houses for cash: Tell us about your property, get a fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions.',
   keywords: ['how to sell house fast PA', 'cash home buying process', 'sell house as-is Pennsylvania', 'how cash home buyers work', 'ClearEdge process'],
   openGraph: {
     title: 'How We Buy Houses for Cash in PA | 3-Step Process | ClearEdge',
