@@ -33,6 +33,10 @@ export function CoverageMap() {
 
   const onLoad = useCallback((map: google.maps.Map) => {
     setMap(map)
+    // Zoom out one level on mobile
+    if (window.innerWidth < 768) {
+      map.setZoom(7)
+    }
   }, [])
 
   const onUnmount = useCallback(() => {
