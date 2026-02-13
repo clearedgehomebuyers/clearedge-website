@@ -1,16 +1,19 @@
 import { getSituationBySlug, getSituations, getBlogPostsBySituation } from '@/sanity/lib/queries'
 import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
-import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { SituationFAQAccordion } from '@/components/SituationFAQAccordion'
-import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, BookOpen, MapPin } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
+
+// Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const SituationFAQAccordion = dynamic(() => import('@/components/SituationFAQAccordion').then(mod => ({ default: mod.SituationFAQAccordion })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 
 // Property photos mapped to specific situation slugs (each photo used exactly twice)
 const heroPhotos: Record<string, { src: string; location: string; days: number }> = {

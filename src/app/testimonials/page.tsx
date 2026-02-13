@@ -1,13 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Star, Check, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0FAQ } from '@/components/v0-faq'
-import { V0LeadForm } from '@/components/v0-lead-form'
 import { V0TrustBar } from '@/components/v0-trust-bar'
-import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 
 const testimonialsFaqs = [
   {

@@ -2,11 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { Calculator, DollarSign, Home, ArrowRight, HelpCircle, ChevronDown, Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0LeadForm } from '@/components/v0-lead-form'
-import { V0FAQ } from '@/components/v0-faq'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 
 // PA Counties with transfer tax rates AND property tax rates
 const paCounties = [

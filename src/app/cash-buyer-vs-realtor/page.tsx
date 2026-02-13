@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { ArrowRight, CheckCircle, XCircle, AlertTriangle, Phone, Check, X } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0LeadForm } from '@/components/v0-lead-form'
-import { V0FAQ } from '@/components/v0-faq'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { DynamicPhoneLink } from '@/components/DynamicPhone'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'Cash Buyer vs Realtor: Which Nets You More in PA? (2026 Math) | ClearEdge',

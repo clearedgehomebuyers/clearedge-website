@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0FAQ } from '@/components/v0-faq'
 import { ContactForm } from '@/components/ContactForm'
-import { DynamicPhoneButton } from '@/components/DynamicPhone'
 import { Users, Calendar, MapPin, Phone } from 'lucide-react'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const DynamicPhoneButton = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneButton })), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'Contact ClearEdge Home Buyers | Talk to Tyler Directly',

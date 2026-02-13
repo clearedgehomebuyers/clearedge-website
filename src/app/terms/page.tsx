@@ -1,6 +1,9 @@
+import dynamic from 'next/dynamic'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { DynamicPhoneLink, DynamicPhoneText } from '@/components/DynamicPhone'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
+const DynamicPhoneText = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneText })), { ssr: true })
 
 export const metadata = {
   title: 'Terms and Conditions',

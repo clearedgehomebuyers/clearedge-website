@@ -1,19 +1,22 @@
 import { getLocationBySlug, getLocations, getBlogPostsByLocation } from '@/sanity/lib/queries'
 import { cityToHub, hubDisplayNames, allHubData } from '@/lib/regional-hub-data'
 import { FAQSchema } from '@/components/Schema'
-import { V0LeadForm } from '@/components/v0-lead-form'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { LocationFAQAccordion } from '@/components/LocationFAQAccordion'
-import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { LocationMapWrapper } from '@/components/LocationMapWrapper'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, BookOpen } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
+
+// Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const LocationFAQAccordion = dynamic(() => import('@/components/LocationFAQAccordion').then(mod => ({ default: mod.LocationFAQAccordion })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
+const LocationMapWrapper = dynamic(() => import('@/components/LocationMapWrapper').then(mod => ({ default: mod.LocationMapWrapper })), { ssr: true })
 
 // Hero photos mapped to each location slug (5 photos across 21 pages, alternating)
 const heroPhotos: Record<string, { src: string; location: string; days: number }> = {

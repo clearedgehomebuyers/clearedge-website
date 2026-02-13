@@ -1,11 +1,13 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { getBlogPosts } from '@/sanity/lib/queries'
 import { MapPin, Scale, Home, ArrowRight, FileCheck, Clock, DollarSign, BookOpen } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0FAQ } from '@/components/v0-faq'
 import { BlogPostsGrid } from '@/components/BlogPostsGrid'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'Pennsylvania Home Selling Guides | Cash Sale Tips & 2026 PA Laws | ClearEdge',

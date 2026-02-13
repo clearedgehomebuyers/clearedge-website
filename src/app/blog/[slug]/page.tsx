@@ -2,14 +2,16 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0FAQ } from '@/components/v0-faq'
 import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>

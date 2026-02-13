@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0LeadForm } from '@/components/v0-lead-form'
-import { V0FAQ } from '@/components/v0-faq'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { LiteYouTube } from '@/components/LiteYouTube'
+
+// Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const LiteYouTube = dynamic(() => import('@/components/LiteYouTube').then(mod => ({ default: mod.LiteYouTube })), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'How We Buy Houses for Cash in PA | 3-Step Process | ClearEdge',
