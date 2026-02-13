@@ -1,7 +1,6 @@
-"use client"
-
 import { ArrowRight, Shield, Clock, DollarSign, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ScrollToFormButton } from "@/components/ScrollToFormButton"
+import { ScrollToSectionButton } from "@/components/ScrollToSectionButton"
 
 // City slug to display name mapping
 const cityDisplayNames: Record<string, string> = {
@@ -36,17 +35,6 @@ export function V0Hero({ city }: V0HeroProps) {
   // Validate and get display name for city
   const citySlug = city?.toLowerCase().trim()
   const cityDisplayName = citySlug ? cityDisplayNames[citySlug] : null
-  const scrollToForm = () => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'cta_click', {
-        event_category: 'CTA',
-        event_label: 'Get My Fair Cash Offer - Hero',
-        page_path: window.location.pathname
-      });
-    }
-    document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream surface-grain">
       {/* Ambient decoration circles */}
@@ -85,23 +73,19 @@ export function V0Hero({ city }: V0HeroProps) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-              <Button
-                onClick={scrollToForm}
-                variant="brand"
-                size="xl"
-                className="group"
+              <ScrollToFormButton
+                eventLabel="Get My Fair Cash Offer - Hero"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium transition-all bg-ce-green text-white shadow-green hover:bg-ce-green-hover hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-green h-14 rounded-full px-10 group"
               >
                 Get My Fair Cash Offer
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="xl"
-                onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 border border-ce-ink/10 hover:border-ce-ink/20"
+              </ScrollToFormButton>
+              <ScrollToSectionButton
+                targetId="how-it-works"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium transition-all h-14 rounded-full px-10 text-ce-ink/80 hover:text-ce-ink hover:bg-ce-ink/5 border border-ce-ink/10 hover:border-ce-ink/20"
               >
                 See How It Works
-              </Button>
+              </ScrollToSectionButton>
             </div>
 
             {/* Trust Indicators - 2x2 GRID */}
@@ -153,7 +137,7 @@ export function V0Hero({ city }: V0HeroProps) {
                       className="w-full h-full object-cover"
                       fetchPriority="high"
                       loading="eager"
-                      decoding="async"
+                      decoding="sync"
                     />
                   </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

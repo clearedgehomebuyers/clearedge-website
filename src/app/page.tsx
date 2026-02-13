@@ -6,9 +6,9 @@ import dynamic from 'next/dynamic'
 // Above-fold components (regular imports for immediate loading)
 import { V0Header } from '@/components/v0-header'
 import { V0Hero } from '@/components/v0-hero'
-import { SocialProofWall } from '@/components/SocialProofWall'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const SocialProofWall = dynamic(() => import('@/components/SocialProofWall').then(mod => ({ default: mod.SocialProofWall })), { ssr: true })
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
 const V0ProblemSolutionMerged = dynamic(() => import('@/components/v0-problem-solution-merged').then(mod => ({ default: mod.V0ProblemSolutionMerged })), { ssr: true })
 const V0HowItWorks = dynamic(() => import('@/components/v0-how-it-works').then(mod => ({ default: mod.V0HowItWorks })), { ssr: true })

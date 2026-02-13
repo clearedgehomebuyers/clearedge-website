@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
-import { V0Footer } from '@/components/v0-footer'
-import { V0FAQ } from '@/components/v0-faq'
-import { V0LeadForm } from '@/components/v0-lead-form'
-import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
-import { LiteYouTube } from '@/components/LiteYouTube'
+
+// Below-fold components (lazy loaded for performance, ssr: true for SEO)
+const LiteYouTube = dynamic(() => import('@/components/LiteYouTube').then(mod => ({ default: mod.LiteYouTube })), { ssr: true })
+const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
+const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
+const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | PA Cash Home Buyers Since 2016',
