@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Home Sale Calculator — Compare Your Net Proceeds | ClearEdge Home Buyers',
-  description: 'Free Pennsylvania home sale calculator. Compare your net proceeds from a traditional sale vs. cash offer with county-specific closing costs, itemized fees, and real PA contractor repair pricing.',
+  title: 'Home Sale Calculator — Compare Net Proceeds | ClearEdge Home Buyers',
+  description: 'Free PA home sale calculator. Compare net proceeds: traditional sale vs. cash offer with county-specific closing costs and real contractor repair pricing.',
   keywords: ['home sale calculator PA', 'net proceeds calculator Pennsylvania', 'cost to sell house PA', 'cash offer calculator', 'realtor vs cash buyer calculator', 'PA closing costs calculator', 'home selling costs Pennsylvania'],
   openGraph: {
-    title: 'Home Sale Calculator — Compare Your Net Proceeds | ClearEdge Home Buyers',
-    description: 'Free Pennsylvania home sale calculator. Compare your net proceeds from a traditional sale vs. cash offer with county-specific closing costs, itemized fees, and real PA contractor repair pricing.',
+    title: 'Home Sale Calculator — Compare Net Proceeds | ClearEdge Home Buyers',
+    description: 'Free PA home sale calculator. Compare net proceeds: traditional sale vs. cash offer with county-specific closing costs and real contractor repair pricing.',
     url: 'https://www.clearedgehomebuyers.com/calculator',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',

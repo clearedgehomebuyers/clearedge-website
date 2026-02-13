@@ -32,7 +32,7 @@ const testimonialsFaqs = [
 
 export const metadata: Metadata = {
   title: 'ClearEdge Home Buyers Reviews | Real PA Homeowner Testimonials',
-  description: 'Read verified Google reviews from Pennsylvania homeowners who sold to ClearEdge Home Buyers. Inherited properties, foreclosure, fast closings — real stories from real sellers across Eastern PA.',
+  description: 'Verified Google reviews from PA homeowners who sold to ClearEdge. Inherited homes, foreclosure, fast closings — real stories from real sellers.',
   keywords: ['ClearEdge reviews', 'cash home buyer reviews PA', 'sell house fast reviews Pennsylvania'],
   openGraph: {
     title: 'Testimonials | What Homeowners Say About ClearEdge Home Buyers',

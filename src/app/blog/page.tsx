@@ -10,7 +10,7 @@ const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ d
 const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 
 export const metadata: Metadata = {
-  title: 'Pennsylvania Home Selling Guides | Cash Sale Tips & 2026 PA Laws | ClearEdge',
+  title: 'PA Home Selling Guides | Cash Sale Tips & 2026 Laws | ClearEdge',
   description: 'No-fluff guides for PA homeowners navigating foreclosure, probate, inherited property, and fast cash sales. From direct experience buying 200+ homes.',
   openGraph: {
     title: 'PA Real Estate Guides | Sell House Fast | ClearEdge Home Buyers',

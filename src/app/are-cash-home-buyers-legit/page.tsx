@@ -11,12 +11,12 @@ const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default
 const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 
 export const metadata: Metadata = {
-  title: 'Are Cash Home Buyers Legit? 8 Red Flags + What to Look For (2026 PA Guide)',
-  description: "Wondering if cash home buyers are legit or a scam? A Pennsylvania cash buyer who's bought 200+ homes explains the 8 red flags, how the industry actually works, and exactly what to look for before you sell.",
+  title: 'Are Cash Home Buyers Legit? 8 Red Flags to Watch (2026 PA Guide)',
+  description: "Are cash home buyers legit or a scam? A PA cash buyer with 200+ purchases explains the 8 red flags and what to look for before you sell your house.",
   keywords: ['are cash home buyers legit', 'we buy houses scam', 'cash home buyer scam Pennsylvania', 'how to tell if cash buyer is legit', 'is selling house for cash safe', 'cash buyer red flags'],
   openGraph: {
-    title: 'Are Cash Home Buyers Legit? 8 Red Flags + What to Look For (2026 PA Guide)',
-    description: "Wondering if cash home buyers are legit or a scam? A Pennsylvania cash buyer who's bought 200+ homes explains the 8 red flags, how the industry actually works, and exactly what to look for before you sell.",
+    title: 'Are Cash Home Buyers Legit? 8 Red Flags to Watch (2026 PA Guide)',
+    description: "Are cash home buyers legit or a scam? A PA cash buyer with 200+ purchases explains the 8 red flags and what to look for before you sell your house.",
     url: 'https://www.clearedgehomebuyers.com/are-cash-home-buyers-legit',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',

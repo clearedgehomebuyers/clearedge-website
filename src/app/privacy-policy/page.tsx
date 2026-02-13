@@ -6,7 +6,7 @@ const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(
 const DynamicPhoneText = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneText })), { ssr: true })
 
 export const metadata = {
-  title: 'Privacy Policy',
+  title: 'Privacy Policy | ClearEdge Home Buyers',
   description: 'Privacy Policy for ClearEdge Home Buyers. Learn how we collect, use, and protect your personal information.',
   openGraph: {
     title: 'Privacy Policy | ClearEdge Home Buyers',

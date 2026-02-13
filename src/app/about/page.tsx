@@ -14,7 +14,7 @@ const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ d
 
 export const metadata: Metadata = {
   title: 'About ClearEdge Home Buyers | PA Cash Home Buyers Since 2016',
-  description: "Meet Tyler and the ClearEdge team — family-owned Pennsylvania cash home buyers based in Eastern PA. 200+ homes purchased since 2016 across Scranton, Allentown, and 21 markets.",
+  description: "Meet Tyler and the ClearEdge team — family-owned PA cash home buyers. 200+ homes purchased since 2016 across Scranton, Allentown & 21 markets.",
   keywords: ['about ClearEdge', 'cash home buyers Scranton', 'Tyler ClearEdge', 'local home buyers PA'],
   openGraph: {
     title: 'About ClearEdge Home Buyers | Local Cash Home Buyers Since 2016',
