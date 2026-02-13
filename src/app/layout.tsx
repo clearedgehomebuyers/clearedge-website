@@ -130,12 +130,13 @@ export default function RootLayout({
             }
           })}}
         />
-        {/* LCP Optimization: Preload hero image FIRST */}
+        {/* LCP Optimization: Preload hero image with srcset so browser picks the right variant for its DPR */}
         <link
           rel="preload"
           as="image"
           type="image/webp"
-          href="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
+          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+          imageSizes="(max-width: 768px) 280px, 380px"
           fetchPriority="high"
         />
       </head>
