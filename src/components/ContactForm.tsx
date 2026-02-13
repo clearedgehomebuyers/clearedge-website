@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
-import { useTrafficSource } from './TrafficSourceProvider'
+import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -30,7 +30,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function ContactForm() {
-  const { webhook, trafficSource, utmParams, phone: dynamicPhone, phoneTel } = useTrafficSource()
+  const { webhook, trafficSource, utmParams, landingPage, phone: dynamicPhone, phoneTel } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -105,6 +105,7 @@ export function ContactForm() {
         utm_campaign: utmParams.utm_campaign,
         utm_content: utmParams.utm_content,
         utm_term: utmParams.utm_term,
+        landingPage: landingPage,
         notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
       }
 
@@ -115,6 +116,9 @@ export function ContactForm() {
         mode: 'no-cors',
         body: JSON.stringify(payload),
       })
+
+      // Clear SMS attribution so this lead isn't double-counted on return visits
+      if (trafficSource === 'sms') clearSMSAttribution()
 
       // With no-cors mode, we can't read the response, so assume success
       setSubmitStatus('success')

@@ -6,7 +6,7 @@ import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, Home, Heart, Briefcase, Wrench, FileWarning, Key, Building, HelpCircle as OtherIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useTrafficSource } from "./TrafficSourceProvider"
+import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
 
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
@@ -130,7 +130,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function V0LeadForm() {
-  const { webhook, trafficSource, utmParams, phone, phoneTel } = useTrafficSource()
+  const { webhook, trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [slideDirection, setSlideDirection] = useState<"forward" | "backward">("forward")
   const [formData, setFormData] = useState({
@@ -284,6 +284,7 @@ export function V0LeadForm() {
         utm_campaign: utmParams.utm_campaign,
         utm_content: utmParams.utm_content,
         utm_term: utmParams.utm_term,
+        landingPage: landingPage,
       }
 
       // Send to dynamic Zapier webhook based on traffic source
@@ -293,6 +294,9 @@ export function V0LeadForm() {
         mode: 'no-cors',
         body: JSON.stringify(payload),
       })
+
+      // Clear SMS attribution so this lead isn't double-counted on return visits
+      if (trafficSource === 'sms') clearSMSAttribution()
 
       // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
