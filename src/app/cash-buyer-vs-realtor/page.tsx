@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: "What if I'm not sure which option is right for me?",
-    answer: "Call us. Seriously. We've referred homeowners to realtors when that was the better path. Our goal is to be helpful, even if that means we're not the right fit. Call Tyler at (610) 904-8526 for an honest conversation about your options.",
+    answer: "Call us. Seriously. We've referred homeowners to realtors when that was the better path. Our goal is to be helpful, even if that means we're not the right fit. Call Tyler at {{phone}} for an honest conversation about your options.",
   },
   {
     question: 'Does ClearEdge serve all of Eastern Pennsylvania?',
@@ -730,7 +730,6 @@ export default function CashBuyerVsRealtorPage() {
                     { text: "We're a local, family-owned business based in Eastern PA since 2016", link: null },
                     { text: '5.0 Google rating with real, verified reviews', link: '/testimonials' },
                     { text: '30-day offer validity — no rush, no pressure', link: null },
-                    { text: 'Tyler answers the phone: (610) 904-8526', link: null },
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-ce-green flex-shrink-0 mt-0.5" />
@@ -743,6 +742,12 @@ export default function CashBuyerVsRealtorPage() {
                       </span>
                     </li>
                   ))}
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-ce-green flex-shrink-0 mt-0.5" />
+                    <span className="text-ce-ink/70 text-sm">
+                      Tyler answers the phone: <DynamicPhoneLink className="text-ce-green hover:underline" />
+                    </span>
+                  </li>
                 </ul>
               </div>
             </div>

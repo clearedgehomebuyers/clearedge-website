@@ -3,6 +3,7 @@
 import { useCallback, useState } from 'react'
 import { GoogleMap, useJsApiLoader, Marker, Polygon, InfoWindow } from '@react-google-maps/api'
 import { locationMapData, mapStyles, SAGE_GREEN, SAGE_GREEN_LIGHT, SAGE_GREEN_STROKE } from '@/lib/location-map-data'
+import { useTrafficSource } from './TrafficSourceProvider'
 
 interface LocationMapProps {
   slug: string
@@ -15,6 +16,7 @@ const containerStyle = {
 }
 
 export function LocationMap({ slug, cityName }: LocationMapProps) {
+  const { phone, phoneTel } = useTrafficSource()
   const [showInfoWindow, setShowInfoWindow] = useState(false)
   const [map, setMap] = useState<google.maps.Map | null>(null)
 
@@ -126,10 +128,10 @@ export function LocationMap({ slug, cityName }: LocationMapProps) {
                 We buy houses in {cityName} and surrounding areas.
               </p>
               <a
-                href="tel:+16109048526"
+                href={`tel:${phoneTel}`}
                 className="text-[#008a29] font-medium text-sm hover:underline"
               >
-                (610) 904-8526
+                {phone}
               </a>
             </div>
           </InfoWindow>
