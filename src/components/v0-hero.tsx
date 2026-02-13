@@ -39,7 +39,7 @@ export function V0Hero({ city }: V0HeroProps) {
     <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream surface-grain">
       {/* Ambient decoration circles */}
       <div className="absolute top-20 -left-40 w-[500px] h-[500px] rounded-full bg-ce-green/[0.03] blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 -right-40 w-[500px] h-[500px] rounded-full bg-ce-blue/[0.03] blur-3xl pointer-events-none" />
+      <div className="absolute top-[300px] -right-40 w-[500px] h-[500px] rounded-full bg-ce-blue/[0.03] blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto w-full">
         {/* Two-column layout for lg: and above, single column for mobile */}
