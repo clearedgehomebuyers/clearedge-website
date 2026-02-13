@@ -139,11 +139,15 @@ export function TrafficSourceProvider({ children }: { children: ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    const source = detectTrafficSource()
-    const utm = captureUTMParams()
-    setTrafficSource(source)
-    setUtmParams(utm)
-    setIsLoaded(true)
+    // Defer detection to avoid competing with hydration on the main thread
+    const id = setTimeout(() => {
+      const source = detectTrafficSource()
+      const utm = captureUTMParams()
+      setTrafficSource(source)
+      setUtmParams(utm)
+      setIsLoaded(true)
+    }, 0)
+    return () => clearTimeout(id)
   }, [])
 
   const config = TRAFFIC_CONFIG[trafficSource]

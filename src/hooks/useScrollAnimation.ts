@@ -86,7 +86,17 @@ export function useScrollAnimation() {
       })
     })
 
-    mutationObserver.observe(document.body, { childList: true, subtree: true })
+    // Defer MutationObserver to avoid overhead during hydration — initial elements
+    // are already observed above via querySelectorAll
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        mutationObserver.observe(document.body, { childList: true, subtree: true })
+      })
+    } else {
+      setTimeout(() => {
+        mutationObserver.observe(document.body, { childList: true, subtree: true })
+      }, 200)
+    }
 
     return () => {
       observerRef.current?.disconnect()
