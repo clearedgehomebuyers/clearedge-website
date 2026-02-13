@@ -1,5 +1,3 @@
-"use client"
-
 import { Star, Home, Calendar, MapPin } from "lucide-react"
 
 const stats = [

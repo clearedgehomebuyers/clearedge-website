@@ -138,13 +138,6 @@ export default function RootLayout({
           href="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
           fetchPriority="high"
         />
-        {/* Preconnect hints */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-        <link rel="preconnect" href="https://i.ytimg.com" />
-        {/* Google Fonts preconnect */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <TrafficSourceProvider>

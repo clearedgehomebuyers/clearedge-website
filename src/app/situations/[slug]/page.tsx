@@ -218,6 +218,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     src={(heroPhotos[slug] || defaultPhoto).src}
                     alt={`Recently purchased home in ${(heroPhotos[slug] || defaultPhoto).location}`}
                     fill
+                    sizes="(max-width: 1024px) 280px, 320px"
                     className="object-cover"
                     priority
                   />

@@ -145,8 +145,7 @@ export function LiteYouTube({ videoId, title }: LiteYouTubeProps) {
         width={800}
         height={450}
         className="w-full h-full object-cover"
-        loading="eager"
-        fetchPriority="high"
+        loading="lazy"
         onError={() => setImgError(true)}
       />
 

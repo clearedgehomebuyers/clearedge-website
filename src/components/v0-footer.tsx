@@ -131,6 +131,7 @@ export function V0Footer() {
                 className="h-10 w-auto mb-4 brightness-0 invert"
                 width="120"
                 height="40"
+                loading="lazy"
               />
             </button>
             <p className="text-white/50 text-sm leading-relaxed mb-6">
