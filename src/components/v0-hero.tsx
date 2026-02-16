@@ -1,6 +1,15 @@
+import { readFileSync } from "fs"
+import { join } from "path"
 import { ArrowRight, Shield, Clock, DollarSign, MapPin } from "lucide-react"
 import { ScrollToFormButton } from "@/components/ScrollToFormButton"
 import { ScrollToSectionButton } from "@/components/ScrollToSectionButton"
+
+// Inline the mobile hero image as base64 at build time.
+// This embeds the 11KB image directly in the HTML so LCP fires with FCP —
+// no network request means no CDN cache-miss variance.
+const heroMobile = `data:image/webp;base64,${readFileSync(
+  join(process.cwd(), "public/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp")
+).toString("base64")}`
 
 // City slug to display name mapping
 const cityDisplayNames: Record<string, string> = {
@@ -120,17 +129,13 @@ export function V0Hero({ city }: V0HeroProps) {
               <div className="relative bg-white rounded-2xl shadow-2xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[380px] hover:-translate-y-1 transition-transform duration-300">
                 <div className="relative aspect-[4/3]">
                   <picture>
-                    {/* WebP sources for modern browsers */}
                     <source
                       type="image/webp"
-                      srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+                      srcSet={`${heroMobile} 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w`}
                       sizes="(max-width: 768px) 280px, 380px"
                     />
-                    {/* Fallback for older browsers */}
                     <img
-                      src="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp"
-                      srcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp 280w, /properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
-                      sizes="(max-width: 768px) 280px, 380px"
+                      src={heroMobile}
                       width={380}
                       height={285}
                       alt="Cash home purchase in Scranton, PA - sold as-is to ClearEdge Home Buyers"
