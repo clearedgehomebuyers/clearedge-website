@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
       // SMS campaign tracking redirect
       {
         source: '/txt',
-        destination: '/?utm_source=sms&utm_medium=text',
+        destination: '/calculator?utm_source=sms&utm_medium=text',
         permanent: false,
       },
     ]
