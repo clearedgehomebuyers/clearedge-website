@@ -977,7 +977,7 @@ export default function CalculatorPage() {
                         inputMode="numeric"
                         value={sqft}
                         onChange={(e) => {
-                          setSqft(formatWithCommas(e.target.value, 5))
+                          setSqft(formatWithCommas(e.target.value, 4))
                         }}
                         placeholder="e.g. 1,800"
                         className="w-full px-3 py-2 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-sm bg-white"
