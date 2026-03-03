@@ -111,33 +111,63 @@ const repairCategories = [
   },
 ]
 
-// Property condition presets
-const conditionProfiles = [
+// Guided condition assessment questions
+const conditionQuestions = [
   {
-    value: 'move-in',
-    label: 'Move-in ready',
-    description: 'No major repairs needed — clean, updated, and show-ready',
-    repairEstimate: 0,
+    id: 'systems',
+    question: 'Roof, HVAC, and major systems',
+    options: [
+      { value: 0, label: 'All in good shape' },
+      { value: 1, label: 'Working but aging' },
+      { value: 2, label: 'One or more need replacing' },
+      { value: 3, label: 'Multiple systems failing' },
+    ],
   },
   {
-    value: 'cosmetic',
-    label: 'Needs cosmetic updates',
-    description: 'Outdated kitchen/baths, worn flooring, paint, minor fixes',
-    repairEstimate: 35000,
+    id: 'interior',
+    question: 'Kitchen, bathrooms, and interior',
+    options: [
+      { value: 0, label: 'Updated in the last 10 years' },
+      { value: 1, label: 'Dated but functional' },
+      { value: 2, label: 'Noticeably outdated' },
+      { value: 3, label: 'Need complete renovation' },
+    ],
   },
   {
-    value: 'major',
-    label: 'Needs major work',
-    description: 'Roof, HVAC, plumbing, or electrical plus cosmetic updates',
-    repairEstimate: 75000,
-  },
-  {
-    value: 'significant',
-    label: 'Significant issues throughout',
-    description: 'Multiple major systems failing, code violations, or environmental concerns',
-    repairEstimate: 120000,
+    id: 'structural',
+    question: 'Foundation, structure, and environment',
+    options: [
+      { value: 0, label: 'No known issues' },
+      { value: 1, label: 'Minor concerns' },
+      { value: 2, label: 'Known issues needing repair' },
+      { value: 3, label: 'Significant problems' },
+    ],
   },
 ]
+
+// Map guided score to repair estimate
+function getGuidedRepairEstimate(score: number): number {
+  if (score <= 1) return 0
+  if (score <= 3) return 35000
+  if (score <= 6) return 75000
+  return 120000
+}
+
+// Age-based repair multiplier
+function getAgeMultiplier(yearBuilt: number): number {
+  if (yearBuilt <= 0) return 1.0
+  if (yearBuilt >= 2000) return 0.85
+  if (yearBuilt >= 1980) return 1.0
+  if (yearBuilt >= 1960) return 1.15
+  if (yearBuilt >= 1940) return 1.3
+  return 1.45
+}
+
+// Sqft-based repair multiplier (base ~1,800 sqft typical PA home)
+function getSqftMultiplier(sqft: number): number {
+  if (sqft <= 0) return 1.0
+  return Math.max(0.7, Math.min(1.6, sqft / 1800))
+}
 
 // Timeline options
 const timelineOptions = [
@@ -270,7 +300,9 @@ export default function CalculatorPage() {
   const [mortgageBalance, setMortgageBalance] = useState('')
   const [timeline, setTimeline] = useState('flexible')
   const [customRepairCost, setCustomRepairCost] = useState('')
-  const [conditionProfile, setConditionProfile] = useState('')
+  const [yearBuilt, setYearBuilt] = useState('')
+  const [sqft, setSqft] = useState('')
+  const [conditionAnswers, setConditionAnswers] = useState<Record<string, number>>({})
   const [showDetailedRepairs, setShowDetailedRepairs] = useState(false)
 
   // Repair checkboxes state
@@ -331,11 +363,22 @@ export default function CalculatorPage() {
   // Parse custom amount
   const customAmount = parseFloat(customRepairCost.replace(/[^0-9.]/g, '')) || 0
 
-  // Condition profile repair estimate
-  const profileRepairEstimate = conditionProfiles.find(p => p.value === conditionProfile)?.repairEstimate || 0
+  // Guided condition assessment repair estimate
+  const allQuestionsAnswered = conditionQuestions.every(q => conditionAnswers[q.id] !== undefined)
+  const guidedScore = allQuestionsAnswered
+    ? Object.values(conditionAnswers).reduce((sum, v) => sum + v, 0)
+    : -1
+  const baseGuidedEstimate = guidedScore >= 0 ? getGuidedRepairEstimate(guidedScore) : 0
+  const yearVal = parseInt(yearBuilt) || 0
+  const sqftVal = parseInt(sqft.replace(/[^0-9]/g, '')) || 0
+  const ageMultiplier = getAgeMultiplier(yearVal)
+  const sqftMultiplier = getSqftMultiplier(sqftVal)
+  const guidedRepairEstimate = baseGuidedEstimate > 0
+    ? Math.round(baseGuidedEstimate * ageMultiplier * sqftMultiplier)
+    : 0
 
-  // Grand total repairs — use detailed if customized, otherwise use profile
-  const totalRepairs = showDetailedRepairs ? (checkedRepairsTotal + customAmount) : profileRepairEstimate
+  // Grand total repairs — use detailed if customized, otherwise use guided estimate
+  const totalRepairs = showDetailedRepairs ? (checkedRepairsTotal + customAmount) : guidedRepairEstimate
 
   // Toggle category expansion
   const toggleCategory = (categoryId: string) => {
@@ -767,64 +810,107 @@ export default function CalculatorPage() {
                   )}
                 </div>
 
-                {/* Property Condition */}
+                {/* Property Condition Assessment */}
                 <div>
                   <label className="block text-sm font-medium text-ce-ink mb-2">
                     Property Condition
                   </label>
-                  <p className="text-sm text-ce-ink/60 mb-3">
-                    Select the option that best describes your home&apos;s current condition.
-                  </p>
 
-                  {/* Condition Profile Cards */}
-                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                    {conditionProfiles.map((profile) => (
-                      <label
-                        key={profile.value}
-                        className={`flex flex-col p-3 sm:p-4 rounded-xl border cursor-pointer transition-all text-center ${
-                          conditionProfile === profile.value
-                            ? 'border-ce-green bg-ce-green-subtle ring-1 ring-ce-green/30'
-                            : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="conditionProfile"
-                          value={profile.value}
-                          checked={conditionProfile === profile.value}
-                          onChange={() => {
-                            setConditionProfile(profile.value)
-                            if (showDetailedRepairs) {
-                              setShowDetailedRepairs(false)
-                              setCheckedRepairs(new Set())
-                              setCustomRepairCost('')
-                              setBathroomQuantities({})
-                            }
-                          }}
-                          className="sr-only"
-                        />
-                        <span className={`font-medium text-sm sm:text-base ${conditionProfile === profile.value ? 'text-ce-green' : 'text-ce-ink'}`}>
-                          {profile.label}
-                        </span>
-                        <span className="text-xs text-ce-ink/50 mt-1 leading-snug">
-                          {profile.description}
-                        </span>
-                        {conditionProfile === profile.value && profile.repairEstimate > 0 && (
-                          <span className="text-xs font-semibold text-ce-green mt-2">
-                            ~${profile.repairEstimate.toLocaleString()} est.
-                          </span>
-                        )}
-                      </label>
-                    ))}
+                  {/* Optional: Year Built & Sqft */}
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    <div>
+                      <label className="block text-xs text-ce-ink/50 mb-1">Year built (optional)</label>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={yearBuilt}
+                        onChange={(e) => {
+                          const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4)
+                          setYearBuilt(v)
+                        }}
+                        placeholder="e.g. 1965"
+                        className="w-full px-3 py-2 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-sm bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-ce-ink/50 mb-1">Approx. sq ft (optional)</label>
+                      <input
+                        type="text"
+                        inputMode="numeric"
+                        value={sqft}
+                        onChange={(e) => {
+                          setSqft(formatWithCommas(e.target.value, 5))
+                        }}
+                        placeholder="e.g. 1,800"
+                        className="w-full px-3 py-2 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-sm bg-white"
+                      />
+                    </div>
                   </div>
+
+                  {!showDetailedRepairs && (
+                    <div className="space-y-4">
+                      <p className="text-sm text-ce-ink/60">
+                        Answer a few quick questions about your home&apos;s condition.
+                      </p>
+
+                      {/* Guided Questions */}
+                      {conditionQuestions.map((q) => (
+                        <div key={q.id}>
+                          <p className="text-sm font-medium text-ce-ink mb-2">{q.question}</p>
+                          <div className="grid grid-cols-2 gap-2">
+                            {q.options.map((opt) => (
+                              <label
+                                key={opt.value}
+                                className={`flex items-center gap-2 p-2.5 rounded-xl border cursor-pointer transition-all text-sm ${
+                                  conditionAnswers[q.id] === opt.value
+                                    ? 'border-ce-green bg-ce-green-subtle'
+                                    : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
+                                }`}
+                              >
+                                <input
+                                  type="radio"
+                                  name={`condition-${q.id}`}
+                                  value={opt.value}
+                                  checked={conditionAnswers[q.id] === opt.value}
+                                  onChange={() => setConditionAnswers(prev => ({ ...prev, [q.id]: opt.value }))}
+                                  className="sr-only"
+                                />
+                                <span className={`leading-snug ${conditionAnswers[q.id] === opt.value ? 'text-ce-green font-medium' : 'text-ce-ink/70'}`}>
+                                  {opt.label}
+                                </span>
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+
+                      {/* Guided Estimate Result */}
+                      {allQuestionsAnswered && (
+                        <div className="bg-white border border-ce-ink/10 rounded-xl p-4">
+                          <div className="flex items-center justify-between">
+                            <span className="font-medium text-ce-ink">Estimated repair costs:</span>
+                            <span className="text-xl font-bold text-ce-green">
+                              ${guidedRepairEstimate.toLocaleString()}
+                            </span>
+                          </div>
+                          {(yearVal > 0 || sqftVal > 0) && baseGuidedEstimate > 0 && (
+                            <p className="text-xs text-ce-ink/50 mt-2">
+                              Adjusted for {yearVal > 0 ? `${yearVal} build` : ''}{yearVal > 0 && sqftVal > 0 ? ' and ' : ''}{sqftVal > 0 ? `${sqftVal.toLocaleString()} sq ft` : ''}
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
 
                   {/* Toggle for detailed repairs */}
                   <button
                     type="button"
                     onClick={() => {
-                      setShowDetailedRepairs(!showDetailedRepairs)
-                      if (!showDetailedRepairs) {
-                        setConditionProfile('')
+                      const next = !showDetailedRepairs
+                      setShowDetailedRepairs(next)
+                      if (next) {
+                        setConditionAnswers({})
                       } else {
                         setCheckedRepairs(new Set())
                         setCustomRepairCost('')
@@ -834,7 +920,7 @@ export default function CalculatorPage() {
                     className="mt-3 text-sm text-ce-green hover:text-ce-green-hover font-medium flex items-center gap-1 transition-colors"
                   >
                     <ChevronDown className={`w-4 h-4 transition-transform ${showDetailedRepairs ? 'rotate-180' : ''}`} />
-                    {showDetailedRepairs ? 'Use quick estimate instead' : 'I know my specific repairs — let me itemize'}
+                    {showDetailedRepairs ? 'Use quick assessment instead' : 'I know my specific repairs — let me itemize'}
                   </button>
 
                   {/* Detailed Repair Estimator (collapsed by default) */}
