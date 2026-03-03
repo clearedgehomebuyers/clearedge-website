@@ -591,39 +591,136 @@ export default function CalculatorPage() {
     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Dynamic context message
+  // Dynamic context message — personalized based on user inputs
   const getDynamicMessage = () => {
     if (!results) return null
 
     const diff = results.difference
     const repairs = results.traditional.repairs
     const months = results.traditional.carryingMonths
+    const monthlyCarry = months > 0 ? Math.round(results.traditional.carryingCosts / months) : 0
+    const hasMtg = results.traditional.mortgagePayoff > 0
+    const isAsap = timeline === 'asap'
 
-    if (!results.cashBetter && diff >= 15000) {
+    // Path 1: Traditional wins by $30K+
+    if (!results.cashBetter && diff >= 30000) {
       return (
-        <div className="bg-surface-cream border-l-4 border-ce-ink/30 p-6 rounded-r-2xl">
+        <div className="bg-surface-cream border-l-4 border-ce-ink/30 p-6 rounded-r-2xl space-y-3">
           <p className="text-ce-ink/80">
-            Based on these estimates, listing with a local agent may net you more — and that&apos;s okay. We always recommend the option that puts the most money in your pocket. But keep in mind: this estimate assumes everything goes perfectly. No price reductions, no second round of negotiations, no deal falling through. If certainty and speed matter to you, <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">get your real cash offer →</button>
+            <span className="font-semibold text-ce-ink">Based on these estimates, listing with a local agent likely nets you more.</span> That&apos;s an honest answer, and we&apos;ll always give you one.
           </p>
-        </div>
-      )
-    } else if (!results.cashBetter && diff >= 5000) {
-      return (
-        <div className="bg-surface-cream border-l-4 border-yellow-500 p-6 rounded-r-2xl">
           <p className="text-ce-ink/80">
-            The numbers are closer than most sellers expect. The traditional route shows a slightly higher net — but that comes with {months} months of carrying costs{repairs > 0 && `, $${repairs.toLocaleString()} in upfront repair spending`}, and a 15–20% chance the deal falls through entirely. Many sellers in this situation choose the certainty of a guaranteed cash offer. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your real cash offer →</button>
+            But keep in mind what this estimate assumes: {months} months on market at ~${monthlyCarry.toLocaleString()}/month in carrying costs{repairs > 0 && <>, plus ${repairs.toLocaleString()} in upfront repair spending before you can even list</>}. It also assumes no price reductions, no second round of buyer negotiations, and no deal falling through — which happens 15–20% of the time in PA.
           </p>
-        </div>
-      )
-    } else {
-      return (
-        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl">
+          {isAsap && (
+            <p className="text-ce-ink/80">
+              You mentioned needing to sell quickly. The traditional route&apos;s {months}-month timeline may not align with your situation.
+            </p>
+          )}
           <p className="text-ce-ink/80">
-            At this repair level, a cash sale likely puts more money in your pocket — faster, with zero out-of-pocket costs and zero risk. The traditional route&apos;s commissions, closing costs, and carrying costs eat into what would otherwise be a higher sale price. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your real cash offer →</button>
+            If certainty and speed matter, it&apos;s still worth seeing your real number. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
           </p>
         </div>
       )
     }
+
+    // Path 2: Traditional wins by $20K–$30K
+    if (!results.cashBetter && diff >= 20000) {
+      return (
+        <div className="bg-surface-cream border-l-4 border-yellow-600 p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">The traditional route shows a higher net on paper — but look at what it takes to get there.</span>
+          </p>
+          <p className="text-ce-ink/80">
+            You&apos;d carry ~${monthlyCarry.toLocaleString()}/month for {months} months while the home sits on the market{repairs > 0 && <> — and that&apos;s after spending ${repairs.toLocaleString()} on repairs before you can list</>}. That&apos;s ${results.traditional.carryingCosts.toLocaleString()} in carrying costs alone{hasMtg && <>, on top of your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage payoff</>}.
+          </p>
+          {isAsap && (
+            <p className="text-ce-ink/80">
+              You indicated you need to sell quickly — waiting {months} months may not be realistic for your timeline.
+            </p>
+          )}
+          <p className="text-ce-ink/80">
+            Many sellers in this range choose the certainty of a guaranteed close over the risk of a traditional sale. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+          </p>
+        </div>
+      )
+    }
+
+    // Path 3: Traditional wins by $10K–$20K
+    if (!results.cashBetter && diff >= 10000) {
+      return (
+        <div className="bg-surface-cream border-l-4 border-yellow-500 p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">The gap is thinner than most sellers expect.</span> The traditional route shows ${diff.toLocaleString()} more — but that difference shrinks fast when you factor in reality.
+          </p>
+          <p className="text-ce-ink/80">
+            {repairs > 0 && <>You&apos;d need to spend ${repairs.toLocaleString()} on repairs before listing. </>}Then you&apos;re looking at {months} months on market at ~${monthlyCarry.toLocaleString()}/month in carrying costs. One price reduction, one buyer walking away, or one round of re-negotiation after inspection — and that ${diff.toLocaleString()} advantage disappears.
+          </p>
+          {isAsap && (
+            <p className="text-ce-ink/80">
+              Given your timeline urgency, a guaranteed close in 14–30 days may be worth more than a slightly higher number {months} months from now.
+            </p>
+          )}
+          <p className="text-ce-ink/80">
+            <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">See what ClearEdge can guarantee you →</button>
+          </p>
+        </div>
+      )
+    }
+
+    // Path 4: Within $10K either way
+    if (diff < 10000) {
+      return (
+        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">These two routes are essentially a wash — within ${diff.toLocaleString()} of each other.</span>
+          </p>
+          <p className="text-ce-ink/80">
+            The difference is how you get there. The traditional route means {months} months on market, ~${monthlyCarry.toLocaleString()}/month in carrying costs{repairs > 0 && <>, ${repairs.toLocaleString()} in upfront repairs</>}, and a 15–20% chance the deal falls through. A cash offer closes in 14–30 days, guaranteed — with zero out-of-pocket costs{hasMtg && <> and your mortgage paid off at closing</>}.
+          </p>
+          {isAsap && (
+            <p className="text-ce-ink/80">
+              You mentioned needing to sell fast. For essentially the same net, cash gets you there in weeks instead of months.
+            </p>
+          )}
+          <p className="text-ce-ink/80">
+            For a difference this small, most sellers choose certainty. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+          </p>
+        </div>
+      )
+    }
+
+    // Path 5: Cash wins by up to $15K
+    if (results.cashBetter && diff < 15000) {
+      return (
+        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-green">A cash sale puts more money in your pocket — ${diff.toLocaleString()} more.</span> And that&apos;s before accounting for the risk, stress, and time cost of the traditional route.
+          </p>
+          <p className="text-ce-ink/80">
+            With a cash offer, you skip {months} months of carrying costs (~${monthlyCarry.toLocaleString()}/month){repairs > 0 && <>, avoid spending ${repairs.toLocaleString()} on repairs out of pocket</>}, and close in 14–30 days with zero risk of the deal falling through{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
+          </p>
+          <p className="text-ce-ink/80">
+            <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+          </p>
+        </div>
+      )
+    }
+
+    // Path 6: Cash wins by $15K+
+    return (
+      <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+        <p className="text-ce-ink/80">
+          <span className="font-semibold text-ce-green">At this condition level, cash is the clear financial winner — ${diff.toLocaleString()} more in your pocket.</span>
+        </p>
+        <p className="text-ce-ink/80">
+          The traditional route&apos;s commissions, closing costs, and {months} months of carrying costs at ~${monthlyCarry.toLocaleString()}/month eat into what would otherwise be a higher sale price{repairs > 0 && <>. Add ${repairs.toLocaleString()} in repairs you&apos;d need to spend before listing, and the math clearly favors selling as-is</>}.
+        </p>
+        <p className="text-ce-ink/80">
+          You&apos;d close in 14–30 days, skip all repairs and fees{hasMtg && <>, and your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+        </p>
+      </div>
+    )
   }
 
   return (
@@ -1118,7 +1215,7 @@ export default function CalculatorPage() {
                 {/* Timeline Radio Buttons */}
                 <div>
                   <label className="block text-sm font-medium text-ce-ink mb-3">
-                    Timeline Flexibility (Optional)
+                    Timeline Flexibility
                   </label>
                   <div className="space-y-2">
                     {timelineOptions.map((option) => (
