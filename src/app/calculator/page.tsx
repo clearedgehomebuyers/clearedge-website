@@ -115,8 +115,9 @@ const repairCategories = [
 const conditionQuestions = [
   {
     id: 'systems',
-    question: 'Roof, HVAC, and major systems',
+    question: 'Roof, HVAC, windows, siding, and major systems',
     options: [
+      { value: -1, label: 'Select one...' },
       { value: 0, label: 'All in good shape' },
       { value: 1, label: 'Working but aging' },
       { value: 2, label: 'One or more need replacing' },
@@ -127,6 +128,7 @@ const conditionQuestions = [
     id: 'interior',
     question: 'Kitchen, bathrooms, and interior',
     options: [
+      { value: -1, label: 'Select one...' },
       { value: 0, label: 'Updated in the last 5 years' },
       { value: 1, label: 'Dated but functional' },
       { value: 2, label: 'Noticeably outdated' },
@@ -137,6 +139,7 @@ const conditionQuestions = [
     id: 'structural',
     question: 'Foundation, structure, and environment',
     options: [
+      { value: -1, label: 'Select one...' },
       { value: 0, label: 'No known issues' },
       { value: 1, label: 'Minor concerns' },
       { value: 2, label: 'Known issues needing repair' },
@@ -367,7 +370,7 @@ export default function CalculatorPage() {
   const customAmount = parseFloat(customRepairCost.replace(/[^0-9.]/g, '')) || 0
 
   // Guided condition assessment repair estimate
-  const allQuestionsAnswered = conditionQuestions.every(q => conditionAnswers[q.id] !== undefined)
+  const allQuestionsAnswered = conditionQuestions.every(q => conditionAnswers[q.id] !== undefined && conditionAnswers[q.id] >= 0)
   const guidedScore = allQuestionsAnswered
     ? Object.values(conditionAnswers).reduce((sum, v) => sum + v, 0)
     : -1
@@ -856,34 +859,26 @@ export default function CalculatorPage() {
                         Answer a few quick questions about your home&apos;s condition.
                       </p>
 
-                      {/* Guided Questions */}
+                      {/* Guided Questions — Dropdowns */}
                       {conditionQuestions.map((q) => (
                         <div key={q.id}>
-                          <p className="text-sm font-medium text-ce-ink mb-2">{q.question}</p>
-                          <div className="grid grid-cols-2 gap-2">
+                          <label className="block text-sm font-medium text-ce-ink mb-1.5">{q.question}</label>
+                          <select
+                            value={conditionAnswers[q.id] ?? -1}
+                            onChange={(e) => {
+                              const val = parseInt(e.target.value)
+                              if (val >= 0) {
+                                setConditionAnswers(prev => ({ ...prev, [q.id]: val }))
+                              }
+                            }}
+                            className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                          >
                             {q.options.map((opt) => (
-                              <label
-                                key={opt.value}
-                                className={`flex items-center gap-2 p-2.5 rounded-xl border cursor-pointer transition-all text-sm ${
-                                  conditionAnswers[q.id] === opt.value
-                                    ? 'border-ce-green bg-ce-green-subtle'
-                                    : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
-                                }`}
-                              >
-                                <input
-                                  type="radio"
-                                  name={`condition-${q.id}`}
-                                  value={opt.value}
-                                  checked={conditionAnswers[q.id] === opt.value}
-                                  onChange={() => setConditionAnswers(prev => ({ ...prev, [q.id]: opt.value }))}
-                                  className="sr-only"
-                                />
-                                <span className={`leading-snug ${conditionAnswers[q.id] === opt.value ? 'text-ce-green font-medium' : 'text-ce-ink/70'}`}>
-                                  {opt.label}
-                                </span>
-                              </label>
+                              <option key={opt.value} value={opt.value} disabled={opt.value === -1}>
+                                {opt.label}
+                              </option>
                             ))}
-                          </div>
+                          </select>
                         </div>
                       ))}
 
