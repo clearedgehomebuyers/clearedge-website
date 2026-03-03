@@ -902,7 +902,7 @@ export default function CalculatorPage() {
                             inputMode="numeric"
                             value={mortgageBalance}
                             onChange={(e) => {
-                              setMortgageBalance(formatWithCommas(e.target.value, 8))
+                              setMortgageBalance(formatWithCommas(e.target.value, 7))
                               setMortgageError('')
                               setMortgageWarning('')
                             }}
