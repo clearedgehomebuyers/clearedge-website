@@ -1295,50 +1295,60 @@ export default function CalculatorPage() {
                       <h3 className="font-serif text-lg font-medium text-ce-ink">Traditional Sale with Realtor</h3>
                     </div>
 
-                    <div className="space-y-2.5 mb-6 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-ce-ink/70">List price:</span>
-                        <span className="font-medium">${results.traditional.salePrice.toLocaleString()}</span>
+                    {/* List price → Expected sale price */}
+                    <div className="mb-4 text-sm">
+                      <div className="flex justify-between mb-1">
+                        <span className="text-ce-ink/70">Your list price:</span>
+                        <span className="text-ce-ink/70">${results.traditional.salePrice.toLocaleString()}</span>
                       </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Buyer negotiation" tip={`Homes in PA sell for ${Math.round((1 - results.traditional.negotiationDiscount / results.traditional.salePrice) * 100)}% of asking price on average. Buyers use inspections, comps, and market conditions to negotiate the price down — especially on homes needing work.`} />
-                        <span>-${results.traditional.negotiationDiscount.toLocaleString()}</span>
+                      <p className="text-ce-ink/50 text-xs mb-2">
+                        PA homes sell for ~{Math.round((1 - results.traditional.negotiationDiscount / results.traditional.salePrice) * 100)}% of asking price on average. Based on market data, your expected sale price:
+                      </p>
+                      <div className="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
+                        <span className="font-semibold text-ce-ink">Expected sale price:</span>
+                        <span className="font-bold text-ce-ink text-lg">${(results.traditional.salePrice - results.traditional.negotiationDiscount).toLocaleString()}</span>
                       </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Repairs" tip="Homes typically need to be in show-ready condition to sell at full market value. These are the repair costs you selected in the estimator above." />
-                        <span>-${results.traditional.repairs.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Agent commissions (5.81%)" tip="The combined PA average for listing agent + buyer's agent. Even after the 2024 NAR settlement, most PA sellers still offer buyer's agent commission to attract more showings." />
-                        <span>-${results.traditional.commission.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label={`Transfer tax (${results.traditional.countyName})`} tip="PA charges a real estate transfer tax split between buyer and seller. Your county's rate is applied to the full sale price." />
-                        <span>-${results.traditional.transferTax.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Title insurance" tip="PA title insurance rates are state-regulated — every company charges the same. The seller typically pays for the owner's policy protecting the buyer's lender." />
-                        <span>-${results.traditional.titleInsurance.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Settlement &amp; recording fees" tip="Title company and county fees to process your sale: settlement fee, title search, document prep, notary, recording fees, and municipal lien letter." />
-                        <span>-${results.traditional.settlementFees.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Est. inspection concessions (2.25%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 2–3% of the sale price." />
-                        <span>-${results.traditional.inspectionConcessions.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label="Home warranty + compliance" tip="Buyers frequently request a home warranty (~$500), plus you'll need a use & occupancy inspection, smoke/CO compliance, and pest inspection." />
-                        <span>-${results.traditional.warrantyCompliance.toLocaleString()}</span>
-                      </div>
-                      <div className="flex justify-between text-red-600">
-                        <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`Every month on market you're paying mortgage interest, property taxes, insurance, utilities, and maintenance. Homes needing repairs take longer to prep and sell, extending your carrying period to ${results.traditional.carryingMonths} months.`} />
-                        <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
-                      </div>
-                      <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
-                        <Tooltip label="Mortgage payoff" tip={results.traditional.mortgagePayoff > 0 ? "Your remaining mortgage balance must be paid off from sale proceeds at closing before you receive your net." : "No mortgage to pay off — you keep more of your sale proceeds."} />
-                        <span>{results.traditional.mortgagePayoff > 0 ? '-' : ''}${results.traditional.mortgagePayoff.toLocaleString()}</span>
+                    </div>
+
+                    <div className="border-t border-ce-ink/10 pt-3 mb-6">
+                      <p className="text-xs text-ce-ink/50 mb-3 uppercase tracking-wide font-medium">Deductions from sale price</p>
+                      <div className="space-y-2.5 text-sm">
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Repairs" tip="Homes typically need to be in show-ready condition to sell at full market value. These are the repair costs you selected in the estimator above." />
+                          <span>-${results.traditional.repairs.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Agent commissions (5.81%)" tip="The combined PA average for listing agent + buyer's agent. Even after the 2024 NAR settlement, most PA sellers still offer buyer's agent commission to attract more showings." />
+                          <span>-${results.traditional.commission.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label={`Transfer tax (${results.traditional.countyName})`} tip="PA charges a real estate transfer tax split between buyer and seller. Your county's rate is applied to the full sale price." />
+                          <span>-${results.traditional.transferTax.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Title insurance" tip="PA title insurance rates are state-regulated — every company charges the same. The seller typically pays for the owner's policy protecting the buyer's lender." />
+                          <span>-${results.traditional.titleInsurance.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Settlement &amp; recording fees" tip="Title company and county fees to process your sale: settlement fee, title search, document prep, notary, recording fees, and municipal lien letter." />
+                          <span>-${results.traditional.settlementFees.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Inspection concessions (2.25%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 2–3% of the sale price." />
+                          <span>-${results.traditional.inspectionConcessions.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label="Home warranty + compliance" tip="Buyers frequently request a home warranty (~$500), plus you'll need a use & occupancy inspection, smoke/CO compliance, and pest inspection." />
+                          <span>-${results.traditional.warrantyCompliance.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between text-red-600">
+                          <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`Every month on market you're paying mortgage interest, property taxes, insurance, utilities, and maintenance. Homes needing repairs take longer to prep and sell, extending your carrying period to ${results.traditional.carryingMonths} months.`} />
+                          <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
+                        </div>
+                        <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
+                          <Tooltip label="Mortgage payoff" tip={results.traditional.mortgagePayoff > 0 ? "Your remaining mortgage balance must be paid off from sale proceeds at closing before you receive your net." : "No mortgage to pay off — you keep more of your sale proceeds."} />
+                          <span>{results.traditional.mortgagePayoff > 0 ? '-' : ''}${results.traditional.mortgagePayoff.toLocaleString()}</span>
+                        </div>
                       </div>
                     </div>
 
