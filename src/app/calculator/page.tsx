@@ -651,6 +651,38 @@ export default function CalculatorPage() {
                       />
                       <span className="text-ce-ink/80">Yes, I have a mortgage</span>
                     </label>
+
+                    {/* Mortgage Balance Input - nested under "Yes" */}
+                    {hasMortgage === 'yes' && (
+                      <div className="ml-7 pl-4 border-l-2 border-ce-green/20">
+                        <label className="block text-sm font-medium text-ce-ink mb-2">
+                          Approximate Mortgage Balance
+                        </label>
+                        <div className="relative">
+                          <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
+                          <input
+                            type="text"
+                            inputMode="numeric"
+                            value={mortgageBalance}
+                            onChange={(e) => {
+                              setMortgageBalance(formatWithCommas(e.target.value, 8))
+                              setMortgageError('')
+                              setMortgageWarning('')
+                            }}
+                            placeholder="150,000"
+                            className={`w-full pl-11 pr-4 py-3 rounded-xl border bg-white ${mortgageError && hasMortgage === 'yes' ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
+                          />
+                        </div>
+                        <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
+                          <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                          This is only used to calculate your net proceeds — we don&apos;t store or share this information.
+                        </p>
+                        {mortgageWarning && (
+                          <p className="mt-1.5 text-sm text-yellow-600">{mortgageWarning}</p>
+                        )}
+                      </div>
+                    )}
+
                     <label
                       className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                         hasMortgage === 'no'
@@ -676,37 +708,6 @@ export default function CalculatorPage() {
                   </div>
                   {mortgageError && (
                     <p className="mt-1.5 text-sm text-red-500">{mortgageError}</p>
-                  )}
-
-                  {/* Mortgage Balance Input */}
-                  {hasMortgage === 'yes' && (
-                    <div className="mt-4">
-                      <label className="block text-sm font-medium text-ce-ink mb-2">
-                        Remaining Mortgage Balance
-                      </label>
-                      <div className="relative">
-                        <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          value={mortgageBalance}
-                          onChange={(e) => {
-                            setMortgageBalance(formatWithCommas(e.target.value, 8))
-                            setMortgageError('')
-                            setMortgageWarning('')
-                          }}
-                          placeholder="150,000"
-                          className={`w-full pl-11 pr-4 py-3 rounded-xl border bg-white ${mortgageError && hasMortgage === 'yes' ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
-                        />
-                      </div>
-                      <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
-                        <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                        Approximate remaining balance on your mortgage
-                      </p>
-                      {mortgageWarning && (
-                        <p className="mt-1.5 text-sm text-yellow-600">{mortgageWarning}</p>
-                      )}
-                    </div>
                   )}
                 </div>
 
