@@ -127,7 +127,7 @@ const conditionQuestions = [
     id: 'interior',
     question: 'Kitchen, bathrooms, and interior',
     options: [
-      { value: 0, label: 'Updated in the last 10 years' },
+      { value: 0, label: 'Updated in the last 5 years' },
       { value: 1, label: 'Dated but functional' },
       { value: 2, label: 'Noticeably outdated' },
       { value: 3, label: 'Need complete renovation' },
@@ -145,12 +145,15 @@ const conditionQuestions = [
   },
 ]
 
-// Map guided score to repair estimate
+// Map guided score to repair estimate (6 tiers for realistic granularity)
 function getGuidedRepairEstimate(score: number): number {
-  if (score <= 1) return 0
-  if (score <= 3) return 35000
-  if (score <= 6) return 75000
-  return 120000
+  if (score === 0) return 0        // all good across the board
+  if (score === 1) return 8000     // one minor area — paint, minor fixes
+  if (score === 2) return 25000    // dated interior OR aging systems
+  if (score === 3) return 45000    // system replacement + cosmetic, or multiple dated areas
+  if (score <= 5) return 75000     // failing system + outdated interior + minor structural
+  if (score <= 7) return 105000    // multiple major issues across categories
+  return 135000                    // significant problems throughout
 }
 
 // Age-based repair multiplier
