@@ -111,6 +111,34 @@ const repairCategories = [
   },
 ]
 
+// Property condition presets
+const conditionProfiles = [
+  {
+    value: 'move-in',
+    label: 'Move-in ready',
+    description: 'No major repairs needed — mostly cosmetic or nothing at all',
+    repairEstimate: 0,
+  },
+  {
+    value: 'cosmetic',
+    label: 'Needs cosmetic updates',
+    description: 'Outdated kitchen/baths, worn flooring, paint, minor fixes',
+    repairEstimate: 15000,
+  },
+  {
+    value: 'major',
+    label: 'Needs major work',
+    description: 'Roof, HVAC, plumbing, electrical, or structural issues',
+    repairEstimate: 45000,
+  },
+  {
+    value: 'significant',
+    label: 'Significant issues throughout',
+    description: 'Multiple major systems failing, code violations, or environmental concerns',
+    repairEstimate: 85000,
+  },
+]
+
 // Timeline options
 const timelineOptions = [
   { value: 'asap', label: 'Need to sell ASAP (under 30 days)', monthsAdjust: -1 },
@@ -242,6 +270,8 @@ export default function CalculatorPage() {
   const [mortgageBalance, setMortgageBalance] = useState('')
   const [timeline, setTimeline] = useState('flexible')
   const [customRepairCost, setCustomRepairCost] = useState('')
+  const [conditionProfile, setConditionProfile] = useState('')
+  const [showDetailedRepairs, setShowDetailedRepairs] = useState(false)
 
   // Repair checkboxes state
   const [checkedRepairs, setCheckedRepairs] = useState<Set<string>>(new Set())
@@ -301,8 +331,11 @@ export default function CalculatorPage() {
   // Parse custom amount
   const customAmount = parseFloat(customRepairCost.replace(/[^0-9.]/g, '')) || 0
 
-  // Grand total repairs
-  const totalRepairs = checkedRepairsTotal + customAmount
+  // Condition profile repair estimate
+  const profileRepairEstimate = conditionProfiles.find(p => p.value === conditionProfile)?.repairEstimate || 0
+
+  // Grand total repairs — use detailed if customized, otherwise use profile
+  const totalRepairs = showDetailedRepairs ? (checkedRepairsTotal + customAmount) : profileRepairEstimate
 
   // Toggle category expansion
   const toggleCategory = (categoryId: string) => {
@@ -734,163 +767,233 @@ export default function CalculatorPage() {
                   )}
                 </div>
 
-                {/* Repair Estimator */}
+                {/* Property Condition */}
                 <div>
                   <label className="block text-sm font-medium text-ce-ink mb-2">
-                    Repair Estimator
+                    Property Condition
                   </label>
-                  <p className="text-sm text-ce-ink/60 mb-4">
-                    Select the repairs your home needs. Prices are PA averages from HomeAdvisor, Angi, and local contractors.
+                  <p className="text-sm text-ce-ink/60 mb-3">
+                    Select the option that best describes your home&apos;s current condition.
                   </p>
 
-                  {/* Repair Categories Accordion */}
-                  <div className="space-y-2 mb-4">
-                    {repairCategories.map((category) => {
-                      const isExpanded = expandedCategories.has(category.id)
-                      const checkedCount = getCategoryCheckedCount(category)
+                  {/* Condition Profile Cards */}
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                    {conditionProfiles.map((profile) => (
+                      <label
+                        key={profile.value}
+                        className={`flex flex-col p-3 sm:p-4 rounded-xl border cursor-pointer transition-all text-center ${
+                          conditionProfile === profile.value
+                            ? 'border-ce-green bg-ce-green-subtle ring-1 ring-ce-green/30'
+                            : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="conditionProfile"
+                          value={profile.value}
+                          checked={conditionProfile === profile.value}
+                          onChange={() => {
+                            setConditionProfile(profile.value)
+                            if (showDetailedRepairs) {
+                              setShowDetailedRepairs(false)
+                              setCheckedRepairs(new Set())
+                              setCustomRepairCost('')
+                              setBathroomQuantities({})
+                            }
+                          }}
+                          className="sr-only"
+                        />
+                        <span className={`font-medium text-sm sm:text-base ${conditionProfile === profile.value ? 'text-ce-green' : 'text-ce-ink'}`}>
+                          {profile.label}
+                        </span>
+                        <span className="text-xs text-ce-ink/50 mt-1 leading-snug">
+                          {profile.description}
+                        </span>
+                        {conditionProfile === profile.value && profile.repairEstimate > 0 && (
+                          <span className="text-xs font-semibold text-ce-green mt-2">
+                            ~${profile.repairEstimate.toLocaleString()} est.
+                          </span>
+                        )}
+                      </label>
+                    ))}
+                  </div>
 
-                      return (
-                        <div key={category.id} className="border border-ce-ink/10 rounded-xl overflow-hidden bg-white">
-                          <button
-                            onClick={() => toggleCategory(category.id)}
-                            className="w-full flex items-center justify-between p-4 hover:bg-surface-cream transition-colors"
-                          >
-                            <div className="flex items-center gap-3">
-                              <span className="font-medium text-ce-ink">{category.name}</span>
-                              {checkedCount > 0 && (
-                                <span className="bg-ce-green text-white text-xs px-2 py-0.5 rounded-full">
-                                  {checkedCount} selected
-                                </span>
-                              )}
-                            </div>
-                            <ChevronDown className={`w-5 h-5 text-ce-ink/40 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
-                          </button>
+                  {/* Toggle for detailed repairs */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowDetailedRepairs(!showDetailedRepairs)
+                      if (!showDetailedRepairs) {
+                        setConditionProfile('')
+                      } else {
+                        setCheckedRepairs(new Set())
+                        setCustomRepairCost('')
+                        setBathroomQuantities({})
+                      }
+                    }}
+                    className="mt-3 text-sm text-ce-green hover:text-ce-green-hover font-medium flex items-center gap-1 transition-colors"
+                  >
+                    <ChevronDown className={`w-4 h-4 transition-transform ${showDetailedRepairs ? 'rotate-180' : ''}`} />
+                    {showDetailedRepairs ? 'Use quick estimate instead' : 'I know my specific repairs — let me itemize'}
+                  </button>
 
-                          {isExpanded && (
-                            <div className="border-t border-ce-ink/10 p-4 space-y-3">
-                              {category.items.map((item) => (
-                                <label
-                                  key={item.id}
-                                  className="flex items-start gap-3 cursor-pointer group"
-                                >
-                                  <div className="flex-shrink-0 mt-0.5">
-                                    <div
-                                      onClick={(e) => {
-                                        e.preventDefault()
-                                        toggleRepair(item.id)
-                                      }}
-                                      className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
-                                        checkedRepairs.has(item.id)
-                                          ? 'bg-ce-green border-ce-green'
-                                          : 'border-ce-ink/20 group-hover:border-ce-green/50'
-                                      }`}
+                  {/* Detailed Repair Estimator (collapsed by default) */}
+                  {showDetailedRepairs && (
+                    <div className="mt-4 pt-4 border-t border-ce-ink/10">
+                      <p className="text-sm text-ce-ink/60 mb-4">
+                        Select the repairs your home needs. Prices are PA averages from HomeAdvisor, Angi, and local contractors.
+                      </p>
+
+                      {/* Repair Categories Accordion */}
+                      <div className="space-y-2 mb-4">
+                        {repairCategories.map((category) => {
+                          const isExpanded = expandedCategories.has(category.id)
+                          const checkedCount = getCategoryCheckedCount(category)
+
+                          return (
+                            <div key={category.id} className="border border-ce-ink/10 rounded-xl overflow-hidden bg-white">
+                              <button
+                                onClick={() => toggleCategory(category.id)}
+                                className="w-full flex items-center justify-between p-4 hover:bg-surface-cream transition-colors"
+                              >
+                                <div className="flex items-center gap-3">
+                                  <span className="font-medium text-ce-ink">{category.name}</span>
+                                  {checkedCount > 0 && (
+                                    <span className="bg-ce-green text-white text-xs px-2 py-0.5 rounded-full">
+                                      {checkedCount} selected
+                                    </span>
+                                  )}
+                                </div>
+                                <ChevronDown className={`w-5 h-5 text-ce-ink/40 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                              </button>
+
+                              {isExpanded && (
+                                <div className="border-t border-ce-ink/10 p-4 space-y-3">
+                                  {category.items.map((item) => (
+                                    <label
+                                      key={item.id}
+                                      className="flex items-start gap-3 cursor-pointer group"
                                     >
-                                      {checkedRepairs.has(item.id) && (
-                                        <Check className="w-3.5 h-3.5 text-white" />
-                                      )}
-                                    </div>
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-start justify-between gap-2">
-                                      <span className="text-ce-ink group-hover:text-ce-green transition-colors">
-                                        {item.name}
-                                      </span>
-                                      <span className="font-semibold text-ce-ink whitespace-nowrap">
-                                        ${(bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id)
-                                          ? item.cost * (bathroomQuantities[item.id] || 1)
-                                          : item.cost
-                                        ).toLocaleString()}
-                                      </span>
-                                    </div>
-                                    {bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id) && (
-                                      <div className="flex items-center gap-2 mt-1.5">
-                                        <span className="text-xs text-ce-ink/60">Bathrooms:</span>
-                                        <div className="inline-flex items-center border border-ce-ink/15 rounded-lg overflow-hidden">
-                                          <button
-                                            type="button"
-                                            onClick={(e) => {
-                                              e.preventDefault()
-                                              e.stopPropagation()
-                                              setBathroomQuantities(prev => ({
-                                                ...prev,
-                                                [item.id]: Math.max(1, (prev[item.id] || 1) - 1)
-                                              }))
-                                            }}
-                                            className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
-                                          >
-                                            −
-                                          </button>
-                                          <span className="w-7 h-7 flex items-center justify-center text-sm font-semibold text-ce-ink border-x border-ce-ink/15 bg-white">
-                                            {bathroomQuantities[item.id] || 1}
-                                          </span>
-                                          <button
-                                            type="button"
-                                            onClick={(e) => {
-                                              e.preventDefault()
-                                              e.stopPropagation()
-                                              setBathroomQuantities(prev => ({
-                                                ...prev,
-                                                [item.id]: Math.min(5, (prev[item.id] || 1) + 1)
-                                              }))
-                                            }}
-                                            className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
-                                          >
-                                            +
-                                          </button>
+                                      <div className="flex-shrink-0 mt-0.5">
+                                        <div
+                                          onClick={(e) => {
+                                            e.preventDefault()
+                                            toggleRepair(item.id)
+                                          }}
+                                          className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                                            checkedRepairs.has(item.id)
+                                              ? 'bg-ce-green border-ce-green'
+                                              : 'border-ce-ink/20 group-hover:border-ce-green/50'
+                                          }`}
+                                        >
+                                          {checkedRepairs.has(item.id) && (
+                                            <Check className="w-3.5 h-3.5 text-white" />
+                                          )}
                                         </div>
-                                        <span className="text-xs text-ce-ink/40">
-                                          × ${item.cost.toLocaleString()} each
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-start justify-between gap-2">
+                                          <span className="text-ce-ink group-hover:text-ce-green transition-colors">
+                                            {item.name}
+                                          </span>
+                                          <span className="font-semibold text-ce-ink whitespace-nowrap">
+                                            ${(bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id)
+                                              ? item.cost * (bathroomQuantities[item.id] || 1)
+                                              : item.cost
+                                            ).toLocaleString()}
+                                          </span>
+                                        </div>
+                                        {bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id) && (
+                                          <div className="flex items-center gap-2 mt-1.5">
+                                            <span className="text-xs text-ce-ink/60">Bathrooms:</span>
+                                            <div className="inline-flex items-center border border-ce-ink/15 rounded-lg overflow-hidden">
+                                              <button
+                                                type="button"
+                                                onClick={(e) => {
+                                                  e.preventDefault()
+                                                  e.stopPropagation()
+                                                  setBathroomQuantities(prev => ({
+                                                    ...prev,
+                                                    [item.id]: Math.max(1, (prev[item.id] || 1) - 1)
+                                                  }))
+                                                }}
+                                                className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
+                                              >
+                                                −
+                                              </button>
+                                              <span className="w-7 h-7 flex items-center justify-center text-sm font-semibold text-ce-ink border-x border-ce-ink/15 bg-white">
+                                                {bathroomQuantities[item.id] || 1}
+                                              </span>
+                                              <button
+                                                type="button"
+                                                onClick={(e) => {
+                                                  e.preventDefault()
+                                                  e.stopPropagation()
+                                                  setBathroomQuantities(prev => ({
+                                                    ...prev,
+                                                    [item.id]: Math.min(5, (prev[item.id] || 1) + 1)
+                                                  }))
+                                                }}
+                                                className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
+                                              >
+                                                +
+                                              </button>
+                                            </div>
+                                            <span className="text-xs text-ce-ink/40">
+                                              × ${item.cost.toLocaleString()} each
+                                            </span>
+                                          </div>
+                                        )}
+                                        <span className="text-xs text-ce-ink/50">
+                                          PA range: {item.range}
                                         </span>
                                       </div>
-                                    )}
-                                    <span className="text-xs text-ce-ink/50">
-                                      PA range: {item.range}
-                                    </span>
-                                  </div>
-                                </label>
-                              ))}
+                                    </label>
+                                  ))}
+                                </div>
+                              )}
                             </div>
-                          )}
+                          )
+                        })}
+                      </div>
+
+                      {/* Running Repair Total */}
+                      <div className="bg-white border border-ce-ink/10 rounded-xl p-4">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-medium text-ce-ink">Selected Repairs Total:</span>
+                          <span className="text-xl font-bold text-ce-ink">
+                            ${checkedRepairsTotal.toLocaleString()}
+                          </span>
                         </div>
-                      )
-                    })}
-                  </div>
 
-                  {/* Running Repair Total */}
-                  <div className="bg-white border border-ce-ink/10 rounded-xl p-4 mb-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="font-medium text-ce-ink">Selected Repairs Total:</span>
-                      <span className="text-xl font-bold text-ce-ink">
-                        ${checkedRepairsTotal.toLocaleString()}
-                      </span>
-                    </div>
+                        {/* Custom Amount Input */}
+                        <div>
+                          <label className="block text-sm text-ce-ink/70 mb-2">
+                            Have other repair costs? Add a custom amount:
+                          </label>
+                          <div className="relative">
+                            <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
+                            <input
+                              type="text"
+                              inputMode="numeric"
+                              value={customRepairCost}
+                              onChange={(e) => setCustomRepairCost(formatWithCommas(e.target.value, 6))}
+                              placeholder="0"
+                              className="w-full pl-11 pr-4 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all"
+                            />
+                          </div>
+                        </div>
 
-                    {/* Custom Amount Input */}
-                    <div>
-                      <label className="block text-sm text-ce-ink/70 mb-2">
-                        Have other repair costs? Add a custom amount:
-                      </label>
-                      <div className="relative">
-                        <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
-                        <input
-                          type="text"
-                          inputMode="numeric"
-                          value={customRepairCost}
-                          onChange={(e) => setCustomRepairCost(formatWithCommas(e.target.value, 6))}
-                          placeholder="0"
-                          className="w-full pl-11 pr-4 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all"
-                        />
+                        {/* Grand Total */}
+                        <div className="flex items-center justify-between mt-4 pt-4 border-t border-ce-ink/10">
+                          <span className="font-semibold text-ce-ink">Grand Total Repairs:</span>
+                          <span className="text-2xl font-bold text-ce-green">
+                            ${totalRepairs.toLocaleString()}
+                          </span>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Grand Total */}
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-ce-ink/10">
-                      <span className="font-semibold text-ce-ink">Grand Total Repairs:</span>
-                      <span className="text-2xl font-bold text-ce-green">
-                        ${totalRepairs.toLocaleString()}
-                      </span>
-                    </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* Timeline Radio Buttons */}
