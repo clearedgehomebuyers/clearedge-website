@@ -93,7 +93,7 @@ const repairCategories = [
     name: 'Exterior',
     items: [
       { id: 'siding', name: 'Siding replacement', cost: 14000, range: '$8,000–$20,000' },
-      { id: 'windows', name: 'Window replacement (all)', cost: 17500, range: '$10,000–$25,000' },
+      { id: 'windows', name: 'Window replacement (per window)', cost: 1150, range: '$650–$1,650 per window' },
       { id: 'concrete', name: 'Concrete / driveway', cost: 4750, range: '$2,500–$7,000' },
       { id: 'landscaping', name: 'Landscaping / grading / drainage', cost: 3750, range: '$1,500–$6,000' },
     ],
@@ -352,14 +352,14 @@ export default function CalculatorPage() {
   const resultsRef = useRef<HTMLDivElement>(null)
 
   // IDs that support per-bathroom quantity
-  const bathroomItemIds = ['bathroom-full', 'bathroom-cosmetic']
+  const quantityItemIds = ['bathroom-full', 'bathroom-cosmetic', 'windows']
 
   // Calculate total from checked repairs
   const checkedRepairsTotal = Array.from(checkedRepairs).reduce((sum, itemId) => {
     for (const category of repairCategories) {
       const item = category.items.find(i => i.id === itemId)
       if (item) {
-        const qty = bathroomItemIds.includes(itemId) ? (bathroomQuantities[itemId] || 1) : 1
+        const qty = quantityItemIds.includes(itemId) ? (bathroomQuantities[itemId] || 1) : 1
         return sum + item.cost * qty
       }
     }
@@ -403,7 +403,7 @@ export default function CalculatorPage() {
     if (newChecked.has(itemId)) {
       newChecked.delete(itemId)
       // Clean up bathroom quantity when unchecked
-      if (bathroomItemIds.includes(itemId)) {
+      if (quantityItemIds.includes(itemId)) {
         setBathroomQuantities(prev => {
           const next = { ...prev }
           delete next[itemId]
@@ -981,15 +981,15 @@ export default function CalculatorPage() {
                                             {item.name}
                                           </span>
                                           <span className="font-semibold text-ce-ink whitespace-nowrap">
-                                            ${(bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id)
+                                            ${(quantityItemIds.includes(item.id) && checkedRepairs.has(item.id)
                                               ? item.cost * (bathroomQuantities[item.id] || 1)
                                               : item.cost
                                             ).toLocaleString()}
                                           </span>
                                         </div>
-                                        {bathroomItemIds.includes(item.id) && checkedRepairs.has(item.id) && (
+                                        {quantityItemIds.includes(item.id) && checkedRepairs.has(item.id) && (
                                           <div className="flex items-center gap-2 mt-1.5">
-                                            <span className="text-xs text-ce-ink/60">Bathrooms:</span>
+                                            <span className="text-xs text-ce-ink/60">{item.id === 'windows' ? 'Windows:' : 'Bathrooms:'}</span>
                                             <div className="inline-flex items-center border border-ce-ink/15 rounded-lg overflow-hidden">
                                               <button
                                                 type="button"
@@ -1015,7 +1015,7 @@ export default function CalculatorPage() {
                                                   e.stopPropagation()
                                                   setBathroomQuantities(prev => ({
                                                     ...prev,
-                                                    [item.id]: Math.min(5, (prev[item.id] || 1) + 1)
+                                                    [item.id]: Math.min(item.id === 'windows' ? 25 : 5, (prev[item.id] || 1) + 1)
                                                   }))
                                                 }}
                                                 className="w-7 h-7 flex items-center justify-center text-ce-ink/60 hover:bg-surface-cream transition-colors text-sm font-medium"
