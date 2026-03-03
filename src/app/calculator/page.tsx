@@ -181,6 +181,29 @@ function getMonthsOnMarket(totalRepairs: number): number {
   return 7
 }
 
+// Tooltip component for result line items
+function Tooltip({ label, tip, children }: { label: string; tip: string; children?: React.ReactNode }) {
+  const [show, setShow] = useState(false)
+
+  return (
+    <span
+      className="relative cursor-help border-b border-dotted border-current"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+      onTouchStart={() => setShow(prev => !prev)}
+    >
+      {label}
+      {show && (
+        <span className="absolute bottom-full left-0 mb-2 w-64 p-3 bg-ce-ink text-white text-xs rounded-xl shadow-lg z-50 leading-relaxed font-normal">
+          {tip}
+          <span className="absolute top-full left-4 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-ce-ink" />
+        </span>
+      )}
+      {children}
+    </span>
+  )
+}
+
 // Animated number component
 function AnimatedNumber({ value, prefix = '$', duration = 800 }: { value: number; prefix?: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0)
@@ -939,39 +962,39 @@ export default function CalculatorPage() {
                         <span className="font-medium">${results.traditional.salePrice.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Repairs:</span>
+                        <Tooltip label="Repairs" tip="Homes typically need to be in show-ready condition to sell at full market value. These are the repair costs you selected in the estimator above." />
                         <span>-${results.traditional.repairs.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Agent commissions (5.81%):</span>
+                        <Tooltip label="Agent commissions (5.81%)" tip="The combined PA average for listing agent + buyer's agent. Even after the 2024 NAR settlement, most PA sellers still offer buyer's agent commission to attract more showings." />
                         <span>-${results.traditional.commission.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Transfer tax ({results.traditional.countyName}):</span>
+                        <Tooltip label={`Transfer tax (${results.traditional.countyName})`} tip="PA charges a real estate transfer tax split between buyer and seller. Your county's rate is applied to the full sale price." />
                         <span>-${results.traditional.transferTax.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Title insurance:</span>
+                        <Tooltip label="Title insurance" tip="PA title insurance rates are state-regulated — every company charges the same. The seller typically pays for the owner's policy protecting the buyer's lender." />
                         <span>-${results.traditional.titleInsurance.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Settlement &amp; recording fees:</span>
+                        <Tooltip label="Settlement &amp; recording fees" tip="Title company and county fees to process your sale: settlement fee, title search, document prep, notary, recording fees, and municipal lien letter." />
                         <span>-${results.traditional.settlementFees.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Est. inspection concessions (1.5%):</span>
+                        <Tooltip label="Est. inspection concessions (1.5%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 1.5% and can run 3%+ on older homes." />
                         <span>-${results.traditional.inspectionConcessions.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Home warranty + compliance:</span>
+                        <Tooltip label="Home warranty + compliance" tip="Buyers frequently request a home warranty (~$500), plus you'll need a use & occupancy inspection, smoke/CO compliance, and pest inspection." />
                         <span>-${results.traditional.warrantyCompliance.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <span>Carrying costs ({results.traditional.carryingMonths} months):</span>
+                        <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`Every month on market you're paying mortgage interest, property taxes, insurance, utilities, and maintenance. Homes needing repairs take longer to prep and sell, extending your carrying period to ${results.traditional.carryingMonths} months.`} />
                         <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
                       </div>
                       <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
-                        <span>Mortgage payoff:</span>
+                        <Tooltip label="Mortgage payoff" tip={results.traditional.mortgagePayoff > 0 ? "Your remaining mortgage balance must be paid off from sale proceeds at closing before you receive your net." : "No mortgage to pay off — you keep more of your sale proceeds."} />
                         <span>{results.traditional.mortgagePayoff > 0 ? '-' : ''}${results.traditional.mortgagePayoff.toLocaleString()}</span>
                       </div>
                     </div>
