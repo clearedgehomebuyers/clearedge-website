@@ -215,6 +215,8 @@ export default function CalculatorPage() {
   // Form state
   const [homeValue, setHomeValue] = useState('')
   const [county, setCounty] = useState('')
+  const [hasMortgage, setHasMortgage] = useState<'yes' | 'no' | ''>('')
+  const [mortgageBalance, setMortgageBalance] = useState('')
   const [timeline, setTimeline] = useState('flexible')
   const [customRepairCost, setCustomRepairCost] = useState('')
 
@@ -226,6 +228,8 @@ export default function CalculatorPage() {
   // Validation state
   const [countyError, setCountyError] = useState(false)
   const [homeValueError, setHomeValueError] = useState(false)
+  const [mortgageError, setMortgageError] = useState('')
+  const [mortgageWarning, setMortgageWarning] = useState('')
 
   // Results state
   const [showResults, setShowResults] = useState(false)
@@ -241,11 +245,13 @@ export default function CalculatorPage() {
       warrantyCompliance: number
       carryingCosts: number
       carryingMonths: number
+      mortgagePayoff: number
       netProceeds: number
       countyName: string
     }
     cash: {
       offer: number
+      mortgagePayoff: number
       netProceeds: number
     }
     difference: number
@@ -330,7 +336,30 @@ export default function CalculatorPage() {
       setCountyError(false)
     }
 
+    if (hasMortgage === '') {
+      setMortgageError('Please select whether you have a mortgage')
+      hasError = true
+    } else if (hasMortgage === 'yes') {
+      const balVal = parseFloat(mortgageBalance.replace(/[^0-9.]/g, '')) || 0
+      if (balVal <= 0) {
+        setMortgageError('Please enter your remaining mortgage balance')
+        hasError = true
+      } else {
+        setMortgageError('')
+      }
+    } else {
+      setMortgageError('')
+    }
+
     if (hasError) return
+
+    // Check for negative equity warning (non-blocking)
+    const mortgageVal = hasMortgage === 'yes' ? (parseFloat(mortgageBalance.replace(/[^0-9.]/g, '')) || 0) : 0
+    if (mortgageVal > homeVal) {
+      setMortgageWarning('Your mortgage balance exceeds your home value — this may indicate negative equity')
+    } else {
+      setMortgageWarning('')
+    }
 
     const selectedCounty = paCounties.find(c => c.value === county)!
     const repairs = totalRepairs
@@ -348,8 +377,8 @@ export default function CalculatorPage() {
     const timelineAdjust = timelineOptions.find(t => t.value === timeline)?.monthsAdjust || 0
     const carryingMonths = Math.max(2, baseMonths + timelineAdjust)
 
-    // Monthly carrying costs
-    const monthlyMortgage = (homeVal * 0.70 * 0.065) / 12 // 70% LTV, 6.5% rate
+    // Monthly carrying costs — use actual mortgage balance instead of assumed 70% LTV
+    const monthlyMortgage = hasMortgage === 'yes' ? (mortgageVal * 0.065) / 12 : 0
     const monthlyPropertyTax = (homeVal * selectedCounty.propertyTaxRate) / 12
     const monthlyInsurance = 135
     const monthlyUtilities = 225
@@ -357,12 +386,12 @@ export default function CalculatorPage() {
     const monthlyCarrying = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyUtilities + monthlyMaintenance
     const carryingCosts = monthlyCarrying * carryingMonths
 
-    const traditionalNet = homeVal - repairs - agentCommission - transferTax - titleInsurance - settlementFees - inspectionConcessions - warrantyCompliance - carryingCosts
+    const traditionalNet = homeVal - repairs - agentCommission - transferTax - titleInsurance - settlementFees - inspectionConcessions - warrantyCompliance - carryingCosts - mortgageVal
 
     // Cash offer calculation
     const cashPercent = getCashOfferPercent(repairs)
     const cashOffer = homeVal * cashPercent
-    const cashNet = cashOffer
+    const cashNet = cashOffer - mortgageVal
 
     const difference = traditionalNet - cashNet
     const cashBetter = difference < 0
@@ -379,12 +408,14 @@ export default function CalculatorPage() {
         warrantyCompliance,
         carryingCosts: Math.round(carryingCosts),
         carryingMonths,
+        mortgagePayoff: Math.round(mortgageVal),
         netProceeds: Math.round(traditionalNet),
         countyName: selectedCounty.label,
       },
       cash: {
         offer: Math.round(cashOffer),
-        netProceeds: Math.round(cashOffer),
+        mortgagePayoff: Math.round(mortgageVal),
+        netProceeds: Math.round(cashNet),
       },
       difference: Math.round(Math.abs(difference)),
       cashBetter,
@@ -403,6 +434,8 @@ export default function CalculatorPage() {
         home_value: homeVal,
         repair_costs: repairs,
         county: county,
+        has_mortgage: hasMortgage,
+        mortgage_balance: mortgageVal,
       })
     }
   }
@@ -590,6 +623,91 @@ export default function CalculatorPage() {
                     <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                     Selecting your county gives you a more accurate estimate based on local transfer tax rates.
                   </p>
+                </div>
+
+                {/* Mortgage Section */}
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-2">
+                    Do you have a mortgage? <span className="text-red-500">*</span>
+                  </label>
+                  <div className="space-y-2">
+                    <label
+                      className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                        hasMortgage === 'yes'
+                          ? 'border-ce-green bg-ce-green-subtle'
+                          : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="hasMortgage"
+                        value="yes"
+                        checked={hasMortgage === 'yes'}
+                        onChange={() => {
+                          setHasMortgage('yes')
+                          setMortgageError('')
+                        }}
+                        className="w-4 h-4 text-ce-green focus:ring-ce-green"
+                      />
+                      <span className="text-ce-ink/80">Yes, I have a mortgage</span>
+                    </label>
+                    <label
+                      className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                        hasMortgage === 'no'
+                          ? 'border-ce-green bg-ce-green-subtle'
+                          : 'border-ce-ink/10 bg-white hover:border-ce-green/30'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="hasMortgage"
+                        value="no"
+                        checked={hasMortgage === 'no'}
+                        onChange={() => {
+                          setHasMortgage('no')
+                          setMortgageBalance('')
+                          setMortgageError('')
+                          setMortgageWarning('')
+                        }}
+                        className="w-4 h-4 text-ce-green focus:ring-ce-green"
+                      />
+                      <span className="text-ce-ink/80">No, I own it free and clear</span>
+                    </label>
+                  </div>
+                  {mortgageError && (
+                    <p className="mt-1.5 text-sm text-red-500">{mortgageError}</p>
+                  )}
+
+                  {/* Mortgage Balance Input */}
+                  {hasMortgage === 'yes' && (
+                    <div className="mt-4">
+                      <label className="block text-sm font-medium text-ce-ink mb-2">
+                        Remaining Mortgage Balance
+                      </label>
+                      <div className="relative">
+                        <DollarSign className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ce-ink/40" />
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          value={mortgageBalance}
+                          onChange={(e) => {
+                            setMortgageBalance(formatWithCommas(e.target.value, 8))
+                            setMortgageError('')
+                            setMortgageWarning('')
+                          }}
+                          placeholder="150,000"
+                          className={`w-full pl-11 pr-4 py-3 rounded-xl border bg-white ${mortgageError && hasMortgage === 'yes' ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg`}
+                        />
+                      </div>
+                      <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
+                        <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                        Approximate remaining balance on your mortgage
+                      </p>
+                      {mortgageWarning && (
+                        <p className="mt-1.5 text-sm text-yellow-600">{mortgageWarning}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Repair Estimator */}
@@ -851,6 +969,10 @@ export default function CalculatorPage() {
                         <span>Carrying costs ({results.traditional.carryingMonths} months):</span>
                         <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
                       </div>
+                      <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
+                        <span>Mortgage payoff:</span>
+                        <span>{results.traditional.mortgagePayoff > 0 ? '-' : ''}${results.traditional.mortgagePayoff.toLocaleString()}</span>
+                      </div>
                     </div>
 
                     <div className="pt-4 border-t border-ce-ink/10">
@@ -911,6 +1033,10 @@ export default function CalculatorPage() {
                       <div className="flex justify-between text-ce-green">
                         <span>Carrying costs:</span>
                         <span>$0</span>
+                      </div>
+                      <div className={`flex justify-between ${results.cash.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
+                        <span>Mortgage payoff:</span>
+                        <span>{results.cash.mortgagePayoff > 0 ? '-' : ''}${results.cash.mortgagePayoff.toLocaleString()}</span>
                       </div>
                     </div>
 
