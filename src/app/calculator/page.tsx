@@ -148,15 +148,53 @@ const conditionQuestions = [
   },
 ]
 
-// Map guided score to repair estimate (6 tiers for realistic granularity)
-function getGuidedRepairEstimate(score: number): number {
-  if (score === 0) return 0        // all good across the board
-  if (score === 1) return 8000     // one minor area — paint, minor fixes
-  if (score === 2) return 25000    // dated interior OR aging systems
-  if (score === 3) return 45000    // system replacement + cosmetic, or multiple dated areas
-  if (score <= 5) return 75000     // failing system + outdated interior + minor structural
-  if (score <= 7) return 105000    // multiple major issues across categories
-  return 135000                    // significant problems throughout
+// Guided answer → repair item mappings (uses actual checklist item IDs)
+// Each maps to { items: [itemId, ...], windowCount?: number }
+const guidedRepairMappings: Record<string, Record<number, { items: string[]; windowCount?: number }>> = {
+  systems: {
+    0: { items: ['roof-partial'] },                                                          // $4,000
+    1: { items: ['roof-partial', 'water-heater'], windowCount: 4 },                          // $4,000 + $2,500 + 4×$1,150 = $11,100
+    2: { items: ['roof-full', 'ac', 'water-heater'], windowCount: 8 },                       // $17,500 + $6,500 + $2,500 + 8×$1,150 = $35,700
+    3: { items: ['roof-full', 'hvac-full', 'water-heater', 'siding'], windowCount: 15 },     // $17,500 + $11,500 + $2,500 + $14,000 + 15×$1,150 = $62,750
+  },
+  interior: {
+    0: { items: ['paint', 'drywall'] },                                                      // $4,250 + $3,250 = $7,500
+    1: { items: ['electrical-minor', 'plumbing-minor', 'kitchen-cosmetic', 'bathroom-cosmetic', 'drywall', 'paint'] }, // $1,550 + $1,900 + $16,000 + $8,500 + $3,250 + $4,250 = $35,450
+    2: { items: ['kitchen-full', 'bathroom-full', 'paint', 'drywall', 'plumbing-minor', 'electrical-minor'] },         // $35,000 + $27,500 + $4,250 + $3,250 + $1,900 + $1,550 = $73,450
+    3: { items: ['kitchen-full', 'bathroom-full', 'flooring', 'paint', 'drywall', 'rewiring', 'plumbing-major'] },     // $35,000 + $27,500 + $8,000 + $4,250 + $3,250 + $17,500 + $12,000 = $107,500
+  },
+  structural: {
+    0: { items: ['landscaping'] },                                                           // $3,750
+    1: { items: ['landscaping', 'concrete', 'waterproofing'] },                              // $3,750 + $4,750 + $9,000 = $17,500
+    2: { items: ['landscaping', 'concrete', 'waterproofing', 'foundation-cracks'] },         // $3,750 + $4,750 + $9,000 + $12,500 = $30,000
+    3: { items: ['landscaping', 'concrete', 'waterproofing', 'settling', 'sewer', 'code'] }, // $3,750 + $4,750 + $9,000 + $23,500 + $7,000 + $7,500 = $55,500
+  },
+}
+
+// Look up a repair item cost by ID from the checklist
+function getRepairItemCost(itemId: string): number {
+  for (const category of repairCategories) {
+    const item = category.items.find(i => i.id === itemId)
+    if (item) return item.cost
+  }
+  return 0
+}
+
+// Calculate guided repair estimate from answer mappings
+function getGuidedRepairEstimate(answers: Record<string, number>): number {
+  let total = 0
+  for (const [questionId, answerValue] of Object.entries(answers)) {
+    if (answerValue < 0) continue
+    const mapping = guidedRepairMappings[questionId]?.[answerValue]
+    if (!mapping) continue
+    for (const itemId of mapping.items) {
+      total += getRepairItemCost(itemId)
+    }
+    if (mapping.windowCount) {
+      total += mapping.windowCount * getRepairItemCost('windows')
+    }
+  }
+  return total
 }
 
 // Age-based repair multiplier
@@ -371,10 +409,7 @@ export default function CalculatorPage() {
 
   // Guided condition assessment repair estimate
   const allQuestionsAnswered = conditionQuestions.every(q => conditionAnswers[q.id] !== undefined && conditionAnswers[q.id] >= 0)
-  const guidedScore = allQuestionsAnswered
-    ? Object.values(conditionAnswers).reduce((sum, v) => sum + v, 0)
-    : -1
-  const baseGuidedEstimate = guidedScore >= 0 ? getGuidedRepairEstimate(guidedScore) : 0
+  const baseGuidedEstimate = allQuestionsAnswered ? getGuidedRepairEstimate(conditionAnswers) : 0
   const yearVal = parseInt(yearBuilt) || 0
   const sqftVal = parseInt(sqft.replace(/[^0-9]/g, '')) || 0
   const ageMultiplier = getAgeMultiplier(yearVal)
