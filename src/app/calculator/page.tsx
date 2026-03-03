@@ -116,26 +116,26 @@ const conditionProfiles = [
   {
     value: 'move-in',
     label: 'Move-in ready',
-    description: 'No major repairs needed — mostly cosmetic or nothing at all',
+    description: 'No major repairs needed — clean, updated, and show-ready',
     repairEstimate: 0,
   },
   {
     value: 'cosmetic',
     label: 'Needs cosmetic updates',
     description: 'Outdated kitchen/baths, worn flooring, paint, minor fixes',
-    repairEstimate: 15000,
+    repairEstimate: 35000,
   },
   {
     value: 'major',
     label: 'Needs major work',
-    description: 'Roof, HVAC, plumbing, electrical, or structural issues',
-    repairEstimate: 45000,
+    description: 'Roof, HVAC, plumbing, or electrical plus cosmetic updates',
+    repairEstimate: 75000,
   },
   {
     value: 'significant',
     label: 'Significant issues throughout',
     description: 'Multiple major systems failing, code violations, or environmental concerns',
-    repairEstimate: 85000,
+    repairEstimate: 120000,
   },
 ]
 
