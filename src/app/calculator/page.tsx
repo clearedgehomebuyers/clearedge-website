@@ -263,15 +263,23 @@ function calculateTitleInsurance(homeValue: number): number {
   return (100000 * 0.00575) + (400000 * 0.005) + (500000 * 0.0045) + ((homeValue - 1000000) * 0.0035)
 }
 
-// Get cash offer percentage based on repair total
+// Get cash offer percentage based on repair total (investor-math-based ARV tiers)
 function getCashOfferPercent(totalRepairs: number): number {
-  if (totalRepairs === 0) return 0.78
-  if (totalRepairs <= 10000) return 0.74
-  if (totalRepairs <= 25000) return 0.72
-  if (totalRepairs <= 40000) return 0.70
-  if (totalRepairs <= 60000) return 0.68
-  if (totalRepairs <= 100000) return 0.65
-  return 0.62
+  if (totalRepairs <= 15000) return 0.68
+  if (totalRepairs <= 35000) return 0.60
+  if (totalRepairs <= 65000) return 0.50
+  if (totalRepairs <= 100000) return 0.40
+  return 0.32
+}
+
+// Sale-to-list price ratio — buyers negotiate down, especially on homes needing work
+function getSaleToListRatio(totalRepairs: number): number {
+  if (totalRepairs === 0) return 0.98
+  if (totalRepairs <= 15000) return 0.97
+  if (totalRepairs <= 35000) return 0.96
+  if (totalRepairs <= 65000) return 0.95
+  if (totalRepairs <= 100000) return 0.94
+  return 0.93
 }
 
 // Get months on market based on repair total
@@ -365,6 +373,7 @@ export default function CalculatorPage() {
   const [results, setResults] = useState<{
     traditional: {
       salePrice: number
+      negotiationDiscount: number
       repairs: number
       commission: number
       transferTax: number
@@ -376,6 +385,7 @@ export default function CalculatorPage() {
       carryingMonths: number
       mortgagePayoff: number
       netProceeds: number
+      riskAdjustedNet: number
       countyName: string
     }
     cash: {
@@ -504,12 +514,16 @@ export default function CalculatorPage() {
     const selectedCounty = paCounties.find(c => c.value === county)!
     const repairs = totalRepairs
 
-    // Traditional sale calculation
-    const agentCommission = homeVal * 0.0581
-    const transferTax = homeVal * selectedCounty.transferTaxRate
-    const titleInsurance = calculateTitleInsurance(homeVal)
+    // Traditional sale calculation — apply sale-to-list ratio (buyers negotiate down)
+    const saleToListRatio = getSaleToListRatio(repairs)
+    const expectedSalePrice = homeVal * saleToListRatio
+    const negotiationDiscount = homeVal - expectedSalePrice
+
+    const agentCommission = expectedSalePrice * 0.0581
+    const transferTax = expectedSalePrice * selectedCounty.transferTaxRate
+    const titleInsurance = calculateTitleInsurance(expectedSalePrice)
     const settlementFees = 1575 // Fixed amount
-    const inspectionConcessions = homeVal * 0.015
+    const inspectionConcessions = expectedSalePrice * 0.0225
     const warrantyCompliance = 850 // Fixed amount
 
     // Carrying costs calculation
@@ -526,19 +540,24 @@ export default function CalculatorPage() {
     const monthlyCarrying = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyUtilities + monthlyMaintenance
     const carryingCosts = monthlyCarrying * carryingMonths
 
-    const traditionalNet = homeVal - repairs - agentCommission - transferTax - titleInsurance - settlementFees - inspectionConcessions - warrantyCompliance - carryingCosts - mortgageVal
+    const traditionalNet = expectedSalePrice - repairs - agentCommission - transferTax - titleInsurance - settlementFees - inspectionConcessions - warrantyCompliance - carryingCosts - mortgageVal
+
+    // Risk-adjusted traditional net — 18% of PA deals fall through, costing time, money, and restarting
+    const riskAdjustedNet = traditionalNet * 0.82
 
     // Cash offer calculation
     const cashPercent = getCashOfferPercent(repairs)
     const cashOffer = homeVal * cashPercent
     const cashNet = cashOffer - mortgageVal
 
-    const difference = traditionalNet - cashNet
+    // Compare using risk-adjusted traditional net
+    const difference = riskAdjustedNet - cashNet
     const cashBetter = difference < 0
 
     setResults({
       traditional: {
         salePrice: homeVal,
+        negotiationDiscount: Math.round(negotiationDiscount),
         repairs,
         commission: Math.round(agentCommission),
         transferTax: Math.round(transferTax),
@@ -550,6 +569,7 @@ export default function CalculatorPage() {
         carryingMonths,
         mortgagePayoff: Math.round(mortgageVal),
         netProceeds: Math.round(traditionalNet),
+        riskAdjustedNet: Math.round(riskAdjustedNet),
         countyName: selectedCounty.label,
       },
       cash: {
@@ -1277,8 +1297,12 @@ export default function CalculatorPage() {
 
                     <div className="space-y-2.5 mb-6 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-ce-ink/70">Sale price:</span>
+                        <span className="text-ce-ink/70">List price:</span>
                         <span className="font-medium">${results.traditional.salePrice.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-red-600">
+                        <Tooltip label="Buyer negotiation" tip={`Homes in PA sell for ${Math.round((1 - results.traditional.negotiationDiscount / results.traditional.salePrice) * 100)}% of asking price on average. Buyers use inspections, comps, and market conditions to negotiate the price down — especially on homes needing work.`} />
+                        <span>-${results.traditional.negotiationDiscount.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
                         <Tooltip label="Repairs" tip="Homes typically need to be in show-ready condition to sell at full market value. These are the repair costs you selected in the estimator above." />
@@ -1301,7 +1325,7 @@ export default function CalculatorPage() {
                         <span>-${results.traditional.settlementFees.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
-                        <Tooltip label="Est. inspection concessions (1.5%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 1.5% and can run 3%+ on older homes." />
+                        <Tooltip label="Est. inspection concessions (2.25%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 2–3% of the sale price." />
                         <span>-${results.traditional.inspectionConcessions.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between text-red-600">
@@ -1319,10 +1343,16 @@ export default function CalculatorPage() {
                     </div>
 
                     <div className="pt-4 border-t border-ce-ink/10">
-                      <div className="flex justify-between items-center mb-4">
-                        <span className="font-semibold text-ce-ink">YOUR ESTIMATED NET:</span>
-                        <span className="text-2xl font-bold text-ce-ink">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-semibold text-ce-ink">IF EVERYTHING GOES PERFECTLY:</span>
+                        <span className="text-xl font-bold text-ce-ink">
                           <AnimatedNumber value={results.traditional.netProceeds} />
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center mb-4 pb-3 border-b border-ce-ink/10">
+                        <Tooltip label="RISK-ADJUSTED ESTIMATE" tip="18% of home sales in PA fall through after going under contract — failed inspections, financing issues, buyer cold feet. When a deal falls through, you restart the process, adding months of carrying costs and often accepting a lower price. This estimate accounts for that real probability." />
+                        <span className="text-2xl font-bold text-red-600">
+                          <AnimatedNumber value={results.traditional.riskAdjustedNet} />
                         </span>
                       </div>
 
