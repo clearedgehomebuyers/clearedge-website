@@ -118,10 +118,10 @@ const conditionQuestions = [
     question: 'Roof, HVAC, windows, siding, and major systems',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'All in good shape (roof <10 yrs, HVAC runs well)' },
-      { value: 1, label: 'Working but aging (15+ yr roof, older water heater)' },
-      { value: 2, label: 'One or more need replacing (roof leaks, AC dying)' },
-      { value: 3, label: 'Multiple systems failing (roof, HVAC, windows)' },
+      { value: 0, label: 'All in good shape', hint: 'Roof is under 10 years old, HVAC heats and cools well, windows seal tight, no active leaks or issues' },
+      { value: 1, label: 'Working but aging', hint: '15+ year old roof with no active leaks, older water heater, some drafty windows — everything runs but nearing end of life' },
+      { value: 2, label: 'One or more need replacing', hint: 'Roof is leaking or missing shingles, AC not cooling properly, water heater failing, or windows are fogged and broken' },
+      { value: 3, label: 'Multiple systems failing', hint: 'Needs a new roof AND furnace/AC AND windows or siding — several major systems are at end of life or no longer working' },
     ],
   },
   {
@@ -129,10 +129,10 @@ const conditionQuestions = [
     question: 'Kitchen, bathrooms, and interior',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'Updated in the last 5 years (modern finishes, fresh paint)' },
-      { value: 1, label: 'Dated but functional (older cabinets, worn but livable)' },
-      { value: 2, label: 'Noticeably outdated (original 80s/90s kitchen & baths)' },
-      { value: 3, label: 'Need complete renovation (gutted or non-functional)' },
+      { value: 0, label: 'Updated in the last 5 years', hint: 'Kitchen and bathrooms remodeled recently, fresh paint, modern fixtures and finishes throughout' },
+      { value: 1, label: 'Dated but functional', hint: 'Original or older cabinets and countertops, worn flooring, outdated fixtures — everything works but looks tired' },
+      { value: 2, label: 'Noticeably outdated', hint: 'Original 70s, 80s, or 90s kitchen and bathrooms, old tile, dated layout — would need a full remodel to sell at market value' },
+      { value: 3, label: 'Need complete renovation', hint: 'Kitchen or bathrooms are gutted, non-functional, or hazardous — major plumbing, electrical, and finish work needed throughout' },
     ],
   },
   {
@@ -140,10 +140,10 @@ const conditionQuestions = [
     question: 'Foundation, structure, and environment',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'No known issues (solid foundation, dry basement)' },
-      { value: 1, label: 'Minor concerns (small cracks, minor drainage)' },
-      { value: 2, label: 'Known issues needing repair (water intrusion, shifting)' },
-      { value: 3, label: 'Significant problems (settling, sewer, code violations)' },
+      { value: 0, label: 'No known issues', hint: 'Solid foundation with no visible cracks, dry basement, proper grading and drainage around the property' },
+      { value: 1, label: 'Minor concerns', hint: 'Hairline foundation cracks, minor grading or drainage issues, occasional dampness — cosmetic but nothing structural' },
+      { value: 2, label: 'Known issues needing repair', hint: 'Visible foundation cracks, recurring water intrusion in basement, noticeable shifting or settling in floors or walls' },
+      { value: 3, label: 'Significant problems', hint: 'Active settling needing structural piers, sewer line damage, mold or environmental hazards, open code violations' },
     ],
   },
 ]
@@ -311,6 +311,62 @@ function Tooltip({ label, tip, children }: { label: string; tip: string; childre
       )}
       {children}
     </span>
+  )
+}
+
+// Custom styled dropdown for condition questions
+function ConditionSelect({ options, value, onChange }: {
+  options: { value: number; label: string; hint?: string }[]
+  value: number
+  onChange: (val: number) => void
+}) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  const selected = options.find(o => o.value === value)
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white text-left flex items-center justify-between gap-2"
+      >
+        <span className={selected && selected.value >= 0 ? 'text-ce-ink' : 'text-ce-ink/40'}>
+          {selected && selected.value >= 0 ? selected.label : 'Select one...'}
+        </span>
+        <ChevronDown className={`w-4 h-4 shrink-0 text-ce-ink/40 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      {open && (
+        <div className="absolute z-50 w-full mt-1 bg-white rounded-xl border border-ce-ink/10 shadow-xl overflow-hidden max-h-[70vh] overflow-y-auto">
+          {options.filter(o => o.value >= 0).map((opt) => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => { onChange(opt.value); setOpen(false) }}
+              className={`w-full px-4 py-3 text-left transition-colors border-b border-ce-ink/5 last:border-b-0 ${
+                value === opt.value ? 'bg-ce-green-subtle' : 'hover:bg-gray-50'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-ce-ink">{opt.label}</span>
+                {value === opt.value && <Check className="w-3.5 h-3.5 text-ce-green shrink-0" />}
+              </span>
+              {opt.hint && <span className="block text-xs text-ce-ink/45 italic mt-0.5 leading-relaxed">{opt.hint}</span>}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -1011,26 +1067,15 @@ export default function CalculatorPage() {
                         Answer a few quick questions about your home&apos;s condition.
                       </p>
 
-                      {/* Guided Questions — Dropdowns */}
+                      {/* Guided Questions — Custom Dropdowns */}
                       {conditionQuestions.map((q) => (
                         <div key={q.id}>
                           <label className="block text-sm font-medium text-ce-ink mb-1.5">{q.question}</label>
-                          <select
+                          <ConditionSelect
+                            options={q.options}
                             value={conditionAnswers[q.id] ?? -1}
-                            onChange={(e) => {
-                              const val = parseInt(e.target.value)
-                              if (val >= 0) {
-                                setConditionAnswers(prev => ({ ...prev, [q.id]: val }))
-                              }
-                            }}
-                            className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
-                          >
-                            {q.options.map((opt) => (
-                              <option key={opt.value} value={opt.value} disabled={opt.value === -1}>
-                                {opt.label}
-                              </option>
-                            ))}
-                          </select>
+                            onChange={(val) => setConditionAnswers(prev => ({ ...prev, [q.id]: val }))}
+                          />
                         </div>
                       ))}
 
