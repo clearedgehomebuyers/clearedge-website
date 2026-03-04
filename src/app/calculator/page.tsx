@@ -119,7 +119,7 @@ const conditionQuestions = [
     options: [
       { value: -1, label: 'Select one...' },
       { value: 0, label: 'All in good shape', hint: 'Roof replaced within the last 10 years, furnace and AC serviced regularly and running efficiently, all windows are double-pane with no fog or drafts, hot water is consistent' },
-      { value: 1, label: 'Working but aging', hint: 'Roof is 15+ years old but not actively leaking, furnace or AC runs but is louder or less efficient than it used to be, some windows are drafty or hard to open, water heater is 10+ years old' },
+      { value: 1, label: 'Working but aging', hint: 'Roof is 10+ years old but not actively leaking, furnace or AC runs but is louder or less efficient than it used to be, some windows are drafty or hard to open, water heater is 10+ years old' },
       { value: 2, label: 'One or more need replacing', hint: 'Roof has active leaks, missing shingles, or visible wear — AC struggles to cool the house, water heater is leaking or giving inconsistent hot water, windows are single-pane, fogged, or cracked' },
       { value: 3, label: 'Multiple systems failing', hint: 'Two or more major systems need full replacement — roof, furnace, AC, water heater, windows, or siding are beyond simple repair' },
     ],
