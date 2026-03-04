@@ -118,10 +118,10 @@ const conditionQuestions = [
     question: 'Roof, HVAC, windows, siding, and major systems',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'All in good shape' },
-      { value: 1, label: 'Working but aging' },
-      { value: 2, label: 'One or more need replacing' },
-      { value: 3, label: 'Multiple systems failing' },
+      { value: 0, label: 'All in good shape (roof <10 yrs, HVAC runs well)' },
+      { value: 1, label: 'Working but aging (15+ yr roof, older water heater)' },
+      { value: 2, label: 'One or more need replacing (roof leaks, AC dying)' },
+      { value: 3, label: 'Multiple systems failing (roof, HVAC, windows)' },
     ],
   },
   {
@@ -129,10 +129,10 @@ const conditionQuestions = [
     question: 'Kitchen, bathrooms, and interior',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'Updated in the last 5 years' },
-      { value: 1, label: 'Dated but functional' },
-      { value: 2, label: 'Noticeably outdated' },
-      { value: 3, label: 'Need complete renovation' },
+      { value: 0, label: 'Updated in the last 5 years (modern finishes, fresh paint)' },
+      { value: 1, label: 'Dated but functional (older cabinets, worn but livable)' },
+      { value: 2, label: 'Noticeably outdated (original 80s/90s kitchen & baths)' },
+      { value: 3, label: 'Need complete renovation (gutted or non-functional)' },
     ],
   },
   {
@@ -140,10 +140,10 @@ const conditionQuestions = [
     question: 'Foundation, structure, and environment',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'No known issues' },
-      { value: 1, label: 'Minor concerns' },
-      { value: 2, label: 'Known issues needing repair' },
-      { value: 3, label: 'Significant problems' },
+      { value: 0, label: 'No known issues (solid foundation, dry basement)' },
+      { value: 1, label: 'Minor concerns (small cracks, minor drainage)' },
+      { value: 2, label: 'Known issues needing repair (water intrusion, shifting)' },
+      { value: 3, label: 'Significant problems (settling, sewer, code violations)' },
     ],
   },
 ]
