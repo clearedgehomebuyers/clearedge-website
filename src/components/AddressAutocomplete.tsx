@@ -109,7 +109,7 @@ function parsePlaceResult(place: google.maps.places.PlaceResult): ParsedAddress 
     city,
     state,
     zip,
-    fullAddress: place.formatted_address || `${street}, ${city}, ${state} ${zip}`.trim(),
+    fullAddress: (place.formatted_address || `${street}, ${city}, ${state} ${zip}`.trim()).replace(/, USA$/, ''),
   }
 }
 

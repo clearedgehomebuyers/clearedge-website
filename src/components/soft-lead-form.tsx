@@ -46,6 +46,7 @@ export function SoftLeadForm() {
       await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors',
         body: JSON.stringify({
           name: name.trim(),
           phone: `+1${phoneDigits}`,
