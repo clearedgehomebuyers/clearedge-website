@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
+import { AddressAutocomplete } from './AddressAutocomplete'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -143,13 +144,12 @@ export function SoftLeadForm() {
           {/* Property Address */}
           <div>
             <label className="block text-sm font-medium text-ce-ink mb-1.5">Property Address</label>
-            <input
-              type="text"
+            <AddressAutocomplete
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={setAddress}
+              onPlaceSelect={(place) => setAddress(place.fullAddress)}
               placeholder="123 Main St, Scranton, PA"
-              className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
-              autoComplete="street-address"
+              className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white h-auto"
             />
           </div>
 

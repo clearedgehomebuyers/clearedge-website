@@ -6,6 +6,7 @@ import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, Home, Heart, Briefcase, Wrench, FileWarning, Key, Building, HelpCircle as OtherIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { AddressAutocomplete } from "@/components/AddressAutocomplete"
 import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
 
 const steps = [
@@ -424,13 +425,17 @@ export function V0LeadForm() {
                         <label htmlFor="address" className="block text-sm font-medium text-ce-ink mb-2">
                           Street Address <span className="text-red-500">*</span>
                         </label>
-                        <Input
+                        <AddressAutocomplete
                           id="address"
-                          type="text"
                           placeholder="123 Main Street"
                           value={formData.address}
-                          onChange={(e) => updateFormData("address", e.target.value)}
-                          autoComplete="street-address"
+                          onChange={(val) => updateFormData("address", val)}
+                          onPlaceSelect={(place) => {
+                            updateFormData("address", place.street)
+                            if (place.city) updateFormData("city", place.city)
+                            if (place.state) updateFormData("state", place.state)
+                            if (place.zip) updateFormData("zip", place.zip)
+                          }}
                           className={showStep1Errors && !formData.address.trim() ? 'border-red-500' : ''}
                         />
                         {showStep1Errors && !formData.address.trim() && (
