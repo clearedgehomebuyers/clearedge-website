@@ -118,10 +118,10 @@ const conditionQuestions = [
     question: 'Roof, HVAC, windows, siding, and major systems',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'All in good shape', hint: 'Roof replaced within the last 10 years, furnace and AC serviced regularly and running efficiently, all windows are double-pane with no fog or drafts, hot water is consistent' },
-      { value: 1, label: 'Working but aging', hint: 'Roof is 10+ years old but not actively leaking, furnace or AC runs but is louder or less efficient than it used to be, some windows are drafty or hard to open, water heater is 10+ years old' },
-      { value: 2, label: 'One or more need replacing', hint: 'Roof has active leaks, missing shingles, or visible wear — AC struggles to cool the house, water heater is leaking or giving inconsistent hot water, windows are single-pane, fogged, or cracked' },
-      { value: 3, label: 'Multiple systems failing', hint: 'Two or more major systems need full replacement — roof, furnace, AC, water heater, windows, or siding are beyond simple repair' },
+      { value: 0, label: 'All in good shape', hint: 'Roof replaced within the last 10 years with no missing shingles or leaks, gutters and fascia in solid shape, furnace and AC serviced regularly and running efficiently, all windows are double-pane with no fog or drafts, siding has no cracks or warping, hot water is consistent' },
+      { value: 1, label: 'Working but aging', hint: 'Roof is 10+ years old but not actively leaking, gutters may be sagging or pulling away in spots, furnace or AC runs but is noisier or less efficient than it used to be, some windows are drafty, hard to open, or have broken seals, water heater is 10+ years old, siding shows some wear or fading' },
+      { value: 2, label: 'One or more need replacing', hint: 'Roof has active leaks, missing or curling shingles, or visible sagging — AC struggles to keep the house cool, water heater is leaking or gives inconsistent hot water, multiple windows are fogged, cracked, or single-pane, or siding is visibly damaged and needs sections replaced' },
+      { value: 3, label: 'Multiple systems failing', hint: 'Two or more major systems need full replacement — for example: roof is failing AND furnace barely heats AND windows are shot AND siding is deteriorating. The home would not pass a buyer\'s inspection without significant work' },
     ],
   },
   {
@@ -129,10 +129,10 @@ const conditionQuestions = [
     question: 'Kitchen, bathrooms, and interior',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'Updated in the last 5 years', hint: 'Kitchen and bathrooms were professionally remodeled within the last 5 years with modern countertops, fixtures, and appliances — paint and flooring still in like-new condition' },
-      { value: 1, label: 'Dated but functional', hint: 'Original or builder-grade cabinets and countertops, appliances work but showing age, flooring is worn or faded, bathroom fixtures are older — everything is usable but a buyer would want to update' },
-      { value: 2, label: 'Noticeably outdated', hint: 'Kitchen and bathrooms are clearly from another era — laminate counters, old tile, original fixtures, outdated layout. Would need a full kitchen and bath remodel before a buyer pays market value' },
-      { value: 3, label: 'Need complete renovation', hint: 'Kitchen or bathrooms are gutted, non-functional, or have exposed plumbing/wiring — major electrical, plumbing, and finish work needed before the space is livable' },
+      { value: 0, label: 'Updated in the last 5 years', hint: 'Kitchen and bathrooms were professionally remodeled within the last 5 years — modern countertops, fixtures, and appliances. Walls are freshly painted with no cracks, nail pops, or water stains. Flooring is in like-new condition throughout' },
+      { value: 1, label: 'Dated but functional', hint: 'Original or builder-grade kitchen cabinets and countertops, appliances work but are showing their age, flooring is worn or faded in high-traffic areas, bathrooms have older fixtures or stained grout, faucets may drip or drains run slow — everything works but a buyer would want to update before moving in' },
+      { value: 2, label: 'Noticeably outdated', hint: 'Kitchen and bathrooms are clearly from another era — think laminate counters, old tile, original fixtures, and outdated layouts. Walls may have cracks, water stains, or peeling paint. Would need a full kitchen and bath remodel to get market value from a buyer' },
+      { value: 3, label: 'Need complete renovation', hint: 'Kitchen or bathrooms are non-functional, gutted, or have visible plumbing and wiring. May have knob-and-tube wiring, galvanized or lead pipes, sagging floors, or walls in disrepair — major electrical, plumbing, and finish work needed throughout' },
     ],
   },
   {
@@ -140,10 +140,10 @@ const conditionQuestions = [
     question: 'Foundation, structure, and environment',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'No known issues', hint: 'Basement stays dry year-round, no visible cracks in foundation walls or floor, gutters and grading direct water away from the home, no signs of settling anywhere' },
-      { value: 1, label: 'Minor concerns', hint: 'Hairline cracks in basement walls or floor, occasional dampness or musty smell after heavy rain, minor grading that slopes toward the foundation — common in most older PA homes' },
-      { value: 2, label: 'Known issues needing repair', hint: 'Water regularly enters the basement after storms, visible foundation cracks you can fit a pencil tip into, floors or door frames are noticeably uneven, prior patch jobs that haven\'t held up' },
-      { value: 3, label: 'Significant problems', hint: 'Foundation is actively shifting or needs piers, sewer line is broken or backing up, known mold or environmental hazards, or open code violations from the municipality' },
+      { value: 0, label: 'No known issues', hint: 'Basement stays dry year-round with no musty smell, no visible cracks in foundation walls or floor, gutters and grading direct water away from the home, driveway and sidewalks are in good shape, no signs of settling in floors or door frames' },
+      { value: 1, label: 'Minor concerns', hint: 'Hairline cracks in basement walls or floor, occasional dampness or musty smell after heavy rain, driveway or sidewalks have some cracking or heaving, minor grading that slopes toward the foundation in spots — very common in older PA homes' },
+      { value: 2, label: 'Known issues needing repair', hint: 'Water regularly enters the basement after storms and you\'ve tried to patch it, visible foundation cracks wider than a hairline, floors or door frames are noticeably uneven or sticking, driveway is heavily cracked or sinking in sections' },
+      { value: 3, label: 'Significant problems', hint: 'Foundation is actively shifting or needs structural piers, sewer line is broken or backing up into the house, drains throughout the home are slow or gurgling, known mold or environmental hazards present, or you have open code violations from the municipality' },
     ],
   },
 ]
