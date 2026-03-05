@@ -279,10 +279,11 @@ function Tooltip({ label, tip, children }: { label: string; tip: string; childre
 }
 
 // Custom styled dropdown for condition questions
-function ConditionSelect({ options, value, onChange }: {
+function ConditionSelect({ options, value, onChange, error }: {
   options: { value: number; label: string; hint?: string }[]
   value: number
   onChange: (val: number) => void
+  error?: boolean
 }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
@@ -302,7 +303,7 @@ function ConditionSelect({ options, value, onChange }: {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white text-left flex items-center justify-between gap-2"
+        className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-red-500' : 'border-ce-ink/10'} focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white text-left flex items-center justify-between gap-2`}
       >
         <span className={selected && selected.value >= 0 ? 'text-ce-ink' : 'text-ce-ink/40'}>
           {selected && selected.value >= 0 ? selected.label : 'Select one...'}
@@ -399,6 +400,7 @@ export function Calculator({
   const [countyError, setCountyError] = useState(false)
   const [homeValueError, setHomeValueError] = useState(false)
   const [mortgageError, setMortgageError] = useState('')
+  const [conditionError, setConditionError] = useState(false)
   const [mortgageWarning, setMortgageWarning] = useState('')
 
   // Results state
@@ -531,6 +533,13 @@ export function Calculator({
       }
     } else {
       setMortgageError('')
+    }
+
+    if (!showDetailedRepairs && !allQuestionsAnswered) {
+      setConditionError(true)
+      hasError = true
+    } else {
+      setConditionError(false)
     }
 
     if (hasError) return
@@ -1022,16 +1031,26 @@ export function Calculator({
                   </p>
 
                   {/* Guided Questions — Custom Dropdowns */}
-                  {conditionQuestions.map((q) => (
-                    <div key={q.id}>
-                      <label className="block text-sm font-medium text-ce-ink mb-1.5">{q.question}</label>
-                      <ConditionSelect
-                        options={q.options}
-                        value={conditionAnswers[q.id] ?? -1}
-                        onChange={(val) => setConditionAnswers(prev => ({ ...prev, [q.id]: val }))}
-                      />
-                    </div>
-                  ))}
+                  {conditionQuestions.map((q) => {
+                    const unanswered = conditionError && (conditionAnswers[q.id] === undefined || conditionAnswers[q.id] < 0)
+                    return (
+                      <div key={q.id}>
+                        <label className="block text-sm font-medium text-ce-ink mb-1.5">{q.question}</label>
+                        <ConditionSelect
+                          options={q.options}
+                          value={conditionAnswers[q.id] ?? -1}
+                          onChange={(val) => {
+                            setConditionAnswers(prev => ({ ...prev, [q.id]: val }))
+                            setConditionError(false)
+                          }}
+                          error={unanswered}
+                        />
+                      </div>
+                    )
+                  })}
+                  {conditionError && (
+                    <p className="text-red-500 text-sm">Please answer all three condition questions</p>
+                  )}
 
                   {/* Guided Estimate Result */}
                   {allQuestionsAnswered && (
