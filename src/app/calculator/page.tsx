@@ -729,7 +729,7 @@ export default function CalculatorPage() {
             <span className="font-semibold text-ce-ink">Based on these estimates, listing with a local agent likely nets you more.</span> That&apos;s an honest answer, and we&apos;ll always give you one.
           </p>
           <p className="text-ce-ink/80">
-            But keep in mind what this estimate assumes: {months} months on market at ~${monthlyCarry.toLocaleString()}/month in carrying costs{repairs > 0 && <>, plus ${repairs.toLocaleString()} in upfront repair spending before you can even list</>}. It also assumes no price reductions, no second round of buyer negotiations, and no deal falling through — which happens 15–20% of the time in PA.
+            But keep in mind what this estimate assumes: a {months}-month process from start to closing — that includes{repairs > 0 && <> time to complete ${repairs.toLocaleString()} in repairs before you can even list,</>} time on the market waiting for offers, buyer inspections and negotiations, and 30–45 days to close. During all {months} months, you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities whether the home is listed or not. It also assumes no price reductions, no second round of buyer negotiations, and no deal falling through — which happens 15–20% of the time in PA.
           </p>
           {isAsap && (
             <p className="text-ce-ink/80">
@@ -751,7 +751,7 @@ export default function CalculatorPage() {
             <span className="font-semibold text-ce-ink">The traditional route shows a higher net on paper — but look at what it takes to get there.</span>
           </p>
           <p className="text-ce-ink/80">
-            You&apos;d carry ~${monthlyCarry.toLocaleString()}/month for {months} months while the home sits on the market{repairs > 0 && <> — and that&apos;s after spending ${repairs.toLocaleString()} on repairs before you can list</>}. That&apos;s ${results.traditional.carryingCosts.toLocaleString()} in carrying costs alone{hasMtg && <>, on top of your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage payoff</>}.
+            The full process takes roughly {months} months{repairs > 0 && <> — first you&apos;d spend ${repairs.toLocaleString()} getting the home repair-ready, then listing, showings, negotiations, inspection, and closing</>}. Every one of those months you&apos;re paying ~${monthlyCarry.toLocaleString()} in mortgage, property taxes, insurance, and utilities. That&apos;s ${results.traditional.carryingCosts.toLocaleString()} in carrying costs{hasMtg && <>, on top of your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage payoff</>}.
           </p>
           {isAsap && (
             <p className="text-ce-ink/80">
@@ -773,7 +773,7 @@ export default function CalculatorPage() {
             <span className="font-semibold text-ce-ink">The gap is thinner than most sellers expect.</span> The traditional route shows ${diff.toLocaleString()} more — but that difference shrinks fast when you factor in reality.
           </p>
           <p className="text-ce-ink/80">
-            {repairs > 0 && <>You&apos;d need to spend ${repairs.toLocaleString()} on repairs before listing. </>}Then you&apos;re looking at {months} months on market at ~${monthlyCarry.toLocaleString()}/month in carrying costs. One price reduction, one buyer walking away, or one round of re-negotiation after inspection — and that ${diff.toLocaleString()} advantage disappears.
+            {repairs > 0 && <>You&apos;d need to spend ${repairs.toLocaleString()} on repairs before you can even list. </>}From there, it&apos;s showings, offers, inspections, negotiations, and closing — the entire process runs about {months} months start to finish. During all of it, you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities. One price reduction, one buyer walking away, or one failed inspection — and that ${diff.toLocaleString()} advantage disappears.
           </p>
           {isAsap && (
             <p className="text-ce-ink/80">
@@ -795,7 +795,7 @@ export default function CalculatorPage() {
             <span className="font-semibold text-ce-ink">These two routes are essentially a wash — within ${diff.toLocaleString()} of each other.</span>
           </p>
           <p className="text-ce-ink/80">
-            The difference is how you get there. The traditional route means {months} months on market, ~${monthlyCarry.toLocaleString()}/month in carrying costs{repairs > 0 && <>, ${repairs.toLocaleString()} in upfront repairs</>}, and a 15–20% chance the deal falls through. A cash offer closes in 14–30 days, guaranteed — with zero out-of-pocket costs{hasMtg && <> and your mortgage paid off at closing</>}.
+            The difference is how you get there. The traditional route takes about {months} months from start to finish —{repairs > 0 && <> repairs, then</>} listing, showings, negotiations, inspection, and closing — and you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities the entire time. There&apos;s also a 15–20% chance the deal falls through and you start over. A cash offer closes in 14–30 days, guaranteed — with zero out-of-pocket costs{hasMtg && <> and your mortgage paid off at closing</>}.
           </p>
           {isAsap && (
             <p className="text-ce-ink/80">
@@ -817,7 +817,7 @@ export default function CalculatorPage() {
             <span className="font-semibold text-ce-green">A cash sale puts more money in your pocket — ${diff.toLocaleString()} more.</span> And that&apos;s before accounting for the risk, stress, and time cost of the traditional route.
           </p>
           <p className="text-ce-ink/80">
-            With a cash offer, you skip {months} months of carrying costs (~${monthlyCarry.toLocaleString()}/month){repairs > 0 && <>, avoid spending ${repairs.toLocaleString()} on repairs out of pocket</>}, and close in 14–30 days with zero risk of the deal falling through{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
+            With a cash offer, you skip the entire {months}-month process — no repairs, no listing, no showings, no negotiations. You stop paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities{repairs > 0 && <>, and avoid ${repairs.toLocaleString()} in out-of-pocket repair costs</>}. Close in 14–30 days with zero risk of the deal falling through{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
           </p>
           <p className="text-ce-ink/80">
             <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
@@ -833,7 +833,7 @@ export default function CalculatorPage() {
           <span className="font-semibold text-ce-green">At this condition level, cash is the clear financial winner — ${diff.toLocaleString()} more in your pocket.</span>
         </p>
         <p className="text-ce-ink/80">
-          The traditional route&apos;s commissions, closing costs, and {months} months of carrying costs at ~${monthlyCarry.toLocaleString()}/month eat into what would otherwise be a higher sale price{repairs > 0 && <>. Add ${repairs.toLocaleString()} in repairs you&apos;d need to spend before listing, and the math clearly favors selling as-is</>}.
+          The traditional route takes about {months} months start to finish —{repairs > 0 && <> repairs, then</>} listing, showings, inspections, negotiations, and closing. During all of it you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities. Add commissions, transfer taxes, and closing costs{repairs > 0 && <> — plus ${repairs.toLocaleString()} in repairs you&apos;d need to pay out of pocket before you can even list</>} — and the math clearly favors selling as-is.
         </p>
         <p className="text-ce-ink/80">
           You&apos;d close in 14–30 days, skip all repairs and fees{hasMtg && <>, and your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
@@ -1430,7 +1430,7 @@ export default function CalculatorPage() {
                           <span>-${results.traditional.warrantyCompliance.toLocaleString()}</span>
                         </div>
                         <div className="flex justify-between text-red-600">
-                          <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`Every month on market you're paying mortgage interest, property taxes, insurance, utilities, and maintenance. Homes needing repairs take longer to prep and sell, extending your carrying period to ${results.traditional.carryingMonths} months.`} />
+                          <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`From the day you decide to sell until closing day, you're paying mortgage interest, property taxes, insurance, utilities, and maintenance every single month. This covers the full timeline: completing repairs, listing, showings, accepting an offer, inspections, negotiations, and closing — roughly ${results.traditional.carryingMonths} months start to finish.`} />
                           <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
                         </div>
                         <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
@@ -1456,8 +1456,8 @@ export default function CalculatorPage() {
 
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between text-ce-ink/60">
-                          <span>Timeline:</span>
-                          <span>{results.traditional.carryingMonths} months</span>
+                          <span>Total timeline (repairs → closing):</span>
+                          <span>~{results.traditional.carryingMonths} months</span>
                         </div>
                         <div className="flex justify-between text-ce-ink/60">
                           <span>Out of pocket upfront:</span>
@@ -1657,9 +1657,9 @@ export default function CalculatorPage() {
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Carrying Costs (while listed)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Carrying Costs (repairs through closing)</h3>
                 <p className="text-ce-ink/70">
-                  Every month your house sits on the market, you&apos;re paying mortgage principal &amp; interest, property taxes, homeowner&apos;s insurance, utilities (must stay on for showings), and lawn/maintenance. For a $280,000 home in Lehigh County, that&apos;s approximately $1,720 per month. If your home needs repairs before listing, add 1–3 months of repair time before you even hit the market.
+                  From the day you decide to sell until the day you close, you&apos;re paying mortgage interest, property taxes, homeowner&apos;s insurance, utilities, and maintenance every single month. This isn&apos;t just time &quot;on the market&quot; — it includes the weeks or months spent completing repairs before you can list, then showings, offer negotiations, buyer inspections, and the 30–45 day closing process. For a $280,000 home in Lehigh County, that&apos;s approximately $1,720 per month for every month of the process.
                 </p>
               </div>
 
