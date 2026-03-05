@@ -181,19 +181,19 @@ export function SoftLeadForm() {
           </div>
 
           {/* City / State / Zip */}
-          <div className="grid grid-cols-5 gap-3">
-            <div className="col-span-2">
+          <div className="grid grid-cols-12 gap-3">
+            <div className="col-span-5">
               <label className="block text-sm font-medium text-ce-ink mb-1.5">City</label>
               <input
                 type="text"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Scranton"
-                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                className="w-full px-3 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
                 autoComplete="address-level2"
               />
             </div>
-            <div className="col-span-1">
+            <div className="col-span-3">
               <label className="block text-sm font-medium text-ce-ink mb-1.5">State</label>
               <select
                 value={state}
@@ -206,7 +206,7 @@ export function SoftLeadForm() {
                 <option value="NY">NY</option>
               </select>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-4">
               <label className="block text-sm font-medium text-ce-ink mb-1.5">Zip</label>
               <input
                 type="text"
@@ -214,7 +214,7 @@ export function SoftLeadForm() {
                 value={zip}
                 onChange={(e) => setZip(e.target.value.replace(/\D/g, '').slice(0, 5))}
                 placeholder="18503"
-                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                className="w-full px-3 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
                 autoComplete="postal-code"
               />
             </div>
