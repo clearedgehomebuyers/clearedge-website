@@ -197,20 +197,20 @@ function getGuidedRepairEstimate(answers: Record<string, number>): number {
   return total
 }
 
-// Age-based repair multiplier
+// Age-based repair multiplier — slight nudge, not a major swing
 function getAgeMultiplier(yearBuilt: number): number {
   if (yearBuilt <= 0) return 1.0
-  if (yearBuilt >= 2000) return 0.85
+  if (yearBuilt >= 2000) return 0.90
   if (yearBuilt >= 1980) return 1.0
-  if (yearBuilt >= 1960) return 1.15
-  if (yearBuilt >= 1940) return 1.3
-  return 1.45
+  if (yearBuilt >= 1960) return 1.08
+  if (yearBuilt >= 1940) return 1.15
+  return 1.22
 }
 
 // Sqft-based repair multiplier (base ~1,800 sqft typical PA home)
 function getSqftMultiplier(sqft: number): number {
   if (sqft <= 0) return 1.0
-  return Math.max(0.7, Math.min(1.6, sqft / 1800))
+  return Math.max(0.85, Math.min(1.3, sqft / 1800))
 }
 
 // Timeline options
