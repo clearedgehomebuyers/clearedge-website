@@ -463,8 +463,11 @@ export function Calculator({
     ? Math.round(baseGuidedEstimate * ageMultiplier * sqftMultiplier)
     : 0
 
-  // Grand total repairs — use detailed if customized, otherwise use guided estimate
-  const totalRepairs = showDetailedRepairs ? (checkedRepairsTotal + customAmount) : guidedRepairEstimate
+  // Grand total repairs — apply age/sqft multipliers to both methods
+  const detailedRepairEstimate = (checkedRepairsTotal + customAmount) > 0
+    ? Math.round((checkedRepairsTotal + customAmount) * ageMultiplier * sqftMultiplier)
+    : 0
+  const totalRepairs = showDetailedRepairs ? detailedRepairEstimate : guidedRepairEstimate
 
   // Toggle category expansion
   const toggleCategory = (categoryId: string) => {
@@ -1245,6 +1248,11 @@ export function Calculator({
                         ${totalRepairs.toLocaleString()}
                       </span>
                     </div>
+                    {(yearVal > 0 || sqftVal > 0) && (checkedRepairsTotal + customAmount) > 0 && totalRepairs !== (checkedRepairsTotal + customAmount) && (
+                      <p className="text-xs text-ce-ink/50 mt-2">
+                        Adjusted for {yearVal > 0 ? `${yearVal} build` : ''}{yearVal > 0 && sqftVal > 0 ? ' and ' : ''}{sqftVal > 0 ? `${sqftVal.toLocaleString()} sq ft` : ''}
+                      </p>
+                    )}
                   </div>
                 </div>
               )}
