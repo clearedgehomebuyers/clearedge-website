@@ -4,6 +4,13 @@ import { useState } from 'react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 import { AddressAutocomplete } from './AddressAutocomplete'
 
+const US_STATES = [
+  'PA','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN',
+  'IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH',
+  'NJ','NM','NY','NC','ND','OH','OK','OR','RI','SC','SD','TN','TX','UT','VT',
+  'VA','WA','WV','WI','WY','DC',
+]
+
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
   const withoutPrefix = value.startsWith('+1 ') ? value.slice(3) : value
@@ -201,9 +208,9 @@ export function SoftLeadForm() {
                 className="w-full px-2 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
                 autoComplete="address-level1"
               >
-                <option value="PA">PA</option>
-                <option value="NJ">NJ</option>
-                <option value="NY">NY</option>
+                {US_STATES.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
               </select>
             </div>
             <div className="col-span-4">
