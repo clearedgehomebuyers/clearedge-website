@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -42,6 +42,23 @@ function useAutoSMSAttribution() {
   }, [])
 }
 
+// County → regional location page mapping
+const countyLocationMap: Record<string, { href: string; label: string }> = {
+  lackawanna: { href: '/locations/nepa', label: 'We Buy Houses in Lackawanna County' },
+  luzerne: { href: '/locations/nepa', label: 'We Buy Houses in Luzerne County' },
+  lehigh: { href: '/locations/lehigh-valley', label: 'We Buy Houses in Lehigh County' },
+  northampton: { href: '/locations/lehigh-valley', label: 'We Buy Houses in Northampton County' },
+  monroe: { href: '/locations/poconos', label: 'We Buy Houses in Monroe County' },
+  carbon: { href: '/locations/poconos', label: 'We Buy Houses in Carbon County' },
+  pike: { href: '/locations/poconos', label: 'We Buy Houses in Pike County' },
+  wayne: { href: '/locations/nepa', label: 'We Buy Houses in Wayne County' },
+  wyoming: { href: '/locations/nepa', label: 'We Buy Houses in Wyoming County' },
+  columbia: { href: '/locations/nepa', label: 'We Buy Houses in Columbia County' },
+  susquehanna: { href: '/locations/nepa', label: 'We Buy Houses in Susquehanna County' },
+  schuylkill: { href: '/locations/nepa', label: 'We Buy Houses in Schuylkill County' },
+  berks: { href: '/locations/reading', label: 'We Buy Houses in Berks County' },
+}
+
 // Navigation button helper
 function NavButton({ href, label }: { href: string; label: string }) {
   return (
@@ -57,6 +74,9 @@ function NavButton({ href, label }: { href: string; label: string }) {
 
 export default function TxtPage() {
   useAutoSMSAttribution()
+  const [selectedCounty, setSelectedCounty] = useState('')
+
+  const locationLink = countyLocationMap[selectedCounty]
 
   return (
     <main className="bg-white min-h-screen">
@@ -91,6 +111,7 @@ export default function TxtPage() {
       <Calculator
         ctaScrollTarget="sms-lead-form"
         ctaEventLabel="Get Your Real Cash Offer - SMS Landing"
+        onCountyChange={setSelectedCounty}
       />
 
       {/* Video Section — Meet Tyler */}
@@ -122,7 +143,10 @@ export default function TxtPage() {
             <NavButton href="/testimonials" label="Seller Reviews" />
             <NavButton href="/about" label="About ClearEdge" />
             <NavButton href="/blog" label="Guides & Articles" />
-            <NavButton href="/locations/nepa" label="Areas We Serve" />
+            <NavButton
+              href={locationLink?.href ?? '/'}
+              label={locationLink?.label ?? 'Areas We Serve'}
+            />
           </div>
         </div>
       </section>

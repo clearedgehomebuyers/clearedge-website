@@ -368,11 +368,13 @@ function AnimatedNumber({ value, prefix = '$', duration = 800 }: { value: number
 export interface CalculatorProps {
   ctaScrollTarget?: string
   ctaEventLabel?: string
+  onCountyChange?: (countyValue: string) => void
 }
 
 export function Calculator({
   ctaScrollTarget = 'lead-form',
   ctaEventLabel = 'Get Your Real Cash Offer - Calculator Results',
+  onCountyChange,
 }: CalculatorProps) {
   // Form state
   const [homeValue, setHomeValue] = useState('')
@@ -869,6 +871,7 @@ export function Calculator({
                 onChange={(e) => {
                   setCounty(e.target.value)
                   setCountyError(false)
+                  onCountyChange?.(e.target.value)
                 }}
                 className={`w-full px-4 py-3 rounded-xl border ${countyError ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-ce-ink/10 focus:border-ce-green focus:ring-ce-green/20'} focus:ring-2 outline-none transition-all text-lg bg-white`}
               >
