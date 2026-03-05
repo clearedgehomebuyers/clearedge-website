@@ -112,6 +112,7 @@ export default function TxtPage() {
         ctaScrollTarget="sms-lead-form"
         ctaEventLabel="Get Your Real Cash Offer - SMS Landing"
         onCountyChange={setSelectedCounty}
+        showResultsCTA={false}
       />
 
       {/* Video Section — Meet Tyler */}

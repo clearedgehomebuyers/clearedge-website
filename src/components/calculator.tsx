@@ -369,12 +369,14 @@ export interface CalculatorProps {
   ctaScrollTarget?: string
   ctaEventLabel?: string
   onCountyChange?: (countyValue: string) => void
+  showResultsCTA?: boolean
 }
 
 export function Calculator({
   ctaScrollTarget = 'lead-form',
   ctaEventLabel = 'Get Your Real Cash Offer - Calculator Results',
   onCountyChange,
+  showResultsCTA = true,
 }: CalculatorProps) {
   // Form state
   const [homeValue, setHomeValue] = useState('')
@@ -1461,21 +1463,23 @@ export function Calculator({
             </div>
 
             {/* CTA */}
-            <div className="bg-surface-cream rounded-2xl p-6 md:p-8 text-center">
-              <h3 className="font-serif text-2xl font-medium text-ce-ink mb-4">
-                Want to see your REAL number?
-              </h3>
-              <p className="text-ce-ink/70 mb-6 max-w-xl mx-auto">
-                This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
-              </p>
-              <button
-                onClick={scrollToForm}
-                className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green hover:shadow-xl hover:-translate-y-0.5"
-              >
-                Get Your Real Cash Offer
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
+            {showResultsCTA && (
+              <div className="bg-surface-cream rounded-2xl p-6 md:p-8 text-center">
+                <h3 className="font-serif text-2xl font-medium text-ce-ink mb-4">
+                  Want to see your REAL number?
+                </h3>
+                <p className="text-ce-ink/70 mb-6 max-w-xl mx-auto">
+                  This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
+                </p>
+                <button
+                  onClick={scrollToForm}
+                  className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  Get Your Real Cash Offer
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            )}
           </div>
         )}
 
