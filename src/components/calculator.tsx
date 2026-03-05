@@ -189,20 +189,20 @@ function getGuidedRepairEstimate(answers: Record<string, number>): number {
   return total
 }
 
-// Age-based repair multiplier — slight nudge, not a major swing
+// Age-based repair multiplier — softened curves, max 1.12×
 function getAgeMultiplier(yearBuilt: number): number {
   if (yearBuilt <= 0) return 1.0
-  if (yearBuilt >= 2000) return 0.90
+  if (yearBuilt >= 2000) return 0.95
   if (yearBuilt >= 1980) return 1.0
-  if (yearBuilt >= 1960) return 1.08
-  if (yearBuilt >= 1940) return 1.15
-  return 1.22
+  if (yearBuilt >= 1960) return 1.05
+  if (yearBuilt >= 1940) return 1.08
+  return 1.12
 }
 
-// Sqft-based repair multiplier (base ~1,800 sqft typical PA home)
+// Sqft-based repair multiplier — tighter range 0.90–1.15× (base ~1,800 sqft)
 function getSqftMultiplier(sqft: number): number {
   if (sqft <= 0) return 1.0
-  return Math.max(0.85, Math.min(1.3, sqft / 1800))
+  return Math.max(0.90, Math.min(1.15, 1 + (sqft - 1800) / 4000))
 }
 
 // Timeline options
@@ -227,12 +227,16 @@ function calculateTitleInsurance(homeValue: number): number {
   return (100000 * 0.00575) + (400000 * 0.005) + (500000 * 0.0045) + ((homeValue - 1000000) * 0.0035)
 }
 
-// Get cash offer percentage based on repair total (investor-math-based ARV tiers)
+// Get cash offer percentage based on repair total — 9 granular tiers, 32% floor
 function getCashOfferPercent(totalRepairs: number): number {
-  if (totalRepairs <= 15000) return 0.68
-  if (totalRepairs <= 35000) return 0.60
-  if (totalRepairs <= 65000) return 0.50
-  if (totalRepairs <= 100000) return 0.40
+  if (totalRepairs <= 10000) return 0.68
+  if (totalRepairs <= 20000) return 0.63
+  if (totalRepairs <= 35000) return 0.58
+  if (totalRepairs <= 50000) return 0.53
+  if (totalRepairs <= 65000) return 0.48
+  if (totalRepairs <= 80000) return 0.43
+  if (totalRepairs <= 100000) return 0.38
+  if (totalRepairs <= 130000) return 0.33
   return 0.32
 }
 
