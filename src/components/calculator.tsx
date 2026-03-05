@@ -111,10 +111,10 @@ const conditionQuestions = [
     question: 'Roof, HVAC, windows, siding, and major systems',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'All in good shape', hint: 'Roof was replaced in the last 10 years and has no missing shingles or leaks. Gutters are straight and drain properly. Heat and AC work well. You don\'t feel drafts around windows and they don\'t fog up between the glass. Siding looks clean with no cracks or warping. Hot water is strong and consistent.' },
-      { value: 1, label: 'Working but aging', hint: 'Roof is 10+ years old — not leaking inside yet, but you may notice shingle edges starting to curl or gritty material washing into the gutters. Gutters may sag or pull away in a few spots. Heat and AC still work but aren\'t as strong or quiet as they used to be. You feel cold air around some windows in winter or they\'re hard to open. Hot water runs out faster than it used to. Siding looks faded or feels chalky when you touch it.' },
-      { value: 2, label: 'One or more need replacing', hint: 'You can see where the roof is leaking, has missing shingles, or looks like it\'s sagging. The AC can\'t keep up in summer or the furnace struggles in winter. Hot water is unreliable — the tank may be leaking. Several windows are foggy, cracked, or you can feel outside air coming through them. Siding has visible damage or holes.' },
-      { value: 3, label: 'Multiple systems failing', hint: 'Two or more big things need to be completely replaced — for example the roof is failing AND the heat barely works AND the windows are shot AND the siding is falling apart. A buyer would walk away after their home inspection.' },
+      { value: 0, label: 'All in good shape', hint: 'Roof under 10 years old, no leaks. Heat and AC work well. No drafts around windows. Siding clean, no cracks. Hot water is strong.' },
+      { value: 1, label: 'Working but aging', hint: 'Roof 10+ years old, shingles curling but no leaks yet. Heat and AC work but weaker than before. Drafty windows, some hard to open. Hot water runs out faster. Siding faded.' },
+      { value: 2, label: 'One or more need replacing', hint: 'Roof leaking or missing shingles. Furnace or AC can\'t keep up. Hot water tank may be leaking. Windows foggy, cracked, or letting air in. Siding has holes or damage.' },
+      { value: 3, label: 'Multiple systems failing', hint: 'Two or more big systems need full replacement — roof, heat, AC, windows, or siding. A buyer would walk away after inspection.' },
     ],
   },
   {
@@ -122,10 +122,10 @@ const conditionQuestions = [
     question: 'Kitchen, bathrooms, and interior',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'Updated in the last 5 years', hint: 'Kitchen and all bathrooms were professionally remodeled within the last 5 years with modern countertops, new fixtures, and updated appliances. Walls are freshly painted with no cracks or water stains on the ceilings. Floors look new and aren\'t scratched or worn.' },
-      { value: 1, label: 'Dated but functional', hint: 'The kitchen and bathrooms haven\'t been redone since you moved in — original cabinets, countertops, and fixtures that work but look their age. Appliances still run but are showing wear. Floors are scuffed or faded in high-traffic areas. Faucets may drip, drains might run slow, caulk around the tub is yellowed or peeling. Nothing is broken, but a buyer would want to redo the kitchen and baths before moving in.' },
-      { value: 2, label: 'Noticeably outdated', hint: 'The kitchen and bathrooms are noticeably from a different era — old laminate or tile countertops, outdated fixtures, layouts that feel small or closed off. You\'d feel embarrassed showing it to a buyer as-is. Walls may have cracks, water stains, or peeling paint. A buyer would expect the entire kitchen and bathrooms to be gutted and redone before they\'d pay full market value.' },
-      { value: 3, label: 'Need complete renovation', hint: 'Kitchen or bathrooms are not usable in their current state — stripped down, missing fixtures, or have exposed pipes and wiring visible in the walls. May have old wiring in the attic or basement, very low water pressure from old pipes, or floors that feel soft or bouncy when you walk on them.' },
+      { value: 0, label: 'Updated in the last 5 years', hint: 'Kitchen and all bathrooms professionally remodeled in the last 5 years. Fresh paint, no cracks or water stains. Floors look new.' },
+      { value: 1, label: 'Dated but functional', hint: 'Original kitchen and bathrooms — everything works but looks its age. Scuffed floors, dripping faucets, slow drains, yellowed caulk. A buyer would redo the kitchen and baths.' },
+      { value: 2, label: 'Noticeably outdated', hint: 'Kitchen and bathrooms clearly from a different era. You\'d be embarrassed showing it as-is. Cracked walls, water stains, or peeling paint. A buyer would want them gutted.' },
+      { value: 3, label: 'Need complete renovation', hint: 'Kitchen or bathrooms aren\'t usable — missing fixtures, exposed pipes or wiring. May have low water pressure, old wiring, or soft/bouncy floors.' },
     ],
   },
   {
@@ -133,10 +133,10 @@ const conditionQuestions = [
     question: 'Foundation, structure, and environment',
     options: [
       { value: -1, label: 'Select one...' },
-      { value: 0, label: 'No known issues', hint: 'Basement stays completely dry — no dampness, no musty smell, not even after heavy rain. No cracks in the basement walls or floor. The ground around the house slopes away so water doesn\'t pool near the foundation. Driveway and sidewalks are in good shape. Doors and windows open and close easily without sticking.' },
-      { value: 1, label: 'Minor concerns', hint: 'You see thin cracks in the basement walls or floor. After a heavy rain you notice some dampness or a musty smell down there — you might run a dehumidifier to keep it in check. Driveway or sidewalks have some cracks or uneven spots. Water may pool near the foundation in a few areas. Very common in most older PA homes.' },
-      { value: 2, label: 'Known issues needing repair', hint: 'Water gets into the basement regularly after storms and you\'ve tried fixing it but it keeps coming back. You can see real cracks in the foundation — not just hairlines. Some doors won\'t close right or floors feel uneven when you walk across the room. Driveway is badly cracked or sinking.' },
-      { value: 3, label: 'Significant problems', hint: 'You can see the foundation is shifting — walls are bowing, floors slope noticeably, or there are large cracks getting worse. Sewage backs up or drains throughout the house are slow and gurgling. There may be mold, asbestos, or other environmental issues. The municipality has issued code violations on the property.' },
+      { value: 0, label: 'No known issues', hint: 'Basement stays dry, no musty smell even after heavy rain. No cracks in walls or floor. Driveway and sidewalks in good shape. Doors and windows open easily.' },
+      { value: 1, label: 'Minor concerns', hint: 'Thin cracks in basement walls or floor. Some dampness or musty smell after heavy rain — maybe you run a dehumidifier. Driveway has cracks or uneven spots. Common in older PA homes.' },
+      { value: 2, label: 'Known issues needing repair', hint: 'Water gets in the basement regularly and keeps coming back. Real cracks in the foundation, not just hairlines. Doors won\'t close right, floors feel uneven. Driveway badly cracked or sinking.' },
+      { value: 3, label: 'Significant problems', hint: 'Foundation shifting — bowing walls, sloping floors, or cracks getting worse. Sewage backs up or drains are slow and gurgling. Possible mold, asbestos, or code violations.' },
     ],
   },
 ]
