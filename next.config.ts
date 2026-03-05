@@ -27,12 +27,6 @@ const nextConfig: NextConfig = {
         destination: '/locations/scranton',
         permanent: true,
       },
-      // SMS campaign tracking redirect
-      {
-        source: '/txt',
-        destination: '/calculator?utm_source=sms&utm_medium=text',
-        permanent: false,
-      },
     ]
   },
 }
