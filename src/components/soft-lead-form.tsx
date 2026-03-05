@@ -25,7 +25,8 @@ function formatPhoneNumber(value: string): string {
 
 export function SoftLeadForm() {
   const { webhook, trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
-  const [name, setName] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
   const [phoneValue, setPhoneValue] = useState('')
   const [address, setAddress] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -33,7 +34,7 @@ export function SoftLeadForm() {
   const [error, setError] = useState('')
 
   const phoneDigits = extractPhoneDigits(phoneValue)
-  const isValid = name.trim().length > 0 && phoneDigits.length === 10 && address.trim().length > 0
+  const isValid = firstName.trim().length > 0 && lastName.trim().length > 0 && phoneDigits.length === 10 && address.trim().length > 0
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -48,7 +49,8 @@ export function SoftLeadForm() {
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
         body: JSON.stringify({
-          name: name.trim(),
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
           phone: `+1${phoneDigits}`,
           address: address.trim(),
           trafficSource,
@@ -117,16 +119,29 @@ export function SoftLeadForm() {
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
           {/* Name */}
-          <div>
-            <label className="block text-sm font-medium text-ce-ink mb-1.5">Your Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="First and last name"
-              className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
-              autoComplete="name"
-            />
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-ce-ink mb-1.5">First Name</label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="First name"
+                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                autoComplete="given-name"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-ce-ink mb-1.5">Last Name</label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last name"
+                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                autoComplete="family-name"
+              />
+            </div>
           </div>
 
           {/* Phone */}
