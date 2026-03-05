@@ -29,12 +29,15 @@ export function SoftLeadForm() {
   const [lastName, setLastName] = useState('')
   const [phoneValue, setPhoneValue] = useState('')
   const [address, setAddress] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('PA')
+  const [zip, setZip] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
 
   const phoneDigits = extractPhoneDigits(phoneValue)
-  const isValid = firstName.trim().length > 0 && lastName.trim().length > 0 && phoneDigits.length === 10 && address.trim().length > 0
+  const isValid = firstName.trim().length > 0 && lastName.trim().length > 0 && phoneDigits.length === 10 && address.trim().length > 0 && city.trim().length > 0 && state.length > 0 && /^\d{5}$/.test(zip)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,7 +55,10 @@ export function SoftLeadForm() {
           firstName: firstName.trim(),
           lastName: lastName.trim(),
           phone: `+1${phoneDigits}`,
-          address: address.trim(),
+          propertyAddress: address.trim(),
+          city: city.trim(),
+          state,
+          zip,
           trafficSource,
           landingPage,
           ...utmParams,
@@ -157,16 +163,61 @@ export function SoftLeadForm() {
             />
           </div>
 
-          {/* Property Address */}
+          {/* Street Address */}
           <div>
-            <label className="block text-sm font-medium text-ce-ink mb-1.5">Property Address</label>
+            <label className="block text-sm font-medium text-ce-ink mb-1.5">Street Address</label>
             <AddressAutocomplete
               value={address}
               onChange={setAddress}
-              onPlaceSelect={(place) => setAddress(place.fullAddress)}
-              placeholder="123 Main St, Scranton, PA"
+              onPlaceSelect={(place) => {
+                setAddress(place.street)
+                if (place.city) setCity(place.city)
+                if (place.state) setState(place.state)
+                if (place.zip) setZip(place.zip)
+              }}
+              placeholder="123 Main Street"
               className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white h-auto"
             />
+          </div>
+
+          {/* City / State / Zip */}
+          <div className="grid grid-cols-5 gap-3">
+            <div className="col-span-2">
+              <label className="block text-sm font-medium text-ce-ink mb-1.5">City</label>
+              <input
+                type="text"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="Scranton"
+                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                autoComplete="address-level2"
+              />
+            </div>
+            <div className="col-span-1">
+              <label className="block text-sm font-medium text-ce-ink mb-1.5">State</label>
+              <select
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                className="w-full px-2 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                autoComplete="address-level1"
+              >
+                <option value="PA">PA</option>
+                <option value="NJ">NJ</option>
+                <option value="NY">NY</option>
+              </select>
+            </div>
+            <div className="col-span-2">
+              <label className="block text-sm font-medium text-ce-ink mb-1.5">Zip</label>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={zip}
+                onChange={(e) => setZip(e.target.value.replace(/\D/g, '').slice(0, 5))}
+                placeholder="18503"
+                className="w-full px-4 py-3 rounded-xl border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-base bg-white"
+                autoComplete="postal-code"
+              />
+            </div>
           </div>
 
           {error && (
