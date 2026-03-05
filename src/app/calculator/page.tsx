@@ -678,6 +678,49 @@ export default function CalculatorPage() {
     const hasMtg = results.traditional.mortgagePayoff > 0
     const isAsap = timeline === 'asap'
 
+    // Path 0a: Both routes show negative equity
+    if (results.traditional.netProceeds < 0 && results.cash.netProceeds < 0) {
+      return (
+        <div className="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">We want to be upfront with you — both routes show negative equity at these numbers.</span> That means the combination of your mortgage balance, repair costs, and selling expenses would exceed what the home brings in.
+          </p>
+          <p className="text-ce-ink/80">
+            This is more common than most people realize, especially with older homes that need significant work. It doesn&apos;t mean you&apos;re out of options — it means you need the right guidance before making a move.
+          </p>
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">Here are paths forward worth exploring:</span>
+          </p>
+          <ul className="text-ce-ink/80 space-y-1.5 pl-4">
+            <li>• <span className="font-medium">Talk to your lender about a short sale</span> — they may accept less than the full payoff to avoid foreclosure costs</li>
+            <li>• <span className="font-medium">Get a real offer before deciding</span> — our estimate is conservative, and your actual property may appraise differently</li>
+            {isAsap && <li>• <span className="font-medium">Act sooner rather than later</span> — carrying costs are adding to the gap every month you wait</li>}
+            <li>• <span className="font-medium">Request a no-obligation consultation</span> — we&apos;ve helped sellers in this exact situation find a path that works</li>
+          </ul>
+          <p className="text-ce-ink/80">
+            Every situation is different, and these numbers are estimates. Let us look at your specific property — there may be more equity here than the calculator shows. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get a free, no-obligation consultation →</button>
+          </p>
+        </div>
+      )
+    }
+
+    // Path 0b: Traditional is negative but cash still nets positive
+    if (results.traditional.netProceeds < 0 && results.cash.netProceeds >= 0) {
+      return (
+        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">The traditional route would actually cost you money at these numbers</span> — by the time you pay for repairs, commissions, closing costs, and {months} months of carrying expenses, you&apos;d walk away in the negative.
+          </p>
+          <p className="text-ce-ink/80">
+            A cash sale is the only path that puts money in your pocket here: <span className="font-semibold text-ce-green">${results.cash.netProceeds.toLocaleString()}</span> with zero out-of-pocket costs, no repairs, and a guaranteed close in 14–30 days{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
+          </p>
+          <p className="text-ce-ink/80">
+            This estimate is based on the condition you described — your actual offer may be higher once we evaluate the property. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+          </p>
+        </div>
+      )
+    }
+
     // Path 1: Traditional wins by $30K+
     if (!results.cashBetter && diff >= 30000) {
       return (
