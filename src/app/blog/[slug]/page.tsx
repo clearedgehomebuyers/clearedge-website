@@ -111,6 +111,10 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
     question: "How do I sell my house fast during divorce in Lehigh County?",
     answer: "To sell during a Lehigh County divorce: both parties must agree to sell (or the court orders it), sign the listing agreement and sales contracts, and agree on proceeds distribution. A cash sale is fastest — close in 7-14 days vs. 60-90 days traditional. The proceeds go to a title company and are distributed according to your divorce agreement or court order. No repairs, no showings, no delays."
   },
+  'sell-inherited-house-allentown-pa': {
+    question: "How do I sell an inherited house in Allentown?",
+    answer: "You can sell an inherited house in Allentown by obtaining Letters Testamentary from the Lehigh County Register of Wills (455 West Hamilton Street, Allentown), which gives you legal authority to sell during or after probate. You don\u2019t need to wait for probate to close. ClearEdge Home Buyers purchases inherited properties in any condition throughout Allentown and the Lehigh Valley. No repairs, no cleanout, close in as little as 7 days."
+  },
   'sell-hoarder-house-reading-pa-without-cleanout': {
     question: "Can I sell a hoarder house in Reading without cleaning it out?",
     answer: "Yes. You can sell a hoarder house in Reading PA without cleaning it out. Cash buyers purchase as-is and handle all cleanout after closing — you don't need to spend $5,000-$15,000 on professional cleanout services. Leave everything behind: furniture, junk, personal items. The cash offer accounts for cleanout costs, but you avoid the emotional and physical burden of doing it yourself."
