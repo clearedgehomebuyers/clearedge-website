@@ -55,7 +55,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
     question: "What documents do I need to sell an inherited house in Pennsylvania?",
     answer: "To sell inherited property in PA, you need: (1) certified death certificate, (2) Letters Testamentary or Letters of Administration from the Register of Wills, (3) the deed showing current ownership, (4) REU-500 inheritance tax waiver (if required), and (5) signed agreement from all heirs. If the property passed outside probate, you'll need the transfer documentation (trust, TOD deed, or survivorship deed)."
   },
-  'sell-my-house-fast-bethlehem-pa-18015-tax-lien': {
+  'sell-house-tax-lien-bethlehem-pa': {
     question: "Can I sell my Bethlehem house with a tax lien?",
     answer: "Yes. You can sell a Bethlehem house with a tax lien — the lien gets paid from the sale proceeds at closing. A cash buyer can close in 7-14 days, which is often fast enough to avoid the escalating penalties and potential sheriff sale. You don't need to pay off the lien first; it's settled through the title company at closing."
   },

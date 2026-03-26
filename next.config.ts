@@ -32,6 +32,11 @@ const nextConfig: NextConfig = {
         destination: '/locations/allentown',
         permanent: true,
       },
+      {
+        source: '/blog/sell-my-house-fast-bethlehem-pa-18015-tax-lien',
+        destination: '/blog/sell-house-tax-lien-bethlehem-pa',
+        permanent: true,
+      },
     ]
   },
 }
