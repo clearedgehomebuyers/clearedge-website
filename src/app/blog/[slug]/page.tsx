@@ -53,7 +53,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'documents-required-selling-inherited-property-pennsylvania': {
     question: "What documents do I need to sell an inherited house in Pennsylvania?",
-    answer: "To sell inherited property in PA, you need: (1) certified death certificate, (2) Letters Testamentary or Letters of Administration from the Register of Wills, (3) the deed showing current ownership, (4) REU-500 inheritance tax waiver (if required), and (5) signed agreement from all heirs. If the property passed outside probate, you'll need the transfer documentation (trust, TOD deed, or survivorship deed)."
+    answer: "To sell inherited property in PA, you need: (1) certified death certificate, (2) Letters Testamentary or Letters of Administration from the Register of Wills, (3) the deed showing current ownership, (4) REU-500 inheritance tax waiver (if required), and (5) signed agreement from all heirs. If the property passed outside probate, you'll need the transfer documentation (trust, TOD deed, or survivorship deed). ClearEdge Home Buyers purchases inherited properties in any condition throughout Eastern Pennsylvania — we handle the paperwork complications so you don't have to."
   },
   'sell-house-tax-lien-bethlehem-pa': {
     question: "Can I sell my Bethlehem house with a tax lien?",

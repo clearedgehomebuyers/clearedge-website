@@ -1,0 +1,2975 @@
+{
+  "_createdAt": "2026-01-06T17:39:12Z",
+  "_id": "UiZb3IwptsI2jxbXRMG503",
+  "_rev": "4b9jUyjJRNjKTpJMMCPZIB",
+  "_type": "blogPost",
+  "_updatedAt": "2026-02-12T22:26:34Z",
+  "author": "Tyler Swenson",
+  "authorTitle": "Founder, ClearEdge Home Buyers",
+  "category": "process-legal",
+  "content": [
+    {
+      "_key": "block0",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328729",
+          "_type": "span",
+          "marks": [],
+          "text": "The documents required for selling inherited property can feel overwhelming when you're already dealing with grief."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block1",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328731",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate. "
+        },
+        {
+          "_key": "span1770416699328732",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328730"
+          ],
+          "text": "Letters testamentary"
+        },
+        {
+          "_key": "span1770416699328733",
+          "_type": "span",
+          "marks": [],
+          "text": ". Affidavit of heirship. Tax clearance certificates."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328730",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block2",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328734",
+          "_type": "span",
+          "marks": [],
+          "text": "It's a lot."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block3",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328735",
+          "_type": "span",
+          "marks": [],
+          "text": "And if you get it wrong, the sale falls apart."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block4",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328736",
+          "_type": "span",
+          "marks": [],
+          "text": "I'm Tyler Swenson, founder of ClearEdge Home Buyers."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328737",
+          "_type": "span",
+          "marks": [],
+          "text": "Since 2016, I've helped dozens of families across Eastern Pennsylvania sell inherited properties."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block6",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328738",
+          "_type": "span",
+          "marks": [],
+          "text": "I've seen deals delayed for months because of missing paperwork."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block7",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328739",
+          "_type": "span",
+          "marks": [],
+          "text": "I've also seen families close in two weeks because they had everything lined up."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block8",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328740",
+          "_type": "span",
+          "marks": [],
+          "text": "The difference? Knowing exactly what documents you need upfront."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block9",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328741",
+          "_type": "span",
+          "marks": [],
+          "text": "Let me walk you through the complete checklist."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block10",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328742",
+          "_type": "span",
+          "marks": [],
+          "text": "The Two Paths: Probate vs. Non-Probate"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block11",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328743",
+          "_type": "span",
+          "marks": [],
+          "text": "Before we dive into documents, you need to know which situation you're in."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block12",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328744",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Path 1: The property went through probate (or is currently in probate)"
+        },
+        {
+          "_key": "span1770416699328745",
+          "_type": "span",
+          "marks": [],
+          "text": " — This is most common. If the house was solely in the deceased's name, probate is required."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block13",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328746",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Path 2: The property bypassed probate"
+        },
+        {
+          "_key": "span1770416699328747",
+          "_type": "span",
+          "marks": [],
+          "text": " — This happens if the property was in a living trust, had a Transfer on Death deed, or was jointly owned with right of survivorship."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block14",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328748",
+          "_type": "span",
+          "marks": [],
+          "text": "Your document requirements depend on which path you're on."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block15",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328749",
+          "_type": "span",
+          "marks": [],
+          "text": "I'll cover both."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block16",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328750",
+          "_type": "span",
+          "marks": [],
+          "text": "Documents Required for Selling Inherited Property (Probate Path)"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block17",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328751",
+          "_type": "span",
+          "marks": [],
+          "text": "If you're going through probate — or already went through it — here's what you'll need to sell."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block18",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328752",
+          "_type": "span",
+          "marks": [],
+          "text": "1. Death Certificate"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block19",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328753",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328754",
+          "_type": "span",
+          "marks": [],
+          "text": "Official document proving the property owner passed away."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block20",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328755",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328756",
+          "_type": "span",
+          "marks": [],
+          "text": "Pennsylvania Department of Health, local register of wills, or the funeral home."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block21",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328757",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "How many you need: "
+        },
+        {
+          "_key": "span1770416699328758",
+          "_type": "span",
+          "marks": [],
+          "text": "Get at least 5-6 certified copies. Banks, title companies, and buyers all want originals."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block22",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328759",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Cost: "
+        },
+        {
+          "_key": "span1770416699328760",
+          "_type": "span",
+          "marks": [],
+          "text": "About $20 per certified copy in Pennsylvania."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block23",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328761",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Pro tip: "
+        },
+        {
+          "_key": "span1770416699328762",
+          "_type": "span",
+          "marks": [],
+          "text": "Order more than you think you need. Running out mid-transaction is a headache."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block24",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328765",
+          "_type": "span",
+          "marks": [],
+          "text": "2. "
+        },
+        {
+          "_key": "span1770416699328766",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328763"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328767",
+          "_type": "span",
+          "marks": [],
+          "text": " (or "
+        },
+        {
+          "_key": "span1770416699328768",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328764"
+          ],
+          "text": "Letters of Administration"
+        },
+        {
+          "_key": "span1770416699328769",
+          "_type": "span",
+          "marks": [],
+          "text": ")"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328763",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        },
+        {
+          "_key": "authlink1770416699328764",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "block25",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328770",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328771",
+          "_type": "span",
+          "marks": [],
+          "text": "Court document proving you have legal authority to act on behalf of the estate."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block26",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328773",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "authlink1770416699328772"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328774",
+          "_type": "span",
+          "marks": [],
+          "text": " = There was a will, and you're the named executor."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328772",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block27",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328776",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "authlink1770416699328775"
+          ],
+          "text": "Letters of Administration"
+        },
+        {
+          "_key": "span1770416699328777",
+          "_type": "span",
+          "marks": [],
+          "text": " = No will existed, and the court appointed you as administrator."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328775",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block28",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328778",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328779",
+          "_type": "span",
+          "marks": [],
+          "text": "The Register of Wills in the county where the deceased lived."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block29",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328780",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328781",
+          "_type": "span",
+          "marks": [],
+          "text": "Without this, you cannot legally sell the property. Period."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block30",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328782",
+          "_type": "span",
+          "marks": [],
+          "text": "3. The Will (If One Exists)"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block31",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328783",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328784",
+          "_type": "span",
+          "marks": [],
+          "text": "The deceased's legal document stating how assets should be distributed."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block32",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328785",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328786",
+          "_type": "span",
+          "marks": [],
+          "text": "The original should be filed with the Register of Wills during probate."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block33",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328787",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328788",
+          "_type": "span",
+          "marks": [],
+          "text": "The will may specify how real estate should be handled. Some wills give executors full authority to sell. Others require court approval."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block34",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328789",
+          "_type": "span",
+          "marks": [],
+          "text": "4. Proof of Your Identity"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block35",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328790",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What you need: "
+        },
+        {
+          "_key": "span1770416699328791",
+          "_type": "span",
+          "marks": [],
+          "text": "Government-issued photo ID (driver's license or passport), Social Security number"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block36",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328792",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328793",
+          "_type": "span",
+          "marks": [],
+          "text": "Title companies verify your identity before transferring property."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block37",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328794",
+          "_type": "span",
+          "marks": [],
+          "text": "5. Property Deed"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block38",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328795",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328796",
+          "_type": "span",
+          "marks": [],
+          "text": "Legal document showing current ownership of the property."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block39",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328797",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328798",
+          "_type": "span",
+          "marks": [],
+          "text": "County Recorder of Deeds office, or from the deceased's files."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block40",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328799",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328800",
+          "_type": "span",
+          "marks": [],
+          "text": "This confirms the property was owned by the deceased and shows how it was titled."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block41",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328801",
+          "_type": "span",
+          "marks": [],
+          "text": "6. Title Search / Title Report"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block42",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328802",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328803",
+          "_type": "span",
+          "marks": [],
+          "text": "A search of public records to verify ownership and uncover any liens, mortgages, or claims against the property."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block43",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328804",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Who orders it: "
+        },
+        {
+          "_key": "span1770416699328805",
+          "_type": "span",
+          "marks": [],
+          "text": "Usually the title company or closing attorney handles this."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block44",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328806",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328807",
+          "_type": "span",
+          "marks": [],
+          "text": "Clears the path for clean title transfer to the buyer."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block45",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328809",
+          "_type": "span",
+          "marks": [],
+          "text": "7. "
+        },
+        {
+          "_key": "span1770416699328810",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328808"
+          ],
+          "text": "PA Inheritance Tax"
+        },
+        {
+          "_key": "span1770416699328811",
+          "_type": "span",
+          "marks": [],
+          "text": " Clearance (REV-1500)"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328808",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        }
+      ],
+      "style": "h3"
+    },
+    {
+      "_key": "block46",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328812",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328814",
+          "_type": "span",
+          "marks": [],
+          "text": "Certificate from Pennsylvania Department of Revenue showing "
+        },
+        {
+          "_key": "span1770416699328815",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328813"
+          ],
+          "text": "inheritance tax"
+        },
+        {
+          "_key": "span1770416699328816",
+          "_type": "span",
+          "marks": [],
+          "text": "es have been paid or are accounted for."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328813",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block47",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328817",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328818",
+          "_type": "span",
+          "marks": [],
+          "text": "File Form REV-1500 with PA Department of Revenue."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block48",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328819",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328821",
+          "_type": "span",
+          "marks": [],
+          "text": "In Pennsylvania, "
+        },
+        {
+          "_key": "span1770416699328822",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328820"
+          ],
+          "text": "inheritance tax"
+        },
+        {
+          "_key": "span1770416699328823",
+          "_type": "span",
+          "marks": [],
+          "text": " is due within 9 months of death. Title companies want proof this is handled before closing."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328820",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block49",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328824",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Tax rates in PA: "
+        },
+        {
+          "_key": "span1770416699328825",
+          "_type": "span",
+          "marks": [],
+          "text": "0% for surviving spouses, 4.5% for direct descendants (children, grandchildren), 12% for siblings, 15% for others"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block50",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328826",
+          "_type": "span",
+          "marks": [],
+          "text": "8. Real Estate Tax Certification"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block51",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328827",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328828",
+          "_type": "span",
+          "marks": [],
+          "text": "Proof that property taxes are current."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block52",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328829",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328830",
+          "_type": "span",
+          "marks": [],
+          "text": "County tax assessment office."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block53",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328831",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328832",
+          "_type": "span",
+          "marks": [],
+          "text": "Outstanding property taxes create liens. These must be cleared at closing."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block54",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328833",
+          "_type": "span",
+          "marks": [],
+          "text": "9. Mortgage Payoff Statement (If Applicable)"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block55",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328834",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328835",
+          "_type": "span",
+          "marks": [],
+          "text": "Statement from the lender showing exact amount needed to pay off any remaining mortgage."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block56",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328836",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328837",
+          "_type": "span",
+          "marks": [],
+          "text": "Contact the mortgage servicer directly."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block57",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328838",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Why it matters: "
+        },
+        {
+          "_key": "span1770416699328839",
+          "_type": "span",
+          "marks": [],
+          "text": "The mortgage gets paid from sale proceeds at closing."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block58",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328840",
+          "_type": "span",
+          "marks": [],
+          "text": "10. Court Order Authorizing Sale (Sometimes Required)"
+        }
+      ],
+      "markDefs": [],
+      "style": "h3"
+    },
+    {
+      "_key": "block59",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328841",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "What it is: "
+        },
+        {
+          "_key": "span1770416699328842",
+          "_type": "span",
+          "marks": [],
+          "text": "Formal court approval to sell the real estate."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block60",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328843",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "When you need it: "
+        },
+        {
+          "_key": "span1770416699328844",
+          "_type": "span",
+          "marks": [],
+          "text": "If the will doesn't give the executor independent authority to sell, or if heirs dispute the sale."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block61",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328845",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Where to get it: "
+        },
+        {
+          "_key": "span1770416699328846",
+          "_type": "span",
+          "marks": [],
+          "text": "File a petition with the Orphans' Court in the county where probate is happening."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block62",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328847",
+          "_type": "span",
+          "marks": [],
+          "text": "Documents Required for Selling Inherited Property (Non-Probate Path)"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block63",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328848",
+          "_type": "span",
+          "marks": [],
+          "text": "If the property bypassed probate, your document list is shorter."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block64",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328849",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "If Property Was in a Living Trust: "
+        },
+        {
+          "_key": "span1770416699328850",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate (certified copy), The trust document (shows you as successor trustee), Trustee certification (affidavit confirming your authority), Property deed (showing trust ownership), Your ID"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block65",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328851",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "If Property Had a Transfer on Death (TOD) Deed: "
+        },
+        {
+          "_key": "span1770416699328852",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate (certified copy), The original TOD deed (recorded with the county), Affidavit of survivorship (confirms you're the named beneficiary), Your ID"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block66",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328853",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "If Property Was Jointly Owned (Right of Survivorship): "
+        },
+        {
+          "_key": "span1770416699328854",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate (certified copy), The original deed (showing joint tenancy with right of survivorship), Affidavit of survivorship (to remove deceased from title), Your ID"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block67",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328855",
+          "_type": "span",
+          "marks": [],
+          "text": "In all these cases, no court involvement is needed. You update the title, then sell."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block68",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328856",
+          "_type": "span",
+          "marks": [],
+          "text": "Documents the Buyer Will Want"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block69",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328857",
+          "_type": "span",
+          "marks": [],
+          "text": "Beyond proving your authority to sell, buyers (or their lenders) typically request:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block70",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328858",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Property survey"
+        },
+        {
+          "_key": "span1770416699328859",
+          "_type": "span",
+          "marks": [],
+          "text": " — Shows exact boundaries and any encroachments"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block71",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328860",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Home inspection report"
+        },
+        {
+          "_key": "span1770416699328861",
+          "_type": "span",
+          "marks": [],
+          "text": " — Buyer usually orders this"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block72",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328862",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Seller's disclosure"
+        },
+        {
+          "_key": "span1770416699328863",
+          "_type": "span",
+          "marks": [],
+          "text": " — PA requires sellers to disclose known defects"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block73",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328864",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "HOA documents"
+        },
+        {
+          "_key": "span1770416699328865",
+          "_type": "span",
+          "marks": [],
+          "text": " — If applicable, includes rules and financials"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block74",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328866",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Utility information"
+        },
+        {
+          "_key": "span1770416699328867",
+          "_type": "span",
+          "marks": [],
+          "text": " — Account numbers for transfer"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block75",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328868",
+          "_type": "span",
+          "marks": [],
+          "text": "Cash buyers like us don't require most of this. We buy as-is. No inspection contingencies. No lengthy disclosure negotiations. Just the documents proving you can legally sell."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block76",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328869",
+          "_type": "span",
+          "marks": [],
+          "text": "How to Get Documents When You're Out of State"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block77",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328870",
+          "_type": "span",
+          "marks": [],
+          "text": "Selling an inherited property from across the country? This is more common than you'd think."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block78",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328871",
+          "_type": "span",
+          "marks": [],
+          "text": "Here's how to handle the paperwork remotely:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block79",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328872",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "1. Hire a Pennsylvania Probate Attorney"
+        },
+        {
+          "_key": "span1770416699328873",
+          "_type": "span",
+          "marks": [],
+          "text": " — Even if you're in Texas or California, you need a PA attorney for probate. They can file documents, attend court hearings, and handle local requirements."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block80",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328874",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "2. Use a Title Company That Handles Remote Closings"
+        },
+        {
+          "_key": "span1770416699328875",
+          "_type": "span",
+          "marks": [],
+          "text": " — Many title companies offer mobile notary services (they come to you), remote online notarization (RON), and mail-away closings."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block81",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328876",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "3. Grant Power of Attorney"
+        },
+        {
+          "_key": "span1770416699328877",
+          "_type": "span",
+          "marks": [],
+          "text": " — You can give a trusted person in Pennsylvania power of attorney to sign documents on your behalf. This is common when multiple heirs are spread across the country."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block82",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328878",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "4. Work With a Cash Buyer (Easiest Option)"
+        },
+        {
+          "_key": "span1770416699328879",
+          "_type": "span",
+          "marks": [],
+          "text": " — We regularly buy inherited properties from out-of-state sellers. We coordinate with local attorneys and title companies. You sign remotely. We handle everything else."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block83",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328880",
+          "_type": "span",
+          "marks": [],
+          "text": "Common Document Mistakes That Delay Sales"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block84",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328881",
+          "_type": "span",
+          "marks": [],
+          "text": "I've seen these kill deals or add months to the timeline:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block85",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328882",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #1: Not getting enough death certificates"
+        },
+        {
+          "_key": "span1770416699328883",
+          "_type": "span",
+          "marks": [],
+          "text": " — Order 5-6 minimum. Every institution wants their own certified copy."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block86",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328885",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #2: Waiting to file for "
+        },
+        {
+          "_key": "span1770416699328886",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "authlink1770416699328884"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328887",
+          "_type": "span",
+          "marks": [],
+          "text": " — Start the probate process immediately. This is the bottleneck."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328884",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block87",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328888",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #3: Not checking the title early"
+        },
+        {
+          "_key": "span1770416699328889",
+          "_type": "span",
+          "marks": [],
+          "text": " — Hidden liens, old mortgages, or judgment creditors can surprise you at closing. Run a title search upfront."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block88",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328891",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #4: Missing the "
+        },
+        {
+          "_key": "span1770416699328892",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "authlink1770416699328890"
+          ],
+          "text": "inheritance tax"
+        },
+        {
+          "_key": "span1770416699328893",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": " deadline"
+        },
+        {
+          "_key": "span1770416699328895",
+          "_type": "span",
+          "marks": [],
+          "text": " — "
+        },
+        {
+          "_key": "span1770416699328896",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328894"
+          ],
+          "text": "PA inheritance tax"
+        },
+        {
+          "_key": "span1770416699328897",
+          "_type": "span",
+          "marks": [],
+          "text": " is due within 9 months. Miss it and you pay penalties plus interest."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328890",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        },
+        {
+          "_key": "authlink1770416699328894",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block89",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328898",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #5: Assuming all heirs agree"
+        },
+        {
+          "_key": "span1770416699328899",
+          "_type": "span",
+          "marks": [],
+          "text": " — Get written agreement from all heirs before listing. One holdout can derail everything."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block90",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328900",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Mistake #6: Losing the original will"
+        },
+        {
+          "_key": "span1770416699328901",
+          "_type": "span",
+          "marks": [],
+          "text": " — If you can't find the original will, probate gets complicated. Search safe deposit boxes, attorney offices, and home safes."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block91",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328902",
+          "_type": "span",
+          "marks": [],
+          "text": "Timeline: How Long Does It Take to Get These Documents?"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block92",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328903",
+          "_type": "span",
+          "marks": [],
+          "text": "Here's a realistic timeline for Pennsylvania:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block93",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328904",
+          "_type": "span",
+          "marks": [],
+          "text": "• Death certificate: 1-2 weeks"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block94",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328906",
+          "_type": "span",
+          "marks": [],
+          "text": "• "
+        },
+        {
+          "_key": "span1770416699328907",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328905"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328908",
+          "_type": "span",
+          "marks": [],
+          "text": ": 3-6 weeks (after filing)"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328905",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block95",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328909",
+          "_type": "span",
+          "marks": [],
+          "text": "• Title search: 1-2 weeks"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block96",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328911",
+          "_type": "span",
+          "marks": [],
+          "text": "• "
+        },
+        {
+          "_key": "span1770416699328912",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328910"
+          ],
+          "text": "Inheritance tax"
+        },
+        {
+          "_key": "span1770416699328913",
+          "_type": "span",
+          "marks": [],
+          "text": " clearance: 2-4 weeks"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328910",
+          "_type": "link",
+          "href": "https://www.revenue.pa.gov/Tax%20Informational/Inheritance%20Tax/Pages/default.aspx",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block97",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328914",
+          "_type": "span",
+          "marks": [],
+          "text": "• Mortgage payoff statement: 1-2 weeks"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block98",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328915",
+          "_type": "span",
+          "marks": [],
+          "text": "• Court order (if needed): 4-8 weeks"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block99",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328916",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Total time before you can sell (probate path): "
+        },
+        {
+          "_key": "span1770416699328917",
+          "_type": "span",
+          "marks": [],
+          "text": "2-4 months minimum"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block100",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328918",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Total time before you can sell (non-probate path): "
+        },
+        {
+          "_key": "span1770416699328919",
+          "_type": "span",
+          "marks": [],
+          "text": "2-4 weeks"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block101",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328920",
+          "_type": "span",
+          "marks": [],
+          "text": "This is why proper estate planning matters. Trusts and TOD deeds save your heirs months of waiting."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block102",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328921",
+          "_type": "span",
+          "marks": [],
+          "text": "What If You're Missing Documents?"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block103",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328922",
+          "_type": "span",
+          "marks": [],
+          "text": "Don't panic."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block104",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328923",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Missing the will? "
+        },
+        {
+          "_key": "span1770416699328924",
+          "_type": "span",
+          "marks": [],
+          "text": "The estate goes through \"intestate\" probate. Property passes according to PA law (spouse first, then children, then other relatives)."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block105",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328925",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Missing the deed? "
+        },
+        {
+          "_key": "span1770416699328926",
+          "_type": "span",
+          "marks": [],
+          "text": "The county Recorder of Deeds has copies of all recorded deeds. You can request a certified copy."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block106",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328927",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Missing death certificate? "
+        },
+        {
+          "_key": "span1770416699328928",
+          "_type": "span",
+          "marks": [],
+          "text": "Order new copies from PA Department of Health or the local Register of Wills."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block107",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328930",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Missing "
+        },
+        {
+          "_key": "span1770416699328931",
+          "_type": "span",
+          "marks": [
+            "strong",
+            "authlink1770416699328929"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328932",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "? "
+        },
+        {
+          "_key": "span1770416699328933",
+          "_type": "span",
+          "marks": [],
+          "text": "If probate was completed years ago, contact the Register of Wills in the county where it was filed. They keep records."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328929",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block108",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328934",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Can't find mortgage information? "
+        },
+        {
+          "_key": "span1770416699328935",
+          "_type": "span",
+          "marks": [],
+          "text": "Check the deceased's mail, email, and bank statements. The servicer's name will appear somewhere."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block109",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328936",
+          "_type": "span",
+          "marks": [],
+          "text": "Selling Inherited Property to a Cash Buyer: What Documents We Need"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block110",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328937",
+          "_type": "span",
+          "marks": [],
+          "text": "At ClearEdge Home Buyers, we've simplified this process."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block111",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328938",
+          "_type": "span",
+          "marks": [],
+          "text": "When you sell to us, here's what we need:"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block112",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328939",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "From you: "
+        },
+        {
+          "_key": "span1770416699328942",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate (certified copy), "
+        },
+        {
+          "_key": "span1770416699328943",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328940"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328944",
+          "_type": "span",
+          "marks": [],
+          "text": " or "
+        },
+        {
+          "_key": "span1770416699328945",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328941"
+          ],
+          "text": "Letters of Administration"
+        },
+        {
+          "_key": "span1770416699328946",
+          "_type": "span",
+          "marks": [],
+          "text": ", Your photo ID, Signed purchase agreement"
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328940",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        },
+        {
+          "_key": "authlink1770416699328941",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block113",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328947",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "We handle: "
+        },
+        {
+          "_key": "span1770416699328948",
+          "_type": "span",
+          "marks": [],
+          "text": "Title search, Title insurance, Closing coordination, All paperwork"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block114",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328949",
+          "_type": "span",
+          "marks": [],
+          "text": "That's it. No bank appraisals. No buyer financing documents. No inspection reports."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block115",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328951",
+          "_type": "span",
+          "marks": [],
+          "text": "We close as soon as probate allows — often within 2 weeks of receiving "
+        },
+        {
+          "_key": "span1770416699328952",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328950"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328953",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328950",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block116",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328954",
+          "_type": "span",
+          "marks": [],
+          "text": "The Bottom Line"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "block117",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328955",
+          "_type": "span",
+          "marks": [],
+          "text": "The documents required for selling inherited property depend on your situation."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block118",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328956",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Probate path: "
+        },
+        {
+          "_key": "span1770416699328958",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate, "
+        },
+        {
+          "_key": "span1770416699328959",
+          "_type": "span",
+          "marks": [
+            "authlink1770416699328957"
+          ],
+          "text": "Letters Testamentary"
+        },
+        {
+          "_key": "span1770416699328960",
+          "_type": "span",
+          "marks": [],
+          "text": ", the will, deed, title search, tax clearances, and possibly court approval."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "authlink1770416699328957",
+          "_type": "link",
+          "href": "https://www.pacourts.us/courts/courts-of-common-pleas/registers-of-wills",
+          "openInNewTab": true
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "block119",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328961",
+          "_type": "span",
+          "marks": [
+            "strong"
+          ],
+          "text": "Non-probate path: "
+        },
+        {
+          "_key": "span1770416699328962",
+          "_type": "span",
+          "marks": [],
+          "text": "Death certificate, trust document or TOD deed, affidavit of survivorship, and your ID."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block120",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328963",
+          "_type": "span",
+          "marks": [],
+          "text": "Either way, start gathering documents immediately."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block121",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328964",
+          "_type": "span",
+          "marks": [],
+          "text": "The sooner you have everything, the faster you can sell and move on."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block122",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328965",
+          "_type": "span",
+          "marks": [],
+          "text": "If you're dealing with an inherited property in Eastern Pennsylvania and want to skip the hassle of repairs, showings, and buyer financing..."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block123",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328966",
+          "_type": "span",
+          "marks": [],
+          "text": "We can help."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block124",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328967",
+          "_type": "span",
+          "marks": [],
+          "text": "Get a free, no-obligation cash offer at ClearEdge Home Buyers or learn more about our simple 3-step process."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block125",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328968",
+          "_type": "span",
+          "marks": [],
+          "text": "We've helped dozens of families navigate this exact situation."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "block126",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328969",
+          "_type": "span",
+          "marks": [],
+          "text": "When you need to know the documents required for selling inherited property, now you have the complete checklist."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_key": "related-header-1767807413236",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328970",
+          "_type": "span",
+          "marks": [],
+          "text": "Related Reading"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "blog-documents--1767807413236",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "span1770416699328971",
+          "_type": "span",
+          "marks": [],
+          "text": "Not sure if you need probate? Read "
+        },
+        {
+          "_key": "span1770416699328972",
+          "_type": "span",
+          "marks": [
+            "link-blog-documents-"
+          ],
+          "text": "Can You Sell Without Probate in PA?"
+        },
+        {
+          "_key": "span1770416699328973",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-blog-documents-",
+          "_type": "link",
+          "href": "/blog/sell-deceased-parents-house-without-probate-pennsylvania"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "lnk1770417631029640",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s1770417631029641",
+          "_type": "span",
+          "marks": [],
+          "text": "Learn more about selling "
+        },
+        {
+          "_key": "s1770417631029642",
+          "_type": "span",
+          "marks": [
+            "link-lnk1770417631029640"
+          ],
+          "text": "inherited property properties"
+        },
+        {
+          "_key": "s1770417631029643",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-lnk1770417631029640",
+          "_type": "link",
+          "href": "/situations/inherited-property"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "lnk1770417631029644",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s1770417631029645",
+          "_type": "span",
+          "marks": [],
+          "text": "Selling in Scranton? "
+        },
+        {
+          "_key": "s1770417631029646",
+          "_type": "span",
+          "marks": [
+            "link-lnk1770417631029644"
+          ],
+          "text": "Get a cash offer today"
+        },
+        {
+          "_key": "s1770417631029647",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-lnk1770417631029644",
+          "_type": "link",
+          "href": "/locations/scranton"
+        }
+      ],
+      "style": "normal"
+    },
+    {
+      "_key": "lnk1770417631029648",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "s1770417631029649",
+          "_type": "span",
+          "marks": [],
+          "text": "Considering your selling options? "
+        },
+        {
+          "_key": "s1770417631029650",
+          "_type": "span",
+          "marks": [
+            "link-lnk1770417631029648"
+          ],
+          "text": "Compare cash buyers vs. realtors"
+        },
+        {
+          "_key": "s1770417631029651",
+          "_type": "span",
+          "marks": [],
+          "text": "."
+        }
+      ],
+      "markDefs": [
+        {
+          "_key": "link-lnk1770417631029648",
+          "_type": "link",
+          "href": "/cash-buyer-vs-realtor"
+        }
+      ],
+      "style": "normal"
+    }
+  ],
+  "excerpt": "The documents required for selling inherited property can feel overwhelming. Here's the complete checklist for Pennsylvania — whether you're going through probate or not.",
+  "faqs": [
+    {
+      "_key": "faq1",
+      "answer": "Yes, once you have Letters Testamentary and authority to sell. You don't have to wait for probate to fully close.",
+      "question": "Can I sell inherited property before probate is complete?"
+    },
+    {
+      "_key": "faq2",
+      "answer": "All heirs typically need to sign the deed or consent to the sale. One alternative: the executor can sell on behalf of the estate if the will grants that authority.",
+      "question": "What if multiple heirs inherited the property?"
+    },
+    {
+      "_key": "faq3",
+      "answer": "For probate, yes — get a probate attorney. For the actual sale to a cash buyer, a lawyer isn't required but can review documents if you want.",
+      "question": "Do I need a lawyer to sell inherited property?"
+    },
+    {
+      "_key": "faq4",
+      "answer": "Liens get paid from sale proceeds at closing. If liens exceed the property value, you'll need to negotiate with creditors or consider a short sale.",
+      "question": "What if there are liens on the property?"
+    },
+    {
+      "_key": "faq5",
+      "answer": "Letters Testamentary (if there's a will) or Letters of Administration (if no will) plus the death certificate prove your authority.",
+      "question": "How do I prove I'm the rightful heir?"
+    },
+    {
+      "_key": "faq6",
+      "answer": "A sworn document identifying the deceased's heirs. Used when there's no will to establish who inherits.",
+      "question": "What's an affidavit of heirship?"
+    },
+    {
+      "_key": "faq7",
+      "answer": "You can sell before paying, but the title company will want assurance taxes will be paid from proceeds — or a tax clearance certificate.",
+      "question": "Do I need to pay inheritance tax before selling?"
+    },
+    {
+      "_key": "faq8",
+      "answer": "Contact the attorney who created the trust. They should have copies. Also check safe deposit boxes and the deceased's important papers.",
+      "question": "What if the property is in a trust but I can't find the trust document?"
+    }
+  ],
+  "metaDescription": "Complete checklist of documents needed to sell inherited property in Pennsylvania. Death certificates, Letters Testamentary, tax clearances, and more.",
+  "metaTitle": "Inherited Property Documents PA",
+  "publishedAt": "2026-01-06T16:00:00Z",
+  "relatedLocations": [
+    {
+      "_key": "hfGdHKuw",
+      "_ref": "1vG1cAehNv3GJkhfGdHKuw",
+      "_type": "reference"
+    },
+    {
+      "_key": "hfGdHLIe",
+      "_ref": "1vG1cAehNv3GJkhfGdHLIe",
+      "_type": "reference"
+    },
+    {
+      "_key": "hfGdHLvb",
+      "_ref": "1vG1cAehNv3GJkhfGdHLvb",
+      "_type": "reference"
+    },
+    {
+      "_key": "hfGeEAvi",
+      "_ref": "1vG1cAehNv3GJkhfGeEAvi",
+      "_type": "reference"
+    },
+    {
+      "_key": "hfGn2Eei",
+      "_ref": "1vG1cAehNv3GJkhfGn2Eei",
+      "_type": "reference"
+    },
+    {
+      "_key": "953375f9",
+      "_ref": "2a7c6139-6f68-4167-ab44-7b53953375f9",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadBohqy",
+      "_ref": "FWoaewO3AQZvYTIadBohqy",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadBoiay",
+      "_ref": "FWoaewO3AQZvYTIadBoiay",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadBoksy",
+      "_ref": "FWoaewO3AQZvYTIadBoksy",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadCvh4y",
+      "_ref": "FWoaewO3AQZvYTIadCvh4y",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadNq6Gy",
+      "_ref": "FWoaewO3AQZvYTIadNq6Gy",
+      "_type": "reference"
+    },
+    {
+      "_key": "IadNq7uy",
+      "_ref": "FWoaewO3AQZvYTIadNq7uy",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftH1llbc",
+      "_ref": "Kkwf7dGhrCPgC5ftH1llbc",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftH1lnqi",
+      "_ref": "Kkwf7dGhrCPgC5ftH1lnqi",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftH1lr3Q",
+      "_ref": "Kkwf7dGhrCPgC5ftH1lr3Q",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftHVJa2e",
+      "_ref": "Kkwf7dGhrCPgC5ftHVJa2e",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftHVJabQ",
+      "_ref": "Kkwf7dGhrCPgC5ftHVJabQ",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftHVJb0G",
+      "_ref": "Kkwf7dGhrCPgC5ftHVJb0G",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftHVJbP6",
+      "_ref": "Kkwf7dGhrCPgC5ftHVJbP6",
+      "_type": "reference"
+    },
+    {
+      "_key": "ftHVJbnw",
+      "_ref": "Kkwf7dGhrCPgC5ftHVJbnw",
+      "_type": "reference"
+    },
+    {
+      "_key": "63e2c204",
+      "_ref": "e83514b1-e123-4fd8-9538-ba9363e2c204",
+      "_type": "reference"
+    }
+  ],
+  "relatedSituations": [
+    {
+      "_key": "ftH1Yygq",
+      "_ref": "Kkwf7dGhrCPgC5ftH1Yygq",
+      "_type": "reference"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "documents-required-selling-inherited-property-pennsylvania"
+  },
+  "title": "Documents Required for Selling Inherited Property in Pennsylvania"
+}
