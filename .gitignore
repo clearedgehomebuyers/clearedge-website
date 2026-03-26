@@ -45,3 +45,39 @@ tmpclaude-*
 .next-backup-*
 *.zip
 v0-design/
+
+# claude worktrees
+.claude/worktrees/
+
+# backups
+backups/
+
+# debug and audit files
+_ul*
+lh-*.json
+lh-*.mjs
+lh-*.py
+psi-*
+crux-*.mjs
+test123.txt
+WEBSITE-AUDIT-PROMPT.md
+
+# one-off Sanity migration/creation/fix scripts
+scripts/create-*.mjs
+scripts/delete-*.mjs
+scripts/rebrand-*.mjs
+scripts/expand-*.mjs
+scripts/seed-*.mjs
+scripts/migrate-*.mjs
+scripts/fix-*.mjs
+scripts/add-*.mjs
+scripts/audit-data.json
+scripts/scan-phone-numbers.mjs
+scripts/shorten-location-titles.mjs
+scripts/clear-meta-descriptions.mjs
+scripts/update-*.mjs
+scripts/link-*.mjs
+scripts/bidirectional-linking-sync.mjs
+scripts/write_page.py
+scripts/investor-summary.mjs
+scripts/final-verification.mjs
