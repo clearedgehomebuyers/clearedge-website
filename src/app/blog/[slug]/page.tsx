@@ -47,10 +47,6 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
     question: "How do I stop GovOS fines on my Poconos rental property?",
     answer: "To stop GovOS fines in the Poconos, you must either: (1) register your STR with the county and become compliant, (2) convert to long-term rental (12+ month leases), (3) stop renting entirely and use it personally, or (4) sell the property. Monroe County's MCOCA system tracks all major booking platforms, so operating unregistered leads to cumulative daily fines."
   },
-  'sell-my-house-fast-allentown': {
-    question: "What's the fastest way to sell my house in Allentown?",
-    answer: "The fastest way to sell in Allentown is a cash sale, which can close in as little as 7 days. You avoid repairs, skip the 60-90 day listing process, and don't pay the 6% agent commission. Cash buyers purchase as-is — whether you're in Center City, the West End, or South Allentown. Get an offer within 24 hours."
-  },
   'sell-deceased-parents-house-without-probate-pennsylvania': {
     question: "Can I sell my deceased parents' house without probate in PA?",
     answer: "Sometimes yes. You can avoid probate in Pennsylvania if: (1) you were joint owner with rights of survivorship, (2) the house was in a living trust, (3) there's a transfer-on-death deed, or (4) you're the surviving spouse and the estate is under $50,000. Otherwise, probate is required — but a cash buyer can work around the probate timeline and close once you have Letters Testamentary."

@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
         destination: '/locations/scranton',
         permanent: true,
       },
+      {
+        source: '/blog/sell-my-house-fast-allentown',
+        destination: '/locations/allentown',
+        permanent: true,
+      },
     ]
   },
 }

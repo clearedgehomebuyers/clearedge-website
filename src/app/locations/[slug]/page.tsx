@@ -7,7 +7,7 @@ import { TrackedCTALink } from '@/components/TrackedCTALink'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, BookOpen } from 'lucide-react'
+import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, BookOpen, AlertTriangle } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -356,6 +356,65 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       )}
 
 
+      {/* The Real Math Section — Allentown Only */}
+      {slug === 'allentown' && (
+        <section className="py-12 md:py-14 bg-surface-cream">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">The Numbers</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">The Real Math: What You Actually Walk Away With</h2>
+            </div>
+
+            <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed">
+              <p>Most sellers focus on the sale price. That&apos;s the wrong number. The number that matters is what you net after all the costs.</p>
+              <p>Here&apos;s what a $200,000 Allentown home sale actually looks like:</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              {/* Traditional Sale */}
+              <div className="bg-white rounded-2xl border border-ce-ink/10 p-6">
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-4">Traditional Sale <span className="text-sm text-ce-ink/50">(listing with an agent)</span></h3>
+                <ul className="space-y-2 text-ce-ink/70">
+                  <li className="flex justify-between"><span>Sale Price</span><span className="font-medium text-ce-ink">$200,000</span></li>
+                  <li className="flex justify-between"><span>Agent Commission (6%)</span><span className="text-red-600">−$12,000</span></li>
+                  <li className="flex justify-between"><span>Allentown Transfer Tax (2.5%)</span><span className="text-red-600">−$5,000</span></li>
+                  <li className="flex justify-between"><span>Closing Costs (2–3%)</span><span className="text-red-600">−$5,000</span></li>
+                  <li className="flex justify-between"><span>Repairs to List</span><span className="text-red-600">−$15,000</span></li>
+                  <li className="flex justify-between"><span>3 Months Mortgage/Taxes/Insurance</span><span className="text-red-600">−$6,000</span></li>
+                </ul>
+                <div className="border-t border-ce-ink/10 mt-4 pt-4 flex justify-between items-center">
+                  <span className="font-medium text-ce-ink">You Walk Away With</span>
+                  <span className="text-xl font-bold text-ce-ink">~$157,000</span>
+                </div>
+              </div>
+
+              {/* Cash Sale */}
+              <div className="bg-white rounded-2xl border-2 border-ce-green p-6 relative">
+                <div className="absolute -top-3 left-6 bg-ce-green text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-4">Cash Sale to ClearEdge</h3>
+                <ul className="space-y-2 text-ce-ink/70">
+                  <li className="flex justify-between"><span>Sale Price</span><span className="font-medium text-ce-ink">$170,000</span></li>
+                  <li className="flex justify-between"><span>Commissions</span><span className="text-ce-green font-medium">$0</span></li>
+                  <li className="flex justify-between"><span>Transfer Tax</span><span className="text-ce-green font-medium">$0 (we cover it)</span></li>
+                  <li className="flex justify-between"><span>Closing Costs</span><span className="text-ce-green font-medium">$0</span></li>
+                  <li className="flex justify-between"><span>Repairs</span><span className="text-ce-green font-medium">$0</span></li>
+                  <li className="flex justify-between"><span>Time</span><span className="text-ce-green font-medium">7–14 days</span></li>
+                </ul>
+                <div className="border-t border-ce-green/20 mt-4 pt-4 flex justify-between items-center">
+                  <span className="font-medium text-ce-ink">You Walk Away With</span>
+                  <span className="text-xl font-bold text-ce-green">~$170,000</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-ce-ink/70 space-y-4 text-lg leading-relaxed mt-8">
+              <p>Different path. Similar — sometimes better — net. Except one takes a week and one takes four months.</p>
+              <p>This math changes depending on your home&apos;s condition. A move-in ready property on the West End will net more listed traditionally. A house that needs $30,000 in work? The gap disappears fast. <Link href="/calculator" className="text-ce-green hover:underline font-medium">Run your specific numbers through our calculator</Link> to see the comparison for your situation.</p>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Neighborhoods - White - Progressive disclosure on mobile */}
       {location.neighborhoods && location.neighborhoods.length > 0 && (
         <section className="py-12 md:py-14 bg-white">
@@ -401,6 +460,35 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             })()}
 
             <p className="text-center text-ce-ink/70 mt-8">We buy houses throughout {location.county || location.city} and all surrounding areas.</p>
+          </div>
+        </section>
+      )}
+
+      {/* Real Stories Section — Allentown Only */}
+      {slug === 'allentown' && (
+        <section className="py-12 md:py-14 bg-surface-cream">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Real Results</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Real Stories from Allentown Homeowners</h2>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl border border-ce-ink/5 p-6">
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">The Inherited House on the West End</h3>
+                <p className="text-ce-ink/70 leading-relaxed">Two sisters inherited their parents&apos; home. One lived in California, one in New York. The house needed $30,000 in work and had been sitting vacant for 8 months — racking up taxes, insurance, and a lawn that was drawing code complaints. We made them a fair cash offer, closed in 12 days, and they split the proceeds without ever having to set foot in the house again.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-ce-ink/5 p-6">
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">The Divorce Sale in South Allentown</h3>
+                <p className="text-ce-ink/70 leading-relaxed">Neither spouse wanted to deal with the house. Too many memories, and neither could afford to buy the other out. They needed a clean break. We made one offer they both agreed on, closed in 10 days, and both moved on.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-ce-ink/5 p-6">
+                <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">The Foreclosure Save Near Center City</h3>
+                <p className="text-ce-ink/70 leading-relaxed">Homeowner was 4 months behind on payments. The bank was ready to take the house. He called us on a Tuesday, we made an offer Wednesday, and closed the following week. He walked away with cash in his pocket instead of a foreclosure on his credit report.</p>
+              </div>
+            </div>
           </div>
         </section>
       )}
@@ -560,6 +648,62 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 View all {parentHubName} communities
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Red Flags Section — Allentown Only */}
+      {slug === 'allentown' && (
+        <section className="py-12 md:py-14 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Buyer&apos;s Guide</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">How to Spot a Trustworthy Cash Buyer in Allentown</h2>
+            </div>
+
+            <p className="text-ce-ink/70 text-lg leading-relaxed mb-8">Not all &ldquo;we buy houses&rdquo; companies are the same. Before you accept any offer, watch for these red flags:</p>
+
+            <div className="space-y-4">
+              <div className="flex gap-4 items-start bg-surface-cream rounded-2xl p-5">
+                <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-ce-ink mb-1">They can&apos;t show proof of funds.</p>
+                  <p className="text-ce-ink/70">Any legitimate cash buyer can prove they have the money. If they can&apos;t, they&apos;re probably assigning your deal to someone else — and pocketing a fee in the middle.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start bg-surface-cream rounded-2xl p-5">
+                <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-ce-ink mb-1">They pressure you to sign immediately.</p>
+                  <p className="text-ce-ink/70">Real offers don&apos;t expire in 24 hours. If someone&apos;s rushing you, they&apos;re hiding something.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start bg-surface-cream rounded-2xl p-5">
+                <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-ce-ink mb-1">They change the price at closing.</p>
+                  <p className="text-ce-ink/70">The oldest trick in the book. Get everything in writing upfront and make sure the contract price is the price you close at.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start bg-surface-cream rounded-2xl p-5">
+                <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-ce-ink mb-1">No local presence.</p>
+                  <p className="text-ce-ink/70">A random out-of-state company with a Google Voice number doesn&apos;t know Allentown. Work with someone who can tell you the difference between West End and the East Side — because those are very different offers.</p>
+                </div>
+              </div>
+
+              <div className="flex gap-4 items-start bg-surface-cream rounded-2xl p-5">
+                <AlertTriangle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-ce-ink mb-1">No reviews or references.</p>
+                  <p className="text-ce-ink/70">Check Google reviews. Check the <a href="https://www.bbb.org/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline font-medium">BBB</a>. Ask for references from local homeowners. We&apos;ve helped over 200 families across Eastern Pennsylvania and are happy to connect you with past sellers.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
