@@ -6,7 +6,36 @@ export async function getLocations() {
 
 export async function getLocationBySlug(slug: string) {
   return client.fetch(
-    `*[_type == "location" && slug.current == $slug][0]`,
+    `*[_type == "location" && slug.current == $slug][0]{
+      ...,
+      netProceedsComparison{
+        sectionTitle,
+        introText,
+        salePrice,
+        agentCommission,
+        transferTaxRate,
+        sellerTransferTaxShare,
+        closingCosts,
+        repairsToList,
+        carryingCosts,
+        cashOffer,
+        followUpText
+      },
+      caseStudies[]{
+        _key,
+        title,
+        description
+      },
+      trustSignals{
+        sectionTitle,
+        introText,
+        signals[]{
+          _key,
+          title,
+          description
+        }
+      }
+    }`,
     { slug }
   )
 }
