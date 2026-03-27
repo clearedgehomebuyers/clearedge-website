@@ -20,11 +20,11 @@ const V0ServiceAreas = dynamic(() => import('@/components/v0-service-areas').the
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 
 export const metadata: Metadata = {
-  title: "Cash Home Buyers in Pennsylvania | Fair Offer in 24 Hours | ClearEdge",
-  description: "PA cash home buyers who actually close. Fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions. Serving NEPA, Lehigh Valley & Poconos.",
+  title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
+  description: "Cash home buyer in Lehigh Valley, NEPA and Poconos since 2016. No repairs, no fees, no commissions. Fair offer in 24 hours, close in 7\u201330 days.",
   keywords: ["cash home buyers Pennsylvania", "sell house fast PA", "we buy houses Scranton", "sell house as-is Allentown", "cash offer Lehigh Valley", "sell inherited house PA", "cash home buyers near me"],
   openGraph: {
-    title: "Cash Home Buyers in Pennsylvania | Fair Offer in 24 Hours | ClearEdge",
+    title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
     description: "Your PA house is worth more than a lowball offer. Get a fair cash offer in 24 hours from a local company that's bought 200+ homes since 2016.",
     url: "https://www.clearedgehomebuyers.com",
     siteName: "ClearEdge Home Buyers",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cash Home Buyers in Pennsylvania | Fair Offer in 24 Hours | ClearEdge",
+    title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
     description: "Your PA house is worth more than a lowball offer. Get a fair cash offer in 24 hours from a local company that's bought 200+ homes since 2016.",
     images: ['https://www.clearedgehomebuyers.com/og-image.png'],
   },
