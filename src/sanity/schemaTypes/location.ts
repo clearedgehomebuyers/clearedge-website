@@ -91,6 +91,13 @@ export default defineType({
     // --- Enhanced Sections (optional — for expanded location pages) ---
 
     defineField({
+      name: 'enhancedContentHeading',
+      title: 'Enhanced Content Heading',
+      type: 'string',
+      description: 'Custom heading for the enhanced content section. Falls back to "Selling a House in [City] Doesn\'t Have to Be Hard" if empty.',
+      group: 'enhanced',
+    }),
+    defineField({
       name: 'enhancedContent',
       title: 'Enhanced Local Context',
       type: 'array',

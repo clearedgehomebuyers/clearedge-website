@@ -361,7 +361,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Local Expertise</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Selling a House in {location.city} Doesn&apos;t Have to Be Hard</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">{location.enhancedContentHeading || `Selling a House in ${location.city} Doesn't Have to Be Hard`}</h2>
             </div>
 
             <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
