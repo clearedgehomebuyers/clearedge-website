@@ -21,32 +21,32 @@ const LocationMapWrapper = dynamic(() => import('@/components/LocationMapWrapper
 
 // Hero photos mapped to each location slug (5 photos across 21 pages, alternating)
 const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
-  // Photo 1: Scranton (5 pages)
+  // Photo 1: Scranton image (5 pages)
   'scranton': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  // Photo 2: Wilkes-Barre (4 pages)
+  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Stroudsburg, PA', days: 14 },
+  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Pittston, PA', days: 14 },
+  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Bloomsburg, PA', days: 14 },
+  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Reading, PA', days: 14 },
+  // Photo 2: Wilkes-Barre image (4 pages)
   'wilkes-barre': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  // Photo 3: Allentown (4 pages)
+  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'East Stroudsburg, PA', days: 12 },
+  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Kingston, PA', days: 12 },
+  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Lehigh Valley, PA', days: 12 },
+  // Photo 3: Allentown image (4 pages)
   'allentown': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  // Photo 4: Bethlehem (4 pages)
+  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Hazleton, PA', days: 10 },
+  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Dunmore, PA', days: 10 },
+  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Poconos, PA', days: 10 },
+  // Photo 4: Bethlehem image (4 pages)
   'bethlehem': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  // Photo 5: Hazleton (4 pages)
-  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Pottsville, PA', days: 8 },
+  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Nanticoke, PA', days: 8 },
+  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Pocono Pines, PA', days: 8 },
+  // Photo 5: Hazleton image (4 pages)
+  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Easton, PA', days: 11 },
+  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Carbondale, PA', days: 11 },
+  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Honesdale, PA', days: 11 },
+  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Tannersville, PA', days: 11 },
 }
 
 // Default photo for any unmapped slugs
