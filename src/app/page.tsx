@@ -22,7 +22,7 @@ const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ d
 export const metadata: Metadata = {
   title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
   description: "Cash home buyer in Lehigh Valley, NEPA and Poconos since 2016. No repairs, no fees, no commissions. Fair offer in 24 hours, close in 7\u201330 days.",
-  keywords: ["cash home buyers Pennsylvania", "sell house fast PA", "we buy houses Scranton", "sell house as-is Allentown", "cash offer Lehigh Valley", "sell inherited house PA", "cash home buyers near me"],
+  keywords: ["cash home buyers Pennsylvania", "sell house fast PA", "sell inherited house PA", "cash home buyers near me"],
   openGraph: {
     title: "Sell Your PA House Fast for Cash | ClearEdge Home Buyers",
     description: "Your PA house is worth more than a lowball offer. Get a fair cash offer in 24 hours from a local company that's bought 200+ homes since 2016.",

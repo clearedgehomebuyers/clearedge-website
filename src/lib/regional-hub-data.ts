@@ -97,7 +97,7 @@ export const lehighValleyHubData: RegionalHubData = {
   regionName: 'Lehigh Valley',
   h1: 'Cash Home Buyers in the Lehigh Valley — Skip the Repairs, Commissions & Uncertainty',
   subheading: "The Lehigh Valley market is hot — if your home is move-in ready. If it's not, you're looking at $30K+ in repairs, 5–6% in commissions, and months of showings. ClearEdge buys Lehigh Valley houses as-is for cash. Fair offer in 24 hours, close in as few as 7 days.",
-  metaTitle: 'Sell Your Lehigh Valley House Fast for Cash | ClearEdge',
+  metaTitle: 'Cash Home Buyers in the Lehigh Valley | Allentown, Bethlehem & Easton',
   metaDescription: "Cash home buyer across Allentown, Bethlehem, Easton and all of Lehigh Valley. No repairs, no fees, no commissions. Fair cash offer in 24 hours. Since 2016.",
   overviewContent: [
     "The Lehigh Valley is one of the fastest-growing regions in Pennsylvania — and that growth has made the housing market brutally competitive. The median home sales price hit $350,000, with single-family home prices up 5% year over year. Move-in-ready homes sell in just 22 days on average, often above asking price. But here's what the market reports don't tell you: that seller's market only works if your home is perfect.",
