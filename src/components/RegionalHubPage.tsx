@@ -97,6 +97,15 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
             {data.overviewContent.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
+            {data.overviewCta && (
+              <p>
+                {data.overviewCta.leadIn}
+                <Link href={data.overviewCta.href} className="text-[#008a29] hover:underline">
+                  {data.overviewCta.anchorText}
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </div>
       </section>

@@ -6,6 +6,7 @@ interface TrackedCTALinkProps {
   href: string
   label: string
   eventLabel: string
+  ctaLocation?: string
   className?: string
   showArrow?: boolean
 }
@@ -14,6 +15,7 @@ export function TrackedCTALink({
   href,
   label,
   eventLabel,
+  ctaLocation,
   className = "inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 transition-all group",
   showArrow = true,
 }: TrackedCTALinkProps) {
@@ -23,7 +25,8 @@ export function TrackedCTALink({
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
         event_label: eventLabel,
-        page_path: window.location.pathname
+        page_path: window.location.pathname,
+        ...(ctaLocation ? { cta_location: ctaLocation } : {})
       });
     }
 

@@ -16,6 +16,7 @@ const quickLinks = [
 const situations = [
   { label: "Foreclosure", href: "/situations/foreclosure" },
   { label: "Inherited Property", href: "/situations/inherited-property" },
+  { label: "Selling Without Probate (PA Guide)", href: "/blog/sell-deceased-parents-house-without-probate-pennsylvania" },
   { label: "Divorce", href: "/situations/divorce" },
   { label: "Job Relocation", href: "/situations/job-relocation" },
   { label: "Major Repairs", href: "/situations/major-repairs" },

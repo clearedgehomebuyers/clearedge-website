@@ -63,7 +63,15 @@ export function V0ServiceAreas() {
             Cash Home Buyers Across Eastern Pennsylvania
           </h2>
           <p className="text-lg text-ce-ink/70 max-w-3xl mx-auto">
-            We buy houses in any condition throughout NEPA, the Lehigh Valley, and the Poconos — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer.
+            We buy houses in any condition throughout NEPA, the Lehigh Valley, and the Poconos — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer. Looking for local details? See how to{' '}
+            <Link href="/locations/allentown" className="text-ce-green hover:underline">
+              sell your house fast in Allentown
+            </Link>{' '}
+            or{' '}
+            <Link href="/locations/reading" className="text-ce-green hover:underline">
+              sell your house fast in Reading
+            </Link>
+            , or pick your city below.
           </p>
         </div>
 

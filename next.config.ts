@@ -37,6 +37,11 @@ const nextConfig: NextConfig = {
         destination: '/blog/sell-house-tax-lien-bethlehem-pa',
         permanent: true,
       },
+      {
+        source: '/thank-you',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }

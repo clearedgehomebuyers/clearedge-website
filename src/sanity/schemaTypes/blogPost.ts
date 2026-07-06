@@ -145,6 +145,39 @@ export default defineType({
             },
           ],
         },
+        {
+          type: 'object',
+          name: 'ctaBlock',
+          title: 'CTA Block',
+          fields: [
+            {
+              name: 'heading',
+              type: 'string',
+              title: 'Heading',
+            },
+            {
+              name: 'body',
+              type: 'text',
+              title: 'Body',
+              rows: 3,
+            },
+            {
+              name: 'buttonText',
+              type: 'string',
+              title: 'Button Text',
+              initialValue: 'Get My Cash Offer',
+            },
+            {
+              name: 'ctaLocation',
+              type: 'string',
+              title: 'GA4 cta_location value',
+              description: 'Analytics identifier for this CTA placement, e.g. probate_blog_midarticle',
+            },
+          ],
+          preview: {
+            select: { title: 'heading', subtitle: 'buttonText' },
+          },
+        },
       ],
     }),
     defineField({

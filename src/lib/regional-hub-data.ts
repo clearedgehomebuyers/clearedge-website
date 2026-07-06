@@ -26,6 +26,7 @@ export interface RegionalHubData {
   metaTitle: string
   metaDescription: string
   overviewContent: string[]
+  overviewCta?: { leadIn: string; anchorText: string; href: string }
   cities: CityCard[]
   situations: SituationCard[]
   faqs: FAQ[]
@@ -104,6 +105,11 @@ export const lehighValleyHubData: RegionalHubData = {
     "The Lehigh Valley's housing stock tells two stories. Beautiful historic homes line Bethlehem's south side and Easton's West Ward — but many are 80 to 100+ years old with expensive structural, electrical, and plumbing challenges lurking behind the charm. Allentown has increased municipal code enforcement, and the city's transfer tax is now 2.5% as of 2026, adding even more cost to the traditional selling process. If your property has deferred maintenance or open violations, the path to a traditional sale gets expensive fast.",
     "That's the gap ClearEdge fills. If you're sitting on a Lehigh Valley property with significant equity but can't afford the repairs needed to list traditionally — or you simply don't want to deal with 90 days of showings, negotiations, and uncertainty — we offer a direct path. Cash offer in 24 hours, no repairs, no commissions, and you choose your closing date. For homes that need work, homeowners often net more with us after factoring in the true cost of a traditional sale."
   ],
+  overviewCta: {
+    leadIn: 'Weighing a cash sale against listing? Start with our complete guide: ',
+    anchorText: 'sell my house fast in the Lehigh Valley',
+    href: '/blog/sell-my-house-fast-lehigh-valley',
+  },
   cities: [
     { name: 'Allentown', slug: 'allentown', description: "The Lehigh Valley's largest city with a diverse housing stock from downtown rowhomes to suburban single-families." },
     { name: 'Bethlehem', slug: 'bethlehem', description: 'Historic steel town with beautiful but aging homes that often need significant updates to list traditionally.' },

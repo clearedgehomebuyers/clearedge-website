@@ -9,7 +9,9 @@ import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { BlogCtaBlock } from '@/components/BlogCtaBlock'
 
+const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
 
@@ -175,6 +177,17 @@ const portableTextComponents: PortableTextComponents = {
             </figcaption>
           )}
         </figure>
+      )
+    },
+    ctaBlock: ({ value }: { value: { heading?: string; body?: string; buttonText?: string; ctaLocation?: string } }) => {
+      if (!value?.heading || !value?.buttonText) return null
+      return (
+        <BlogCtaBlock
+          heading={value.heading}
+          body={value.body || ''}
+          buttonText={value.buttonText}
+          ctaLocation={value.ctaLocation || 'blog_midarticle'}
+        />
       )
     },
   },
@@ -505,6 +518,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </article>
 
+        {/* Lead Form - same component as homepage/locations, gives #lead-form an on-page target */}
+        <V0LeadForm />
 
         {/* Final CTA Section - Beige */}
         <section className="py-12 md:py-14 bg-surface-cream">

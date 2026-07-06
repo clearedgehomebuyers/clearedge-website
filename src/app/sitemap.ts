@@ -8,104 +8,91 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/how-it-works`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/testimonials`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/locations/nepa`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/locations/lehigh-valley`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/locations/poconos`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/calculator`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/cash-buyer-vs-realtor`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/are-cash-home-buyers-legit`,
-      lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
   ]
 
-  // Fetch locations from Sanity
+  // Fetch locations from Sanity (regional hubs are static routes already listed above)
+  const staticUrls = new Set(staticPages.map((p) => p.url))
   const locations = await getLocations()
-  const locationPages: MetadataRoute.Sitemap = locations.map((location: any) => ({
-    url: `${baseUrl}/locations/${location.slug.current}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
+  const locationPages: MetadataRoute.Sitemap = locations
+    .filter((location: any) => !staticUrls.has(`${baseUrl}/locations/${location.slug.current}`))
+    .map((location: any) => ({
+      url: `${baseUrl}/locations/${location.slug.current}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }))
 
   // Fetch situations from Sanity
   const situations = await getSituations()
   const situationPages: MetadataRoute.Sitemap = situations.map((situation: any) => ({
     url: `${baseUrl}/situations/${situation.slug.current}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
@@ -114,7 +101,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogSlugs = await getBlogPostSlugs()
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug: string) => ({
     url: `${baseUrl}/blog/${slug}`,
-    lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }))
