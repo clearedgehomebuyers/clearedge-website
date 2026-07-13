@@ -97,8 +97,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* GA4 Analytics - Production only, lazy loaded for performance */}
-        {process.env.NODE_ENV === 'production' && (
+        {/* GA4 Analytics - Production only, lazy loaded for performance.
+            NODE_ENV is 'production' in preview deploys and local `next build` too,
+            so gate on VERCEL_ENV, which is 'production' only on the real deploy. */}
+        {process.env.VERCEL_ENV === 'production' && (
           <>
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
