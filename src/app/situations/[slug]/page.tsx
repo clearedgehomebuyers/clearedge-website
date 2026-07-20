@@ -39,7 +39,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'inherited-property': {
     question: "How do I sell an inherited house in Pennsylvania?",
-    answer: "You can sell an inherited house in PA by working with the estate executor (or administrator) to transfer the property through probate court. If the property passed outside probate (via a joint deed, living trust, or transfer-on-death deed), you may be able to sell immediately. ClearEdge works with estate attorneys regularly and can close during or after probate. We buy inherited houses 100% as-is — no cleanout, no repairs, no dealing with decades of belongings."
+    answer: "You can sell an inherited house in PA by working with the estate executor (or administrator) to transfer the property through probate court. If the property passed outside probate (via a joint deed with right of survivorship or a living trust), you may be able to sell immediately. ClearEdge works with estate attorneys regularly and can close during or after probate. We buy inherited houses 100% as-is — no cleanout, no repairs, no dealing with decades of belongings."
   },
   'divorce': {
     question: "How do I sell my house fast during a divorce in PA?",
