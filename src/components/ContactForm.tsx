@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
@@ -44,9 +44,13 @@ export function ContactForm() {
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
 
-  // Track GA4 conversion when form is successfully submitted
+  // Track GA4 conversion when form is successfully submitted.
+  // Once-guard: the effect re-runs on every idle->success transition, but one
+  // mounted form must never report more than one lead.
+  const hasTrackedLead = useRef(false)
   useEffect(() => {
-    if (submitStatus === 'success' && typeof window !== 'undefined' && window.gtag) {
+    if (submitStatus === 'success' && !hasTrackedLead.current && typeof window !== 'undefined' && window.gtag) {
+      hasTrackedLead.current = true
       window.gtag('event', 'generate_lead', {
         event_category: 'Lead Form',
         event_label: 'Contact Form',
@@ -74,6 +78,10 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // A successful submission already created a CRM entry — block accidental
+    // re-submits from POSTing the webhook again.
+    if (submitStatus === 'success') return
 
     const phoneDigits = getPhoneDigits(formData.phone)
     if (phoneDigits.length < 10) {
@@ -114,6 +122,7 @@ export function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
+        keepalive: true,
         body: JSON.stringify(payload),
       })
 
@@ -138,7 +147,7 @@ export function ContactForm() {
       {/* Left Column - Simple Lead Form */}
       <div>
         <h2 className="font-serif text-2xl md:text-3xl font-medium text-ce-ink mb-6">Request Your Cash Offer</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form id="contact-form" name="contact-form" onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink/70 mb-1">First Name</label>
@@ -186,7 +195,7 @@ export function ContactForm() {
               </span>
             </label>
           </div>
-          <button type="submit" disabled={isSubmitting} className="w-full bg-ce-green hover:bg-ce-green-hover text-white font-semibold py-4 px-6 rounded-full transition-all disabled:opacity-50 shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0">
+          <button type="submit" disabled={isSubmitting || submitStatus === 'success'} className="w-full bg-ce-green hover:bg-ce-green-hover text-white font-semibold py-4 px-6 rounded-full transition-all disabled:opacity-50 shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0">
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">
                 <Loader2 className="w-5 h-5 animate-spin" />

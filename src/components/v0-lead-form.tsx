@@ -196,20 +196,6 @@ export function V0LeadForm() {
     }
   }
 
-  // Track form abandonment on unmount
-  useEffect(() => {
-    return () => {
-      if (!isSubmitted && currentStep > 1 && typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'form_abandoned', {
-          event_category: 'Lead Form',
-          event_label: `Abandoned at step ${currentStep}`,
-          last_step: currentStep,
-          page_path: window.location.pathname,
-        })
-      }
-    }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-
   const handleNext = () => {
     if (currentStep === 1 && !isStepValid(1)) {
       setShowStep1Errors(true)
@@ -233,7 +219,10 @@ export function V0LeadForm() {
     }
   }
 
-  // Track GA4 conversion when form is successfully submitted
+  // Track GA4 conversion when form is successfully submitted.
+  // delivery distinguishes webhook-confirmed submissions from ones whose fetch
+  // threw (event still fires so lead counts stay comparable week over week).
+  const webhookDeliveredRef = useRef(true)
   useEffect(() => {
     if (isSubmitted && typeof window !== 'undefined') {
       if (window.gtag) {
@@ -241,6 +230,7 @@ export function V0LeadForm() {
           event_category: 'Lead Form',
           event_label: 'Multi-Step Lead Form',
           value: 1,
+          delivery: webhookDeliveredRef.current ? 'ok' : 'failed',
           traffic_source: trafficSource,
           utm_source: utmParams.utm_source,
           utm_medium: utmParams.utm_medium,
@@ -293,6 +283,7 @@ export function V0LeadForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
+        keepalive: true,
         body: JSON.stringify(payload),
       })
 
@@ -304,6 +295,7 @@ export function V0LeadForm() {
     } catch (error) {
       console.error('Form submission error:', error)
       // Still show success to user, log error for debugging
+      webhookDeliveredRef.current = false
       setIsSubmitted(true)
     } finally {
       setIsSubmitting(false)
@@ -407,7 +399,7 @@ export function V0LeadForm() {
           <div className="h-1 bg-gradient-to-r from-ce-green via-ce-blue to-ce-green" />
 
           <div className="p-5 sm:p-8 md:p-12">
-            <form onSubmit={handleSubmit}>
+            <form id="multi-step-lead-form" name="multi-step-lead-form" onSubmit={handleSubmit}>
               {/* Step content with slide animation */}
               <div key={stepKeyRef.current} data-direction={slideDirection}>
                 {/* Step 1: Address */}

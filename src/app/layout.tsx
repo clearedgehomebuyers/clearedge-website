@@ -102,18 +102,22 @@ export default function RootLayout({
             so gate on VERCEL_ENV, which is 'production' only on the real deploy. */}
         {process.env.VERCEL_ENV === 'production' && (
           <>
+            {/* Synchronous stub: window.gtag must exist from the first paint so
+                component events fired before gtag.js loads queue in dataLayer
+                instead of being silently dropped by `if (window.gtag)` guards.
+                The heavy gtag.js script itself stays lazy. */}
+            <script
+              dangerouslySetInnerHTML={{ __html: `
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = function gtag(){dataLayer.push(arguments);};
+                gtag('js', new Date());
+                gtag('config', 'G-1H6CPZVB8D');
+              ` }}
+            />
             <Script
               src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
               strategy="lazyOnload"
             />
-            <Script id="ga4-init" strategy="lazyOnload">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-1H6CPZVB8D');
-              `}
-            </Script>
           </>
         )}
         {/* WebSite Schema - appears on every page */}

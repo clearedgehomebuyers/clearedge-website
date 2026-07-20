@@ -58,6 +58,7 @@ export function SoftLeadForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors',
+        keepalive: true,
         body: JSON.stringify({
           firstName: firstName.trim(),
           lastName: lastName.trim(),
@@ -130,7 +131,7 @@ export function SoftLeadForm() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
+        <form id="sms-soft-lead-form" name="sms-soft-lead-form" onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
           {/* Name */}
           <div className="grid grid-cols-2 gap-3">
             <div>
