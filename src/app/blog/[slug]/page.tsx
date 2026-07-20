@@ -10,6 +10,11 @@ import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { BlogCtaBlock } from '@/components/BlogCtaBlock'
+import { LocalBusinessSchema } from '@/components/Schema'
+
+// Location-guide posts that should also carry LocalBusiness JSON-LD
+// (Article + LocalBusiness, no FAQPage — Package #2 Part 3 spec)
+const LOCAL_BUSINESS_SLUGS = ['sell-inherited-house-reading-pa']
 
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
@@ -363,6 +368,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
+      {LOCAL_BUSINESS_SLUGS.includes(post.slug.current) && <LocalBusinessSchema />}
 
       <main className="bg-white">
         <V0Header />
