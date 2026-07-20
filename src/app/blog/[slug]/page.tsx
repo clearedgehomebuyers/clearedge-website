@@ -26,6 +26,10 @@ interface BlogPostPageProps {
 
 // Answer-First Summaries for blog posts (SEO optimization for AI/featured snippets)
 const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
+  'sell-inherited-house-reading-pa': {
+    question: "How do I sell an inherited house in Reading, PA?",
+    answer: "You can sell an inherited house in Reading once you have Letters Testamentary or Letters of Administration from the Berks County Register of Wills at 633 Court Street in Reading. From there you can sell as-is to a cash buyer and close in as little as 7-30 days, or list it after completing the City of Reading's Certificate of Transfer and inspection requirements. Budget for PA inheritance tax (4.5% for children) and Reading's 5% combined transfer tax when you calculate your net."
+  },
   'sell-my-house-fast-poconos-pa': {
     question: "How do I sell my Poconos vacation home fast?",
     answer: "You can sell your Poconos house fast by working with a local cash buyer who understands the vacation home market. Cash sales typically close in 7-14 days with no repairs, no STR compliance issues, and no seasonal timing concerns. This is especially valuable for out-of-state owners or those facing new Monroe County regulations."
