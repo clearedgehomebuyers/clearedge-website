@@ -282,6 +282,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   href="#lead-form"
                   label="Get My Fair Cash Offer"
                   eventLabel="Get My Fair Cash Offer - Location Hero"
+                  ctaLocation={`location_${slug.replace(/-/g, '_')}`}
                   className="inline-flex items-center justify-center bg-ce-green text-white hover:bg-ce-green-hover text-base px-8 py-4 rounded-full shadow-lg shadow-green transition-all hover:shadow-xl hover:shadow-green-lg hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink
@@ -648,7 +649,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           </div>
 
           <div className="text-center mt-8">
-            <ScrollToFormButton className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green">
+            <ScrollToFormButton
+              eventLabel="See What We'd Offer - Location Stats"
+              ctaLocation={`location_${slug.replace(/-/g, '_')}`}
+              className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg shadow-green">
               See What We&apos;d Offer for Your {location.city} Home
               <ArrowRight className="w-4 h-4" />
             </ScrollToFormButton>

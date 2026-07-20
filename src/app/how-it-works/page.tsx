@@ -189,6 +189,7 @@ export default function HowItWorksPage() {
               href="#lead-form"
               label="Get My Cash Offer"
               eventLabel="Get My Cash Offer - How It Works Hero"
+              ctaLocation="how_it_works_hero"
             />
           </div>
         </section>
@@ -274,6 +275,7 @@ export default function HowItWorksPage() {
                 href="#lead-form"
                 label="Ready to Start? Get Your Offer"
                 eventLabel="Ready to Start - How It Works Steps"
+                ctaLocation="how_it_works_steps"
               />
             </div>
           </div>

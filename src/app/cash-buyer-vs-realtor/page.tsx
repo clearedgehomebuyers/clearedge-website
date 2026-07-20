@@ -143,6 +143,7 @@ export default function CashBuyerVsRealtorPage() {
               href="#lead-form"
               label="Get Your No-Obligation Cash Offer"
               eventLabel="Get Your No-Obligation Cash Offer - Cash vs Realtor Hero"
+              ctaLocation="cash_vs_realtor_hero"
             />
           </div>
         </section>
@@ -670,6 +671,7 @@ export default function CashBuyerVsRealtorPage() {
                 href="#lead-form"
                 label="Get Your Free Cash Offer to Compare"
                 eventLabel="Get Free Cash Offer to Compare - Assessment Section"
+                ctaLocation="cash_vs_realtor_assessment"
               />
             </div>
           </div>

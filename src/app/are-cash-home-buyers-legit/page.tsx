@@ -465,6 +465,7 @@ export default function AreCashHomeBuyersLegitPage() {
                 href="#lead-form"
                 label="Get Your Free Cash Offer to Compare"
                 eventLabel="Get Free Cash Offer - Checklist Section"
+                ctaLocation="legit_guide_checklist"
               />
             </div>
           </div>

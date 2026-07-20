@@ -112,7 +112,8 @@ export function V0ProblemSolutionMerged() {
                   window.gtag('event', 'cta_click', {
                     event_category: 'CTA',
                     event_label: 'See If Your Property Qualifies - Problem Solution',
-                    page_path: window.location.pathname
+                    page_path: window.location.pathname,
+                    cta_location: 'home_problem_solution'
                   });
                 }
                 document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })

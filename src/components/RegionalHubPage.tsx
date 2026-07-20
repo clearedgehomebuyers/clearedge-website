@@ -28,7 +28,8 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
         event_label: `Get My Fair Cash Offer - ${data.regionName} Hub Hero`,
-        page_path: window.location.pathname
+        page_path: window.location.pathname,
+        cta_location: `location_${data.regionName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`
       })
     }
     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })

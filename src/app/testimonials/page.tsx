@@ -293,6 +293,7 @@ export default function TestimonialsPage() {
               href="#lead-form"
               label="Get My Fair Cash Offer"
               eventLabel="Get My Fair Cash Offer - Testimonials Hero"
+              ctaLocation="testimonials_hero"
             />
           </div>
         </section>

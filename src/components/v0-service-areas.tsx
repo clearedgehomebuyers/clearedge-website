@@ -46,7 +46,8 @@ export function V0ServiceAreas() {
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
         event_label: 'Request Offer Anyway - Service Areas',
-        page_path: window.location.pathname
+        page_path: window.location.pathname,
+        cta_location: 'home_service_areas'
       });
     }
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })

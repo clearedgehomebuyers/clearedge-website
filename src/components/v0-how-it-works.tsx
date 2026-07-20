@@ -90,7 +90,8 @@ export function V0HowItWorks() {
                 window.gtag('event', 'cta_click', {
                   event_category: 'CTA',
                   event_label: 'Get My Cash Offer - How It Works',
-                  page_path: window.location.pathname
+                  page_path: window.location.pathname,
+                  cta_location: 'home_how_it_works'
                 });
               }
               document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })

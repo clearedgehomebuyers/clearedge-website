@@ -202,6 +202,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   href="#lead-form"
                   label="Get My Fair Cash Offer"
                   eventLabel="Get My Fair Cash Offer - Situation Hero"
+                  ctaLocation="situation_page"
                   className="inline-flex items-center justify-center bg-ce-green text-white hover:bg-ce-green-hover text-base px-8 py-4 rounded-full shadow-lg shadow-green transition-all hover:shadow-xl hover:shadow-green-lg hover:-translate-y-0.5 group font-medium"
                 />
                 <DynamicPhoneLink

@@ -111,6 +111,7 @@ export default function TxtPage() {
       <Calculator
         ctaScrollTarget="sms-lead-form"
         ctaEventLabel="Get Your Real Cash Offer - SMS Landing"
+        ctaLocation="txt_calculator"
         onCountyChange={setSelectedCounty}
         showResultsCTA={false}
       />

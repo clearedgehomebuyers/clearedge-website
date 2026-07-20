@@ -373,6 +373,7 @@ function AnimatedNumber({ value, prefix = '$', duration = 800 }: { value: number
 export interface CalculatorProps {
   ctaScrollTarget?: string
   ctaEventLabel?: string
+  ctaLocation?: string
   onCountyChange?: (countyValue: string) => void
   showResultsCTA?: boolean
 }
@@ -380,6 +381,7 @@ export interface CalculatorProps {
 export function Calculator({
   ctaScrollTarget = 'lead-form',
   ctaEventLabel = 'Get Your Real Cash Offer - Calculator Results',
+  ctaLocation = 'calculator_results',
   onCountyChange,
   showResultsCTA = true,
 }: CalculatorProps) {
@@ -653,7 +655,8 @@ export function Calculator({
       window.gtag('event', 'cta_click', {
         event_category: 'CTA',
         event_label: ctaEventLabel,
-        page_path: window.location.pathname
+        page_path: window.location.pathname,
+        cta_location: ctaLocation
       })
     }
     document.getElementById(ctaScrollTarget)?.scrollIntoView({ behavior: 'smooth' })

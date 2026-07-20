@@ -541,6 +541,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 href="/#lead-form"
                 label="Get My Fair Cash Offer"
                 eventLabel="Get My Fair Cash Offer - Blog Bottom CTA"
+                ctaLocation="blog_bottom"
               />
             </div>
           </div>

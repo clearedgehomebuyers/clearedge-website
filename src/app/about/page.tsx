@@ -223,6 +223,7 @@ export default function AboutPage() {
               href="#lead-form"
               label="Get My Cash Offer"
               eventLabel="Get My Cash Offer - About Hero"
+              ctaLocation="about_hero"
             />
           </div>
         </section>

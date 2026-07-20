@@ -84,6 +84,7 @@ export function V0Hero({ city }: V0HeroProps) {
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <ScrollToFormButton
                 eventLabel="Get My Fair Cash Offer - Hero"
+                ctaLocation="home_hero"
                 className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-base font-medium transition-all bg-ce-green text-white shadow-green hover:bg-ce-green-hover hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-green h-14 rounded-full px-10 group"
               >
                 Get My Fair Cash Offer
