@@ -68,7 +68,7 @@ const content = [
     { text: 'Letters Testamentary', bold: true },
     ' (when there’s a will) or ',
     { text: 'Letters of Administration', bold: true },
-    ' (when there isn’t), issued by the Berks County Register of Wills at 633 Court Street in Reading. From there, you can sell the house as-is to a cash buyer and close in as little as 7–30 days, or list it once it clears the City of Reading’s transfer requirements. If the property passed to you outside the estate — joint ownership with survivorship, a living trust, or a transfer-on-death arrangement — you may not need probate at all.',
+    ' (when there isn’t), issued by the Berks County Register of Wills at 633 Court Street in Reading. From there, you can sell the house as-is to a cash buyer and close in as little as 7–30 days, or list it once it clears the City of Reading’s transfer requirements. If the property passed to you outside the estate — joint ownership with right of survivorship, or a living trust — you may not need probate at all.',
   ]),
 
   h2('Step 1: Get the Legal Authority to Sell'),
@@ -143,7 +143,7 @@ const content = [
 
   h2('Your Options for Selling'),
   h3('List with an agent'),
-  p('Best gross price if the house is in good shape and you can carry it through a 60–120-day process: transfer certificate, inspection findings, repairs, showings, financing timelines — plus commissions and that 5% transfer tax against your net.'),
+  p('Best gross price if the house is in good shape and you can carry it through a multi-month process: transfer certificate, inspection findings, repairs, showings, financing timelines — plus commissions and that 5% transfer tax against your net.'),
   h3('Sell as-is to a cash buyer'),
   p('Fastest and simplest: a fair offer within 24 hours, no repairs or clean-out, no agent fees, close in 7–30 days or on the estate’s schedule. The trade-off is a price below full retail — honest math means comparing your projected net, not the sticker.'),
   h3('For sale by owner'),
