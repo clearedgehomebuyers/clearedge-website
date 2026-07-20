@@ -51,7 +51,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'sell-deceased-parents-house-without-probate-pennsylvania': {
     question: "Can I sell my deceased parents' house without probate in PA?",
-    answer: "Sometimes yes. You can avoid probate in Pennsylvania if: (1) you were joint owner with rights of survivorship, (2) the house was in a living trust, (3) there's a transfer-on-death deed, or (4) you're the surviving spouse and the estate is under $50,000. Otherwise, probate is required — but a cash buyer can work around the probate timeline and close once you have Letters Testamentary."
+    answer: "Sometimes yes. You can avoid probate in Pennsylvania if: (1) you were joint owner with rights of survivorship, (2) the house was in a living trust, or (3) you're the surviving spouse and the estate is under $50,000. Otherwise, probate is required — but a cash buyer can work around the probate timeline and close once you have Letters Testamentary."
   },
   'documents-required-selling-inherited-property-pennsylvania': {
     question: "What documents do I need to sell an inherited house in Pennsylvania?",
