@@ -7,6 +7,28 @@
 //
 // Dry-run by default; --yes to write. Grep-stable output: WRITTEN /
 // VERIFIED-PRESENT / DRY-RUN / ERROR. Create-or-update by slug (idempotent).
+//
+// RIDER (approved 2026-07-25, factual correction — not SEO iteration): the
+// situation/inherited-property doc still carries the false "transfer-on-death
+// deed" non-probate claim that Deploy B corrected everywhere else. Two places:
+// the FAQ answer (_key ni2654nq — PRIORITY: it renders into FAQPage JSON-LD, so
+// the false claim currently ships as structured data) and the problemDescription
+// body paragraph (_key 6l1wgrlr). Deploy B's Sanity rider was hard-scoped to the
+// probate blogPost, so this document was never in its query.
+//
+// Accuracy per the same .gov sourcing as the Deploy B rider (legis.state.pa.us /
+// palegis.us): PA never adopted URPTODA; Title 20's transfer-on-death provisions
+// cover securities (Ch. 64) and multiple-party accounts (Ch. 63), not real
+// property; the small-estate process (20 Pa.C.S. §3102) is personal-property-only
+// and expressly excludes real estate. The real non-probate paths for a house are
+// joint ownership with right of survivorship and a living trust.
+//
+// The rider runs in this same guarded pass, immediately BEFORE the situation
+// inbound-link append, and uses _key-addressed set() paths that rewrite only the
+// two strings — array lengths are untouched, so it cannot collide with the
+// append that follows. Baseline-guarded like the probate fix: known-bad text
+// required before writing, already-corrected => VERIFIED-PRESENT, anything else
+// => ERROR (refuses to write blind).
 
 import { createClient } from '@sanity/client'
 import { randomBytes } from 'crypto'
@@ -228,9 +250,84 @@ async function ensureLink(op, type, slug, field, href, segments) {
   console.log(`WRITTEN ${op}: ${type}/${slug} -> ${href}`)
 }
 
+// ---- Rider: TOD/small-estate factual correction on situation/inherited-property.
+// Surgical substring substitutions inside two known fields. Each carries its own
+// baseline (the known-bad sentence) and its own already-corrected sentinel.
+const TOD_FIXES = [
+  {
+    op: 'todFaq',
+    label: 'faqs[ni2654nq].answer — renders into FAQPage JSON-LD',
+    find: 'If the property was held jointly with rights of survivorship, in a living trust, or had a transfer-on-death deed, you may be able to sell without probate.',
+    replace: 'If the property was held jointly with rights of survivorship or in a living trust, you may be able to sell without probate. Pennsylvania does not offer transfer-on-death deeds for real estate, and the small-estate process covers personal property only — neither one transfers a house.',
+  },
+  {
+    op: 'todBody',
+    label: 'problemDescription[6l1wgrlr] body paragraph',
+    find: '— via a joint deed with rights of survivorship, a living trust, or a transfer-on-death deed — you may be able to sell immediately.',
+    replace: '— via a joint deed with rights of survivorship or a living trust — you may be able to sell immediately. Pennsylvania has no transfer-on-death deed for real estate, and the small-estate process covers personal property only, so neither one transfers a house.',
+  },
+]
+
+// Returns { path, next } for a fix, or logs and returns null.
+function planFix(fix, cur, path) {
+  if (typeof cur !== 'string') {
+    console.log(`ERROR ${fix.op}: target field missing (a _key changed?) — refusing to write blind`)
+    return null
+  }
+  if (cur.includes(fix.replace) && !cur.includes(fix.find)) {
+    console.log(`VERIFIED-PRESENT ${fix.op}: already corrected — ${fix.label}`)
+    return null
+  }
+  if (!cur.includes(fix.find)) {
+    console.log(`ERROR ${fix.op}: baseline mismatch — known-bad sentence not found in ${fix.label}; refusing to write blind. Current: "${cur.slice(0, 100)}..."`)
+    return null
+  }
+  console.log(`${fix.op}: correcting TOD/small-estate claim in ${fix.label}`)
+  return { path, next: cur.replace(fix.find, fix.replace) }
+}
+
+async function fixSituationTod() {
+  const doc = await client.fetch(
+    `*[_type == "situation" && slug.current == "inherited-property"][0]{
+       _id,
+       "faq": faqs[_key == "ni2654nq"][0],
+       "blk": problemDescription[_key == "6l1wgrlr"][0]
+     }`)
+  if (!doc?._id) return console.log('ERROR todFix: situation/inherited-property not found')
+
+  const patch = {}
+
+  // FAQ answer — plain string field.
+  const faqPlan = planFix(TOD_FIXES[0], doc.faq?.answer, 'faqs[_key=="ni2654nq"].answer')
+  if (faqPlan) patch[faqPlan.path] = faqPlan.next
+
+  // Body paragraph — portable-text span. Locate by content so a re-keyed span
+  // is still found; require exactly one match so we never half-correct a block
+  // that has been split into multiple spans since staging.
+  const spans = (doc.blk?.children || []).filter(c => typeof c.text === 'string')
+  const hit = spans.filter(c => c.text.includes(TOD_FIXES[1].find) || c.text.includes(TOD_FIXES[1].replace))
+  if (hit.length !== 1) {
+    console.log(`ERROR todBody: expected exactly 1 matching span in problemDescription[6l1wgrlr], found ${hit.length} — refusing to write blind`)
+  } else {
+    const bodyPlan = planFix(
+      TOD_FIXES[1], hit[0].text,
+      `problemDescription[_key=="6l1wgrlr"].children[_key=="${hit[0]._key}"].text`)
+    if (bodyPlan) patch[bodyPlan.path] = bodyPlan.next
+  }
+
+  const n = Object.keys(patch).length
+  if (n === 0) return
+  if (!WRITE) return console.log(`DRY-RUN todFix: would correct ${n} field(s) (pass --yes)`)
+  await client.patch(doc._id).set(patch).commit()
+  console.log(`WRITTEN todFix: ${n} field(s) corrected in one patch`)
+}
+
 async function main() {
   console.log(`=== Deploy C (${WRITE ? 'WRITE' : 'dry-run'}) ===`)
   await createPost()
+  // Rider runs before the situation link append; set() paths touch strings only,
+  // so the append that follows cannot be clobbered (and vice versa).
+  await fixSituationTod()
   // Part 3 link set INTO the new page (page's own outbound links are in content above)
   await ensureLink('linkProbate', 'blogPost', 'sell-deceased-parents-house-without-probate-pennsylvania', 'content', PAGE, [
     { text: 'Inherited property in Berks County? Our guide to ' },
