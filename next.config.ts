@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // audit QW4 (2026-08-10): 9 situation pages breadcrumb (JSON-LD) into
+        // /situations, which has no index route. Redirect chosen over pointing
+        // breadcrumb item 2 at "/" — that would put the same URL at two
+        // breadcrumb positions. This keeps the schema structurally truthful
+        // and resolves any external links to the bare path.
+        source: '/situations',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/sell-house-fast-scranton-pa',
         destination: '/locations/scranton',
         permanent: true,

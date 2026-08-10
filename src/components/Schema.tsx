@@ -56,11 +56,9 @@ export function LocalBusinessSchema() {
       { "@type": "Place", "name": "Eastern Pennsylvania" },
       { "@type": "Place", "name": "Northeastern Pennsylvania" }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "6"
-    },
+    // aggregateRating removed 2026-08-10 (audit QW3): schema claimed 5.0/6 reviews
+    // on pages that display zero reviews — the manual-action risk pattern. It
+    // remains only on /testimonials, where the reviews are actually visible.
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61578297005995",
       "https://www.instagram.com/clearedge_home_buyers/",

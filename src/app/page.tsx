@@ -80,6 +80,18 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
   return (
     <>
+      {/* Hero preload — homepage only (audit QW1, 2026-08-10). Lived in the
+          root layout <head>, where all 68 routes fetched ~20 KB they never
+          render. React 19 hoists this <link> into <head>. Keep attributes in
+          sync with v0-hero's srcSet. */}
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
+        imageSizes="(max-width: 768px) 280px, 380px"
+        fetchPriority="high"
+      />
       {/* RealEstateAgent Schema */}
       <script
         type="application/ld+json"

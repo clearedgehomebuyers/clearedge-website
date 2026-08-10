@@ -165,7 +165,29 @@ const blogLocations = {
   'scranton-pa-major-structural-damage-disclosure-law-2026': ['scranton', 'dunmore'],
 }
 
-// Situation display names
+// Situation anchor phrases — complete noun phrases, used verbatim as anchor
+// text after "Learn more about selling ".
+//
+// audit QW10 (2026-08-10): the previous form was a name map plus a hardcoded
+// `+ ' properties'` at the call site, producing "landlords properties",
+// "inherited property properties", "vacant properties properties", etc. —
+// 30 ungrammatical anchors that are now live Sanity content on the blog
+// posts this script edited (fixing THOSE is a Sanity pass, Batch 4). This
+// fixes the generator so any future run emits grammatical anchors.
+const situationAnchors = {
+  'foreclosure': 'a house in foreclosure',
+  'inherited-property': 'an inherited property',
+  'divorce': 'a house during divorce',
+  'tired-landlord': 'a rental property as a tired landlord',
+  'major-repairs': 'a home needing major repairs',
+  'tax-liens-code-violations': 'a house with tax liens or code violations',
+  'job-relocation': 'a house for a job relocation',
+  'vacant-property': 'a vacant property',
+}
+
+// Short descriptors for the location-page "Dealing with X? We can help."
+// sentence — unchanged from the original map (that call site was not part
+// of the QW10 defect; only the "+ ' properties'" anchors were).
 const situationNames = {
   'foreclosure': 'foreclosure',
   'inherited-property': 'inherited property',
@@ -392,7 +414,7 @@ async function processBlogPosts() {
       if (!hasLink(post.content, `/situations/${sit}`)) {
         linksToAdd.push(createLinkBlock(
           'Learn more about selling ',
-          situationNames[sit] + ' properties',
+          situationAnchors[sit],
           `/situations/${sit}`
         ))
       }

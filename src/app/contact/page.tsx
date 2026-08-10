@@ -56,7 +56,11 @@ const faqSchema = {
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.answer,
+      // audit QW5 (2026-08-10): JSON-LD is server-rendered, so the {{phone}}
+      // token shipped raw into structured data. Substitute the default/organic
+      // number statically (matches this page's LocalBusiness telephone); the
+      // visible accordion keeps its dynamic per-source substitution.
+      text: faq.answer.replace(/\{\{phone\}\}/g, '(610) 904-8526'),
     },
   })),
 }

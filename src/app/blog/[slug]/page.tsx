@@ -547,8 +547,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               >
                 More Guides
               </Link>
+              {/* audit QW2 (2026-08-10, hygiene): was "/#lead-form". For JS users
+                  TrackedCTALink already intercepted and scrolled to the on-page
+                  form (Tyler live-verified); the bare fragment makes no-JS and
+                  crawler behavior match, since V0LeadForm renders above. */}
               <TrackedCTALink
-                href="/#lead-form"
+                href="#lead-form"
                 label="Get My Fair Cash Offer"
                 eventLabel="Get My Fair Cash Offer - Blog Bottom CTA"
                 ctaLocation="blog_bottom"

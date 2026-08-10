@@ -136,15 +136,11 @@ export default function RootLayout({
             }
           })}}
         />
-        {/* Preload hero image (280w is inlined base64 in v0-hero, larger variants via network) */}
-        <link
-          rel="preload"
-          as="image"
-          type="image/webp"
-          imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
-          imageSizes="(max-width: 768px) 280px, 380px"
-          fetchPriority="high"
-        />
+        {/* Homepage-hero preload moved to src/app/page.tsx (audit QW1,
+            2026-08-10): from the root layout it fired on all 68 routes,
+            competing with each page's real LCP image on the 67 pages that
+            never render V0Hero. React 19 hoists the <link> to <head> from
+            the page component. */}
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <TrafficSourceProvider>

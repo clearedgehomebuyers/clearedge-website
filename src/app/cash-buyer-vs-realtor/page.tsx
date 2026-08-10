@@ -115,7 +115,9 @@ export default function CashBuyerVsRealtorPage() {
                   name: faq.question,
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: faq.answer,
+                    // audit QW5 (2026-08-10): substitute {{phone}} statically —
+                    // JSON-LD shipped the raw token. Default/organic number.
+                    text: faq.answer.replace(/\{\{phone\}\}/g, '(610) 904-8526'),
                   },
                 })),
               },

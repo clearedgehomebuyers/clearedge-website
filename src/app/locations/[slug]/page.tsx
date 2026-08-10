@@ -208,11 +208,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       "opens": "00:00",
       "closes": "23:59"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "6"
-    },
+    // aggregateRating removed 2026-08-10 (audit QW3): rating shown to Google on
+    // pages that display zero reviews; kept only on /testimonials.
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61578297005995",
       "https://www.instagram.com/clearedge_home_buyers/",
