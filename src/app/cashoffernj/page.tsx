@@ -56,16 +56,27 @@ export const metadata: Metadata = {
     title: 'Sell Your House Fast for Cash | ClearEdge Home Buyers',
     description:
       'Get a no-obligation cash offer on your house in 24 hours. Any condition, any situation.',
-    // No image on purpose: the shared og-image.png has "Eastern Pennsylvania
-    // • NEPA • Lehigh Valley • Poconos" rendered into the artwork itself, so
-    // inheriting it would reintroduce the claim as pixels. A geo-neutral
-    // replacement is a design task, not a metadata one.
+    // Geo-neutral artwork, not the shared og-image.png — that one has
+    // "Eastern Pennsylvania • NEPA • Lehigh Valley • Poconos" rendered into
+    // the image itself, so inheriting it would reintroduce the locality claim
+    // as pixels regardless of what these tags say.
+    // Source: generate-og-image-neutral.mjs
+    images: [
+      {
+        url: 'https://www.clearedgehomebuyers.com/og-image-neutral.png',
+        width: 1200,
+        height: 630,
+        alt: 'ClearEdge Home Buyers — Sell Your House Fast for Cash',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Sell Your House Fast for Cash | ClearEdge Home Buyers',
     description:
       'Get a no-obligation cash offer on your house in 24 hours. Any condition, any situation.',
+    images: ['https://www.clearedgehomebuyers.com/og-image-neutral.png'],
   },
   alternates: {
     canonical: 'https://www.clearedgehomebuyers.com/cashoffernj',
