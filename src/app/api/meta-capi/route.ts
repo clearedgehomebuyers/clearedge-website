@@ -56,6 +56,21 @@ function hashName(value: unknown): string | undefined {
   return normalized ? sha256(normalized) : undefined
 }
 
+/**
+ * Rebuild Meta's `_fbc` from an fbclid in the event URL, in Meta's documented
+ * fb.{subdomainIndex}.{creationTimeMs}.{fbclid} shape. Used only when neither
+ * the request body nor the cookie carried one.
+ */
+function fbcFromUrl(eventSourceUrl?: string): string | undefined {
+  if (!eventSourceUrl) return undefined
+  try {
+    const fbclid = new URL(eventSourceUrl).searchParams.get('fbclid')
+    return fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined
+  } catch {
+    return undefined
+  }
+}
+
 function clientIp(request: NextRequest): string | undefined {
   const forwarded = request.headers.get('x-forwarded-for')
   if (forwarded) return forwarded.split(',')[0].trim()
@@ -92,7 +107,17 @@ export async function POST(request: NextRequest) {
   }
 
   const userData = (body.user_data ?? {}) as Record<string, unknown>
-  const fbc = (body.fbc as string) || request.cookies.get('_fbc')?.value
+  const eventSourceUrl = typeof body.event_source_url === 'string' ? body.event_source_url : undefined
+
+  const fbc =
+    (body.fbc as string) ||
+    request.cookies.get('_fbc')?.value ||
+    // Last resort: rebuild it from the fbclid still sitting in the event's own
+    // URL. Covers the visitor whose browser refused our cookie — without this,
+    // an ad click that we can plainly see in the URL would be reported to Meta
+    // with no click id at all.
+    fbcFromUrl(eventSourceUrl)
+
   const fbp = (body.fbp as string) || request.cookies.get('_fbp')?.value
 
   const event = {
@@ -102,7 +127,7 @@ export async function POST(request: NextRequest) {
     event_time: Math.floor(Date.now() / 1000),
     event_id: eventId,
     action_source: 'website',
-    event_source_url: typeof body.event_source_url === 'string' ? body.event_source_url : undefined,
+    event_source_url: eventSourceUrl,
     user_data: compact({
       em: hashNormalized(userData.email),
       ph: hashPhone(userData.phone),

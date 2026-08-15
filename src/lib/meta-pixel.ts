@@ -107,6 +107,33 @@ export function captureFbclid(): string {
   return fbclid
 }
 
+/**
+ * Make sure `_fbp` exists before an event reads it.
+ *
+ * `_fbp` is normally minted by fbevents.js — which we load with
+ * `strategy="lazyOnload"`, i.e. after the window load event. The first
+ * PageView fires from a mount effect long before that, so without this the
+ * highest-volume event on the site ships with no fbp for every new visitor.
+ *
+ * Writing it ourselves is safe: fbevents.js adopts a well-formed existing
+ * `_fbp` rather than minting a competing one (this is the mechanism every
+ * first-party-cookie CAPI setup relies on). We only ever create it when
+ * absent, so the pixel's own value always wins if it got there first.
+ *
+ * Format is Meta's: fb.{subdomainIndex}.{creationTimeMs}.{randomNumber}
+ */
+export function ensureFbp(): string {
+  if (typeof window === 'undefined') return ''
+
+  const existing = readCookie('_fbp')
+  if (existing) return existing
+
+  const random = Math.floor(Math.random() * 9_000_000_000) + 1_000_000_000
+  const fbp = `fb.1.${Date.now()}.${random}`
+  writeCookie('_fbp', fbp, FBC_MAX_AGE_SECONDS)
+  return fbp
+}
+
 // ─── Event ids ──────────────────────────────────────────────────────────────
 
 function newEventId(): string {
@@ -157,6 +184,19 @@ export function trackMeta(
   const eventId = newEventId()
   if (!pixelEnabled()) return eventId
 
+  // Resolve Meta's identifier cookies HERE, before anything reads them.
+  //
+  // Both used to be written elsewhere and later: _fbc by TrafficSourceProvider
+  // inside a setTimeout(0), and _fbp by fbevents.js on lazyOnload. The first
+  // PageView fires from a mount effect, which beats both — so the first event
+  // of every session, the single highest-volume event we send, went out with
+  // neither identifier. Doing it here means no event can ever precede them.
+  //
+  // Both calls are idempotent and cheap: captureFbclid() only writes when the
+  // URL carries a new fbclid, ensureFbp() only when the cookie is absent.
+  captureFbclid()
+  ensureFbp()
+
   const method = STANDARD_EVENTS.has(eventName) ? 'track' : 'trackCustom'
   window.fbq(method, eventName, customData ?? {}, { eventID: eventId })
 
@@ -166,8 +206,6 @@ export function trackMeta(
     event_source_url: window.location.href,
     custom_data: customData,
     user_data: userData,
-    // Read at fire time rather than at import time — _fbp is written by
-    // fbevents.js, which loads after first paint.
     fbc: readCookie('_fbc') || undefined,
     fbp: readCookie('_fbp') || undefined,
   })
