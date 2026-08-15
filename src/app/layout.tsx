@@ -87,6 +87,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // Meta domain verification. Deliberately NOT gated on VERCEL_ENV like the
+  // GA4 scripts below: Meta's crawler can hit any URL, so the tag has to be in
+  // <head> on every route unconditionally. Harmless off the production domain.
+  other: {
+    'facebook-domain-verification': '2wry37b70wp5tc6qe5tjhoqj18g9za',
+  },
 };
 
 export default function RootLayout({
