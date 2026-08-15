@@ -132,7 +132,7 @@ export function SoftLeadForm() {
               Someone from our team will reach out within a few hours. If you&apos;d rather not wait, give us a call:
             </p>
             <a
-              href={phoneTel}
+              href={`tel:${phoneTel}`}
               className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg"
             >
               Call {phone}

@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
-import { captureFbclid } from '@/lib/meta-pixel'
+import { captureFbclid, readCookie } from '@/lib/meta-pixel'
 
 // ─── SMS Attribution Window ───
 // How long (in ms) after clicking an SMS link we still attribute return visits
@@ -11,28 +11,61 @@ const SMS_ATTRIBUTION_WINDOW_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
 // ─── Traffic Source Configuration ───
 // TODO: Update sms.phone and sms.webhook when dedicated SMS tracking
 //       number and Zapier webhook are provisioned.
+const WEBHOOKS = {
+  seo: 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/',
+  direct: 'https://hooks.zapier.com/hooks/catch/26244252/ultjlsu/',
+  sms: 'https://hooks.zapier.com/hooks/catch/26244252/uenj3w1/',
+  facebook: 'https://hooks.zapier.com/hooks/catch/26244252/4t4fxjh/',
+} as const
+
 const TRAFFIC_CONFIG = {
+  // Pre-detection state. Renders the NAP/GBP number — the same one organic
+  // gets, and the correct neutral default — so nothing changes visually before
+  // hydration. What changes is what gets *recorded*: a lead submitted in this
+  // window now reports 'unknown' rather than a false 'seo'. Delivery is
+  // unaffected: it shares the organic webhook, which is where these leads
+  // already went when this state was indistinguishable from organic.
+  unknown: {
+    phone: '(610) 904-8526',
+    phoneRaw: '6109048526',
+    phoneTel: '+16109048526',
+    webhook: WEBHOOKS.seo,
+  },
   seo: {
     phone: '(610) 904-8526',
     phoneRaw: '6109048526',
     phoneTel: '+16109048526',
-    webhook: 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/',
+    webhook: WEBHOOKS.seo,
   },
   direct: {
     phone: '(610) 628-0671',
     phoneRaw: '6106280671',
     phoneTel: '+16106280671',
-    webhook: 'https://hooks.zapier.com/hooks/catch/26244252/ultjlsu/',
+    webhook: WEBHOOKS.direct,
   },
   sms: {
     phone: '(610) 379-1453',
     phoneRaw: '6103791453',
     phoneTel: '+16103791453',
-    webhook: 'https://hooks.zapier.com/hooks/catch/26244252/uenj3w1/',
+    webhook: WEBHOOKS.sms,
+  },
+  // Meta/Facebook ads. This is the New Jersey campaign number.
+  // A PA Facebook number — (610) 991-7916 — exists but has no Zapier webhook
+  // provisioned yet, so it is deliberately NOT wired here. Adding it means a
+  // second facebook-* branch plus a rule to pick between them (campaign geo
+  // via utm_campaign is the likely discriminator).
+  facebook: {
+    phone: '(973) 346-9832',
+    phoneRaw: '9733469832',
+    phoneTel: '+19733469832',
+    webhook: WEBHOOKS.facebook,
   },
 } as const
 
-type TrafficSource = 'seo' | 'direct' | 'sms'
+type TrafficSource = 'seo' | 'direct' | 'sms' | 'facebook' | 'unknown'
+
+/** The states detection can actually settle on — 'unknown' is never stored. */
+type ResolvedTrafficSource = Exclude<TrafficSource, 'unknown'>
 
 export interface UTMParams {
   utm_source: string
@@ -66,17 +99,20 @@ interface TrafficSourceContextType {
 }
 
 const TrafficSourceContext = createContext<TrafficSourceContextType>({
-  trafficSource: 'seo',
-  phone: TRAFFIC_CONFIG.seo.phone,
-  phoneRaw: TRAFFIC_CONFIG.seo.phoneRaw,
-  phoneTel: TRAFFIC_CONFIG.seo.phoneTel,
-  webhook: TRAFFIC_CONFIG.seo.webhook,
+  trafficSource: 'unknown',
+  phone: TRAFFIC_CONFIG.unknown.phone,
+  phoneRaw: TRAFFIC_CONFIG.unknown.phoneRaw,
+  phoneTel: TRAFFIC_CONFIG.unknown.phoneTel,
+  webhook: TRAFFIC_CONFIG.unknown.webhook,
   utmParams: EMPTY_UTM,
   landingPage: '',
   isLoaded: false,
 })
 
-// SEO referrer patterns
+// SEO referrer patterns.
+// facebook.com is deliberately absent: Meta traffic is identified by fbclid
+// and the _fbc cookie, not by referrer, because in-app browsers strip or
+// rewrite it. Adding it here would misclassify organic Facebook shares as ads.
 const SEO_REFERRERS = [
   'google.com',
   'google.',
@@ -144,26 +180,43 @@ function captureLandingPage(): string {
 }
 
 // ─── Traffic source detection ───
-function detectTrafficSource(): { source: TrafficSource; restoredUTM: UTMParams | null; restoredLandingPage: string | null } {
+//
+// Precedence, first match wins. The ordering principle: paid signals outrank
+// the sessionStorage lock. A lead that can't be traced to the spend that
+// produced it makes budget decisions run on wrong data, so a live ad click is
+// never allowed to inherit an earlier organic/direct classification.
+//
+//   1. fbclid in the current URL      → facebook  (overwrites stored value)
+//   2. ?utm_source=sms                → sms
+//   3. stored SMS attribution, ≤7d    → sms
+//   4. _fbc cookie present            → facebook  (Meta's own 90-day window)
+//   5. stored sessionStorage value    → that value
+//   6. referrer match                 → seo / direct
+//   7. nothing resolves               → direct
+//
+function detectTrafficSource(): { source: ResolvedTrafficSource; restoredUTM: UTMParams | null; restoredLandingPage: string | null } {
   if (typeof window === 'undefined') return { source: 'direct', restoredUTM: null, restoredLandingPage: null }
 
-  // 1. Check sessionStorage (persists within current browser session)
-  const storedSource = sessionStorage.getItem('trafficSource')
-  if (storedSource === 'seo' || storedSource === 'direct' || storedSource === 'sms') {
-    return { source: storedSource, restoredUTM: null, restoredLandingPage: null }
+  const params = new URLSearchParams(window.location.search)
+
+  // 1. Live ad click. Outranks everything, including a stored value from
+  //    earlier in this session — the click is the most recent truth about
+  //    where this visitor came from, and it is the one we are paying for.
+  if (params.get('fbclid')) {
+    sessionStorage.setItem('trafficSource', 'facebook')
+    return { source: 'facebook', restoredUTM: null, restoredLandingPage: null }
   }
 
-  // 2. Check UTM params in URL (highest priority — explicit campaign tagging)
-  const params = new URLSearchParams(window.location.search)
-  const utmSource = params.get('utm_source')
-  if (utmSource === 'sms') {
+  // 2. Explicit SMS campaign tagging in the URL.
+  if (params.get('utm_source') === 'sms') {
     sessionStorage.setItem('trafficSource', 'sms')
     return { source: 'sms', restoredUTM: null, restoredLandingPage: null }
   }
 
-  // 3. Check localStorage for SMS attribution (return visit within 7-day window)
-  //    This is the key feature — if someone clicked an SMS link days ago,
-  //    left, and is now coming back, we still attribute them to that campaign.
+  // 3. Stored SMS attribution (return visit within the 7-day window).
+  //    If someone clicked an SMS link days ago, left, and is now coming back,
+  //    we still attribute them to that campaign — and restore the original
+  //    UTMs and landing page with it.
   const smsAttribution = loadSMSAttribution()
   if (smsAttribution) {
     sessionStorage.setItem('trafficSource', 'sms')
@@ -174,7 +227,27 @@ function detectTrafficSource(): { source: TrafficSource; restoredUTM: UTMParams 
     }
   }
 
-  // 4. Detect from referrer
+  // 4. Returning ad-clicker. captureFbclid() writes _fbc with a 90-day
+  //    max-age, matching Meta's click-attribution window. Reading it here is
+  //    what stops the site from serving the direct number and webhook to a
+  //    visitor Meta is still attributing to an ad.
+  if (readCookie('_fbc')) {
+    sessionStorage.setItem('trafficSource', 'facebook')
+    return { source: 'facebook', restoredUTM: null, restoredLandingPage: null }
+  }
+
+  // 5. Session lock — whatever this session already resolved to.
+  const storedSource = sessionStorage.getItem('trafficSource')
+  if (
+    storedSource === 'seo' ||
+    storedSource === 'direct' ||
+    storedSource === 'sms' ||
+    storedSource === 'facebook'
+  ) {
+    return { source: storedSource, restoredUTM: null, restoredLandingPage: null }
+  }
+
+  // 6. Detect from referrer
   const referrer = document.referrer.toLowerCase()
 
   // If no referrer or internal referrer → direct
@@ -183,9 +256,9 @@ function detectTrafficSource(): { source: TrafficSource; restoredUTM: UTMParams 
     return { source: 'direct', restoredUTM: null, restoredLandingPage: null }
   }
 
-  // Check if referrer matches any search engine
+  // 7. Search engine referrer → seo. Anything else falls through to direct.
   const isSEO = SEO_REFERRERS.some(pattern => referrer.includes(pattern))
-  const source: TrafficSource = isSEO ? 'seo' : 'direct'
+  const source: ResolvedTrafficSource = isSEO ? 'seo' : 'direct'
 
   sessionStorage.setItem('trafficSource', source)
   return { source, restoredUTM: null, restoredLandingPage: null }
@@ -235,7 +308,9 @@ function captureUTMParams(fbclid: string): UTMParams {
 }
 
 export function TrafficSourceProvider({ children }: { children: ReactNode }) {
-  const [trafficSource, setTrafficSource] = useState<TrafficSource>('seo')
+  // Starts 'unknown', not 'seo': detection runs after mount, and seeding to a
+  // real branch meant every pre-hydration lead was recorded as organic.
+  const [trafficSource, setTrafficSource] = useState<TrafficSource>('unknown')
   const [utmParams, setUtmParams] = useState<UTMParams>(EMPTY_UTM)
   const [landingPage, setLandingPage] = useState('')
   const [isLoaded, setIsLoaded] = useState(false)
