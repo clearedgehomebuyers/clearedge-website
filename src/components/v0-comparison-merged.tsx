@@ -1,6 +1,7 @@
 "use client"
 
 import { ArrowRight, CheckCircle, XCircle } from "lucide-react"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const costBreakdown = [
   { expense: "Repairs & Pre-Sale Inspections", traditional: "$15,000–25,000", clearEdge: "$0" },
@@ -198,6 +199,7 @@ export function V0ComparisonMerged() {
                   cta_location: 'home_comparison'
                 });
               }
+              trackMetaCTAClick('Get Your Cash Offer Now - Comparison', 'home_comparison')
               document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
             }}
             className="inline-flex items-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 group"

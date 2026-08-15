@@ -1,6 +1,7 @@
 "use client"
 
 import { FileText, Phone, HandshakeIcon, ArrowRight } from "lucide-react"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const steps = [
   {
@@ -94,6 +95,7 @@ export function V0HowItWorks() {
                   cta_location: 'home_how_it_works'
                 });
               }
+              trackMetaCTAClick('Get My Cash Offer - How It Works', 'home_how_it_works')
               document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
             }}
             className="inline-flex items-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover shadow-green hover:shadow-green-lg hover:-translate-y-0.5 active:translate-y-0 transition-all group"

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const regionLinks = {
   'NEPA': {
@@ -361,6 +362,7 @@ export function V0Header() {
                     cta_location: 'header_desktop'
                   });
                 }
+                trackMetaCTAClick('Get My Offer - Header Desktop', 'header_desktop')
                 scrollToForm();
               }}
               className="px-3 lg:px-5 py-2 lg:py-2.5 bg-ce-green hover:bg-ce-green-hover text-white font-semibold text-sm rounded-full shadow-green hover:shadow-green-lg transition-all hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
@@ -507,6 +509,7 @@ export function V0Header() {
                   cta_location: 'header_mobile'
                 });
               }
+              trackMetaCTAClick('Get My Offer - Header Mobile', 'header_mobile')
               scrollToForm();
             }}
             className="w-full py-3 mt-2 bg-ce-green hover:bg-ce-green-hover text-white font-semibold rounded-full shadow-green"

@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { CoverageMapWrapper } from './CoverageMapWrapper'
+import { trackMetaCTAClick } from '@/lib/meta-pixel'
 
 const locationsByRegion = {
   'NEPA': {
@@ -50,6 +51,7 @@ export function V0ServiceAreas() {
         cta_location: 'home_service_areas'
       });
     }
+    trackMetaCTAClick('Request Offer Anyway - Service Areas', 'home_service_areas')
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" })
   }
 

@@ -9,6 +9,7 @@ import { V0FAQ } from '@/components/v0-faq'
 import { RegionalCoverageMapWrapper } from '@/components/RegionalCoverageMapWrapper'
 import { DynamicPhoneLink } from '@/components/DynamicPhone'
 import type { RegionalHubData } from '@/lib/regional-hub-data'
+import { trackMetaCTAClick } from '@/lib/meta-pixel'
 
 // Trust stats for the hero section
 const trustStats = [
@@ -32,6 +33,10 @@ export function RegionalHubPage({ data }: RegionalHubPageProps) {
         cta_location: `location_${data.regionName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`
       })
     }
+    trackMetaCTAClick(
+      `Get My Fair Cash Offer - ${data.regionName} Hub Hero`,
+      `location_${data.regionName.toLowerCase().replace(/[^a-z0-9]+/g, '_')}`,
+    )
     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 

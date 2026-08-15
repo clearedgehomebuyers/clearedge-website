@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AddressAutocomplete } from "@/components/AddressAutocomplete"
 import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
+import { trackMetaFormStart, trackMetaLead } from "@/lib/meta-pixel"
 
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
@@ -153,6 +154,11 @@ export function V0LeadForm() {
   const [smsConsent, setSmsConsent] = useState(false)
   const [showStep1Errors, setShowStep1Errors] = useState(false)
   const stepKeyRef = useRef(0)
+  // Meta FormStart fires on the first field the visitor touches, once per
+  // mounted form. GA4's form_start comes from Enhanced Measurement and can't
+  // say which form it was; this one names it.
+  const hasTrackedFormStart = useRef(false)
+  const hasTrackedMetaLead = useRef(false)
 
   // Check if current step is valid
   const isStepValid = (step: number): boolean => {
@@ -252,6 +258,26 @@ export function V0LeadForm() {
 
     setIsSubmitting(true)
 
+    // Meta Lead — the same action GA4 reports as generate_lead, sent to the
+    // pixel and to CAPI under one shared event id. Fires on the webhook-failure
+    // path too, matching what GA4 does, so the two platforms stay comparable.
+    const trackLeadOnce = () => {
+      if (hasTrackedMetaLead.current) return
+      hasTrackedMetaLead.current = true
+      trackMetaLead(
+        {
+          email: formData.email,
+          phone: formData.phone,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          city: formData.city,
+          state: formData.state,
+          zip: formData.zip,
+        },
+        'Multi-Step Lead Form',
+      )
+    }
+
     try {
       // Build payload for Zapier/REsimpli
       const payload = {
@@ -275,6 +301,7 @@ export function V0LeadForm() {
         utm_campaign: utmParams.utm_campaign,
         utm_content: utmParams.utm_content,
         utm_term: utmParams.utm_term,
+        fbclid: utmParams.fbclid,
         landingPage: landingPage,
       }
 
@@ -290,23 +317,36 @@ export function V0LeadForm() {
       // Clear SMS attribution so this lead isn't double-counted on return visits
       if (trafficSource === 'sms') clearSMSAttribution()
 
+      trackLeadOnce()
+
       // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
     } catch (error) {
       console.error('Form submission error:', error)
       // Still show success to user, log error for debugging
       webhookDeliveredRef.current = false
+      trackLeadOnce()
       setIsSubmitted(true)
     } finally {
       setIsSubmitting(false)
     }
   }
 
+  // Every field and every option button routes through here, so one guard
+  // covers all five steps.
+  const markFormStart = () => {
+    if (hasTrackedFormStart.current) return
+    hasTrackedFormStart.current = true
+    trackMetaFormStart('Multi-Step Lead Form')
+  }
+
   const updateFormData = (field: string, value: string) => {
+    markFormStart()
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
   const handlePhoneChange = (value: string) => {
+    markFormStart()
     const formatted = formatPhoneNumber(value)
     setFormData((prev) => ({ ...prev, phone: formatted }))
   }

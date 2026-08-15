@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { XCircle, CheckCircle, ArrowRight } from "lucide-react"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const problems = [
   "Spend $10K–$25K on repairs before you can even list",
@@ -116,6 +117,7 @@ export function V0ProblemSolutionMerged() {
                     cta_location: 'home_problem_solution'
                   });
                 }
+                trackMetaCTAClick('See If Your Property Qualifies - Problem Solution', 'home_problem_solution')
                 document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
               }}
               className="inline-flex items-center gap-2 text-ce-green font-medium link-animated"

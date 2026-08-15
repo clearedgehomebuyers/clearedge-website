@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Calculator as CalculatorIcon, DollarSign, Home, ArrowRight, HelpCircle, ChevronDown, Check } from 'lucide-react'
+import { trackMetaCTAClick } from '@/lib/meta-pixel'
 
 // PA Counties with transfer tax rates AND property tax rates
 const paCounties = [
@@ -659,6 +660,7 @@ export function Calculator({
         cta_location: ctaLocation
       })
     }
+    trackMetaCTAClick(ctaEventLabel, ctaLocation)
     document.getElementById(ctaScrollTarget)?.scrollIntoView({ behavior: 'smooth' })
   }
 

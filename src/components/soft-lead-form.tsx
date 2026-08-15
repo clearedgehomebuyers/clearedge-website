@@ -1,8 +1,9 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 import { AddressAutocomplete } from './AddressAutocomplete'
+import { trackMetaFormStart, trackMetaLead } from '@/lib/meta-pixel'
 
 const US_STATES = [
   'PA','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN',
@@ -42,6 +43,14 @@ export function SoftLeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const hasTrackedFormStart = useRef(false)
+
+  // Fired from the form's onChange, which every input in it bubbles up to.
+  const markFormStart = () => {
+    if (hasTrackedFormStart.current) return
+    hasTrackedFormStart.current = true
+    trackMetaFormStart('SMS Soft Lead Form')
+  }
 
   const phoneDigits = extractPhoneDigits(phoneValue)
   const isValid = firstName.trim().length > 0 && lastName.trim().length > 0 && phoneDigits.length === 10 && address.trim().length > 0 && city.trim().length > 0 && state.length > 0 && /^\d{5}$/.test(zip)
@@ -69,6 +78,7 @@ export function SoftLeadForm() {
           zip,
           trafficSource,
           landingPage,
+          // Spread carries utm_* plus fbclid through to Zapier.
           ...utmParams,
           formType: 'SMS Soft Lead Form',
           submittedAt: new Date().toISOString(),
@@ -83,6 +93,20 @@ export function SoftLeadForm() {
           page_path: window.location.pathname,
         })
       }
+
+      // Meta Lead — pixel + CAPI under one event id. No email on this form,
+      // so phone carries the match.
+      trackMetaLead(
+        {
+          phone: `+1${phoneDigits}`,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          city: city.trim(),
+          state,
+          zip,
+        },
+        'SMS Soft Lead Form',
+      )
 
       clearSMSAttribution()
       setIsSubmitted(true)
@@ -131,7 +155,7 @@ export function SoftLeadForm() {
           </p>
         </div>
 
-        <form id="sms-soft-lead-form" name="sms-soft-lead-form" onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
+        <form id="sms-soft-lead-form" name="sms-soft-lead-form" onSubmit={handleSubmit} onChange={markFormStart} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
           {/* Name */}
           <div className="grid grid-cols-2 gap-3">
             <div>

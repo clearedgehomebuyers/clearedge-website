@@ -3,6 +3,7 @@
 import { ChevronDown, ArrowRight, CheckCircle } from "lucide-react"
 import { useState } from "react"
 import { LiteYouTube } from "./LiteYouTube"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 // Quick Answer bullets for featured snippet optimization
 const quickAnswers = [
@@ -27,6 +28,7 @@ export function V0VideoSection() {
         cta_location: 'home_video'
       });
     }
+    trackMetaCTAClick('Get My Cash Offer Now - Video Section', 'home_video')
     const form = document.getElementById('lead-form')
     if (form) {
       form.scrollIntoView({ behavior: 'smooth' })

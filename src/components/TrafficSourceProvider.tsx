@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
+import { captureFbclid } from '@/lib/meta-pixel'
 
 // ─── SMS Attribution Window ───
 // How long (in ms) after clicking an SMS link we still attribute return visits
@@ -39,6 +40,9 @@ export interface UTMParams {
   utm_campaign: string
   utm_content: string
   utm_term: string
+  /** Meta's ad-click id. Travels with the UTMs into the CRM payload so a lead
+   *  can be tied back to the exact ad click. */
+  fbclid: string
 }
 
 const EMPTY_UTM: UTMParams = {
@@ -47,6 +51,7 @@ const EMPTY_UTM: UTMParams = {
   utm_campaign: '',
   utm_content: '',
   utm_term: '',
+  fbclid: '',
 }
 
 interface TrafficSourceContextType {
@@ -187,13 +192,26 @@ function detectTrafficSource(): { source: TrafficSource; restoredUTM: UTMParams 
 }
 
 // ─── UTM parameter capture ───
-function captureUTMParams(): UTMParams {
+// `fbclid` is passed in rather than read here: captureFbclid() also writes the
+// _fbc cookie, and that has to happen on every landing, including the ones
+// that short-circuit on stored params below.
+function captureUTMParams(fbclid: string): UTMParams {
   if (typeof window === 'undefined') return EMPTY_UTM
 
   // Check sessionStorage first (persist across page navigation)
   const stored = sessionStorage.getItem('utmParams')
   if (stored) {
-    try { return JSON.parse(stored) } catch { /* fall through */ }
+    try {
+      // Spread over EMPTY_UTM so sessions stored before fbclid was captured
+      // still deserialize into a complete object.
+      const restored: UTMParams = { ...EMPTY_UTM, ...JSON.parse(stored) }
+      // A fresh ad click mid-session supersedes what we stored earlier.
+      if (fbclid && fbclid !== restored.fbclid) {
+        restored.fbclid = fbclid
+        sessionStorage.setItem('utmParams', JSON.stringify(restored))
+      }
+      return restored
+    } catch { /* fall through */ }
   }
 
   const params = new URLSearchParams(window.location.search)
@@ -203,10 +221,13 @@ function captureUTMParams(): UTMParams {
     utm_campaign: params.get('utm_campaign') || '',
     utm_content: params.get('utm_content') || '',
     utm_term: params.get('utm_term') || '',
+    fbclid,
   }
 
-  // Store in sessionStorage if any UTM param is present
-  if (utmParams.utm_source) {
+  // Persist if ANY parameter landed. Keying this on utm_source alone would
+  // drop fbclid-only visits — which is exactly what an untagged Meta ad click
+  // looks like.
+  if (Object.values(utmParams).some(Boolean)) {
     sessionStorage.setItem('utmParams', JSON.stringify(utmParams))
   }
 
@@ -223,13 +244,18 @@ export function TrafficSourceProvider({ children }: { children: ReactNode }) {
     // Defer detection to avoid competing with hydration on the main thread
     const id = setTimeout(() => {
       const landing = captureLandingPage()
+      // Write _fbc first: it has to land on every visit carrying an fbclid,
+      // whether or not that visit also carries UTMs or restores an older one.
+      const fbclid = captureFbclid()
       const { source, restoredUTM, restoredLandingPage } = detectTrafficSource()
-      const utm = restoredUTM || captureUTMParams()
+      const utm = restoredUTM
+        ? { ...EMPTY_UTM, ...restoredUTM, fbclid: fbclid || restoredUTM.fbclid || '' }
+        : captureUTMParams(fbclid)
 
       // If UTMs were restored from localStorage (return SMS visit),
       // also persist them into sessionStorage for this session
       if (restoredUTM) {
-        sessionStorage.setItem('utmParams', JSON.stringify(restoredUTM))
+        sessionStorage.setItem('utmParams', JSON.stringify(utm))
       }
 
       // Use the original landing page from SMS attribution if this is a return visit

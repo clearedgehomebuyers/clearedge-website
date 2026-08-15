@@ -1,5 +1,7 @@
 'use client'
 
+import { trackMetaCTAClick } from '@/lib/meta-pixel'
+
 interface ScrollToFormButtonProps {
   children: React.ReactNode
   className?: string
@@ -17,6 +19,7 @@ export function ScrollToFormButton({ children, className, eventLabel, ctaLocatio
         ...(ctaLocation ? { cta_location: ctaLocation } : {})
       })
     }
+    if (eventLabel) trackMetaCTAClick(eventLabel, ctaLocation)
     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 

@@ -1,6 +1,7 @@
 "use client"
 
 import { ArrowRight } from "lucide-react"
+import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 interface TrackedCTALinkProps {
   href: string
@@ -29,6 +30,10 @@ export function TrackedCTALink({
         ...(ctaLocation ? { cta_location: ctaLocation } : {})
       });
     }
+
+    // Meta CTAClick — outside the gtag guard on purpose: Meta must not depend
+    // on GA4 having loaded.
+    trackMetaCTAClick(eventLabel, ctaLocation)
 
     // Use scrollIntoView for #lead-form links (works on repeat clicks)
     if (href.includes('#lead-form')) {

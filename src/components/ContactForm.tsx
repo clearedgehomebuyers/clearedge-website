@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
+import { trackMetaFormStart, trackMetaLead } from '@/lib/meta-pixel'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -48,6 +49,16 @@ export function ContactForm() {
   // Once-guard: the effect re-runs on every idle->success transition, but one
   // mounted form must never report more than one lead.
   const hasTrackedLead = useRef(false)
+  const hasTrackedMetaLead = useRef(false)
+  const hasTrackedFormStart = useRef(false)
+
+  // Fired from the form's onChange, which every input in it bubbles up to.
+  const markFormStart = () => {
+    if (hasTrackedFormStart.current) return
+    hasTrackedFormStart.current = true
+    trackMetaFormStart('Contact Form')
+  }
+
   useEffect(() => {
     if (submitStatus === 'success' && !hasTrackedLead.current && typeof window !== 'undefined' && window.gtag) {
       hasTrackedLead.current = true
@@ -113,6 +124,7 @@ export function ContactForm() {
         utm_campaign: utmParams.utm_campaign,
         utm_content: utmParams.utm_content,
         utm_term: utmParams.utm_term,
+        fbclid: utmParams.fbclid,
         landingPage: landingPage,
         notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
       }
@@ -128,6 +140,21 @@ export function ContactForm() {
 
       // Clear SMS attribution so this lead isn't double-counted on return visits
       if (trafficSource === 'sms') clearSMSAttribution()
+
+      // Meta Lead — fired here rather than from the effect above because the
+      // success path clears formData, and CAPI needs the email and phone.
+      if (!hasTrackedMetaLead.current) {
+        hasTrackedMetaLead.current = true
+        trackMetaLead(
+          {
+            email: formData.email,
+            phone: formData.phone,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+          },
+          'Contact Form',
+        )
+      }
 
       // With no-cors mode, we can't read the response, so assume success
       setSubmitStatus('success')
@@ -147,7 +174,7 @@ export function ContactForm() {
       {/* Left Column - Simple Lead Form */}
       <div>
         <h2 className="font-serif text-2xl md:text-3xl font-medium text-ce-ink mb-6">Request Your Cash Offer</h2>
-        <form id="contact-form" name="contact-form" onSubmit={handleSubmit} className="space-y-4">
+        <form id="contact-form" name="contact-form" onSubmit={handleSubmit} onChange={markFormStart} className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink/70 mb-1">First Name</label>

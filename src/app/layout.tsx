@@ -4,6 +4,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { FloatingTextButton } from "@/components/FloatingTextButton";
+import { MetaPixel } from "@/components/MetaPixel";
 import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
 import { ScrollAnimationProvider } from "@/components/ScrollAnimationProvider";
 
@@ -124,6 +125,10 @@ export default function RootLayout({
               src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
               strategy="lazyOnload"
             />
+            {/* Meta Pixel — same production-only gate as GA4 above. Fires
+                PageView on load and on client-side route changes; the matching
+                server-side events go through /api/meta-capi. */}
+            <MetaPixel />
           </>
         )}
         {/* WebSite Schema - appears on every page */}
