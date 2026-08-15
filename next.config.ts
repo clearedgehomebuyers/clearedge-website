@@ -2,7 +2,11 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    // Keep console.error in production: it is the only signal when the Meta
+    // CAPI route's events are rejected by Graph, and those failures are
+    // otherwise silent (the client always gets a 200 so a Meta outage can
+    // never break a form submission).
+    removeConsole: process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
   images: {
     formats: ['image/avif', 'image/webp'],

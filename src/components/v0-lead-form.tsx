@@ -131,14 +131,50 @@ function getPhoneDigits(value: string): string {
   return extractPhoneDigits(value)
 }
 
-export function V0LeadForm() {
+interface V0LeadFormProps {
+  /**
+   * Pre-selected state. Defaults to PA for the main site; paid landing pages
+   * that make no locality claim pass '' so nothing is assumed about the
+   * visitor's market.
+   */
+  defaultState?: string
+  /**
+   * Helper copy under the address step. The default mentions PA market data,
+   * which must not appear on geography-neutral campaign pages.
+   */
+  addressHelperText?: string
+  /** Placeholders for the city/ZIP inputs — the defaults are PA examples. */
+  cityPlaceholder?: string
+  zipPlaceholder?: string
+  /** Rendered instead of the section heading block when supplied. */
+  compact?: boolean
+  /**
+   * Open the Terms/Privacy consent links in a new tab. These are the only
+   * outbound links in the form and they are legally required, so on a paid
+   * landing page — where a navigation away is a lost conversion and the form
+   * holds its answers in React state — they must not replace the page.
+   */
+  legalLinksNewTab?: boolean
+}
+
+export function V0LeadForm({
+  defaultState = "PA",
+  addressHelperText = "We use this to pull local PA market data for your personalized cash offer.",
+  cityPlaceholder = "Scranton",
+  zipPlaceholder = "18501",
+  compact = false,
+  legalLinksNewTab = false,
+}: V0LeadFormProps = {}) {
+  const legalLinkProps = legalLinksNewTab
+    ? { target: '_blank', rel: 'noopener noreferrer' as const }
+    : {}
   const { webhook, trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [slideDirection, setSlideDirection] = useState<"forward" | "backward">("forward")
   const [formData, setFormData] = useState({
     address: "",
     city: "",
-    state: "PA",
+    state: defaultState,
     zip: "",
     situation: "",
     timeline: "",
@@ -383,21 +419,27 @@ export function V0LeadForm() {
   }
 
   return (
-    <section id="lead-form" className="py-8 md:py-12 bg-surface-cream scroll-mt-24 md:scroll-mt-28">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-6 md:mb-6">
-          <span className="inline-flex items-center gap-2 text-ce-green text-sm font-medium mb-4 px-4 py-2 bg-white rounded-full border border-ce-green/10 shadow-sm">
-            <Shield className="w-4 h-4" />
-            100% Free & No Obligation
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-4 text-balance">
-            Find Out What Your House Is Worth in Cash
-          </h2>
-          <p className="text-ce-ink/70 text-lg max-w-xl mx-auto">
-            Answer 5 quick questions. Tyler will personally review your property and send your no-obligation offer within 24 hours.
-          </p>
-        </div>
+    <section
+      id="lead-form"
+      className={`bg-surface-cream scroll-mt-24 md:scroll-mt-28 ${compact ? 'py-0' : 'py-8 md:py-12'}`}
+    >
+      <div className={compact ? 'max-w-3xl mx-auto' : 'max-w-3xl mx-auto px-4 sm:px-6 lg:px-8'}>
+        {/* Section Header — suppressed in compact mode, where the host page
+            supplies its own headline directly above the form. */}
+        {!compact && (
+          <div className="text-center mb-6 md:mb-6">
+            <span className="inline-flex items-center gap-2 text-ce-green text-sm font-medium mb-4 px-4 py-2 bg-white rounded-full border border-ce-green/10 shadow-sm">
+              <Shield className="w-4 h-4" />
+              100% Free &amp; No Obligation
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-4 text-balance">
+              Find Out What Your House Is Worth in Cash
+            </h2>
+            <p className="text-ce-ink/70 text-lg max-w-xl mx-auto">
+              Answer 5 quick questions. Tyler will personally review your property and send your no-obligation offer within 24 hours.
+            </p>
+          </div>
+        )}
 
         {/* Progress Steps */}
         <div className="flex justify-between mb-6 relative">
@@ -448,7 +490,7 @@ export function V0LeadForm() {
                     <div>
                       <h3 className="text-xl font-semibold text-ce-ink mb-2">Where is your property?</h3>
                       <p className="text-ce-ink/70 text-sm">
-                        We use this to pull local PA market data for your personalized cash offer.
+                        {addressHelperText}
                       </p>
                     </div>
                     <div className="space-y-4">
@@ -484,7 +526,7 @@ export function V0LeadForm() {
                           <Input
                             id="city"
                             type="text"
-                            placeholder="Scranton"
+                            placeholder={cityPlaceholder}
                             value={formData.city}
                             onChange={(e) => updateFormData("city", e.target.value)}
                             autoComplete="address-level2"
@@ -506,12 +548,19 @@ export function V0LeadForm() {
                             autoComplete="address-level1"
                             className="w-full h-14 px-3 border border-ce-ink/10 hover:border-ce-ink/20 focus:border-ce-green focus:ring-ce-green/20 focus:ring-[3px] rounded-xl bg-surface-cream/50 text-ce-ink transition-[color,box-shadow,border-color] outline-none"
                           >
+                            {/* Only present when no state is pre-selected, so the
+                                visitor has to choose one rather than inherit an
+                                assumption about their market. */}
+                            {!defaultState && <option value="">--</option>}
                             {US_STATES.map((state) => (
                               <option key={state.value} value={state.value}>
                                 {state.value}
                               </option>
                             ))}
                           </select>
+                          {showStep1Errors && !formData.state && (
+                            <p className="text-red-500 text-sm mt-1">Required</p>
+                          )}
                         </div>
 
                         <div className="col-span-2 sm:col-span-1">
@@ -521,7 +570,7 @@ export function V0LeadForm() {
                           <Input
                             id="zip"
                             type="text"
-                            placeholder="18501"
+                            placeholder={zipPlaceholder}
                             value={formData.zip}
                             onChange={(e) => updateFormData("zip", e.target.value.replace(/\D/g, '').slice(0, 5))}
                             autoComplete="postal-code"
@@ -705,7 +754,7 @@ export function V0LeadForm() {
                           className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
                         />
                         <span className="text-xs text-gray-500 leading-tight">
-                          I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
+                          I agree to the <Link href="/terms" className="underline hover:text-ce-green" {...legalLinkProps}>Terms &amp; Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green" {...legalLinkProps}>Privacy Policy</Link>.
                         </span>
                       </label>
                       <label className="flex items-start gap-2 cursor-pointer">

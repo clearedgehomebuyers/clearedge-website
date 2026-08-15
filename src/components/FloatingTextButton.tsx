@@ -4,7 +4,13 @@ import { MessageCircle } from 'lucide-react'
 import { useTrafficSource } from './TrafficSourceProvider'
 
 export function FloatingTextButton() {
-  const { phoneRaw } = useTrafficSource()
+  const { phoneRaw, isLoaded } = useTrafficSource()
+
+  // Hold until detection resolves. Rendering earlier would publish an sms:
+  // link to the default number and hand a paid visitor the wrong line — this
+  // is the only phone on the page that no host component can gate for us.
+  // It is a fixed-position overlay, so deferring it shifts nothing.
+  if (!isLoaded) return null
 
   return (
     <a
