@@ -851,12 +851,20 @@ export function V0LeadForm({
                           autoComplete="off"
                           placeholder="Enter amount"
                           value={priceAmount}
-                          disabled={priceNotSure}
+                          // Deliberately NOT disabled when not-sure is selected.
+                          // Disabling it made the two answers a one-way door: the
+                          // input could not take focus, so a visitor who picked
+                          // not-sure and then wanted to type a number had to work
+                          // out that they must deselect it first. Touching the
+                          // field is an unambiguous "I want to type a number", so
+                          // it simply switches which answer is active.
+                          onFocus={() => setPriceNotSure(false)}
                           onChange={(e) => {
                             markFormStart()
+                            setPriceNotSure(false)
                             setPriceAmount(formatPriceInput(e.target.value))
                           }}
-                          className="pl-9 text-lg"
+                          className={`pl-9 text-lg ${priceNotSure ? 'opacity-50' : ''}`}
                         />
                       </div>
                       <button
