@@ -1,0 +1,38 @@
+name: Template revision check
+
+# Enforces playbook Hard Rule 13: a deploy that changes what a sitemap-listed
+# template renders must also bump TEMPLATE_REVISION in src/app/sitemap.ts.
+#
+# CI rather than a pre-push hook, deliberately: a local hook is skippable with
+# --no-verify and simply absent on a fresh clone, so it cannot be relied on to
+# catch the case this exists for. This runs on the server, on every push and PR
+# to main, for everyone.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  template-revision:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out with history
+        uses: actions/checkout@v4
+        with:
+          # The check diffs two commits, so a shallow clone is not enough.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check TEMPLATE_REVISION was bumped
+        env:
+          # On a PR, compare against the merge base. On a push, compare against
+          # the commit the branch pointed at before — which is all zeros for a
+          # branch's first push, and the script skips that case.
+          BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/check-template-revision.mjs --base="$BASE" --head="$HEAD"
