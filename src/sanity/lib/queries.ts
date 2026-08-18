@@ -142,6 +142,19 @@ export async function getBlogPostSlugs() {
   return client.fetch(`*[_type == "blogPost" && defined(slug.current)][].slug.current`)
 }
 
+// Sitemap needs dates as well as slugs (audit QW6). Deliberately a SEPARATE
+// query rather than a wider getBlogPostSlugs(): that one also feeds
+// generateStaticParams() in blog/[slug], which expects string[] — widening it
+// would silently change the shape that route depends on.
+export async function getBlogPostSitemapEntries() {
+  return client.fetch(`*[_type == "blogPost" && defined(slug.current)]{
+    "slug": slug.current,
+    _updatedAt,
+    publishedAt,
+    updatedAt
+  }`)
+}
+
 export async function getBlogPostsBySituation(situationSlug: string) {
   return client.fetch(
     `*[_type == "blogPost" && references(*[_type == "situation" && slug.current == $situationSlug]._id)] | order(publishedAt desc) {

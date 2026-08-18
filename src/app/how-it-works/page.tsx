@@ -334,7 +334,7 @@ export default function HowItWorksPage() {
               </p>
             </div>
             <p className="text-ce-ink/70 mb-6">
-              This isn&apos;t about lowballing you. It&apos;s about being honest so you can make an informed decision. If the numbers don&apos;t work for your situation, we&apos;ll tell you — and we might even suggest listing with an agent instead.
+              This isn&apos;t about lowballing you. It&apos;s about being honest so you can make an informed decision. If the numbers don&apos;t work for your situation, we&apos;ll tell you — and we might even suggest listing with an agent instead. Before you accept any cash offer, it is worth knowing <Link href="/are-cash-home-buyers-legit" className="text-ce-green hover:underline">how to tell a legitimate cash home buyer from a predatory one</Link> — the red flags are consistent and easy to spot once you know them.
             </p>
             <p className="text-center">
               <Link href="/cash-buyer-vs-realtor" className="text-ce-green hover:text-ce-green-hover font-medium transition-colors">
