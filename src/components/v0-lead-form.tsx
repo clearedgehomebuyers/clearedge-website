@@ -3,13 +3,15 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, Home, Heart, Briefcase, Wrench, FileWarning, Key, Building, HelpCircle as OtherIcon } from "lucide-react"
+import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, DollarSign, Home, Heart, Briefcase, Wrench, FileWarning, Key, Building, HelpCircle as OtherIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AddressAutocomplete } from "@/components/AddressAutocomplete"
 import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
 import { trackMetaFormStart, trackMetaLead } from "@/lib/meta-pixel"
 
+// The proven five-step organic form. This is what every route gets unless it
+// opts into a variant, and it is unchanged.
 const steps = [
   { id: 1, title: "Property", icon: MapPin },
   { id: 2, title: "Situation", icon: HelpCircle },
@@ -17,6 +19,26 @@ const steps = [
   { id: 4, title: "Occupancy", icon: Users },
   { id: 5, title: "Contact", icon: User },
 ]
+
+// nj-meta variant (/cashoffernj): Price is inserted between Occupancy and
+// Contact. Contact stays last — that ordering is load-bearing.
+const stepsWithPrice = [
+  { id: 1, title: "Property", icon: MapPin },
+  { id: 2, title: "Situation", icon: HelpCircle },
+  { id: 3, title: "Timeline", icon: Calendar },
+  { id: 4, title: "Occupancy", icon: Users },
+  { id: 5, title: "Price", icon: DollarSign },
+  { id: 6, title: "Contact", icon: User },
+]
+
+// Where the Price screen sits in the nj-meta flow.
+const PRICE_STEP_INDEX = 5
+
+// The step_number the Price events report. Deliberately 5, per blueprint §4 —
+// note this is a DIFFERENT numbering scheme from the site-wide form_step_N
+// events, which the Price step deliberately does not join. See
+// reportedStepNumber() for why the two are kept apart.
+const PRICE_STEP_NUMBER = 5
 
 // All 50 US States (PA first as primary market)
 const US_STATES = [
@@ -131,6 +153,24 @@ function getPhoneDigits(value: string): string {
   return extractPhoneDigits(value)
 }
 
+// Parse a typed price into a number for the CRM. Returns null for empty, zero
+// or unparseable input — blueprint §5: never $0 and never empty-as-zero, since
+// a zero silently corrupts every average and ratio computed on this column.
+function parsePriceAmount(value: string): number | null {
+  const digits = value.replace(/\D/g, '')
+  if (!digits) return null
+  const n = parseInt(digits, 10)
+  return Number.isFinite(n) && n > 0 ? n : null
+}
+
+// Group digits as the visitor types. No min/max clamping anywhere: a lowball or
+// a fantasy number is signal, not a validation error.
+function formatPriceInput(value: string): string {
+  const digits = value.replace(/\D/g, '').slice(0, 12)
+  if (!digits) return ''
+  return parseInt(digits, 10).toLocaleString('en-US')
+}
+
 interface V0LeadFormProps {
   /**
    * Pre-selected state. Defaults to PA for the main site; paid landing pages
@@ -155,6 +195,14 @@ interface V0LeadFormProps {
    * holds its answers in React state — they must not replace the page.
    */
   legalLinksNewTab?: boolean
+  /**
+   * Opt-in flow selection. 'default' is the proven five-step organic form and
+   * is what every route gets unless it asks for otherwise; 'nj-meta' adds the
+   * Price step for the /cashoffernj paid-traffic page (PRICE-ANCHOR-BLUEPRINT
+   * v2). The step is additive — nothing is hidden or reordered for any other
+   * route, and no route is detected or excluded.
+   */
+  variant?: 'default' | 'nj-meta'
 }
 
 export function V0LeadForm({
@@ -164,7 +212,15 @@ export function V0LeadForm({
   zipPlaceholder = "18501",
   compact = false,
   legalLinksNewTab = false,
+  variant = 'default',
 }: V0LeadFormProps = {}) {
+  // All step geometry derives from the variant. On 'default' these resolve to
+  // exactly the literals the form used before the Price step existed:
+  // activeSteps === steps, lastStep === 5, contactStepIndex === 5.
+  const hasPriceStep = variant === 'nj-meta'
+  const activeSteps = hasPriceStep ? stepsWithPrice : steps
+  const lastStep = activeSteps.length
+  const contactStepIndex = lastStep
   const legalLinkProps = legalLinksNewTab
     ? { target: '_blank', rel: 'noopener noreferrer' as const }
     : {}
@@ -189,15 +245,42 @@ export function V0LeadForm({
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
   const [showStep1Errors, setShowStep1Errors] = useState(false)
+  // Price answers live outside formData, which is a flat string map the other
+  // four steps share — keeping them separate leaves the default flow's state
+  // shape and its webhook payload untouched.
+  const [priceAmount, setPriceAmount] = useState("")
+  const [priceNotSure, setPriceNotSure] = useState(false)
   const stepKeyRef = useRef(0)
   // Meta FormStart fires on the first field the visitor touches, once per
   // mounted form. GA4's form_start comes from Enhanced Measurement and can't
   // say which form it was; this one names it.
   const hasTrackedFormStart = useRef(false)
   const hasTrackedMetaLead = useRef(false)
+  // One arrival and one completion per form attempt. Without these, navigating
+  // back and forward over the Price step would fire repeat views and inflate
+  // the denominator that abandonment is measured against (blueprint §4).
+  const hasTrackedPriceView = useRef(false)
+  const hasTrackedPriceComplete = useRef(false)
 
-  // Check if current step is valid
+  // Check if current step is valid. Contact is matched by POSITION rather than
+  // by the literal 5 it used to be, because the nj-meta variant pushes it to 6.
+  // On the default variant contactStepIndex is 5, so this returns exactly what
+  // the original switch returned for every step.
   const isStepValid = (step: number): boolean => {
+    if (step === contactStepIndex) {
+      return !!(
+        formData.firstName.trim() &&
+        formData.lastName.trim() &&
+        getPhoneDigits(formData.phone).length === 10 &&
+        formData.email.trim() &&
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+      )
+    }
+    if (hasPriceStep && step === PRICE_STEP_INDEX) {
+      // Either a number or the not-sure option — one of the two is required to
+      // continue, and there is deliberately no min/max check on the number.
+      return priceNotSure || parsePriceAmount(priceAmount) !== null
+    }
     switch (step) {
       case 1:
         return !!(
@@ -213,37 +296,94 @@ export function V0LeadForm({
         return !!formData.timeline
       case 4:
         return !!formData.occupancy
-      case 5:
-        return !!(
-          formData.firstName.trim() &&
-          formData.lastName.trim() &&
-          getPhoneDigits(formData.phone).length === 10 &&
-          formData.email.trim() &&
-          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-        )
       default:
         return false
     }
   }
 
+  // Map a screen position onto the site-wide form_step_N taxonomy.
+  //
+  // form_step_5 means "reached the Contact screen" on every route, and the
+  // weekly funnel report depends on that. The Price step therefore does NOT
+  // take a form_step_N number: it returns null here and is measured entirely by
+  // its own form_step_view / form_step_complete pair, while Contact keeps
+  // reporting 5 even though it is the 6th screen on the nj-meta variant. That
+  // keeps every existing metric meaning exactly what it meant before.
+  const reportedStepNumber = (step: number): number | null => {
+    if (hasPriceStep) {
+      if (step === PRICE_STEP_INDEX) return null
+      if (step === contactStepIndex) return 5
+    }
+    return step
+  }
+
   // Track form step transitions in GA4
   const trackStep = (step: number) => {
+    const reported = reportedStepNumber(step)
+    if (reported === null) return
     if (typeof window !== 'undefined' && window.gtag) {
       const stepNames = ['', 'address', 'situation', 'timeline', 'occupancy', 'contact']
-      window.gtag('event', `form_step_${step}`, {
+      window.gtag('event', `form_step_${reported}`, {
         event_category: 'Lead Form',
-        event_label: stepNames[step],
+        event_label: stepNames[reported],
         page_path: window.location.pathname,
       })
     }
   }
+
+  // Price-step arrival. Guarded to once per mounted form so that one visit to
+  // the step counts once no matter how often the visitor navigates back to it.
+  const trackPriceStepView = () => {
+    if (hasTrackedPriceView.current) return
+    hasTrackedPriceView.current = true
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'form_step_view', {
+        event_category: 'Lead Form',
+        event_label: 'price',
+        step_number: PRICE_STEP_NUMBER,
+        step_name: 'price',
+        page_path: window.location.pathname,
+      })
+    }
+  }
+
+  // Price-step completion. Also guarded to once per form attempt, so that
+  // completions can never exceed arrivals and drive abandonment negative.
+  // Consequence worth knowing when reading the reports: if a visitor continues
+  // past Price, goes back and changes their answer, GA4 keeps the FIRST answer
+  // while the webhook carries the final one. The CRM figure is the source of
+  // truth for the number itself; this event measures the step, not the price.
+  const trackPriceStepComplete = (response: 'amount_entered' | 'not_sure') => {
+    if (hasTrackedPriceComplete.current) return
+    hasTrackedPriceComplete.current = true
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'form_step_complete', {
+        event_category: 'Lead Form',
+        event_label: 'price',
+        step_number: PRICE_STEP_NUMBER,
+        step_name: 'price',
+        price_response: response,
+        page_path: window.location.pathname,
+      })
+    }
+  }
+
+  // Fires on render of the Price screen rather than on the click that leads to
+  // it, so the arrival is recorded even if the visitor never continues — which
+  // is the entire point of having a denominator.
+  useEffect(() => {
+    if (hasPriceStep && currentStep === PRICE_STEP_INDEX) trackPriceStepView()
+  }, [hasPriceStep, currentStep])
 
   const handleNext = () => {
     if (currentStep === 1 && !isStepValid(1)) {
       setShowStep1Errors(true)
       return
     }
-    if (currentStep < 5 && isStepValid(currentStep)) {
+    if (currentStep < lastStep && isStepValid(currentStep)) {
+      if (hasPriceStep && currentStep === PRICE_STEP_INDEX) {
+        trackPriceStepComplete(priceNotSure ? 'not_sure' : 'amount_entered')
+      }
       setShowStep1Errors(false)
       setSlideDirection("forward")
       stepKeyRef.current++
@@ -290,7 +430,7 @@ export function V0LeadForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!isStepValid(5)) return
+    if (!isStepValid(lastStep)) return
 
     setIsSubmitting(true)
 
@@ -339,6 +479,16 @@ export function V0LeadForm({
         utm_term: utmParams.utm_term,
         fbclid: utmParams.fbclid,
         landingPage: landingPage,
+        // Price fields exist only on the nj-meta variant, so the payload every
+        // other route sends is byte-identical to what it sent before.
+        // sellerPriceExpectation is a real JSON number or null — never 0, never
+        // an empty string standing in for zero (blueprint §5).
+        ...(hasPriceStep
+          ? {
+              sellerPriceExpectation: priceNotSure ? null : parsePriceAmount(priceAmount),
+              priceResponse: priceNotSure ? 'Wants offer / Not sure' : 'Amount provided',
+            }
+          : {}),
       }
 
       // Send to dynamic Zapier webhook based on traffic source
@@ -369,7 +519,7 @@ export function V0LeadForm({
   }
 
   // Every field and every option button routes through here, so one guard
-  // covers all five steps.
+  // covers every step on both variants.
   const markFormStart = () => {
     if (hasTrackedFormStart.current) return
     hasTrackedFormStart.current = true
@@ -447,11 +597,11 @@ export function V0LeadForm({
           <div className="absolute top-5 sm:top-6 left-0 right-0 h-0.5 bg-ce-ink/10">
             <div
               className="h-full bg-gradient-to-r from-ce-green to-ce-blue transition-all duration-500 ease-out"
-              style={{ width: `${((currentStep - 1) / 4) * 100}%` }}
+              style={{ width: `${((currentStep - 1) / (activeSteps.length - 1)) * 100}%` }}
             />
           </div>
 
-          {steps.map((step) => (
+          {activeSteps.map((step) => (
             <div key={step.id} className="relative flex flex-col items-center z-10">
               <div
                 className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
@@ -672,8 +822,75 @@ export function V0LeadForm({
                   </div>
                 )}
 
-                {/* Step 5: Contact */}
-                {currentStep === 5 && (
+                {/* Price — nj-meta variant only. Copy is locked by
+                    PRICE-ANCHOR-BLUEPRINT v2 §3 and must not be revised
+                    without a stated reason. */}
+                {hasPriceStep && currentStep === PRICE_STEP_INDEX && (
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="text-xl font-semibold text-ce-ink mb-2">What price would make sense for you?</h3>
+                      <p className="text-ce-ink/70 text-sm">
+                        For a cash sale, as-is — with no repairs, agent commissions, or typical seller closing costs — what price would you consider?
+                      </p>
+                    </div>
+                    <div className="space-y-3">
+                      <label htmlFor="priceExpectation" className="block text-sm font-medium text-ce-ink mb-2">
+                        Your price
+                      </label>
+                      <div className="relative">
+                        <span
+                          aria-hidden="true"
+                          className={`absolute left-4 top-1/2 -translate-y-1/2 text-lg pointer-events-none ${priceNotSure ? 'text-ce-ink/25' : 'text-ce-ink/50'}`}
+                        >
+                          $
+                        </span>
+                        <Input
+                          id="priceExpectation"
+                          type="text"
+                          inputMode="numeric"
+                          autoComplete="off"
+                          placeholder="Enter amount"
+                          value={priceAmount}
+                          disabled={priceNotSure}
+                          onChange={(e) => {
+                            markFormStart()
+                            setPriceAmount(formatPriceInput(e.target.value))
+                          }}
+                          className="pl-9 text-lg"
+                        />
+                      </div>
+                      <button
+                        type="button"
+                        aria-pressed={priceNotSure}
+                        onClick={() => {
+                          markFormStart()
+                          setPriceNotSure((prev) => {
+                            const next = !prev
+                            if (next) setPriceAmount("")
+                            return next
+                          })
+                        }}
+                        className={`w-full p-4 rounded-xl border text-left transition-all flex items-center gap-3 ${
+                          priceNotSure
+                            ? "border-ce-green bg-ce-green-subtle ring-2 ring-ce-green/20 shadow-sm text-ce-ink font-medium"
+                            : "border-ce-ink/10 hover:border-ce-green/30 text-ce-ink/70 hover:text-ce-ink bg-white hover:bg-surface-cream"
+                        }`}
+                      >
+                        <span
+                          className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ${
+                            priceNotSure ? "border-ce-green" : "border-ce-ink/25"
+                          }`}
+                        >
+                          {priceNotSure && <span className="w-2.5 h-2.5 rounded-full bg-ce-green" />}
+                        </span>
+                        <span>I&apos;m not sure — I&apos;d like to receive an offer</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Contact — always the last screen on every variant */}
+                {currentStep === contactStepIndex && (
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-xl font-semibold text-ce-ink mb-2">Last step — where should we send your offer?</h3>
@@ -784,7 +1001,7 @@ export function V0LeadForm({
                   <div />
                 )}
 
-                {currentStep < 5 ? (
+                {currentStep < lastStep ? (
                   <Button
                     type="button"
                     variant="brand"
@@ -801,8 +1018,8 @@ export function V0LeadForm({
                     type="submit"
                     variant="brand"
                     size="xl"
-                    disabled={isSubmitting || !isStepValid(5)}
-                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed px-6 sm:px-10 ${isStepValid(5) && !isSubmitting ? 'ring-4 ring-ce-green/20' : ''}`}
+                    disabled={isSubmitting || !isStepValid(lastStep)}
+                    className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed px-6 sm:px-10 ${isStepValid(lastStep) && !isSubmitting ? 'ring-4 ring-ce-green/20' : ''}`}
                   >
                     {isSubmitting ? "Submitting..." : "Get My Cash Offer"}
                     {!isSubmitting && <ArrowRight className="w-4 h-4" />}

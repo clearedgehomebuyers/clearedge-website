@@ -151,6 +151,7 @@ export default function CashOfferLandingPage() {
           </div>
 
           <V0LeadForm
+            variant="nj-meta"
             compact
             legalLinksNewTab
             defaultState=""
