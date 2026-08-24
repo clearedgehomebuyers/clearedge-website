@@ -52,7 +52,7 @@ const STATIC_LASTMOD: Record<string, string> = {
   '/': '2026-08-10',
   '/blog': '2026-04-16',
   '/about': '2026-07-20',
-  '/how-it-works': '2026-07-20',
+  '/how-it-works': '2026-08-18', // QW8 orphan link added (1c11fe1)
   '/testimonials': '2026-07-20',
   '/privacy-policy': '2026-02-13',
   '/terms': '2026-02-13',
