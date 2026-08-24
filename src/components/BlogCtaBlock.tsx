@@ -15,7 +15,7 @@ export function BlogCtaBlock({ heading, body, buttonText, ctaLocation }: BlogCta
       </h3>
       <p className="text-ce-ink/80 leading-relaxed text-lg mb-6">{body}</p>
       <TrackedCTALink
-        href="/#lead-form"
+        href="#lead-form"
         label={buttonText}
         eventLabel={`${buttonText} - Blog Mid-Article CTA`}
         ctaLocation={ctaLocation}
