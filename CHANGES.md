@@ -240,6 +240,27 @@ follows from the route rather than a lookup table. When the backup *is* present
 it is treated as the authority and `DEPLOY2` is checked against it, so the
 record cannot quietly go stale.
 
+**It caught something on its very first run.** Run #7, on `c52f5cf` — the
+commit that added the job — failed with:
+
+```
+(backups/batch4-deploy2-...json not present — using the DEPLOY2 record)
+CHANGES.md is STALE — re-run: node scripts/batch4-changelog.mjs
+```
+
+That is the guard doing its job, not a defect in it. `c52f5cf` rewrote the
+generator and did **not** commit the regenerated `CHANGES.md`: the file existed,
+regenerated and passing `--check`, but only in the working tree — `git status`
+showed it modified and it was left out of the commit. Locally everything looked
+green. CI checked out the commit as pushed, found a generator and an output that
+no longer agreed, and said so. `4bf79db` committed the regenerated file and the
+job went green.
+
+This is exactly the class of failure the job exists for — a generator and its
+output drifting apart with nothing at the commit boundary to notice — and it
+demonstrated it on a real commit within minutes of being wired up.
+`template-revision` passed on the same run.
+
 ### Verified: a Sanity edit now propagates without a deploy
 
 No location document had un-rendered content to observe (newest edit

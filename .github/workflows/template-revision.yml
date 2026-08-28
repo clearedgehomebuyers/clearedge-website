@@ -19,6 +19,21 @@ name: SEO guards
 # The file is still named template-revision.yml and the first job is still
 # `template-revision` because that job name is the required status check on main.
 # Renaming either would silently drop the requirement. Add jobs; do not rename.
+#
+# ACTION VERSIONS: v4 of both actions runs on Node 20, which GitHub deprecated
+# and was already force-running on Node 24 — a warning today, a hard failure
+# whenever they finish the removal. v7 is current (checkout 2026-06-18,
+# setup-node 2026-07-14) and both declare `using: node24`.
+#
+# Note that `node-version: '22'` below could not have fixed this: it pins the
+# Node our SCRIPTS run on, not the Node the action's own JavaScript runs on.
+# Only the action major controls the latter.
+#
+# Two behaviour changes between v4 and v7 were checked and neither applies:
+# checkout v7 blocks fork-PR checkouts for `pull_request_target`/`workflow_run`
+# (this workflow uses `pull_request` and `push`), and setup-node v5+ caches
+# automatically when package.json has a `packageManager` field (ours has none,
+# and neither job installs dependencies).
 
 on:
   push:
@@ -31,12 +46,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out with history
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # The check diffs two commits, so a shallow clone is not enough.
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -53,9 +68,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # No history needed — this one regenerates and compares, it does not diff.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
