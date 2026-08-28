@@ -25,6 +25,26 @@
 - FAQ schema for 8 situation pages
 - Review aggregation markup
 - Meta descriptions must include location plus cash home buyers
+  — **except the 21 location pages, where playbook Hard Rule 6 overrides this.**
+  See below.
+
+### Resolved conflict: meta descriptions on location pages
+**Hard Rule 6 wins. Do not rewrite the 21 location meta descriptions to insert
+the literal phrase "cash home buyers". Do not re-flag this.**
+
+All 21 currently fail a literal reading of the rule above: they carry the city
+and the cash-sale offer, but phrase it as "as-is for cash" or "Cash home buyer"
+rather than the exact string. That is not a defect. City queries here are
+ad-stacked SERPs, and Hard Rule 6 forbids meta rewrites on those — the snippet
+is not what moves them, and churning it forfeits a known baseline for nothing.
+
+The descriptions are also deliberate work: 140–155 characters, each leading with
+a city-specific hook (Reading's 5% transfer tax, Bloomsburg's BU rentals,
+Hazleton's occupancy permits). Rewriting to satisfy a phrase check would flatten
+21 hooks into one template.
+
+Reviewed 2026-08-28. Read the rule above as "location + the cash-sale offer",
+which all 21 already satisfy.
 
 <!-- VERCEL BEST PRACTICES START -->
 ## Best practices for developing on Vercel

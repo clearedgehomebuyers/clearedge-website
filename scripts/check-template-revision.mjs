@@ -16,6 +16,10 @@
 // closure of the template entry points, so a newly-added shared component is
 // covered the day it is imported, and the rule cannot drift from the check.
 //
+// PASSES when: the constant changed in the range; or it was introduced there; or
+// it ALREADY reads today's date, because it is a date and a same-day second
+// template deploy has nothing to bump it to — see the note at that check.
+//
 // Usage:
 //   node scripts/check-template-revision.mjs                  # HEAD~1..HEAD
 //   node scripts/check-template-revision.mjs --base=A --head=B
@@ -44,6 +48,19 @@ const ENTRY_POINTS = [
   'src/app/blog/[slug]/page.tsx',
   'src/components/Schema.tsx',
   'src/components/RegionalHubPage.tsx',
+  // The three regional hubs are repo-only pages: RegionalHubPage is a client
+  // component fed a static module (src/lib/regional-hub-data.ts), and nothing on
+  // that path touches Sanity. So there is no _updatedAt to floor them and
+  // TEMPLATE_REVISION is the ONLY thing that can move their lastmod.
+  //
+  // regional-hub-data.ts was already covered — it is reachable from
+  // RegionalHubPage — but these three files were not, and each one carries its
+  // own `metadata` (title, description, canonical) and FAQPage schema. Editing
+  // one changed a sitemap-listed URL and the check said "no template-rendering
+  // file changed. Pass."
+  'src/app/locations/nepa/page.tsx',
+  'src/app/locations/lehigh-valley/page.tsx',
+  'src/app/locations/poconos/page.tsx',
 ]
 
 const EXTS = ['.tsx', '.ts', '.jsx', '.js']
@@ -130,6 +147,25 @@ const after = revisionAt(head)
 // commit that first added it does (before is null there, not a stale date).
 if (after !== null && before !== after) {
   console.log(`TEMPLATE_REVISION ${before === null ? 'introduced as' : 'bumped ' + before + ' ->'} ${after}. Pass.`)
+  process.exit(0)
+}
+
+// Already today. The constant is a DATE, and the thing it protects is the
+// sitemap's lastmod floor — so once it reads today, a second template deploy the
+// same day has nothing to bump it to and nothing to fix: every template URL is
+// already advertising today. `before !== after` is unsatisfiable in that case
+// and was forcing [no-template-revision] on legitimate work (Batch 4 Deploy 4,
+// c52f5cf, hours after Deploy 3 set it). An override that fires on correct
+// changes trains people to reach for it, which is how the real one gets waved
+// through.
+//
+// Deliberately NOT `after >= today`: a future date is not a floor anyone can
+// justify, and it would let one bump cover an unbounded run of later deploys.
+const today = new Date().toISOString().slice(0, 10)
+if (after === today) {
+  console.log(`TEMPLATE_REVISION is already today (${after}) — a same-day second template`)
+  console.log('deploy has nothing to bump it to, and every template URL already advertises')
+  console.log('this date. Pass.')
   process.exit(0)
 }
 

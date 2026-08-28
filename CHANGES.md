@@ -224,9 +224,8 @@ hatch's own condition also holds literally: the newest location document was
 edited 2026-07-26, months before the build, so no location URL renders anything
 different as a result of the commit. It changes future behaviour only.
 
-Worth fixing at some point: `check-template-revision.mjs` tests
-`before !== after`, which a same-day second deploy cannot satisfy. Treating
-`TEMPLATE_REVISION === today` as a pass would be correct rather than lenient.
+That override should not have been necessary, and Deploy 5 removed the need for
+it — see below.
 
 ### Changelog drift is now a CI job
 
@@ -262,12 +261,54 @@ value. No deploy was involved — the deploy fingerprint (`/privacy-policy` ETag
 Probe reverted at 16:04:59Z; the original is in
 `backups/isr-probe-bloomsburg.json`.
 
+---
+
+## Batch 4 — Deploy 5 (Hard Rule 13 corrections)
+
+Applied 2026-08-28. Two fixes to the guard itself, and one correction to a
+comment that had been sending people the wrong way.
+
+### `TEMPLATE_REVISION === today` now passes
+
+The check tested `before !== after`, which a same-day second template deploy
+cannot satisfy: the constant is a DATE, so once it reads today there is nothing
+to bump it to and nothing to fix — every template URL already advertises today.
+Deploy 4 hit exactly this and had to spend `[no-template-revision]` on correct
+work. An override that fires on legitimate changes trains people to reach for
+it, which is how the real one eventually gets waved through.
+
+Deliberately not `after >= today`: a future date is not a floor anyone can
+justify, and it would let one bump cover an unbounded run of later deploys.
+Verified both directions — a same-day change with the constant at today passes,
+and the same change with the constant backdated still fails.
+
+### Correction: the three regional hubs are not a CMS staleness case
+
+Deploy 4 first recorded `/locations/nepa`, `/locations/lehigh-valley` and
+`/locations/poconos` as having the same ISR defect. **They do not.** That came
+from the comment in `sitemap.ts`, which claimed they render Sanity location
+data. They never have: `RegionalHubPage` is a `"use client"` component fed a
+static module, `src/lib/regional-hub-data.ts`, and none of the five files on
+that path — the three pages, the component, the data — contains a single Sanity
+reference. `revalidate` there would revalidate against the repo, which is a
+no-op: their content changes only when the repo changes, and that means a
+deploy, which rebuilds them anyway.
+
+They did have a real defect, one class up. As repo-only pages they have no
+`_updatedAt`, so `TEMPLATE_REVISION` is the *only* thing that can move their
+lastmod — and the three page files were outside the watched closure, each
+carrying its own `metadata` (title, description, canonical) and FAQPage schema.
+Editing one changed a sitemap-listed URL and the check answered "no
+template-rendering file changed. Pass." They are now entry points; the closure
+went 32 → 35 files. `regional-hub-data.ts` was already covered, reachable from
+`RegionalHubPage`.
+
+The `sitemap.ts` comment has been corrected so this does not get rediscovered.
+
 ### Known gap
 
-`/locations/nepa`, `/locations/lehigh-valley` and `/locations/poconos` are
-separate static routes rendering Sanity location data through `RegionalHubPage`,
-and remain build-time only. `/sitemap.xml` is fully static too, so it refreshes
-on deploy rather than on a Sanity edit.
+`/sitemap.xml` is fully static, so it refreshes on deploy rather than on a
+Sanity edit.
 
 ---
 

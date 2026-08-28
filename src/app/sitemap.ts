@@ -44,9 +44,14 @@ const SITEMAP_PRUNED_SLUGS = new Set([
  * UNDER-claims freshness — the safe direction to be wrong in, and still far
  * better than the no-date-at-all this replaces.
  *
- * The three regional hubs render Sanity location data through a shared
- * template, so they take TEMPLATE_REVISION rather than their own (much older)
- * file date.
+ * The three regional hubs take TEMPLATE_REVISION rather than their own (much
+ * older) file date. NOT because they read the CMS — they do not. RegionalHubPage
+ * is a client component fed a static module (src/lib/regional-hub-data.ts), and
+ * nothing on that path touches Sanity, so there is no _updatedAt to floor them
+ * and this constant is the only thing that can move their lastmod. An earlier
+ * version of this comment claimed they render Sanity location data; they never
+ * have. check-template-revision.mjs watches all three page files for that
+ * reason.
  */
 const STATIC_LASTMOD: Record<string, string> = {
   '/': '2026-08-10',
