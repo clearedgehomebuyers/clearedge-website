@@ -8,41 +8,49 @@
 //   node scripts/batch4-changelog.mjs            # rewrite CHANGES.md
 //   node scripts/batch4-changelog.mjs --check    # exit 1 if CHANGES.md is stale
 //
-// Deploy 2's applied-at timestamp and the per-source field are read from the
-// newest backups/batch4-deploy2-*.json, so the log records what actually ran
-// rather than what was planned.
+// `--check` runs in CI (.github/workflows/template-revision.yml) so the log
+// cannot drift from the edge list. It must therefore work from a plain checkout:
+// what Deploy 2 actually did is recorded in batch4-edges.mjs as DEPLOY2, because
+// backups/ is gitignored. When the backup IS present — i.e. locally — it is
+// treated as the authority and DEPLOY2 is checked against it.
 
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { QW9_EDGES, S2_EDGES, DEFERRED, EPA_INWORD, QW10_ANCHORS } from './batch4-edges.mjs'
+import { QW9_EDGES, S2_EDGES, DEFERRED, EPA_INWORD, QW10_ANCHORS, DEPLOY2 } from './batch4-edges.mjs'
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const OUT = join(REPO, 'CHANGES.md')
 const CHECK = process.argv.includes('--check')
 
-// ── what actually ran ──────────────────────────────────────────────────────
-const backupDir = join(REPO, 'backups')
-const backupName = readdirSync(backupDir)
-  .filter((f) => f.startsWith('batch4-deploy2-') && f.endsWith('.json'))
-  .sort()
-  .pop()
-
-if (!backupName) {
-  console.error('No backups/batch4-deploy2-*.json found — has Deploy 2 been applied?')
-  process.exit(1)
-}
-
-const backup = JSON.parse(readFileSync(join(backupDir, backupName), 'utf8'))
-const fieldBySlug = new Map(backup.map((b) => [b.slug, b.field]))
-// The stamp is the filename's ISO timestamp with the ':' and '.' put back.
-const appliedAt = backupName
-  .replace('batch4-deploy2-', '')
-  .replace('.json', '')
-  .replace(/^(\d{4}-\d{2}-\d{2})T(\d{2})-(\d{2})-(\d{2})-(\d{3})Z$/, '$1T$2:$3:$4.$5Z')
-
 const EDGES = [...QW9_EDGES, ...S2_EDGES]
 const slugOf = (route) => route.split('/').pop()
+const { appliedAt, backup: backupName, documents: docCount } = DEPLOY2
+
+// ── cross-check the recorded facts against the backup, when it is here ──────
+// backups/ is gitignored, so CI runs on DEPLOY2 alone. Locally the real backup
+// is present and is the authority: any disagreement means DEPLOY2 has gone
+// stale and the log would misreport what ran.
+const backupPath = join(REPO, 'backups', backupName)
+if (existsSync(backupPath)) {
+  const backup = JSON.parse(readFileSync(backupPath, 'utf8'))
+  const problems = []
+  if (backup.length !== docCount) problems.push(`backup holds ${backup.length} documents, DEPLOY2 says ${docCount}`)
+  const byDoc = new Map(backup.map((b) => [b.slug, b.field]))
+  for (const route of new Set(EDGES.map((e) => e.from))) {
+    const want = DEPLOY2.fieldFor(route)
+    const got = byDoc.get(slugOf(route))
+    if (got === undefined) problems.push(`${route} is not in the backup`)
+    else if (got !== want) problems.push(`${route}: backup wrote "${got}", fieldFor() says "${want}"`)
+  }
+  if (problems.length) {
+    console.error('ABORT — DEPLOY2 in batch4-edges.mjs disagrees with the backup it describes:')
+    problems.forEach((p) => console.error('   ' + p))
+    process.exit(2)
+  }
+} else {
+  console.log(`(backups/${backupName} not present — using the DEPLOY2 record in batch4-edges.mjs)`)
+}
 
 // ── render ─────────────────────────────────────────────────────────────────
 const bySource = new Map()
@@ -66,8 +74,8 @@ w()
 w('## Batch 4 — Deploy 2 (link graph)')
 w()
 w(`- **Applied:** ${appliedAt} by \`scripts/batch4-deploy2.mjs --apply\``)
-w(`- **Backup:** \`backups/${backupName}\` (${backup.length} documents, pre-change field contents)`)
-w(`- **Edges:** ${EDGES.length} body links across ${bySource.size} source pages, in ${backup.length} documents`)
+w(`- **Backup:** \`backups/${backupName}\` (${docCount} documents, pre-change field contents)`)
+w(`- **Edges:** ${EDGES.length} body links across ${bySource.size} source pages, in ${docCount} documents`)
 w(`  — QW9 ${QW9_EDGES.length}, S2 ${S2_EDGES.length}`)
 w('- **Plus 1 reference:** `relatedSituations` on the Act 135 post gained `foreclosure`')
 w('- **Shape:** append-only. Every edge landed in a new purpose-written paragraph')
@@ -77,7 +85,7 @@ w('### Edges')
 w()
 
 for (const [from, edges] of bySource) {
-  const field = fieldBySlug.get(slugOf(from)) || '?'
+  const field = DEPLOY2.fieldFor(from)
   w(`#### \`${from}\` → *(${field})*`)
   w()
   w('| # | finding | to | anchor | why |')

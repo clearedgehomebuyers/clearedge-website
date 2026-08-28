@@ -78,6 +78,21 @@ const portableTextComponents: PortableTextComponents = {
 }
 
 
+/**
+ * ISR — re-render each location page at most once an hour.
+ *
+ * The last of the three template routes to get this. Without it the route is
+ * prerendered ONCE at build time and never again, so a Sanity edit reached the
+ * CMS and stopped there until someone happened to deploy. situations/[slug] had
+ * the same defect and it cost Batch 4 Deploy 2 its 25 situation-side links,
+ * which read back clean from Sanity while every /situations/* URL served HTML
+ * built three days earlier (see CHANGES.md, Deploy 3).
+ *
+ * Matches blog/[slug] and situations/[slug]. `client` uses `useCdn: true`, so a
+ * regeneration can trail Sanity by up to another ~60s — immaterial against 1h.
+ */
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const locations = await getLocations()
   return locations.map((location: any) => ({

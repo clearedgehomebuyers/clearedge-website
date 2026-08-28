@@ -183,6 +183,21 @@ export const EPA_INWORD = {
 }
 
 // ---------------------------------------------------------------------------
+// What Deploy 2 actually did, recorded here rather than read back out of the
+// backup, because backups/ is gitignored and CI only has the repo. When the
+// backup IS present the changelog generator cross-checks these values against
+// it and aborts on a mismatch, so this cannot quietly go stale.
+//
+// The target field follows from the route: /situations/* body copy lives in
+// `problemDescription`, /blog/* in `content`. True for all 9 documents.
+export const DEPLOY2 = {
+  appliedAt: '2026-08-28T14:34:27.985Z',
+  backup: 'batch4-deploy2-2026-08-28T14-34-27-985Z.json',
+  documents: 9,
+  fieldFor: (route) => (route.startsWith('/situations/') ? 'problemDescription' : 'content'),
+}
+
+// ---------------------------------------------------------------------------
 // DEFERRED — proposed and deliberately NOT shipped in this batch.
 export const DEFERRED = [
   { item: 'QW9: /situations/major-repairs -> water-damaged-18102',

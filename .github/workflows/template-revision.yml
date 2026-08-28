@@ -1,12 +1,24 @@
-name: Template revision check
+name: SEO guards
 
-# Enforces playbook Hard Rule 13: a deploy that changes what a sitemap-listed
-# template renders must also bump TEMPLATE_REVISION in src/app/sitemap.ts.
+# Two guards over things that fail SILENTLY — no error, no broken build, just a
+# well-formed artefact that quietly says the wrong thing:
+#
+#   template-revision  Hard Rule 13. A deploy that changes what a sitemap-listed
+#                      template renders must bump TEMPLATE_REVISION in
+#                      src/app/sitemap.ts, or the sitemap keeps advertising an
+#                      older date and Google is told nothing changed.
+#   changelog-drift    CHANGES.md is generated from scripts/batch4-edges.mjs.
+#                      An edge list edited without regenerating leaves a log that
+#                      describes links the site does not have.
 #
 # CI rather than a pre-push hook, deliberately: a local hook is skippable with
 # --no-verify and simply absent on a fresh clone, so it cannot be relied on to
 # catch the case this exists for. This runs on the server, on every push and PR
 # to main, for everyone.
+#
+# The file is still named template-revision.yml and the first job is still
+# `template-revision` because that job name is the required status check on main.
+# Renaming either would silently drop the requirement. Add jobs; do not rename.
 
 on:
   push:
@@ -36,3 +48,19 @@ jobs:
           BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
           HEAD: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
         run: node scripts/check-template-revision.mjs --base="$BASE" --head="$HEAD"
+
+  changelog-drift:
+    runs-on: ubuntu-latest
+    steps:
+      # No history needed — this one regenerates and compares, it does not diff.
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # No `npm ci`: batch4-changelog.mjs imports only node builtins and
+      # batch4-edges.mjs. backups/ is gitignored and absent here, which is why
+      # what Deploy 2 did is recorded as DEPLOY2 in the edge list itself.
+      - name: Check CHANGES.md matches the edge list
+        run: node scripts/batch4-changelog.mjs --check
