@@ -8,9 +8,9 @@ edge list the deploy scripts actually read.
 
 ## Batch 4 — Deploy 2 (link graph)
 
-- **Applied:** dedupe-2026-08-28T14-50-18-072Z by `scripts/batch4-deploy2.mjs --apply`
-- **Backup:** `backups/batch4-deploy2-dedupe-2026-08-28T14-50-18-072Z.json` (1 documents, pre-change field contents)
-- **Edges:** 27 body links across 9 source pages, in 1 documents
+- **Applied:** 2026-08-28T14:34:27.985Z by `scripts/batch4-deploy2.mjs --apply`
+- **Backup:** `backups/batch4-deploy2-2026-08-28T14-34-27-985Z.json` (9 documents, pre-change field contents)
+- **Edges:** 27 body links across 9 source pages, in 9 documents
   — QW9 8, S2 19
 - **Plus 1 reference:** `relatedSituations` on the Act 135 post gained `foreclosure`
 - **Shape:** append-only. Every edge landed in a new purpose-written paragraph
@@ -18,19 +18,19 @@ edge list the deploy scripts actually read.
 
 ### Edges
 
-#### `/situations/foreclosure` → *(?)*
+#### `/situations/foreclosure` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
 | 1 | QW9 | `/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights` | how Act 135 conservatorship works in Pennsylvania | no body link and no reference — the only true two-way gap |
 
-#### `/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights` → *(?)*
+#### `/blog/pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights` → *(content)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
 | 1 | QW9 | `/situations/foreclosure` | selling a house in foreclosure | spoke->hub, plus add the relatedSituations reference |
 
-#### `/situations/vacant-property` → *(?)*
+#### `/situations/vacant-property` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
@@ -40,7 +40,7 @@ edge list the deploy scripts actually read.
 | 4 | S2 | `/locations/allentown` | we buy vacant houses in Allentown | — |
 | 5 | S2 | `/locations/wilkes-barre` | we buy vacant houses in Wilkes-Barre | — |
 
-#### `/blog/scranton-pa-major-structural-damage-disclosure-law-2026` → *(?)*
+#### `/blog/scranton-pa-major-structural-damage-disclosure-law-2026` → *(content)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
@@ -57,14 +57,14 @@ edge list the deploy scripts actually read.
 | 5 | S2 | `/locations/wilkes-barre` | cash home buyers in Wilkes-Barre | — |
 | 6 | S2 | `/locations/lehigh-valley` | we buy houses across the Lehigh Valley | — |
 
-#### `/situations/tired-landlord` → *(?)*
+#### `/situations/tired-landlord` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
 | 1 | QW9 | `/blog/luzerne-county-rental-property-registration-inspection-requirements-2026` | Luzerne County rental registration and inspection rules | hub sits at mobile 57.0, this spoke at 7.0 — largest topical asset |
 | 2 | QW9 | `/blog/hazleton-residential-occupancy-inspection-checklist` | Hazleton occupancy inspection requirements | — |
 
-#### `/situations/tax-liens-code-violations` → *(?)*
+#### `/situations/tax-liens-code-violations` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
@@ -75,14 +75,14 @@ edge list the deploy scripts actually read.
 | 5 | S2 | `/locations/allentown` | cash home buyers in Allentown | — |
 | 6 | S2 | `/locations/wilkes-barre` | cash home buyers in Wilkes-Barre | — |
 
-#### `/situations/major-repairs` → *(?)*
+#### `/situations/major-repairs` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
 | 1 | S2 | `/locations/scranton` | sell a house as-is in Scranton | — |
 | 2 | S2 | `/locations/wilkes-barre` | sell a house as-is in Wilkes-Barre | — |
 
-#### `/situations/foundation-structural-issues` → *(?)*
+#### `/situations/foundation-structural-issues` → *(problemDescription)*
 
 | # | finding | to | anchor | why |
 |---|---------|----|--------|-----|
@@ -197,12 +197,77 @@ location pages and every blog post included, none of which changed. That is
 the constant's known coarseness and the price Hard Rule 13 accepts; it is why
 it must not be bumped for content-only deploys.
 
+---
+
+## Batch 4 — Deploy 4 (location template, CI)
+
+Applied 2026-08-28, commit `c52f5cf`.
+
+### `locations/[slug]` gets `revalidate = 3600`
+
+The last of the three template routes to have it, and the same defect that cost
+Deploy 2 its 25 situation-side links: prerendered once at build time and never
+again, so a Sanity edit reached the CMS and stopped there. 21 pages. Build
+output now matches across all three:
+
+```
+● /blog/[slug]         1h  1y
+● /locations/[slug]    1h  1y
+● /situations/[slug]   1h  1y
+```
+
+Shipped with `[no-template-revision]`. The constant is date-granular and had
+already been bumped to 2026-08-28 hours earlier by Deploy 3, so a second
+template deploy the same day has nothing to bump it to — and the rule's purpose
+is already served, since every location URL already advertises 2026-08-28. The
+hatch's own condition also holds literally: the newest location document was
+edited 2026-07-26, months before the build, so no location URL renders anything
+different as a result of the commit. It changes future behaviour only.
+
+Worth fixing at some point: `check-template-revision.mjs` tests
+`before !== after`, which a same-day second deploy cannot satisfy. Treating
+`TEMPLATE_REVISION === today` as a pass would be correct rather than lenient.
+
+### Changelog drift is now a CI job
+
+`node scripts/batch4-changelog.mjs --check` runs as the `changelog-drift` job in
+`.github/workflows/template-revision.yml`, beside `template-revision`. An edge
+list edited without regenerating this file fails the build.
+
+To make that work the generator had to stop reading `backups/`, which is
+gitignored and absent in CI. What Deploy 2 did is recorded as `DEPLOY2` in
+`batch4-edges.mjs` — the same file that holds the edges — and the target field
+follows from the route rather than a lookup table. When the backup *is* present
+it is treated as the authority and `DEPLOY2` is checked against it, so the
+record cannot quietly go stale.
+
+### Verified: a Sanity edit now propagates without a deploy
+
+No location document had un-rendered content to observe (newest edit
+2026-07-26), so the probe was a deliberate one: `" Since 2016."` appended to
+`bloomsburg`'s `metaDescription` at 15:03:31Z, four minutes after the route was
+regenerated at 15:02:51Z. Polled once a minute:
+
+```
+t+59m  16:02:27Z  Age: 3576  X-Vercel-Cache: HIT     probe not yet visible
+t+60m  16:03:28Z  Age: 3637  X-Vercel-Cache: STALE   probe not yet visible
+t+61m  16:04:29Z  Age:   59  X-Vercel-Cache: HIT     PROPAGATED
+```
+
+Textbook ISR: the window closes at 3600s, the next request is served STALE and
+kicks off a background regeneration, and the one after that carries the new
+value. No deploy was involved — the deploy fingerprint (`/privacy-policy` ETag
+`78fa12f8f880a13f7d6b6dc5b4f64fc3`) was identical before and after.
+
+Probe reverted at 16:04:59Z; the original is in
+`backups/isr-probe-bloomsburg.json`.
+
 ### Known gap
 
-`locations/[slug]` has the same missing `revalidate` and the same latent
-staleness. Not fixed here — it wants its own deploy and attribution window.
-`/sitemap.xml` is also fully static, so it refreshes on deploy rather than on a
-Sanity edit.
+`/locations/nepa`, `/locations/lehigh-valley` and `/locations/poconos` are
+separate static routes rendering Sanity location data through `RegionalHubPage`,
+and remain build-time only. `/sitemap.xml` is fully static too, so it refreshes
+on deploy rather than on a Sanity edit.
 
 ---
 
