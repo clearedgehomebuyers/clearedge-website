@@ -17,8 +17,18 @@
 // and the anchors sit in a sentence a human would write.
 //
 // GUARDS:
-//   * Idempotent — an edge is skipped if the source already links the target
-//     anywhere in its body, so a re-run is a no-op and a partial run resumes.
+//   * Idempotent PER TARGET, not per source. A target already linked anywhere in
+//     the source's body is emitted as PLAIN TEXT inside the new paragraph — the
+//     prose still reads, and no second link to that target is created. A source
+//     is skipped outright only when every one of its targets is already linked.
+//
+//     This was per-SOURCE until 2026-08-28 and it cost us: the inherited hub's
+//     S2 paragraph had 2 of its 5 targets (the Allentown and Reading blog
+//     owners) already linked by an earlier script, so the all-or-nothing test
+//     did not fire and the paragraph was written whole, duplicating both. Google
+//     credits the FIRST anchor per target, so the duplicate handed the ranking
+//     signal to the older, clumsier anchor — the exact opposite of what those
+//     two hand-off edges exist to do.
 //   * NO_CITY_ANCHOR_INBOUND is ENFORCED, not documented: any edge pointing AT
 //     /situations/inherited-property with a city name in the anchor aborts the
 //     run. That hub took 202 impressions and 0 clicks in 28 days, ~130 of them
@@ -30,7 +40,7 @@ import { createClient } from '@sanity/client'
 import dotenv from 'dotenv'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { writeFileSync, mkdirSync } from 'fs'
+import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'fs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 dotenv.config({ path: resolve(__dirname, '../.env.local') })
@@ -131,25 +141,94 @@ const PLAN = [
 // --------------------------------------------------------------------------
 const key = (p) => p + Math.random().toString(36).slice(2, 10)
 
-function buildBlock(parts) {
+/**
+ * Build the paragraph. `linked` is the set of hrefs the source field ALREADY
+ * links; a target in that set keeps its sentence but loses its link mark, so the
+ * prose stays grammatical and the target is not linked twice. Returns the block
+ * plus the targets that actually became links and the ones downgraded.
+ */
+function buildBlock(parts, linked) {
   const children = []
   const markDefs = []
+  const linkedNow = []
+  const plain = []
   for (const part of parts) {
     if (typeof part === 'string') {
       children.push({ _key: key('s'), _type: 'span', marks: [], text: part })
+    } else if (linked.has(part.href)) {
+      plain.push(part)
+      children.push({ _key: key('s'), _type: 'span', marks: [], text: part.t })
     } else {
       const k = key('lnk')
       markDefs.push({ _key: k, _type: 'link', href: part.href })
       children.push({ _key: key('s'), _type: 'span', marks: [k], text: part.t })
+      linkedNow.push(part)
+      linked.add(part.href) // a later paragraph in this same run must see it too
     }
   }
-  return { _key: key('b'), _type: 'block', style: 'normal', markDefs, children }
+  return { block: { _key: key('b'), _type: 'block', style: 'normal', markDefs, children }, linkedNow, plain }
+}
+
+/** Every link in a field, as {href, text} — text is the anchor it already uses. */
+function bodyLinks(doc, field) {
+  const out = []
+  for (const b of doc[field] || []) {
+    for (const m of b.markDefs || []) {
+      if (!m.href) continue
+      const text = (b.children || [])
+        .filter((c) => (c.marks || []).includes(m._key))
+        .map((c) => c.text)
+        .join('')
+      out.push({ href: m.href, text })
+    }
+  }
+  return out
 }
 
 function bodyHrefs(doc, field) {
-  const out = []
-  for (const b of doc[field] || []) for (const m of b.markDefs || []) if (m.href) out.push(m.href)
-  return out
+  return bodyLinks(doc, field).map((l) => l.href)
+}
+
+// --- self-test: replay the PLAN against the PRE-DEPLOY state ---------------
+// Offline regression test for the per-target guard, run against the backup this
+// deploy wrote — i.e. the exact field contents that produced the two duplicate
+// links on 2026-08-28. The old per-source guard emitted 27 links here; the
+// fixed one must emit 25 and downgrade exactly the two already-linked targets.
+//
+//   node scripts/batch4-deploy2.mjs --self-test
+if (process.argv.includes('--self-test')) {
+  const dir = resolve(__dirname, '../backups')
+  const name = readdirSync(dir).filter(f => /^batch4-deploy2-.*\.json$/.test(f)).sort().pop()
+  if (!name) { console.error('no backups/batch4-deploy2-*.json to replay against'); process.exit(1) }
+  const pre = new Map(JSON.parse(readFileSync(resolve(dir, name), 'utf8')).map(b => [b.slug, b]))
+  console.log(`=== SELF-TEST — replaying PLAN against backups/${name} ===\n`)
+
+  const sets = new Map()
+  let linkCount = 0
+  const downgrades = []
+  for (const p of PLAN) {
+    const b = pre.get(p.doc)
+    if (!b) { console.error(`  !! ${p.doc} not in the backup — cannot replay`); process.exit(1) }
+    const fkey = `${p.doc}::${p.field}`
+    if (!sets.has(fkey)) sets.set(fkey, new Set(bodyLinks({ [p.field]: b.content }, p.field).map(l => l.href)))
+    const { block, linkedNow, plain } = buildBlock(p.parts, sets.get(fkey))
+    linkCount += linkedNow.length
+    for (const t of plain) downgrades.push(`${p.doc} -> ${t.href}`)
+    // the paragraph must survive intact whether or not a target was downgraded
+    const text = block.children.map(c => c.text).join('')
+    const want = p.parts.map(x => (typeof x === 'string' ? x : x.t)).join('')
+    if (text !== want) { console.error(`  FAIL ${p.doc}: prose altered by the guard`); process.exit(1) }
+    console.log(`  ${p.doc} [${p.finding}] — ${linkedNow.length} link(s), ${plain.length} de-duplicated`)
+  }
+
+  const expected = ['inherited-property -> /blog/sell-inherited-house-allentown-pa',
+                    'inherited-property -> /blog/sell-inherited-house-reading-pa']
+  const ok = linkCount === 25 && JSON.stringify(downgrades.sort()) === JSON.stringify(expected.sort())
+  console.log(`\n  links emitted: ${linkCount} (expect 25)`)
+  console.log(`  de-duplicated: ${downgrades.length} (expect 2)`)
+  downgrades.forEach(d => console.log(`      ${d}`))
+  console.log(`\n${ok ? 'SELF-TEST PASSED' : 'SELF-TEST FAILED'}`)
+  process.exit(ok ? 0 : 1)
 }
 
 const docs = await client.fetch(`*[_type in ["situation","blogPost"]]{
@@ -178,32 +257,50 @@ console.log(`cross-cluster guard: PASS (no city-qualified anchor points at the i
 
 const patches = []
 const edges = []
+// Per document+field: the hrefs already linked, and the anchor each one uses.
+// Seeded from Sanity, then extended by buildBlock as this run adds links, so a
+// second paragraph on the same field cannot duplicate the first one's targets.
+const linkedSets = new Map()
+const anchorFor = new Map()
 let skipped = 0
+let deduped = 0
 for (const p of PLAN) {
   const doc = bySlug.get(p.doc)
   if (!doc) { console.log(`  !! doc not found: ${p.doc}`); continue }
-  const existing = bodyHrefs(doc, p.field)
+  const fkey = `${doc._id}::${p.field}`
+  if (!linkedSets.has(fkey)) {
+    const links = bodyLinks(doc, p.field)
+    linkedSets.set(fkey, new Set(links.map(l => l.href)))
+    for (const l of links) if (!anchorFor.has(`${fkey}::${l.href}`)) anchorFor.set(`${fkey}::${l.href}`, l.text)
+  }
+  const linked = linkedSets.get(fkey)
   const targets = p.parts.filter(x => typeof x === 'object')
-  const already = targets.filter(t => existing.includes(t.href))
-  if (already.length === targets.length) {
+  if (targets.every(t => linked.has(t.href))) {
     console.log(`  SKIP  ${p.doc} [${p.finding}] — all ${targets.length} target(s) already linked`)
     skipped++
     continue
   }
-  const block = buildBlock(p.parts)
+  const { block, linkedNow, plain } = buildBlock(p.parts, linked)
   const field = JSON.parse(JSON.stringify(doc[p.field] || []))
   field.push(block)
   const prev = patches.find(x => x._id === doc._id && x.field === p.field)
   if (prev) { prev.value.push(block); prev.findings.push(p.finding) }
   else patches.push({ _id: doc._id, slug: doc.slug, field: p.field, value: field, findings: [p.finding], orig: doc[p.field] || [], refSituation: p.alsoRefSituation })
-  console.log(`  ADD   ${p.doc} [${p.finding}] — ${targets.length} link(s)`)
-  for (const t of targets) {
+  console.log(`  ADD   ${p.doc} [${p.finding}] — ${linkedNow.length} link(s)` + (plain.length ? `, ${plain.length} de-duplicated` : ''))
+  for (const t of linkedNow) {
     console.log(`          "${t.t}" -> ${t.href}`)
     edges.push({ finding: p.finding, from: (p.type === 'situation' ? '/situations/' : '/blog/') + p.doc, to: t.href, anchor: t.t })
   }
+  for (const t of plain) {
+    deduped++
+    console.log(`  DEDUPE  "${t.t}" -> ${t.href}`)
+    console.log(`          kept as plain text — already linked here as "${anchorFor.get(`${fkey}::${t.href}`)}".`)
+    console.log(`          Google credits the FIRST anchor per target; if the planned one is`)
+    console.log(`          better, remove the existing link by hand and re-run.`)
+  }
 }
 
-console.log(`\nedges to add: ${edges.length}   blocks: ${patches.reduce((n, p) => n + 1, 0)}   skipped sources: ${skipped}`)
+console.log(`\nedges to add: ${edges.length}   blocks: ${patches.reduce((n, p) => n + 1, 0)}   skipped sources: ${skipped}   de-duplicated targets: ${deduped}`)
 console.log(`  QW9: ${edges.filter(e => e.finding === 'QW9').length}   S2: ${edges.filter(e => e.finding === 'S2').length}`)
 
 const today = new Date().toISOString().slice(0, 10)

@@ -90,6 +90,22 @@ const portableTextComponents: PortableTextComponents = {
   },
 }
 
+/**
+ * ISR — re-render each situation page at most once an hour.
+ *
+ * Without this the route is prerendered ONCE at build time and never again, so
+ * a Sanity edit reached the CMS and stopped there. Batch 4 Deploy 2 found this
+ * the hard way on 2026-08-28: 25 body links were written and read back clean,
+ * and every /situations/* URL was still serving `x-vercel-cache: HIT` on HTML
+ * built three days earlier with none of them in it. blog/[slug] has carried
+ * `revalidate = 3600` all along, which is why the same deploy's two blog edges
+ * went live inside the hour and these did not.
+ *
+ * Matches blog/[slug]/page.tsx. `client` uses `useCdn: true`, so a regeneration
+ * can trail Sanity by up to another ~60s — immaterial against a 1h window.
+ */
+export const revalidate = 3600
+
 export async function generateStaticParams() {
   const situations = await getSituations()
   return situations.map((situation: any) => ({

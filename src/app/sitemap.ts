@@ -21,7 +21,7 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-08-24' // Batch 4 Deploy 1 — BlogCtaBlock href
+const TEMPLATE_REVISION = '2026-08-28' // situations/[slug] ISR — see CHANGES.md
 
 /**
  * Blog posts deliberately withheld from the sitemap (audit §2.6 / Batch 3).
