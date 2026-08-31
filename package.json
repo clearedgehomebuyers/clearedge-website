@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit --incremental false"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.2",
@@ -23,7 +25,8 @@
     "react-dom": "19.2.3",
     "sanity": "^4.22.0",
     "tailwind-merge": "^3.4.0",
-    "tw-animate-css": "^1.4.0"
+    "tw-animate-css": "^1.4.0",
+    "zod": "^4.5.4"
   },
   "browserslist": [
     "Chrome >= 93",
@@ -42,6 +45,7 @@
     "eslint-config-next": "16.1.1",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }

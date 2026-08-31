@@ -3,12 +3,13 @@
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, DollarSign, Home, Heart, Briefcase, Wrench, FileWarning, Key, Building, HelpCircle as OtherIcon } from "lucide-react"
+import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, DollarSign, Home, Heart, Briefcase, Wrench, FileWarning, Key, HelpCircle as OtherIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { AddressAutocomplete } from "@/components/AddressAutocomplete"
 import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
-import { trackMetaFormStart, trackMetaLead } from "@/lib/meta-pixel"
+import { trackConfirmedMetaLead, trackMetaFormStart } from "@/lib/meta-pixel"
+import { LeadSubmissionError, submitLead } from "@/lib/leads/client"
 
 // The proven five-step organic form. This is what every route gets unless it
 // opts into a variant, and it is unchanged.
@@ -224,7 +225,7 @@ export function V0LeadForm({
   const legalLinkProps = legalLinksNewTab
     ? { target: '_blank', rel: 'noopener noreferrer' as const }
     : {}
-  const { webhook, trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
+  const { trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
   const [currentStep, setCurrentStep] = useState(1)
   const [slideDirection, setSlideDirection] = useState<"forward" | "backward">("forward")
   const [formData, setFormData] = useState({
@@ -242,6 +243,8 @@ export function V0LeadForm({
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState('')
+  const [companyWebsite, setCompanyWebsite] = useState('')
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
   const [showStep1Errors, setShowStep1Errors] = useState(false)
@@ -255,7 +258,8 @@ export function V0LeadForm({
   // mounted form. GA4's form_start comes from Enhanced Measurement and can't
   // say which form it was; this one names it.
   const hasTrackedFormStart = useRef(false)
-  const hasTrackedMetaLead = useRef(false)
+  const formStartedAtRef = useRef(Date.now())
+  const submissionInFlightRef = useRef(false)
   // One arrival and one completion per form attempt. Without these, navigating
   // back and forward over the Price step would fire repeat views and inflate
   // the denominator that abandonment is measured against (blueprint §4).
@@ -401,27 +405,9 @@ export function V0LeadForm({
     }
   }
 
-  // Track GA4 conversion when form is successfully submitted.
-  // delivery distinguishes webhook-confirmed submissions from ones whose fetch
-  // threw (event still fires so lead counts stay comparable week over week).
-  const webhookDeliveredRef = useRef(true)
+  // Scroll only after the server has confirmed Zapier acceptance.
   useEffect(() => {
     if (isSubmitted && typeof window !== 'undefined') {
-      if (window.gtag) {
-        window.gtag('event', 'generate_lead', {
-          event_category: 'Lead Form',
-          event_label: 'Multi-Step Lead Form',
-          value: 1,
-          delivery: webhookDeliveredRef.current ? 'ok' : 'failed',
-          traffic_source: trafficSource,
-          utm_source: utmParams.utm_source,
-          utm_medium: utmParams.utm_medium,
-          utm_campaign: utmParams.utm_campaign,
-          page_location: window.location.href,
-          page_path: window.location.pathname
-        });
-      }
-      // Scroll to confirmation so user sees submission was successful
       setTimeout(() => {
         document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }, 100)
@@ -430,33 +416,26 @@ export function V0LeadForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!isStepValid(lastStep)) return
+    if (!isStepValid(lastStep) || isSubmitted || submissionInFlightRef.current) return
 
+    submissionInFlightRef.current = true
     setIsSubmitting(true)
-
-    // Meta Lead — the same action GA4 reports as generate_lead, sent to the
-    // pixel and to CAPI under one shared event id. Fires on the webhook-failure
-    // path too, matching what GA4 does, so the two platforms stay comparable.
-    const trackLeadOnce = () => {
-      if (hasTrackedMetaLead.current) return
-      hasTrackedMetaLead.current = true
-      trackMetaLead(
-        {
-          email: formData.email,
-          phone: formData.phone,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          city: formData.city,
-          state: formData.state,
-          zip: formData.zip,
-        },
-        'Multi-Step Lead Form',
-      )
-    }
+    setSubmissionError('')
 
     try {
-      // Build payload for Zapier/REsimpli
-      const payload = {
+      const attribution = {
+        trafficSource,
+        landingPage,
+        submissionPage: window.location.href,
+        utm_source: utmParams.utm_source,
+        utm_medium: utmParams.utm_medium,
+        utm_campaign: utmParams.utm_campaign,
+        utm_content: utmParams.utm_content,
+        utm_term: utmParams.utm_term,
+        fbclid: utmParams.fbclid,
+      }
+
+      const fields = {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
@@ -465,55 +444,66 @@ export function V0LeadForm({
         city: formData.city,
         state: formData.state,
         zip: formData.zip,
-        situation: formData.situation || '',
-        timeline: formData.timeline || '',
-        occupancy: formData.occupancy || '',
-        termsConsent: termsConsent,
-        smsConsent: smsConsent,
-        leadSource: 'Website - ClearEdge Home Buyers',
-        trafficSource: trafficSource,
-        utm_source: utmParams.utm_source,
-        utm_medium: utmParams.utm_medium,
-        utm_campaign: utmParams.utm_campaign,
-        utm_content: utmParams.utm_content,
-        utm_term: utmParams.utm_term,
-        fbclid: utmParams.fbclid,
-        landingPage: landingPage,
-        // Price fields exist only on the nj-meta variant, so the payload every
-        // other route sends is byte-identical to what it sent before.
-        // sellerPriceExpectation is a real JSON number or null — never 0, never
-        // an empty string standing in for zero (blueprint §5).
-        ...(hasPriceStep
-          ? {
-              sellerPriceExpectation: priceNotSure ? null : parsePriceAmount(priceAmount),
-              priceResponse: priceNotSure ? 'Wants offer / Not sure' : 'Amount provided',
-            }
-          : {}),
+        situation: formData.situation,
+        timeline: formData.timeline,
+        occupancy: formData.occupancy,
+        termsConsent,
+        smsConsent,
       }
 
-      // Send to dynamic Zapier webhook based on traffic source
-      await fetch(webhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
-        keepalive: true,
-        body: JSON.stringify(payload),
-      })
+      const result = hasPriceStep
+        ? await submitLead({
+            formVariant: 'multi_step_nj_meta',
+            formStartedAt: formStartedAtRef.current,
+            companyWebsite,
+            attribution,
+            fields: {
+              ...fields,
+              sellerPriceExpectation: priceNotSure ? null : parsePriceAmount(priceAmount),
+              priceResponse: priceNotSure ? 'Wants offer / Not sure' : 'Amount provided',
+            },
+          })
+        : await submitLead({
+            formVariant: 'multi_step_default',
+            formStartedAt: formStartedAtRef.current,
+            companyWebsite,
+            attribution,
+            fields,
+          })
 
       // Clear SMS attribution so this lead isn't double-counted on return visits
       if (trafficSource === 'sms') clearSMSAttribution()
 
-      trackLeadOnce()
+      // Conversion events are gated on the confirmed 201 from /api/leads.
+      try {
+        if (window.gtag) {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'Lead Form',
+            event_label: 'Multi-Step Lead Form',
+            value: 1,
+            delivery: result.delivery,
+            lead_id: result.leadId,
+            traffic_source: trafficSource,
+            utm_source: utmParams.utm_source,
+            utm_medium: utmParams.utm_medium,
+            utm_campaign: utmParams.utm_campaign,
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          })
+        }
+        trackConfirmedMetaLead(result.metaEventId, 'Multi-Step Lead Form')
+      } catch {
+        // Analytics must never change an accepted lead into a failed UI state.
+      }
 
-      // With no-cors mode, we can't read the response, so assume success
       setIsSubmitted(true)
     } catch (error) {
-      console.error('Form submission error:', error)
-      // Still show success to user, log error for debugging
-      webhookDeliveredRef.current = false
-      trackLeadOnce()
-      setIsSubmitted(true)
+      const reference = error instanceof LeadSubmissionError ? error.referenceId : undefined
+      setSubmissionError(
+        `We couldn't confirm delivery. Your information is still here—please try again or call ${phone}.${reference ? ` Reference: ${reference}` : ''}`,
+      )
     } finally {
+      submissionInFlightRef.current = false
       setIsSubmitting(false)
     }
   }
@@ -632,6 +622,18 @@ export function V0LeadForm({
 
           <div className="p-5 sm:p-8 md:p-12">
             <form id="multi-step-lead-form" name="multi-step-lead-form" onSubmit={handleSubmit}>
+              <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="multi-step-company-website">Company website</label>
+                <input
+                  id="multi-step-company-website"
+                  name="companyWebsite"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={companyWebsite}
+                  onChange={(event) => setCompanyWebsite(event.target.value)}
+                />
+              </div>
               {/* Step content with slide animation */}
               <div key={stepKeyRef.current} data-direction={slideDirection}>
                 {/* Step 1: Address */}
@@ -965,6 +967,12 @@ export function V0LeadForm({
                   </div>
                 )}
               </div>
+
+              {submissionError && (
+                <p role="alert" className="mt-6 text-sm text-red-600 text-center">
+                  {submissionError}
+                </p>
+              )}
 
               {/* Navigation */}
               <div className={`mt-8 pt-6 border-t border-ce-ink/5 ${currentStep === 1 ? 'flex flex-col gap-4' : 'flex justify-between items-start gap-4'}`}>

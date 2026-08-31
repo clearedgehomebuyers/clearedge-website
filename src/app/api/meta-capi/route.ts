@@ -1,94 +1,24 @@
-import { createHash } from 'node:crypto'
 import { NextResponse, type NextRequest } from 'next/server'
-
-/**
- * Meta Conversions API relay.
- *
- * The browser posts a user action here; this route hashes the identifiers and
- * forwards the event to Meta server-to-server. The browser pixel sends the
- * same action with the same `event_id`, and Meta dedups on
- * (event_name, event_id) — see src/lib/meta-pixel.ts for the contract.
- *
- * META_CAPI_ACCESS_TOKEN is read here and only here. It is deliberately not
- * NEXT_PUBLIC_-prefixed, so Next will not inline it into any client bundle;
- * this module is server-only (a route handler) and never imported by a
- * component.
- */
+import {
+  sendMetaCapiEvent,
+  type MetaServerEventName,
+  type MetaServerUserData,
+} from '@/lib/meta-capi-server'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-const GRAPH_VERSION = 'v21.0'
-const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
-const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN
-/** Present only while verifying in Events Manager. Removing the env var from
- *  Vercel is all it takes to switch this route to live mode. */
-const TEST_EVENT_CODE = process.env.META_TEST_EVENT_CODE
-
-/** This endpoint is public, so only events we actually emit are accepted —
- *  an open relay would let anyone inject arbitrary events into the pixel. */
-const ALLOWED_EVENTS = new Set(['PageView', 'Lead', 'FormStart', 'CTAClick'])
-
-function sha256(value: string): string {
-  return createHash('sha256').update(value).digest('hex')
-}
-
-/** Meta wants lowercase + trimmed before hashing. */
-function hashNormalized(value: unknown): string | undefined {
-  if (typeof value !== 'string') return undefined
-  const normalized = value.trim().toLowerCase()
-  return normalized ? sha256(normalized) : undefined
-}
-
-/** Meta wants digits only, including country code, before hashing. */
-function hashPhone(value: unknown): string | undefined {
-  if (typeof value !== 'string') return undefined
-  let digits = value.replace(/\D/g, '')
-  if (!digits) return undefined
-  if (digits.length === 10) digits = `1${digits}` // US numbers arrive unprefixed
-  return sha256(digits)
-}
-
-/** Names/cities: strip punctuation and whitespace per Meta's normalization. */
-function hashName(value: unknown): string | undefined {
-  if (typeof value !== 'string') return undefined
-  const normalized = value.trim().toLowerCase().replace(/[^a-zà-ü]/g, '')
-  return normalized ? sha256(normalized) : undefined
-}
-
 /**
- * Rebuild Meta's `_fbc` from an fbclid in the event URL, in Meta's documented
- * fb.{subdomainIndex}.{creationTimeMs}.{fbclid} shape. Used only when neither
- * the request body nor the cookie carried one.
+ * Lead is deliberately absent. A Lead can only be emitted by /api/leads after
+ * Zapier acceptance; this public browser-event relay cannot mint conversions.
  */
-function fbcFromUrl(eventSourceUrl?: string): string | undefined {
-  if (!eventSourceUrl) return undefined
-  try {
-    const fbclid = new URL(eventSourceUrl).searchParams.get('fbclid')
-    return fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined
-  } catch {
-    return undefined
-  }
-}
-
-function clientIp(request: NextRequest): string | undefined {
-  const forwarded = request.headers.get('x-forwarded-for')
-  if (forwarded) return forwarded.split(',')[0].trim()
-  return request.headers.get('x-real-ip') || undefined
-}
-
-/** Drop undefined keys — Meta rejects null/empty values in user_data. */
-function compact<T extends Record<string, unknown>>(obj: T): Record<string, unknown> {
-  return Object.fromEntries(Object.entries(obj).filter(([, v]) => v !== undefined && v !== ''))
-}
+const ALLOWED_BROWSER_EVENTS = new Set<MetaServerEventName>([
+  'PageView',
+  'FormStart',
+  'CTAClick',
+])
 
 export async function POST(request: NextRequest) {
-  if (!PIXEL_ID || !ACCESS_TOKEN) {
-    // Preview/local deploys have no token: accept and drop rather than 500,
-    // so a missing env var can never break a form submission.
-    return NextResponse.json({ ok: false, skipped: 'not-configured' })
-  }
-
   let body: Record<string, unknown>
   try {
     body = await request.json()
@@ -98,87 +28,49 @@ export async function POST(request: NextRequest) {
 
   const eventName = body.event_name
   const eventId = body.event_id
-  if (typeof eventName !== 'string' || !ALLOWED_EVENTS.has(eventName)) {
+  if (typeof eventName !== 'string' || !ALLOWED_BROWSER_EVENTS.has(eventName as MetaServerEventName)) {
     return NextResponse.json({ ok: false, error: 'unsupported-event' }, { status: 400 })
   }
   if (typeof eventId !== 'string' || !eventId) {
-    // No event id means Meta cannot dedup this against the browser event.
     return NextResponse.json({ ok: false, error: 'missing-event-id' }, { status: 400 })
   }
 
-  const userData = (body.user_data ?? {}) as Record<string, unknown>
-  const eventSourceUrl = typeof body.event_source_url === 'string' ? body.event_source_url : undefined
+  const result = await sendMetaCapiEvent(request, {
+    eventName: eventName as MetaServerEventName,
+    eventId,
+    eventSourceUrl: typeof body.event_source_url === 'string' ? body.event_source_url : undefined,
+    customData:
+      body.custom_data && typeof body.custom_data === 'object'
+        ? body.custom_data as Record<string, unknown>
+        : undefined,
+    userData:
+      body.user_data && typeof body.user_data === 'object'
+        ? body.user_data as MetaServerUserData
+        : undefined,
+    fbc: typeof body.fbc === 'string' ? body.fbc : undefined,
+    fbp: typeof body.fbp === 'string' ? body.fbp : undefined,
+  })
 
-  const fbc =
-    (body.fbc as string) ||
-    request.cookies.get('_fbc')?.value ||
-    // Last resort: rebuild it from the fbclid still sitting in the event's own
-    // URL. Covers the visitor whose browser refused our cookie — without this,
-    // an ad click that we can plainly see in the URL would be reported to Meta
-    // with no click id at all.
-    fbcFromUrl(eventSourceUrl)
-
-  const fbp = (body.fbp as string) || request.cookies.get('_fbp')?.value
-
-  const event = {
-    event_name: eventName,
-    // Stamped server-side on purpose: client clocks drift, and Meta rejects
-    // events whose event_time is too far from real time.
-    event_time: Math.floor(Date.now() / 1000),
-    event_id: eventId,
-    action_source: 'website',
-    event_source_url: eventSourceUrl,
-    user_data: compact({
-      em: hashNormalized(userData.email),
-      ph: hashPhone(userData.phone),
-      fn: hashName(userData.firstName),
-      ln: hashName(userData.lastName),
-      ct: hashName(userData.city),
-      st: hashNormalized(userData.state),
-      zp: hashNormalized(userData.zip),
-      client_ip_address: clientIp(request),
-      client_user_agent: request.headers.get('user-agent') || undefined,
-      fbc,
-      fbp,
-    }),
-    custom_data: body.custom_data && typeof body.custom_data === 'object' ? body.custom_data : undefined,
+  if (!result.ok && result.error) {
+    console.error('[meta-capi] delivery failed', eventName, result.error, result.downstreamStatus ?? '')
   }
 
-  const payload = {
-    data: [event],
-    ...(TEST_EVENT_CODE ? { test_event_code: TEST_EVENT_CODE } : {}),
-  }
-
-  try {
-    const response = await fetch(
-      `https://graph.facebook.com/${GRAPH_VERSION}/${PIXEL_ID}/events?access_token=${encodeURIComponent(ACCESS_TOKEN)}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      },
-    )
-
-    const result = (await response.json().catch(() => ({}))) as {
-      events_received?: number
-      error?: { message?: string }
-    }
-
-    if (!response.ok) {
-      console.error('[meta-capi] rejected', eventName, response.status, result.error?.message)
-      return NextResponse.json({
-        ok: false,
-        ...(TEST_EVENT_CODE ? { debug: result.error?.message } : {}),
-      })
-    }
-
+  if (result.ok) {
     return NextResponse.json({
       ok: true,
-      events_received: result.events_received,
-      ...(TEST_EVENT_CODE ? { test_mode: true } : {}),
+      events_received: result.eventsReceived,
+      ...(result.testMode ? { test_mode: true } : {}),
     })
-  } catch (error) {
-    console.error('[meta-capi] request failed', eventName, error)
-    return NextResponse.json({ ok: false, error: 'upstream-unreachable' })
   }
+
+  if (result.skipped) {
+    return NextResponse.json({ ok: false, skipped: result.skipped })
+  }
+
+  return NextResponse.json({
+    ok: false,
+    ...(result.error === 'upstream-unreachable' || result.error === 'upstream-timeout'
+      ? { error: 'upstream-unreachable' }
+      : {}),
+  })
 }

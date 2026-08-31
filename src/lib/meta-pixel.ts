@@ -21,12 +21,12 @@
  */
 
 /** Meta standard events go through fbq('track'); everything else is custom. */
-const STANDARD_EVENTS = new Set(['PageView', 'Lead'])
+const STANDARD_EVENTS = new Set(['PageView'])
 
 /** Meta's click-attribution window for _fbc. */
 const FBC_MAX_AGE_SECONDS = 90 * 24 * 60 * 60
 
-export type MetaEventName = 'PageView' | 'Lead' | 'FormStart' | 'CTAClick'
+export type MetaEventName = 'PageView' | 'FormStart' | 'CTAClick'
 
 /**
  * Raw, UNHASHED identifiers. These are posted to our own same-origin route,
@@ -219,12 +219,16 @@ export function trackMetaPageView(): string {
   return trackMeta('PageView')
 }
 
-/** Meta's standard Lead event. Mirrors GA4 `generate_lead`. */
-export function trackMetaLead(userData: MetaUserData, formName: string): string {
-  return trackMeta('Lead', {
-    userData,
-    customData: { content_name: formName },
-  })
+/**
+ * Fire the browser copy of a server-confirmed Lead. /api/leads has already sent
+ * the CAPI copy under this exact event id after Zapier acceptance, so this must
+ * never mint its own id or call the public CAPI relay.
+ */
+export function trackConfirmedMetaLead(eventId: string, formName: string): void {
+  if (!eventId || !pixelEnabled()) return
+  captureFbclid()
+  ensureFbp()
+  window.fbq('track', 'Lead', { content_name: formName }, { eventID: eventId })
 }
 
 /**
