@@ -1,5 +1,5 @@
 import { getSituationBySlug, getSituations, getBlogPostsBySituation } from '@/sanity/lib/queries'
-import { LocalBusinessSchema, FAQSchema } from '@/components/Schema'
+import { OrganizationSchema, FAQSchema } from '@/components/Schema'
 import { V0Header } from '@/components/v0-header'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import Link from 'next/link'
@@ -15,7 +15,8 @@ const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ d
 const SituationFAQAccordion = dynamic(() => import('@/components/SituationFAQAccordion').then(mod => ({ default: mod.SituationFAQAccordion })), { ssr: true })
 const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 
-// Property photos mapped to specific situation slugs (each photo used exactly twice)
+// Property photos mapped to situation slugs. Captions always name the actual
+// property location even when the same verified purchase photo is reused.
 const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
   'foreclosure': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
   'inherited-property': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
@@ -25,7 +26,7 @@ const heroPhotos: Record<string, { src: string; location: string; days: number }
   'tax-liens-code-violations': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
   'tired-landlord': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
   'vacant-property': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
-  'foundation-structural-issues': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Scranton, PA', days: 16 },
+  'foundation-structural-issues': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
 }
 
 // Default photo if slug not found
@@ -189,7 +190,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <LocalBusinessSchema />
+      <OrganizationSchema />
       {situation.faqs && <FAQSchema faqs={situation.faqs} />}
 
       <V0Header />
@@ -245,7 +246,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                     <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
-                      Just Closed
+                      ClearEdge Purchase
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
                     <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>

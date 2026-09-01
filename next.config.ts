@@ -56,6 +56,36 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      {
+        // GSC still finds an old mixed-case homepage URL from an external
+        // source. Consolidate it instead of returning a persistent 404.
+        source: '/Home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        // These long-unindexed articles duplicate stronger transactional
+        // pages. Consolidating their signals is more useful than keeping thin
+        // 200 responses outside the sitemap.
+        source: '/blog/sell-my-house-fast-poconos-pa',
+        destination: '/locations/poconos',
+        permanent: true,
+      },
+      {
+        source: '/blog/cash-home-buyers-pottsville-pa',
+        destination: '/locations/pottsville',
+        permanent: true,
+      },
+      {
+        source: '/blog/selling-water-damaged-house-18102-mold-issues',
+        destination: '/situations/major-repairs',
+        permanent: true,
+      },
+      {
+        source: '/blog/sell-house-fast-during-divorce-lehigh-county-pa',
+        destination: '/situations/divorce',
+        permanent: true,
+      },
     ]
   },
 }

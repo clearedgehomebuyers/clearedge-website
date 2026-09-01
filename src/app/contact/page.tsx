@@ -58,7 +58,7 @@ const faqSchema = {
       '@type': 'Answer',
       // audit QW5 (2026-08-10): JSON-LD is server-rendered, so the {{phone}}
       // token shipped raw into structured data. Substitute the default/organic
-      // number statically (matches this page's LocalBusiness telephone); the
+      // number statically (matches this page's Organization telephone); the
       // visible accordion keeps its dynamic per-source substitution.
       text: faq.answer.replace(/\{\{phone\}\}/g, '(610) 904-8526'),
     },
@@ -84,24 +84,15 @@ const breadcrumbSchema = {
   ],
 }
 
-const localBusinessSchema = {
+const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'Organization',
+  '@id': 'https://www.clearedgehomebuyers.com/#organization',
   name: 'ClearEdge Home Buyers',
+  legalName: 'ClearEdge Properties LLC',
   telephone: '+1-610-904-8526',
   email: 'info@clearedgehomebuyers.com',
   url: 'https://www.clearedgehomebuyers.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Scranton',
-    addressRegion: 'PA',
-    addressCountry: 'US',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 40.8603424,
-    longitude: -75.8193544,
-  },
   areaServed: [
     { '@type': 'City', name: 'Scranton' },
     { '@type': 'City', name: 'Wilkes-Barre' },
@@ -139,12 +130,6 @@ const localBusinessSchema = {
     { '@type': 'Place', name: 'Eastern Pennsylvania' },
     { '@type': 'Place', name: 'Northeastern Pennsylvania' },
   ],
-  openingHoursSpecification: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '00:00',
-    closes: '23:59',
-  },
   sameAs: [
     'https://www.facebook.com/profile.php?id=61578297005995',
     'https://www.instagram.com/clearedge_home_buyers/',
@@ -166,7 +151,7 @@ export default function ContactPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <main className="bg-white">
         <V0Header />

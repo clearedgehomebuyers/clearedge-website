@@ -92,13 +92,13 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         imageSizes="(max-width: 768px) 280px, 380px"
         fetchPriority="high"
       />
-      {/* RealEstateAgent Schema */}
+      {/* Organization Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "RealEstateAgent",
+            "@type": "Organization",
             "@id": "https://www.clearedgehomebuyers.com/#organization",
             "name": "ClearEdge Home Buyers",
             "legalName": "ClearEdge Properties LLC",
@@ -115,7 +115,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               "caption": "ClearEdge Home Buyers logo"
             },
             "image": "https://www.clearedgehomebuyers.com/og-image.png",
-            "priceRange": "$",
             "founder": {
               "@type": "Person",
               "name": "Tyler"
@@ -125,23 +124,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               "@type": "QuantitativeValue",
               "minValue": 2,
               "maxValue": 10
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Scranton",
-              "addressRegion": "PA",
-              "addressCountry": "US"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 40.8603424,
-              "longitude": -75.8193544
-            },
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-              "opens": "00:00",
-              "closes": "23:59"
             },
             "areaServed": [
               { "@type": "City", "name": "Scranton", "sameAs": "https://www.wikidata.org/wiki/Q3412" },
@@ -189,12 +171,6 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               "Quick home closings",
               "Pennsylvania real estate"
             ],
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "5",
-              "reviewCount": "6",
-              "bestRating": "5"
-            },
             "makesOffer": {
               "@type": "Offer",
               "name": "Cash Home Buying",

@@ -1,24 +1,15 @@
-export function LocalBusinessSchema() {
+export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
+    "@id": "https://www.clearedgehomebuyers.com/#organization",
     "name": "ClearEdge Home Buyers",
+    "legalName": "ClearEdge Properties LLC",
     "description": "We buy houses for cash in Eastern Pennsylvania. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.",
     "url": "https://www.clearedgehomebuyers.com",
     "telephone": "+1-610-904-8526",
     "email": "info@clearedgehomebuyers.com",
-    "priceRange": "$$",
-    "image": "https://www.clearedgehomebuyers.com/logo.webp",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "PA",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 40.8603424,
-      "longitude": -75.8193544
-    },
+    "logo": "https://www.clearedgehomebuyers.com/logo.webp",
     "areaServed": [
       { "@type": "City", "name": "Scranton" },
       { "@type": "City", "name": "Wilkes-Barre" },
