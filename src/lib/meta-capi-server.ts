@@ -2,6 +2,7 @@ import 'server-only'
 
 import { createHash } from 'node:crypto'
 import type { NextRequest } from 'next/server'
+import { isMetaQaUrl } from '@/lib/meta-qa'
 
 const GRAPH_VERSION = 'v21.0'
 const DEFAULT_TIMEOUT_MS = 3_000
@@ -25,13 +26,14 @@ export interface MetaServerEvent {
   userData?: MetaServerUserData
   fbc?: string
   fbp?: string
+  qaTraffic?: boolean
 }
 
 export type MetaSendResult =
   | { ok: true; eventsReceived?: number; testMode?: true }
   | {
       ok: false
-      skipped?: 'not-configured'
+      skipped?: 'not-configured' | 'qa-traffic'
       error?: 'upstream-rejected' | 'upstream-timeout' | 'upstream-unreachable'
       downstreamStatus?: number
     }
@@ -85,6 +87,10 @@ export async function sendMetaCapiEvent(
   event: MetaServerEvent,
   timeoutMs = DEFAULT_TIMEOUT_MS,
 ): Promise<MetaSendResult> {
+  if (event.qaTraffic || isMetaQaUrl(event.eventSourceUrl)) {
+    return { ok: false, skipped: 'qa-traffic' }
+  }
+
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN
   const testEventCode = process.env.META_TEST_EVENT_CODE

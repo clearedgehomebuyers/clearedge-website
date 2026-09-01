@@ -4,6 +4,7 @@ import { deliverLeadToZapier, LeadDeliveryError } from '@/lib/leads/delivery'
 import { logLeadEvent } from '@/lib/leads/logger'
 import { leadSubmissionSchema, type ValidatedLeadSubmission } from '@/lib/leads/schema'
 import { sendMetaCapiEvent, type MetaServerUserData } from '@/lib/meta-capi-server'
+import { isMetaQaAttribution } from '@/lib/meta-qa'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -261,6 +262,7 @@ export async function POST(request: NextRequest) {
           lead_id: leadId,
         },
         userData: metaUserData(submission),
+        qaTraffic: isMetaQaAttribution(submission.attribution),
       },
       META_LEAD_TIMEOUT_MS,
     )

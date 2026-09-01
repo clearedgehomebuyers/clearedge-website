@@ -1,3 +1,5 @@
+import { isMetaQaUrl } from '@/lib/meta-qa'
+
 /**
  * Meta Pixel + Conversions API — browser side.
  *
@@ -25,6 +27,7 @@ const STANDARD_EVENTS = new Set(['PageView'])
 
 /** Meta's click-attribution window for _fbc. */
 const FBC_MAX_AGE_SECONDS = 90 * 24 * 60 * 60
+const META_QA_SESSION_KEY = 'clearedge_meta_qa'
 
 export type MetaEventName = 'PageView' | 'FormStart' | 'CTAClick'
 
@@ -100,6 +103,11 @@ export function captureFbclid(): string {
 
   if (!fbclid) return existingFbclid
 
+  // Tagged verification runs may use a placeholder click id to exercise the
+  // Facebook routing branch. Return it to attribution, but never persist it as
+  // Meta's _fbc cookie; the session's Meta events are suppressed below too.
+  if (isMetaQaUrl(window.location.href)) return fbclid
+
   // A newer click wins; an identical one keeps its original creation time.
   if (fbclid !== existingFbclid) {
     writeCookie('_fbc', `fb.1.${Date.now()}.${fbclid}`, FBC_MAX_AGE_SECONDS)
@@ -151,8 +159,27 @@ function newEventId(): string {
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`
 }
 
+function isMetaQaSession(): boolean {
+  if (typeof window === 'undefined') return false
+
+  try {
+    if (isMetaQaUrl(window.location.href)) {
+      sessionStorage.setItem(META_QA_SESSION_KEY, '1')
+      return true
+    }
+    return sessionStorage.getItem(META_QA_SESSION_KEY) === '1'
+  } catch {
+    // Privacy settings can disable sessionStorage. The URL check remains safe.
+    return isMetaQaUrl(window.location.href)
+  }
+}
+
 function pixelEnabled(): boolean {
-  return typeof window !== 'undefined' && typeof window.fbq === 'function'
+  return (
+    typeof window !== 'undefined' &&
+    typeof window.fbq === 'function' &&
+    !isMetaQaSession()
+  )
 }
 
 // ─── Transport ──────────────────────────────────────────────────────────────
