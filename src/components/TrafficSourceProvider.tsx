@@ -9,56 +9,42 @@ import { captureFbclid, readCookie } from '@/lib/meta-pixel'
 const SMS_ATTRIBUTION_WINDOW_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
 
 // ─── Traffic Source Configuration ───
-// TODO: Update sms.phone and sms.webhook when dedicated SMS tracking
-//       number and Zapier webhook are provisioned.
-const WEBHOOKS = {
-  seo: 'https://hooks.zapier.com/hooks/catch/26244252/ul6z6d8/',
-  direct: 'https://hooks.zapier.com/hooks/catch/26244252/ultjlsu/',
-  sms: 'https://hooks.zapier.com/hooks/catch/26244252/uenj3w1/',
-  facebook: 'https://hooks.zapier.com/hooks/catch/26244252/4t4fxjh/',
-} as const
-
+// Destination routing now happens in the server-only /api/leads handler. This
+// client provider intentionally owns only visitor-facing phone attribution.
 const TRAFFIC_CONFIG = {
   // Pre-detection state. Renders the NAP/GBP number — the same one organic
   // gets, and the correct neutral default — so nothing changes visually before
-  // hydration. What changes is what gets *recorded*: a lead submitted in this
-  // window now reports 'unknown' rather than a false 'seo'. Delivery is
-  // unaffected: it shares the organic webhook, which is where these leads
-  // already went when this state was indistinguishable from organic.
+  // hydration. A lead submitted in this window reports 'unknown' rather than a
+  // false 'seo'; the server routes that value to its explicit fallback without
+  // relabeling the attribution.
   unknown: {
     phone: '(610) 904-8526',
     phoneRaw: '6109048526',
     phoneTel: '+16109048526',
-    webhook: WEBHOOKS.seo,
   },
   seo: {
     phone: '(610) 904-8526',
     phoneRaw: '6109048526',
     phoneTel: '+16109048526',
-    webhook: WEBHOOKS.seo,
   },
   direct: {
     phone: '(610) 628-0671',
     phoneRaw: '6106280671',
     phoneTel: '+16106280671',
-    webhook: WEBHOOKS.direct,
   },
   sms: {
     phone: '(610) 379-1453',
     phoneRaw: '6103791453',
     phoneTel: '+16103791453',
-    webhook: WEBHOOKS.sms,
   },
   // Meta/Facebook ads. This is the New Jersey campaign number.
-  // A PA Facebook number — (610) 991-7916 — exists but has no Zapier webhook
-  // provisioned yet, so it is deliberately NOT wired here. Adding it means a
-  // second facebook-* branch plus a rule to pick between them (campaign geo
-  // via utm_campaign is the likely discriminator).
+  // A PA Facebook number — (610) 991-7916 — exists but is deliberately not
+  // wired here. Adding it means a second facebook-* branch plus a rule to pick
+  // between them (campaign geo via utm_campaign is the likely discriminator).
   facebook: {
     phone: '(973) 346-9832',
     phoneRaw: '9733469832',
     phoneTel: '+19733469832',
-    webhook: WEBHOOKS.facebook,
   },
 } as const
 
@@ -92,7 +78,6 @@ interface TrafficSourceContextType {
   phone: string
   phoneRaw: string
   phoneTel: string
-  webhook: string
   utmParams: UTMParams
   landingPage: string
   isLoaded: boolean
@@ -103,7 +88,6 @@ const TrafficSourceContext = createContext<TrafficSourceContextType>({
   phone: TRAFFIC_CONFIG.unknown.phone,
   phoneRaw: TRAFFIC_CONFIG.unknown.phoneRaw,
   phoneTel: TRAFFIC_CONFIG.unknown.phoneTel,
-  webhook: TRAFFIC_CONFIG.unknown.webhook,
   utmParams: EMPTY_UTM,
   landingPage: '',
   isLoaded: false,
@@ -229,8 +213,8 @@ function detectTrafficSource(): { source: ResolvedTrafficSource; restoredUTM: UT
 
   // 4. Returning ad-clicker. captureFbclid() writes _fbc with a 90-day
   //    max-age, matching Meta's click-attribution window. Reading it here is
-  //    what stops the site from serving the direct number and webhook to a
-  //    visitor Meta is still attributing to an ad.
+  //    what stops the site from serving the direct number to a visitor Meta is
+  //    still attributing to an ad.
   if (readCookie('_fbc')) {
     sessionStorage.setItem('trafficSource', 'facebook')
     return { source: 'facebook', restoredUTM: null, restoredLandingPage: null }
@@ -360,7 +344,6 @@ export function TrafficSourceProvider({ children }: { children: ReactNode }) {
     phone: config.phone,
     phoneRaw: config.phoneRaw,
     phoneTel: config.phoneTel,
-    webhook: config.webhook,
     utmParams,
     landingPage,
     isLoaded,

@@ -3,7 +3,8 @@
 import { useState, useRef } from 'react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 import { AddressAutocomplete } from './AddressAutocomplete'
-import { trackMetaFormStart, trackMetaLead } from '@/lib/meta-pixel'
+import { trackConfirmedMetaLead, trackMetaFormStart } from '@/lib/meta-pixel'
+import { LeadSubmissionError, submitLead } from '@/lib/leads/client'
 
 const US_STATES = [
   'PA','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN',
@@ -32,7 +33,7 @@ function formatPhoneNumber(value: string): string {
 }
 
 export function SoftLeadForm() {
-  const { webhook, trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
+  const { trafficSource, utmParams, landingPage, phone, phoneTel } = useTrafficSource()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [phoneValue, setPhoneValue] = useState('')
@@ -43,7 +44,10 @@ export function SoftLeadForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [companyWebsite, setCompanyWebsite] = useState('')
   const hasTrackedFormStart = useRef(false)
+  const formStartedAtRef = useRef(Date.now())
+  const submissionInFlightRef = useRef(false)
 
   // Fired from the form's onChange, which every input in it bubbles up to.
   const markFormStart = () => {
@@ -57,18 +61,29 @@ export function SoftLeadForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!isValid || isSubmitting) return
+    if (!isValid || isSubmitting || isSubmitted || submissionInFlightRef.current) return
 
+    submissionInFlightRef.current = true
     setIsSubmitting(true)
     setError('')
 
     try {
-      await fetch(webhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
-        keepalive: true,
-        body: JSON.stringify({
+      const result = await submitLead({
+        formVariant: 'sms_soft',
+        formStartedAt: formStartedAtRef.current,
+        companyWebsite,
+        attribution: {
+          trafficSource,
+          landingPage,
+          submissionPage: window.location.href,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_content: utmParams.utm_content,
+          utm_term: utmParams.utm_term,
+          fbclid: utmParams.fbclid,
+        },
+        fields: {
           firstName: firstName.trim(),
           lastName: lastName.trim(),
           phone: `+1${phoneDigits}`,
@@ -76,43 +91,39 @@ export function SoftLeadForm() {
           city: city.trim(),
           state,
           zip,
-          trafficSource,
-          landingPage,
-          // Spread carries utm_* plus fbclid through to Zapier.
-          ...utmParams,
-          formType: 'SMS Soft Lead Form',
-          submittedAt: new Date().toISOString(),
-        }),
+        },
       })
 
-      // GA4 generate_lead event
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'generate_lead', {
-          event_category: 'Lead',
-          event_label: 'SMS Soft Lead Form',
-          page_path: window.location.pathname,
-        })
+      clearSMSAttribution()
+
+      try {
+        if (window.gtag) {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'Lead',
+            event_label: 'SMS Soft Lead Form',
+            delivery: result.delivery,
+            lead_id: result.leadId,
+            traffic_source: trafficSource,
+            utm_source: utmParams.utm_source,
+            utm_medium: utmParams.utm_medium,
+            utm_campaign: utmParams.utm_campaign,
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          })
+        }
+        trackConfirmedMetaLead(result.metaEventId, 'SMS Soft Lead Form')
+      } catch {
+        // Analytics must never change an accepted lead into a failed UI state.
       }
 
-      // Meta Lead — pixel + CAPI under one event id. No email on this form,
-      // so phone carries the match.
-      trackMetaLead(
-        {
-          phone: `+1${phoneDigits}`,
-          firstName: firstName.trim(),
-          lastName: lastName.trim(),
-          city: city.trim(),
-          state,
-          zip,
-        },
-        'SMS Soft Lead Form',
-      )
-
-      clearSMSAttribution()
       setIsSubmitted(true)
-    } catch {
-      setError('Something went wrong. Please try again or call us directly.')
+    } catch (submissionError) {
+      const reference = submissionError instanceof LeadSubmissionError ? submissionError.referenceId : undefined
+      setError(
+        `We couldn't confirm delivery. Your information is still here—please try again or call ${phone}.${reference ? ` Reference: ${reference}` : ''}`,
+      )
     } finally {
+      submissionInFlightRef.current = false
       setIsSubmitting(false)
     }
   }
@@ -156,6 +167,18 @@ export function SoftLeadForm() {
         </div>
 
         <form id="sms-soft-lead-form" name="sms-soft-lead-form" onSubmit={handleSubmit} onChange={markFormStart} className="bg-white rounded-2xl p-6 md:p-8 border border-ce-ink/5 shadow-lg space-y-4">
+          <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+            <label htmlFor="sms-company-website">Company website</label>
+            <input
+              id="sms-company-website"
+              name="companyWebsite"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={companyWebsite}
+              onChange={(event) => setCompanyWebsite(event.target.value)}
+            />
+          </div>
           {/* Name */}
           <div className="grid grid-cols-2 gap-3">
             <div>
@@ -253,7 +276,7 @@ export function SoftLeadForm() {
           </div>
 
           {error && (
-            <p className="text-sm text-red-500">{error}</p>
+            <p role="alert" className="text-sm text-red-500">{error}</p>
           )}
 
           <button

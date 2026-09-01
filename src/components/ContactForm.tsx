@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import Link from 'next/link'
 import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
-import { trackMetaFormStart, trackMetaLead } from '@/lib/meta-pixel'
+import { trackConfirmedMetaLead, trackMetaFormStart } from '@/lib/meta-pixel'
+import { LeadSubmissionError, submitLead } from '@/lib/leads/client'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -31,7 +32,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function ContactForm() {
-  const { webhook, trafficSource, utmParams, landingPage, phone: dynamicPhone, phoneTel } = useTrafficSource()
+  const { trafficSource, utmParams, landingPage, phone: dynamicPhone, phoneTel } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -42,15 +43,14 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [phoneError, setPhoneError] = useState('')
+  const [submissionError, setSubmissionError] = useState('')
+  const [companyWebsite, setCompanyWebsite] = useState('')
   const [termsConsent, setTermsConsent] = useState(false)
   const [smsConsent, setSmsConsent] = useState(false)
 
-  // Track GA4 conversion when form is successfully submitted.
-  // Once-guard: the effect re-runs on every idle->success transition, but one
-  // mounted form must never report more than one lead.
-  const hasTrackedLead = useRef(false)
-  const hasTrackedMetaLead = useRef(false)
   const hasTrackedFormStart = useRef(false)
+  const formStartedAtRef = useRef(Date.now())
+  const submissionInFlightRef = useRef(false)
 
   // Fired from the form's onChange, which every input in it bubbles up to.
   const markFormStart = () => {
@@ -58,23 +58,6 @@ export function ContactForm() {
     hasTrackedFormStart.current = true
     trackMetaFormStart('Contact Form')
   }
-
-  useEffect(() => {
-    if (submitStatus === 'success' && !hasTrackedLead.current && typeof window !== 'undefined' && window.gtag) {
-      hasTrackedLead.current = true
-      window.gtag('event', 'generate_lead', {
-        event_category: 'Lead Form',
-        event_label: 'Contact Form',
-        value: 1,
-        traffic_source: trafficSource,
-        utm_source: utmParams.utm_source,
-        utm_medium: utmParams.utm_medium,
-        utm_campaign: utmParams.utm_campaign,
-        page_location: window.location.href,
-        page_path: window.location.pathname
-      });
-    }
-  }, [submitStatus]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -92,7 +75,7 @@ export function ContactForm() {
 
     // A successful submission already created a CRM entry — block accidental
     // re-submits from POSTing the webhook again.
-    if (submitStatus === 'success') return
+    if (submitStatus === 'success' || submissionInFlightRef.current) return
 
     const phoneDigits = getPhoneDigits(formData.phone)
     if (phoneDigits.length < 10) {
@@ -100,71 +83,74 @@ export function ContactForm() {
       return
     }
 
+    submissionInFlightRef.current = true
     setIsSubmitting(true)
     setSubmitStatus('idle')
+    setSubmissionError('')
 
     try {
-      // Build payload for Zapier/REsimpli
-      const payload = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
-        propertyAddress: '',
-        city: '',
-        state: '',
-        zip: '',
-        termsConsent: termsConsent,
-        smsConsent: smsConsent,
-        leadSource: 'Website - Contact Form',
-        trafficSource: trafficSource,
-        utm_source: utmParams.utm_source,
-        utm_medium: utmParams.utm_medium,
-        utm_campaign: utmParams.utm_campaign,
-        utm_content: utmParams.utm_content,
-        utm_term: utmParams.utm_term,
-        fbclid: utmParams.fbclid,
-        landingPage: landingPage,
-        notes: `CONTACT PAGE SUBMISSION - General inquiry. Message: ${formData.message || 'No message provided'}`,
-      }
-
-      // Send to dynamic Zapier webhook based on traffic source
-      await fetch(webhook, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
-        keepalive: true,
-        body: JSON.stringify(payload),
+      const result = await submitLead({
+        formVariant: 'contact',
+        formStartedAt: formStartedAtRef.current,
+        companyWebsite,
+        attribution: {
+          trafficSource,
+          landingPage,
+          submissionPage: window.location.href,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_content: utmParams.utm_content,
+          utm_term: utmParams.utm_term,
+          fbclid: utmParams.fbclid,
+        },
+        fields: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          termsConsent,
+          smsConsent,
+        },
       })
 
       // Clear SMS attribution so this lead isn't double-counted on return visits
       if (trafficSource === 'sms') clearSMSAttribution()
 
-      // Meta Lead — fired here rather than from the effect above because the
-      // success path clears formData, and CAPI needs the email and phone.
-      if (!hasTrackedMetaLead.current) {
-        hasTrackedMetaLead.current = true
-        trackMetaLead(
-          {
-            email: formData.email,
-            phone: formData.phone,
-            firstName: formData.firstName,
-            lastName: formData.lastName,
-          },
-          'Contact Form',
-        )
+      try {
+        if (window.gtag) {
+          window.gtag('event', 'generate_lead', {
+            event_category: 'Lead Form',
+            event_label: 'Contact Form',
+            value: 1,
+            delivery: result.delivery,
+            lead_id: result.leadId,
+            traffic_source: trafficSource,
+            utm_source: utmParams.utm_source,
+            utm_medium: utmParams.utm_medium,
+            utm_campaign: utmParams.utm_campaign,
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+          })
+        }
+        trackConfirmedMetaLead(result.metaEventId, 'Contact Form')
+      } catch {
+        // Analytics must never change an accepted lead into a failed UI state.
       }
 
-      // With no-cors mode, we can't read the response, so assume success
       setSubmitStatus('success')
       setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
       setTermsConsent(false)
       setSmsConsent(false)
     } catch (error) {
-      console.error('Form submission error:', error)
+      const reference = error instanceof LeadSubmissionError ? error.referenceId : undefined
+      setSubmissionError(
+        `We couldn't confirm delivery. Your information is still here—please try again or call ${dynamicPhone}.${reference ? ` Reference: ${reference}` : ''}`,
+      )
       setSubmitStatus('error')
     } finally {
+      submissionInFlightRef.current = false
       setIsSubmitting(false)
     }
   }
@@ -175,6 +161,18 @@ export function ContactForm() {
       <div>
         <h2 className="font-serif text-2xl md:text-3xl font-medium text-ce-ink mb-6">Request Your Cash Offer</h2>
         <form id="contact-form" name="contact-form" onSubmit={handleSubmit} onChange={markFormStart} className="space-y-4">
+          <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+            <label htmlFor="contact-company-website">Company website</label>
+            <input
+              id="contact-company-website"
+              name="companyWebsite"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={companyWebsite}
+              onChange={(event) => setCompanyWebsite(event.target.value)}
+            />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-ce-ink/70 mb-1">First Name</label>
@@ -231,7 +229,7 @@ export function ContactForm() {
             ) : 'Get My Cash Offer'}
           </button>
           {submitStatus === 'success' && (<p className="text-ce-green text-center font-medium">Thanks! Tyler will be in touch within 24 hours.</p>)}
-          {submitStatus === 'error' && (<p className="text-red-600 text-center">Something went wrong. Please call {dynamicPhone} instead.</p>)}
+          {submitStatus === 'error' && (<p role="alert" className="text-red-600 text-center">{submissionError}</p>)}
         </form>
       </div>
 
