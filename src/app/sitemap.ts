@@ -21,19 +21,20 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-08-31' // confirmed lead-delivery form markup
+const TEMPLATE_REVISION = '2026-09-01' // truthful proof captions + service schema
 
 /**
- * Blog posts deliberately withheld from the sitemap (audit §2.6 / Batch 3).
- * The pages stay live and return 200 for any existing inbound links; they are
- * simply no longer submitted for crawling. Reversible — delete a slug to
- * reinstate it.
+ * Blog posts deliberately withheld from the sitemap. Some remain live for
+ * existing inbound links; others now redirect to the stronger page that owns
+ * the same search intent. Reversible — delete a slug to reinstate it.
  */
 const SITEMAP_PRUNED_SLUGS = new Set([
   'sell-my-house-fast-luzerne-county-pa',
   'cash-home-buyers-lackawanna-county-no-fees',
   'cash-home-buyers-pottsville-pa',
   'selling-water-damaged-house-18102-mold-issues',
+  'sell-my-house-fast-poconos-pa',
+  'sell-house-fast-during-divorce-lehigh-county-pa',
 ])
 
 /**

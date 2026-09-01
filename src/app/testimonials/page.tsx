@@ -165,22 +165,13 @@ export default function TestimonialsPage() {
             "@context": "https://schema.org",
             "@graph": [
               {
-                "@type": "LocalBusiness",
+                "@type": "Organization",
+                "@id": "https://www.clearedgehomebuyers.com/#organization",
                 "name": "ClearEdge Home Buyers",
+                "legalName": "ClearEdge Properties LLC",
                 "url": "https://www.clearedgehomebuyers.com",
                 "telephone": "+1-610-904-8526",
                 "email": "info@clearedgehomebuyers.com",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Scranton",
-                  "addressRegion": "PA",
-                  "addressCountry": "US"
-                },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": 40.8603424,
-                  "longitude": -75.8193544
-                },
                 "sameAs": [
                   "https://www.facebook.com/profile.php?id=61578297005995",
                   "https://www.instagram.com/clearedge_home_buyers/",

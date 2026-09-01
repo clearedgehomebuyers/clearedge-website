@@ -10,11 +10,10 @@ import { urlFor } from '@/sanity/lib/image'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { BlogCtaBlock } from '@/components/BlogCtaBlock'
-import { LocalBusinessSchema } from '@/components/Schema'
+import { OrganizationSchema } from '@/components/Schema'
 
-// Location-guide posts that should also carry LocalBusiness JSON-LD
-// (Article + LocalBusiness, no FAQPage — Package #2 Part 3 spec)
-const LOCAL_BUSINESS_SLUGS = ['sell-inherited-house-reading-pa']
+// Location-guide posts that should also reference the sitewide organization.
+const ORGANIZATION_SCHEMA_SLUGS = ['sell-inherited-house-reading-pa']
 
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
@@ -108,7 +107,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'easton-pa-rental-inspection-checklist-2026': {
     question: "What does Easton PA check in rental inspections?",
-    answer: "Easton rental inspections check: smoke detectors (one per level + bedrooms), CO detectors (one per level), working locks on all exterior doors, window screens and locks, functional HVAC, no exposed wiring, working plumbing with no leaks, handrails on stairs (4+ steps), and 36\" guardrails. Inspections are ward-based on a 3-year cycle. Fee is $75/unit."
+    answer: "Easton rental inspections check smoke and carbon-monoxide detectors, exterior-door locks, window screens and locks, HVAC, electrical and plumbing safety, and required handrails and guardrails. The city says every residential rental unit must be inspected at least once every four years. The annual registration fee is $75 per regulated unit when paid by August 15; the initial inspection and first reinspection are included."
   },
   'pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights': {
     question: "What are my rights if someone files an Act 135 conservatorship on my property?",
@@ -128,7 +127,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'luzerne-county-rental-property-registration-inspection-requirements-2026': {
     question: "What are Luzerne County's rental registration requirements?",
-    answer: "Luzerne County rental requirements vary by municipality: Wilkes-Barre requires registration ($35/unit) + inspection, Hazleton requires occupancy permits ($50) + inspection, Pittston requires licensing ($50/unit), and Kingston requires registration + Certificate of Occupancy. Most require inspections before new tenants move in. Failure to register can result in fines of $100-$1,000/day depending on the municipality."
+    answer: "Luzerne County rental requirements vary by municipality. Wilkes-Barre currently charges $100 per building for the rental license and $100 per rental unit for an inspection every two years or when a new tenant moves in. Hazleton, Pittston, Kingston, and other municipalities set their own registration, licensing, inspection, and occupancy rules, so verify the current requirements with the municipality before relying on a county-wide summary."
   },
 }
 
@@ -372,7 +371,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
-      {LOCAL_BUSINESS_SLUGS.includes(post.slug.current) && <LocalBusinessSchema />}
+      {ORGANIZATION_SCHEMA_SLUGS.includes(post.slug.current) && <OrganizationSchema />}
 
       <main className="bg-white">
         <V0Header />

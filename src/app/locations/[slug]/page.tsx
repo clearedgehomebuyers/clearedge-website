@@ -19,34 +19,37 @@ const LocationFAQAccordion = dynamic(() => import('@/components/LocationFAQAccor
 const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 const LocationMapWrapper = dynamic(() => import('@/components/LocationMapWrapper').then(mod => ({ default: mod.LocationMapWrapper })), { ssr: true })
 
-// Hero photos mapped to each location slug (5 photos across 21 pages, alternating)
+// Five verified ClearEdge purchase photos are reused across the service area.
+// The caption must always describe the property in the photo, never the city
+// of the current landing page. Relabeling one closing as 21 different local
+// closings is misleading proof and erodes the trust these pages need to earn.
 const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
   // Photo 1: Scranton image (5 pages)
   'scranton': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Stroudsburg, PA', days: 14 },
-  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Pittston, PA', days: 14 },
-  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Bloomsburg, PA', days: 14 },
-  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Reading, PA', days: 14 },
+  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
+  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
   // Photo 2: Wilkes-Barre image (4 pages)
   'wilkes-barre': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'East Stroudsburg, PA', days: 12 },
-  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Kingston, PA', days: 12 },
-  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Lehigh Valley, PA', days: 12 },
+  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
+  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
   // Photo 3: Allentown image (4 pages)
   'allentown': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Hazleton, PA', days: 10 },
-  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Dunmore, PA', days: 10 },
-  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Poconos, PA', days: 10 },
+  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
+  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
   // Photo 4: Bethlehem image (4 pages)
   'bethlehem': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Pottsville, PA', days: 8 },
-  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Nanticoke, PA', days: 8 },
-  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Pocono Pines, PA', days: 8 },
+  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
+  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
   // Photo 5: Hazleton image (4 pages)
-  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Easton, PA', days: 11 },
-  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Carbondale, PA', days: 11 },
-  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Honesdale, PA', days: 11 },
-  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Tannersville, PA', days: 11 },
+  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
+  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
 }
 
 // Default photo for any unmapped slugs
@@ -188,24 +191,17 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
     ]
   }
 
-  // City-specific LocalBusiness Schema
-  const localBusinessSchema = {
+  // Service schema describes the city served without pretending ClearEdge has
+  // a staffed physical business location in every city. The organization node
+  // is defined on the homepage and referenced here by its stable @id.
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `https://www.clearedgehomebuyers.com/locations/${slug}#localbusiness`,
-    "name": `ClearEdge Home Buyers - ${location.city}`,
+    "@type": "Service",
+    "@id": `https://www.clearedgehomebuyers.com/locations/${slug}#service`,
+    "name": `Cash Home Buying Service in ${location.city}, PA`,
+    "serviceType": "Cash home buying",
     "description": `Cash home buyers in ${location.city}, PA. ClearEdge buys houses as-is for cash — fair offer in 24 hours, close in 7–30 days. No repairs, no fees, no commissions. 200+ PA homes purchased since 2016.`,
     "url": `https://www.clearedgehomebuyers.com/locations/${slug}`,
-    "telephone": "+1-610-904-8526",
-    "email": "info@clearedgehomebuyers.com",
-    "priceRange": "$$",
-    "image": "https://www.clearedgehomebuyers.com/logo.webp",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": location.city,
-      "addressRegion": "PA",
-      "addressCountry": "US"
-    },
     "areaServed": {
       "@type": "City",
       "name": location.city,
@@ -214,23 +210,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         "name": location.county || "Pennsylvania"
       }
     },
-    "parentOrganization": {
+    "provider": {
       "@id": "https://www.clearedgehomebuyers.com/#organization"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    // aggregateRating removed 2026-08-10 (audit QW3): rating shown to Google on
-    // pages that display zero reviews; kept only on /testimonials.
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61578297005995",
-      "https://www.instagram.com/clearedge_home_buyers/",
-      "https://www.youtube.com/@ClearEdgeHomeBuyers",
-      "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm"
-    ]
+    }
   }
 
   return (
@@ -241,7 +223,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       {location.faqs && <FAQSchema faqs={location.faqs} />}
 
@@ -321,7 +303,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                     <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
-                      Just Closed
+                      ClearEdge Purchase
                     </span>
                     <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
                     <p className="text-xs text-white/90">Closed in {(heroPhotos[slug] || defaultPhoto).days} Days, As-Is</p>

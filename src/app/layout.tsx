@@ -137,13 +137,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": "https://www.clearedgehomebuyers.com/#website",
             "name": "ClearEdge Home Buyers",
             "alternateName": "ClearEdge",
             "url": "https://www.clearedgehomebuyers.com",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://www.clearedgehomebuyers.com/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
+            "publisher": {
+              "@id": "https://www.clearedgehomebuyers.com/#organization"
             }
           })}}
         />
