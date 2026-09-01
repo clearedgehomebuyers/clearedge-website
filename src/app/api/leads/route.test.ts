@@ -162,6 +162,26 @@ describe('POST /api/leads', () => {
     })
   })
 
+  it('delivers tagged QA leads to Zapier without sending a Meta conversion', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 200 }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    const submission = validSubmission()
+    submission.attribution.utm_source = 'deploy-check'
+    submission.attribution.submissionPage =
+      'https://www.clearedgehomebuyers.com/cashoffernj?fbclid=test-click-id&utm_source=deploy-check'
+
+    const response = await POST(leadRequest(submission))
+
+    expect(response.status).toBe(201)
+    await expect(response.json()).resolves.toMatchObject({
+      ok: true,
+      delivery: 'zapier_accepted',
+    })
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    expect(fetchMock.mock.calls[0][0]).toBe('https://seo.invalid/catch')
+  })
+
   it('does not call Meta or return success when Zapier rejects the request', async () => {
     const fetchMock = vi.fn().mockResolvedValue(new Response('DOWNSTREAM_SECRET_BODY', { status: 500 }))
     vi.stubGlobal('fetch', fetchMock)
