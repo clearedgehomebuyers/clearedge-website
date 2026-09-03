@@ -21,7 +21,7 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-09-03' // render curated situation-to-location links
+const TEMPLATE_REVISION = '2026-09-03' // render curated two-way location/situation journeys
 
 /**
  * Blog posts deliberately withheld from the sitemap. Some remain live for
@@ -55,7 +55,7 @@ const SITEMAP_PRUNED_SLUGS = new Set([
  * reason.
  */
 const STATIC_LASTMOD: Record<string, string> = {
-  '/': '2026-08-10',
+  '/': '2026-09-03',
   '/blog': '2026-04-16',
   '/about': '2026-07-20',
   '/how-it-works': '2026-08-18', // QW8 orphan link added (1c11fe1)
