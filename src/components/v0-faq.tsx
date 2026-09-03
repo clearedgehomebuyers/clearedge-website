@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 import { trackClickToCall } from "@/lib/analytics-events"
+import { DynamicPhoneContent } from "./DynamicPhoneContent"
 
 type FAQ = {
   question: string
@@ -51,7 +52,7 @@ export function V0FAQ({
   subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often.",
   sectionBg = "white"
 }: V0FAQProps) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   // Background classes based on sectionBg prop
@@ -109,7 +110,7 @@ export function V0FAQ({
                   <div>
                     <div className="px-6 pb-6">
                       <p className="text-ce-ink/70 leading-relaxed">
-                        {faq.answer.replace(/\{\{phone\}\}/g, phone)}
+                        <DynamicPhoneContent text={faq.answer} callLocation="faq_answer" />
                       </p>
                     </div>
                   </div>
@@ -128,6 +129,9 @@ export function V0FAQ({
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
               href={`tel:${phoneTel}`}
+              aria-hidden={!isLoaded}
+              tabIndex={isLoaded ? undefined : -1}
+              style={{ visibility: isLoaded ? "visible" : "hidden", pointerEvents: isLoaded ? "auto" : "none" }}
               onClick={() => trackClickToCall({
                 eventLabel: 'FAQ Phone',
                 callLocation: 'faq',

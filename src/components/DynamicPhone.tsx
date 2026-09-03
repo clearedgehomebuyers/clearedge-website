@@ -10,6 +10,7 @@ interface DynamicPhoneLinkProps {
   iconClassName?: string
   children?: React.ReactNode
   callLocation?: string
+  eventLabel?: string
 }
 
 /**
@@ -22,14 +23,18 @@ export function DynamicPhoneLink({
   iconClassName = 'w-5 h-5',
   children,
   callLocation = 'dynamic_phone_link',
+  eventLabel = 'Dynamic Phone Link',
 }: DynamicPhoneLinkProps) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
 
   return (
     <a
       href={`tel:${phoneTel}`}
+      aria-hidden={!isLoaded}
+      tabIndex={isLoaded ? undefined : -1}
+      style={{ visibility: isLoaded ? 'visible' : 'hidden', pointerEvents: isLoaded ? 'auto' : 'none' }}
       onClick={() => trackClickToCall({
-        eventLabel: 'Dynamic Phone Link',
+        eventLabel,
         callLocation,
         trafficSource,
         phoneLine: phoneTel,
@@ -50,15 +55,20 @@ interface DynamicPhoneTextProps {
  * Client component for displaying just the phone number text (no link).
  */
 export function DynamicPhoneText({ className = '' }: DynamicPhoneTextProps) {
-  const { phone } = useTrafficSource()
+  const { phone, isLoaded } = useTrafficSource()
 
-  return <span className={className}>{phone}</span>
+  return (
+    <span className={className} aria-hidden={!isLoaded} style={{ visibility: isLoaded ? 'visible' : 'hidden' }}>
+      {phone}
+    </span>
+  )
 }
 
 interface DynamicPhoneButtonProps {
   className?: string
   children?: React.ReactNode
   callLocation?: string
+  eventLabel?: string
 }
 
 /**
@@ -68,14 +78,18 @@ export function DynamicPhoneButton({
   className = '',
   children,
   callLocation = 'dynamic_phone_button',
+  eventLabel = 'Dynamic Phone Button',
 }: DynamicPhoneButtonProps) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
 
   return (
     <a
       href={`tel:${phoneTel}`}
+      aria-hidden={!isLoaded}
+      tabIndex={isLoaded ? undefined : -1}
+      style={{ visibility: isLoaded ? 'visible' : 'hidden', pointerEvents: isLoaded ? 'auto' : 'none' }}
       onClick={() => trackClickToCall({
-        eventLabel: 'Dynamic Phone Button',
+        eventLabel,
         callLocation,
         trafficSource,
         phoneLine: phoneTel,

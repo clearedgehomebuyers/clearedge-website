@@ -5,6 +5,7 @@ import { Star, Check, ArrowRight } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0TrustBar } from '@/components/v0-trust-bar'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { CANONICAL_PHONE } from '@/lib/phone-attribution'
 
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
@@ -170,7 +171,7 @@ export default function TestimonialsPage() {
                 "name": "ClearEdge Home Buyers",
                 "legalName": "ClearEdge Properties LLC",
                 "url": "https://www.clearedgehomebuyers.com",
-                "telephone": "+1-610-904-8526",
+                "telephone": CANONICAL_PHONE.phoneTel,
                 "email": "info@clearedgehomebuyers.com",
                 "sameAs": [
                   "https://www.facebook.com/profile.php?id=61578297005995",

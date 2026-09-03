@@ -1,46 +1,12 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Calculator } from '@/components/calculator'
 import { LiteYouTube } from '@/components/LiteYouTube'
 import { SoftLeadForm } from '@/components/soft-lead-form'
-
-// Auto-set SMS attribution if no UTM params present in URL
-// Since this page is only reachable via SMS campaigns, bare /txt visits
-// should still attribute correctly
-function useAutoSMSAttribution() {
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const params = new URLSearchParams(window.location.search)
-    const hasUtm = params.has('utm_source')
-
-    if (!hasUtm) {
-      // No UTM params — auto-attribute to SMS
-      const smsUtm = {
-        utm_source: 'sms',
-        utm_medium: 'text',
-        utm_campaign: '',
-        utm_content: '',
-        utm_term: '',
-      }
-      sessionStorage.setItem('trafficSource', 'sms')
-      sessionStorage.setItem('utmParams', JSON.stringify(smsUtm))
-
-      // Also save to localStorage for the 7-day attribution window
-      try {
-        localStorage.setItem('smsAttribution', JSON.stringify({
-          source: 'sms',
-          utmParams: smsUtm,
-          landingPage: window.location.href,
-          timestamp: Date.now(),
-        }))
-      } catch { /* localStorage unavailable */ }
-    }
-  }, [])
-}
 
 // County → regional location page mapping
 const countyLocationMap: Record<string, { href: string; label: string }> = {
@@ -73,7 +39,6 @@ function NavButton({ href, label }: { href: string; label: string }) {
 }
 
 export default function TxtPage() {
-  useAutoSMSAttribution()
   const [selectedCounty, setSelectedCounty] = useState('')
 
   const locationLink = countyLocationMap[selectedCounty]

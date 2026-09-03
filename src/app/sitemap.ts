@@ -24,7 +24,7 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-09-03' // historical-data optimization and crawl cleanup
+const TEMPLATE_REVISION = '2026-09-03' // sitewide dynamic-phone integrity release
 
 /**
  * Blog posts deliberately withheld from the sitemap. Some remain live for

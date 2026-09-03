@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { CANONICAL_PHONE } from '@/lib/phone-attribution'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const LiteYouTube = dynamic(() => import('@/components/LiteYouTube').then(mod => ({ default: mod.LiteYouTube })), { ssr: true })
@@ -189,7 +190,7 @@ export default function AboutPage() {
             ],
             contactPoint: {
               '@type': 'ContactPoint',
-              telephone: '+1-610-904-8526',
+              telephone: CANONICAL_PHONE.phoneTel,
               contactType: 'sales',
               areaServed: 'US',
               availableLanguage: 'English',

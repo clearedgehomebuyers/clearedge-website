@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { V0Header } from '@/components/v0-header'
 import { ContactForm } from '@/components/ContactForm'
 import { Users, Calendar, MapPin, Phone } from 'lucide-react'
+import { CANONICAL_PHONE, canonicalizeDynamicPhoneText } from '@/lib/phone-attribution'
 
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default: mod.V0FAQ })), { ssr: true })
@@ -10,10 +11,10 @@ const DynamicPhoneButton = dynamic(() => import('@/components/DynamicPhone').the
 
 export const metadata: Metadata = {
   title: 'Contact ClearEdge Home Buyers | Talk to Tyler Directly',
-  description: 'Contact ClearEdge for a fair cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form. Response within 24 hours, no obligation.',
+  description: `Contact ClearEdge for a fair cash offer on your PA home. Call Tyler at ${CANONICAL_PHONE.phone} or fill out our form. Response within 24 hours, no obligation.`,
   openGraph: {
     title: 'Contact Us | Get Your Free Cash Offer | ClearEdge Home Buyers',
-    description: 'Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at (610) 904-8526 or fill out our form.',
+    description: `Contact ClearEdge Home Buyers for a free cash offer on your PA home. Call Tyler at ${CANONICAL_PHONE.phone} or fill out our form.`,
     url: 'https://www.clearedgehomebuyers.com/contact',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',
@@ -60,7 +61,7 @@ const faqSchema = {
       // token shipped raw into structured data. Substitute the default/organic
       // number statically (matches this page's Organization telephone); the
       // visible accordion keeps its dynamic per-source substitution.
-      text: faq.answer.replace(/\{\{phone\}\}/g, '(610) 904-8526'),
+      text: canonicalizeDynamicPhoneText(faq.answer),
     },
   })),
 }
@@ -90,7 +91,7 @@ const organizationSchema = {
   '@id': 'https://www.clearedgehomebuyers.com/#organization',
   name: 'ClearEdge Home Buyers',
   legalName: 'ClearEdge Properties LLC',
-  telephone: '+1-610-904-8526',
+  telephone: CANONICAL_PHONE.phoneTel,
   email: 'info@clearedgehomebuyers.com',
   url: 'https://www.clearedgehomebuyers.com',
   areaServed: [

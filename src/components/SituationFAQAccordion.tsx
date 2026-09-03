@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 import { trackClickToCall } from "@/lib/analytics-events"
+import { DynamicPhoneContent } from "./DynamicPhoneContent"
 
 interface FAQ {
   question: string
@@ -16,7 +17,7 @@ interface SituationFAQAccordionProps {
 }
 
 export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAccordionProps) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -64,7 +65,7 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
               {openIndex === index && (
                 <div className="px-5 pb-5">
                   <p className="text-[#1a1f1a]/70 leading-relaxed">
-                    {faq.answer.replace(/\{\{phone\}\}/g, phone)}
+                    <DynamicPhoneContent text={faq.answer} callLocation="situation_faq_answer" />
                   </p>
                 </div>
               )}
@@ -81,6 +82,9 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
               href={`tel:${phoneTel}`}
+              aria-hidden={!isLoaded}
+              tabIndex={isLoaded ? undefined : -1}
+              style={{ visibility: isLoaded ? "visible" : "hidden", pointerEvents: isLoaded ? "auto" : "none" }}
               onClick={() => trackClickToCall({
                 eventLabel: 'Situation FAQ Phone',
                 callLocation: 'situation_faq',

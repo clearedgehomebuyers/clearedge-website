@@ -36,7 +36,7 @@ dotenv.config({ path: resolve(scriptDir, '../.env.local'), quiet: true })
 
 const APPLY = process.argv.includes('--apply')
 const OLD_PHONE = '(610) 628-0671'
-const SEO_PHONE = '(610) 904-8526'
+const DYNAMIC_PHONE = '{{phone}}'
 const OLD_WATER_URL = '/blog/selling-water-damaged-house-18102-mold-issues'
 const MAJOR_REPAIRS_URL = '/situations/major-repairs'
 
@@ -50,12 +50,12 @@ const LEHIGH_PHONE_BLOCKS = [
   {
     blockKey: 'step1',
     oldText: 'Step 1: Contact us. Call (610) 628-0671 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.',
-    nextText: 'Step 1: Contact us. Call (610) 904-8526 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.',
+    nextText: 'Step 1: Contact us. Call {{phone}} or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.',
   },
   {
     blockKey: 'close3',
     oldText: 'Call (610) 628-0671 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.',
-    nextText: 'Call (610) 904-8526 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.',
+    nextText: 'Call {{phone}} or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.',
   },
 ]
 
@@ -107,7 +107,7 @@ function replacePhoneInExactBlock(block, baseline) {
 
   const child = matchingChildren[0]
   if (child.text.split(OLD_PHONE).length - 1 !== 1) return false
-  child.text = child.text.replace(OLD_PHONE, SEO_PHONE)
+  child.text = child.text.replace(OLD_PHONE, DYNAMIC_PHONE)
   return blockText(block) === baseline.nextText
 }
 

@@ -11,7 +11,7 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
   useEffect(() => {
     console.error(error)
   }, [error])
@@ -33,6 +33,9 @@ export default function Error({
           If this keeps happening, call us at{' '}
           <a
             href={`tel:${phoneTel}`}
+            aria-hidden={!isLoaded}
+            tabIndex={isLoaded ? undefined : -1}
+            style={{ visibility: isLoaded ? 'visible' : 'hidden', pointerEvents: isLoaded ? 'auto' : 'none' }}
             onClick={() => trackClickToCall({
               eventLabel: 'Error Page Phone',
               callLocation: 'error_page',

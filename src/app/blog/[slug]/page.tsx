@@ -11,6 +11,10 @@ import { ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { BlogCtaBlock } from '@/components/BlogCtaBlock'
 import { OrganizationSchema } from '@/components/Schema'
+import { DynamicPhoneLink } from '@/components/DynamicPhone'
+import { canonicalizeDynamicPhoneText } from '@/lib/phone-attribution'
+import { preparePortableTextWithDynamicPhones } from '@/lib/portable-text-phone'
+import { PortableTextLink } from '@/components/PortableTextLink'
 
 // Location-guide posts that should also reference the sitewide organization.
 const ORGANIZATION_SCHEMA_SLUGS = ['sell-inherited-house-reading-pa']
@@ -168,6 +172,9 @@ export const revalidate = 3600
 
 const portableTextComponents: PortableTextComponents = {
   types: {
+    dynamicPhone: () => (
+      <DynamicPhoneLink callLocation="blog_body" />
+    ),
     image: ({ value }: { value: { asset?: { url: string }; alt?: string; caption?: string } }) => {
       if (!value?.asset?.url) return null
       return (
@@ -224,17 +231,14 @@ const portableTextComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }) => {
-      const target = value?.openInNewTab ? '_blank' : undefined
-      const rel = value?.openInNewTab ? 'noopener noreferrer' : undefined
       return (
-        <a
-          href={value?.href}
-          target={target}
-          rel={rel}
-          className="text-ce-green hover:underline font-medium"
+        <PortableTextLink
+          href={value?.href || ''}
+          openInNewTab={Boolean(value?.openInNewTab)}
+          callLocation="blog_body_phone_link"
         >
           {children}
-        </a>
+        </PortableTextLink>
       )
     },
     strong: ({ children }) => (
@@ -324,7 +328,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           name: faq.question,
           acceptedAnswer: {
             '@type': 'Answer',
-            text: faq.answer,
+            text: canonicalizeDynamicPhoneText(faq.answer),
           },
         })),
       }
@@ -458,7 +462,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Content */}
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
             <div className="prose prose-lg max-w-none">
-              <PortableText value={post.content} components={portableTextComponents} />
+              <PortableText value={preparePortableTextWithDynamicPhones(post.content) as never} components={portableTextComponents} />
             </div>
           </div>
 

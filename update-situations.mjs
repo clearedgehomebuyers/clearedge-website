@@ -103,7 +103,7 @@ function createPortableText(paragraphs) {
 const situationUpdates = {
   'foreclosure': {
     metaTitle: 'Facing Foreclosure in Pennsylvania? Sell Your House Fast & Walk Away with Cash | ClearEdge',
-    metaDescription: 'Stop foreclosure before the sheriff sale. ClearEdge buys houses fast for cash in NEPA, Lehigh Valley & Poconos. Close in 7-14 days, protect your credit, keep your equity. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Stop foreclosure before the sheriff sale. ClearEdge buys houses fast for cash in NEPA, Lehigh Valley & Poconos. Close in 7-14 days, protect your credit, keep your equity. Call Tyler: (610) 904-8526.',
     heroHeadline: "Foreclosure Doesn't Have to Mean Losing Everything",
     heroSubheadline: "If you're behind on payments and the notices are piling up, you still have options. We can close before the sheriff sale and put cash in your pocket — not the bank's.",
     problemDescriptionText: [
@@ -130,7 +130,7 @@ const situationUpdates = {
 
   'inherited-property': {
     metaTitle: 'Sell Inherited House in Pennsylvania | Skip Probate Stress, Get Cash Fast | ClearEdge',
-    metaDescription: "Inherited a house in PA you don't want or can't maintain? ClearEdge buys inherited properties for cash — during or after probate. No cleanout, no repairs, no family drama. Call Tyler: (570) 904-2059.",
+    metaDescription: "Inherited a house in PA you don't want or can't maintain? ClearEdge buys inherited properties for cash — during or after probate. No cleanout, no repairs, no family drama. Call Tyler: (610) 904-8526.",
     heroHeadline: 'You Inherited a House. Now What?',
     heroSubheadline: "Dealing with an estate is hard enough without worrying about repairs, cleanouts, and real estate agents. We buy inherited properties as-is and can close around probate timelines.",
     problemDescriptionText: [
@@ -186,7 +186,7 @@ const situationUpdates = {
 
   'job-relocation': {
     metaTitle: 'Sell Your House Fast for Job Relocation | Moving for Work in PA | ClearEdge',
-    metaDescription: "Got a job offer that won't wait? Sell your Pennsylvania house fast for cash and relocate without the stress. Close before your start date. Call Tyler: (570) 904-2059.",
+    metaDescription: "Got a job offer that won't wait? Sell your Pennsylvania house fast for cash and relocate without the stress. Close before your start date. Call Tyler: (610) 904-8526.",
     heroHeadline: 'New Job. Tight Timeline. We Can Help.',
     heroSubheadline: "When the opportunity won't wait and you need to sell fast, we close on your schedule — even if that's before you leave town.",
     problemDescriptionText: [

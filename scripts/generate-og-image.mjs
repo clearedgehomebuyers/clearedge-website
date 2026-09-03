@@ -82,10 +82,6 @@ const svg = `
   <rect x="480" y="500" width="200" height="44" rx="22" fill="#0d9488" opacity="0.2"/>
   <text x="510" y="528" font-family="Arial, sans-serif" font-size="18" fill="#14b8a6">Close in 7 Days</text>
 
-  <!-- Phone number -->
-  <text x="1100" y="170" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="end">
-    (570) 904-2059
-  </text>
 </svg>
 `
 

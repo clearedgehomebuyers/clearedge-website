@@ -110,7 +110,7 @@ const socialLinks = [
 ]
 
 export function V0Footer() {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
 
   return (
     <footer className="bg-bg-deep">
@@ -142,6 +142,9 @@ export function V0Footer() {
             <div className="space-y-3">
               <a
                 href={`tel:${phoneTel}`}
+                aria-hidden={!isLoaded}
+                tabIndex={isLoaded ? undefined : -1}
+                style={{ visibility: isLoaded ? "visible" : "hidden", pointerEvents: isLoaded ? "auto" : "none" }}
                 onClick={() => trackClickToCall({
                   eventLabel: 'Footer Phone',
                   callLocation: 'footer',

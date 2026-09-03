@@ -16,9 +16,29 @@ const policySource = readFileSync(resolve(repoRoot, 'src/lib/blog-url-policy.ts'
 const retiredSources = new Set(
   [...policySource.matchAll(/source:\s*'([^']+)'/g)].map((match) => match[1]),
 )
-const retiredSlugs = new Set(
-  [...policySource.matchAll(/slug:\s*'([^']+)'/g)].map((match) => match[1]),
-)
+const ownedPhoneDigits = new Set([
+  '6109048526',
+  '6106280671',
+  '6103791453',
+  '9733469832',
+  '6109917916',
+  '5709042059',
+])
+const canonicalPhoneDigits = '6109048526'
+// These static App Router pages shadow same-slug Sanity location documents;
+// none of the shadowed document's fields can reach a visitor.
+const staticLocationSlugs = new Set(['nepa', 'lehigh-valley', 'poconos'])
+const phoneCandidatePattern = /(?:\+?1[\s.-]*)?\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}(?!\d)/g
+
+function normalizePhoneDigits(value) {
+  const digits = String(value).replace(/\D/g, '')
+  return digits.length === 11 && digits.startsWith('1') ? digits.slice(1) : digits
+}
+
+function ownedPhoneMatches(value) {
+  return [...String(value).matchAll(phoneCandidatePattern)]
+    .filter((match) => ownedPhoneDigits.has(normalizePhoneDigits(match[0])))
+}
 
 function safeIdentifier(value) {
   return String(value || 'missing').replace(/[^A-Za-z0-9_./[\]-]/g, '?').slice(0, 180)
@@ -27,6 +47,25 @@ function safeIdentifier(value) {
 function inspectValue(value, path, problems) {
   if (Array.isArray(value)) {
     value.forEach((item, index) => inspectValue(item, `${path}[${index}]`, problems))
+    return
+  }
+  if (typeof value === 'string') {
+    const matches = ownedPhoneMatches(value)
+    const metadataPath = /\.(?:metaTitle|metaDescription)$/.test(path)
+    if (matches.length && !metadataPath) {
+      problems.push(`${path} contains ${matches.length} hardcoded ClearEdge phone value(s); use {{phone}}`)
+    }
+    if (metadataPath) {
+      const noncanonicalMatches = matches.filter(
+        (match) => normalizePhoneDigits(match[0]) !== canonicalPhoneDigits,
+      )
+      if (noncanonicalMatches.length) {
+        problems.push(`${path} contains ${noncanonicalMatches.length} noncanonical ClearEdge phone value(s); search metadata must use (610) 904-8526`)
+      }
+    }
+    if (/^tel:/i.test(value) && matches.length) {
+      problems.push(`${path} contains a hardcoded ClearEdge tel link`)
+    }
     return
   }
   if (!value || typeof value !== 'object') return
@@ -56,29 +95,24 @@ async function main() {
     useCdn: false,
   })
   const documents = await client.fetch(`
-    *[_type in ["blogPost", "location", "situation"]]{
-      _type,
-      "slug": slug.current,
-      content,
-      problemDescription,
-      faqs
-    }
+    *[_type in ["blogPost", "location", "situation"] && !(_id in path("drafts.**"))]
   `)
 
   const problems = []
   let inspected = 0
   for (const document of documents || []) {
-    if (document._type === 'blogPost' && retiredSlugs.has(document.slug)) continue
+    const slug = document.slug?.current
+    if (document._type === 'location' && staticLocationSlugs.has(slug)) continue
     inspected++
-    const identifier = `${safeIdentifier(document._type)}/${safeIdentifier(document.slug)}`
-    inspectValue(document.content, `${identifier}.content`, problems)
-    inspectValue(document.problemDescription, `${identifier}.problemDescription`, problems)
-    inspectValue(document.faqs, `${identifier}.faqs`, problems)
+    const identifier = `${safeIdentifier(document._type)}/${safeIdentifier(slug)}`
+    // The location template renders enhancedContent OR problemStatement. Do
+    // not report links/numbers in the inactive fallback as if visitors see it.
+    const renderedDocument = document._type === 'location' && document.enhancedContent
+      ? { ...document, problemStatement: undefined }
+      : document
+    inspectValue(renderedDocument, identifier, problems)
 
-    const text = allText([document.content, document.problemDescription, document.faqs])
-    if (/610\D*628\D*0671/.test(text)) {
-      problems.push(`${identifier} contains the direct-attribution phone in indexable CMS copy`)
-    }
+    const text = allText(renderedDocument)
     if (/redeem.{0,120}(?:9|nine)[-\s]+months?.{0,120}(?:after|post[-\s]?sale)/i.test(text)) {
       problems.push(`${identifier} may contain the retired nine-month post-sale redemption claim`)
     }
@@ -91,7 +125,7 @@ async function main() {
   }
 
   console.log(
-    `check-sanity-seo-integrity: pass — ${inspected} visible documents contain no retired hrefs, direct-attribution phone copy, or nine-month post-sale redemption claim.`,
+    `check-sanity-seo-integrity: pass — ${inspected} published documents contain no retired hrefs, hardcoded ClearEdge visitor phone values, or nine-month post-sale redemption claim.`,
   )
 }
 

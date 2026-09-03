@@ -133,7 +133,7 @@ const locationUpdates = [
   {
     slug: 'scranton',
     metaTitle: 'Sell Your House Fast in Scranton, PA | Cash Offer in 24 Hours | ClearEdge',
-    metaDescription: 'Need to sell your Scranton house fast? ClearEdge buys homes as-is for cash — no repairs, no fees, no inspections. We started here on Birch Street in 2016. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Scranton house fast? ClearEdge buys homes as-is for cash — no repairs, no fees, no inspections. We started here on Birch Street in 2016. Call Tyler: (610) 904-8526.',
     heroHeadline: 'We Buy Houses in Scranton — And We Started Right Here',
     heroSubheadline: 'ClearEdge was born on Birch Street in 2016. We know this city — from the Hill Section to South Side, from Green Ridge to West Scranton. When you\'re ready to sell fast without the hassle, you\'re working with neighbors, not strangers.',
     problemStatement: `Scranton's real estate market has its own rhythm — and its own challenges. If you've tried to sell a house here recently, you already know: it's not as simple as putting up a sign and waiting for offers.
@@ -187,7 +187,7 @@ You don't need to fix the violations, update the wiring, or clean out decades of
   {
     slug: 'allentown',
     metaTitle: 'Sell Your House Fast in Allentown, PA | Skip the Pre-Sale Inspection | ClearEdge',
-    metaDescription: 'Allentown\'s pre-sale inspection slowing you down? ClearEdge buys houses as-is for cash — no repairs, no city inspection required. Get a fair offer in 24 hours. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Allentown\'s pre-sale inspection slowing you down? ClearEdge buys houses as-is for cash — no repairs, no city inspection required. Get a fair offer in 24 hours. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Allentown House Without the Inspection Headache',
     heroSubheadline: 'Allentown\'s pre-sale inspection requirement stops most traditional sales before they start. We buy houses as-is — no city inspection, no violation repairs, no waiting.',
     problemStatement: `If you've tried to sell a house in Allentown through traditional channels, you've probably already met the Housing Bureau at 641 South 10th Street. That pre-sale inspection requirement isn't optional — and it catches a lot of homeowners off guard.
@@ -239,7 +239,7 @@ We've been buying houses throughout the Lehigh Valley since 2016. We know the Al
   {
     slug: 'stroudsburg',
     metaTitle: 'Sell Your House Fast in Stroudsburg, PA | Poconos Cash Home Buyer | ClearEdge',
-    metaDescription: 'Need to sell your Stroudsburg house fast? ClearEdge buys Pocono properties as-is for cash — vacation homes, rentals, inherited cabins. No repairs, no fees. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Stroudsburg house fast? ClearEdge buys Pocono properties as-is for cash — vacation homes, rentals, inherited cabins. No repairs, no fees. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Selling a House in the Poconos Doesn\'t Have to Mean Waiting for Summer',
     heroSubheadline: 'Stroudsburg\'s market swings with the seasons — but we buy year-round. Whether it\'s a vacation home you never use, a rental that\'s become a headache, or a property you inherited, we\'ll make you a fair cash offer.',
     problemStatement: `The Poconos real estate market plays by different rules. If you own property in Stroudsburg, you already know: this isn't like selling a house in the suburbs.
@@ -291,7 +291,7 @@ We buy houses throughout the Poconos — Stroudsburg, East Stroudsburg, Pocono P
   {
     slug: 'wilkes-barre',
     metaTitle: 'Sell Your House Fast in Wilkes-Barre, PA | Cash Offer in 24 Hours | ClearEdge',
-    metaDescription: 'Need to sell your Wilkes-Barre house fast? ClearEdge buys homes as-is for cash — flood zone, code violations, mine subsidence, doesn\'t matter. No repairs, no fees. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Wilkes-Barre house fast? ClearEdge buys homes as-is for cash — flood zone, code violations, mine subsidence, doesn\'t matter. No repairs, no fees. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Wilkes-Barre House Fast — Without the Wyoming Valley Hassles',
     heroSubheadline: 'From the Heights to South Wilkes-Barre, we buy houses in any condition. Flood zone? Code violations? Mine subsidence? Doesn\'t matter. Fair cash offer, fast closing, zero repairs.',
     problemStatement: `Wilkes-Barre homeowners face challenges that people outside the Wyoming Valley don't understand. The history of this city is written in coal dust and floodwater — and that history shows up in every real estate transaction.
@@ -345,7 +345,7 @@ We've been buying houses in Wilkes-Barre since we expanded from Scranton. We kno
   {
     slug: 'bethlehem',
     metaTitle: 'Sell Your House Fast in Bethlehem, PA | Cash Offer, No Inspections | ClearEdge',
-    metaDescription: 'Selling a house in Bethlehem, PA? ClearEdge buys homes as-is for cash — skip the city inspection, skip the repairs. Historic home or fixer-upper, we buy it all. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Selling a house in Bethlehem, PA? ClearEdge buys homes as-is for cash — skip the city inspection, skip the repairs. Historic home or fixer-upper, we buy it all. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Bethlehem Home Without the Steel City Red Tape',
     heroSubheadline: 'From the historic row homes of South Side to the tree-lined streets of West Bethlehem, we buy houses as-is. No city inspections, no violation repairs, no waiting for the perfect buyer.',
     problemStatement: `Bethlehem wears its steel heritage proudly — but that heritage comes with 100-year-old houses that weren't built for modern code requirements.
@@ -399,7 +399,7 @@ We buy houses throughout Bethlehem — both the Northampton County side and the 
   {
     slug: 'hazleton',
     metaTitle: 'Sell Your House Fast in Hazleton, PA | Cash Buyer for Any Condition | ClearEdge',
-    metaDescription: 'Need to sell your Hazleton house fast? ClearEdge buys homes as-is — skip the occupancy inspection, avoid the violation fines. Cash offer in 24 hours. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Hazleton house fast? ClearEdge buys homes as-is — skip the occupancy inspection, avoid the violation fines. Cash offer in 24 hours. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Hazleton Property Fast — Skip the Inspection Hassle',
     heroSubheadline: 'Hazleton\'s rental market has changed. If you\'re ready to cash out — whether it\'s a rental with code issues or a house you inherited — we buy as-is, close fast, and handle the complications.',
     problemStatement: `Hazleton's real estate market has transformed faster than almost anywhere in Pennsylvania. What was once a quiet coal town has become one of the most active rental markets in the region — and with that activity came a wave of regulations that catch property owners off guard.
@@ -451,7 +451,7 @@ We've been buying in Hazleton since we expanded from Scranton, and we've seen ev
   {
     slug: 'easton',
     metaTitle: 'Sell Your House Fast in Easton, PA | Cash Buyer, No Repairs | ClearEdge',
-    metaDescription: 'Need to sell your Easton house fast? ClearEdge buys homes as-is for cash — skip the rental inspection, skip the repairs. Victorian, row home, or fixer-upper. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Easton house fast? ClearEdge buys homes as-is for cash — skip the rental inspection, skip the repairs. Victorian, row home, or fixer-upper. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Easton House Fast — Historic Charm, Modern Hassles, Simple Solution',
     heroSubheadline: 'Easton\'s beautiful old homes come with century-old problems. We buy houses as-is throughout the city — no inspections, no repairs, no waiting for a buyer who can handle the work.',
     problemStatement: `Easton sits at the meeting of two rivers and two centuries of housing stock. The downtown revival has brought new restaurants and galleries to the historic district, but a few blocks away, homeowners are dealing with properties that haven't been updated since Eisenhower was president.

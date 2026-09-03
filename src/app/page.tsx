@@ -2,6 +2,7 @@
 
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { CANONICAL_PHONE } from '@/lib/phone-attribution'
 
 // Above-fold components (regular imports for immediate loading)
 import { V0Header } from '@/components/v0-header'
@@ -100,7 +101,7 @@ export default function HomePage() {
             "legalName": "ClearEdge Properties LLC",
             "description": "Pennsylvania cash home buyers serving 21 markets across Eastern PA. We buy houses in any condition for cash — no fees, no commissions, no repairs. Fair offer in 24 hours, close in as few as 7 days. Family-owned since 2016.",
             "url": "https://www.clearedgehomebuyers.com",
-            "telephone": "+1-610-904-8526",
+            "telephone": CANONICAL_PHONE.phoneTel,
             "email": "info@clearedgehomebuyers.com",
             "logo": {
               "@type": "ImageObject",
