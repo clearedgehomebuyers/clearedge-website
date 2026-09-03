@@ -8,6 +8,8 @@ import { CheckCircle, ArrowRight, Clock, DollarSign, Shield, Home, FileText, Boo
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
+import { preparePortableTextWithDynamicPhones } from '@/lib/portable-text-phone'
+import { PortableTextLink } from '@/components/PortableTextLink'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
@@ -96,15 +98,15 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
 
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
+  types: {
+    dynamicPhone: () => <DynamicPhoneLink callLocation="situation_body" />,
+  },
   marks: {
     link: ({ children, value }) => {
       return (
-        <a
-          href={value?.href}
-          className="text-ce-green hover:underline font-medium"
-        >
+        <PortableTextLink href={value?.href || ''} openInNewTab={false} callLocation="situation_body_phone_link">
           {children}
-        </a>
+        </PortableTextLink>
       )
     },
     strong: ({ children }) => (
@@ -327,7 +329,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
-              <PortableText value={situation.problemDescription} components={portableTextComponents} />
+              <PortableText value={preparePortableTextWithDynamicPhones(situation.problemDescription) as never} components={portableTextComponents} />
             </div>
           </div>
         </section>

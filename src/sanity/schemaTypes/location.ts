@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity'
+import { validateNoHardcodedClearEdgePhone } from '@/sanity/lib/phone-validation'
 
 export default defineType({
   name: 'location',
   title: 'Location',
   type: 'document',
+  validation: (Rule) => Rule.custom(validateNoHardcodedClearEdgePhone),
   fields: [
     defineField({
       name: 'city',

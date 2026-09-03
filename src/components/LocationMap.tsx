@@ -17,7 +17,7 @@ const containerStyle = {
 }
 
 export function LocationMap({ slug, cityName }: LocationMapProps) {
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded: isPhoneLoaded } = useTrafficSource()
   const [showInfoWindow, setShowInfoWindow] = useState(false)
 
   const locationData = locationMapData[slug]
@@ -119,6 +119,9 @@ export function LocationMap({ slug, cityName }: LocationMapProps) {
               </p>
               <a
                 href={`tel:${phoneTel}`}
+                aria-hidden={!isPhoneLoaded}
+                tabIndex={isPhoneLoaded ? undefined : -1}
+                style={{ visibility: isPhoneLoaded ? 'visible' : 'hidden', pointerEvents: isPhoneLoaded ? 'auto' : 'none' }}
                 onClick={() => trackClickToCall({
                   eventLabel: 'Location Map Phone',
                   callLocation: 'location_map',

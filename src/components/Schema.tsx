@@ -1,3 +1,5 @@
+import { CANONICAL_PHONE, canonicalizeDynamicPhoneText } from '@/lib/phone-attribution'
+
 export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -7,7 +9,7 @@ export function OrganizationSchema() {
     "legalName": "ClearEdge Properties LLC",
     "description": "We buy houses for cash in Eastern Pennsylvania. Get a fair cash offer in 24 hours. No repairs, no fees, no commissions.",
     "url": "https://www.clearedgehomebuyers.com",
-    "telephone": "+1-610-904-8526",
+    "telephone": CANONICAL_PHONE.phoneTel,
     "email": "info@clearedgehomebuyers.com",
     "logo": "https://www.clearedgehomebuyers.com/logo.webp",
     "areaServed": [
@@ -75,7 +77,7 @@ export function FAQSchema({ faqs }: { faqs: { question: string; answer: string }
       "name": faq.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer
+        "text": canonicalizeDynamicPhoneText(faq.answer)
       }
     }))
   };

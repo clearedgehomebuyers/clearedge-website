@@ -100,7 +100,7 @@ export function V0Header() {
   const locationsRef = useRef<HTMLDivElement>(null)
   const situationsRef = useRef<HTMLDivElement>(null)
   const resourcesRef = useRef<HTMLDivElement>(null)
-  const { phone, phoneTel, trafficSource } = useTrafficSource()
+  const { phone, phoneTel, trafficSource, isLoaded } = useTrafficSource()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -339,6 +339,9 @@ export function V0Header() {
             {/* Phone - blue icon (blue = contact) */}
             <a
               href={`tel:${phoneTel}`}
+              aria-hidden={!isLoaded}
+              tabIndex={isLoaded ? undefined : -1}
+              style={{ visibility: isLoaded ? "visible" : "hidden", pointerEvents: isLoaded ? "auto" : "none" }}
               onClick={() => trackClickToCall({
                 eventLabel: 'Header Phone - Desktop',
                 callLocation: 'header_desktop',
@@ -483,6 +486,9 @@ export function V0Header() {
           {/* Mobile Phone */}
           <a
             href={`tel:${phoneTel}`}
+            aria-hidden={!isLoaded}
+            tabIndex={isLoaded ? undefined : -1}
+            style={{ visibility: isLoaded ? "visible" : "hidden", pointerEvents: isLoaded ? "auto" : "none" }}
             onClick={() => trackClickToCall({
               eventLabel: 'Header Phone - Mobile',
               callLocation: 'header_mobile',

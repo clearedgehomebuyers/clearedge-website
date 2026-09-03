@@ -133,7 +133,7 @@ const locationUpdates = [
   {
     slug: 'reading',
     metaTitle: 'Sell Your House Fast in Reading, PA | Stop Judicial Sale | ClearEdge',
-    metaDescription: 'Facing foreclosure or code violations in Reading? ClearEdge buys houses as-is for cash — stop the judicial sale, skip the repairs. Any condition, any situation. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Facing foreclosure or code violations in Reading? ClearEdge buys houses as-is for cash — stop the judicial sale, skip the repairs. Any condition, any situation. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Reading House Fast — Before the Judicial Sale, Before the Violations Pile Up',
     heroSubheadline: 'Reading homeowners face tough choices. We offer a simple one: fair cash offer, fast closing, no repairs. From Hampden Heights to South Reading, we buy houses the traditional market won\'t touch.',
     problemStatement: `Reading's real estate market doesn't work like the suburbs. Properties here face challenges that buyers from outside Berks County don't understand — and the city's enforcement mechanisms don't wait for you to figure it out.
@@ -187,7 +187,7 @@ We've been buying houses in Reading and throughout Berks County for years. We've
   {
     slug: 'east-stroudsburg',
     metaTitle: 'Sell Your House Fast in East Stroudsburg, PA | Cash Buyer | ClearEdge',
-    metaDescription: 'Need to sell your East Stroudsburg house fast? ClearEdge buys homes as-is — student rentals, vacation properties, inherited houses. No repairs, no GovOS hassle. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your East Stroudsburg house fast? ClearEdge buys homes as-is — student rentals, vacation properties, inherited houses. No repairs, no GovOS hassle. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your East Stroudsburg Property Without the University-Town Hassles',
     heroSubheadline: 'Student rentals, vacation homes, inherited properties — East Stroudsburg real estate comes with complications. We buy as-is, close fast, and take the hassle off your hands.',
     problemStatement: `East Stroudsburg runs on two economies: the university and the Poconos vacation market. If you own property here, you're caught between student tenants who cycle through every semester and vacation renters who expect hotel-quality amenities. Either way, your property takes a beating.
@@ -239,7 +239,7 @@ We buy houses throughout East Stroudsburg and the surrounding Poconos. We've pur
   {
     slug: 'carbondale',
     metaTitle: 'Sell Your House Fast in Carbondale, PA | Cash Buyer, Any Condition | ClearEdge',
-    metaDescription: 'Need to sell your Carbondale house fast? ClearEdge buys homes as-is — mine subsidence, foundation issues, any condition. Cash offer in 24 hours. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Carbondale house fast? ClearEdge buys homes as-is — mine subsidence, foundation issues, any condition. Cash offer in 24 hours. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Carbondale House Fast — Even When Traditional Buyers Won\'t Touch It',
     heroSubheadline: 'The Pioneer City built anthracite mining, but that history left challenges underground. We buy houses as-is — mine subsidence, foundation issues, outdated everything. Fair cash offer, no repairs required.',
     problemStatement: `Carbondale was Pennsylvania's first mining boomtown, and that history is still shaping real estate transactions 150 years later.
@@ -291,7 +291,7 @@ We've been buying houses in Carbondale and the surrounding Lackawanna County com
   {
     slug: 'pittston',
     metaTitle: 'Sell Your House Fast in Pittston, PA | Flood Zone, Any Condition | ClearEdge',
-    metaDescription: 'Need to sell your Pittston house fast? ClearEdge buys homes as-is — flood zone, mine subsidence, code violations. Cash offer in 24 hours, close in 7-14 days. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Pittston house fast? ClearEdge buys homes as-is — flood zone, mine subsidence, code violations. Cash offer in 24 hours, close in 7-14 days. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Pittston House Fast — Flood Zone, Mine Issues, Doesn\'t Matter',
     heroSubheadline: 'Greater Pittston properties come with unique challenges — river flooding, underground mines, older housing stock. We buy as-is, pay cash, and close fast. No repairs, no inspections, no hassle.',
     problemStatement: `Greater Pittston sits in the shadow of two forces that still shape every real estate deal: the Susquehanna River and the abandoned mines underneath.
@@ -343,7 +343,7 @@ We buy houses throughout Greater Pittston — the city, the townships, West Pitt
   {
     slug: 'kingston',
     metaTitle: 'Sell Your House Fast in Kingston, PA | Cash Buyer, No Repairs | ClearEdge',
-    metaDescription: 'Need to sell your Kingston house fast? ClearEdge buys homes as-is for cash — any condition, any situation. Close in 7-14 days, no repairs needed. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Kingston house fast? ClearEdge buys homes as-is for cash — any condition, any situation. Close in 7-14 days, no repairs needed. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Kingston House Fast — Skip the Showings, Skip the Repairs',
     heroSubheadline: 'Just across the river from Wilkes-Barre, Kingston properties deserve buyers who understand the Wyoming Valley market. We buy houses as-is — fair cash offer, fast closing, no hassle.',
     problemStatement: `Kingston has always lived in Wilkes-Barre's shadow, but that doesn't mean selling here is simple. The borough has its own character — from the stately homes along Wyoming Avenue to the working-class neighborhoods that housed generations of valley families. And it has its own challenges.
@@ -395,7 +395,7 @@ We buy houses throughout Kingston — from Wyoming Avenue to the neighborhoods a
   {
     slug: 'dunmore',
     metaTitle: 'Sell Your House Fast in Dunmore, PA | Mine Subsidence Experts | ClearEdge',
-    metaDescription: 'Mine subsidence making your Dunmore house unsellable? ClearEdge buys homes as-is for cash — foundation issues, structural damage, any condition. Close in 7-14 days. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Mine subsidence making your Dunmore house unsellable? ClearEdge buys homes as-is for cash — foundation issues, structural damage, any condition. Close in 7-14 days. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Dunmore House Fast — Even With Mine Subsidence Issues',
     heroSubheadline: 'Dunmore\'s underground past doesn\'t have to trap you. We buy houses with foundation problems, structural damage, and conditions that scare off traditional buyers. Cash offer, fast closing, no repairs.',
     problemStatement: `Dunmore residents know something outsiders don't: the ground beneath this borough has a history, and that history still affects every real estate transaction.
@@ -447,7 +447,7 @@ We started buying houses in Scranton and quickly expanded to Dunmore. We underst
   {
     slug: 'nanticoke',
     metaTitle: 'Sell Your House Fast in Nanticoke, PA | Cash Buyer, Any Condition | ClearEdge',
-    metaDescription: 'Need to sell your Nanticoke house fast? ClearEdge buys homes as-is — foundation issues, code violations, any condition. Cash offer in 24 hours. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Nanticoke house fast? ClearEdge buys homes as-is — foundation issues, code violations, any condition. Cash offer in 24 hours. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Nanticoke House Fast — When Traditional Sales Aren\'t Working',
     heroSubheadline: 'Nanticoke\'s market is tough. Traditional listings sit for months while you keep paying. We buy houses as-is for cash — no repairs, no waiting, no uncertainty.',
     problemStatement: `Nanticoke was built on coal and industry, and when those industries left, they left behind a housing stock that doesn't always match what today's market demands.

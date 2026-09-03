@@ -11,6 +11,7 @@ import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, B
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextLink } from '@/components/PortableTextLink'
+import { preparePortableTextWithDynamicPhones } from '@/lib/portable-text-phone'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
@@ -65,6 +66,9 @@ const fmt = (n: number) => `$${n.toLocaleString('en-US')}`
 
 // Custom components for rendering Portable Text with links
 const portableTextComponents: PortableTextComponents = {
+  types: {
+    dynamicPhone: () => <DynamicPhoneLink callLocation="location_body" />,
+  },
   marks: {
     link: ({ children, value }) => (
       <PortableTextLink href={value?.href || ''}>{children}</PortableTextLink>
@@ -364,7 +368,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             </div>
 
             <div className="text-ce-ink/70 space-y-6 text-lg leading-relaxed prose prose-lg max-w-none">
-              <PortableText value={location.enhancedContent || location.problemStatement} components={portableTextComponents} />
+              <PortableText value={preparePortableTextWithDynamicPhones(location.enhancedContent || location.problemStatement) as never} components={portableTextComponents} />
             </div>
           </div>
         </section>
@@ -427,7 +431,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
             {npc.followUpText && (
               <div className="text-ce-ink/70 space-y-4 text-lg leading-relaxed mt-8 prose prose-lg max-w-none">
-                <PortableText value={npc.followUpText} components={portableTextComponents} />
+                <PortableText value={preparePortableTextWithDynamicPhones(npc.followUpText) as never} components={portableTextComponents} />
               </div>
             )}
           </div>
@@ -522,7 +526,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                 <div key={study._key} className="bg-white rounded-2xl border border-ce-ink/5 p-6">
                   <h3 className="font-serif font-medium text-xl text-ce-ink mb-3">{study.title}</h3>
                   <div className="text-ce-ink/70 leading-relaxed prose max-w-none">
-                    <PortableText value={study.description} components={portableTextComponents} />
+                    <PortableText value={preparePortableTextWithDynamicPhones(study.description) as never} components={portableTextComponents} />
                   </div>
                 </div>
               ))}

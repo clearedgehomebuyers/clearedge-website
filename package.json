@@ -10,7 +10,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit --incremental false",
     "verify:build": "node scripts/check-build-seo-invariants.mjs",
-    "verify:sanity-content": "node scripts/check-sanity-seo-integrity.mjs"
+    "verify:sanity-content": "node scripts/check-sanity-seo-integrity.mjs",
+    "verify:phone": "node scripts/check-phone-attribution-integrity.mjs"
   },
   "dependencies": {
     "@portabletext/react": "^6.0.2",

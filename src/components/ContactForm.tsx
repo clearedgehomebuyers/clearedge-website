@@ -33,7 +33,7 @@ function getPhoneDigits(value: string): string {
 }
 
 export function ContactForm() {
-  const { trafficSource, utmParams, landingPage, phone: dynamicPhone, phoneTel } = useTrafficSource()
+  const { trafficSource, utmParams, landingPage, phone: dynamicPhone, phoneTel, isLoaded } = useTrafficSource()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -249,6 +249,9 @@ export function ContactForm() {
         {/* Phone Widget */}
         <a
           href={`tel:${phoneTel}`}
+          aria-hidden={!isLoaded}
+          tabIndex={isLoaded ? undefined : -1}
+          style={{ visibility: isLoaded ? 'visible' : 'hidden', pointerEvents: isLoaded ? 'auto' : 'none' }}
           onClick={() => trackClickToCall({
             eventLabel: 'Contact Page Phone',
             callLocation: 'contact_widget',

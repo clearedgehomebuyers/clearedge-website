@@ -1,4 +1,5 @@
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { DynamicPhoneContent } from '@/components/DynamicPhoneContent'
 
 interface BlogCtaBlockProps {
   heading: string
@@ -13,7 +14,9 @@ export function BlogCtaBlock({ heading, body, buttonText, ctaLocation }: BlogCta
       <h3 className="font-serif text-xl md:text-2xl font-medium text-ce-ink mb-3">
         {heading}
       </h3>
-      <p className="text-ce-ink/80 leading-relaxed text-lg mb-6">{body}</p>
+      <p className="text-ce-ink/80 leading-relaxed text-lg mb-6">
+        <DynamicPhoneContent text={body} callLocation={`${ctaLocation}_body`} />
+      </p>
       <TrackedCTALink
         href="#lead-form"
         label={buttonText}

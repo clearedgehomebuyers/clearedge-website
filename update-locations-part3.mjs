@@ -133,7 +133,7 @@ const locationUpdates = [
   {
     slug: 'honesdale',
     metaTitle: 'Sell Your House Fast in Honesdale, PA | Wayne County Cash Buyer | ClearEdge',
-    metaDescription: 'Need to sell your Honesdale house fast? ClearEdge buys homes as-is for cash — older properties, estates, any condition. No repairs, no realtor delays. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Honesdale house fast? ClearEdge buys homes as-is for cash — older properties, estates, any condition. No repairs, no realtor delays. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Honesdale Property Fast — Country Character, City-Speed Closing',
     heroSubheadline: 'Wayne County real estate moves at its own pace. When you need to sell faster than the local market allows, we buy houses as-is for cash. No repairs, no waiting for the right buyer.',
     problemStatement: `Honesdale has small-town charm that the Lehigh Valley and NEPA cities can't match. But that charm doesn't translate to fast real estate transactions.
@@ -185,7 +185,7 @@ We buy houses throughout Wayne County — Honesdale, the townships, and the rura
   {
     slug: 'pottsville',
     metaTitle: 'Sell Your House Fast in Pottsville, PA | Schuylkill County Cash Buyer | ClearEdge',
-    metaDescription: 'Need to sell your Pottsville house fast? ClearEdge buys homes as-is for cash — mine subsidence, foundation issues, any condition. No repairs, no waiting. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Pottsville house fast? ClearEdge buys homes as-is for cash — mine subsidence, foundation issues, any condition. No repairs, no waiting. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Pottsville House Fast — Coal Country Challenges, Simple Solution',
     heroSubheadline: 'Schuylkill County\'s mining legacy complicates real estate, but it doesn\'t have to complicate your sale. We buy houses as-is for cash — foundation issues, outdated systems, any condition.',
     problemStatement: `Pottsville is Schuylkill County's heart, but the anthracite industry that built this city left behind challenges that still shape every real estate transaction.
@@ -237,7 +237,7 @@ We've been buying houses in Pottsville and throughout Schuylkill County for year
   {
     slug: 'bloomsburg',
     metaTitle: 'Sell Your House Fast in Bloomsburg, PA | Flood Zone, Any Condition | ClearEdge',
-    metaDescription: 'Need to sell your Bloomsburg house fast? ClearEdge buys homes as-is — flood zone, student rental damage, any condition. Cash offer, no repairs needed. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Bloomsburg house fast? ClearEdge buys homes as-is — flood zone, student rental damage, any condition. Cash offer, no repairs needed. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Bloomsburg Property Fast — Skip the Flood Zone Hassles',
     heroSubheadline: 'Whether it\'s a student rental near BU or a family home in a flood zone, we buy houses as-is for cash. No repairs, no flood insurance complications, no waiting for the right buyer.',
     problemStatement: `Bloomsburg runs on two forces: the university and the river. If you own property here, you're navigating student tenant cycles, flood zone complications, or both.
@@ -289,7 +289,7 @@ We buy houses throughout Bloomsburg — flood zone or not, student rental or fam
   {
     slug: 'pocono-pines',
     metaTitle: 'Sell Your House Fast in Pocono Pines, PA | Vacation Home Cash Buyer | ClearEdge',
-    metaDescription: 'Tired of paying for a Pocono Pines vacation home you never use? ClearEdge buys houses as-is for cash — community association properties, winter damage, any condition. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Tired of paying for a Pocono Pines vacation home you never use? ClearEdge buys houses as-is for cash — community association properties, winter damage, any condition. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Pocono Pines Property — Stop Paying for a Vacation You Never Take',
     heroSubheadline: 'Community association fees, winter maintenance, seasonal headaches — vacation home ownership adds up fast. We buy Pocono properties as-is for cash. No repairs, no HOA drama, no waiting.',
     problemStatement: `Pocono Pines seemed like a great idea when you bought. Lake access. Mountain views. A weekend escape from the city. But vacation home ownership has a way of becoming a burden instead of a retreat.
@@ -341,7 +341,7 @@ We buy vacation properties throughout the Pocono Pines area — community associ
   {
     slug: 'tannersville',
     metaTitle: 'Sell Your House Fast in Tannersville, PA | Ski Property Cash Buyer | ClearEdge',
-    metaDescription: 'Tired of your Tannersville ski property sitting empty? ClearEdge buys vacation homes as-is for cash — Camelback area, any condition. No repairs, no seasonal waiting. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Tired of your Tannersville ski property sitting empty? ClearEdge buys vacation homes as-is for cash — Camelback area, any condition. No repairs, no seasonal waiting. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Tannersville Ski Property — Without Waiting for Peak Season',
     heroSubheadline: 'Camelback-area vacation homes come with year-round costs and seasonal headaches. We buy as-is for cash — no waiting for ski season, no repairs, no resort-area complications.',
     problemStatement: `Tannersville sits in Camelback's shadow, and that proximity drives everything about the local real estate market. If you own property here, you bought into the ski lifestyle — but lifestyle and investment don't always align.
@@ -393,7 +393,7 @@ We buy vacation properties throughout the Tannersville and Camelback area. We un
   {
     slug: 'lehigh-valley',
     metaTitle: 'Sell Your House Fast in the Lehigh Valley | Allentown, Bethlehem, Easton | ClearEdge',
-    metaDescription: 'Need to sell your Lehigh Valley house fast? ClearEdge buys homes as-is across Allentown, Bethlehem, Easton & beyond. No repairs, no inspections, no fees. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Lehigh Valley house fast? ClearEdge buys homes as-is across Allentown, Bethlehem, Easton & beyond. No repairs, no inspections, no fees. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Lehigh Valley House Fast — From Allentown to Easton',
     heroSubheadline: 'The Lehigh Valley\'s diverse housing market means diverse challenges. We buy houses as-is throughout the region — urban row homes, suburban ranches, historic Victorians. Fair cash offer, fast closing.',
     problemStatement: `The Lehigh Valley stretches from Allentown's urban core to Easton's riverfront to the suburban townships in between. Each community has its own character — and its own complications for sellers.
@@ -451,7 +451,7 @@ We buy houses throughout the Lehigh Valley — Allentown, Bethlehem, Easton, and
   {
     slug: 'poconos',
     metaTitle: 'Sell Your Pocono House Fast | Vacation Home & Cabin Cash Buyer | ClearEdge',
-    metaDescription: 'Need to sell your Pocono property fast? ClearEdge buys vacation homes, cabins & rentals as-is for cash — any condition, any situation. No repairs, no waiting. Call Tyler: (570) 904-2059.',
+    metaDescription: 'Need to sell your Pocono property fast? ClearEdge buys vacation homes, cabins & rentals as-is for cash — any condition, any situation. No repairs, no waiting. Call Tyler: (610) 904-8526.',
     heroHeadline: 'Sell Your Pocono Property Fast — Vacation Homes, Cabins, Rentals',
     heroSubheadline: 'From Stroudsburg to Lake Wallenpaupack, we buy Pocono properties as-is. No seasonal waiting, no community association hassles, no repairs. Cash offer, fast closing.',
     problemStatement: `The Poconos promise weekend escapes and mountain getaways. But for many property owners, that promise has become a burden.

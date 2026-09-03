@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity'
+import { validateNoHardcodedClearEdgePhone } from '@/sanity/lib/phone-validation'
 
 export default defineType({
   name: 'blogPost',
   title: 'Blog Post',
   type: 'document',
+  validation: (Rule) => Rule.custom(validateNoHardcodedClearEdgePhone),
   fields: [
     defineField({
       name: 'title',

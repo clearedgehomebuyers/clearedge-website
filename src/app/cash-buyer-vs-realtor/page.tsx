@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import { ArrowRight, CheckCircle, XCircle, AlertTriangle, Phone, Check, X } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
+import { canonicalizeDynamicPhoneText } from '@/lib/phone-attribution'
 
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
@@ -117,7 +118,7 @@ export default function CashBuyerVsRealtorPage() {
                     '@type': 'Answer',
                     // audit QW5 (2026-08-10): substitute {{phone}} statically —
                     // JSON-LD shipped the raw token. Default/organic number.
-                    text: faq.answer.replace(/\{\{phone\}\}/g, '(610) 904-8526'),
+                    text: canonicalizeDynamicPhoneText(faq.answer),
                   },
                 })),
               },
