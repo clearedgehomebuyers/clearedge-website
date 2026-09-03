@@ -107,7 +107,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'easton-pa-rental-inspection-checklist-2026': {
     question: "What does Easton PA check in rental inspections?",
-    answer: "Easton rental inspections check smoke and carbon-monoxide detectors, exterior-door locks, window screens and locks, HVAC, electrical and plumbing safety, and required handrails and guardrails. The city says every residential rental unit must be inspected at least once every four years. The annual registration fee is $75 per regulated unit when paid by August 15; the initial inspection and first reinspection are included."
+    answer: "Easton rental inspections cover exterior conditions, doors and windows, electrical and fire safety, plumbing, kitchens and bathrooms, heating equipment, stairs, handrails, and related inspection records. Chapter 456 requires annual registration and places most regulated rental units on an inspection cycle of at least once every four years; rooming-house and short-term rental units are inspected at least annually. Registration dates are ward-based, so confirm the current deadline and fee with the Bureau of Codes."
   },
   'pennsylvania-act-135-blighted-property-conservatorship-help-owner-rights': {
     question: "What are my rights if someone files an Act 135 conservatorship on my property?",
