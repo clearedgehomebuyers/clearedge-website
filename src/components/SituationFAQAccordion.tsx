@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
+import { trackClickToCall } from "@/lib/analytics-events"
 
 interface FAQ {
   question: string
@@ -15,7 +16,7 @@ interface SituationFAQAccordionProps {
 }
 
 export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAccordionProps) {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -78,7 +79,16 @@ export function SituationFAQAccordion({ faqs, situationTitle }: SituationFAQAcco
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href={`tel:${phoneTel}`} className="text-[#008a29] font-medium hover:underline">
+            <a
+              href={`tel:${phoneTel}`}
+              onClick={() => trackClickToCall({
+                eventLabel: 'Situation FAQ Phone',
+                callLocation: 'situation_faq',
+                trafficSource,
+                phoneLine: phoneTel,
+              })}
+              className="text-[#008a29] font-medium hover:underline"
+            >
               {phone}
             </a>
             <span className="hidden sm:inline text-[#1a1f1a]/30">|</span>

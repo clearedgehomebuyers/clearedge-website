@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { BLOG_REDIRECTS } from './src/lib/blog-url-policy'
 
 const nextConfig: NextConfig = {
   compiler: {
@@ -27,11 +28,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        // audit QW4 (2026-08-10): 9 situation pages breadcrumb (JSON-LD) into
-        // /situations, which has no index route. Redirect chosen over pointing
-        // breadcrumb item 2 at "/" — that would put the same URL at two
-        // breadcrumb positions. This keeps the schema structurally truthful
-        // and resolves any external links to the bare path.
+        // Preserve old external links to the retired bare collection path.
+        // Situation-page breadcrumbs now link Home directly to the current
+        // page and no longer expose this redirect internally.
         source: '/situations',
         destination: '/',
         permanent: true,
@@ -63,29 +62,14 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
-      {
-        // These long-unindexed articles duplicate stronger transactional
-        // pages. Consolidating their signals is more useful than keeping thin
-        // 200 responses outside the sitemap.
-        source: '/blog/sell-my-house-fast-poconos-pa',
-        destination: '/locations/poconos',
+      // These long-unindexed articles duplicate stronger transactional pages.
+      // The shared policy also removes them from listings, related-content
+      // queries, static generation, and the sitemap.
+      ...BLOG_REDIRECTS.map(({ source, destination }) => ({
+        source,
+        destination,
         permanent: true,
-      },
-      {
-        source: '/blog/cash-home-buyers-pottsville-pa',
-        destination: '/locations/pottsville',
-        permanent: true,
-      },
-      {
-        source: '/blog/selling-water-damaged-house-18102-mold-issues',
-        destination: '/situations/major-repairs',
-        permanent: true,
-      },
-      {
-        source: '/blog/sell-house-fast-during-divorce-lehigh-county-pa',
-        destination: '/situations/divorce',
-        permanent: true,
-      },
+      })),
     ]
   },
 }

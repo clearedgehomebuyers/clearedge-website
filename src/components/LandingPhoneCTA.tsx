@@ -2,6 +2,7 @@
 
 import { Phone } from 'lucide-react'
 import { useTrafficSource } from './TrafficSourceProvider'
+import { trackClickToCall } from '@/lib/analytics-events'
 
 interface LandingPhoneCTAProps {
   label?: string
@@ -28,7 +29,7 @@ export function LandingPhoneCTA({
   label = 'Prefer to talk? Call',
   className = '',
 }: LandingPhoneCTAProps) {
-  const { phone, phoneTel, isLoaded } = useTrafficSource()
+  const { phone, phoneTel, isLoaded, trafficSource } = useTrafficSource()
 
   return (
     <p className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-ce-ink/70 ${className}`}>
@@ -37,7 +38,16 @@ export function LandingPhoneCTA({
         {label}
       </span>
       {isLoaded ? (
-        <a href={`tel:${phoneTel}`} className="font-semibold text-ce-green hover:underline">
+        <a
+          href={`tel:${phoneTel}`}
+          onClick={() => trackClickToCall({
+            eventLabel: 'Landing Page Phone',
+            callLocation: 'landing_phone_cta',
+            trafficSource,
+            phoneLine: phoneTel,
+          })}
+          className="font-semibold text-ce-green hover:underline"
+        >
           {phone}
         </a>
       ) : (

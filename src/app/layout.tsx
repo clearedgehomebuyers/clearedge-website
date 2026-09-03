@@ -7,6 +7,7 @@ import { FloatingTextButton } from "@/components/FloatingTextButton";
 import { MetaPixel } from "@/components/MetaPixel";
 import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
 import { ScrollAnimationProvider } from "@/components/ScrollAnimationProvider";
+import { GA_MEASUREMENT_ID, googleAnalyticsBootstrapScript } from "@/lib/analytics-qa";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -114,15 +115,10 @@ export default function RootLayout({
                 instead of being silently dropped by `if (window.gtag)` guards.
                 The heavy gtag.js script itself stays lazy. */}
             <script
-              dangerouslySetInnerHTML={{ __html: `
-                window.dataLayer = window.dataLayer || [];
-                window.gtag = function gtag(){dataLayer.push(arguments);};
-                gtag('js', new Date());
-                gtag('config', 'G-1H6CPZVB8D');
-              ` }}
+              dangerouslySetInnerHTML={{ __html: googleAnalyticsBootstrapScript() }}
             />
             <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-1H6CPZVB8D"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
               strategy="lazyOnload"
             />
             {/* Meta Pixel — same production-only gate as GA4 above. Fires

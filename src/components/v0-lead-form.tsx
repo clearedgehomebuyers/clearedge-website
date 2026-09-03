@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import Link from "next/link"
 import { MapPin, HelpCircle, Calendar, Users, User, ArrowRight, ArrowLeft, Check, Shield, Clock, Lock, AlertTriangle, DollarSign, Home, Heart, Briefcase, Wrench, FileWarning, Key, HelpCircle as OtherIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,6 +10,7 @@ import { AddressAutocomplete } from "@/components/AddressAutocomplete"
 import { useTrafficSource, clearSMSAttribution } from "./TrafficSourceProvider"
 import { trackConfirmedMetaLead, trackMetaFormStart } from "@/lib/meta-pixel"
 import { LeadSubmissionError, submitLead } from "@/lib/leads/client"
+import { trackAnalyticsEvent, trackClickToCall } from "@/lib/analytics-events"
 
 // The proven five-step organic form. This is what every route gets unless it
 // opts into a variant, and it is unchanged.
@@ -212,7 +213,7 @@ export function V0LeadForm({
   cityPlaceholder = "Scranton",
   zipPlaceholder = "18501",
   compact = false,
-  legalLinksNewTab = false,
+  legalLinksNewTab = true,
   variant = 'default',
 }: V0LeadFormProps = {}) {
   // All step geometry derives from the variant. On 'default' these resolve to
@@ -265,6 +266,8 @@ export function V0LeadForm({
   // the denominator that abandonment is measured against (blueprint §4).
   const hasTrackedPriceView = useRef(false)
   const hasTrackedPriceComplete = useRef(false)
+  const trackedStepsRef = useRef(new Set<number>())
+  const formVariantName = hasPriceStep ? 'multi_step_nj_meta' : 'multi_step_default'
 
   // Check if current step is valid. Contact is matched by POSITION rather than
   // by the literal 5 it used to be, because the nj-meta variant pushes it to 6.
@@ -325,11 +328,14 @@ export function V0LeadForm({
   const trackStep = (step: number) => {
     const reported = reportedStepNumber(step)
     if (reported === null) return
+    if (trackedStepsRef.current.has(reported)) return
+    trackedStepsRef.current.add(reported)
     if (typeof window !== 'undefined' && window.gtag) {
       const stepNames = ['', 'address', 'situation', 'timeline', 'occupancy', 'contact']
       window.gtag('event', `form_step_${reported}`, {
         event_category: 'Lead Form',
         event_label: stepNames[reported],
+        form_variant: formVariantName,
         page_path: window.location.pathname,
       })
     }
@@ -337,7 +343,7 @@ export function V0LeadForm({
 
   // Price-step arrival. Guarded to once per mounted form so that one visit to
   // the step counts once no matter how often the visitor navigates back to it.
-  const trackPriceStepView = () => {
+  const trackPriceStepView = useCallback(() => {
     if (hasTrackedPriceView.current) return
     hasTrackedPriceView.current = true
     if (typeof window !== 'undefined' && window.gtag) {
@@ -346,10 +352,11 @@ export function V0LeadForm({
         event_label: 'price',
         step_number: PRICE_STEP_NUMBER,
         step_name: 'price',
+        form_variant: formVariantName,
         page_path: window.location.pathname,
       })
     }
-  }
+  }, [formVariantName])
 
   // Price-step completion. Also guarded to once per form attempt, so that
   // completions can never exceed arrivals and drive abandonment negative.
@@ -367,6 +374,7 @@ export function V0LeadForm({
         step_number: PRICE_STEP_NUMBER,
         step_name: 'price',
         price_response: response,
+        form_variant: formVariantName,
         page_path: window.location.pathname,
       })
     }
@@ -377,11 +385,21 @@ export function V0LeadForm({
   // is the entire point of having a denominator.
   useEffect(() => {
     if (hasPriceStep && currentStep === PRICE_STEP_INDEX) trackPriceStepView()
-  }, [hasPriceStep, currentStep])
+  }, [hasPriceStep, currentStep, trackPriceStepView])
 
   const handleNext = () => {
     if (currentStep === 1 && !isStepValid(1)) {
       setShowStep1Errors(true)
+      requestAnimationFrame(() => {
+        const firstInvalidId = !formData.address.trim()
+          ? 'address'
+          : !formData.city.trim()
+            ? 'city'
+            : !formData.state
+              ? 'state'
+              : 'zip'
+        document.getElementById(firstInvalidId)?.focus()
+      })
       return
     }
     if (currentStep < lastStep && isStepValid(currentStep)) {
@@ -476,21 +494,18 @@ export function V0LeadForm({
 
       // Conversion events are gated on the confirmed 201 from /api/leads.
       try {
-        if (window.gtag) {
-          window.gtag('event', 'generate_lead', {
-            event_category: 'Lead Form',
-            event_label: 'Multi-Step Lead Form',
-            value: 1,
-            delivery: result.delivery,
-            lead_id: result.leadId,
-            traffic_source: trafficSource,
-            utm_source: utmParams.utm_source,
-            utm_medium: utmParams.utm_medium,
-            utm_campaign: utmParams.utm_campaign,
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-          })
-        }
+        trackAnalyticsEvent('generate_lead', {
+          event_category: 'Lead Form',
+          event_label: 'Multi-Step Lead Form',
+          form_variant: formVariantName,
+          value: 1,
+          delivery: result.delivery,
+          lead_id: result.leadId,
+          traffic_source: trafficSource,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+        })
         trackConfirmedMetaLead(result.metaEventId, 'Multi-Step Lead Form')
       } catch {
         // Analytics must never change an accepted lead into a failed UI state.
@@ -498,6 +513,13 @@ export function V0LeadForm({
 
       setIsSubmitted(true)
     } catch (error) {
+      trackAnalyticsEvent('lead_submission_error', {
+        event_category: 'Lead Form',
+        event_label: 'Multi-Step Lead Form',
+        form_variant: formVariantName,
+        traffic_source: trafficSource,
+        has_reference: error instanceof LeadSubmissionError,
+      })
       const reference = error instanceof LeadSubmissionError ? error.referenceId : undefined
       setSubmissionError(
         `We couldn't confirm delivery. Your information is still here—please try again or call ${phone}.${reference ? ` Reference: ${reference}` : ''}`,
@@ -514,6 +536,13 @@ export function V0LeadForm({
     if (hasTrackedFormStart.current) return
     hasTrackedFormStart.current = true
     trackMetaFormStart('Multi-Step Lead Form')
+    trackStep(1)
+    trackAnalyticsEvent('lead_form_start', {
+      event_category: 'Lead Form',
+      event_label: 'Multi-Step Lead Form',
+      form_variant: formVariantName,
+      traffic_source: trafficSource,
+    })
   }
 
   const updateFormData = (field: string, value: string) => {
@@ -549,7 +578,16 @@ export function V0LeadForm({
           </p>
           <div className="bg-gradient-to-br from-white to-surface-cream rounded-2xl p-6 max-w-md mx-auto border border-ce-ink/5 shadow-lg">
             <p className="text-ce-ink/70 text-sm mb-2">Can&apos;t wait? Call Tyler directly:</p>
-            <a href={`tel:${phoneTel}`} className="text-ce-green text-lg font-medium hover:underline">
+            <a
+              href={`tel:${phoneTel}`}
+              onClick={() => trackClickToCall({
+                eventLabel: 'Lead Form Success Phone',
+                callLocation: 'lead_form_success',
+                trafficSource,
+                phoneLine: phoneTel,
+              })}
+              className="text-ce-green text-lg font-medium hover:underline"
+            >
               {phone}
             </a>
           </div>
@@ -1023,7 +1061,7 @@ export function V0LeadForm({
                     variant="brand"
                     size="xl"
                     onClick={handleNext}
-                    disabled={!isStepValid(currentStep)}
+                    disabled={currentStep === 1 ? false : !isStepValid(currentStep)}
                     className={`disabled:bg-slate-300 disabled:shadow-none disabled:cursor-not-allowed flex-shrink-0 ${currentStep === 1 ? 'w-full sm:w-auto sm:self-end' : ''}`}
                   >
                     Continue

@@ -3,6 +3,11 @@ import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'path'
 
+console.error(
+  'RETIRED: this legacy script performs unguarded live writes and contains superseded URL mappings. Use a current dry-run, baseline-guarded script instead.',
+)
+process.exit(2)
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 

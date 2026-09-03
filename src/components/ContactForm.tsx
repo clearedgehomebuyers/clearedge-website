@@ -6,6 +6,7 @@ import { Phone, Clock, CheckCircle, Loader2 } from 'lucide-react'
 import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 import { trackConfirmedMetaLead, trackMetaFormStart } from '@/lib/meta-pixel'
 import { LeadSubmissionError, submitLead } from '@/lib/leads/client'
+import { trackAnalyticsEvent, trackClickToCall } from '@/lib/analytics-events'
 
 // Extract only the 10-digit phone number from any input
 function extractPhoneDigits(value: string): string {
@@ -57,6 +58,12 @@ export function ContactForm() {
     if (hasTrackedFormStart.current) return
     hasTrackedFormStart.current = true
     trackMetaFormStart('Contact Form')
+    trackAnalyticsEvent('lead_form_start', {
+      event_category: 'Lead Form',
+      event_label: 'Contact Form',
+      form_variant: 'contact',
+      traffic_source: trafficSource,
+    })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -119,21 +126,18 @@ export function ContactForm() {
       if (trafficSource === 'sms') clearSMSAttribution()
 
       try {
-        if (window.gtag) {
-          window.gtag('event', 'generate_lead', {
-            event_category: 'Lead Form',
-            event_label: 'Contact Form',
-            value: 1,
-            delivery: result.delivery,
-            lead_id: result.leadId,
-            traffic_source: trafficSource,
-            utm_source: utmParams.utm_source,
-            utm_medium: utmParams.utm_medium,
-            utm_campaign: utmParams.utm_campaign,
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-          })
-        }
+        trackAnalyticsEvent('generate_lead', {
+          event_category: 'Lead Form',
+          event_label: 'Contact Form',
+          form_variant: 'contact',
+          value: 1,
+          delivery: result.delivery,
+          lead_id: result.leadId,
+          traffic_source: trafficSource,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+        })
         trackConfirmedMetaLead(result.metaEventId, 'Contact Form')
       } catch {
         // Analytics must never change an accepted lead into a failed UI state.
@@ -144,6 +148,13 @@ export function ContactForm() {
       setTermsConsent(false)
       setSmsConsent(false)
     } catch (error) {
+      trackAnalyticsEvent('lead_submission_error', {
+        event_category: 'Lead Form',
+        event_label: 'Contact Form',
+        form_variant: 'contact',
+        traffic_source: trafficSource,
+        has_reference: error instanceof LeadSubmissionError,
+      })
       const reference = error instanceof LeadSubmissionError ? error.referenceId : undefined
       setSubmissionError(
         `We couldn't confirm delivery. Your information is still here—please try again or call ${dynamicPhone}.${reference ? ` Reference: ${reference}` : ''}`,
@@ -205,7 +216,7 @@ export function ContactForm() {
                 className="mt-0.5 w-5 h-5 rounded border-gray-300 text-ce-green focus:ring-ce-green flex-shrink-0"
               />
               <span className="text-xs text-ce-ink/50 leading-tight">
-                I agree to the <Link href="/terms" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" className="underline hover:text-ce-green">Privacy Policy</Link>.
+                I agree to the <Link href="/terms" target="_blank" rel="noopener noreferrer" className="underline hover:text-ce-green">Terms & Conditions</Link> and <Link href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-ce-green">Privacy Policy</Link>.
               </span>
             </label>
             <label className="flex items-start gap-2 cursor-pointer">
@@ -236,7 +247,16 @@ export function ContactForm() {
       {/* Right Column - Contact Widgets */}
       <div className="space-y-6">
         {/* Phone Widget */}
-        <a href={`tel:${phoneTel}`} className="block bg-white rounded-2xl p-6 border border-ce-ink/5 hover:border-ce-green/30 hover:shadow-card-hover transition-all duration-300 group">
+        <a
+          href={`tel:${phoneTel}`}
+          onClick={() => trackClickToCall({
+            eventLabel: 'Contact Page Phone',
+            callLocation: 'contact_widget',
+            trafficSource,
+            phoneLine: phoneTel,
+          })}
+          className="block bg-white rounded-2xl p-6 border border-ce-ink/5 hover:border-ce-green/30 hover:shadow-card-hover transition-all duration-300 group"
+        >
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-ce-blue-subtle rounded-xl flex items-center justify-center flex-shrink-0">
               <Phone className="w-6 h-6 text-ce-blue" />

@@ -11,39 +11,7 @@ const heroMobile = `data:image/webp;base64,${readFileSync(
   join(process.cwd(), "public/properties/scranton-pa-cash-home-buyers-clearedge-1-280w.webp")
 ).toString("base64")}`
 
-// City slug to display name mapping
-const cityDisplayNames: Record<string, string> = {
-  "scranton": "Scranton",
-  "wilkes-barre": "Wilkes-Barre",
-  "hazleton": "Hazleton",
-  "pittston": "Pittston",
-  "kingston": "Kingston",
-  "nanticoke": "Nanticoke",
-  "carbondale": "Carbondale",
-  "dunmore": "Dunmore",
-  "honesdale": "Honesdale",
-  "bloomsburg": "Bloomsburg",
-  "allentown": "Allentown",
-  "bethlehem": "Bethlehem",
-  "easton": "Easton",
-  "reading": "Reading",
-  "lehigh-valley": "Lehigh Valley",
-  "pottsville": "Pottsville",
-  "stroudsburg": "Stroudsburg",
-  "east-stroudsburg": "East Stroudsburg",
-  "pocono-pines": "Pocono Pines",
-  "tannersville": "Tannersville",
-  "poconos": "the Poconos",
-}
-
-interface V0HeroProps {
-  city?: string
-}
-
-export function V0Hero({ city }: V0HeroProps) {
-  // Validate and get display name for city
-  const citySlug = city?.toLowerCase().trim()
-  const cityDisplayName = citySlug ? cityDisplayNames[citySlug] : null
+export function V0Hero() {
   return (
     <section className="relative pt-32 pb-10 px-4 overflow-hidden bg-surface-cream surface-grain">
       {/* Ambient decoration circles */}
@@ -57,27 +25,14 @@ export function V0Hero({ city }: V0HeroProps) {
           <div className="text-center lg:text-center">
             {/* Headline */}
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ce-ink mb-5 leading-[1.1]">
-              {cityDisplayName ? (
-                <>
-                  Cash Home Buyers in {cityDisplayName}, PA
-                  <br />
-                  <span className="text-gradient-brand">Who Actually Close.</span>
-                </>
-              ) : (
-                <>
-                  Pennsylvania Cash Home Buyers
-                  <br />
-                  <span className="text-gradient-brand">Who Actually Close.</span>
-                </>
-              )}
+              Pennsylvania Cash Home Buyers
+              <br />
+              <span className="text-gradient-brand">Who Actually Close.</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-lg sm:text-xl text-ce-ink-70 max-w-2xl mx-auto mb-6 leading-relaxed font-light">
-              {cityDisplayName
-                ? `Your ${cityDisplayName} house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours — close in as few as 7 days.`
-                : 'Your house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours from a local, family-owned company — close in as few as 7 days.'
-              }
+              Your house is worth more than a lowball offer and six months of uncertainty. Get a fair cash offer in 24 hours from a local, family-owned company — close in as few as 7 days.
             </p>
 
             {/* CTA Buttons */}

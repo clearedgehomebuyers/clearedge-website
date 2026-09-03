@@ -84,10 +84,10 @@ const categories = [
     title: 'Popular Guides',
     icon: BookOpen,
     links: [
-      { label: 'Sell a Hoarder House in Reading', href: '/blog/sell-hoarder-house-reading-pa-without-cleanout' },
-      { label: 'Sell Your House Fast in the Poconos', href: '/blog/sell-my-house-fast-poconos-pa' },
-      { label: 'Avoid Foreclosure in Scranton', href: '/blog/avoid-foreclosure-scranton-pa' },
-      { label: 'Hazleton Occupancy Inspection Guide', href: '/blog/hazleton-residential-occupancy-inspection-checklist' },
+      { label: 'Sell a Parent’s House Without Probate', href: '/blog/sell-deceased-parents-house-without-probate-pennsylvania' },
+      { label: 'Documents for an Inherited PA Property', href: '/blog/documents-required-selling-inherited-property-pennsylvania' },
+      { label: 'Luzerne County Rental Requirements', href: '/blog/luzerne-county-rental-property-registration-inspection-requirements-2026' },
+      { label: 'Scranton Structural Damage Guide', href: '/blog/scranton-pa-major-structural-damage-disclosure-law-2026' },
     ],
   },
 ]

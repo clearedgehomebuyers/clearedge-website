@@ -1,9 +1,10 @@
 "use client"
 
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { GoogleMap, useJsApiLoader, Marker, Polygon, InfoWindow } from '@react-google-maps/api'
-import { locationMapData, mapStyles, SAGE_GREEN, SAGE_GREEN_LIGHT, SAGE_GREEN_STROKE } from '@/lib/location-map-data'
+import { locationMapData, mapStyles, SAGE_GREEN } from '@/lib/location-map-data'
 import { useTrafficSource } from './TrafficSourceProvider'
+import { trackClickToCall } from '@/lib/analytics-events'
 
 interface LocationMapProps {
   slug: string
@@ -16,9 +17,8 @@ const containerStyle = {
 }
 
 export function LocationMap({ slug, cityName }: LocationMapProps) {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
   const [showInfoWindow, setShowInfoWindow] = useState(false)
-  const [map, setMap] = useState<google.maps.Map | null>(null)
 
   const locationData = locationMapData[slug]
 
@@ -26,14 +26,6 @@ export function LocationMap({ slug, cityName }: LocationMapProps) {
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '',
   })
-
-  const onLoad = useCallback((map: google.maps.Map) => {
-    setMap(map)
-  }, [])
-
-  const onUnmount = useCallback(() => {
-    setMap(null)
-  }, [])
 
   // If no location data found, don't render the map
   if (!locationData) {
@@ -80,8 +72,6 @@ export function LocationMap({ slug, cityName }: LocationMapProps) {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={locationData.zoomLevel}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
         options={{
           styles: mapStyles,
           disableDefaultUI: true,
@@ -129,6 +119,12 @@ export function LocationMap({ slug, cityName }: LocationMapProps) {
               </p>
               <a
                 href={`tel:${phoneTel}`}
+                onClick={() => trackClickToCall({
+                  eventLabel: 'Location Map Phone',
+                  callLocation: 'location_map',
+                  trafficSource,
+                  phoneLine: phoneTel,
+                })}
                 className="text-[#008a29] font-medium text-sm hover:underline"
               >
                 {phone}

@@ -2,12 +2,14 @@
 
 import { useTrafficSource } from './TrafficSourceProvider'
 import { Phone } from 'lucide-react'
+import { trackClickToCall } from '@/lib/analytics-events'
 
 interface DynamicPhoneLinkProps {
   className?: string
   showIcon?: boolean
   iconClassName?: string
   children?: React.ReactNode
+  callLocation?: string
 }
 
 /**
@@ -18,12 +20,22 @@ export function DynamicPhoneLink({
   className = '',
   showIcon = false,
   iconClassName = 'w-5 h-5',
-  children
+  children,
+  callLocation = 'dynamic_phone_link',
 }: DynamicPhoneLinkProps) {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
 
   return (
-    <a href={`tel:${phoneTel}`} className={className}>
+    <a
+      href={`tel:${phoneTel}`}
+      onClick={() => trackClickToCall({
+        eventLabel: 'Dynamic Phone Link',
+        callLocation,
+        trafficSource,
+        phoneLine: phoneTel,
+      })}
+      className={className}
+    >
       {showIcon && <Phone className={iconClassName} />}
       {children || phone}
     </a>
@@ -46,16 +58,30 @@ export function DynamicPhoneText({ className = '' }: DynamicPhoneTextProps) {
 interface DynamicPhoneButtonProps {
   className?: string
   children?: React.ReactNode
+  callLocation?: string
 }
 
 /**
  * Client component for a phone CTA button with dynamic number.
  */
-export function DynamicPhoneButton({ className = '', children }: DynamicPhoneButtonProps) {
-  const { phone, phoneTel } = useTrafficSource()
+export function DynamicPhoneButton({
+  className = '',
+  children,
+  callLocation = 'dynamic_phone_button',
+}: DynamicPhoneButtonProps) {
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
 
   return (
-    <a href={`tel:${phoneTel}`} className={className}>
+    <a
+      href={`tel:${phoneTel}`}
+      onClick={() => trackClickToCall({
+        eventLabel: 'Dynamic Phone Button',
+        callLocation,
+        trafficSource,
+        phoneLine: phoneTel,
+      })}
+      className={className}
+    >
       {children || (
         <>
           <Phone className="w-5 h-5 mr-2" />

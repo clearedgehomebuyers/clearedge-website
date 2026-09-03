@@ -306,7 +306,7 @@ function replaceRegionalContent(content) {
     ]),
     step1: rich('step1', 'normal', [
       { text: 'Step 1: Contact us.', strong: true },
-      { text: ' Call (610) 628-0671 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.' },
+      { text: ' Call (610) 904-8526 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.' },
     ]),
     easton1: rich('easton1', 'normal', [
       { text: 'Downtown, South Side, College Hill, and Palmer Township attract different buyers and have different property issues. If you need to ' },
@@ -319,7 +319,7 @@ function replaceRegionalContent(content) {
       { text: 'current Easton rental-inspection checklist', href: URLS.article },
       { text: ', then compare fixing, listing, or selling as-is.' },
     ]),
-    close3: p('close3', 'Call (610) 628-0671 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.'),
+    close3: p('close3', 'Call (610) 904-8526 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.'),
   }
 
   const seen = new Set()
@@ -391,7 +391,11 @@ if (authority && !authorityAlreadyDone) {
 let regionalNextContent = regional?.content || []
 const regionalCurrentHash = rawDigest(regional?.content || [])
 const regionalLooksDone = regional
-  && !regional.content.some((block) => /610\) 904-8526/.test(blockText(block)))
+  && !regional.content.some((block) => /610\) 628-0671/.test(blockText(block)))
+  && regional.content.some((block) => block?._key === 'step1'
+    && blockText(block) === 'Step 1: Contact us. Call (610) 904-8526 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.')
+  && regional.content.some((block) => block?._key === 'close3'
+    && blockText(block) === 'Call (610) 904-8526 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.')
   && regional.content.some((block) => block?._key === 'intro1' && (block.markDefs || []).some((mark) => mark.href === URLS.lehighHub))
   && regional.content.some((block) => block?._key === 'sit5' && (block.markDefs || []).some((mark) => mark.href === URLS.article))
 
@@ -502,7 +506,11 @@ if ((afterAuthority?.relatedLocations || []).length !== 1) verificationErrors.pu
 if ((afterAuthority?.relatedSituations || []).length !== 1) verificationErrors.push('authority.relatedSituations')
 if (!afterAuthority?.updatedAt) verificationErrors.push('authority.updatedAt')
 
-if ((afterRegional?.content || []).some((block) => /610\) 904-8526/.test(blockText(block)))) verificationErrors.push('regional.oldPhone')
+if ((afterRegional?.content || []).some((block) => /610\) 628-0671/.test(blockText(block)))) verificationErrors.push('regional.wrongDirectAttributionPhone')
+if (!(afterRegional?.content || []).some((block) => block?._key === 'step1'
+  && blockText(block) === 'Step 1: Contact us. Call (610) 904-8526 or fill out the form. Tell us about the property and your situation; there is no obligation to accept an offer.')) verificationErrors.push('regional.step1Phone')
+if (!(afterRegional?.content || []).some((block) => block?._key === 'close3'
+  && blockText(block) === 'Call (610) 904-8526 or fill out the form for a no-obligation cash offer. We will review the property and explain the next step so you can compare the offer with your other options.')) verificationErrors.push('regional.close3Phone')
 if (!(afterRegional?.content || []).some((block) => block?._key === 'intro1' && (block.markDefs || []).some((mark) => mark.href === URLS.lehighHub))) verificationErrors.push('regional.hubLink')
 if (!(afterRegional?.content || []).some((block) => block?._key === 'sit5' && (block.markDefs || []).some((mark) => mark.href === URLS.article))) verificationErrors.push('regional.authorityLink')
 if (!afterRegional?.updatedAt) verificationErrors.push('regional.updatedAt')
