@@ -79,3 +79,33 @@ jobs:
       # what Deploy 2 did is recorded as DEPLOY2 in the edge list itself.
       - name: Check CHANGES.md matches the edge list
         run: node scripts/batch4-changelog.mjs --check
+
+  quality:
+    runs-on: ubuntu-latest
+    env:
+      # Public read-only Sanity coordinates used by the production build.
+      NEXT_PUBLIC_SANITY_PROJECT_ID: d78o4wq2
+      NEXT_PUBLIC_SANITY_DATASET: production
+      VERCEL_ENV: preview
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install exact dependencies
+        run: npm ci
+
+      - name: Run regression tests
+        run: npm test
+
+      - name: Check TypeScript
+        run: npm run typecheck
+
+      - name: Build production output
+        run: npm run build
+
+      - name: Check post-build SEO invariants
+        run: npm run verify:build

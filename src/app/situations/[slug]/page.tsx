@@ -38,6 +38,22 @@ type RelatedLocation = {
   slug: { current: string }
 }
 
+type SituationSlugDocument = {
+  slug: { current: string }
+}
+
+type SituationBenefit = {
+  title: string
+  description: string
+}
+
+type RelatedBlogPost = {
+  _id: string
+  title: string
+  excerpt?: string
+  slug: { current: string }
+}
+
 // Answer-First Summaries for each situation (SEO optimization)
 const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
   'foreclosure': {
@@ -115,7 +131,7 @@ export const revalidate = 3600
 
 export async function generateStaticParams() {
   const situations = await getSituations()
-  return situations.map((situation: any) => ({
+  return situations.map((situation: SituationSlugDocument) => ({
     slug: situation.slug.current,
   }))
 }
@@ -182,12 +198,6 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Situations",
-        "item": "https://www.clearedgehomebuyers.com/situations"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
         "name": situation.title,
         "item": `https://www.clearedgehomebuyers.com/situations/${slug}`
       }
@@ -334,7 +344,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {situation.benefits.map((benefit: any, i: number) => {
+              {situation.benefits.map((benefit: SituationBenefit, i: number) => {
                 const icons = [Clock, DollarSign, Shield, Home, CheckCircle, ArrowRight]
                 const Icon = icons[i % icons.length]
                 return (
@@ -393,7 +403,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             </div>
 
             <div className="space-y-4">
-              {relatedBlogPosts.slice(0, 3).map((post: any) => (
+              {relatedBlogPosts.slice(0, 3).map((post: RelatedBlogPost) => (
                 <Link
                   key={post._id}
                   href={`/blog/${post.slug.current}`}

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
+import { trackClickToCall } from "@/lib/analytics-events"
 
 const quickLinks = [
   { label: "How It Works", href: "/how-it-works" },
@@ -109,7 +110,7 @@ const socialLinks = [
 ]
 
 export function V0Footer() {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
 
   return (
     <footer className="bg-bg-deep">
@@ -141,15 +142,12 @@ export function V0Footer() {
             <div className="space-y-3">
               <a
                 href={`tel:${phoneTel}`}
-                onClick={() => {
-                  if (typeof window !== 'undefined' && window.gtag) {
-                    window.gtag('event', 'click_to_call', {
-                      event_category: 'Contact',
-                      event_label: 'Footer Phone',
-                      page_path: window.location.pathname
-                    });
-                  }
-                }}
+                onClick={() => trackClickToCall({
+                  eventLabel: 'Footer Phone',
+                  callLocation: 'footer',
+                  trafficSource,
+                  phoneLine: phoneTel,
+                })}
                 className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors py-1"
               >
                 <Phone className="w-4 h-4 text-ce-blue-light" />

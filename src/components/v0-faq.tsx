@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Plus, Minus } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
+import { trackClickToCall } from "@/lib/analytics-events"
 
 type FAQ = {
   question: string
@@ -50,7 +51,7 @@ export function V0FAQ({
   subtitle = "We believe in complete transparency. Here are answers to the questions we hear most often.",
   sectionBg = "white"
 }: V0FAQProps) {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   // Background classes based on sectionBg prop
@@ -125,7 +126,16 @@ export function V0FAQ({
             We&apos;re here to help. Call Tyler directly or reach out.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href={`tel:${phoneTel}`} className="text-ce-green font-medium link-animated">
+            <a
+              href={`tel:${phoneTel}`}
+              onClick={() => trackClickToCall({
+                eventLabel: 'FAQ Phone',
+                callLocation: 'faq',
+                trafficSource,
+                phoneLine: phoneTel,
+              })}
+              className="text-ce-green font-medium link-animated"
+            >
               {phone}
             </a>
             <span className="hidden sm:inline text-ce-ink/30">|</span>

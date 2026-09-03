@@ -5,6 +5,7 @@ import { useTrafficSource, clearSMSAttribution } from './TrafficSourceProvider'
 import { AddressAutocomplete } from './AddressAutocomplete'
 import { trackConfirmedMetaLead, trackMetaFormStart } from '@/lib/meta-pixel'
 import { LeadSubmissionError, submitLead } from '@/lib/leads/client'
+import { trackAnalyticsEvent, trackClickToCall } from '@/lib/analytics-events'
 
 const US_STATES = [
   'PA','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN',
@@ -54,6 +55,12 @@ export function SoftLeadForm() {
     if (hasTrackedFormStart.current) return
     hasTrackedFormStart.current = true
     trackMetaFormStart('SMS Soft Lead Form')
+    trackAnalyticsEvent('lead_form_start', {
+      event_category: 'Lead Form',
+      event_label: 'SMS Soft Lead Form',
+      form_variant: 'sms_soft',
+      traffic_source: trafficSource,
+    })
   }
 
   const phoneDigits = extractPhoneDigits(phoneValue)
@@ -97,20 +104,17 @@ export function SoftLeadForm() {
       clearSMSAttribution()
 
       try {
-        if (window.gtag) {
-          window.gtag('event', 'generate_lead', {
-            event_category: 'Lead',
-            event_label: 'SMS Soft Lead Form',
-            delivery: result.delivery,
-            lead_id: result.leadId,
-            traffic_source: trafficSource,
-            utm_source: utmParams.utm_source,
-            utm_medium: utmParams.utm_medium,
-            utm_campaign: utmParams.utm_campaign,
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-          })
-        }
+        trackAnalyticsEvent('generate_lead', {
+          event_category: 'Lead',
+          event_label: 'SMS Soft Lead Form',
+          form_variant: 'sms_soft',
+          delivery: result.delivery,
+          lead_id: result.leadId,
+          traffic_source: trafficSource,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+        })
         trackConfirmedMetaLead(result.metaEventId, 'SMS Soft Lead Form')
       } catch {
         // Analytics must never change an accepted lead into a failed UI state.
@@ -118,6 +122,13 @@ export function SoftLeadForm() {
 
       setIsSubmitted(true)
     } catch (submissionError) {
+      trackAnalyticsEvent('lead_submission_error', {
+        event_category: 'Lead Form',
+        event_label: 'SMS Soft Lead Form',
+        form_variant: 'sms_soft',
+        traffic_source: trafficSource,
+        has_reference: submissionError instanceof LeadSubmissionError,
+      })
       const reference = submissionError instanceof LeadSubmissionError ? submissionError.referenceId : undefined
       setError(
         `We couldn't confirm delivery. Your information is still here—please try again or call ${phone}.${reference ? ` Reference: ${reference}` : ''}`,
@@ -144,6 +155,12 @@ export function SoftLeadForm() {
             </p>
             <a
               href={`tel:${phoneTel}`}
+              onClick={() => trackClickToCall({
+                eventLabel: 'SMS Lead Form Success Phone',
+                callLocation: 'sms_lead_form_success',
+                trafficSource,
+                phoneLine: phoneTel,
+              })}
               className="inline-flex items-center justify-center gap-2 bg-ce-green text-white px-8 py-4 rounded-full font-medium hover:bg-ce-green-hover transition-all shadow-lg"
             >
               Call {phone}

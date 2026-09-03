@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { useTrafficSource } from '@/components/TrafficSourceProvider'
+import { trackClickToCall } from '@/lib/analytics-events'
 
 export default function Error({
   error,
@@ -10,7 +11,7 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
   useEffect(() => {
     console.error(error)
   }, [error])
@@ -30,7 +31,16 @@ export default function Error({
         </button>
         <p className="text-slate-500 mt-8 text-sm">
           If this keeps happening, call us at{' '}
-          <a href={`tel:${phoneTel}`} className="text-blue-600 hover:underline">{phone}</a>
+          <a
+            href={`tel:${phoneTel}`}
+            onClick={() => trackClickToCall({
+              eventLabel: 'Error Page Phone',
+              callLocation: 'error_page',
+              trafficSource,
+              phoneLine: phoneTel,
+            })}
+            className="text-blue-600 hover:underline"
+          >{phone}</a>
         </p>
       </div>
     </main>

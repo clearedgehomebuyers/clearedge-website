@@ -1,4 +1,4 @@
-const DEPLOY_CHECK_MARKER = 'deploy-check'
+export const DEPLOY_CHECK_MARKER = 'deploy-check'
 
 type MetaQaAttribution = Partial<Record<
   'utm_source' | 'utm_medium' | 'utm_campaign' | 'utm_content' | 'utm_term',

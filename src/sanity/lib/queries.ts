@@ -1,4 +1,7 @@
 import { client } from './client'
+import { REDIRECTED_BLOG_SLUGS } from '@/lib/blog-url-policy'
+
+const visibleBlogParams = { redirectedSlugs: REDIRECTED_BLOG_SLUGS }
 
 export async function getLocations() {
   return client.fetch(`*[_type == "location"] | order(city asc)`)
@@ -65,8 +68,9 @@ export async function getSituationBySlug(slug: string) {
 
 // Blog queries
 export async function getBlogPosts() {
-  return client.fetch(`
-    *[_type == "blogPost"] | order(publishedAt desc) {
+  return client.fetch(
+    `
+    *[_type == "blogPost" && !(slug.current in $redirectedSlugs)] | order(publishedAt desc) {
       _id,
       title,
       slug,
@@ -82,7 +86,9 @@ export async function getBlogPosts() {
         alt
       }
     }
-  `)
+  `,
+    visibleBlogParams,
+  )
 }
 
 export async function getBlogPostBySlug(slug: string) {
@@ -125,7 +131,7 @@ export async function getBlogPostBySlug(slug: string) {
 
 export async function getRecentBlogPosts(limit: number = 3) {
   return client.fetch(
-    `*[_type == "blogPost"] | order(publishedAt desc)[0...$limit] {
+    `*[_type == "blogPost" && !(slug.current in $redirectedSlugs)] | order(publishedAt desc)[0...$limit] {
       _id,
       title,
       slug,
@@ -139,12 +145,15 @@ export async function getRecentBlogPosts(limit: number = 3) {
         alt
       }
     }`,
-    { limit }
+    { ...visibleBlogParams, limit }
   )
 }
 
 export async function getBlogPostSlugs() {
-  return client.fetch(`*[_type == "blogPost" && defined(slug.current)][].slug.current`)
+  return client.fetch(
+    `*[_type == "blogPost" && defined(slug.current) && !(slug.current in $redirectedSlugs)][].slug.current`,
+    visibleBlogParams,
+  )
 }
 
 // Sitemap needs dates as well as slugs (audit QW6). Deliberately a SEPARATE
@@ -162,26 +171,26 @@ export async function getBlogPostSitemapEntries() {
 
 export async function getBlogPostsBySituation(situationSlug: string) {
   return client.fetch(
-    `*[_type == "blogPost" && references(*[_type == "situation" && slug.current == $situationSlug]._id)] | order(publishedAt desc) {
+    `*[_type == "blogPost" && !(slug.current in $redirectedSlugs) && references(*[_type == "situation" && slug.current == $situationSlug]._id)] | order(publishedAt desc) {
       _id,
       title,
       slug,
       excerpt,
       publishedAt
     }`,
-    { situationSlug }
+    { ...visibleBlogParams, situationSlug }
   )
 }
 
 export async function getBlogPostsByLocation(locationSlug: string) {
   return client.fetch(
-    `*[_type == "blogPost" && references(*[_type == "location" && slug.current == $locationSlug]._id)] | order(publishedAt desc) {
+    `*[_type == "blogPost" && !(slug.current in $redirectedSlugs) && references(*[_type == "location" && slug.current == $locationSlug]._id)] | order(publishedAt desc) {
       _id,
       title,
       slug,
       excerpt,
       publishedAt
     }`,
-    { locationSlug }
+    { ...visibleBlogParams, locationSlug }
   )
 }

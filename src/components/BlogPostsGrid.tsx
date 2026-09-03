@@ -1,6 +1,3 @@
-'use client'
-
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, FileText } from 'lucide-react'
 
@@ -44,26 +41,11 @@ function formatCategory(category: string): string {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-const POSTS_PER_PAGE = 9
-
-const MOBILE_POSTS_COUNT = 4
-
 export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
-  const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE)
-
-  useEffect(() => {
-    if (window.innerWidth < 768) {
-      setVisibleCount(MOBILE_POSTS_COUNT)
-    }
-  }, [])
-
-  const visiblePosts = posts.slice(0, visibleCount)
-  const hasMorePosts = posts.length > visibleCount
-
   return (
     <>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {visiblePosts.map((post) => (
+        {posts.map((post) => (
           <Link
             key={post._id}
             href={`/blog/${post.slug.current}`}
@@ -107,18 +89,6 @@ export function BlogPostsGrid({ posts }: BlogPostsGridProps) {
           <p className="text-ce-ink/70">
             New guides coming soon. Check back shortly.
           </p>
-        </div>
-      )}
-
-      {hasMorePosts && (
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={() => setVisibleCount(prev => prev + POSTS_PER_PAGE)}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-ce-ink/10 text-ce-ink rounded-full font-medium hover:bg-surface-cream transition-all"
-          >
-            Load More Guides
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       )}
     </>

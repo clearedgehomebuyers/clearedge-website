@@ -7,7 +7,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { V0Header } from '@/components/v0-header'
 import { getBlogPostBySlug, getBlogPostSlugs } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { BlogCtaBlock } from '@/components/BlogCtaBlock'
 import { OrganizationSchema } from '@/components/Schema'
@@ -51,7 +51,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'how-to-stop-berks-county-judicial-sale-2026': {
     question: "How can I stop a Berks County judicial tax sale?",
-    answer: "You have 6 options to stop a Berks County judicial sale: (1) pay the full tax debt before the sale, (2) enter a payment plan with the Tax Claim Bureau, (3) file for bankruptcy to trigger automatic stay, (4) sell the property before the sale date, (5) contest the sale if proper procedures weren't followed, or (6) redeem the property within 9 months after sale (residential only)."
+    answer: "To try to stop a Berks County judicial tax sale before the property is sold, contact the Berks County Tax Claim Bureau immediately, ask what payoff or payment options are still available, consult a Pennsylvania attorney about bankruptcy or procedural objections, or complete a sale before the auction if time and title allow. Do not rely on a post-sale redemption period: Berks County says none applies, and Pennsylvania's Real Estate Tax Sale Law provides no redemption after the sale."
   },
   'stop-govos-fines-poconos-house': {
     question: "How do I stop GovOS fines on my Poconos rental property?",
@@ -152,7 +152,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       siteName: 'ClearEdge Home Buyers',
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt || post.publishedAt,
-      authors: [post.author],
+      authors: ['Tyler Swenson'],
       url: `https://www.clearedgehomebuyers.com/blog/${post.slug.current}`,
       images: post.featuredImage?.asset?.url
         ? [{ url: post.featuredImage.asset.url }]
@@ -288,8 +288,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     image: post.featuredImage?.asset?.url,
     author: {
       '@type': 'Person',
-      '@id': 'https://www.clearedgehomebuyers.com/#tyler',
-      name: 'Tyler',
+      '@id': 'https://www.clearedgehomebuyers.com/about#tyler-swenson',
+      name: 'Tyler Swenson',
+      url: 'https://www.clearedgehomebuyers.com/about',
       jobTitle: 'Owner',
       worksFor: {
         '@id': 'https://www.clearedgehomebuyers.com/#organization',
@@ -407,7 +408,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <section className="py-4 md:py-6 bg-gradient-to-b from-surface-green-wash to-surface-green-tint">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm md:text-base">
-                <span className="text-ce-ink font-medium">{post.author}</span>
+                <span className="text-ce-ink font-medium">Tyler Swenson</span>
                 <span className="text-ce-ink/30">|</span>
                 <time dateTime={post.publishedAt} className="text-ce-ink/70">
                   {formatDate(post.publishedAt)}
@@ -506,14 +507,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <div className="flex-shrink-0">
                     <Image
                       src="/tyler.jpg"
-                      alt="Tyler - Owner of ClearEdge Home Buyers"
+                      alt="Tyler Swenson - Owner of ClearEdge Home Buyers"
                       width={80}
                       height={80}
                       className="rounded-full object-cover w-20 h-20"
                     />
                   </div>
                   <div>
-                    <p className="font-semibold text-ce-ink mb-1">Tyler</p>
+                    <p className="font-semibold text-ce-ink mb-1">Tyler Swenson</p>
                     <p className="text-sm text-ce-green font-medium mb-3">Owner, ClearEdge Home Buyers</p>
                     <p className="text-ce-ink/70 leading-relaxed">
                       Tyler founded ClearEdge Home Buyers in 2016 and has personally purchased over 200 homes across 21 Eastern Pennsylvania markets — from Scranton and Wilkes-Barre to the Lehigh Valley and Poconos. He writes these guides to help PA homeowners understand their options, whether they&apos;re facing foreclosure, navigating probate, dealing with code violations, or simply want a faster alternative to the traditional listing process.

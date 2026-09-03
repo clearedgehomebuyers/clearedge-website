@@ -73,14 +73,7 @@ const videoFaqs = [
   }
 ]
 
-interface HomePageProps {
-  searchParams: Promise<{ city?: string }>
-}
-
-export default async function HomePage({ searchParams }: HomePageProps) {
-  const params = await searchParams
-  const city = params.city
-
+export default function HomePage() {
   return (
     <>
       {/* Hero preload — homepage only (audit QW1, 2026-08-10). Lived in the
@@ -295,7 +288,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         {/* 1. Header */}
         <V0Header />
         {/* 2. Hero (Situation) */}
-        <V0Hero city={city} />
+        <V0Hero />
         {/* 3. Social Proof Wall (Trust anchor) */}
         <SocialProofWall />
         {/* 4. Problem/Solution (Problem awareness — moved up before solution) */}

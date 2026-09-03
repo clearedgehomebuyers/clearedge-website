@@ -4,6 +4,9 @@ import {
   getSituations,
   getBlogPostSitemapEntries,
 } from '@/sanity/lib/queries'
+import { SITEMAP_EXCLUDED_BLOG_SLUGS } from '@/lib/blog-url-policy'
+
+export const revalidate = 3600
 
 const baseUrl = 'https://www.clearedgehomebuyers.com'
 
@@ -21,21 +24,14 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-09-03' // refresh the Easton rental-guide answer summary
+const TEMPLATE_REVISION = '2026-09-03' // historical-data optimization and crawl cleanup
 
 /**
  * Blog posts deliberately withheld from the sitemap. Some remain live for
  * existing inbound links; others now redirect to the stronger page that owns
  * the same search intent. Reversible — delete a slug to reinstate it.
  */
-const SITEMAP_PRUNED_SLUGS = new Set([
-  'sell-my-house-fast-luzerne-county-pa',
-  'cash-home-buyers-lackawanna-county-no-fees',
-  'cash-home-buyers-pottsville-pa',
-  'selling-water-damaged-house-18102-mold-issues',
-  'sell-my-house-fast-poconos-pa',
-  'sell-house-fast-during-divorce-lehigh-county-pa',
-])
+const SITEMAP_PRUNED_SLUGS = new Set(SITEMAP_EXCLUDED_BLOG_SLUGS)
 
 /**
  * Real last-modified dates for repo-only pages, which have no CMS document to
@@ -56,7 +52,7 @@ const SITEMAP_PRUNED_SLUGS = new Set([
  */
 const STATIC_LASTMOD: Record<string, string> = {
   '/': '2026-09-03',
-  '/blog': '2026-04-16',
+  '/blog': '2026-09-03',
   '/about': '2026-07-20',
   '/how-it-works': '2026-08-18', // QW8 orphan link added (1c11fe1)
   '/testimonials': '2026-07-20',

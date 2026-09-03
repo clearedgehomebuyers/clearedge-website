@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
 import { useTrafficSource } from "./TrafficSourceProvider"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
+import { trackClickToCall } from "@/lib/analytics-events"
 
 const regionLinks = {
   'NEPA': {
@@ -96,11 +97,10 @@ export function V0Header() {
   const [situationsOpen, setSituationsOpen] = useState(false)
   const [resourcesOpen, setResourcesOpen] = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
   const locationsRef = useRef<HTMLDivElement>(null)
   const situationsRef = useRef<HTMLDivElement>(null)
   const resourcesRef = useRef<HTMLDivElement>(null)
-  const { phone, phoneTel } = useTrafficSource()
+  const { phone, phoneTel, trafficSource } = useTrafficSource()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -130,24 +130,27 @@ export function V0Header() {
   const scrollToForm = () => {
     setIsMobileMenuOpen(false)
 
-    // If on homepage, scroll to form
-    if (pathname === "/") {
-      const el = document.getElementById("lead-form")
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" })
+    // Prefer the form already rendered on the current page. This preserves the
+    // visitor's context and avoids an unnecessary homepage round trip.
+    const targetIds = pathname === "/contact"
+      ? ["contact-form", "lead-form"]
+      : ["lead-form", "contact-form"]
+    for (const targetId of targetIds) {
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+        return
       }
-    } else {
-      // If on any other page, navigate to homepage with hash
-      window.location.href = "/#lead-form"
     }
+
+    // Pages without an embedded form still have a dependable destination.
+    window.location.href = "/#lead-form"
   }
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (pathname === "/") {
       e.preventDefault()
       window.scrollTo({ top: 0, behavior: "smooth" })
-    } else {
-      router.push("/")
     }
   }
 
@@ -195,13 +198,13 @@ export function V0Header() {
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-10">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <a
+          <Link
             href="/"
             onClick={handleLogoClick}
             className="flex-shrink-0 cursor-pointer"
           >
             <img src="/Primary.svg" alt="ClearEdge Home Buyers logo" className="h-10 md:h-12 lg:h-14 w-auto" width="168" height="56" />
-          </a>
+          </Link>
 
           {/* Desktop/Tablet Navigation - centered with responsive spacing */}
           <nav className="hidden md:flex items-center justify-center flex-1 mx-2 lg:mx-8">
@@ -336,15 +339,12 @@ export function V0Header() {
             {/* Phone - blue icon (blue = contact) */}
             <a
               href={`tel:${phoneTel}`}
-              onClick={() => {
-                if (typeof window !== 'undefined' && window.gtag) {
-                  window.gtag('event', 'click_to_call', {
-                    event_category: 'Contact',
-                    event_label: 'Header Phone - Desktop',
-                    page_path: window.location.pathname
-                  });
-                }
-              }}
+              onClick={() => trackClickToCall({
+                eventLabel: 'Header Phone - Desktop',
+                callLocation: 'header_desktop',
+                trafficSource,
+                phoneLine: phoneTel,
+              })}
               className="flex items-center gap-2 text-ce-ink hover:text-ce-blue transition-colors"
             >
               <div className="w-10 h-10 bg-ce-blue-subtle rounded-full flex items-center justify-center flex-shrink-0">
@@ -483,15 +483,12 @@ export function V0Header() {
           {/* Mobile Phone */}
           <a
             href={`tel:${phoneTel}`}
-            onClick={() => {
-              if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'click_to_call', {
-                  event_category: 'Contact',
-                  event_label: 'Header Phone - Mobile',
-                  page_path: window.location.pathname
-                });
-              }
-            }}
+            onClick={() => trackClickToCall({
+              eventLabel: 'Header Phone - Mobile',
+              callLocation: 'header_mobile',
+              trafficSource,
+              phoneLine: phoneTel,
+            })}
             className="flex items-center gap-3 py-3 px-2 mt-2 rounded-lg bg-ce-blue-subtle text-ce-blue font-bold"
           >
             <Phone className="w-5 h-5" />
