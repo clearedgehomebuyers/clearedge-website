@@ -34,6 +34,11 @@ export async function getLocationBySlug(slug: string) {
           title,
           description
         }
+      },
+      relatedSituations[]->{
+        _id,
+        title,
+        slug
       }
     }`,
     { slug }

@@ -55,16 +55,11 @@ const heroPhotos: Record<string, { src: string; location: string; days: number }
 // Default photo for any unmapped slugs
 const defaultPhoto = { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 }
 
-const situationLinks = [
-  { slug: 'inherited-property', title: 'Inherited Property' },
-  { slug: 'foreclosure', title: 'Foreclosure' },
-  { slug: 'divorce', title: 'Divorce' },
-  { slug: 'job-relocation', title: 'Job Relocation' },
-  { slug: 'tired-landlord', title: 'Tired Landlord' },
-  { slug: 'major-repairs', title: 'Major Repairs' },
-  { slug: 'tax-liens-code-violations', title: 'Tax Liens & Code Violations' },
-  { slug: 'vacant-property', title: 'Vacant Property' },
-]
+interface RelatedSituation {
+  _id?: string
+  title?: string
+  slug?: { current?: string }
+}
 
 const fmt = (n: number) => `$${n.toLocaleString('en-US')}`
 
@@ -151,6 +146,15 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   if (!location) {
     notFound()
   }
+
+  const relatedSituations = ((location.relatedSituations || []) as RelatedSituation[])
+    .flatMap((situation) => {
+      const situationSlug = situation?.slug?.current
+      return situationSlug && situation?.title
+        ? [{ slug: situationSlug, title: situation.title }]
+        : []
+    })
+    .slice(0, 3)
 
   // Get parent hub info for this city
   const parentHubSlug = cityToHub[slug]
@@ -430,16 +434,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Situation Cards — "We Help" grid */}
-      {location.showSituationCards && (
+      {/* Curated location-to-situation journeys. Sanity order is intentional;
+          cap at three to keep these useful instead of creating a sitewide link wall. */}
+      {relatedSituations.length > 0 && (
         <section className="py-12 md:py-14 bg-white">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">We Can Help</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Situations We Handle in {location.city}</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Common Reasons {location.city} Homeowners Sell As-Is</h2>
+              <p className="text-ce-ink/70 mt-3">Start with the situation closest to yours.</p>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {situationLinks.map((situation) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {relatedSituations.map((situation) => (
                 <Link
                   key={situation.slug}
                   href={`/situations/${situation.slug}`}
