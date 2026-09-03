@@ -32,6 +32,12 @@ const heroPhotos: Record<string, { src: string; location: string; days: number }
 // Default photo if slug not found
 const defaultPhoto = { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 }
 
+type RelatedLocation = {
+  city: string
+  state: string
+  slug: { current: string }
+}
+
 // Answer-First Summaries for each situation (SEO optimization)
 const answerFirstSummaries: Record<string, { question: string; answer: string }> = {
   'foreclosure': {
@@ -157,6 +163,10 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
   if (!situation) {
     notFound()
   }
+
+  const relatedLocations = (situation.relatedLocations || []).filter(
+    (location: RelatedLocation | null): location is RelatedLocation => Boolean(location?.slug?.current),
+  )
 
   // BreadcrumbList Schema
   const breadcrumbSchema = {
@@ -417,6 +427,51 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                 More Helpful Guides
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/*
+        Sanity editors already curate the locations that are relevant to each
+        seller situation. Rendering those references gives homeowners a useful
+        local next step and creates contextual links to the commercial city
+        pages that should own city-intent searches.
+      */}
+      {relatedLocations.length > 0 && (
+        <section className="py-12 md:py-14 bg-white border-t border-ce-ink/5">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8">
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Local Help</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink mb-4">
+                Local Help for Homeowners Dealing With {situation.title}
+              </h2>
+              <p className="text-ce-ink/70 max-w-2xl mx-auto">
+                See local selling options, timelines, and property details for the Eastern Pennsylvania markets we serve.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {relatedLocations.map((location: RelatedLocation) => (
+                <Link
+                  key={location.slug.current}
+                  href={`/locations/${location.slug.current}`}
+                  className="group flex items-center justify-between gap-4 rounded-2xl border border-ce-ink/10 bg-surface-cream p-5 transition-all hover:-translate-y-0.5 hover:border-ce-green/30 hover:shadow-md"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-ce-green/10">
+                      <MapPin className="h-5 w-5 text-ce-green" />
+                    </span>
+                    <span>
+                      <span className="block text-xs font-medium uppercase tracking-wide text-ce-ink/50">Local Cash Buyer</span>
+                      <span className="font-serif text-lg font-medium text-ce-ink transition-colors group-hover:text-ce-green">
+                        {location.city}, {location.state}
+                      </span>
+                    </span>
+                  </span>
+                  <ArrowRight className="h-5 w-5 flex-shrink-0 text-ce-green transition-transform group-hover:translate-x-1" />
+                </Link>
+              ))}
             </div>
           </div>
         </section>
