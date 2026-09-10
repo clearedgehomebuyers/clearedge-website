@@ -269,6 +269,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               {/* Headline */}
               <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-ce-ink mb-5 leading-[1.1]">
                 {location.heroHeadline || `Sell Your House Fast in`}
+                {' '}
                 <br />
                 <span className="text-ce-green">{location.city}, {location.state}</span>
               </h1>

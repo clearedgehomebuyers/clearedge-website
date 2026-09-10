@@ -50,6 +50,11 @@ function schemaNodesFromHtml(html) {
   return typedNodes
 }
 
+function firstH1Text(html) {
+  const match = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)
+  return match ? match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : ''
+}
+
 function htmlFilesUnder(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = resolve(directory, entry.name)
@@ -156,6 +161,18 @@ for (const [relativePath, claim] of unsupportedClaimChecks) {
 }
 
 const builtHtmlFiles = htmlFilesUnder(appBuildDir)
+
+// A visual <br> does not create a text separator for every crawler or screen
+// reader. Guard the dynamic hero pattern that previously rendered as
+// "inReading" and "aDivorce" in the accessibility tree.
+for (const htmlPath of builtHtmlFiles) {
+  const normalizedPath = htmlPath.replace(/\\/g, '/')
+  if (!normalizedPath.includes('/locations/') && !normalizedPath.includes('/situations/')) continue
+  const h1Text = firstH1Text(readFileSync(htmlPath, 'utf8'))
+  if (/\b(?:in|a)(?=[A-Z])/.test(h1Text)) {
+    fail(`dynamic H1 is missing a text separator around its styled line break: ${htmlPath}`)
+  }
+}
 
 // Google's site-name markup belongs on the domain homepage, not every route.
 for (const htmlPath of builtHtmlFiles) {
