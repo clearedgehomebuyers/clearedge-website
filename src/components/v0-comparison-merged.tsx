@@ -1,25 +1,46 @@
 "use client"
 
-import { ArrowRight, CheckCircle, XCircle } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const costBreakdown = [
-  { expense: "Repairs & Pre-Sale Inspections", traditional: "$15,000–25,000", clearEdge: "$0" },
-  { expense: "Holding Costs (Mortgage, Taxes, Insurance)", traditional: "$3,000–6,000", clearEdge: "$0" },
-  { expense: "Agent Commissions (5–6%)", traditional: "$10,000–18,000", clearEdge: "$0" },
-  { expense: "Closing Costs & Title Fees", traditional: "$3,000–5,000", clearEdge: "$0 (we pay)" },
+  {
+    expense: "Repairs & Preparation",
+    traditional: "You choose what to complete; cost depends on the property and listing plan",
+    clearEdge: "No seller repairs required under our as-is purchase agreement",
+  },
+  {
+    expense: "Broker Compensation",
+    traditional: "Negotiable; use the amount in your listing and buyer agreements",
+    clearEdge: "No agent commission or ClearEdge fee",
+  },
+  {
+    expense: "Holding Costs",
+    traditional: "Your actual mortgage, tax, insurance, utility, and maintenance costs continue until closing",
+    clearEdge: "A shorter closing can reduce them, but they are not automatically $0",
+  },
+  {
+    expense: "Transfer & Settlement Costs",
+    traditional: "The purchase agreement and closing statement determine the seller-paid amount",
+    clearEdge: "Our written offer states which agreed seller costs ClearEdge covers",
+  },
+  {
+    expense: "Mortgage, Liens & Delinquent Taxes",
+    traditional: "Deducted from seller proceeds when owed",
+    clearEdge: "Also deducted when owed; a cash sale does not erase property obligations",
+  },
 ]
 
 const featureComparison = [
   {
     feature: "Time to Close",
-    traditional: "90–180 days average in PA",
-    clearEdge: "7–30 days, your choice",
+    traditional: "Depends on preparation, market response, the accepted contract, and financing",
+    clearEdge: "Target as few as 7 days when title is ready, or schedule up to 60 days",
   },
   {
     feature: "Showings & Open Houses",
-    traditional: "Dozens of strangers walking through",
-    clearEdge: "One walkthrough, that's it",
+    traditional: "The number and format depend on your marketing plan",
+    clearEdge: "Normally one ClearEdge walkthrough and no public open house",
   },
   {
     feature: "Repairs & Inspections",
@@ -29,7 +50,7 @@ const featureComparison = [
   {
     feature: "Certainty of Closing",
     traditional: "May depend on financing, appraisal, and inspection contingencies",
-    clearEdge: "Direct cash purchase — no financing contingency",
+    clearEdge: "No buyer-financing contingency; title and the other written contract terms still apply",
   },
 ]
 
@@ -40,19 +61,19 @@ export function V0ComparisonMerged() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 animate-on-scroll">
           <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-4 block">
-            The Clear Choice
+            Compare the Contracts
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-ce-ink mb-4">
-            The Real Cost of Listing vs. Selling to ClearEdge
+            Compare the Costs and Tradeoffs That Actually Apply
           </h2>
           <p className="text-ce-ink/70 text-lg">
-            Most homeowners don&apos;t realize how much a traditional sale actually costs until they&apos;re deep into the process. Here&apos;s the math on a typical Eastern PA home.
+            There is no honest one-size-fits-all total. Compare the actual sale price, repairs, timing, compensation, and seller costs in your two written agreements.
           </p>
         </div>
 
         {/* Hidden Cost Table - Desktop */}
         <div className="mb-6 animate-on-scroll stagger-1">
-          <h3 className="font-semibold text-ce-ink text-lg mb-4 text-center">What a Traditional Sale Really Costs You</h3>
+          <h3 className="font-semibold text-ce-ink text-lg mb-4 text-center">Costs to Check Before You Choose</h3>
 
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto rounded-xl border border-ce-green shadow-lg bg-white">
@@ -61,12 +82,12 @@ export function V0ComparisonMerged() {
                 <tr className="bg-white text-ce-ink border-b border-ce-ink/10">
                   <th className="text-left py-4 px-6 font-semibold">Expense</th>
                   <th className="text-center py-4 px-6 font-semibold border-l border-ce-ink/10">
-                    Traditional
-                    <span className="block font-normal text-ce-ink/70 text-sm">(90 Days)</span>
+                    Traditional Listing
+                    <span className="block font-normal text-ce-ink/70 text-sm">Your agreements</span>
                   </th>
                   <th className="text-center py-4 px-6 font-semibold bg-ce-green text-white border-l border-ce-ink/10 rounded-tr-xl">
                     ClearEdge
-                    <span className="block font-normal text-white/90 text-sm">(7–30 Days)</span>
+                    <span className="block font-normal text-white/90 text-sm">Written cash offer</span>
                   </th>
                 </tr>
               </thead>
@@ -74,16 +95,10 @@ export function V0ComparisonMerged() {
                 {costBreakdown.map((row, index) => (
                   <tr key={index} className="border-b border-ce-ink/10 bg-white">
                     <td className="py-4 px-6 font-medium text-ce-ink">{row.expense}</td>
-                    <td className="py-4 px-6 text-center text-red-600 font-semibold border-l border-ce-ink/10">{row.traditional}</td>
-                    <td className="py-4 px-6 text-center text-ce-green font-semibold bg-ce-green-subtle border-l border-ce-ink/10">{row.clearEdge}</td>
+                    <td className="py-4 px-6 text-center text-ce-ink/70 border-l border-ce-ink/10">{row.traditional}</td>
+                    <td className="py-4 px-6 text-center text-ce-ink font-medium bg-ce-green-subtle border-l border-ce-ink/10">{row.clearEdge}</td>
                   </tr>
                 ))}
-                {/* Total Row - Mic Drop */}
-                <tr className="bg-white text-ce-ink">
-                  <td className="py-6 px-6 font-bold text-lg">Total Out-of-Pocket Cost</td>
-                  <td className="py-6 px-6 text-center font-bold text-xl md:text-2xl text-red-600 bg-red-50 border-l border-ce-ink/10">$31,000–$54,000</td>
-                  <td className="py-6 px-6 text-center font-bold text-xl md:text-2xl text-white bg-ce-green border-l border-ce-ink/10">$0</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -95,8 +110,8 @@ export function V0ComparisonMerged() {
                 <p className="font-medium text-ce-ink mb-3">{row.expense}</p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <XCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-                    <span className="text-sm text-red-600 font-semibold">Traditional: {row.traditional}</span>
+                    <span className="w-2 h-2 rounded-full bg-ce-ink/30 flex-shrink-0" />
+                    <span className="text-sm text-ce-ink/70">Traditional: {row.traditional}</span>
                   </div>
                   <div className="flex items-center gap-2 bg-ce-green-subtle rounded-lg px-3 py-1.5">
                     <CheckCircle className="w-4 h-4 text-ce-green flex-shrink-0" />
@@ -105,24 +120,10 @@ export function V0ComparisonMerged() {
                 </div>
               </div>
             ))}
-            {/* Total Row - Mobile Mic Drop */}
-            <div className="rounded-2xl border-2 border-ce-green shadow-lg overflow-hidden">
-              <div className="p-4 bg-white">
-                <p className="font-bold text-ce-ink text-lg mb-3">Total Out-of-Pocket Cost</p>
-                <div className="flex items-center gap-2 mb-2">
-                  <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                  <span className="text-lg text-red-600 font-bold">Traditional: $31,000–$54,000</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 bg-ce-green px-4 py-4">
-                <CheckCircle className="w-5 h-5 text-white flex-shrink-0" />
-                <span className="text-lg text-white font-bold">ClearEdge: $0</span>
-              </div>
-            </div>
           </div>
 
-          <p className="text-ce-ink/70 text-sm mt-3 italic text-center">
-            *Ranges based on a $200,000–$300,000 Eastern PA home with typical repair needs and 90–180 day market time (2026 data).
+          <p className="text-ce-ink/70 text-sm mt-3 text-center">
+            Use your actual agreements and closing estimates. Mortgage payoffs, liens, taxes, prorations, and property-specific obligations can reduce proceeds in either route.
           </p>
         </div>
 
@@ -139,7 +140,7 @@ export function V0ComparisonMerged() {
                 <p className="font-semibold text-ce-ink">Traditional Listing</p>
               </div>
               <div className="py-4 px-6 bg-ce-green text-center border-l border-ce-ink/10 self-stretch flex flex-col justify-center">
-                <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Recommended</span>
+                <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Direct option</span>
                 <p className="font-semibold text-white">ClearEdge</p>
               </div>
             </div>
@@ -154,7 +155,7 @@ export function V0ComparisonMerged() {
                   {row.feature}
                 </div>
                 <div className="p-4 md:p-5 text-sm text-ce-ink/70 border-l border-ce-ink/10 flex items-center gap-2 bg-white">
-                  <XCircle className="w-5 h-5 text-gray-300 flex-shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-ce-ink/25 flex-shrink-0" />
                   <span>{row.traditional}</span>
                 </div>
                 <div className="p-4 md:p-5 text-sm text-ce-ink border-l border-ce-ink/10 flex items-center gap-2 bg-ce-green-subtle/50">
@@ -172,7 +173,7 @@ export function V0ComparisonMerged() {
                 <p className="font-medium text-ce-ink mb-3">{row.feature}</p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5" />
+                    <span className="w-2 h-2 rounded-full bg-ce-ink/25 flex-shrink-0 mt-1.5" />
                     <span className="text-sm text-ce-ink/60">Traditional: {row.traditional}</span>
                   </div>
                   <div className="flex items-start gap-2 bg-ce-green-subtle rounded-lg px-3 py-1.5">

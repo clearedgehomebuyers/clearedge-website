@@ -135,14 +135,20 @@ for (const category of ['systems', 'interior', 'structural']) {
   }
 }
 
-const unsupportedClaimChecks = new Map([
+const unsupportedClaimChecks = [
   ['src/components/v0-problem-solution-merged.tsx', 'Guaranteed cash — our offers never fall through'],
+  ['src/components/v0-problem-solution-merged.tsx', 'Spend $10K–$25K on repairs before you can even list'],
+  ['src/components/v0-problem-solution-merged.tsx', 'Zero fees, zero commissions, zero closing costs to you'],
   ['src/components/v0-comparison-merged.tsx', '38% of deals fall through nationally'],
+  ['src/components/v0-comparison-merged.tsx', '90–180 days average in PA'],
+  ['src/components/v0-comparison-merged.tsx', '$31,000–$54,000'],
+  ['src/components/v0-comparison-merged.tsx', 'clearEdge: "$0"'],
   ['src/app/calculator/page.tsx', 'See exactly what you&apos;d walk away with'],
   ['src/app/txt/page.tsx', 'see exactly what you&apos;d walk away with'],
   ['src/app/cash-buyer-vs-realtor/page.tsx', 'Once you accept, the sale is happening'],
   ['src/app/page.tsx', 'The cash offer you accept is the exact amount you receive at closing'],
-])
+  ['src/app/page.tsx', 'Zero fees, zero commissions, zero closing costs.'],
+]
 for (const [relativePath, claim] of unsupportedClaimChecks) {
   if (readFileSync(resolve(repoRoot, relativePath), 'utf8').includes(claim)) {
     fail(`${relativePath} reintroduced unsupported visitor-facing copy: ${claim}`)

@@ -186,7 +186,7 @@ export default function HomePage() {
             "makesOffer": {
               "@type": "Offer",
               "name": "Cash Home Buying",
-              "description": "We buy Pennsylvania houses for cash in any condition. Fair offer in 24 hours, close in 7–30 days. Zero fees, zero commissions, zero closing costs."
+              "description": "We buy Pennsylvania houses for cash in any condition. Receive a no-obligation offer in 24 hours and choose a closing date that works when title is ready. No ClearEdge fees or agent commissions; the written offer states which seller costs we cover."
             },
             "sameAs": [
               "https://www.facebook.com/profile.php?id=61578297005995",
