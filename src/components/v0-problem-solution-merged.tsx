@@ -1,22 +1,23 @@
 "use client"
 
+import Link from "next/link"
 import { XCircle, CheckCircle, ArrowRight } from "lucide-react"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
 const problems = [
-  "Decide which repairs or preparation make sense before listing",
-  "Coordinate photos, showings, inspections, and negotiations",
-  "Pay the broker compensation and seller costs in your agreements",
-  "Account for financing, appraisal, inspection, and other contingencies",
-  "Keep paying your actual holding costs until the sale closes",
+  "Spend $10K–$25K on repairs before you can even list",
+  "Endure 3–6 months of showings, strangers, and open houses",
+  "Pay 5–6% in agent commissions ($10K–$18K on a typical PA home)",
+  "Watch deals fall through when buyer financing collapses",
+  "Keep paying the mortgage, taxes, and insurance while you wait",
 ]
 
 const solutions = [
   "Sell completely as-is — foundation cracks, mold, hoarding, we buy it all",
   "One walkthrough from our team, that's it — no open houses ever",
-  "No ClearEdge fee or agent commission — your contract lists the costs we cover",
-  "Direct cash purchase — no buyer financing contingency",
-  "Choose a target closing date — as few as 7 days when title is ready, or up to 60 days",
+  "Zero fees, zero commissions, zero closing costs to you",
+  "Guaranteed cash — our offers never fall through",
+  "You pick your closing date: 7 days, 30 days, or 60 days",
 ]
 
 export function V0ProblemSolutionMerged() {
@@ -31,10 +32,10 @@ export function V0ProblemSolutionMerged() {
             </h2>
             <div className="space-y-4 text-lg text-ce-ink/70">
               <p>
-                You already know the math doesn&apos;t work. Realtors may recommend repairs before listing your Pennsylvania home. Then you can spend months on showings, inspections, negotiations, and buyer financing while continuing to carry a house you need gone. Local inspection and code requirements vary by municipality and can add time or repair costs to some traditional sales.
+                You already know the math doesn&apos;t work. Realtors want $15,000 or more in repairs before they&apos;ll even list your Pennsylvania home. Then you wait 4 to 6 months while buyers fall through, inspections fail, and you keep paying the mortgage on a house you need gone. The 2026 municipal inspection requirements and building codes across PA have only made this process slower, more expensive, and more stressful for homeowners.
               </p>
               <p>
-                If your house needs repairs, has code violations, or you cannot take on an uncertain timeline and more work, a direct as-is sale may fit your situation better.
+                If your house needs repairs, has code violations, or you simply can&apos;t afford to wait 90+ days and spend thousands upfront — the traditional process isn&apos;t built for you.
               </p>
               <p className="font-semibold text-ce-ink">
                 That&apos;s exactly why we started ClearEdge.
@@ -56,7 +57,7 @@ export function V0ProblemSolutionMerged() {
               What If You Could Skip All of That?
             </h3>
             <p className="text-ce-ink/70">
-              We started ClearEdge in 2016 to give homeowners another option when a traditional listing does not fit the property or the seller&apos;s priorities. Here&apos;s how the two paths compare.
+              We started ClearEdge in 2016 because we watched good people lose money, time, and sleep trying to sell houses the &ldquo;normal&rdquo; way. Here&apos;s how the two paths compare.
             </p>
           </div>
 

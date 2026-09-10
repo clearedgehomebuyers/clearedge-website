@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'PA Home Sale Calculator | Compare Net Proceeds | ClearEdge',
-  description: "Free PA calculator: model an agent-sale net and compare it with a written cash offer using transparent, editable cost and repair assumptions.",
+  description: "Free calculator: compare what you\u2019d net selling with an agent vs. a cash offer. County-specific transfer tax, closing costs, and real repair estimates.",
   keywords: ['home sale calculator PA', 'net proceeds calculator Pennsylvania', 'cost to sell house PA', 'cash offer calculator', 'realtor vs cash buyer calculator', 'PA closing costs calculator', 'home selling costs Pennsylvania'],
   openGraph: {
     title: 'PA Home Sale Calculator | Compare Net Proceeds | ClearEdge',
-    description: "Free PA calculator: model an agent-sale net and compare it with a written cash offer using transparent, editable cost and repair assumptions.",
+    description: "Free calculator: compare what you\u2019d net selling with an agent vs. a cash offer. County-specific transfer tax, closing costs, and real repair estimates.",
     url: 'https://www.clearedgehomebuyers.com/calculator',
     siteName: 'ClearEdge Home Buyers',
     locale: 'en_US',

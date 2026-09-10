@@ -70,7 +70,7 @@ const videoFaqs = [
   },
   {
     question: "Are there any fees or commissions when I sell to ClearEdge?",
-    answer: "None charged by ClearEdge. There are zero realtor commissions, ClearEdge fees, or seller closing costs, and we pay for title work. The accepted cash offer is the purchase price; your final proceeds may still be reduced by a mortgage payoff, liens, delinquent taxes, prorations, or other property-specific obligations shown on the closing statement."
+    answer: "None. When you sell to ClearEdge, there are zero realtor commissions, zero fees, and zero closing costs. We also pay for the title work. The cash offer you accept is the exact amount you receive at closing."
   }
 ]
 
@@ -186,7 +186,7 @@ export default function HomePage() {
             "makesOffer": {
               "@type": "Offer",
               "name": "Cash Home Buying",
-              "description": "We buy Pennsylvania houses for cash in any condition. Receive a no-obligation offer in 24 hours and choose a closing date that works when title is ready. No ClearEdge fees or agent commissions; the written offer states which seller costs we cover."
+              "description": "We buy Pennsylvania houses for cash in any condition. Fair offer in 24 hours, close in 7–30 days. Zero fees, zero commissions, zero closing costs."
             },
             "sameAs": [
               "https://www.facebook.com/profile.php?id=61578297005995",

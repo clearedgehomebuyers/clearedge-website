@@ -158,7 +158,7 @@ export default function AreCashHomeBuyersLegitPage() {
                 The Short Answer
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
-                Cash Home Buying Is Legitimate—But You Still Need to Vet the Buyer
+                Yes, Most Cash Home Buyers Are Legitimate
               </h2>
             </div>
             <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">

@@ -25,7 +25,7 @@ const steps = [
     icon: HandshakeIcon,
     title: "Close on Your Timeline, Not Ours",
     description:
-      "Sign the purchase agreement and pick your closing date — as fast as 7 days when title is ready or up to 60 days. We coordinate the paperwork and seller closing costs with the title company, which disburses the proceeds.",
+      "Accept your offer and pick your closing date — as fast as 7 days or up to 60 days. We pay all closing costs, handle the paperwork, and wire your funds directly.",
     accent: "You choose the date",
   },
 ]

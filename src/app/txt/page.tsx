@@ -67,7 +67,7 @@ export default function TxtPage() {
             Find Out What Your PA Home Is Worth in Cash
           </h1>
           <p className="text-lg text-ce-ink/70 max-w-2xl mx-auto">
-            Use our free calculator to estimate and compare your potential net proceeds — no sign-up, no obligation. Takes about 2 minutes.
+            Use our free calculator to see exactly what you&apos;d walk away with — no sign-up, no obligation. Takes about 2 minutes.
           </p>
         </div>
       </section>

@@ -141,7 +141,7 @@ export const lehighValleyHubData: RegionalHubData = {
     },
     {
       question: 'Are there any fees when I sell to ClearEdge in the Lehigh Valley?',
-      answer: "None charged by ClearEdge. There are zero realtor commissions or ClearEdge fees, and our written offer explains the seller closing costs and transfer tax we cover. Your final proceeds can still reflect a mortgage payoff, liens, delinquent taxes, prorations, or other property-specific obligations shown on the closing statement."
+      answer: "None. Zero commissions, zero closing costs, zero junk fees. The cash offer we make is exactly what you receive at closing. That's especially significant in the Lehigh Valley where Allentown's transfer tax alone is 2.5% — a cost we absorb completely."
     },
   ],
   mapCenter: { lat: 40.62, lng: -75.43 },

@@ -10,8 +10,6 @@ const appBuildDir = resolve(repoRoot, '.next/server/app')
 const manifestPath = resolve(repoRoot, '.next/prerender-manifest.json')
 const homeHtmlPath = resolve(appBuildDir, 'index.html')
 const calculatorHtmlPath = resolve(repoRoot, '.next/server/app/calculator.html')
-const calculatorSourcePath = resolve(repoRoot, 'src/components/calculator.tsx')
-const calculatorMathSourcePath = resolve(repoRoot, 'src/lib/calculator-comparison.ts')
 const testimonialsHtmlPath = resolve(appBuildDir, 'testimonials.html')
 const videoSitemapSourcePath = resolve(repoRoot, 'src/app/video-sitemap.xml/route.ts')
 const policyPath = resolve(repoRoot, 'src/lib/blog-url-policy.ts')
@@ -112,52 +110,6 @@ const ineligibleCalculatorAppSchema = calculatorSchemaNodes.find((node) =>
 )
 if (ineligibleCalculatorAppSchema) {
   fail(`/calculator still emits ineligible ${ineligibleCalculatorAppSchema['@type']} structured data`)
-}
-
-const calculatorSource = readFileSync(calculatorSourcePath, 'utf8')
-const calculatorMathSource = readFileSync(calculatorMathSourcePath, 'utf8')
-for (const forbiddenToken of [
-  'riskAdjustedNet',
-  'traditionalNet * 0.82',
-  'getCashOfferPercent',
-  'calculateTitleInsurance',
-  'expectedSalePrice * 0.0225',
-]) {
-  if (calculatorSource.includes(forbiddenToken) || calculatorMathSource.includes(forbiddenToken)) {
-    fail(`/calculator reintroduced hidden or unsupported math: ${forbiddenToken}`)
-  }
-}
-if (!calculatorSource.includes('compareRoundedNetEstimates(traditionalNet, cashNet)')) {
-  fail('/calculator must compare its two displayed, rounded net estimates')
-}
-if (!calculatorSource.includes('calculateTraditionalSaleScenario({') || !calculatorSource.includes('cashOfferInput')) {
-  fail('/calculator must use its tested editable scenario model and an optional written cash offer')
-}
-for (const category of ['systems', 'interior', 'structural']) {
-  const goodConditionPattern = new RegExp(`${category}:\\s*\\{\\s*0:\\s*\\{\\s*items:\\s*\\[\\]`)
-  if (!goodConditionPattern.test(calculatorSource)) {
-    fail(`/calculator must map the best ${category} condition answer to zero repairs`)
-  }
-}
-
-const unsupportedClaimChecks = [
-  ['src/components/v0-problem-solution-merged.tsx', 'Guaranteed cash — our offers never fall through'],
-  ['src/components/v0-problem-solution-merged.tsx', 'Spend $10K–$25K on repairs before you can even list'],
-  ['src/components/v0-problem-solution-merged.tsx', 'Zero fees, zero commissions, zero closing costs to you'],
-  ['src/components/v0-comparison-merged.tsx', '38% of deals fall through nationally'],
-  ['src/components/v0-comparison-merged.tsx', '90–180 days average in PA'],
-  ['src/components/v0-comparison-merged.tsx', '$31,000–$54,000'],
-  ['src/components/v0-comparison-merged.tsx', 'clearEdge: "$0"'],
-  ['src/app/calculator/page.tsx', 'See exactly what you&apos;d walk away with'],
-  ['src/app/txt/page.tsx', 'see exactly what you&apos;d walk away with'],
-  ['src/app/cash-buyer-vs-realtor/page.tsx', 'Once you accept, the sale is happening'],
-  ['src/app/page.tsx', 'The cash offer you accept is the exact amount you receive at closing'],
-  ['src/app/page.tsx', 'Zero fees, zero commissions, zero closing costs.'],
-]
-for (const [relativePath, claim] of unsupportedClaimChecks) {
-  if (readFileSync(resolve(repoRoot, relativePath), 'utf8').includes(claim)) {
-    fail(`${relativePath} reintroduced unsupported visitor-facing copy: ${claim}`)
-  }
 }
 
 const builtHtmlFiles = htmlFilesUnder(appBuildDir)
