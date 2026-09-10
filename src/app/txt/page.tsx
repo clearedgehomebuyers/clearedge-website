@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Calculator } from '@/components/calculator'
 import { LiteYouTube } from '@/components/LiteYouTube'
+import { MobileTextButton } from '@/components/FloatingTextButton'
 import { SoftLeadForm } from '@/components/soft-lead-form'
 
 // County → regional location page mapping
@@ -47,16 +48,20 @@ export default function TxtPage() {
     <main className="bg-white min-h-screen">
       {/* Minimal Header — logo only */}
       <header className="py-6 px-4">
-        <div className="max-w-4xl mx-auto flex justify-center">
-          <Link href="/">
-            <Image
-              src="/Primary.svg"
-              alt="ClearEdge Home Buyers"
-              width={200}
-              height={48}
-              priority
-            />
-          </Link>
+        <div className="max-w-4xl mx-auto grid grid-cols-[44px_1fr_44px] items-center">
+          <span aria-hidden="true" />
+          <div className="flex justify-center">
+            <Link href="/">
+              <Image
+                src="/Primary.svg"
+                alt="ClearEdge Home Buyers"
+                width={200}
+                height={48}
+                priority
+              />
+            </Link>
+          </div>
+          <MobileTextButton className="md:hidden" />
         </div>
       </header>
 

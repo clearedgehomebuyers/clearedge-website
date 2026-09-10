@@ -278,22 +278,22 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               </div>
 
               {/* Trust Indicators - 2x2 GRID */}
-              <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 w-full max-w-md mx-auto">
+              <div className="grid grid-cols-1 min-[360px]:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 w-full max-w-md mx-auto">
                 <div className="flex items-center justify-center gap-2">
                   <Clock className="w-4 h-4 text-ce-green flex-shrink-0" />
-                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Close in 7–30 Days</span>
+                  <span className="text-sm text-ce-ink/60 text-center leading-tight">Close in 7–30 Days</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <DollarSign className="w-4 h-4 text-ce-green flex-shrink-0" />
-                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Zero Fees Ever</span>
+                  <span className="text-sm text-ce-ink/60 text-center leading-tight">Zero Fees Ever</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <Shield className="w-4 h-4 text-ce-green flex-shrink-0" />
-                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">Sell 100% As-Is</span>
+                  <span className="text-sm text-ce-ink/60 text-center leading-tight">Sell 100% As-Is</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <MapPin className="w-4 h-4 text-ce-green flex-shrink-0" />
-                  <span className="text-sm text-ce-ink/60 whitespace-nowrap">200+ PA Homes Bought</span>
+                  <span className="text-sm text-ce-ink/60 text-center leading-tight">200+ PA Homes Bought</span>
                 </div>
               </div>
             </div>

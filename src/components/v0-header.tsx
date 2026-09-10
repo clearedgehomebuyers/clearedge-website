@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Phone, ChevronDown } from "lucide-react"
+import { MobileTextButton } from "./FloatingTextButton"
 import { useTrafficSource } from "./TrafficSourceProvider"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
 import { trackClickToCall } from "@/lib/analytics-events"
@@ -214,7 +215,7 @@ export function V0Header() {
           </Link>
 
           {/* Desktop navigation; tablets use the unclipped compact menu. */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
+          <nav className="hidden xl:flex items-center justify-center flex-1 mx-8">
             <div className="flex items-center gap-2 lg:gap-6">
               <Link
                 href="/how-it-works"
@@ -235,7 +236,7 @@ export function V0Header() {
                 </button>
                 {locationsOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-ce-ink/5 p-4 w-[700px] lg:w-[820px] max-h-[450px] overflow-y-auto">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-ce-ink/5 p-4 w-[min(820px,calc(100vw-2rem))] max-h-[450px] overflow-y-auto">
                       <div className="grid grid-cols-4 gap-5">
                         {Object.entries(regionLinks).map(([regionName, region]) => (
                           <div key={regionName}>
@@ -348,7 +349,7 @@ export function V0Header() {
           </nav>
 
           {/* Right side: Phone + CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             {/* Phone - blue icon (blue = contact) */}
             <a
               href={`tel:${phoneTel}`}
@@ -387,26 +388,32 @@ export function V0Header() {
             </button>
           </div>
 
-          {/* Compact menu button for phones and tablets. */}
-          <button
-            className="lg:hidden p-2.5 rounded-md text-ce-ink"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
+          {/* Reserved header controls prevent the text action from covering page content. */}
+          <div className="flex items-center gap-1 xl:hidden">
+            <MobileTextButton />
+            <button
+              className="p-2.5 rounded-md text-ce-ink"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="compact-navigation"
+            >
+              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Compact navigation for phones and tablets. */}
       <div
-        className={`lg:hidden bg-white border-t border-ce-ink/5 shadow-lg overflow-hidden transition-all duration-300 ${
-          isMobileMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+        id="compact-navigation"
+        className={`xl:hidden bg-white border-t border-ce-ink/5 shadow-lg overflow-hidden transition-all duration-300 ${
+          isMobileMenuOpen ? "max-h-[calc(100dvh-6rem)] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {/* Green accent line at panel top */}
         <div className="h-0.5 bg-gradient-to-r from-ce-green via-ce-blue to-ce-green" />
-        <nav className="flex flex-col px-4 py-4 gap-2 overflow-y-auto max-h-[calc(80vh-2px)]">
+        <nav className="flex flex-col px-4 py-4 gap-2 overflow-y-auto max-h-[calc(100dvh-6rem)]">
           <Link
             href="/how-it-works"
             className="text-base font-semibold text-ce-ink/70 hover:text-ce-green py-3 px-2"

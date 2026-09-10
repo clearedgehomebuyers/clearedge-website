@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { V0LeadForm } from '@/components/v0-lead-form'
 import { LandingPhoneCTA } from '@/components/LandingPhoneCTA'
+import { MobileTextButton } from '@/components/FloatingTextButton'
 import { ScrollToFormButton } from '@/components/ScrollToFormButton'
 
 /**
@@ -130,14 +131,18 @@ export default function CashOfferLandingPage() {
       <section className="bg-surface-cream pt-6 pb-10 md:pt-8 md:pb-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Unlinked on purpose — the logo is trust signal, not navigation. */}
-          <div className="flex justify-center mb-6">
-            <Image
-              src="/Primary.svg"
-              alt="ClearEdge Home Buyers"
-              width={180}
-              height={43}
-              priority
-            />
+          <div className="grid grid-cols-[44px_1fr_44px] items-center mb-6">
+            <span aria-hidden="true" />
+            <div className="flex justify-center">
+              <Image
+                src="/Primary.svg"
+                alt="ClearEdge Home Buyers"
+                width={180}
+                height={43}
+                priority
+              />
+            </div>
+            <MobileTextButton className="md:hidden" />
           </div>
 
           <div className="text-center mb-6">
