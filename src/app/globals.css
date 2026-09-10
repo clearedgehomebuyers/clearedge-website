@@ -259,6 +259,15 @@ h6 {
   transform: none;
 }
 
+/* Side-entry transforms can widen a page before its cards become visible.
+   Keep the entrance motion inside the viewport until the desktop layout. */
+@media (max-width: 1279px) {
+  .animate-on-scroll.animate-from-left,
+  .animate-on-scroll.animate-from-right {
+    transform: translateY(24px);
+  }
+}
+
 .stagger-1 { transition-delay: calc(var(--duration-stagger) * 1); }
 .stagger-2 { transition-delay: calc(var(--duration-stagger) * 2); }
 .stagger-3 { transition-delay: calc(var(--duration-stagger) * 3); }

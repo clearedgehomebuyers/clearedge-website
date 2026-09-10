@@ -171,7 +171,7 @@ export function ContactForm() {
       {/* Left Column - Simple Lead Form */}
       <div>
         <h2 className="font-serif text-2xl md:text-3xl font-medium text-ce-ink mb-6">Request Your Cash Offer</h2>
-        <form id="contact-form" name="contact-form" onSubmit={handleSubmit} onChange={markFormStart} className="space-y-4">
+        <form id="contact-form" name="contact-form" onSubmit={handleSubmit} onChange={markFormStart} className="space-y-4 scroll-mt-40 md:scroll-mt-44">
           <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
             <label htmlFor="contact-company-website">Company website</label>
             <input

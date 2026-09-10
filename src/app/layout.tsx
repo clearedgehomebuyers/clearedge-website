@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { FloatingTextButton } from "@/components/FloatingTextButton";
+import { HashScrollRestorer } from "@/components/HashScrollRestorer";
 import { MetaPixel } from "@/components/MetaPixel";
 import { TrafficSourceProvider } from "@/components/TrafficSourceProvider";
 import { ScrollAnimationProvider } from "@/components/ScrollAnimationProvider";
@@ -138,7 +138,7 @@ export default function RootLayout({
           <ScrollAnimationProvider>
             {children}
           </ScrollAnimationProvider>
-          <FloatingTextButton />
+          <HashScrollRestorer />
         </TrafficSourceProvider>
       </body>
     </html>
