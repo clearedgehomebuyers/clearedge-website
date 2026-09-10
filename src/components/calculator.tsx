@@ -3,23 +3,29 @@
 import { useState, useEffect, useRef } from 'react'
 import { Calculator as CalculatorIcon, DollarSign, Home, ArrowRight, HelpCircle, ChevronDown, Check } from 'lucide-react'
 import { trackMetaCTAClick } from '@/lib/meta-pixel'
+import {
+  calculateTraditionalSaleScenario,
+  calculateWrittenCashNet,
+  compareRoundedNetEstimates,
+} from '@/lib/calculator-comparison'
 
-// PA Counties with transfer tax rates AND property tax rates
+// County is used for local context and related resources. Transfer-tax rates
+// vary below the county level, so the math uses the visitor's editable input.
 const paCounties = [
-  { value: '', label: 'Select your county', transferTaxRate: 0.01, propertyTaxRate: 0.025 },
-  { value: 'lackawanna', label: 'Lackawanna County', transferTaxRate: 0.01, propertyTaxRate: 0.028 },
-  { value: 'luzerne', label: 'Luzerne County', transferTaxRate: 0.01, propertyTaxRate: 0.029 },
-  { value: 'lehigh', label: 'Lehigh County', transferTaxRate: 0.01, propertyTaxRate: 0.025 },
-  { value: 'northampton', label: 'Northampton County', transferTaxRate: 0.01, propertyTaxRate: 0.024 },
-  { value: 'monroe', label: 'Monroe County', transferTaxRate: 0.01, propertyTaxRate: 0.022 },
-  { value: 'schuylkill', label: 'Schuylkill County', transferTaxRate: 0.01, propertyTaxRate: 0.027 },
-  { value: 'berks', label: 'Berks County', transferTaxRate: 0.01, propertyTaxRate: 0.026 },
-  { value: 'carbon', label: 'Carbon County', transferTaxRate: 0.01, propertyTaxRate: 0.025 },
-  { value: 'pike', label: 'Pike County', transferTaxRate: 0.0125, propertyTaxRate: 0.018 },
-  { value: 'wayne', label: 'Wayne County', transferTaxRate: 0.01, propertyTaxRate: 0.020 },
-  { value: 'wyoming', label: 'Wyoming County', transferTaxRate: 0.01, propertyTaxRate: 0.023 },
-  { value: 'columbia', label: 'Columbia County', transferTaxRate: 0.01, propertyTaxRate: 0.024 },
-  { value: 'susquehanna', label: 'Susquehanna County', transferTaxRate: 0.005, propertyTaxRate: 0.021 },
+  { value: '', label: 'Select your county' },
+  { value: 'lackawanna', label: 'Lackawanna County' },
+  { value: 'luzerne', label: 'Luzerne County' },
+  { value: 'lehigh', label: 'Lehigh County' },
+  { value: 'northampton', label: 'Northampton County' },
+  { value: 'monroe', label: 'Monroe County' },
+  { value: 'schuylkill', label: 'Schuylkill County' },
+  { value: 'berks', label: 'Berks County' },
+  { value: 'carbon', label: 'Carbon County' },
+  { value: 'pike', label: 'Pike County' },
+  { value: 'wayne', label: 'Wayne County' },
+  { value: 'wyoming', label: 'Wyoming County' },
+  { value: 'columbia', label: 'Columbia County' },
+  { value: 'susquehanna', label: 'Susquehanna County' },
 ]
 
 // Repair categories with checkbox items
@@ -145,19 +151,19 @@ const conditionQuestions = [
 // Guided answer → repair item mappings (uses actual checklist item IDs)
 const guidedRepairMappings: Record<string, Record<number, { items: string[]; windowCount?: number }>> = {
   systems: {
-    0: { items: ['roof-partial'] },
+    0: { items: [] },
     1: { items: ['roof-partial', 'water-heater'], windowCount: 4 },
     2: { items: ['roof-full', 'ac', 'water-heater'], windowCount: 8 },
     3: { items: ['roof-full', 'hvac-full', 'water-heater', 'siding'], windowCount: 15 },
   },
   interior: {
-    0: { items: ['paint', 'drywall'] },
+    0: { items: [] },
     1: { items: ['electrical-minor', 'plumbing-minor', 'kitchen-cosmetic', 'bathroom-cosmetic', 'drywall', 'paint'] },
     2: { items: ['kitchen-full', 'bathroom-full', 'paint', 'drywall', 'plumbing-minor', 'electrical-minor'] },
     3: { items: ['kitchen-full', 'bathroom-full', 'flooring', 'paint', 'drywall', 'rewiring', 'plumbing-major'] },
   },
   structural: {
-    0: { items: ['landscaping'] },
+    0: { items: [] },
     1: { items: ['landscaping', 'concrete', 'waterproofing'] },
     2: { items: ['landscaping', 'concrete', 'waterproofing', 'foundation-cracks'] },
     3: { items: ['landscaping', 'concrete', 'waterproofing', 'settling', 'sewer', 'code'] },
@@ -190,27 +196,11 @@ function getGuidedRepairEstimate(answers: Record<string, number>): number {
   return total
 }
 
-// Age-based repair multiplier — softened curves, max 1.12×
-function getAgeMultiplier(yearBuilt: number): number {
-  if (yearBuilt <= 0) return 1.0
-  if (yearBuilt >= 2000) return 0.95
-  if (yearBuilt >= 1980) return 1.0
-  if (yearBuilt >= 1960) return 1.05
-  if (yearBuilt >= 1940) return 1.08
-  return 1.12
-}
-
-// Sqft-based repair multiplier — tighter range 0.90–1.15× (base ~1,800 sqft)
-function getSqftMultiplier(sqft: number): number {
-  if (sqft <= 0) return 1.0
-  return Math.max(0.90, Math.min(1.15, 1 + (sqft - 1800) / 4000))
-}
-
 // Timeline options
 const timelineOptions = [
-  { value: 'asap', label: 'Need to sell ASAP (under 30 days)', monthsAdjust: -1 },
-  { value: 'flexible', label: 'Some flexibility (1-3 months)', monthsAdjust: 0 },
-  { value: 'no-rush', label: 'No rush (3+ months)', monthsAdjust: 1 },
+  { value: 'asap', label: 'Need to sell ASAP (under 30 days)' },
+  { value: 'flexible', label: 'Some flexibility (1-3 months)' },
+  { value: 'no-rush', label: 'No rush (3+ months)' },
 ]
 
 // Format number with commas as user types
@@ -218,46 +208,6 @@ function formatWithCommas(value: string, maxDigits: number): string {
   const numericOnly = value.replace(/[^0-9]/g, '')
   const limited = numericOnly.slice(0, maxDigits)
   return limited.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-}
-
-// Calculate PA-regulated title insurance
-function calculateTitleInsurance(homeValue: number): number {
-  if (homeValue <= 100000) return homeValue * 0.00575
-  if (homeValue <= 500000) return (100000 * 0.00575) + ((homeValue - 100000) * 0.005)
-  if (homeValue <= 1000000) return (100000 * 0.00575) + (400000 * 0.005) + ((homeValue - 500000) * 0.0045)
-  return (100000 * 0.00575) + (400000 * 0.005) + (500000 * 0.0045) + ((homeValue - 1000000) * 0.0035)
-}
-
-// Get cash offer percentage based on repair total — 9 granular tiers, 32% floor
-function getCashOfferPercent(totalRepairs: number): number {
-  if (totalRepairs <= 10000) return 0.68
-  if (totalRepairs <= 20000) return 0.63
-  if (totalRepairs <= 35000) return 0.58
-  if (totalRepairs <= 50000) return 0.53
-  if (totalRepairs <= 65000) return 0.48
-  if (totalRepairs <= 80000) return 0.43
-  if (totalRepairs <= 100000) return 0.38
-  if (totalRepairs <= 130000) return 0.33
-  return 0.32
-}
-
-// Sale-to-list price ratio — buyers negotiate down, especially on homes needing work
-function getSaleToListRatio(totalRepairs: number): number {
-  if (totalRepairs === 0) return 0.98
-  if (totalRepairs <= 15000) return 0.97
-  if (totalRepairs <= 35000) return 0.96
-  if (totalRepairs <= 65000) return 0.95
-  if (totalRepairs <= 100000) return 0.94
-  return 0.93
-}
-
-// Get months on market based on repair total
-function getMonthsOnMarket(totalRepairs: number): number {
-  if (totalRepairs === 0) return 3
-  if (totalRepairs <= 10000) return 4
-  if (totalRepairs <= 25000) return 5
-  if (totalRepairs <= 40000) return 6
-  return 7
 }
 
 // Tooltip component for result line items
@@ -393,8 +343,14 @@ export function Calculator({
   const [mortgageBalance, setMortgageBalance] = useState('')
   const [timeline, setTimeline] = useState('flexible')
   const [customRepairCost, setCustomRepairCost] = useState('')
-  const [yearBuilt, setYearBuilt] = useState('')
-  const [sqft, setSqft] = useState('')
+  const [cashOfferInput, setCashOfferInput] = useState('')
+  const [commissionRateInput, setCommissionRateInput] = useState('5')
+  const [transferTaxRateInput, setTransferTaxRateInput] = useState('1')
+  const [settlementCostsInput, setSettlementCostsInput] = useState('0')
+  const [inspectionConcessionsInput, setInspectionConcessionsInput] = useState('0')
+  const [traditionalMonthsInput, setTraditionalMonthsInput] = useState('2')
+  const [monthlyHoldingCostInput, setMonthlyHoldingCostInput] = useState('0')
+  const [cashSellerCostsInput, setCashSellerCostsInput] = useState('0')
   const [conditionAnswers, setConditionAnswers] = useState<Record<string, number>>({})
   const [showDetailedRepairs, setShowDetailedRepairs] = useState(false)
 
@@ -415,28 +371,27 @@ export function Calculator({
   const [results, setResults] = useState<{
     traditional: {
       salePrice: number
-      negotiationDiscount: number
       repairs: number
       commission: number
+      commissionRate: number
       transferTax: number
-      titleInsurance: number
+      transferTaxRate: number
       settlementFees: number
       inspectionConcessions: number
-      warrantyCompliance: number
       carryingCosts: number
       carryingMonths: number
       mortgagePayoff: number
       netProceeds: number
-      riskAdjustedNet: number
-      countyName: string
     }
-    cash: {
+    cash: null | {
       offer: number
+      sellerCosts: number
       mortgagePayoff: number
       netProceeds: number
     }
-    difference: number
+    difference: number | null
     cashBetter: boolean
+    tied: boolean
   } | null>(null)
 
   const resultsRef = useRef<HTMLDivElement>(null)
@@ -462,18 +417,11 @@ export function Calculator({
   // Guided condition assessment repair estimate
   const allQuestionsAnswered = conditionQuestions.every(q => conditionAnswers[q.id] !== undefined && conditionAnswers[q.id] >= 0)
   const baseGuidedEstimate = allQuestionsAnswered ? getGuidedRepairEstimate(conditionAnswers) : 0
-  const yearVal = parseInt(yearBuilt) || 0
-  const sqftVal = parseInt(sqft.replace(/[^0-9]/g, '')) || 0
-  const ageMultiplier = getAgeMultiplier(yearVal)
-  const sqftMultiplier = getSqftMultiplier(sqftVal)
-  const guidedRepairEstimate = baseGuidedEstimate > 0
-    ? Math.round(baseGuidedEstimate * ageMultiplier * sqftMultiplier)
-    : 0
+  const guidedRepairEstimate = Math.round(baseGuidedEstimate)
 
-  // Grand total repairs — apply age/sqft multipliers to both methods
-  const detailedRepairEstimate = (checkedRepairsTotal + customAmount) > 0
-    ? Math.round((checkedRepairsTotal + customAmount) * ageMultiplier * sqftMultiplier)
-    : 0
+  // Keep itemized costs exactly as selected. A blanket home-age or size
+  // multiplier can distort unrelated jobs and double-count quantities.
+  const detailedRepairEstimate = Math.round(checkedRepairsTotal + customAmount)
   const totalRepairs = showDetailedRepairs ? detailedRepairEstimate : guidedRepairEstimate
 
   // Toggle category expansion
@@ -562,74 +510,66 @@ export function Calculator({
       setMortgageWarning('')
     }
 
-    const selectedCounty = paCounties.find(c => c.value === county)!
     const repairs = totalRepairs
 
-    // Traditional sale calculation — apply sale-to-list ratio (buyers negotiate down)
-    const saleToListRatio = getSaleToListRatio(repairs)
-    const expectedSalePrice = homeVal * saleToListRatio
-    const negotiationDiscount = homeVal - expectedSalePrice
+    // Every assumption below is visible and editable in the form. Do not
+    // silently manufacture a sale-price discount, inspection concession,
+    // municipal tax rate, or holding-cost estimate.
+    const expectedSalePrice = homeVal
+    const commissionRate = Math.max(0, parseFloat(commissionRateInput) || 0)
+    const transferTaxRate = Math.max(0, parseFloat(transferTaxRateInput) || 0)
+    const settlementFees = parseFloat(settlementCostsInput.replace(/[^0-9.]/g, '')) || 0
+    const inspectionConcessions = parseFloat(inspectionConcessionsInput.replace(/[^0-9.]/g, '')) || 0
+    const carryingMonths = Math.max(0, parseFloat(traditionalMonthsInput) || 0)
+    const monthlyHoldingCost = parseFloat(monthlyHoldingCostInput.replace(/[^0-9.]/g, '')) || 0
+    const traditionalScenario = calculateTraditionalSaleScenario({
+      moveInReadyValue: expectedSalePrice,
+      repairs,
+      agentCompensationPercent: commissionRate,
+      sellerTransferTaxPercent: transferTaxRate,
+      otherSellerSettlementCosts: settlementFees,
+      inspectionConcessions,
+      holdingMonths: carryingMonths,
+      monthlyHoldingCosts: monthlyHoldingCost,
+      mortgagePayoff: mortgageVal,
+    })
+    const traditionalNet = traditionalScenario.netProceeds
 
-    const agentCommission = expectedSalePrice * 0.0581
-    const transferTax = expectedSalePrice * selectedCounty.transferTaxRate
-    const titleInsurance = calculateTitleInsurance(expectedSalePrice)
-    const settlementFees = 1575 // Fixed amount
-    const inspectionConcessions = expectedSalePrice * 0.0225
-    const warrantyCompliance = 850 // Fixed amount
-
-    // Carrying costs calculation
-    const baseMonths = getMonthsOnMarket(repairs)
-    const timelineAdjust = timelineOptions.find(t => t.value === timeline)?.monthsAdjust || 0
-    const carryingMonths = Math.max(2, baseMonths + timelineAdjust)
-
-    // Monthly carrying costs — use actual mortgage balance instead of assumed 70% LTV
-    const monthlyMortgage = hasMortgage === 'yes' ? (mortgageVal * 0.065) / 12 : 0
-    const monthlyPropertyTax = (homeVal * selectedCounty.propertyTaxRate) / 12
-    const monthlyInsurance = 135
-    const monthlyUtilities = 225
-    const monthlyMaintenance = 100
-    const monthlyCarrying = monthlyMortgage + monthlyPropertyTax + monthlyInsurance + monthlyUtilities + monthlyMaintenance
-    const carryingCosts = monthlyCarrying * carryingMonths
-
-    const traditionalNet = expectedSalePrice - repairs - agentCommission - transferTax - titleInsurance - settlementFees - inspectionConcessions - warrantyCompliance - carryingCosts - mortgageVal
-
-    // Risk-adjusted traditional net — 18% of PA deals fall through, costing time, money, and restarting
-    const riskAdjustedNet = traditionalNet * 0.82
-
-    // Cash offer calculation
-    const cashPercent = getCashOfferPercent(repairs)
-    const cashOffer = homeVal * cashPercent
-    const cashNet = cashOffer - mortgageVal
-
-    // Compare using risk-adjusted traditional net
-    const difference = riskAdjustedNet - cashNet
-    const cashBetter = difference < 0
+    // A real written cash offer is optional. If the visitor does not have one,
+    // we calculate only the traditional scenario instead of inventing an offer.
+    const cashOffer = parseFloat(cashOfferInput.replace(/[^0-9.]/g, '')) || 0
+    const cashSellerCosts = parseFloat(cashSellerCostsInput.replace(/[^0-9.]/g, '')) || 0
+    const cashNet = cashOffer > 0
+      ? calculateWrittenCashNet(cashOffer, mortgageVal, cashSellerCosts)
+      : null
+    const comparison = cashNet === null
+      ? null
+      : compareRoundedNetEstimates(traditionalNet, cashNet)
 
     setResults({
       traditional: {
         salePrice: homeVal,
-        negotiationDiscount: Math.round(negotiationDiscount),
         repairs,
-        commission: Math.round(agentCommission),
-        transferTax: Math.round(transferTax),
-        titleInsurance: Math.round(titleInsurance),
-        settlementFees,
+        commission: Math.round(traditionalScenario.agentCompensation),
+        commissionRate,
+        transferTax: Math.round(traditionalScenario.sellerTransferTax),
+        transferTaxRate,
+        settlementFees: Math.round(settlementFees),
         inspectionConcessions: Math.round(inspectionConcessions),
-        warrantyCompliance,
-        carryingCosts: Math.round(carryingCosts),
+        carryingCosts: Math.round(traditionalScenario.holdingCosts),
         carryingMonths,
         mortgagePayoff: Math.round(mortgageVal),
-        netProceeds: Math.round(traditionalNet),
-        riskAdjustedNet: Math.round(riskAdjustedNet),
-        countyName: selectedCounty.label,
+        netProceeds: comparison?.traditionalNet ?? Math.round(traditionalNet),
       },
-      cash: {
+      cash: comparison ? {
         offer: Math.round(cashOffer),
+        sellerCosts: Math.round(cashSellerCosts),
         mortgagePayoff: Math.round(mortgageVal),
-        netProceeds: Math.round(cashNet),
-      },
-      difference: Math.round(Math.abs(difference)),
-      cashBetter,
+        netProceeds: comparison.cashNet,
+      } : null,
+      difference: comparison?.difference ?? null,
+      cashBetter: comparison?.winner === 'cash',
+      tied: comparison?.winner === 'tie',
     })
 
     setShowResults(true)
@@ -668,10 +608,21 @@ export function Calculator({
   const getDynamicMessage = () => {
     if (!results) return null
 
-    const diff = results.difference
-    const repairs = results.traditional.repairs
+    if (!results.cash) {
+      return (
+        <div className="bg-surface-cream border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+          <p className="text-ce-ink/80">
+            <span className="font-semibold text-ce-ink">Your estimated traditional-sale net is ${results.traditional.netProceeds.toLocaleString()}.</span> That number uses the repair budget and the editable cost assumptions you entered.
+          </p>
+          <p className="text-ce-ink/80">
+            We did not estimate a ClearEdge offer from a hidden percentage or label either route the winner. Enter a written cash offer above, or <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">request a no-obligation ClearEdge offer</button> and compare the actual contract terms.
+          </p>
+        </div>
+      )
+    }
+
+    const diff = results.difference ?? 0
     const months = results.traditional.carryingMonths
-    const monthlyCarry = months > 0 ? Math.round(results.traditional.carryingCosts / months) : 0
     const hasMtg = results.traditional.mortgagePayoff > 0
     const isAsap = timeline === 'asap'
 
@@ -680,22 +631,22 @@ export function Calculator({
       return (
         <div className="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-2xl space-y-3">
           <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">We want to be upfront with you — both routes show negative equity at these numbers.</span> That means the combination of your mortgage balance, repair costs, and selling expenses would exceed what the home brings in.
+            <span className="font-semibold text-ce-ink">Both modeled routes show negative proceeds with the numbers entered.</span> In each scenario, the mortgage payoff and seller costs are greater than the expected sale proceeds.
           </p>
           <p className="text-ce-ink/80">
-            This is more common than most people realize, especially with older homes that need significant work. It doesn&apos;t mean you&apos;re out of options — it means you need the right guidance before making a move.
+            Recheck the payoff amount, expected sale price, repairs, and seller-paid costs before relying on this result. A lender, attorney, or housing counselor can explain options that depend on your loan and circumstances.
           </p>
           <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">Here are paths forward worth exploring:</span>
+            <span className="font-semibold text-ce-ink">Useful next steps:</span>
           </p>
           <ul className="text-ce-ink/80 space-y-1.5 pl-4">
-            <li>&bull; <span className="font-medium">Talk to your lender about a short sale</span> — they may accept less than the full payoff to avoid foreclosure costs</li>
-            <li>&bull; <span className="font-medium">Get a real offer before deciding</span> — our estimate is conservative, and your actual property may appraise differently</li>
-            {isAsap && <li>&bull; <span className="font-medium">Act sooner rather than later</span> — carrying costs are adding to the gap every month you wait</li>}
-            <li>&bull; <span className="font-medium">Request a no-obligation consultation</span> — we&apos;ve helped sellers in this exact situation find a path that works</li>
+            <li>&bull; <span className="font-medium">Ask your lender for a current written payoff</span> so the largest deduction is accurate</li>
+            <li>&bull; <span className="font-medium">Compare actual offers and contracts</span> rather than relying on an estimated sale price</li>
+            {isAsap && <li>&bull; <span className="font-medium">Include timing in the comparison</span> because each additional month may change the holding costs you entered</li>}
+            <li>&bull; <span className="font-medium">Get independent advice when needed</span> before considering a short sale or other loan-related option</li>
           </ul>
           <p className="text-ce-ink/80">
-            Every situation is different, and these numbers are estimates. Let us look at your specific property — there may be more equity here than the calculator shows. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get a free, no-obligation consultation →</button>
+            These are estimates, not a valuation or legal, tax, or financial advice. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Request a free, no-obligation property review →</button>
           </p>
         </div>
       )
@@ -706,134 +657,62 @@ export function Calculator({
       return (
         <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
           <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">The traditional route would actually cost you money at these numbers</span> — by the time you pay for repairs, commissions, closing costs, and {months} months of carrying expenses, you&apos;d walk away in the negative.
+            <span className="font-semibold text-ce-ink">The traditional-sale scenario shows negative proceeds with the assumptions entered.</span> The written cash offer shows an estimated net of <span className="font-semibold text-ce-green">${results.cash.netProceeds.toLocaleString()}</span> after the mortgage payoff and cash-contract seller costs you entered.
           </p>
           <p className="text-ce-ink/80">
-            A cash sale is the only path that puts money in your pocket here: <span className="font-semibold text-ce-green">${results.cash.netProceeds.toLocaleString()}</span> with zero out-of-pocket costs, no repairs, and a guaranteed close in 14–30 days{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
+            Verify the traditional sale price and costs, then review the cash contract&apos;s repair terms, contingencies, closing date, and every seller-paid item before deciding{hasMtg && <>. The model deducts your ${results.traditional.mortgagePayoff.toLocaleString()} entered mortgage payoff from both routes</>}.
           </p>
           <p className="text-ce-ink/80">
-            This estimate is based on the condition you described — your actual offer may be higher once we evaluate the property. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+            <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Request a no-obligation ClearEdge offer →</button>
           </p>
         </div>
       )
     }
 
-    // Path 1: Traditional wins by $30K+
-    if (!results.cashBetter && diff >= 30000) {
-      return (
-        <div className="bg-surface-cream border-l-4 border-ce-ink/30 p-6 rounded-r-2xl space-y-3">
-          <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">Based on these estimates, listing with a local agent likely nets you more.</span> That&apos;s an honest answer, and we&apos;ll always give you one.
-          </p>
-          <p className="text-ce-ink/80">
-            But keep in mind what this estimate assumes: a {months}-month process from start to closing — that includes{repairs > 0 && <> time to complete ${repairs.toLocaleString()} in repairs before you can even list,</>} time on the market waiting for offers, buyer inspections and negotiations, and 30–45 days to close. During all {months} months, you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities whether the home is listed or not. It also assumes no price reductions, no second round of buyer negotiations, and no deal falling through — which happens 15–20% of the time in PA.
-          </p>
-          {isAsap && (
-            <p className="text-ce-ink/80">
-              You mentioned needing to sell quickly. The traditional route&apos;s {months}-month timeline may not align with your situation.
-            </p>
-          )}
-          <p className="text-ce-ink/80">
-            If certainty and speed matter, it&apos;s still worth seeing your real number. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
-          </p>
-        </div>
-      )
-    }
-
-    // Path 2: Traditional wins by $20K–$30K
-    if (!results.cashBetter && diff >= 20000) {
-      return (
-        <div className="bg-surface-cream border-l-4 border-yellow-600 p-6 rounded-r-2xl space-y-3">
-          <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">The traditional route shows a higher net on paper — but look at what it takes to get there.</span>
-          </p>
-          <p className="text-ce-ink/80">
-            The full process takes roughly {months} months{repairs > 0 && <> — first you&apos;d spend ${repairs.toLocaleString()} getting the home repair-ready, then listing, showings, negotiations, inspection, and closing</>}. Every one of those months you&apos;re paying ~${monthlyCarry.toLocaleString()} in mortgage, property taxes, insurance, and utilities. That&apos;s ${results.traditional.carryingCosts.toLocaleString()} in carrying costs{hasMtg && <>, on top of your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage payoff</>}.
-          </p>
-          {isAsap && (
-            <p className="text-ce-ink/80">
-              You indicated you need to sell quickly — waiting {months} months may not be realistic for your timeline.
-            </p>
-          )}
-          <p className="text-ce-ink/80">
-            Many sellers in this range choose the certainty of a guaranteed close over the risk of a traditional sale. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
-          </p>
-        </div>
-      )
-    }
-
-    // Path 3: Traditional wins by $10K–$20K
-    if (!results.cashBetter && diff >= 10000) {
-      return (
-        <div className="bg-surface-cream border-l-4 border-yellow-500 p-6 rounded-r-2xl space-y-3">
-          <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">The gap is thinner than most sellers expect.</span> The traditional route shows ${diff.toLocaleString()} more — but that difference shrinks fast when you factor in reality.
-          </p>
-          <p className="text-ce-ink/80">
-            {repairs > 0 && <>You&apos;d need to spend ${repairs.toLocaleString()} on repairs before you can even list. </>}From there, it&apos;s showings, offers, inspections, negotiations, and closing — the entire process runs about {months} months start to finish. During all of it, you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities. One price reduction, one buyer walking away, or one failed inspection — and that ${diff.toLocaleString()} advantage disappears.
-          </p>
-          {isAsap && (
-            <p className="text-ce-ink/80">
-              Given your timeline urgency, a guaranteed close in 14–30 days may be worth more than a slightly higher number {months} months from now.
-            </p>
-          )}
-          <p className="text-ce-ink/80">
-            <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">See what ClearEdge can guarantee you →</button>
-          </p>
-        </div>
-      )
-    }
-
-    // Path 4: Within $10K either way
+    // Close outcomes: emphasize that timing and contract terms can matter as much as the estimate.
     if (diff < 10000) {
       return (
         <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
           <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-ink">These two routes are essentially a wash — within ${diff.toLocaleString()} of each other.</span>
+            <span className="font-semibold text-ce-ink">
+              {results.tied
+                ? 'These two routes have the same estimated net.'
+                : <>These two routes are essentially a wash — within ${diff.toLocaleString()} of each other.</>}
+            </span>
           </p>
           <p className="text-ce-ink/80">
-            The difference is how you get there. The traditional route takes about {months} months from start to finish —{repairs > 0 && <> repairs, then</>} listing, showings, negotiations, inspection, and closing — and you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities the entire time. There&apos;s also a 15–20% chance the deal falls through and you start over. A cash offer closes in 14–30 days, guaranteed — with zero out-of-pocket costs{hasMtg && <> and your mortgage paid off at closing</>}.
+            The traditional route uses the {months}-month timeline and holding-cost assumption you entered. A financed offer may be subject to financing, appraisal, inspection, and other contract terms. Review the written cash offer&apos;s own timing, contingencies, assignment language, and seller-paid costs.
           </p>
           {isAsap && (
             <p className="text-ce-ink/80">
-              You mentioned needing to sell fast. For essentially the same net, cash gets you there in weeks instead of months.
+              You mentioned needing to sell fast. Compare the closing date in the written cash offer with the traditional timeline you entered.
             </p>
           )}
           <p className="text-ce-ink/80">
-            For a difference this small, most sellers choose certainty. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+            For a difference this small, compare the timing and contract terms as well as the estimated proceeds. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your no-obligation cash offer →</button>
           </p>
         </div>
       )
     }
 
-    // Path 5: Cash wins by up to $15K
-    if (results.cashBetter && diff < 15000) {
-      return (
-        <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
-          <p className="text-ce-ink/80">
-            <span className="font-semibold text-ce-green">A cash sale puts more money in your pocket — ${diff.toLocaleString()} more.</span> And that&apos;s before accounting for the risk, stress, and time cost of the traditional route.
-          </p>
-          <p className="text-ce-ink/80">
-            With a cash offer, you skip the entire {months}-month process — no repairs, no listing, no showings, no negotiations. You stop paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities{repairs > 0 && <>, and avoid ${repairs.toLocaleString()} in out-of-pocket repair costs</>}. Close in 14–30 days with zero risk of the deal falling through{hasMtg && <>. Your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}.
-          </p>
-          <p className="text-ce-ink/80">
-            <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
-          </p>
-        </div>
-      )
-    }
+    const winnerLabel = results.cashBetter ? 'The written cash offer' : 'The traditional-sale scenario'
+    const winnerClass = results.cashBetter ? 'text-ce-green' : 'text-ce-ink'
 
-    // Path 6: Cash wins by $15K+
     return (
-      <div className="bg-ce-green-subtle border-l-4 border-ce-green p-6 rounded-r-2xl space-y-3">
+      <div className={`${results.cashBetter ? 'bg-ce-green-subtle border-ce-green' : 'bg-surface-cream border-ce-ink/30'} border-l-4 p-6 rounded-r-2xl space-y-3`}>
         <p className="text-ce-ink/80">
-          <span className="font-semibold text-ce-green">At this condition level, cash is the clear financial winner — ${diff.toLocaleString()} more in your pocket.</span>
+          <span className={`font-semibold ${winnerClass}`}>{winnerLabel} has the higher modeled net by ${diff.toLocaleString()}.</span>
         </p>
         <p className="text-ce-ink/80">
-          The traditional route takes about {months} months start to finish —{repairs > 0 && <> repairs, then</>} listing, showings, inspections, negotiations, and closing. During all of it you&apos;re paying ~${monthlyCarry.toLocaleString()}/month in mortgage, taxes, insurance, and utilities. Add commissions, transfer taxes, and closing costs{repairs > 0 && <> — plus ${repairs.toLocaleString()} in repairs you&apos;d need to pay out of pocket before you can even list</>} — and the math clearly favors selling as-is.
+          This result comes only from the sale prices, repairs, mortgage payoff, timeline, and seller costs entered above. Change any uncertain assumption to see how sensitive the difference is.
         </p>
+        {isAsap && (
+          <p className="text-ce-ink/80">
+            You indicated that timing matters. Compare the cash contract&apos;s stated closing date with the {months}-month traditional timeline you entered.
+          </p>
+        )}
         <p className="text-ce-ink/80">
-          You&apos;d close in 14–30 days, skip all repairs and fees{hasMtg && <>, and your ${results.traditional.mortgagePayoff.toLocaleString()} mortgage gets paid off at closing</>}. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Get your guaranteed cash offer →</button>
+          Compare the written offer&apos;s price, repair terms, closing date, contingencies, assignment language, and seller-paid costs before treating the modeled difference as final{hasMtg && <>, and confirm the current mortgage payoff with your lender</>}. <button onClick={scrollToForm} className="text-ce-green hover:underline font-medium">Request a no-obligation ClearEdge offer →</button>
         </p>
       </div>
     )
@@ -905,11 +784,11 @@ export function Calculator({
                 ))}
               </select>
               {countyError && (
-                <p className="mt-1.5 text-sm text-red-500">Please select your county for accurate local pricing.</p>
+                <p className="mt-1.5 text-sm text-red-500">Please select your county.</p>
               )}
               <p className="mt-1.5 text-sm text-ce-ink/50 flex items-start gap-1">
                 <HelpCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                Selecting your county gives you a more accurate estimate based on local transfer tax rates.
+                We use this to show relevant local resources. Transfer taxes vary by municipality and contract, so you can enter your own seller share below.
               </p>
             </div>
 
@@ -1005,37 +884,6 @@ export function Calculator({
                 Property Condition
               </label>
 
-              {/* Optional: Year Built & Sqft */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div>
-                  <label className="block text-xs text-ce-ink/50 mb-1">Year built (optional)</label>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    value={yearBuilt}
-                    onChange={(e) => {
-                      const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4)
-                      setYearBuilt(v)
-                    }}
-                    placeholder="e.g. 1965"
-                    className="w-full px-3 py-2 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-sm bg-white"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-ce-ink/50 mb-1">Approx. sq ft (optional)</label>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    value={sqft}
-                    onChange={(e) => {
-                      setSqft(formatWithCommas(e.target.value, 4))
-                    }}
-                    placeholder="e.g. 1,800"
-                    className="w-full px-3 py-2 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none transition-all text-sm bg-white"
-                  />
-                </div>
-              </div>
-
               {!showDetailedRepairs && (
                 <div className="space-y-4">
                   <p className="text-sm text-ce-ink/60">
@@ -1073,11 +921,6 @@ export function Calculator({
                           ${guidedRepairEstimate.toLocaleString()}
                         </span>
                       </div>
-                      {(yearVal > 0 || sqftVal > 0) && baseGuidedEstimate > 0 && (
-                        <p className="text-xs text-ce-ink/50 mt-2">
-                          Adjusted for {yearVal > 0 ? `${yearVal} build` : ''}{yearVal > 0 && sqftVal > 0 ? ' and ' : ''}{sqftVal > 0 ? `${sqftVal.toLocaleString()} sq ft` : ''}
-                        </p>
-                      )}
                     </div>
                   )}
                 </div>
@@ -1257,11 +1100,6 @@ export function Calculator({
                         ${totalRepairs.toLocaleString()}
                       </span>
                     </div>
-                    {(yearVal > 0 || sqftVal > 0) && (checkedRepairsTotal + customAmount) > 0 && totalRepairs !== (checkedRepairsTotal + customAmount) && (
-                      <p className="text-xs text-ce-ink/50 mt-2">
-                        Adjusted for {yearVal > 0 ? `${yearVal} build` : ''}{yearVal > 0 && sqftVal > 0 ? ' and ' : ''}{sqftVal > 0 ? `${sqftVal.toLocaleString()} sq ft` : ''}
-                      </p>
-                    )}
                   </div>
                 </div>
               )}
@@ -1294,6 +1132,125 @@ export function Calculator({
                   </label>
                 ))}
               </div>
+            </div>
+
+            {/* Optional real offer and editable comparison assumptions */}
+            <div className="rounded-2xl border border-ce-green/20 bg-ce-green-subtle/40 p-5 space-y-5">
+              <div>
+                <h3 className="font-semibold text-ce-ink">Make the comparison yours</h3>
+                <p className="text-sm text-ce-ink/60 mt-1">
+                  Every cost below is visible and editable. Leave the cash-offer field blank if you do not have a written offer yet—we will calculate the traditional-sale estimate without inventing a cash number.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Written cash offer to compare (optional)</label>
+                  <div className="relative">
+                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ce-ink/40" />
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={cashOfferInput}
+                      onChange={(e) => setCashOfferInput(formatWithCommas(e.target.value, 8))}
+                      placeholder="e.g. 190,000"
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Seller costs in that cash contract</label>
+                  <div className="relative">
+                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ce-ink/40" />
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={cashSellerCostsInput}
+                      onChange={(e) => setCashSellerCostsInput(formatWithCommas(e.target.value, 7))}
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Total agent compensation (%)</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="15"
+                    step="0.1"
+                    value={commissionRateInput}
+                    onChange={(e) => setCommissionRateInput(e.target.value)}
+                    className="w-full px-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Seller transfer-tax share (%)</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="10"
+                    step="0.1"
+                    value={transferTaxRateInput}
+                    onChange={(e) => setTransferTaxRateInput(e.target.value)}
+                    className="w-full px-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Other seller settlement costs</label>
+                  <div className="relative">
+                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ce-ink/40" />
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={settlementCostsInput}
+                      onChange={(e) => setSettlementCostsInput(formatWithCommas(e.target.value, 7))}
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Expected inspection concessions</label>
+                  <div className="relative">
+                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ce-ink/40" />
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={inspectionConcessionsInput}
+                      onChange={(e) => setInspectionConcessionsInput(formatWithCommas(e.target.value, 7))}
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Months until traditional closing</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="24"
+                    step="0.5"
+                    value={traditionalMonthsInput}
+                    onChange={(e) => setTraditionalMonthsInput(e.target.value)}
+                    className="w-full px-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-ce-ink mb-1.5">Monthly holding costs</label>
+                  <div className="relative">
+                    <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-ce-ink/40" />
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={monthlyHoldingCostInput}
+                      onChange={(e) => setMonthlyHoldingCostInput(formatWithCommas(e.target.value, 7))}
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ce-ink/10 focus:border-ce-green focus:ring-2 focus:ring-ce-green/20 outline-none bg-white"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs text-ce-ink/60">
+                The 5% commission and 1% seller transfer-tax share are editable starting assumptions, not promises or statewide rules. Compensation is negotiable; local transfer-tax rates and the buyer/seller allocation depend on the municipality and purchase agreement. Title insurance is not charged to the seller by default here.
+              </p>
             </div>
 
             {/* Calculate Button */}
@@ -1330,18 +1287,11 @@ export function Calculator({
                   <h3 className="font-serif text-lg font-medium text-ce-ink">Traditional Sale with Realtor</h3>
                 </div>
 
-                {/* List price → Expected sale price */}
+                {/* Visitor-entered move-in-ready value */}
                 <div className="mb-4 text-sm">
-                  <div className="flex justify-between mb-1">
-                    <span className="text-ce-ink/70">Your list price:</span>
-                    <span className="text-ce-ink/70">${results.traditional.salePrice.toLocaleString()}</span>
-                  </div>
-                  <p className="text-ce-ink/50 text-xs mb-2">
-                    PA homes sell for ~{Math.round((1 - results.traditional.negotiationDiscount / results.traditional.salePrice) * 100)}% of asking price on average. Based on market data, your expected sale price:
-                  </p>
                   <div className="flex justify-between items-center bg-gray-50 rounded-lg px-3 py-2">
-                    <span className="font-semibold text-ce-ink">Expected sale price:</span>
-                    <span className="font-bold text-ce-ink text-lg">${(results.traditional.salePrice - results.traditional.negotiationDiscount).toLocaleString()}</span>
+                    <span className="font-semibold text-ce-ink">Move-in-ready value entered:</span>
+                    <span className="font-bold text-ce-ink text-lg">${results.traditional.salePrice.toLocaleString()}</span>
                   </div>
                 </div>
 
@@ -1353,31 +1303,23 @@ export function Calculator({
                       <span>-${results.traditional.repairs.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
-                      <Tooltip label="Agent commissions (5.81%)" tip="The combined PA average for listing agent + buyer's agent. Even after the 2024 NAR settlement, most PA sellers still offer buyer's agent commission to attract more showings." />
+                      <Tooltip label={`Agent compensation (${results.traditional.commissionRate}%)`} tip="The editable total percentage you entered. Broker compensation is negotiable and should match your listing agreement and any seller-paid buyer-broker compensation you expect." />
                       <span>-${results.traditional.commission.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
-                      <Tooltip label={`Transfer tax (${results.traditional.countyName})`} tip="PA charges a real estate transfer tax split between buyer and seller. Your county's rate is applied to the full sale price." />
+                      <Tooltip label={`Seller transfer-tax share (${results.traditional.transferTaxRate}%)`} tip="The editable share you entered. Pennsylvania has a 1% state tax plus local tax, and the buyer/seller allocation can be set by contract. Municipality—not county alone—affects the local rate." />
                       <span>-${results.traditional.transferTax.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
-                      <Tooltip label="Title insurance" tip="PA title insurance rates are state-regulated — every company charges the same. The seller typically pays for the owner's policy protecting the buyer's lender." />
-                      <span>-${results.traditional.titleInsurance.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between text-red-600">
-                      <Tooltip label="Settlement &amp; recording fees" tip="Title company and county fees to process your sale: settlement fee, title search, document prep, notary, recording fees, and municipal lien letter." />
+                      <Tooltip label="Other seller settlement costs" tip="The editable amount you entered for seller-paid settlement or contract costs. The calculator does not automatically charge the seller for the buyer's title-insurance policy." />
                       <span>-${results.traditional.settlementFees.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
-                      <Tooltip label="Inspection concessions (2.25%)" tip="After the buyer's home inspection, they almost always negotiate credits or repairs. In Eastern PA's older housing stock, this averages 2–3% of the sale price." />
+                      <Tooltip label="Inspection concessions" tip="The editable amount you entered. It defaults to $0 because an inspection does not automatically result in a seller credit." />
                       <span>-${results.traditional.inspectionConcessions.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-red-600">
-                      <Tooltip label="Home warranty + compliance" tip="Buyers frequently request a home warranty (~$500), plus you'll need a use & occupancy inspection, smoke/CO compliance, and pest inspection." />
-                      <span>-${results.traditional.warrantyCompliance.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between text-red-600">
-                      <Tooltip label={`Carrying costs (${results.traditional.carryingMonths} months)`} tip={`From the day you decide to sell until closing day, you're paying mortgage interest, property taxes, insurance, utilities, and maintenance every single month. This covers the full timeline: completing repairs, listing, showings, accepting an offer, inspections, negotiations, and closing — roughly ${results.traditional.carryingMonths} months start to finish.`} />
+                      <Tooltip label={`Holding costs (${results.traditional.carryingMonths} months)`} tip="Your editable monthly amount multiplied by your editable timeline. Use costs that will not already be captured in the final mortgage payoff." />
                       <span>-${results.traditional.carryingCosts.toLocaleString()}</span>
                     </div>
                     <div className={`flex justify-between ${results.traditional.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
@@ -1388,16 +1330,10 @@ export function Calculator({
                 </div>
 
                 <div className="pt-4 border-t border-ce-ink/10">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="font-semibold text-ce-ink">IF EVERYTHING GOES PERFECTLY:</span>
-                    <span className="text-xl font-bold text-ce-ink">
-                      <AnimatedNumber value={results.traditional.netProceeds} />
-                    </span>
-                  </div>
                   <div className="flex justify-between items-center mb-4 pb-3 border-b border-ce-ink/10">
-                    <Tooltip label="RISK-ADJUSTED ESTIMATE" tip="18% of home sales in PA fall through after going under contract — failed inspections, financing issues, buyer cold feet. When a deal falls through, you restart the process, adding months of carrying costs and often accepting a lower price. This estimate accounts for that real probability." />
-                    <span className="text-2xl font-bold text-red-600">
-                      <AnimatedNumber value={results.traditional.riskAdjustedNet} />
+                    <Tooltip label="ESTIMATED TRADITIONAL NET" tip="Estimated sale proceeds after the costs shown above and the mortgage balance you entered. This is not reduced by a speculative fall-through percentage. Liens, delinquent taxes, prorations, and other property-specific obligations are not included." />
+                    <span className="text-2xl font-bold text-ce-ink">
+                      <AnimatedNumber value={results.traditional.netProceeds} />
                     </span>
                   </div>
 
@@ -1411,87 +1347,98 @@ export function Calculator({
                       <span>${results.traditional.repairs.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-ce-ink/60">
-                      <span>Risk of deal falling through:</span>
-                      <span>15–20%</span>
+                      <span>Contract contingencies:</span>
+                      <span>May apply</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Cash Offer Card */}
-              <div className="bg-ce-green-subtle rounded-2xl p-6 border-2 border-ce-green/30 shadow-lg relative">
-                <div className="absolute -top-3 right-4 bg-ce-green text-white text-xs font-bold px-3 py-1 rounded-full">
-                  GUARANTEED
-                </div>
-
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-ce-green/20">
-                  <div className="w-10 h-10 bg-ce-green/20 rounded-lg flex items-center justify-center">
-                    <DollarSign className="w-5 h-5 text-ce-green" />
-                  </div>
-                  <h3 className="font-serif text-lg font-medium text-ce-ink">ClearEdge Cash Offer</h3>
-                </div>
-
-                <div className="space-y-2.5 mb-6 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-ce-ink/70">ClearEdge cash offer:</span>
-                    <span className="font-medium">${results.cash.offer.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between text-ce-green">
-                    <span>Repairs:</span>
-                    <span>$0</span>
-                  </div>
-                  <div className="flex justify-between text-ce-green">
-                    <span>Commissions:</span>
-                    <span>$0</span>
-                  </div>
-                  <div className="flex justify-between text-ce-green">
-                    <span>Closing costs:</span>
-                    <span>$0</span>
-                  </div>
-                  <div className="flex justify-between text-ce-green">
-                    <span>Carrying costs:</span>
-                    <span>$0</span>
-                  </div>
-                  <div className={`flex justify-between ${results.cash.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
-                    <span>Mortgage payoff:</span>
-                    <span>{results.cash.mortgagePayoff > 0 ? '-' : ''}${results.cash.mortgagePayoff.toLocaleString()}</span>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-ce-green/20">
-                  <div className="flex justify-between items-center mb-4">
-                    <span className="font-semibold text-ce-ink">YOUR ESTIMATED NET:</span>
-                    <span className="text-2xl font-bold text-ce-green">
-                      <AnimatedNumber value={results.cash.netProceeds} />
-                    </span>
+              {/* Written cash-offer comparison, or a neutral prompt if absent */}
+              {results.cash ? (
+                <div className="bg-ce-green-subtle rounded-2xl p-6 border-2 border-ce-green/30 shadow-lg relative">
+                  <div className="absolute -top-3 right-4 bg-ce-green text-white text-xs font-bold px-3 py-1 rounded-full">
+                    WRITTEN OFFER ENTERED
                   </div>
 
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between text-ce-ink/60">
-                      <span>Timeline:</span>
-                      <span className="text-ce-green font-medium">14–30 days</span>
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-ce-green/20">
+                    <div className="w-10 h-10 bg-ce-green/20 rounded-lg flex items-center justify-center">
+                      <DollarSign className="w-5 h-5 text-ce-green" />
                     </div>
-                    <div className="flex justify-between text-ce-ink/60">
-                      <span>Out of pocket:</span>
-                      <span className="text-ce-green font-medium">$0</span>
+                    <h3 className="font-serif text-lg font-medium text-ce-ink">Cash Offer You Entered</h3>
+                  </div>
+
+                  <div className="space-y-2.5 mb-6 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-ce-ink/70">Written cash offer:</span>
+                      <span className="font-medium">${results.cash.offer.toLocaleString()}</span>
                     </div>
-                    <div className="flex justify-between text-ce-ink/60">
-                      <span>Risk of deal falling through:</span>
-                      <span className="text-ce-green font-medium">0%</span>
+                    <div className="flex justify-between text-ce-green">
+                      <span>Upfront repairs:</span>
+                      <span>$0</span>
+                    </div>
+                    <div className="flex justify-between text-ce-green">
+                      <span>Agent compensation:</span>
+                      <span>$0</span>
+                    </div>
+                    <div className={`flex justify-between ${results.cash.sellerCosts > 0 ? 'text-red-600' : 'text-ce-green'}`}>
+                      <span>Seller costs entered:</span>
+                      <span>{results.cash.sellerCosts > 0 ? '-' : ''}${results.cash.sellerCosts.toLocaleString()}</span>
+                    </div>
+                    <div className={`flex justify-between ${results.cash.mortgagePayoff > 0 ? 'text-red-600' : 'text-ce-green'}`}>
+                      <span>Mortgage payoff:</span>
+                      <span>{results.cash.mortgagePayoff > 0 ? '-' : ''}${results.cash.mortgagePayoff.toLocaleString()}</span>
                     </div>
                   </div>
+
+                  <div className="pt-4 border-t border-ce-green/20">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="font-semibold text-ce-ink">ESTIMATED CASH NET*:</span>
+                      <span className="text-2xl font-bold text-ce-green">
+                        <AnimatedNumber value={results.cash.netProceeds} />
+                      </span>
+                    </div>
+                    <p className="text-sm text-ce-ink/60">
+                      Review the offer&apos;s timing, contingencies, and cost allocation before treating this as a final closing amount.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="bg-ce-green-subtle rounded-2xl p-6 border-2 border-ce-green/30 shadow-lg flex flex-col justify-center">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-10 h-10 bg-ce-green/20 rounded-lg flex items-center justify-center">
+                      <DollarSign className="w-5 h-5 text-ce-green" />
+                    </div>
+                    <h3 className="font-serif text-lg font-medium text-ce-ink">Cash Offer Comparison</h3>
+                  </div>
+                  <p className="text-ce-ink/70 mb-4">
+                    No written cash offer was entered, so this calculator did not invent one or declare a winner.
+                  </p>
+                  <button onClick={scrollToForm} className="text-left text-ce-green hover:underline font-medium">
+                    Request a no-obligation ClearEdge offer to compare →
+                  </button>
+                </div>
+              )}
             </div>
+
+            <p className="text-sm text-ce-ink/60 text-center -mt-3 mb-6">
+              *The estimate subtracts the mortgage balance entered. Final proceeds may also reflect liens, delinquent taxes, prorations, and other property-specific obligations shown on the closing statement.
+            </p>
 
             {/* Difference Summary */}
-            <div className="bg-ce-ink text-white rounded-2xl p-6 mb-8 text-center">
-              <p className="text-lg">
-                <span className="font-bold text-2xl">${results.difference.toLocaleString()}</span>{' '}
-                more with the{' '}
-                <span className="font-semibold">{results.cashBetter ? 'cash' : 'traditional'}</span> route
-              </p>
-            </div>
+            {results.cash && results.difference !== null && (
+              <div className="bg-ce-ink text-white rounded-2xl p-6 mb-8 text-center">
+                {results.tied ? (
+                  <p className="text-lg"><span className="font-bold text-2xl">Same estimated net</span> for both routes</p>
+                ) : (
+                  <p className="text-lg">
+                    <span className="font-bold text-2xl">${results.difference.toLocaleString()}</span>{' '}
+                    more with the{' '}
+                    <span className="font-semibold">{results.cashBetter ? 'cash' : 'traditional'}</span> route
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* Dynamic Context Message */}
             <div className="mb-8">
@@ -1505,7 +1452,7 @@ export function Calculator({
                   Want to see your REAL number?
                 </h3>
                 <p className="text-ce-ink/70 mb-6 max-w-xl mx-auto">
-                  This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
+                  This calculator models the numbers you enter. Request a no-obligation property review to receive a written ClearEdge offer, then compare that written amount and its contract terms here.
                 </p>
                 <button
                   onClick={scrollToForm}
@@ -1522,7 +1469,7 @@ export function Calculator({
         {/* Disclaimer */}
         <div className="mt-8 p-4 bg-gray-50 rounded-xl">
           <p className="text-xs text-ce-ink/50 text-center">
-            This calculator provides estimates based on PA market data and averages. Your actual results will vary based on property condition, negotiations, and market conditions. ClearEdge&apos;s actual cash offer may be higher or lower than the estimate shown. For an accurate number, request a no-obligation offer.
+            This is an educational scenario calculator, not an appraisal, settlement statement, tax opinion, or ClearEdge offer. It uses the values and editable assumptions you enter. Actual sale price, contract costs, mortgage payoff, liens, taxes, prorations, repairs, timing, and proceeds can differ. Review a written agreement and closing estimate before deciding.
           </p>
         </div>
       </div>

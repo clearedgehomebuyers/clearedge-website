@@ -27,7 +27,11 @@ const situations = [
   { label: "Foundation & Structural Issues", href: "/situations/foundation-structural-issues" },
 ]
 
-const serviceAreaRegions = [
+const serviceAreaRegions: {
+  name: string
+  hub?: { label: string; href: string }
+  cities: { label: string; href: string }[]
+}[] = [
   {
     name: "NEPA",
     hub: { label: "NEPA Hub", href: "/locations/nepa" },
@@ -51,8 +55,6 @@ const serviceAreaRegions = [
       { label: "Allentown", href: "/locations/allentown" },
       { label: "Bethlehem", href: "/locations/bethlehem" },
       { label: "Easton", href: "/locations/easton" },
-      { label: "Reading", href: "/locations/reading" },
-      { label: "Pottsville", href: "/locations/pottsville" },
     ],
   },
   {
@@ -63,6 +65,13 @@ const serviceAreaRegions = [
       { label: "East Stroudsburg", href: "/locations/east-stroudsburg" },
       { label: "Pocono Pines", href: "/locations/pocono-pines" },
       { label: "Tannersville", href: "/locations/tannersville" },
+    ],
+  },
+  {
+    name: "Berks & Schuylkill",
+    cities: [
+      { label: "Reading", href: "/locations/reading" },
+      { label: "Pottsville", href: "/locations/pottsville" },
     ],
   },
 ]
@@ -201,15 +210,21 @@ export function V0Footer() {
           {/* Service Areas - Regional hierarchy */}
           <div className="lg:col-span-5">
             <h3 className="text-white font-semibold text-sm uppercase tracking-wide mb-4">Service Areas</h3>
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {serviceAreaRegions.map((region) => (
                 <div key={region.name}>
-                  <Link
-                    href={region.hub.href}
-                    className="text-xs sm:text-sm font-semibold text-ce-blue-light hover:text-white transition-colors block mb-2"
-                  >
-                    {region.name} &rarr;
-                  </Link>
+                  {region.hub ? (
+                    <Link
+                      href={region.hub.href}
+                      className="text-xs sm:text-sm font-semibold text-ce-blue-light hover:text-white transition-colors block mb-2"
+                    >
+                      {region.name} &rarr;
+                    </Link>
+                  ) : (
+                    <p className="text-xs sm:text-sm font-semibold text-ce-blue-light block mb-2">
+                      {region.name}
+                    </p>
+                  )}
                   <ul className="space-y-1 sm:space-y-1.5">
                     {region.cities.map((city) => (
                       <li key={city.label}>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { ArrowRight, CheckCircle, XCircle, AlertTriangle, Phone, Check, X, Shield, Eye, Users, Building, FileText } from 'lucide-react'
+import { ArrowRight, CheckCircle, Phone, Check, Shield, Eye, Users, Building, FileText } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 
@@ -86,7 +86,7 @@ export default function AreCashHomeBuyersLegitPage() {
                   '@id': 'https://www.clearedgehomebuyers.com/#organization',
                 },
                 datePublished: '2026-02-06',
-                dateModified: '2026-02-06',
+                dateModified: '2026-09-10',
                 mainEntityOfPage: 'https://www.clearedgehomebuyers.com/are-cash-home-buyers-legit',
               },
               {
@@ -158,15 +158,15 @@ export default function AreCashHomeBuyersLegitPage() {
                 The Short Answer
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
-                Yes, Most Cash Home Buyers Are Legitimate
+                Cash Home Buying Is Legitimate—But You Still Need to Vet the Buyer
               </h2>
             </div>
             <div className="text-lg text-ce-ink/70 space-y-6 leading-relaxed">
               <p>
-                According to the <a href="https://www.nar.realtor/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">National Association of Realtors</a>, roughly 29% of all U.S. home sales in late 2025 were all-cash transactions — the highest share in over a decade. Cash buying is a real, established part of the housing market, not some fringe scheme.
+                According to the <a href="https://www.nar.realtor/news/economists-outlook/the-cash-buyer-and-the-waltz-of-the-rising-rates-a-modern-market-tale" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">National Association of Realtors</a>, 29% of home purchases in October 2025 were all-cash, up from 27% a year earlier. Cash buying is a real, established part of the housing market, not some fringe scheme.
               </p>
               <p>
-                That said, the industry has a trust problem — and it&apos;s earned. Scammers use the same &quot;We Buy Houses&quot; signs, postcards, and cold calls that legitimate buyers use. The <a href="https://www.attorneygeneral.gov/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">PA Attorney General&apos;s office</a> has issued consumer alerts about home-buying scams. And some operators, while technically legal, use high-pressure tactics, hidden fees, and lowball offers that leave homeowners feeling ripped off.
+                That said, the industry has a trust problem — and it&apos;s earned. Scammers use the same &quot;We Buy Houses&quot; signs, postcards, and cold calls that legitimate buyers use. In February 2026, the <a href="https://www.attorneygeneral.gov/taking-action/attorney-general-sunday-warns-pennsylvanians-of-potential-property-ownership-scams/" target="_blank" rel="noopener noreferrer" className="text-ce-green hover:underline">PA Attorney General&apos;s office</a> warned homeowners about deed and title fraud, including schemes that pressure distressed owners to sign away a deed under false promises of help with refinancing or overdue property taxes. And some operators, while technically legal, use high-pressure tactics, hidden fees, and lowball offers that leave homeowners feeling ripped off.
               </p>
               <p>
                 The goal of this page is to help you tell the difference. I&apos;m Tyler, the founder of <Link href="/about" className="text-ce-green hover:underline">ClearEdge Home Buyers</Link>. I&apos;ve been buying homes across Eastern Pennsylvania since 2016. I&apos;m going to be completely transparent about how this industry works — the good and the bad — so you can make an informed decision.

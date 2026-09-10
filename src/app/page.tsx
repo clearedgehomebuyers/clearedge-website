@@ -66,11 +66,11 @@ const videoFaqs = [
   },
   {
     question: "What areas in Pennsylvania does ClearEdge Home Buyers serve?",
-    answer: "We buy houses across 21 markets in Eastern Pennsylvania, including Scranton, Wilkes-Barre, Allentown, Bethlehem, Easton, Reading, Stroudsburg, and the entire NEPA, Lehigh Valley, and Poconos regions."
+    answer: "We buy houses across 21 Eastern Pennsylvania markets, including cities throughout NEPA, the Lehigh Valley, and the Poconos, plus Reading in Berks County and Pottsville in Schuylkill County."
   },
   {
     question: "Are there any fees or commissions when I sell to ClearEdge?",
-    answer: "None. When you sell to ClearEdge, there are zero realtor commissions, zero fees, and zero closing costs. We also pay for the title work. The cash offer you accept is the exact amount you receive at closing."
+    answer: "None charged by ClearEdge. There are zero realtor commissions, ClearEdge fees, or seller closing costs, and we pay for title work. The accepted cash offer is the purchase price; your final proceeds may still be reduced by a mortgage payoff, liens, delinquent taxes, prorations, or other property-specific obligations shown on the closing statement."
   }
 ]
 
@@ -88,6 +88,21 @@ export default function HomePage() {
         imageSrcSet="/properties/scranton-pa-cash-home-buyers-clearedge-1-mobile-2x.webp 560w, /properties/scranton-pa-cash-home-buyers-clearedge-1-320w.webp 320w, /properties/scranton-pa-cash-home-buyers-clearedge-1-2x.webp 640w"
         imageSizes="(max-width: 768px) 280px, 380px"
         fetchPriority="high"
+      />
+      {/* Google uses WebSite site-name markup on the domain homepage only. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://www.clearedgehomebuyers.com/#website",
+          "name": "ClearEdge Home Buyers",
+          "alternateName": "ClearEdge",
+          "url": "https://www.clearedgehomebuyers.com",
+          "publisher": {
+            "@id": "https://www.clearedgehomebuyers.com/#organization"
+          }
+        })}}
       />
       {/* Organization Schema */}
       <script
@@ -195,47 +210,9 @@ export default function HomePage() {
             "thumbnailUrl": "https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg",
             "uploadDate": "2026-01-27T08:00:00-05:00",
             "duration": "PT1M10S",
-            "contentUrl": "https://www.youtube.com/watch?v=YS6uDgxIjiI",
             "embedUrl": "https://www.youtube.com/embed/YS6uDgxIjiI",
             "regionsAllowed": "US",
-            "transcript": "Selling a property in Pennsylvania is tedious and overwhelming, especially if you're facing a difficult situation. I'm Tyler with ClearEdge Home Buyers. We provide Pennsylvania homeowners a transparent, stress-free alternative to the traditional real estate route. We aren't a national franchise. We're a local family-owned company that's purchased over 200 homes since 2016 across Northeastern Pennsylvania, the Lehigh Valley, and the Poconos. Whether you're in Allentown, Scranton, or Bethlehem, we do the heavy lifting. We provide a full cash offer within 24 hours with zero obligation. That means no realtor commissions, no fees, and no cleaning or repairs. You won't have to lift a finger even if the property has code violations, is in probate, or is facing foreclosure. We've seen it all and we can handle it for you. With ClearEdge, you'll always get a straight, truthful answer. Visit ClearEdgeHomeBuyers.com or call us today for your no-obligation cash offer, and let us help you move on to what's next.",
-            "hasPart": [
-              {
-                "@type": "Clip",
-                "name": "Selling a House in Pennsylvania?",
-                "startOffset": 0,
-                "endOffset": 12,
-                "url": "https://www.youtube.com/watch?v=YS6uDgxIjiI&t=0"
-              },
-              {
-                "@type": "Clip",
-                "name": "Meet ClearEdge Home Buyers",
-                "startOffset": 12,
-                "endOffset": 30,
-                "url": "https://www.youtube.com/watch?v=YS6uDgxIjiI&t=12"
-              },
-              {
-                "@type": "Clip",
-                "name": "Scranton, Allentown, and Bethlehem Service Areas",
-                "startOffset": 30,
-                "endOffset": 45,
-                "url": "https://www.youtube.com/watch?v=YS6uDgxIjiI&t=30"
-              },
-              {
-                "@type": "Clip",
-                "name": "Our 24-Hour Cash Offer Process",
-                "startOffset": 45,
-                "endOffset": 62,
-                "url": "https://www.youtube.com/watch?v=YS6uDgxIjiI&t=45"
-              },
-              {
-                "@type": "Clip",
-                "name": "Get Started with ClearEdge",
-                "startOffset": 62,
-                "endOffset": 70,
-                "url": "https://www.youtube.com/watch?v=YS6uDgxIjiI&t=62"
-              }
-            ]
+            "transcript": "Selling a property in Pennsylvania is tedious and overwhelming, especially if you're facing a difficult situation. I'm Tyler with ClearEdge Home Buyers. We provide Pennsylvania homeowners a transparent, stress-free alternative to the traditional real estate route. We aren't a national franchise. We're a local family-owned company that's purchased over 200 homes since 2016 across Northeastern Pennsylvania, the Lehigh Valley, and the Poconos. Whether you're in Allentown, Scranton, or Bethlehem, we do the heavy lifting. We provide a full cash offer within 24 hours with zero obligation. That means no realtor commissions, no fees, and no cleaning or repairs. You won't have to lift a finger even if the property has code violations, is in probate, or is facing foreclosure. We've seen it all and we can handle it for you. With ClearEdge, you'll always get a straight, truthful answer. Visit ClearEdgeHomeBuyers.com or call us today for your no-obligation cash offer, and let us help you move on to what's next."
           })
         }}
       />
@@ -247,40 +224,14 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How fast can I get a cash offer on my Pennsylvania house?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "ClearEdge Home Buyers provides a fair cash offer within 24 hours of receiving your property details. There's zero obligation to accept. Most homeowners hear back the same day."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does ClearEdge buy houses that need major repairs or have code violations?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. We buy houses in any condition — foundation issues, mold, fire damage, code violations, hoarding, unpermitted work, you name it. We also handle properties in foreclosure, probate, and tax lien situations. You don't need to fix anything."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What areas in Pennsylvania does ClearEdge Home Buyers serve?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "We buy houses across 21 markets in Eastern Pennsylvania, including Scranton, Wilkes-Barre, Allentown, Bethlehem, Easton, Reading, Stroudsburg, and the entire NEPA, Lehigh Valley, and Poconos regions."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are there any fees or commissions when I sell to ClearEdge?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "None. When you sell to ClearEdge, there are zero realtor commissions, zero fees, and zero closing costs. We also pay for the title work. The cash offer you accept is the exact amount you receive at closing."
-                }
+            "mainEntity": videoFaqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
               }
-            ]
+            }))
           })
         }}
       />

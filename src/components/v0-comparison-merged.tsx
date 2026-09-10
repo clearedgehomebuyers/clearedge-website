@@ -23,13 +23,13 @@ const featureComparison = [
   },
   {
     feature: "Repairs & Inspections",
-    traditional: "Must fix to pass 2026 PA inspections",
+    traditional: "Buyer may request repairs after inspection",
     clearEdge: "Sell 100% as-is, any condition",
   },
   {
     feature: "Certainty of Closing",
-    traditional: "38% of deals fall through nationally",
-    clearEdge: "Cash in hand — guaranteed close",
+    traditional: "May depend on financing, appraisal, and inspection contingencies",
+    clearEdge: "Direct cash purchase — no financing contingency",
   },
 ]
 

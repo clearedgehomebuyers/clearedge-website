@@ -10,7 +10,7 @@ const quickAnswers = [
   "Cash offer within 24 hours — no waiting for mortgage approvals or buyer financing",
   "Close in as few as 7 days or up to 60 — you pick the date that works for your life",
   "Sell 100% as-is — foundation issues, mold, fire damage, hoarding, code violations, we buy it all",
-  "Zero fees, zero agent commissions, zero closing costs — the offer you accept is the amount you receive",
+  "Zero ClearEdge fees or agent commissions, and we cover standard closing costs — final proceeds still reflect any mortgage payoff, liens, taxes, or prorations",
   "Local family-owned PA company since 2016 — 200+ homes purchased across 21 Eastern PA markets",
 ]
 

@@ -127,21 +127,6 @@ export default function RootLayout({
             <MetaPixel />
           </>
         )}
-        {/* WebSite Schema - appears on every page */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": "https://www.clearedgehomebuyers.com/#website",
-            "name": "ClearEdge Home Buyers",
-            "alternateName": "ClearEdge",
-            "url": "https://www.clearedgehomebuyers.com",
-            "publisher": {
-              "@id": "https://www.clearedgehomebuyers.com/#organization"
-            }
-          })}}
-        />
         {/* Homepage-hero preload moved to src/app/page.tsx (audit QW1,
             2026-08-10): from the root layout it fired on all 68 routes,
             competing with each page's real LCP image on the 67 pages that

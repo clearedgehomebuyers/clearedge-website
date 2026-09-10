@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { XCircle, CheckCircle, ArrowRight } from "lucide-react"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
 
@@ -16,7 +15,7 @@ const solutions = [
   "Sell completely as-is — foundation cracks, mold, hoarding, we buy it all",
   "One walkthrough from our team, that's it — no open houses ever",
   "Zero fees, zero commissions, zero closing costs to you",
-  "Guaranteed cash — our offers never fall through",
+  "Direct cash purchase — no buyer financing contingency",
   "You pick your closing date: 7 days, 30 days, or 60 days",
 ]
 
@@ -32,7 +31,7 @@ export function V0ProblemSolutionMerged() {
             </h2>
             <div className="space-y-4 text-lg text-ce-ink/70">
               <p>
-                You already know the math doesn&apos;t work. Realtors want $15,000 or more in repairs before they&apos;ll even list your Pennsylvania home. Then you wait 4 to 6 months while buyers fall through, inspections fail, and you keep paying the mortgage on a house you need gone. The 2026 municipal inspection requirements and building codes across PA have only made this process slower, more expensive, and more stressful for homeowners.
+                You already know the math doesn&apos;t work. Realtors may recommend repairs before listing your Pennsylvania home. Then you can spend months on showings, inspections, negotiations, and buyer financing while continuing to carry a house you need gone. Local inspection and code requirements vary by municipality and can add time or repair costs to some traditional sales.
               </p>
               <p>
                 If your house needs repairs, has code violations, or you simply can&apos;t afford to wait 90+ days and spend thousands upfront — the traditional process isn&apos;t built for you.

@@ -229,7 +229,7 @@ export default function CashOfferLandingPage() {
               What You Don&apos;t Pay For
             </h2>
             <p className="text-ce-ink/70">
-              Our offer is what you walk away with. There is nothing taken off the back end.
+              ClearEdge charges no agent commission or hidden fee, and our agreement states which seller closing costs we cover. Your final proceeds can still reflect a mortgage payoff, liens, taxes, or prorations shown on the closing statement.
             </p>
           </div>
 

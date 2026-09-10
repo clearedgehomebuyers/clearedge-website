@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { ArrowRight, CheckCircle, XCircle, AlertTriangle, Phone, Check, X } from 'lucide-react'
+import { CheckCircle, XCircle, AlertTriangle, Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
 import { canonicalizeDynamicPhoneText } from '@/lib/phone-attribution'
@@ -87,7 +87,7 @@ export default function CashBuyerVsRealtorPage() {
                   '@id': 'https://www.clearedgehomebuyers.com/#organization',
                 },
                 datePublished: '2026-02-06',
-                dateModified: '2026-02-06',
+                dateModified: '2026-09-10',
                 mainEntityOfPage: 'https://www.clearedgehomebuyers.com/cash-buyer-vs-realtor',
               },
               {
@@ -175,7 +175,7 @@ export default function CashBuyerVsRealtorPage() {
               </p>
               <div className="bg-surface-cream border-l-4 border-ce-green p-6 rounded-r-2xl">
                 <p className="text-ce-ink/80">
-                  <span className="font-semibold text-ce-ink">One thing worth knowing upfront:</span> cash sales are more common than most people think. According to the National Association of Realtors, nearly 1 in 3 home sales in late 2025 were all-cash transactions — the highest rate in over a decade. Meanwhile, 91% of sellers still use a real estate agent. Both paths work. The question is which one works for YOUR situation.
+                  <span className="font-semibold text-ce-ink">One thing worth knowing upfront:</span> cash sales are more common than many people think. The National Association of Realtors reported that 29% of home sales in October 2025 were all-cash, up from 27% one year earlier. Most sellers still use a real estate agent. Both paths work. The question is which one works for YOUR situation.
                 </p>
               </div>
             </div>
@@ -235,8 +235,8 @@ export default function CashBuyerVsRealtorPage() {
                     </tr>
                     <tr className="border-t border-ce-ink/5">
                       <td className="py-5 px-6 font-medium text-ce-ink/70">Certainty of Sale</td>
-                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Guaranteed — no financing contingencies</td>
-                      <td className="py-5 px-6 text-center text-ce-ink/70">15–20% fall through</td>
+                      <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Direct cash purchase — no financing contingency</td>
+                      <td className="py-5 px-6 text-center text-ce-ink/70">May include financing, appraisal, and inspection contingencies</td>
                     </tr>
                     <tr className="border-t border-ce-ink/5">
                       <td className="py-5 px-6 font-medium text-ce-ink/70">Sale Price</td>
@@ -280,7 +280,7 @@ export default function CashBuyerVsRealtorPage() {
                 { factor: 'Repairs Required', cash: 'None — sell 100% as-is', realtor: '$10K–$30K+ typically', cashWins: true },
                 { factor: 'Commissions & Fees', cash: '$0', realtor: '5.81% avg in PA', cashWins: true },
                 { factor: 'Showings', cash: 'One visit from our team', realtor: 'Dozens of showings', cashWins: true },
-                { factor: 'Certainty of Sale', cash: 'Guaranteed', realtor: '15–20% fall through', cashWins: true },
+                { factor: 'Buyer Financing', cash: 'No financing contingency', realtor: 'Often financing-dependent', cashWins: true },
                 { factor: 'Sale Price', cash: 'Below market value', realtor: 'Potentially full value', cashWins: false },
                 { factor: 'Out-of-Pocket Costs', cash: '$0', realtor: 'Repairs, staging, commissions', cashWins: true },
                 { factor: 'Privacy', cash: 'Completely private', realtor: 'Public listing online', cashWins: true },
@@ -389,12 +389,12 @@ export default function CashBuyerVsRealtorPage() {
 
                 <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
                   <h3 className="font-semibold text-ce-ink mb-2">You want certainty.</h3>
-                  <p>Cash offers don&apos;t fall through due to financing, appraisals, or buyer cold feet. Once you accept, the sale is happening. In the traditional market, roughly 1 in 5 deals fall through before closing.</p>
+                  <p>A direct cash purchase removes the buyer-financing and appraisal contingencies that can delay a financed transaction. Every sale still depends on the signed agreement, clear title, and any property-specific conditions stated in the contract.</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
                   <h3 className="font-semibold text-ce-ink mb-2">You want zero out-of-pocket costs.</h3>
-                  <p>No repairs, no staging, no commissions, no closing costs. The offer is your net.</p>
+                  <p>No repairs, staging, agent commissions, or ClearEdge fees. We cover the seller closing costs stated in our agreement; your closing statement can still include a mortgage payoff, liens, taxes, or prorations tied to the property.</p>
                 </div>
 
                 <div className="bg-white rounded-2xl p-6 border border-ce-ink/5">
@@ -506,7 +506,7 @@ export default function CashBuyerVsRealtorPage() {
 
                   <div className="bg-white rounded-xl p-4 border border-ce-green/20">
                     <p className="text-sm text-ce-ink">
-                      <span className="font-semibold">The difference: ~$5,600</span> — but you saved 5+ months, risked $0 out of pocket, and had zero chance of the deal falling through.
+                      <span className="font-semibold">The difference: ~$5,600</span> — but you saved 5+ months, avoided repair spending, and removed the buyer-financing contingency.
                     </p>
                   </div>
                 </div>
@@ -631,7 +631,7 @@ export default function CashBuyerVsRealtorPage() {
                     "You'd rather not deal with showings, open houses, or negotiations",
                     "The property has tenants you don't want to manage through a sale",
                     "You live out of state and can't oversee repairs or showings",
-                    'You want a guaranteed sale with no financing contingencies',
+                    'You want a direct cash purchase with no buyer-financing contingency',
                     'You value speed and simplicity over maximizing every dollar',
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
