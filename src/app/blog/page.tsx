@@ -153,9 +153,7 @@ export default async function BlogPage() {
     description: 'Tips, guides, and insights for Pennsylvania homeowners looking to sell their house fast for cash.',
     url: 'https://www.clearedgehomebuyers.com/blog',
     isPartOf: {
-      '@type': 'WebSite',
-      name: 'ClearEdge Home Buyers',
-      url: 'https://www.clearedgehomebuyers.com/',
+      '@id': 'https://www.clearedgehomebuyers.com/#website',
     },
   }
 

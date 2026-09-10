@@ -114,8 +114,6 @@ export const lehighValleyHubData: RegionalHubData = {
     { name: 'Allentown', slug: 'allentown', description: "The Lehigh Valley's largest city with a diverse housing stock from downtown rowhomes to suburban single-families." },
     { name: 'Bethlehem', slug: 'bethlehem', description: 'Historic steel town with beautiful but aging homes that often need significant updates to list traditionally.' },
     { name: 'Easton', slug: 'easton', description: 'Revitalizing downtown, but many surrounding neighborhoods have older homes with deferred maintenance.' },
-    { name: 'Reading', slug: 'reading', description: "Berks County seat with an affordable housing market and many properties needing renovation." },
-    { name: 'Pottsville', slug: 'pottsville', description: "Schuylkill County's hub with coal-region housing stock and older multi-family properties." },
   ],
   situations: [
     { title: 'Job Relocation', slug: 'job-relocation', description: "The Lehigh Valley's growing economy means people move in and out frequently. When a new opportunity calls, you can't wait 90 days." },
@@ -131,7 +129,7 @@ export const lehighValleyHubData: RegionalHubData = {
     },
     {
       question: 'Does ClearEdge buy houses in all Lehigh Valley communities?',
-      answer: 'Yes. We buy throughout Lehigh and Northampton counties — Allentown, Bethlehem, Easton, and all surrounding townships and boroughs. We also serve Reading in Berks County and Pottsville in Schuylkill County. No property is too far if it\'s in our service area.'
+      answer: 'Yes. We buy throughout Lehigh and Northampton counties — Allentown, Bethlehem, Easton, and surrounding townships and boroughs. We also serve separate Eastern Pennsylvania markets, including Reading in Berks County and Pottsville in Schuylkill County.'
     },
     {
       question: 'How does selling to ClearEdge compare to listing with a Lehigh Valley agent?',
@@ -143,7 +141,7 @@ export const lehighValleyHubData: RegionalHubData = {
     },
     {
       question: 'Are there any fees when I sell to ClearEdge in the Lehigh Valley?',
-      answer: "None. Zero commissions, zero closing costs, zero junk fees. The cash offer we make is exactly what you receive at closing. That's especially significant in the Lehigh Valley where Allentown's transfer tax alone is 2.5% — a cost we absorb completely."
+      answer: "None charged by ClearEdge. There are zero realtor commissions or ClearEdge fees, and our written offer explains the seller closing costs and transfer tax we cover. Your final proceeds can still reflect a mortgage payoff, liens, delinquent taxes, prorations, or other property-specific obligations shown on the closing statement."
     },
   ],
   mapCenter: { lat: 40.62, lng: -75.43 },
@@ -227,8 +225,6 @@ export const cityToHub: Record<string, string> = {
   'allentown': 'lehigh-valley',
   'bethlehem': 'lehigh-valley',
   'easton': 'lehigh-valley',
-  'reading': 'lehigh-valley',
-  'pottsville': 'lehigh-valley',
   // Poconos cities
   'stroudsburg': 'poconos',
   'east-stroudsburg': 'poconos',

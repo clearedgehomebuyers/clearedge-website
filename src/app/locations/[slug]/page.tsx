@@ -512,13 +512,13 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </section>
       )}
 
-      {/* Case Studies — "Real Stories" */}
+      {/* Representative seller scenarios */}
       {location.caseStudies && location.caseStudies.length > 0 && (
         <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Real Results</span>
-              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Real Stories from {location.city} Homeowners</h2>
+              <span className="text-ce-green font-medium text-sm tracking-wide uppercase mb-3 block">Seller Scenarios</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-medium text-ce-ink">Examples of Common {location.city} Selling Situations</h2>
             </div>
 
             <div className="space-y-6">
@@ -613,10 +613,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                   <td className="py-5 px-6 text-center text-ce-ink/70">Many</td>
                 </tr>
                 <tr className="border-t border-ce-ink/5">
-                  <td className="py-5 px-6 font-medium text-ce-ink/70">Sale Certainty</td>
-                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">Guaranteed — Cash</td>
-                  <td className="py-5 px-6 text-center text-ce-ink/70">38% Fall Through</td>
-                  <td className="py-5 px-6 text-center text-ce-ink/70">Even Less Certain</td>
+                  <td className="py-5 px-6 font-medium text-ce-ink/70">Financing Contingency</td>
+                  <td className="py-5 px-6 text-center bg-ce-green-subtle font-semibold text-ce-green">None — Direct Cash Purchase</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">Common</td>
+                  <td className="py-5 px-6 text-center text-ce-ink/70">Depends on Buyer</td>
                 </tr>
               </tbody>
             </table>
@@ -630,7 +630,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               { feature: 'Fees & Commissions', clearEdge: '$0', traditional: '5-6%', fsbo: '2-3%' },
               { feature: 'Closing Costs', clearEdge: 'We Pay', traditional: 'You Pay', fsbo: 'You Pay' },
               { feature: 'Showings Required', clearEdge: 'Zero', traditional: 'Many', fsbo: 'Many' },
-              { feature: 'Sale Certainty', clearEdge: 'Guaranteed — Cash', traditional: '38% Fall Through', fsbo: 'Even Less Certain' },
+              { feature: 'Financing Contingency', clearEdge: 'None — Direct Cash Purchase', traditional: 'Common', fsbo: 'Depends on Buyer' },
             ].map((row, index) => (
               <div key={index} className="bg-white rounded-2xl border border-ce-ink/10 shadow-sm p-4">
                 <p className="font-medium text-ce-ink mb-3">{row.feature}</p>

@@ -12,15 +12,15 @@ const V0FAQ = dynamic(() => import('@/components/v0-faq').then(mod => ({ default
 const faqs = [
   {
     question: 'How accurate is this home sale calculator?',
-    answer: "Our calculator uses PA-regulated title insurance rates, county-specific transfer tax data, and current contractor pricing from sources like HomeAdvisor and Angi. It provides a realistic estimate, but your actual costs may vary based on your specific property, negotiations, and market conditions. For your exact cash offer number, request a free, no-obligation offer from ClearEdge.",
+    answer: "It is an educational scenario tool, not an appraisal or settlement statement. It uses the move-in-ready value, repair selections, mortgage balance, and editable cost assumptions you enter. Actual sale price, taxes, contract costs, timing, and proceeds can differ.",
   },
   {
     question: 'Why are traditional sale costs so high?',
-    answer: "Most sellers only think about agent commissions. But commissions are just the start — transfer taxes, title insurance, settlement fees, inspection concessions, carrying costs, and repairs all add up. On a typical Eastern PA home, total selling costs run 8–12% of the sale price before repairs.",
+    answer: "Potential seller costs can include negotiated agent compensation, the seller's agreed transfer-tax share, repairs, holding costs, and other contract-specific settlement items. The calculator shows every assumption and lets you change it instead of applying a hidden risk penalty.",
   },
   {
-    question: 'How does ClearEdge calculate cash offers?',
-    answer: "We evaluate your home's market value and condition, then make an offer based on the property's as-is state. Our offer accounts for the repairs we'll need to make and our operating costs. We cover all closing costs, commissions, and fees — the number we quote is the number you receive at closing.",
+    question: 'Does this calculator generate a ClearEdge cash offer?',
+    answer: "No. Enter a real written cash offer if you have one, or leave that field blank and the calculator will model only the traditional-sale net. To receive a ClearEdge offer, request a free, no-obligation property review. We do not invent a cash offer from a hidden percentage.",
   },
   {
     question: 'Do I need to make repairs before selling to ClearEdge?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: 'How do the repair cost estimates work?',
-    answer: "Our repair estimates use current Pennsylvania contractor pricing from HomeAdvisor, Angi, This Old House, and PA-based contractors. We use the midpoint of published price ranges — not the high end — to provide realistic estimates. Your actual costs may be higher or lower depending on your property's specific conditions and the contractors you hire.",
+    answer: "The quick assessment maps the problems you select to the displayed repair items. The detailed option lets you choose specific projects, quantities, and a custom amount. A home marked good or updated starts at zero repairs, and the calculator does not apply blanket age or square-foot multipliers to unrelated work.",
   },
 ]
 
@@ -47,20 +47,13 @@ export default function CalculatorPage() {
             '@context': 'https://schema.org',
             '@graph': [
               {
-                '@type': 'WebApplication',
-                '@id': 'https://www.clearedgehomebuyers.com/calculator/#calculator',
+                '@type': 'WebPage',
+                '@id': 'https://www.clearedgehomebuyers.com/calculator/#webpage',
                 name: 'Pennsylvania Home Sale Calculator — Compare Net Proceeds',
-                description: 'Free Pennsylvania home sale calculator. Compare your net proceeds from a traditional sale vs. cash offer with county-specific closing costs, itemized fees, and real PA contractor repair pricing.',
+                description: 'Free Pennsylvania home sale calculator. Model traditional-sale net proceeds and compare them with a written cash offer using transparent, editable costs and repair assumptions.',
                 url: 'https://www.clearedgehomebuyers.com/calculator',
-                applicationCategory: 'FinanceApplication',
-                operatingSystem: 'Any',
-                offers: {
-                  '@type': 'Offer',
-                  price: '0',
-                  priceCurrency: 'USD',
-                },
-                provider: {
-                  '@id': 'https://www.clearedgehomebuyers.com/#organization',
+                isPartOf: {
+                  '@id': 'https://www.clearedgehomebuyers.com/#website',
                 },
               },
               {
@@ -98,7 +91,7 @@ export default function CalculatorPage() {
               Pennsylvania Home Sale Calculator: Cash Offer vs. Traditional Net Proceeds
             </h1>
             <p className="text-xl text-ce-ink/70 mb-4 max-w-3xl mx-auto">
-              See exactly what you&apos;d walk away with from a traditional sale vs. a cash offer — with county-specific PA closing costs, itemized fees, and real 2026 contractor repair pricing. No guessing.
+              Model your traditional-sale net proceeds and compare them with a real written cash offer using transparent, editable repair and transaction-cost assumptions.
             </p>
           </div>
         </section>
@@ -119,10 +112,15 @@ export default function CalculatorPage() {
             </div>
             <div className="space-y-6 text-ce-ink/70">
               <p>
-                Every number in this calculator is sourced from real Pennsylvania data: PA-regulated title insurance rates, county-specific transfer taxes, and current contractor pricing from HomeAdvisor, Angi, This Old House, and PA-based contractors.
+                The calculator uses the values you enter. Repair selections are itemized, and agent compensation, seller transfer-tax share, settlement costs, inspection concessions, timeline, and monthly holding costs are all visible and editable.
               </p>
               <p>
-                ClearEdge built this calculator to help homeowners make informed decisions, not to push anyone toward a particular option. If the numbers say listing with an agent makes more sense for your situation, we&apos;ll tell you that.
+                It does not apply a hidden fall-through penalty, manufacture a cash offer, or automatically charge the seller for a buyer&apos;s title-insurance policy. ClearEdge built it to help homeowners compare actual assumptions—not to force the cash option to win.
+              </p>
+              <p className="text-sm">
+                Official references: <a className="text-ce-green hover:underline" href="https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax" target="_blank" rel="noopener noreferrer">Pennsylvania Department of Revenue transfer-tax guidance</a>,{' '}
+                <a className="text-ce-green hover:underline" href="https://www.nar.realtor/news/real-estate-news/sales-marketing/compensation-commission-and-concessions" target="_blank" rel="noopener noreferrer">NAR compensation guidance</a>, and{' '}
+                <a className="text-ce-green hover:underline" href="https://www.consumerfinance.gov/ask-cfpb/what-is-owners-title-insurance-en-164/" target="_blank" rel="noopener noreferrer">CFPB title-insurance guidance</a>.
               </p>
             </div>
           </div>
@@ -142,65 +140,65 @@ export default function CalculatorPage() {
 
             <div className="space-y-6">
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Agent Commissions (5.81%)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Agent Compensation (Editable)</h3>
                 <p className="text-ce-ink/70">
-                  This is the combined PA average for listing agent + buyer&apos;s agent commissions. Even after the 2024 NAR settlement that made buyer&apos;s agent commission technically negotiable, most PA sellers still offer it because homes that don&apos;t attract fewer showings. On a $280,000 home, that&apos;s over $16,000.
+                  Broker compensation is negotiable. The calculator starts with a visible 5% illustration, but you should replace it with the total percentage in your listing agreement plus any buyer-broker compensation you expect to pay.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Transfer Tax (varies by county)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Seller Transfer-Tax Share (Editable)</h3>
                 <p className="text-ce-ink/70">
-                  PA charges a real estate transfer tax split between buyer and seller. The state portion is 1% (you pay half — 0.5%). Your municipality adds its own local transfer tax on top. This varies by county, which is why we ask for yours. Example: In Lehigh County, your seller portion totals about 1.0% of the sale price.
+                  Pennsylvania imposes a 1% state realty transfer tax, and local tax is added by municipalities and school districts. Buyer and seller are jointly liable, but the purchase agreement can allocate the cost. Because a county alone cannot identify the local rate or your contract share, the calculator uses an editable 1% starting assumption. Confirm the correct number for the property and agreement.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Title Insurance</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Title Insurance Is Not an Automatic Seller Cost</h3>
                 <p className="text-ce-ink/70">
-                  PA title insurance rates are regulated by the state — every title company charges the same rates. The seller typically pays for the owner&apos;s title insurance policy, which protects the buyer&apos;s lender. The rate is tiered: $5.75 per $1,000 on the first $100K, $5.00 per $1,000 from $100K–$500K, and lower rates above that. On a $280,000 home, that&apos;s approximately $1,475.
+                  An owner&apos;s policy protects the buyer-owner; a lender&apos;s policy protects the lender. The calculator does not automatically subtract either policy from the seller. If your agreement assigns a title-related cost to you, enter it under other seller settlement costs.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Settlement &amp; Recording Fees (~$1,575)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Other Seller Settlement Costs (Editable)</h3>
                 <p className="text-ce-ink/70">
-                  These are the fees charged by the title company and county to process your sale: settlement/closing fee ($650), title search ($300), document preparation ($150), notary ($100), recording fees ($200), and the municipal lien letter ($175) that confirms you have no outstanding water, sewer, trash, or code liens.
+                  Deed preparation, lien work, municipal certificates, settlement services, credits, and other costs depend on the property, provider, and agreement. The calculator starts this field at $0 rather than inventing a fixed bundle. Enter the seller-paid amount shown by your agent, attorney, or title company.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Post-Inspection Concessions (1.5%)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Post-Inspection Concessions (Editable)</h3>
                 <p className="text-ce-ink/70">
-                  This is the cost most traditional sellers don&apos;t see coming. After a buyer&apos;s home inspector walks through, they almost always find issues and negotiate credits or repairs. In Eastern Pennsylvania — where much of the housing stock dates to the early 1900s — this averages 1.5% of the sale price, and can run 3%+ on older homes. That&apos;s $4,200 on a $280,000 home that wasn&apos;t in your plan.
+                  An inspection does not automatically create a seller credit. The calculator therefore starts this field at $0. If you already expect to offer a repair credit or concession, enter that amount so it appears in the comparison.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Home Warranty + Compliance (~$850)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Municipal and Property-Specific Requirements</h3>
                 <p className="text-ce-ink/70">
-                  Buyers in PA frequently request a home warranty ($500), and sellers need to cover a use &amp; occupancy inspection ($150), smoke/CO detector compliance ($100), and pest/termite inspection ($100). Small individually, but they add up.
+                  Use-and-occupancy procedures, code items, lien letters, inspections, and requested warranties vary by municipality and transaction. They are not imposed as an automatic statewide charge here. Add any known seller expense to the editable settlement-cost field.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
-                <h3 className="font-semibold text-ce-ink text-lg mb-3">Carrying Costs (repairs through closing)</h3>
+                <h3 className="font-semibold text-ce-ink text-lg mb-3">Holding Costs and Timeline (Editable)</h3>
                 <p className="text-ce-ink/70">
-                  From the day you decide to sell until the day you close, you&apos;re paying mortgage interest, property taxes, homeowner&apos;s insurance, utilities, and maintenance every single month. This isn&apos;t just time &quot;on the market&quot; — it includes the weeks or months spent completing repairs before you can list, then showings, offer negotiations, buyer inspections, and the 30–45 day closing process. For a $280,000 home in Lehigh County, that&apos;s approximately $1,720 per month for every month of the process.
+                  Enter the number of months you expect from repair work through closing and the monthly costs you actually want included. The calculator no longer guesses a mortgage interest rate, county property-tax bill, utilities, insurance, or maintenance from the home value.
                 </p>
               </div>
 
               <div className="bg-surface-cream rounded-2xl p-6 border border-ce-ink/5">
                 <h3 className="font-semibold text-ce-ink text-lg mb-3">Repair Costs</h3>
                 <p className="text-ce-ink/70">
-                  The repair estimates in our calculator use current Pennsylvania contractor pricing sourced from HomeAdvisor, Angi, This Old House, and PA-based contractors. We use the midpoint of each range — not the high end — to give you a realistic (not inflated) estimate of what these repairs actually cost homeowners in Eastern PA.
+                  The quick assessment maps condition answers to displayed repair items. For more control, open the detailed estimator, select specific work and quantities, and add a custom amount. The tool does not multiply every repair by the home&apos;s age or square footage.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* HOW WE CALCULATE CASH OFFER */}
+        {/* WHY THE CALCULATOR DOES NOT INVENT A CASH OFFER */}
         <section className="py-12 md:py-14 bg-surface-cream">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
@@ -208,19 +206,19 @@ export default function CalculatorPage() {
                 Transparent Pricing
               </span>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-ce-ink">
-                How We Calculate the ClearEdge Cash Offer
+                Why We Don&apos;t Invent a Cash Offer
               </h2>
             </div>
             <div className="space-y-6 text-ce-ink/70">
               <p>
-                ClearEdge&apos;s offer is a percentage of your home&apos;s market value. That percentage adjusts based on the condition of the property — homes needing more work receive a lower percentage because ClearEdge takes on all repair costs and risk.
+                A responsible cash offer depends on the property, comparable sales, repair scope, title information, contract terms, and due diligence. A few broad condition answers cannot produce a dependable purchase offer.
               </p>
               <p>
-                The offer covers ALL closing costs, commissions, and fees. The number you see is the number you walk away with.
+                That is why this tool compares only a written cash offer you enter. If you do not have one, it calculates the traditional-sale scenario and leaves the cash side blank. A real ClearEdge offer remains free and carries no obligation.
               </p>
               <div className="bg-white border-l-4 border-ce-green p-6 rounded-r-2xl">
                 <p className="text-ce-ink/80">
-                  This calculator gives you an estimate. To get your real number, request a no-obligation cash offer — we&apos;ll explain exactly how we calculated it, and you&apos;ll have 30 days to decide.
+                  Request a no-obligation property review to get a written ClearEdge offer, then bring that number back here and compare it with your own cost assumptions.
                 </p>
               </div>
             </div>
@@ -241,19 +239,19 @@ export default function CalculatorPage() {
             <div className="space-y-4 text-ce-ink/70">
               <div className="flex gap-4">
                 <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-ce-ink">Price reductions:</strong> 30–40% of PA listings reduce price at least once. This calculator assumes you sell at full asking price.</p>
+                <p><strong className="text-ce-ink">Price changes:</strong> Your final sale price can be higher or lower than the move-in-ready value you enter.</p>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-ce-ink">Deal fall-through:</strong> 15–20% of traditional sales collapse after going under contract (financing falls through, inspection issues, buyer gets cold feet). This calculator assumes a clean close.</p>
+                <p><strong className="text-ce-ink">Contract contingencies:</strong> A financed transaction may depend on financing, appraisal, inspection, or other contract terms. This calculator does not assign a speculative dollar penalty to that uncertainty.</p>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-ce-ink">Multiple rounds of negotiation:</strong> Buyers often negotiate twice — once on price, once after inspection. This calculator only accounts for one round of inspection concessions.</p>
+                <p><strong className="text-ce-ink">Additional negotiation:</strong> A buyer may negotiate on price and again after inspection. The calculator includes only the concession amount you choose to enter and cannot predict the final agreement.</p>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />
-                <p><strong className="text-ce-ink">Seasonal timing:</strong> Homes listed in winter in Eastern PA typically take longer to sell and may sell for less.</p>
+                <p><strong className="text-ce-ink">Seasonal timing:</strong> Buyer demand and marketing time can change by season, city, property type, price, and condition.</p>
               </div>
               <div className="flex gap-4">
                 <div className="w-2 h-2 bg-ce-green rounded-full mt-2 flex-shrink-0" />

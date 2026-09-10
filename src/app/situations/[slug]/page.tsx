@@ -72,7 +72,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'job-relocation': {
     question: "How can I sell my house quickly for a job relocation?",
-    answer: "When you need to relocate for work, a cash sale lets you close before your start date — no double mortgage payments, no flying back for showings. ClearEdge can close in as little as 7 days (or match your employer's timeline). Some companies offer relocation buyout programs; if yours doesn't, we provide a guaranteed cash offer with a flexible closing date so you can focus on your new role, not your old house."
+    answer: "When you need to relocate for work, a direct cash sale can avoid buyer-financing delays and let you choose a closing date that fits your move. ClearEdge can close in as little as 7 days when the title and property are ready, or work with a later date. Some employers offer relocation buyout programs; if yours doesn't, you can request a no-obligation cash offer and compare it with listing before deciding."
   },
   'major-repairs': {
     question: "Can I sell a house that needs major repairs without fixing it?",
@@ -80,7 +80,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'tax-liens-code-violations': {
     question: "Can I sell a house with tax liens or code violations in PA?",
-    answer: "Yes. Tax liens and code violations don't prevent a sale — they just need to be resolved at or before closing. ClearEdge purchases houses with back property taxes, municipal water/sewer liens, and code violations regularly throughout Eastern PA. The liens get paid from the sale proceeds at closing, code violations transfer to us as the new owner, and you walk away clean with no outstanding obligations."
+    answer: "Often, yes. Tax liens are commonly paid from the sale proceeds at closing, while code violations, fines, municipal claims, and occupancy requirements depend on the property and local municipality. ClearEdge buys Eastern Pennsylvania houses with these complications as-is, but we review the title and municipal records first so you know what must be paid, resolved, or addressed before the property can transfer."
   },
   'tired-landlord': {
     question: "How do I sell a rental property with tenants in it?",
@@ -376,7 +376,7 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
             {[
               { step: '1', title: 'Tell Us Your Situation', desc: 'Fill out our 2-minute form or call Tyler directly. Share your property details and what you\'re dealing with — no judgment.' },
               { step: '2', title: 'Get a Fair Cash Offer in 24 Hours', desc: "Tyler personally reviews your property using local PA market data and presents a transparent, no-obligation cash offer." },
-              { step: '3', title: 'Close on Your Timeline', desc: 'Accept and choose your closing date — as fast as 7 days. We handle all paperwork, pay all closing costs, and wire your funds directly.' },
+              { step: '3', title: 'Close on Your Timeline', desc: 'Sign the purchase agreement and choose your closing date — as fast as 7 days when title is ready. We coordinate the paperwork and seller closing costs with the title company, which disburses the proceeds.' },
             ].map((item) => (
               <div key={item.step} className="text-center">
                 <div className="w-16 h-16 bg-ce-green rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green">

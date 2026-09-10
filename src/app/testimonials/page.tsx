@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { Star, Check, ArrowRight } from 'lucide-react'
+import { Star, Check } from 'lucide-react'
 import { V0Header } from '@/components/v0-header'
 import { V0TrustBar } from '@/components/v0-trust-bar'
 import { TrackedCTALink } from '@/components/TrackedCTALink'
@@ -178,50 +177,6 @@ export default function TestimonialsPage() {
                   "https://www.instagram.com/clearedge_home_buyers/",
                   "https://www.youtube.com/@ClearEdgeHomeBuyers",
                   "https://www.google.com/maps/place/ClearEdge+Home+Buyers/@40.8603424,-75.8193544,8z/data=!3m1!4b1!4m6!3m5!1s0x86c99f735e7188af:0x29be5485d539b1f9!8m2!3d40.8603424!4d-75.8193544!16s%2Fg%2F11l299ntxm"
-                ],
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5",
-                  "reviewCount": "6",
-                  "bestRating": "5"
-                },
-                "review": [
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Kandra Gunter" },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "Selling a property from out of state can be incredibly stressful, but Tyler made it feel effortless."
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Matt Buckley" },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "Always deliver on everything they say they will do!"
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Rita Coraci" },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "We closed in 30 days and have never been happier!"
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Gavin S." },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "First to take time to explain the process and make me feel comfortable."
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Jewel Parago" },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "You made a difficult time simple and smooth."
-                  },
-                  {
-                    "@type": "Review",
-                    "author": { "@type": "Person", "name": "Rodrigo Antillon" },
-                    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-                    "reviewBody": "Very responsive and helpful."
-                  }
                 ]
               },
               {

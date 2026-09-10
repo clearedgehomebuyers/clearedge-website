@@ -91,7 +91,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'cash-home-buyers-lackawanna-county-no-fees': {
     question: "Are there really cash home buyers in Lackawanna County with no fees?",
-    answer: "Yes. Legitimate cash home buyers in Lackawanna County don't charge fees to sellers — they make their profit by renovating and reselling the home. 'No fees' means no agent commissions, no closing costs, and no hidden charges. The offer you accept is the amount you receive (minus any mortgage payoff). Be wary of anyone asking for upfront payments."
+    answer: "Yes. Legitimate cash home buyers in Lackawanna County generally make their profit by renovating and reselling the home rather than charging the seller an upfront fee. A no-fee offer should clearly state which commissions and seller closing costs the buyer covers. Final proceeds can still reflect a mortgage payoff, liens, delinquent taxes, or prorations shown on the closing statement. Be wary of anyone asking for an upfront payment."
   },
   'sell-my-house-fast-luzerne-county-pa': {
     question: "What's the fastest way to sell my Luzerne County house?",

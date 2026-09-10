@@ -154,7 +154,6 @@ export default function HowItWorksPage() {
                 thumbnailUrl: 'https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg',
                 uploadDate: '2026-01-27T08:00:00-05:00',
                 duration: 'PT1M10S',
-                contentUrl: 'https://www.youtube.com/watch?v=YS6uDgxIjiI',
                 embedUrl: 'https://www.youtube.com/embed/YS6uDgxIjiI',
                 publisher: {
                   '@type': 'Organization',

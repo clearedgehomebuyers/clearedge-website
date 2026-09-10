@@ -24,7 +24,7 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-09-03' // sitewide dynamic-phone integrity release
+const TEMPLATE_REVISION = '2026-09-10' // autumn trust, geography, and structured-data release
 
 /**
  * Blog posts deliberately withheld from the sitemap. Some remain live for
@@ -51,20 +51,20 @@ const SITEMAP_PRUNED_SLUGS = new Set(SITEMAP_EXCLUDED_BLOG_SLUGS)
  * reason.
  */
 const STATIC_LASTMOD: Record<string, string> = {
-  '/': '2026-09-03',
-  '/blog': '2026-09-03',
-  '/about': '2026-07-20',
-  '/how-it-works': '2026-08-18', // QW8 orphan link added (1c11fe1)
-  '/testimonials': '2026-07-20',
+  '/': '2026-09-10',
+  '/blog': '2026-09-10',
+  '/about': '2026-09-10',
+  '/how-it-works': '2026-09-10',
+  '/testimonials': '2026-09-10',
   '/privacy-policy': '2026-02-13',
   '/terms': '2026-02-13',
   '/contact': '2026-08-10',
   '/locations/nepa': TEMPLATE_REVISION,
   '/locations/lehigh-valley': TEMPLATE_REVISION,
   '/locations/poconos': TEMPLATE_REVISION,
-  '/calculator': '2026-03-05',
-  '/cash-buyer-vs-realtor': '2026-08-10',
-  '/are-cash-home-buyers-legit': '2026-07-20',
+  '/calculator': '2026-09-10',
+  '/cash-buyer-vs-realtor': '2026-09-10',
+  '/are-cash-home-buyers-legit': '2026-09-10',
 }
 
 /** Shape the sitemap needs from a Sanity location/situation document. */

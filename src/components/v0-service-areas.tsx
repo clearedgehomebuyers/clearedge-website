@@ -4,7 +4,10 @@ import Link from "next/link"
 import { CoverageMapWrapper } from './CoverageMapWrapper'
 import { trackMetaCTAClick } from '@/lib/meta-pixel'
 
-const locationsByRegion = {
+const locationsByRegion: Record<string, {
+  hub?: { name: string; href: string }
+  cities: { name: string; href: string }[]
+}> = {
   'NEPA': {
     hub: { name: 'View All NEPA', href: '/locations/nepa' },
     cities: [
@@ -26,8 +29,6 @@ const locationsByRegion = {
       { name: 'Allentown', href: '/locations/allentown' },
       { name: 'Bethlehem', href: '/locations/bethlehem' },
       { name: 'Easton', href: '/locations/easton' },
-      { name: 'Reading', href: '/locations/reading' },
-      { name: 'Pottsville', href: '/locations/pottsville' },
     ],
   },
   'Poconos': {
@@ -37,6 +38,12 @@ const locationsByRegion = {
       { name: 'East Stroudsburg', href: '/locations/east-stroudsburg' },
       { name: 'Pocono Pines', href: '/locations/pocono-pines' },
       { name: 'Tannersville', href: '/locations/tannersville' },
+    ],
+  },
+  'Berks & Schuylkill': {
+    cities: [
+      { name: 'Reading', href: '/locations/reading' },
+      { name: 'Pottsville', href: '/locations/pottsville' },
     ],
   },
 }
@@ -66,7 +73,7 @@ export function V0ServiceAreas() {
             Cash Home Buyers Across Eastern Pennsylvania
           </h2>
           <p className="text-lg text-ce-ink/70 max-w-3xl mx-auto">
-            We buy houses in any condition throughout NEPA, the Lehigh Valley, and the Poconos — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer. Looking for local details? See how to{' '}
+            We buy houses in any condition throughout NEPA, the Lehigh Valley, the Poconos, Berks County, and Schuylkill County — 21 markets and growing. If you own a property in Eastern PA, we want to make you a fair cash offer. Looking for local details? See how to{' '}
             <Link href="/locations/allentown" className="text-ce-green hover:underline">
               sell your house fast in Allentown
             </Link>{' '}
@@ -83,19 +90,25 @@ export function V0ServiceAreas() {
           <CoverageMapWrapper />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {Object.entries(locationsByRegion).map(([region, data], index) => (
             <div
               key={region}
               className="bg-white rounded-2xl p-6 border border-ce-ink/10 shadow-sm hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300 animate-on-scroll"
               style={{ transitionDelay: `${(index + 2) * 100}ms` }}
             >
-              <Link
-                href={data.hub.href}
-                className="block text-xl font-bold text-ce-ink mb-4 border-b-2 border-ce-green pb-2 hover:text-ce-green transition-colors"
-              >
-                {region}
-              </Link>
+              {data.hub ? (
+                <Link
+                  href={data.hub.href}
+                  className="block text-xl font-bold text-ce-ink mb-4 border-b-2 border-ce-green pb-2 hover:text-ce-green transition-colors"
+                >
+                  {region}
+                </Link>
+              ) : (
+                <h3 className="text-xl font-bold text-ce-ink mb-4 border-b-2 border-ce-green pb-2">
+                  {region}
+                </h3>
+              )}
               <ul className="space-y-2">
                 {data.cities.map((city) => (
                   <li key={city.href}>
@@ -108,12 +121,14 @@ export function V0ServiceAreas() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href={data.hub.href}
-                className="inline-block mt-4 text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors link-animated"
-              >
-                {data.hub.name} &rarr;
-              </Link>
+              {data.hub && (
+                <Link
+                  href={data.hub.href}
+                  className="inline-block mt-4 text-sm font-semibold text-ce-green hover:text-ce-green-hover transition-colors link-animated"
+                >
+                  {data.hub.name} &rarr;
+                </Link>
+              )}
             </div>
           ))}
         </div>

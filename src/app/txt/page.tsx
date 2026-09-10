@@ -21,7 +21,7 @@ const countyLocationMap: Record<string, { href: string; label: string }> = {
   wyoming: { href: '/locations/nepa', label: 'We Buy Houses in Wyoming County' },
   columbia: { href: '/locations/nepa', label: 'We Buy Houses in Columbia County' },
   susquehanna: { href: '/locations/nepa', label: 'We Buy Houses in Susquehanna County' },
-  schuylkill: { href: '/locations/nepa', label: 'We Buy Houses in Schuylkill County' },
+  schuylkill: { href: '/locations/pottsville', label: 'We Buy Houses in Schuylkill County' },
   berks: { href: '/locations/reading', label: 'We Buy Houses in Berks County' },
 }
 
@@ -67,7 +67,7 @@ export default function TxtPage() {
             Find Out What Your PA Home Is Worth in Cash
           </h1>
           <p className="text-lg text-ce-ink/70 max-w-2xl mx-auto">
-            Use our free calculator to see exactly what you&apos;d walk away with — no sign-up, no obligation. Takes about 2 minutes.
+            Use our free calculator to estimate and compare your potential net proceeds — no sign-up, no obligation. Takes about 2 minutes.
           </p>
         </div>
       </section>

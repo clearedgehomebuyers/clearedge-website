@@ -8,7 +8,10 @@ import { useTrafficSource } from "./TrafficSourceProvider"
 import { trackMetaCTAClick } from "@/lib/meta-pixel"
 import { trackClickToCall } from "@/lib/analytics-events"
 
-const regionLinks = {
+const regionLinks: Record<string, {
+  hub?: { href: string; label: string }
+  cities: { href: string; label: string }[]
+}> = {
   'NEPA': {
     hub: { href: '/locations/nepa', label: 'NEPA' },
     cities: [
@@ -30,8 +33,6 @@ const regionLinks = {
       { href: '/locations/allentown', label: 'Allentown' },
       { href: '/locations/bethlehem', label: 'Bethlehem' },
       { href: '/locations/easton', label: 'Easton' },
-      { href: '/locations/reading', label: 'Reading' },
-      { href: '/locations/pottsville', label: 'Pottsville' },
     ],
   },
   'Poconos': {
@@ -41,6 +42,12 @@ const regionLinks = {
       { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
       { href: '/locations/pocono-pines', label: 'Pocono Pines' },
       { href: '/locations/tannersville', label: 'Tannersville' },
+    ],
+  },
+  'Berks & Schuylkill': {
+    cities: [
+      { href: '/locations/reading', label: 'Reading' },
+      { href: '/locations/pottsville', label: 'Pottsville' },
     ],
   },
 }
@@ -62,13 +69,13 @@ const locationLinks = [
   { href: '/locations/allentown', label: 'Allentown' },
   { href: '/locations/bethlehem', label: 'Bethlehem' },
   { href: '/locations/easton', label: 'Easton' },
-  { href: '/locations/reading', label: 'Reading' },
-  { href: '/locations/pottsville', label: 'Pottsville' },
   { href: '/locations/poconos', label: 'Poconos (Regional Hub)', isHub: true },
   { href: '/locations/stroudsburg', label: 'Stroudsburg' },
   { href: '/locations/east-stroudsburg', label: 'East Stroudsburg' },
   { href: '/locations/pocono-pines', label: 'Pocono Pines' },
   { href: '/locations/tannersville', label: 'Tannersville' },
+  { href: '/locations/reading', label: 'Reading (Berks County)' },
+  { href: '/locations/pottsville', label: 'Pottsville (Schuylkill County)' },
 ]
 
 const situationLinks = [
@@ -206,8 +213,8 @@ export function V0Header() {
             <img src="/Primary.svg" alt="ClearEdge Home Buyers logo" className="h-10 md:h-12 lg:h-14 w-auto" width="168" height="56" />
           </Link>
 
-          {/* Desktop/Tablet Navigation - centered with responsive spacing */}
-          <nav className="hidden md:flex items-center justify-center flex-1 mx-2 lg:mx-8">
+          {/* Desktop navigation; tablets use the unclipped compact menu. */}
+          <nav className="hidden lg:flex items-center justify-center flex-1 mx-8">
             <div className="flex items-center gap-2 lg:gap-6">
               <Link
                 href="/how-it-works"
@@ -228,17 +235,23 @@ export function V0Header() {
                 </button>
                 {locationsOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-ce-ink/5 p-4 w-[580px] lg:w-[720px] max-h-[450px] overflow-y-auto">
-                      <div className="grid grid-cols-3 gap-6">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-ce-ink/5 p-4 w-[700px] lg:w-[820px] max-h-[450px] overflow-y-auto">
+                      <div className="grid grid-cols-4 gap-5">
                         {Object.entries(regionLinks).map(([regionName, region]) => (
                           <div key={regionName}>
-                            <Link
-                              href={region.hub.href}
-                              onClick={(e) => { handleNavClick(e, region.hub.href); setLocationsOpen(false) }}
-                              className="block px-3 py-2 text-sm font-bold text-ce-green hover:bg-ce-green/10 rounded-lg transition-colors border-b border-ce-green/20 mb-2"
-                            >
-                              {regionName} →
-                            </Link>
+                            {region.hub ? (
+                              <Link
+                                href={region.hub.href}
+                                onClick={(e) => { handleNavClick(e, region.hub!.href); setLocationsOpen(false) }}
+                                className="block px-3 py-2 text-sm font-bold text-ce-green hover:bg-ce-green/10 rounded-lg transition-colors border-b border-ce-green/20 mb-2"
+                              >
+                                {regionName} →
+                              </Link>
+                            ) : (
+                              <div className="px-3 py-2 text-sm font-bold text-ce-green border-b border-ce-green/20 mb-2">
+                                {regionName}
+                              </div>
+                            )}
                             <div className="space-y-0.5">
                               {region.cities.map((city) => (
                                 <Link
@@ -335,7 +348,7 @@ export function V0Header() {
           </nav>
 
           {/* Right side: Phone + CTA */}
-          <div className="hidden md:flex items-center gap-2 lg:gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             {/* Phone - blue icon (blue = contact) */}
             <a
               href={`tel:${phoneTel}`}
@@ -374,9 +387,9 @@ export function V0Header() {
             </button>
           </div>
 
-          {/* Mobile Menu Button - only on mobile, not tablet */}
+          {/* Compact menu button for phones and tablets. */}
           <button
-            className="md:hidden p-2.5 rounded-md text-ce-ink"
+            className="lg:hidden p-2.5 rounded-md text-ce-ink"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
@@ -385,9 +398,9 @@ export function V0Header() {
         </div>
       </div>
 
-      {/* Mobile Menu - only on mobile, not tablet */}
+      {/* Compact navigation for phones and tablets. */}
       <div
-        className={`md:hidden bg-white border-t border-ce-ink/5 shadow-lg overflow-hidden transition-all duration-300 ${
+        className={`lg:hidden bg-white border-t border-ce-ink/5 shadow-lg overflow-hidden transition-all duration-300 ${
           isMobileMenuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >

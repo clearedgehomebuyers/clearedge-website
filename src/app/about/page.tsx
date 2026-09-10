@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     question: 'What areas do you serve?',
-    answer: 'We buy houses throughout Eastern Pennsylvania — NEPA (Scranton, Wilkes-Barre, Hazleton), Lehigh Valley (Allentown, Bethlehem, Easton, Reading), and the Poconos (Stroudsburg and surrounding areas).'
+    answer: 'We buy houses throughout Eastern Pennsylvania — including NEPA (Scranton, Wilkes-Barre, Hazleton), the Lehigh Valley (Allentown, Bethlehem, Easton), the Poconos (Stroudsburg and surrounding areas), Reading in Berks County, and Pottsville in Schuylkill County.'
   },
 ]
 
@@ -94,7 +94,6 @@ export default function AboutPage() {
             thumbnailUrl: 'https://i.ytimg.com/vi/YS6uDgxIjiI/maxresdefault.jpg',
             uploadDate: '2026-01-27T08:00:00-05:00',
             duration: 'PT1M10S',
-            contentUrl: 'https://www.youtube.com/watch?v=YS6uDgxIjiI',
             embedUrl: 'https://www.youtube.com/embed/YS6uDgxIjiI',
             publisher: {
               '@type': 'Organization',

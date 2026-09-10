@@ -43,6 +43,9 @@ const SITEMAP = 'src/app/sitemap.ts'
 
 /** Files whose rendered output lands on sitemap-listed template URLs. */
 const ENTRY_POINTS = [
+  // Root layout changes can alter every indexed route (global schema,
+  // providers, metadata, and shared UI), so they must move the template date.
+  'src/app/layout.tsx',
   'src/app/locations/[slug]/page.tsx',
   'src/app/situations/[slug]/page.tsx',
   'src/app/blog/[slug]/page.tsx',
