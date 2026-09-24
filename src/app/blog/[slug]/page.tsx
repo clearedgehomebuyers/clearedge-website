@@ -87,7 +87,7 @@ const answerFirstSummaries: Record<string, { question: string; answer: string }>
   },
   'avoid-foreclosure-scranton-pa': {
     question: "How can I avoid foreclosure in Scranton PA?",
-    answer: "You have 7 options to avoid foreclosure in Scranton: (1) loan modification with your lender, (2) forbearance agreement, (3) refinancing if you have equity, (4) sell the house before sheriff sale, (5) short sale if underwater, (6) deed in lieu of foreclosure, or (7) file Chapter 13 bankruptcy for automatic stay. Selling to a cash buyer is often fastest — close in 7-14 days and walk away with equity."
+    answer: "This guide covers seven options for Scranton homeowners: (1) reinstate the loan by catching up, (2) request a loan modification, (3) ask for forbearance, (4) arrange a repayment plan, (5) refinance if eligible, (6) sell before the sheriff's sale, or (7) discuss a deed in lieu with the lender. Which options are available depends on your loan and timeline. If selling makes sense, ClearEdge can review an as-is cash offer and your closing timeline."
   },
   'cash-home-buyers-lackawanna-county-no-fees': {
     question: "Are there really cash home buyers in Lackawanna County with no fees?",
