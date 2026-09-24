@@ -11,6 +11,7 @@ import { MapPin, CheckCircle, ArrowRight, Clock, DollarSign, Shield, FileText, B
 import { notFound } from 'next/navigation'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { PortableTextLink } from '@/components/PortableTextLink'
+import { getLocationHeroProof } from '@/lib/purchase-proof'
 import { preparePortableTextWithDynamicPhones } from '@/lib/portable-text-phone'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
@@ -19,42 +20,6 @@ const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ d
 const LocationFAQAccordion = dynamic(() => import('@/components/LocationFAQAccordion').then(mod => ({ default: mod.LocationFAQAccordion })), { ssr: true })
 const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
 const LocationMapWrapper = dynamic(() => import('@/components/LocationMapWrapper').then(mod => ({ default: mod.LocationMapWrapper })), { ssr: true })
-
-// Five verified ClearEdge purchase photos are reused across the service area.
-// The caption must always describe the property in the photo, never the city
-// of the current landing page. Relabeling one closing as 21 different local
-// closings is misleading proof and erodes the trust these pages need to earn.
-const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
-  // Photo 1: Scranton image (5 pages)
-  'scranton': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'stroudsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'pittston': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'bloomsburg': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  'reading': { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 },
-  // Photo 2: Wilkes-Barre image (4 pages)
-  'wilkes-barre': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'east-stroudsburg': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'kingston': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'lehigh-valley': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  // Photo 3: Allentown image (4 pages)
-  'allentown': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'hazleton': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'dunmore': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'poconos': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  // Photo 4: Bethlehem image (4 pages)
-  'bethlehem': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'pottsville': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'nanticoke': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'pocono-pines': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  // Photo 5: Hazleton image (4 pages)
-  'easton': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'carbondale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'honesdale': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-  'tannersville': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 11 },
-}
-
-// Default photo for any unmapped slugs
-const defaultPhoto = { src: '/properties/scranton-pa-cash-home-buyers-clearedge-1.jpg', location: 'Scranton, PA', days: 14 }
 
 interface RelatedSituation {
   _id?: string
@@ -150,6 +115,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   if (!location) {
     notFound()
   }
+
+  const heroProof = getLocationHeroProof(slug, location.city, location.state)
 
   const relatedSituations = ((location.relatedSituations || []) as RelatedSituation[])
     .flatMap((situation) => {
@@ -302,8 +269,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
               <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={(heroPhotos[slug] || defaultPhoto).src}
-                    alt={`Recently purchased home in ${(heroPhotos[slug] || defaultPhoto).location}`}
+                    src={heroProof.src}
+                    alt={heroProof.alt}
                     fill
                     sizes="(max-width: 1024px) 280px, 320px"
                     className="object-cover"
@@ -314,8 +281,8 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
                     <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
                       ClearEdge Purchase
                     </span>
-                    <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
-                    <p className="text-xs text-white/90">Closed in {(heroPhotos[slug] || defaultPhoto).days} Days, As-Is</p>
+                    <p className="text-sm font-bold">{heroProof.place}</p>
+                    <p className="text-xs text-white/90">{heroProof.detail}</p>
                   </div>
                 </div>
               </div>
