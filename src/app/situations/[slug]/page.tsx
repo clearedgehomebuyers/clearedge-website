@@ -10,29 +10,13 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import Image from 'next/image'
 import { preparePortableTextWithDynamicPhones } from '@/lib/portable-text-phone'
 import { PortableTextLink } from '@/components/PortableTextLink'
+import { getSituationHeroProof } from '@/lib/purchase-proof'
 
 // Below-fold components (lazy loaded for performance, ssr: true for SEO)
 const V0LeadForm = dynamic(() => import('@/components/v0-lead-form').then(mod => ({ default: mod.V0LeadForm })), { ssr: true })
 const V0Footer = dynamic(() => import('@/components/v0-footer').then(mod => ({ default: mod.V0Footer })), { ssr: true })
 const SituationFAQAccordion = dynamic(() => import('@/components/SituationFAQAccordion').then(mod => ({ default: mod.SituationFAQAccordion })), { ssr: true })
 const DynamicPhoneLink = dynamic(() => import('@/components/DynamicPhone').then(mod => ({ default: mod.DynamicPhoneLink })), { ssr: true })
-
-// Property photos mapped to situation slugs. Captions always name the actual
-// property location even when the same verified purchase photo is reused.
-const heroPhotos: Record<string, { src: string; location: string; days: number }> = {
-  'foreclosure': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'inherited-property': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'divorce': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'job-relocation': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
-  'major-repairs': { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 },
-  'tax-liens-code-violations': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-  'tired-landlord': { src: '/properties/lehigh-valley-real-estate-investors-4.jpg', location: 'Bethlehem, PA', days: 8 },
-  'vacant-property': { src: '/properties/nepa-distressed-house-cleanout-service-5.jpg', location: 'Hazleton, PA', days: 14 },
-  'foundation-structural-issues': { src: '/properties/wilkes-barre-pa-inherited-property-sale-3.jpg', location: 'Wilkes-Barre, PA', days: 12 },
-}
-
-// Default photo if slug not found
-const defaultPhoto = { src: '/properties/allentown-pa-sell-house-fast-as-is-2.jpg', location: 'Allentown, PA', days: 10 }
 
 type RelatedLocation = {
   city: string
@@ -182,6 +166,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
     notFound()
   }
 
+  const heroProof = getSituationHeroProof(slug)
+
   const relatedLocations = (situation.relatedLocations || []).filter(
     (location: RelatedLocation | null): location is RelatedLocation => Boolean(location?.slug?.current),
   )
@@ -259,8 +245,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
               <div className="bg-white rounded-xl shadow-xl border border-ce-ink/10 overflow-hidden w-full max-w-[280px] lg:max-w-[320px]">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={(heroPhotos[slug] || defaultPhoto).src}
-                    alt={`Recently purchased home in ${(heroPhotos[slug] || defaultPhoto).location}`}
+                    src={heroProof.src}
+                    alt={heroProof.alt}
                     fill
                     sizes="(max-width: 1024px) 280px, 320px"
                     className="object-cover"
@@ -271,8 +257,8 @@ export default async function SituationPage({ params }: { params: Promise<{ slug
                     <span className="inline-block px-2 py-0.5 bg-ce-green text-white text-xs font-bold rounded-full mb-1">
                       ClearEdge Purchase
                     </span>
-                    <p className="text-sm font-bold">{(heroPhotos[slug] || defaultPhoto).location}</p>
-                    <p className="text-xs text-white/90">{(heroPhotos[slug] || defaultPhoto).days} Days to Close</p>
+                    <p className="text-sm font-bold">{heroProof.place}</p>
+                    <p className="text-xs text-white/90">{heroProof.detail}</p>
                   </div>
                 </div>
               </div>

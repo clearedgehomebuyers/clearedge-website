@@ -24,7 +24,7 @@ const baseUrl = 'https://www.clearedgehomebuyers.com'
  * being meaningless, and deriving this from the build would reintroduce exactly
  * that — a date that changes on every deploy whether or not anything changed.
  */
-const TEMPLATE_REVISION = '2026-09-24' // Scranton foreclosure answer-box accuracy
+const TEMPLATE_REVISION = '2026-09-24' // Scranton answer and same-day location proof caption correction
 
 /**
  * Blog posts deliberately withheld from the sitemap. Some remain live for
