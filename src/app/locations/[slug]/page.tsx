@@ -321,6 +321,18 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
             <p className="text-sm md:text-base text-ce-ink/70 max-w-2xl mx-auto">
               Whether you&apos;re in {location.city} or anywhere else in {location.county}, we can make you a fair cash offer within 24 hours.
             </p>
+            {slug === 'easton' && (
+              <p className="mt-3 text-sm text-ce-ink/70">
+                Want to check us out first?{' '}
+                <Link href="/testimonials" className="font-medium text-ce-green underline underline-offset-2 hover:text-ce-green-hover">
+                  Read homeowner reviews
+                </Link>{' '}
+                and{' '}
+                <Link href="/about" className="font-medium text-ce-green underline underline-offset-2 hover:text-ce-green-hover">
+                  meet Tyler
+                </Link>.
+              </p>
+            )}
           </div>
         </section>
       )}
