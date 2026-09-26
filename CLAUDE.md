@@ -22,7 +22,7 @@
 
 ## SEO Priorities
 - LocalBusiness schema for all 21 location pages
-- FAQ schema for 8 situation pages
+- FAQ schema for 9 situation pages
 - Review aggregation markup
 - Meta descriptions must include location plus cash home buyers
   — **except the 21 location pages, where playbook Hard Rule 6 overrides this.**
